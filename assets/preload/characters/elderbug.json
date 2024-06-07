@@ -1,0 +1,177 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "elderbug idle left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-2
+			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "elderbug idle right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				74,
+				3
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "elderbug left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-27,
+				65
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "elderbug up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				28,
+				-117
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "elderbug down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-16,
+				2
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "elderbug right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				6
+			],
+			"anim": "talk1",
+			"fps": 24,
+			"name": "elderbug madaulameesu",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				0
+			],
+			"anim": "talk2",
+			"fps": 24,
+			"name": "elderbug nahatu",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-9,
+				2
+			],
+			"anim": "talk3",
+			"fps": 24,
+			"name": "elderbug emtoeno",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				3
+			],
+			"anim": "talk4",
+			"fps": 24,
+			"name": "elderbug togoabyss",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-7,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "talkLoop",
+			"loop": true,
+			"name": "elderbug talk loop0"
+		},
+		{
+			"offsets": [
+				-2,
+				-2
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "talkLoopLeft",
+			"loop": true,
+			"name": "elderbug talk loop left0"
+		},
+		{
+			"offsets": [
+				-4,
+				-5
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "IdleTown",
+			"loop": true,
+			"name": "elderbug town idle0"
+		},
+		{
+			"offsets": [
+				-3,
+				-3
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "turnleft",
+			"loop": false,
+			"name": "elderbug turn left0"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Elderbug",
+	"position": [
+		10,
+		-50
+	],
+	"healthicon": "elderbug",
+	"flip_x": false,
+	"healthbar_colors": [
+		89,
+		88,
+		167
+	],
+	"camera_position": [
+		0,
+		90
+	],
+	"sing_duration": 4,
+	"scale": 0.9
+}

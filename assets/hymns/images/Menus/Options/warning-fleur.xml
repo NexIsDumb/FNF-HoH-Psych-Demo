@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="warning-fleur.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="warningfleur0000" x="87" y="87" width="960" height="81"/>
+	<SubTexture name="warningfleur0001" x="87" y="255" width="960" height="81"/>
+	<SubTexture name="warningfleur0002" x="87" y="423" width="960" height="81"/>
+	<SubTexture name="warningfleur0003" x="87" y="591" width="960" height="81"/>
+	<SubTexture name="warningfleur0004" x="87" y="759" width="960" height="81"/>
+	<SubTexture name="warningfleur0005" x="87" y="927" width="960" height="81"/>
+	<SubTexture name="warningfleur0006" x="87" y="1095" width="960" height="81"/>
+	<SubTexture name="warningfleur0007" x="87" y="1263" width="960" height="81"/>
+	<SubTexture name="warningfleur0008" x="87" y="1431" width="960" height="81"/>
+</TextureAtlas>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="FleurProfile.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ProfileFleur0000" x="0" y="0" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0001" x="842" y="0" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0002" x="0" y="87" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0003" x="842" y="87" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0004" x="0" y="174" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0005" x="842" y="174" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0006" x="0" y="261" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0007" x="842" y="261" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0008" x="0" y="348" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0009" x="842" y="348" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0010" x="0" y="435" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0011" x="842" y="435" width="842" height="87"/>
+	<SubTexture name="ProfileFleur0012" x="0" y="522" width="842" height="87"/>
+</TextureAtlas>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="soulmeter health.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Healthbreak instantie 10000" x="60" y="60" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10001" x="60" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10002" x="60" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10003" x="60" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10004" x="60" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10005" x="151" y="60" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10006" x="242" y="60" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10007" x="333" y="60" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10008" x="151" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10009" x="151" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10010" x="242" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10011" x="333" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10012" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10013" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10014" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10015" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10016" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10017" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10018" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10019" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10020" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10021" x="242" y="264" width="61" height="72"/>
+</TextureAtlas>

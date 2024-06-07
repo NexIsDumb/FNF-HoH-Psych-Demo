@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Aluba.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="aluba idle0000" x="5" y="5" width="1426" height="465" frameX="0" frameY="-2" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0001" x="5" y="5" width="1426" height="465" frameX="0" frameY="-2" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0002" x="5" y="5" width="1426" height="465" frameX="0" frameY="-2" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0003" x="1441" y="5" width="1426" height="458" frameX="0" frameY="0" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0004" x="1441" y="5" width="1426" height="458" frameX="0" frameY="0" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0005" x="1441" y="5" width="1426" height="458" frameX="0" frameY="0" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0006" x="5" y="480" width="1425" height="448" frameX="0" frameY="-9" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0007" x="5" y="480" width="1425" height="448" frameX="0" frameY="-9" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba idle0008" x="5" y="480" width="1425" height="448" frameX="0" frameY="-9" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba turn0000" x="1440" y="480" width="1353" height="423" frameX="0" frameY="-24" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0001" x="1440" y="480" width="1353" height="423" frameX="0" frameY="-24" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0002" x="1440" y="480" width="1353" height="423" frameX="0" frameY="-24" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0003" x="2803" y="480" width="966" height="408" frameX="-203" frameY="-28" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0004" x="2803" y="480" width="966" height="408" frameX="-203" frameY="-28" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0005" x="5" y="938" width="506" height="366" frameX="-409" frameY="-33" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0006" x="521" y="938" width="842" height="395" frameX="-383" frameY="-32" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0007" x="521" y="938" width="842" height="395" frameX="-383" frameY="-32" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0008" x="1373" y="938" width="1240" height="451" frameX="-104" frameY="0" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0009" x="1373" y="938" width="1240" height="451" frameX="-104" frameY="0" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba turn0010" x="1373" y="938" width="1240" height="451" frameX="-104" frameY="0" frameWidth="1353" frameHeight="451"/>
+	<SubTexture name="aluba wing flap0000" x="5" y="5" width="1426" height="465" frameX="0" frameY="-6" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba wing flap0001" x="5" y="5" width="1426" height="465" frameX="0" frameY="-6" frameWidth="1426" frameHeight="467"/>
+	<SubTexture name="aluba wing flap0002" x="2623" y="938" width="1426" height="460" frameX="0" frameY="0" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0003" x="2623" y="938" width="1426" height="460" frameX="0" frameY="0" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0004" x="5" y="1408" width="1426" height="312" frameX="0" frameY="-111" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0005" x="5" y="1408" width="1426" height="312" frameX="0" frameY="-111" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0006" x="1441" y="1408" width="1426" height="295" frameX="0" frameY="-121" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0007" x="1441" y="1408" width="1426" height="295" frameX="0" frameY="-121" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0008" x="1441" y="1408" width="1426" height="295" frameX="0" frameY="-121" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0009" x="5" y="1730" width="1426" height="307" frameX="0" frameY="-99" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0010" x="5" y="1730" width="1426" height="307" frameX="0" frameY="-99" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0011" x="5" y="1730" width="1426" height="307" frameX="0" frameY="-99" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0012" x="1441" y="1730" width="1426" height="417" frameX="0" frameY="-33" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0013" x="1441" y="1730" width="1426" height="417" frameX="0" frameY="-33" frameWidth="1426" frameHeight="471"/>
+	<SubTexture name="aluba wing flap0014" x="1441" y="1730" width="1426" height="417" frameX="0" frameY="-33" frameWidth="1426" frameHeight="471"/>
+</TextureAtlas>

@@ -1,0 +1,94 @@
+Options
+Note Colors
+Controls
+Graphics
+Visuals and UI
+Gameplay
+Back
+Left
+Down
+Up
+Right
+Focus
+Accept
+Back
+Pause
+UI Up
+UI Left
+UI Down
+UI Right
+Reset
+Mute
+Volume Up
+Volume Down
+Reset to Default Keys 
+Low Quality
+If checked, disables some background details.
+Anti-Aliasing
+If unchecked, disables anti-aliasing, increasing performance.
+Shaders
+If unchecked, disables shaders.
+GPU Caching
+If checked, decreases RAM usage if you have a good GPU.
+Framerate
+Pretty self explanatory, isn't it?
+ON
+OFF
+Note Skins 
+Default
+FNF
+Select your prefered Note skin.
+Note Splashes
+Psych
+None
+Select your prefered Note Splash variation or turn it off.
+Note Splash Opacity
+How much transparent should the Note Splashes be.
+Flashing Lights
+Uncheck this if you're sensitive to flashing lights!
+Translations
+Select your prefered translation of the game.
+FPS Counter
+If unchecked, hides the FPS counter.
+Discord Rich Presence
+Uncheck this to hide from your discord rpc.
+Downscroll
+If checked, notes go Down instead of Up, simple enough.
+Middlescroll
+If checked, your notes get centered.
+Ghost Tapping
+If checked, you won't get misses from pressing keys which are not on screen.
+Auto Pause
+If checked, the game automatically pauses if the screen isn't on focus.
+Disable Reset Button
+If checked, pressing Reset won't do anything.
+Hitsound volume
+Funny notes does "Tick!" when you hit them.
+Safe Frames
+Changes how many frames you have for hitting a note earlier or late.
+Start Game
+Options
+Credits
+Discord
+Quit Game
+Freeplay
+Personal best
+Score
+Misses
+Rating
+Story
+Clear Save
+Yes
+No
+You have died
+times.
+Resume
+Exit to Freeplay
+Exit to menu
+Exit to Dirtmouth
+Restart Song
+New Game
+Rest
+Listen
+Enter
+Shop

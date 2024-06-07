@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="geo.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="geo0000" x="0" y="0" width="55" height="53"/>
+	<SubTexture name="geo-appear0000" x="70" y="0" width="18" height="32" frameX="-39" frameY="-26" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0001" x="70" y="0" width="18" height="32" frameX="-39" frameY="-26" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0002" x="103" y="0" width="22" height="34" frameX="-38" frameY="-25" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0003" x="103" y="0" width="22" height="34" frameX="-38" frameY="-25" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0004" x="140" y="0" width="35" height="43" frameX="-33" frameY="-20" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0005" x="190" y="0" width="87" height="85" frameX="-9" frameY="0" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0006" x="292" y="0" width="95" height="85" frameX="-5" frameY="0" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0007" x="402" y="0" width="104" height="85"/>
+	<SubTexture name="geo-appear0008" x="0" y="100" width="104" height="85"/>
+	<SubTexture name="geo-appear0009" x="119" y="100" width="55" height="54" frameX="-22" frameY="-13" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0010" x="119" y="100" width="55" height="54" frameX="-22" frameY="-13" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geo-appear0011" x="119" y="100" width="55" height="54" frameX="-22" frameY="-13" frameWidth="104" frameHeight="85"/>
+	<SubTexture name="geoget0000" x="189" y="100" width="79" height="78"/>
+	<SubTexture name="geoget0001" x="283" y="100" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0002" x="376" y="100" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0003" x="376" y="100" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0004" x="0" y="200" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0005" x="0" y="200" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0006" x="93" y="200" width="55" height="53" frameX="-10" frameY="-10" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0007" x="93" y="200" width="55" height="53" frameX="-10" frameY="-10" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0008" x="93" y="200" width="55" height="53" frameX="-10" frameY="-10" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget0009" x="93" y="200" width="55" height="53" frameX="-10" frameY="-10" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget-loop0000" x="189" y="100" width="79" height="78"/>
+	<SubTexture name="geoget-loop0001" x="283" y="100" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget-loop0002" x="376" y="100" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget-loop0003" x="376" y="100" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget-loop0004" x="0" y="200" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+	<SubTexture name="geoget-loop0005" x="0" y="200" width="78" height="77" frameX="-1" frameY="0" frameWidth="79" frameHeight="78"/>
+</TextureAtlas>

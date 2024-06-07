@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-154,
+				90
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "firstDeath",
+			"loop": false,
+			"name": "VBF dies instance"
+		},
+		{
+			"offsets": [
+				-180,
+				50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathLoop",
+			"loop": true,
+			"name": "VBF dead loop instance"
+		},
+		{
+			"offsets": [
+				-180,
+				518
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathConfirm",
+			"loop": false,
+			"name": "VBF dead confirm"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/VBF_DEATH",
+	"position": [
+		0,
+		400
+	],
+	"healthicon": "vbf",
+	"flip_x": true,
+	"healthbar_colors": [
+		117,
+		154,
+		254
+	],
+	"camera_position": [
+		0,
+		-100
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

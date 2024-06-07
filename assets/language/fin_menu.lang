@@ -1,0 +1,78 @@
+Asetukset
+Nuotti Värit
+Kontrollit
+Grafiikat
+Visuaalit ja UI
+Pelaus
+Takaisin
+Vasen
+Alas
+Ylös
+Oikea
+Focus -----
+Hyväksy
+Takaisin
+Pysäytä
+UI Ylös
+UI Alas
+UI Oikea
+UI Vasen
+Resetoi
+Mykistä
+Äänentaso ylös
+Äänentaso alas
+Nollaa oletusnäppäimiin 
+Matala Laatu
+Jos valittu, disables some background details.
+Anti-Aliasing
+Jos ei valittu, poistaa anti-aliasing käytöstä, parantaen suorituskykyä.
+Sävyttimet
+Jos ei valittu, poistaa Sävyttimet käytöstä.
+GPU:n välimuistitallennus
+Jos valittu, vähentää RAM:in käyttöä jos sinulla on hyvä GPU.
+FPS
+Aika itse-selitteinen, eikö?
+PÄÄLLÄ
+POIS
+Nuotti Skins 
+Oletus
+FNF
+Select your prefered Note skin.
+Nuotti Roiskeet
+Psych
+None
+Select your prefered Note Splash variation or turn it off.
+Note Splash Opacity
+How much transparent should the Note Splashes be.
+Flashing Lights
+Uncheck this if you're sensitive to flashing lights!
+Translations
+Select your prefered translation of the game.
+FPS Counter
+If unchecked, hides the FPS counter.
+Discord Rich Presence
+Uncheck this to hide from your discord rpc.
+Alanuotitus
+Jos valittu, notes go Down instead of Up, simple enough.
+Keskinuotitus
+Jos valittu, your notes get centered.
+Ghost Tapping
+If checked, you won't get misses from pressing keys which are not on screen.
+Auto Pause
+If checked, the game automatically pauses if the screen isn't on focus.
+Disable Reset Button
+If checked, pressing Reset won't do anything.
+Hitsound volume
+Funny notes does "Tick!" when you hit them.
+Safe Frames
+Changes how many frames you have for hitting a note earlier or late.
+Aloita Peli
+Asetukset
+Ansioluettelo
+Discord
+Poistu Pelistä
+Freeplay
+Personal best
+Score
+Misses
+Rating

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="box.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="box0000" x="1090" y="397" width="929" height="246" frameX="-36" frameY="-49" frameWidth="1000" frameHeight="319"/>
+	<SubTexture name="box0001" x="2100" y="389" width="948" height="289" frameX="-26" frameY="-15" frameWidth="1000" frameHeight="319"/>
+	<SubTexture name="box0002" x="2100" y="60" width="964" height="299" frameX="-18" frameY="-10" frameWidth="1000" frameHeight="319"/>
+	<SubTexture name="box0003" x="1090" y="60" width="980" height="307" frameX="-10" frameY="-6" frameWidth="1000" frameHeight="319"/>
+	<SubTexture name="box0004" x="1088" y="758" width="990" height="315" frameX="-5" frameY="-2" frameWidth="1000" frameHeight="319"/>
+	<SubTexture name="box0005" x="60" y="758" width="998" height="319" frameX="-1" frameY="0" frameWidth="1000" frameHeight="319"/>
+	<SubTexture name="box0006" x="60" y="60" width="1000" height="319"/>
+	<SubTexture name="box0007" x="60" y="409" width="1000" height="319"/>
+</TextureAtlas>

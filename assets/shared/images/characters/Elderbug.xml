@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Elderbug.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="elderbug down0000" x="5" y="5" width="543" height="627" frameX="0" frameY="-18" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0001" x="558" y="5" width="530" height="633" frameX="-13" frameY="-12" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0002" x="558" y="5" width="530" height="633" frameX="-13" frameY="-12" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0003" x="1098" y="5" width="516" height="646" frameX="-26" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0004" x="1098" y="5" width="516" height="646" frameX="-26" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0005" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0006" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0007" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0008" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0009" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0010" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0011" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0012" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0013" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug down0014" x="1624" y="5" width="521" height="646" frameX="-21" frameY="0" frameWidth="543" frameHeight="646"/>
+	<SubTexture name="elderbug emtoeno0000" x="4696" y="1548" width="472" height="746" frameX="0" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0001" x="4696" y="1548" width="472" height="746" frameX="0" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0002" x="5178" y="1548" width="469" height="748" frameX="-2" frameY="-4" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0003" x="5178" y="1548" width="469" height="748" frameX="-2" frameY="-4" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0004" x="5657" y="1548" width="472" height="749" frameX="-2" frameY="-3" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0005" x="5657" y="1548" width="472" height="749" frameX="-2" frameY="-3" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0006" x="6139" y="1548" width="472" height="749" frameX="-3" frameY="-3" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0007" x="6139" y="1548" width="472" height="749" frameX="-3" frameY="-3" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0008" x="6139" y="1548" width="472" height="749" frameX="-3" frameY="-3" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0009" x="6621" y="1548" width="472" height="749" frameX="-3" frameY="-3" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0010" x="7103" y="1548" width="469" height="751" frameX="-3" frameY="-1" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0011" x="7582" y="1548" width="469" height="751" frameX="-3" frameY="-1" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0012" x="5" y="2381" width="467" height="752" frameX="-3" frameY="0" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0013" x="5" y="2381" width="467" height="752" frameX="-3" frameY="0" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0014" x="482" y="2381" width="467" height="752" frameX="-3" frameY="0" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0015" x="959" y="2381" width="470" height="751" frameX="-3" frameY="-1" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0016" x="1439" y="2381" width="473" height="747" frameX="-3" frameY="-5" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0017" x="1922" y="2381" width="473" height="747" frameX="-3" frameY="-5" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0018" x="2405" y="2381" width="480" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0019" x="2405" y="2381" width="480" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0020" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0021" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0022" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0023" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0024" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0025" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0026" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0027" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0028" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug emtoeno0029" x="2895" y="2381" width="481" height="745" frameX="-3" frameY="-7" frameWidth="484" frameHeight="753"/>
+	<SubTexture name="elderbug idle left0000" x="2155" y="5" width="479" height="729" frameX="-3" frameY="-35" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0001" x="2644" y="5" width="487" height="729" frameX="0" frameY="-37" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0002" x="2644" y="5" width="487" height="729" frameX="0" frameY="-37" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0003" x="3141" y="5" width="478" height="733" frameX="-5" frameY="-28" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0004" x="3141" y="5" width="478" height="733" frameX="-5" frameY="-28" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0005" x="3629" y="5" width="468" height="745" frameX="-16" frameY="0" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0006" x="3629" y="5" width="468" height="745" frameX="-16" frameY="0" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0007" x="4107" y="5" width="472" height="744" frameX="-8" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0008" x="4107" y="5" width="472" height="744" frameX="-8" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0009" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0010" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0011" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0012" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0013" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle left0014" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-7" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle normal0000" x="5072" y="5" width="479" height="743" frameX="-3" frameY="-32" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0001" x="5561" y="5" width="484" height="743" frameX="0" frameY="-34" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0002" x="5561" y="5" width="484" height="743" frameX="0" frameY="-34" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0003" x="6055" y="5" width="479" height="746" frameX="-3" frameY="-27" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0004" x="6055" y="5" width="479" height="746" frameX="-3" frameY="-27" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0005" x="6544" y="5" width="462" height="743" frameX="-20" frameY="0" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0006" x="6544" y="5" width="462" height="743" frameX="-20" frameY="0" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0007" x="7016" y="5" width="475" height="744" frameX="-7" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0008" x="7016" y="5" width="475" height="744" frameX="-7" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0009" x="7501" y="5" width="473" height="744" frameX="-9" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0010" x="7501" y="5" width="473" height="744" frameX="-9" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0011" x="7501" y="5" width="473" height="744" frameX="-9" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0012" x="7501" y="5" width="473" height="744" frameX="-9" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0013" x="7501" y="5" width="473" height="744" frameX="-9" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle normal0014" x="7501" y="5" width="473" height="744" frameX="-9" frameY="-5" frameWidth="484" frameHeight="777"/>
+	<SubTexture name="elderbug idle right0000" x="5" y="761" width="500" height="736" frameX="-3" frameY="-26" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0001" x="515" y="761" width="508" height="737" frameX="0" frameY="-27" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0002" x="515" y="761" width="508" height="737" frameX="0" frameY="-27" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0003" x="1033" y="761" width="491" height="738" frameX="-5" frameY="-21" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0004" x="1033" y="761" width="491" height="738" frameX="-5" frameY="-21" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0005" x="1534" y="761" width="459" height="743" frameX="-16" frameY="0" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0006" x="1534" y="761" width="459" height="743" frameX="-16" frameY="0" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0007" x="2003" y="761" width="472" height="744" frameX="-8" frameY="-5" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0008" x="2003" y="761" width="472" height="744" frameX="-8" frameY="-5" frameWidth="508" frameHeight="764"/>
+	<SubTexture name="elderbug idle right0009" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-5" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle right0010" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-5" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle right0011" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-5" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle right0012" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-5" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle right0013" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-5" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug idle right0014" x="4589" y="5" width="473" height="744" frameX="-7" frameY="-5" frameWidth="487" frameHeight="766"/>
+	<SubTexture name="elderbug left0000" x="2485" y="761" width="557" height="775" frameX="0" frameY="-2" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0001" x="3052" y="761" width="552" height="776" frameX="-5" frameY="-1" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0002" x="3052" y="761" width="552" height="776" frameX="-5" frameY="-1" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0003" x="3614" y="761" width="538" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0004" x="3614" y="761" width="538" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0005" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0006" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0007" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0008" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0009" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0010" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0011" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0012" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0013" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug left0014" x="4162" y="761" width="540" height="777" frameX="-21" frameY="0" frameWidth="561" frameHeight="777"/>
+	<SubTexture name="elderbug madaulameesu0000" x="3386" y="2381" width="487" height="742" frameX="-3" frameY="-17" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0001" x="3386" y="2381" width="487" height="742" frameX="-3" frameY="-17" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0002" x="3883" y="2381" width="492" height="737" frameX="-3" frameY="-24" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0003" x="4385" y="2381" width="492" height="737" frameX="-3" frameY="-24" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0004" x="4887" y="2381" width="492" height="738" frameX="-3" frameY="-23" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0005" x="4887" y="2381" width="492" height="738" frameX="-3" frameY="-23" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0006" x="5389" y="2381" width="492" height="737" frameX="-3" frameY="-24" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0007" x="5389" y="2381" width="492" height="737" frameX="-3" frameY="-24" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0008" x="5891" y="2381" width="491" height="738" frameX="-3" frameY="-22" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0009" x="5891" y="2381" width="491" height="738" frameX="-3" frameY="-22" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0010" x="6392" y="2381" width="488" height="742" frameX="-2" frameY="-16" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0011" x="6392" y="2381" width="488" height="742" frameX="-2" frameY="-16" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0012" x="6890" y="2381" width="484" height="751" frameX="0" frameY="-6" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0013" x="6890" y="2381" width="484" height="751" frameX="0" frameY="-6" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0014" x="7384" y="2381" width="475" height="756" frameX="-2" frameY="0" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0015" x="5" y="3147" width="475" height="756" frameX="-2" frameY="0" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0016" x="490" y="3147" width="466" height="754" frameX="-9" frameY="-3" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0017" x="966" y="3147" width="466" height="754" frameX="-9" frameY="-3" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0018" x="1442" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0019" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0020" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0021" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0022" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0023" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0024" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0025" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0026" x="1922" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0027" x="2402" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0028" x="2402" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0029" x="2882" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0030" x="2882" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0031" x="2882" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0032" x="2882" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0033" x="2882" y="3147" width="470" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0034" x="3362" y="3147" width="469" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0035" x="3841" y="3147" width="469" height="752" frameX="-6" frameY="-5" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0036" x="4320" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0037" x="4797" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0038" x="5274" y="3147" width="466" height="755" frameX="-9" frameY="-2" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0039" x="5750" y="3147" width="466" height="755" frameX="-9" frameY="-2" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0040" x="6226" y="3147" width="467" height="754" frameX="-8" frameY="-3" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0041" x="6703" y="3147" width="467" height="754" frameX="-8" frameY="-3" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0042" x="7180" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0043" x="7657" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0044" x="7657" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0045" x="7657" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0046" x="7657" y="3147" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0047" x="5" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0048" x="5" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0049" x="482" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0050" x="482" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0051" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0052" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0053" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0054" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0055" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0056" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0057" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0058" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug madaulameesu0059" x="959" y="3913" width="467" height="753" frameX="-8" frameY="-4" frameWidth="495" frameHeight="761"/>
+	<SubTexture name="elderbug nahatu0000" x="1436" y="3913" width="481" height="747" frameX="-2" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0001" x="1436" y="3913" width="481" height="747" frameX="-2" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0002" x="1927" y="3913" width="477" height="745" frameX="-5" frameY="-6" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0003" x="1927" y="3913" width="477" height="745" frameX="-5" frameY="-6" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0004" x="2414" y="3913" width="469" height="746" frameX="-7" frameY="-3" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0005" x="2414" y="3913" width="469" height="746" frameX="-7" frameY="-3" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0006" x="2893" y="3913" width="472" height="747" frameX="-7" frameY="-2" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0007" x="2893" y="3913" width="472" height="747" frameX="-7" frameY="-2" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0008" x="3375" y="3913" width="469" height="749" frameX="-4" frameY="0" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0009" x="3375" y="3913" width="469" height="749" frameX="-4" frameY="0" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0010" x="3854" y="3913" width="469" height="749" frameX="-4" frameY="0" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0011" x="4333" y="3913" width="471" height="747" frameX="-4" frameY="-2" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0012" x="4814" y="3913" width="479" height="741" frameX="0" frameY="-10" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0013" x="5303" y="3913" width="479" height="741" frameX="0" frameY="-10" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0014" x="5792" y="3913" width="473" height="744" frameX="-4" frameY="-7" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0015" x="5792" y="3913" width="473" height="744" frameX="-4" frameY="-7" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0016" x="6275" y="3913" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0017" x="6275" y="3913" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0018" x="6758" y="3913" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0019" x="6758" y="3913" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0020" x="7241" y="3913" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0021" x="7241" y="3913" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0022" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0023" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0024" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0025" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0026" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0027" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0028" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug nahatu0029" x="5" y="4676" width="473" height="747" frameX="-3" frameY="-4" frameWidth="483" frameHeight="751"/>
+	<SubTexture name="elderbug right0000" x="4712" y="761" width="546" height="756" frameX="-4" frameY="0" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0001" x="5268" y="761" width="537" height="754" frameX="-9" frameY="-2" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0002" x="5268" y="761" width="537" height="754" frameX="-9" frameY="-2" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0003" x="5815" y="761" width="530" height="748" frameX="-5" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0004" x="5815" y="761" width="530" height="748" frameX="-5" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0005" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0006" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0007" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0008" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0009" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0010" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0011" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0012" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0013" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug right0014" x="6355" y="761" width="535" height="748" frameX="0" frameY="-8" frameWidth="550" frameHeight="756"/>
+	<SubTexture name="elderbug talk loop0000" x="488" y="4676" width="473" height="744" frameX="-1" frameY="-4" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0001" x="488" y="4676" width="473" height="744" frameX="-1" frameY="-4" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0002" x="971" y="4676" width="478" height="747" frameX="0" frameY="-1" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0003" x="971" y="4676" width="478" height="747" frameX="0" frameY="-1" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0004" x="1459" y="4676" width="481" height="748"/>
+	<SubTexture name="elderbug talk loop0005" x="1459" y="4676" width="481" height="748"/>
+	<SubTexture name="elderbug talk loop0006" x="1950" y="4676" width="478" height="747" frameX="-2" frameY="-1" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0007" x="1950" y="4676" width="478" height="747" frameX="-2" frameY="-1" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0008" x="2438" y="4676" width="473" height="745" frameX="-4" frameY="-3" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0009" x="2438" y="4676" width="473" height="745" frameX="-4" frameY="-3" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0010" x="2921" y="4676" width="471" height="744" frameX="-3" frameY="-4" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0011" x="2921" y="4676" width="471" height="744" frameX="-3" frameY="-4" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0012" x="3402" y="4676" width="470" height="743" frameX="-2" frameY="-5" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop0013" x="3402" y="4676" width="470" height="743" frameX="-2" frameY="-5" frameWidth="481" frameHeight="748"/>
+	<SubTexture name="elderbug talk loop left0000" x="3882" y="4676" width="470" height="743" frameX="-2" frameY="-4" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0001" x="3882" y="4676" width="470" height="743" frameX="-2" frameY="-4" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0002" x="4362" y="4676" width="472" height="746" frameX="0" frameY="-1" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0003" x="4362" y="4676" width="472" height="746" frameX="0" frameY="-1" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0004" x="4844" y="4676" width="470" height="747" frameX="-1" frameY="0" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0005" x="4844" y="4676" width="470" height="747" frameX="-1" frameY="0" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0006" x="5324" y="4676" width="465" height="747" frameX="-3" frameY="0" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0007" x="5324" y="4676" width="465" height="747" frameX="-3" frameY="0" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0008" x="5799" y="4676" width="466" height="747" frameX="-5" frameY="0" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0009" x="5799" y="4676" width="466" height="747" frameX="-5" frameY="0" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0010" x="6275" y="4676" width="469" height="745" frameX="-4" frameY="-2" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0011" x="6275" y="4676" width="469" height="745" frameX="-4" frameY="-2" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0012" x="6754" y="4676" width="470" height="743" frameX="-3" frameY="-4" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug talk loop left0013" x="6754" y="4676" width="470" height="743" frameX="-3" frameY="-4" frameWidth="473" frameHeight="747"/>
+	<SubTexture name="elderbug togoabyss0000" x="7234" y="4676" width="473" height="746" frameX="-5" frameY="-7" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0001" x="7234" y="4676" width="473" height="746" frameX="-5" frameY="-7" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0002" x="5" y="5434" width="472" height="747" frameX="-5" frameY="-6" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0003" x="487" y="5434" width="468" height="747" frameX="-5" frameY="-6" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0004" x="965" y="5434" width="463" height="749" frameX="-5" frameY="-4" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0005" x="1438" y="5434" width="463" height="749" frameX="-4" frameY="-4" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0006" x="1438" y="5434" width="463" height="749" frameX="-4" frameY="-4" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0007" x="1911" y="5434" width="463" height="749" frameX="-4" frameY="-4" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0008" x="2384" y="5434" width="468" height="748" frameX="-2" frameY="-5" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0009" x="2862" y="5434" width="482" height="750" frameX="0" frameY="-3" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0010" x="3354" y="5434" width="487" height="752" frameX="0" frameY="-1" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0011" x="3851" y="5434" width="487" height="752" frameX="0" frameY="-1" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0012" x="4348" y="5434" width="491" height="753" frameX="0" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0013" x="4849" y="5434" width="488" height="753" frameX="-3" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0014" x="5347" y="5434" width="491" height="753" frameX="-3" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0015" x="5848" y="5434" width="488" height="753" frameX="-6" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0016" x="6346" y="5434" width="488" height="753" frameX="-6" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0017" x="6844" y="5434" width="491" height="753" frameX="-3" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0018" x="6844" y="5434" width="491" height="753" frameX="-3" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0019" x="6844" y="5434" width="491" height="753" frameX="-3" frameY="0" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0020" x="7345" y="5434" width="489" height="750" frameX="-3" frameY="-3" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0021" x="7345" y="5434" width="489" height="750" frameX="-3" frameY="-3" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0022" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0023" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0024" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0025" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0026" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0027" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0028" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug togoabyss0029" x="5" y="6197" width="483" height="743" frameX="-3" frameY="-10" frameWidth="494" frameHeight="753"/>
+	<SubTexture name="elderbug town idle0000" x="484" y="1548" width="473" height="744" frameX="-4" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug town idle0001" x="484" y="1548" width="473" height="744" frameX="-4" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug town idle0002" x="484" y="1548" width="473" height="744" frameX="-4" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug town idle0003" x="6900" y="761" width="477" height="744"/>
+	<SubTexture name="elderbug town idle0004" x="6900" y="761" width="477" height="744"/>
+	<SubTexture name="elderbug town idle0005" x="6900" y="761" width="477" height="744"/>
+	<SubTexture name="elderbug town idle0006" x="7387" y="761" width="472" height="744" frameX="-5" frameY="0" frameWidth="477" frameHeight="744"/>
+	<SubTexture name="elderbug town idle0007" x="7387" y="761" width="472" height="744" frameX="-5" frameY="0" frameWidth="477" frameHeight="744"/>
+	<SubTexture name="elderbug town idle0008" x="7387" y="761" width="472" height="744" frameX="-5" frameY="0" frameWidth="477" frameHeight="744"/>
+	<SubTexture name="elderbug town idle0009" x="5" y="1548" width="469" height="744" frameX="-8" frameY="0" frameWidth="477" frameHeight="744"/>
+	<SubTexture name="elderbug town idle0010" x="5" y="1548" width="469" height="744" frameX="-8" frameY="0" frameWidth="477" frameHeight="744"/>
+	<SubTexture name="elderbug town idle0011" x="5" y="1548" width="469" height="744" frameX="-8" frameY="0" frameWidth="477" frameHeight="744"/>
+	<SubTexture name="elderbug turn left0000" x="484" y="1548" width="473" height="744" frameX="-5" frameY="-2" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0001" x="967" y="1548" width="473" height="743" frameX="-4" frameY="-3" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0002" x="967" y="1548" width="473" height="743" frameX="-4" frameY="-3" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0003" x="1450" y="1548" width="481" height="746" frameX="-3" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0004" x="1450" y="1548" width="481" height="746" frameX="-3" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0005" x="1941" y="1548" width="463" height="746" frameX="-1" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0006" x="1941" y="1548" width="463" height="746" frameX="-1" frameY="0" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0007" x="2414" y="1548" width="470" height="744" frameX="0" frameY="-2" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0008" x="2414" y="1548" width="470" height="744" frameX="0" frameY="-2" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug turn left0009" x="2414" y="1548" width="470" height="744" frameX="0" frameY="-2" frameWidth="484" frameHeight="746"/>
+	<SubTexture name="elderbug up0000" x="2894" y="1548" width="431" height="823" frameX="-9" frameY="0" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0001" x="3335" y="1548" width="435" height="817" frameX="-5" frameY="-7" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0002" x="3335" y="1548" width="435" height="817" frameX="-5" frameY="-7" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0003" x="3780" y="1548" width="448" height="802" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0004" x="3780" y="1548" width="448" height="802" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0005" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0006" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0007" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0008" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0009" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0010" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0011" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0012" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0013" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+	<SubTexture name="elderbug up0014" x="4238" y="1548" width="448" height="804" frameX="0" frameY="-24" frameWidth="448" frameHeight="828"/>
+</TextureAtlas>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="send_help_soul.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="HealthRegen instantie 10000" x="60" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10001" x="152" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10002" x="244" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10003" x="336" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10004" x="428" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10005" x="520" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10006" x="612" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10007" x="704" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10008" x="796" y="60" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10009" x="60" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10010" x="152" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10011" x="244" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10012" x="336" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10013" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10014" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10015" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10016" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10017" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10018" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10019" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10020" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="HealthRegen instantie 10021" x="428" y="162" width="62" height="72"/>
+	<SubTexture name="Healthbreak instantie 10000" x="520" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10001" x="611" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10002" x="611" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10003" x="702" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10004" x="702" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10005" x="793" y="162" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10006" x="60" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10007" x="151" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10008" x="242" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10009" x="333" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10010" x="424" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10011" x="515" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10012" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10013" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10014" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10015" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10016" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10017" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10018" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10019" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10020" x="606" y="264" width="61" height="72"/>
+	<SubTexture name="Healthbreak instantie 10021" x="606" y="264" width="61" height="72"/>
+</TextureAtlas>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Soul_Eyes.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="soul eyes0000" x="10" y="10" width="122" height="48"/>
+	<SubTexture name="soul eyes appear0000" x="135" y="10" width="122" height="27" frameX="0" frameY="-10" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0001" x="260" y="10" width="122" height="34" frameX="0" frameY="-7" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0002" x="10" y="61" width="122" height="39" frameX="0" frameY="-4" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0003" x="135" y="61" width="122" height="42" frameX="0" frameY="-3" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0004" x="260" y="61" width="122" height="45" frameX="0" frameY="-1" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0005" x="10" y="109" width="122" height="47" frameX="0" frameY="0" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0006" x="135" y="109" width="122" height="47" frameX="0" frameY="0" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes appear0007" x="260" y="109" width="122" height="48"/>
+	<SubTexture name="soul eyes appear0008" x="10" y="10" width="122" height="48"/>
+	<SubTexture name="soul eyes appear0009" x="10" y="10" width="122" height="48"/>
+	<SubTexture name="soul eyes disappear0000" x="10" y="10" width="122" height="48"/>
+	<SubTexture name="soul eyes disappear0001" x="260" y="109" width="122" height="48"/>
+	<SubTexture name="soul eyes disappear0002" x="10" y="160" width="122" height="47" frameX="0" frameY="0" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes disappear0003" x="135" y="160" width="122" height="44" frameX="0" frameY="-2" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes disappear0004" x="260" y="160" width="122" height="38" frameX="0" frameY="-5" frameWidth="122" frameHeight="48"/>
+	<SubTexture name="soul eyes disappear0005" x="10" y="210" width="122" height="27" frameX="0" frameY="-10" frameWidth="122" frameHeight="48"/>
+</TextureAtlas>

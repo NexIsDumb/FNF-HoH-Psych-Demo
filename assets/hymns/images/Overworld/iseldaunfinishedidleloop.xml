@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="iseldaunfinishedidleloop.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="iseldatap0000" x="10" y="10" width="558" height="832" frameX="-5" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0001" x="10" y="10" width="558" height="832" frameX="-5" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0002" x="579" y="10" width="559" height="832" frameX="-4" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0003" x="579" y="10" width="559" height="832" frameX="-4" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0004" x="1149" y="10" width="560" height="832" frameX="-3" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0005" x="1149" y="10" width="560" height="832" frameX="-3" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0006" x="1720" y="10" width="563" height="832"/>
+	<SubTexture name="iseldatap0007" x="1720" y="10" width="563" height="832"/>
+	<SubTexture name="iseldatap0008" x="1720" y="10" width="563" height="832"/>
+	<SubTexture name="iseldatap0009" x="2294" y="10" width="560" height="832" frameX="-3" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0010" x="2865" y="10" width="558" height="832" frameX="-5" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0011" x="3434" y="10" width="559" height="832" frameX="-4" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0012" x="3434" y="10" width="559" height="832" frameX="-4" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0013" x="3434" y="10" width="559" height="832" frameX="-4" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0014" x="10" y="853" width="557" height="832" frameX="-6" frameY="0" frameWidth="563" frameHeight="832"/>
+	<SubTexture name="iseldatap0015" x="10" y="853" width="557" height="832" frameX="-6" frameY="0" frameWidth="563" frameHeight="832"/>
+</TextureAtlas>

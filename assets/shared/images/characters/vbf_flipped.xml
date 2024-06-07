@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="vbf flipped.png">
+	<!-- Created with Adobe Flash Professional version 15.0.0.173 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="Vdown0000" x="10" y="10" width="377" height="488" frameX="0" frameY="-23" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0001" x="10" y="10" width="377" height="488" frameX="0" frameY="-23" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0002" x="397" y="10" width="371" height="494" frameX="-10" frameY="-17" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0003" x="397" y="10" width="371" height="494" frameX="-10" frameY="-17" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0004" x="778" y="10" width="367" height="496" frameX="-13" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0005" x="778" y="10" width="367" height="496" frameX="-13" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0006" x="1155" y="10" width="367" height="496" frameX="-13" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0007" x="1155" y="10" width="367" height="496" frameX="-13" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0008" x="1155" y="10" width="367" height="496" frameX="-13" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0009" x="1532" y="10" width="364" height="496" frameX="-17" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0010" x="1532" y="10" width="364" height="496" frameX="-17" frameY="-15" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0011" x="1906" y="10" width="353" height="510" frameX="-30" frameY="0" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown0012" x="1906" y="10" width="353" height="510" frameX="-30" frameY="0" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown m0000" x="10" y="10" width="377" height="488" frameX="0" frameY="-13" frameWidth="383" frameHeight="511"/>
+	<SubTexture name="Vdown m0001" x="2269" y="10" width="372" height="499" frameX="-13" frameY="0" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0002" x="2269" y="10" width="372" height="499" frameX="-13" frameY="0" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0003" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0004" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0005" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0006" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0007" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0008" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0009" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0010" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0011" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0012" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0013" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0014" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0015" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0016" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0017" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0018" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0019" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0020" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0021" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0022" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0023" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0024" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0025" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0026" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0027" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0028" x="2651" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0029" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vdown m0030" x="3041" y="10" width="380" height="489" frameX="-9" frameY="-10" frameWidth="389" frameHeight="501"/>
+	<SubTexture name="Vidle0000" x="3431" y="10" width="366" height="546" frameX="0" frameY="-7" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0001" x="3431" y="10" width="366" height="546" frameX="0" frameY="-7" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0002" x="10" y="566" width="365" height="550" frameX="-2" frameY="-3" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0003" x="10" y="566" width="365" height="550" frameX="-2" frameY="-3" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0004" x="385" y="566" width="366" height="553" frameX="-2" frameY="0" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0005" x="761" y="566" width="365" height="553" frameX="-3" frameY="0" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0006" x="1136" y="566" width="356" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0007" x="1136" y="566" width="356" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0008" x="1502" y="566" width="357" height="552" frameX="0" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0009" x="1502" y="566" width="357" height="552" frameX="0" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0010" x="1869" y="566" width="356" height="552" frameX="0" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0011" x="2235" y="566" width="351" height="552" frameX="-5" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0012" x="2596" y="566" width="354" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0013" x="2596" y="566" width="354" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0014" x="2960" y="566" width="354" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0015" x="2960" y="566" width="354" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0016" x="3324" y="566" width="353" height="552" frameX="-3" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0017" x="3324" y="566" width="353" height="552" frameX="-3" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0018" x="3687" y="566" width="354" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0019" x="3687" y="566" width="354" height="552" frameX="-2" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0020" x="10" y="1129" width="356" height="552" frameX="0" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0021" x="376" y="1129" width="356" height="552" frameX="0" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0022" x="742" y="1129" width="351" height="552" frameX="-5" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vidle0023" x="742" y="1129" width="351" height="552" frameX="-5" frameY="-1" frameWidth="368" frameHeight="553"/>
+	<SubTexture name="Vleft0000" x="1103" y="1129" width="369" height="578" frameX="0" frameY="-5" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0001" x="1103" y="1129" width="369" height="578" frameX="0" frameY="-5" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0002" x="1482" y="1129" width="361" height="584" frameX="-5" frameY="0" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0003" x="1482" y="1129" width="361" height="584" frameX="-5" frameY="0" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0004" x="1853" y="1129" width="360" height="582" frameX="-6" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0005" x="1853" y="1129" width="360" height="582" frameX="-6" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0006" x="2223" y="1129" width="360" height="582" frameX="-6" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0007" x="2223" y="1129" width="360" height="582" frameX="-6" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0008" x="2223" y="1129" width="360" height="582" frameX="-6" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0009" x="2593" y="1129" width="360" height="582" frameX="-7" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0010" x="2593" y="1129" width="360" height="582" frameX="-7" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0011" x="2963" y="1129" width="346" height="582" frameX="-20" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft0012" x="2963" y="1129" width="346" height="582" frameX="-20" frameY="-2" frameWidth="369" frameHeight="584"/>
+	<SubTexture name="Vleft m0000" x="3319" y="1129" width="369" height="578" frameX="-1" frameY="-2" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0001" x="3698" y="1129" width="379" height="581" frameX="-3" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0002" x="3698" y="1129" width="379" height="581" frameX="-3" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0003" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0004" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0005" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0006" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0007" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0008" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0009" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0010" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0011" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0012" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0013" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0014" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0015" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0016" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0017" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0018" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0019" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0020" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0021" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0022" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0023" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0024" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0025" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0026" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0027" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0028" x="10" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vleft m0029" x="398" y="1723" width="378" height="581" frameX="0" frameY="0" frameWidth="382" frameHeight="581"/>
+	<SubTexture name="Vright0000" x="2849" y="1723" width="407" height="559" frameX="-34" frameY="-5" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright0001" x="2849" y="1723" width="407" height="559" frameX="-34" frameY="-5" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright0002" x="786" y="1723" width="408" height="562" frameX="-20" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0003" x="786" y="1723" width="408" height="562" frameX="-20" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0004" x="1204" y="1723" width="400" height="562" frameX="-24" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0005" x="1204" y="1723" width="400" height="562" frameX="-24" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0006" x="1614" y="1723" width="401" height="562" frameX="-23" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0007" x="1614" y="1723" width="401" height="562" frameX="-23" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0008" x="1614" y="1723" width="401" height="562" frameX="-23" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0009" x="2025" y="1723" width="401" height="562" frameX="-22" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0010" x="2025" y="1723" width="401" height="562" frameX="-22" frameY="-3" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0011" x="2436" y="1723" width="403" height="565" frameX="0" frameY="0" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright0012" x="2436" y="1723" width="403" height="565" frameX="0" frameY="0" frameWidth="441" frameHeight="565"/>
+	<SubTexture name="Vright m0000" x="2849" y="1723" width="407" height="559" frameX="-20" frameY="-3" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0001" x="2849" y="1723" width="407" height="559" frameX="-20" frameY="-3" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0002" x="3266" y="1723" width="419" height="564" frameX="0" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0003" x="3266" y="1723" width="419" height="564" frameX="0" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0004" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0005" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0006" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0007" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0008" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0009" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0010" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0011" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0012" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0013" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0014" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0015" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0016" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0017" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0018" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0019" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0020" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0021" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0022" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0023" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0024" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0025" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0026" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0027" x="440" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0028" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vright m0029" x="10" y="2314" width="420" height="564" frameX="-1" frameY="0" frameWidth="427" frameHeight="564"/>
+	<SubTexture name="Vup0000" x="2706" y="2314" width="371" height="635" frameX="-13" frameY="0" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup0001" x="2706" y="2314" width="371" height="635" frameX="-13" frameY="0" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup0002" x="870" y="2314" width="362" height="617" frameX="-11" frameY="-18" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0003" x="870" y="2314" width="362" height="617" frameX="-11" frameY="-18" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0004" x="1242" y="2314" width="359" height="614" frameX="-11" frameY="-21" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0005" x="1242" y="2314" width="359" height="614" frameX="-11" frameY="-21" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0006" x="1611" y="2314" width="359" height="614" frameX="-11" frameY="-21" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0007" x="1611" y="2314" width="359" height="614" frameX="-11" frameY="-21" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0008" x="1611" y="2314" width="359" height="614" frameX="-11" frameY="-21" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0009" x="1980" y="2314" width="358" height="609" frameX="-11" frameY="-25" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0010" x="1980" y="2314" width="358" height="609" frameX="-11" frameY="-25" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0011" x="2348" y="2314" width="348" height="590" frameX="0" frameY="-43" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup0012" x="2348" y="2314" width="348" height="590" frameX="0" frameY="-43" frameWidth="384" frameHeight="635"/>
+	<SubTexture name="Vup m0000" x="2706" y="2314" width="371" height="635" frameX="-8" frameY="0" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0001" x="3087" y="2314" width="370" height="610" frameX="0" frameY="-25" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0002" x="3087" y="2314" width="370" height="610" frameX="0" frameY="-25" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0003" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0004" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0005" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0006" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0007" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0008" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0009" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0010" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0011" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0012" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0013" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0014" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0015" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0016" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0017" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0018" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0019" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0020" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0021" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0022" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0023" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0024" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0025" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0026" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0027" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0028" x="3467" y="2314" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+	<SubTexture name="Vup m0029" x="10" y="2959" width="367" height="614" frameX="-1" frameY="-21" frameWidth="379" frameHeight="635"/>
+</TextureAtlas>

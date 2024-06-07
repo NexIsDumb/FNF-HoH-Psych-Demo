@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				538,
+				444
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "V dies",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				510,
+				20
+			],
+			"anim": "deathLoop",
+			"fps": 24,
+			"name": "V death loop",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				510,
+				518
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "V death confirm",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/VBF_SWINDLER_DEATH",
+	"position": [
+		-120,
+		695
+	],
+	"healthicon": "vbf",
+	"flip_x": false,
+	"healthbar_colors": [
+		117,
+		154,
+		254
+	],
+	"camera_position": [
+		340,
+		-330
+	],
+	"sing_duration": 4,
+	"scale": 0.8
+}

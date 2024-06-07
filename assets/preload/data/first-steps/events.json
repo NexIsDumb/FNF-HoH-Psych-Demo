@@ -1,0 +1,46 @@
+{
+	"song": {
+		"events": [
+			[
+				7578.94736842105,
+				[
+					[
+						"Play Animation",
+						"talk1",
+						"dad"
+					]
+				]
+			],
+			[
+				19026.3157894737,
+				[
+					[
+						"Play Animation",
+						"talk2",
+						"dad"
+					]
+				]
+			],
+			[
+				49342.1052631579,
+				[
+					[
+						"Play Animation",
+						"talk3",
+						"dad"
+					]
+				]
+			],
+			[
+				59605.2631578948,
+				[
+					[
+						"Play Animation",
+						"talk4",
+						"dad"
+					]
+				]
+			]
+		]
+	}
+}

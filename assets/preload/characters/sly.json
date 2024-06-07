@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				389,
+				680
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "IdleSly",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				448,
+				722
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "LeftSly",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				413,
+				729
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "RightSly",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				357,
+				688
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "DownSly",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				441,
+				688
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "UpSly",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Swindler",
+	"position": [
+		120,
+		620
+	],
+	"healthicon": "sly",
+	"flip_x": false,
+	"healthbar_colors": [
+		69,
+		82,
+		102
+	],
+	"camera_position": [
+		-190,
+		-370
+	],
+	"sing_duration": 4,
+	"scale": 0.599999999999999
+}

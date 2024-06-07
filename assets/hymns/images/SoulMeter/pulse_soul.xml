@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pulse_soul.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="soul glow pulse0000" x="60" y="60" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0001" x="60" y="476" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0002" x="60" y="892" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0003" x="60" y="1308" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0004" x="60" y="1724" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0005" x="60" y="2140" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0006" x="60" y="2556" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0007" x="60" y="2972" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0008" x="60" y="3388" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0009" x="476" y="60" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0010" x="476" y="476" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0011" x="476" y="892" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0012" x="476" y="1308" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0013" x="476" y="1724" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0014" x="476" y="2140" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0015" x="476" y="2556" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0016" x="476" y="2972" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0017" x="476" y="3388" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0018" x="892" y="60" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0019" x="892" y="476" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0020" x="892" y="892" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0021" x="892" y="1308" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0022" x="892" y="1724" width="386" height="386"/>
+	<SubTexture name="soul glow pulse0023" x="892" y="2140" width="386" height="386"/>
+</TextureAtlas>

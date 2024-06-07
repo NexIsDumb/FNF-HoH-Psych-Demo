@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Moss_Knight_Death.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="moss knight dies0000" x="5" y="5" width="947" height="932" frameX="-2222" frameY="-13" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0001" x="962" y="5" width="696" height="945" frameX="-2224" frameY="0" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0002" x="962" y="5" width="696" height="945" frameX="-2224" frameY="0" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0003" x="1668" y="5" width="420" height="928" frameX="-2046" frameY="-28" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0004" x="1668" y="5" width="420" height="928" frameX="-2046" frameY="-28" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0005" x="2098" y="5" width="852" height="854" frameX="-1656" frameY="-66" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0006" x="2098" y="5" width="852" height="854" frameX="-1656" frameY="-66" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0007" x="2960" y="5" width="998" height="815" frameX="-1526" frameY="-105" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0008" x="2960" y="5" width="998" height="815" frameX="-1526" frameY="-105" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0009" x="3968" y="5" width="995" height="798" frameX="-1513" frameY="-148" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0010" x="4973" y="5" width="862" height="786" frameX="-1652" frameY="-134" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0011" x="5845" y="5" width="855" height="735" frameX="-1659" frameY="-185" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0012" x="6710" y="5" width="754" height="849" frameX="-1620" frameY="-131" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0013" x="5" y="960" width="754" height="799" frameX="-1620" frameY="-181" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0014" x="769" y="960" width="795" height="848" frameX="-1581" frameY="-130" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0015" x="1574" y="960" width="795" height="800" frameX="-1581" frameY="-178" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0016" x="2379" y="960" width="865" height="865" frameX="-1511" frameY="-131" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0017" x="3254" y="960" width="865" height="819" frameX="-1511" frameY="-177" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0018" x="4129" y="960" width="924" height="962" frameX="-1451" frameY="-145" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0019" x="4129" y="960" width="924" height="962" frameX="-1451" frameY="-145" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0020" x="5063" y="960" width="1002" height="1142" frameX="-1341" frameY="-168" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0021" x="5063" y="960" width="1002" height="1142" frameX="-1341" frameY="-168" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0022" x="6075" y="960" width="819" height="1425" frameX="-1250" frameY="-207" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0023" x="6075" y="960" width="819" height="1425" frameX="-1250" frameY="-207" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0024" x="6904" y="960" width="843" height="591" frameX="-1129" frameY="-560" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0025" x="6904" y="960" width="843" height="591" frameX="-1129" frameY="-560" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0026" x="5" y="2395" width="665" height="839" frameX="-1114" frameY="-951" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0027" x="5" y="2395" width="665" height="839" frameX="-1114" frameY="-951" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0028" x="680" y="2395" width="1004" height="1328" frameX="-639" frameY="-846" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0029" x="1694" y="2395" width="1349" height="1760" frameX="-358" frameY="-416" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0030" x="1694" y="2395" width="1349" height="1760" frameX="-358" frameY="-416" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0031" x="3053" y="2395" width="1477" height="2103" frameX="-107" frameY="-62" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0032" x="3053" y="2395" width="1477" height="2103" frameX="-107" frameY="-62" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0033" x="4540" y="2395" width="1547" height="2098" frameX="-73" frameY="-67" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0034" x="4540" y="2395" width="1547" height="2098" frameX="-73" frameY="-67" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0035" x="4540" y="2395" width="1547" height="2098" frameX="-73" frameY="-67" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0036" x="6097" y="2395" width="1656" height="1769" frameX="-14" frameY="-398" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0037" x="6097" y="2395" width="1656" height="1769" frameX="-14" frameY="-398" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0038" x="6097" y="2395" width="1656" height="1769" frameX="-14" frameY="-398" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0039" x="5" y="4508" width="1717" height="1569" frameX="0" frameY="-604" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0040" x="5" y="4508" width="1717" height="1569" frameX="0" frameY="-604" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0041" x="5" y="4508" width="1717" height="1569" frameX="0" frameY="-604" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0042" x="1732" y="4508" width="1706" height="1357" frameX="-13" frameY="-812" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0043" x="1732" y="4508" width="1706" height="1357" frameX="-13" frameY="-812" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0044" x="1732" y="4508" width="1706" height="1357" frameX="-13" frameY="-812" frameWidth="3169" frameHeight="2176"/>
+	<SubTexture name="moss knight dies0045" x="3448" y="4508" width="0" height="0" frameX="-2417" frameY="-495" frameWidth="3169" frameHeight="2176"/>
+</TextureAtlas>

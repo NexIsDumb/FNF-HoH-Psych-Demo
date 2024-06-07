@@ -1,0 +1,166 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				565,
+				50
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Vidle"
+		},
+		{
+			"offsets": [
+				534,
+				61
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Vleft m"
+		},
+		{
+			"offsets": [
+				568,
+				118
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Vup m"
+		},
+		{
+			"offsets": [
+				602,
+				74
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "Vright m"
+		},
+		{
+			"offsets": [
+				581,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Vdown m"
+		},
+		{
+			"offsets": [
+				573,
+				117
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Vup instance"
+		},
+		{
+			"offsets": [
+				581,
+				18
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Vdown instance"
+		},
+		{
+			"offsets": [
+				604,
+				75
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Vright instance"
+		},
+		{
+			"offsets": [
+				545,
+				60
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Vleft instance"
+		},
+		{
+			"offsets": [
+				787,
+				338
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "focusIMPACT",
+			"indices": [],
+			"name": "V F impact once"
+		},
+		{
+			"offsets": [
+				566,
+				44
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "focusEND",
+			"indices": [],
+			"name": "V F end"
+		},
+		{
+			"offsets": [
+				562,
+				38
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "focusSTART",
+			"indices": [],
+			"name": "V F start"
+		},
+		{
+			"offsets": [
+				540,
+				113
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "focusLOOP",
+			"indices": [],
+			"name": "V F loop"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/vbf_swindler",
+	"position": [
+		-60,
+		750
+	],
+	"healthicon": "vbf",
+	"flip_x": false,
+	"healthbar_colors": [
+		117,
+		154,
+		254
+	],
+	"camera_position": [
+		340,
+		-330
+	],
+	"sing_duration": 4,
+	"scale": 0.8
+}

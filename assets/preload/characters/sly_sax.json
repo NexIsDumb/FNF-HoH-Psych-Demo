@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [
+				737,
+				1097
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "IdleSly",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				752,
+				1059.5
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "RightSly-ALT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				751,
+				1059
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "LeftSly-ALT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				735,
+				1084
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "DownSly-ALT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				760.5,
+				1152.5
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "UpSly-ALT",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/SwindlerSaxophone",
+	"position": [
+		540,
+		979
+	],
+	"healthicon": "sly",
+	"flip_x": false,
+	"healthbar_colors": [
+		69,
+		82,
+		102
+	],
+	"camera_position": [
+		-800,
+		-900
+	],
+	"sing_duration": 4,
+	"scale": 0.93
+}

@@ -1,0 +1,167 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "moss knight calm idle"
+		},
+		{
+			"offsets": [
+				-32,
+				-5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "moss knight calm left"
+		},
+		{
+			"offsets": [
+				-28,
+				-6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "moss knight calm up"
+		},
+		{
+			"offsets": [
+				15,
+				-6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "moss knight calm down"
+		},
+		{
+			"offsets": [
+				1,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "moss knight calm right"
+		},
+		{
+			"offsets": [
+				-98,
+				-43
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle-alt",
+			"indices": [],
+			"name": "moss knight idle"
+		},
+		{
+			"offsets": [
+				101,
+				-65
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "moss knight left"
+		},
+		{
+			"offsets": [
+				60,
+				-47
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "moss knight up"
+		},
+		{
+			"offsets": [
+				-157,
+				-215
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "moss knight down"
+		},
+		{
+			"offsets": [
+				28,
+				-89
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "moss knight right"
+		},
+		{
+			"offsets": [
+				65,
+				-1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "turn",
+			"indices": [],
+			"name": "moss knight turnaround"
+		},
+		{
+			"offsets": [
+				-4,
+				-1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "spook",
+			"indices": [],
+			"name": "moss knight spook"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				43,
+				-76
+			],
+			"anim": "shing-alt",
+			"fps": 24,
+			"name": "moss knight shing",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Moss_Knight_Assets",
+	"position": [
+		-80,
+		-280
+	],
+	"healthicon": "mossknight",
+	"flip_x": false,
+	"healthbar_colors": [
+		81,
+		183,
+		123
+	],
+	"camera_position": [
+		260,
+		40
+	],
+	"sing_duration": 12,
+	"scale": 1,
+	"idlereturn": true
+}

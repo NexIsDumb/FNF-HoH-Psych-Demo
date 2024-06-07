@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Time-bar.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Time Bar0000" x="0" y="0" width="627" height="135"/>
+	<SubTexture name="Time Bar entrance0000" x="642" y="0" width="31" height="30" frameX="-76" frameY="-58" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0001" x="642" y="0" width="31" height="30" frameX="-76" frameY="-58" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0002" x="688" y="0" width="32" height="33" frameX="-76" frameY="-58" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0003" x="735" y="0" width="50" height="43" frameX="-65" frameY="-54" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0004" x="800" y="0" width="119" height="103" frameX="-27" frameY="-24" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0005" x="934" y="0" width="140" height="128" frameX="-19" frameY="-10" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0006" x="1089" y="0" width="142" height="138" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0007" x="1089" y="0" width="142" height="138" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0008" x="1246" y="0" width="141" height="138" frameX="-14" frameY="-4" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0009" x="1246" y="0" width="141" height="138" frameX="-14" frameY="-4" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0010" x="1402" y="0" width="161" height="141" frameX="-6" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0011" x="1578" y="0" width="177" height="144" frameX="-4" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0012" x="1770" y="0" width="233" height="153" frameX="-3" frameY="0" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0013" x="0" y="168" width="338" height="149" frameX="0" frameY="0" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0014" x="353" y="168" width="512" height="149" frameX="-14" frameY="0" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0015" x="880" y="168" width="666" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0016" x="0" y="332" width="671" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0017" x="686" y="332" width="671" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0018" x="0" y="482" width="698" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0019" x="713" y="482" width="688" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0020" x="0" y="632" width="671" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0021" x="686" y="632" width="671" height="135" frameX="-14" frameY="-5" frameWidth="712" frameHeight="153"/>
+	<SubTexture name="Time Bar entrance0022" x="0" y="0" width="627" height="135" frameX="-14" frameY="-5" frameWidth="627" frameHeight="135"/>
+	<SubTexture name="Time Bar entrance0023" x="0" y="0" width="627" height="135" frameX="-14" frameY="-5" frameWidth="627" frameHeight="135"/>
+	<SubTexture name="Time Bar entrance0024" x="0" y="0" width="627" height="135" frameX="-14" frameY="-5" frameWidth="627" frameHeight="135"/>
+	<SubTexture name="Time Bar entrance0025" x="0" y="0" width="627" height="135" frameX="-14" frameY="-5" frameWidth="627" frameHeight="135"/>
+	<SubTexture name="Time Bar entrance0026" x="0" y="0" width="627" height="135" frameX="-14" frameY="-5" frameWidth="627" frameHeight="135"/>
+	<SubTexture name="Time Bar entrance0027" x="0" y="0" width="627" height="135" frameX="-14" frameY="-5" frameWidth="627" frameHeight="135"/>
+</TextureAtlas>

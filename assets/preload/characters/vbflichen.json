@@ -1,0 +1,168 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-205,
+				120
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "VBF idle dance instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-180,
+				122
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "VBF NOTE LEFT instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-158,
+				70
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "VBF NOTE DOWN instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-261,
+				139
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "VBF NOTE UP instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-268,
+				134
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "VBF NOTE RIGHT instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-180,
+				119
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "VBF NOTE LEFT MISS instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-151,
+				58
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "VBF NOTE DOWN MISS instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-257,
+				135
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "VBF NOTE UP MISS instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-282,
+				137
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "VBF NOTE RIGHT MISS instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-144,
+				120
+			],
+			"anim": "focusSTART",
+			"fps": 24,
+			"name": "VBF focus start instance",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-142,
+				289
+			],
+			"anim": "focusLOOP",
+			"fps": 24,
+			"name": "VBF focus loop instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				126,
+				563
+			],
+			"anim": "focusIMPACT",
+			"fps": 24,
+			"name": "VBF focus impact once instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-143,
+				96
+			],
+			"anim": "focusEND",
+			"fps": 24,
+			"name": "VBF focus end instance",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/vbf_lichen",
+	"position": [
+		0,
+		400
+	],
+	"healthicon": "vbf",
+	"flip_x": true,
+	"healthbar_colors": [
+		117,
+		154,
+		254
+	],
+	"camera_position": [
+		0,
+		-100
+	],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": true
+}

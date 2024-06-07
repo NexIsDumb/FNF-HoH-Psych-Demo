@@ -1,0 +1,166 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-206,
+				121
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "VBF idle dance"
+		},
+		{
+			"offsets": [
+				-145,
+				121
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "focusSTART",
+			"indices": [],
+			"name": "VBF focus start"
+		},
+		{
+			"offsets": [
+				-145,
+				290
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "focusLOOP",
+			"indices": [],
+			"name": "VBF focus loop"
+		},
+		{
+			"offsets": [
+				123,
+				563
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "focusIMPACT",
+			"indices": [],
+			"name": "VBF focus impact once"
+		},
+		{
+			"offsets": [
+				-146,
+				97
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "focusEND",
+			"indices": [],
+			"name": "VBF focus end"
+		},
+		{
+			"offsets": [
+				-179,
+				121
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "VBF NOTE LEFT"
+		},
+		{
+			"offsets": [
+				-157,
+				69
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "VBF NOTE DOWN"
+		},
+		{
+			"offsets": [
+				-258,
+				139
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "VBF NOTE UP"
+		},
+		{
+			"offsets": [
+				-268,
+				134
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "VBF NOTE RIGHT"
+		},
+		{
+			"offsets": [
+				-179,
+				121
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "VBF NOTE LEFT"
+		},
+		{
+			"offsets": [
+				-157,
+				69
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "VBF NOTE DOWN"
+		},
+		{
+			"offsets": [
+				-258,
+				139
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "VBF NOTE UP"
+		},
+		{
+			"offsets": [
+				-268,
+				134
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "VBF NOTE RIGHT"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/vbf_lichen_nailless",
+	"position": [
+		0,
+		400
+	],
+	"healthicon": "vbf",
+	"flip_x": true,
+	"healthbar_colors": [
+		117,
+		154,
+		254
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

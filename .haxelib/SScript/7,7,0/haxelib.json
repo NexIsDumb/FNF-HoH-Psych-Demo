@@ -1,0 +1,13 @@
+{
+  "name": "SScript",
+  "url": "https://github.com/TahirKarabekiroglu/SScript",
+  "license": "Apache",
+  "tags": ["hscript", "sscript"],
+  "description": "An easy-to-use Haxe Script tool for all targets.",
+  "version": "7.7.0",
+  "classPath": "src/",
+  "releasenote": "SScript setup mode",
+  "contributors": ["tahirk786"],
+  "dependencies": {
+  }
+}

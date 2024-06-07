@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pausefleurtop.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="pause up0000" x="0" y="0" width="426" height="123"/>
+	<SubTexture name="pause up0001" x="426" y="0" width="426" height="123"/>
+	<SubTexture name="pause up0002" x="0" y="123" width="426" height="123"/>
+	<SubTexture name="pause up0003" x="426" y="123" width="426" height="123"/>
+	<SubTexture name="pause up0004" x="0" y="246" width="426" height="123"/>
+	<SubTexture name="pause up0005" x="426" y="246" width="426" height="123"/>
+	<SubTexture name="pause up0006" x="0" y="369" width="426" height="123"/>
+	<SubTexture name="pause up0007" x="426" y="369" width="426" height="123"/>
+</TextureAtlas>

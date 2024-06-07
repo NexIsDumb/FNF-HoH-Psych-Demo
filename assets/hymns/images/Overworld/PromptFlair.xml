@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="PromptFlair.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="promptappear0000" x="87" y="87" width="214" height="176"/>
+	<SubTexture name="promptappear0001" x="388" y="87" width="214" height="176"/>
+	<SubTexture name="promptappear0002" x="689" y="87" width="214" height="176"/>
+	<SubTexture name="promptappear0003" x="990" y="87" width="214" height="176"/>
+	<SubTexture name="promptappear0004" x="1291" y="87" width="214" height="176"/>
+	<SubTexture name="promptappear0005" x="1592" y="87" width="214" height="176"/>
+	<SubTexture name="promptappear0006" x="87" y="350" width="214" height="176"/>
+	<SubTexture name="promptappear0007" x="388" y="350" width="214" height="176"/>
+	<SubTexture name="promptdisappear0000" x="388" y="350" width="214" height="176"/>
+	<SubTexture name="promptdisappear0001" x="87" y="350" width="214" height="176"/>
+	<SubTexture name="promptdisappear0002" x="1592" y="87" width="214" height="176"/>
+	<SubTexture name="promptdisappear0003" x="1291" y="87" width="214" height="176"/>
+	<SubTexture name="promptdisappear0004" x="990" y="87" width="214" height="176"/>
+	<SubTexture name="promptdisappear0005" x="689" y="87" width="214" height="176"/>
+	<SubTexture name="promptdisappear0006" x="388" y="87" width="214" height="176"/>
+	<SubTexture name="promptdisappear0007" x="87" y="87" width="214" height="176"/>
+	<SubTexture name="promptidle0000" x="689" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0001" x="689" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0002" x="990" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0003" x="990" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0004" x="1291" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0005" x="1291" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0006" x="1592" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0007" x="1592" y="350" width="214" height="176"/>
+	<SubTexture name="promptidle0008" x="87" y="613" width="214" height="176"/>
+	<SubTexture name="promptidle0009" x="87" y="613" width="214" height="176"/>
+</TextureAtlas>

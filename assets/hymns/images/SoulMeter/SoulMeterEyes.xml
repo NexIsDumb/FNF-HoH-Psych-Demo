@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SoulMeterEyes.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="EyesEnter0000" x="50" y="50" width="41" height="7" frameX="-19" frameY="-14" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0001" x="50" y="50" width="41" height="7" frameX="-19" frameY="-14" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0002" x="171" y="50" width="48" height="11" frameX="-15" frameY="-12" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0003" x="299" y="50" width="66" height="29" frameX="-6" frameY="-3" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0004" x="299" y="50" width="66" height="29" frameX="-6" frameY="-3" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0005" x="50" y="159" width="76" height="32" frameX="-2" frameY="0" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0006" x="50" y="159" width="76" height="32" frameX="-2" frameY="0" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0007" x="130" y="271" width="79" height="30" frameX="0" frameY="-2" frameWidth="79" frameHeight="30"/>
+	<SubTexture name="EyesEnter0008" x="130" y="271" width="79" height="30" frameX="0" frameY="-2" frameWidth="79" frameHeight="30"/>
+	<SubTexture name="EyesEnter0009" x="206" y="159" width="78" height="29" frameX="-1" frameY="-2" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0010" x="206" y="159" width="78" height="29" frameX="-1" frameY="-2" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0011" x="206" y="159" width="78" height="29" frameX="-1" frameY="-2" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesEnter0012" x="206" y="159" width="78" height="29" frameX="-1" frameY="-2" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0000" x="206" y="159" width="78" height="29" frameX="0" frameY="-2" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0001" x="206" y="159" width="78" height="29" frameX="0" frameY="-2" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0002" x="50" y="159" width="76" height="32" frameX="-1" frameY="0" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0003" x="50" y="159" width="76" height="32" frameX="-1" frameY="0" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0004" x="299" y="50" width="66" height="29" frameX="-5" frameY="-3" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0005" x="299" y="50" width="66" height="29" frameX="-5" frameY="-3" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0006" x="171" y="50" width="48" height="11" frameX="-14" frameY="-12" frameWidth="79" frameHeight="32"/>
+	<SubTexture name="EyesExit0007" x="364" y="159" width="33" height="4" frameX="-22" frameY="-16" frameWidth="78" frameHeight="32"/>
+	<SubTexture name="EyesExit0008" x="50" y="271" width="0" height="0" frameX="-4" frameY="-21" frameWidth="78" frameHeight="32"/>
+	<SubTexture name="EyesStatic0000" x="130" y="271" width="79" height="30"/>
+</TextureAtlas>

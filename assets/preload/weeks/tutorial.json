@@ -1,0 +1,22 @@
+{
+	"songs": [
+		["First-Steps", "gf", [165, 0, 77]],
+		["Swindler", "sly", [165, 0, 77]],
+		["Lichen", "sly", [165, 0, 77]]
+	],
+
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "",
+	"weekBefore": "tutorial",
+	"weekName": "Tutorial",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

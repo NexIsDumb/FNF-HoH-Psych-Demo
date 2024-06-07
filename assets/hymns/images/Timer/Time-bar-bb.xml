@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Time-bar-bb.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="time bar backboard0000" x="10" y="10" width="421" height="57"/>
+	<SubTexture name="time bar backboard enter0000" x="442" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0001" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0002" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0003" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0004" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0005" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0006" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0007" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0008" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0009" x="453" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0010" x="464" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0011" x="464" y="10" width="0" height="0" frameX="16" frameY="53" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0012" x="10" y="78" width="150" height="48" frameX="0" frameY="0" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0013" x="171" y="78" width="237" height="53" frameX="-6" frameY="-5" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0014" x="10" y="142" width="384" height="57" frameX="-31" frameY="-2" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0015" x="10" y="210" width="421" height="57" frameX="-142" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0016" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0017" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0018" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0019" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0020" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0021" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0022" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0023" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0024" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0025" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0026" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+	<SubTexture name="time bar backboard enter0027" x="10" y="210" width="421" height="57" frameX="-146" frameY="-3" frameWidth="567" frameHeight="60"/>
+</TextureAtlas>

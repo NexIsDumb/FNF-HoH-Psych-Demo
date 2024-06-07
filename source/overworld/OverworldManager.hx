@@ -1,0 +1,253 @@
+package overworld;
+
+import overworld.*;
+import backend.MusicBeatState;
+import overworld.scenes.*;
+import backend.ObjectBlendMode;
+import flixel.FlxBasic;
+
+import flixel.FlxObject;
+import objects.Soulmeter;
+
+import substates.*;
+
+class OverworldManager extends MusicBeatState
+{
+    public static var instance:OverworldManager;
+    public var player:Player;
+    public var scene:BaseScene;
+
+    public var camFollow:FlxObject;
+	public var camHUD:FlxCamera;
+	public var camDIALOG:FlxCamera; 
+    public var camCHARM:FlxCamera; 
+    public var dubious:FlxCamera; 
+
+    public var dialogue:Dialogue;
+    public var soulMeter:Soulmeter;
+
+    var black:FlxSprite;
+    public var campos = [0.0, 0.0];
+    var thebop:FlxSound;
+    var shouldplay:Bool = false;
+
+    function cameraInit() {
+        FlxG.camera.zoom = 0.61;
+        //HUD
+		camHUD = new FlxCamera();
+		FlxG.cameras.add(camHUD, false);
+		camHUD.bgColor.alpha = 0;
+
+        soulMeter = new Soulmeter(22, 30, 7, camHUD);
+		add(soulMeter);
+        soulMeter.backBoard.animation.play("appear");
+		soulMeter.showMasks();
+
+        //DIALOG
+		camDIALOG = new FlxCamera();
+		FlxG.cameras.add(camDIALOG, false);
+		camDIALOG.bgColor.alpha = 0;
+
+        dialogue = new Dialogue();
+		dialogue.screenCenter();
+		dialogue.y -= 200;
+		dialogue.x += 10;
+		dialogue.cameras = [camDIALOG];
+		add(dialogue);
+
+        black = new FlxSprite(0, 0).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+        black.cameras = [camDIALOG];
+        black.screenCenter();
+        add(black);
+        black.alpha = 1;
+
+        camCHARM = new FlxCamera();
+        FlxG.cameras.add(camCHARM, false);
+		camCHARM.bgColor.alpha = 0;
+
+        dubious = new FlxCamera();
+        FlxG.cameras.add(dubious, false);
+        dubious.setSize(1920, 1080);
+		dubious.setPosition(-200, -120);
+		dubious.bgColor.alpha = 0;
+
+        //FOLLOW
+        camFollow = new FlxObject(0, 0, 1, 1);
+        FlxG.camera.follow(camFollow, LOCKON);
+    }
+
+    public static var goober:String = "Dirtmouth";
+    override function create() {
+        //INITIALIZE
+        instance = this;
+        persistentUpdate = persistentDraw = true;
+        cameraInit();
+
+        if (goober == "Dirtmouth"){
+            scene = new Dirtmouth();
+            scene.create();
+        }else{
+            scene = new SlyShop();
+            scene.create();
+        }
+
+        FlxG.camera.setFilters([]);
+
+        player = new Player(0, 0);
+        player.screenCenter();
+        player.y += FlxG.height/3 - 1;
+        add(player);
+
+        if (FlxG.sound.music != null)
+			FlxG.sound.music.stop();
+
+        thebop = FlxG.sound.load(Paths.sound('dirtmouthSlyLoop', 'hymns'));
+        thebop.looped = true;
+
+        FlxG.sound.playMusic(Paths.sound('dirtmouthLoop', "hymns"));
+        thebop.play(true);
+
+        if (goober == "Dirtmouth"){
+            FlxG.sound.music.volume = 0;
+            FlxG.sound.music.fadeIn(4, 0, .8);
+            thebop.volume = 0;
+
+            shouldplay = false;
+        }else{
+            FlxG.sound.music.volume = 0;
+            FlxG.sound.music.fadeIn(2, 0, .8);
+            thebop.volume = 0;
+            thebop.fadeIn(4, 0, 1);
+            player.screenCenter();
+            player.y += FlxG.height/3 - 1;
+            player.flipX = true;
+
+            shouldplay = true;
+            goober == "Dirtmouth";
+        }
+
+        scene.variableInitialize();
+        scene.createPost();
+
+        FlxTween.tween(black, {alpha: 0}, 1.5, {ease: FlxEase.quadOut});
+        new FlxTimer().start(2, function(tmr:FlxTimer) {
+            player.animation.play("benchdismount", true);
+        });
+
+        //dirtmouthSlyLoop
+
+       // switchScenery(new Shop());
+    }
+
+    public function switchScenery(scene2:BaseScene) {
+        if(scene.slyshop){
+            player.status.cripple = true;
+            FlxTween.tween(player, {x: player.x - 5*35}, .66, {ease: FlxEase.quadOut});
+        }
+        FlxTween.tween(black, {alpha: 1}, .5, {ease: FlxEase.quadOut,
+            onComplete: function(twn:FlxTween)
+            {
+                new FlxTimer().start(1, function(tmr:FlxTimer) {
+                    var slyshopexit:Bool = false;
+
+                    if(!scene.slyshop){
+                        thebop.volume = 0;
+                        thebop.fadeIn(2, 0, .8);
+                        FlxG.sound.music.fadeIn(2, .8, .6);
+                        thebop.time = FlxG.sound.music.time;
+                        shouldplay = true;
+                    }else{
+                        slyshopexit = true;
+                        thebop.fadeOut(4, 0);
+                        FlxG.sound.music.fadeIn(2, .6, .8);
+                        shouldplay = false;
+                    }
+                    trace(scene.slyshop);
+                    FlxG.camera.setFilters([]);
+                    instance.forEach(function (bigballs: FlxBasic){
+                        if(!(bigballs == camHUD || bigballs == soulMeter || bigballs == camDIALOG || bigballs == dialogue || bigballs == camFollow || bigballs == black))
+                            bigballs.destroy();
+                    });
+                    scene.destroy();
+                    scene = scene2;
+                    scene.create();
+
+                    player = new Player(0, 0);
+                    player.screenCenter();
+                    player.y += FlxG.height/3 - 1;
+                    player.status.cripple = true;
+                    add(player);
+
+                    scene.variableInitialize();
+                    scene.createPost();
+                    if(slyshopexit){
+                        player.x = -142.093665389527;
+                        player.flipX = true;
+                    }
+
+                    new FlxTimer().start(1, function(tmr:FlxTimer) {
+                        FlxTween.tween(black, {alpha: 0}, 1.5, {ease: FlxEase.quadOut});
+                        new FlxTimer().start(1.4, function(tmr:FlxTimer) {
+                            player.status.cripple = false;
+                        });
+                    });
+
+                });
+            }
+        });
+    }
+
+    override function update(elapsed:Float) {
+        //UPDATING SPRITES
+        scene.update(elapsed);
+        player.update(elapsed);
+        soulMeter.update(elapsed);
+        dialogue.update(elapsed);
+
+        if(thebop != null){
+            thebop.update(elapsed);
+        }
+
+        //LERPING VALUES
+        var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.2, 0, 1);
+        if(campos[1] == 0.0){
+            camFollow.x = FlxMath.lerp(camFollow.x, FlxMath.bound(player.getMidpoint().x, scene.stageproperties.minCam, scene.stageproperties.maxCam), lerpVal);
+            camFollow.y = FlxMath.lerp(camFollow.y, player.getMidpoint().y - 225, lerpVal);
+        }else{
+            camFollow.x = FlxMath.lerp(camFollow.x, campos[0], lerpVal);
+            camFollow.y = FlxMath.lerp(camFollow.y, campos[1], lerpVal);
+        }
+
+        //BOX PLAYER
+        player.x = Math.max(scene.stageproperties.minX, player.x);
+        player.x = Math.min(scene.stageproperties.maxX, player.x);
+
+        if(controls.BACK && OverworldManager.instance.scene.inshop == false){
+            PauseSubState.silly = true;
+            if(this.subState == null){
+                openPauseMenu();
+            }
+        }
+
+        if(FlxG.sound.music.playing == true){
+            if(thebop.playing == false && shouldplay){
+                thebop.resume();
+                thebop.time = FlxG.sound.music.time;
+            }
+           // thebop.time = FlxG.sound.music.time;
+        }
+    }
+
+    function openPauseMenu()
+	{
+		FlxG.camera.followLerp = 0;
+		persistentUpdate = false;
+		persistentDraw = true;
+
+		if(FlxG.sound.music != null) {
+			FlxG.sound.music.pause();
+            thebop.pause();
+		}
+		openSubState(new PauseSubState(0, 0));
+	}
+}

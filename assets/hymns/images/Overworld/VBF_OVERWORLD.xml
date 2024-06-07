@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="VBF_OVERWORLD.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="VBF bench desmount instance 10000" x="87" y="87" width="329" height="464" frameX="-12" frameY="-1" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10001" x="87" y="87" width="329" height="464" frameX="-12" frameY="-1" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10002" x="503" y="87" width="330" height="464" frameX="-11" frameY="-1" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10003" x="503" y="87" width="330" height="464" frameX="-11" frameY="-1" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10004" x="920" y="87" width="327" height="466" frameX="-11" frameY="0" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10005" x="920" y="87" width="327" height="466" frameX="-11" frameY="0" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10006" x="1334" y="87" width="313" height="473" frameX="-19" frameY="-42" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10007" x="1334" y="87" width="313" height="473" frameX="-19" frameY="-42" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10008" x="1734" y="87" width="332" height="472" frameX="0" frameY="-41" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench desmount instance 10009" x="1734" y="87" width="332" height="472" frameX="0" frameY="-41" frameWidth="341" frameHeight="515"/>
+	<SubTexture name="VBF bench mount instance 10000" x="2153" y="87" width="332" height="473" frameX="-57" frameY="-40" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10001" x="2153" y="87" width="332" height="473" frameX="-57" frameY="-40" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10002" x="2572" y="87" width="359" height="410" frameX="0" frameY="-103" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10003" x="2572" y="87" width="359" height="410" frameX="0" frameY="-103" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10004" x="3018" y="87" width="363" height="413" frameX="-2" frameY="-100" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10005" x="3018" y="87" width="363" height="413" frameX="-2" frameY="-100" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10006" x="3468" y="87" width="313" height="473" frameX="-76" frameY="-41" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10007" x="3468" y="87" width="313" height="473" frameX="-76" frameY="-41" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10008" x="3868" y="87" width="328" height="466" frameX="-68" frameY="0" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10009" x="3868" y="87" width="328" height="466" frameX="-68" frameY="0" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10010" x="4283" y="87" width="330" height="465" frameX="-68" frameY="0" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10011" x="4283" y="87" width="330" height="465" frameX="-68" frameY="0" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10012" x="4700" y="87" width="329" height="465" frameX="-69" frameY="0" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF bench mount instance 10013" x="4700" y="87" width="329" height="465" frameX="-69" frameY="0" frameWidth="398" frameHeight="514"/>
+	<SubTexture name="VBF focus end instance 10000" x="5116" y="87" width="344" height="422" frameX="0" frameY="-35" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10001" x="5116" y="87" width="344" height="422" frameX="0" frameY="-35" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10002" x="5547" y="87" width="347" height="423" frameX="0" frameY="-34" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10003" x="5547" y="87" width="347" height="423" frameX="0" frameY="-34" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10004" x="5981" y="87" width="345" height="435" frameX="-34" frameY="-22" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10005" x="5981" y="87" width="345" height="435" frameX="-34" frameY="-22" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10006" x="6413" y="87" width="336" height="457" frameX="-66" frameY="0" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus end instance 10007" x="6413" y="87" width="336" height="457" frameX="-66" frameY="0" frameWidth="402" frameHeight="457"/>
+	<SubTexture name="VBF focus impact once instance 10000" x="6836" y="87" width="971" height="924" frameX="0" frameY="-255" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10001" x="6836" y="87" width="971" height="924" frameX="0" frameY="-255" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10002" x="87" y="1098" width="586" height="820" frameX="-191" frameY="-147" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10003" x="87" y="1098" width="586" height="820" frameX="-191" frameY="-147" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10004" x="760" y="1098" width="637" height="886" frameX="-143" frameY="-69" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10005" x="760" y="1098" width="637" height="886" frameX="-143" frameY="-69" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10006" x="1484" y="1098" width="593" height="940" frameX="-158" frameY="-7" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10007" x="2164" y="1098" width="593" height="940" frameX="-158" frameY="-7" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10008" x="2844" y="1098" width="554" height="946" frameX="-159" frameY="0" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10009" x="3485" y="1098" width="554" height="950" frameX="-159" frameY="0" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10010" x="4126" y="1098" width="337" height="430" frameX="-269" frameY="-501" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10011" x="4550" y="1098" width="337" height="424" frameX="-269" frameY="-501" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10012" x="4974" y="1098" width="342" height="426" frameX="-268" frameY="-499" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10013" x="5403" y="1098" width="342" height="423" frameX="-268" frameY="-499" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10014" x="5832" y="1098" width="342" height="423" frameX="-268" frameY="-499" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus impact once instance 10015" x="6261" y="1098" width="342" height="423" frameX="-268" frameY="-499" frameWidth="971" frameHeight="1179"/>
+	<SubTexture name="VBF focus loop instance 10000" x="6690" y="1098" width="344" height="604" frameX="0" frameY="-122" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10001" x="6690" y="1098" width="344" height="604" frameX="0" frameY="-122" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10002" x="7121" y="1098" width="355" height="643" frameX="0" frameY="-86" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10003" x="7121" y="1098" width="355" height="643" frameX="0" frameY="-86" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10004" x="7563" y="1098" width="384" height="733" frameX="0" frameY="0" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10005" x="7563" y="1098" width="384" height="733" frameX="0" frameY="0" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10006" x="87" y="2135" width="374" height="734" frameX="0" frameY="-23" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10007" x="87" y="2135" width="374" height="734" frameX="0" frameY="-23" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10008" x="548" y="2135" width="370" height="721" frameX="0" frameY="-24" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus loop instance 10009" x="548" y="2135" width="370" height="721" frameX="0" frameY="-24" frameWidth="384" frameHeight="757"/>
+	<SubTexture name="VBF focus start instance 10000" x="1005" y="2135" width="326" height="483" frameX="-86" frameY="0" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10001" x="1005" y="2135" width="326" height="483" frameX="-86" frameY="0" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10002" x="1418" y="2135" width="328" height="480" frameX="-83" frameY="-3" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10003" x="1418" y="2135" width="328" height="480" frameX="-83" frameY="-3" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10004" x="1833" y="2135" width="343" height="447" frameX="-47" frameY="-36" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10005" x="1833" y="2135" width="343" height="447" frameX="-47" frameY="-36" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10006" x="2263" y="2135" width="369" height="427" frameX="0" frameY="-55" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10007" x="2263" y="2135" width="369" height="427" frameX="0" frameY="-55" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10008" x="2719" y="2135" width="394" height="483" frameX="0" frameY="-59" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF focus start instance 10009" x="2719" y="2135" width="394" height="483" frameX="0" frameY="-59" frameWidth="412" frameHeight="542"/>
+	<SubTexture name="VBF idle dance hub instance 10000" x="3200" y="2135" width="329" height="479" frameX="0" frameY="-7" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10001" x="3200" y="2135" width="329" height="479" frameX="0" frameY="-7" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10002" x="3616" y="2135" width="329" height="479" frameX="0" frameY="-7" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10003" x="3616" y="2135" width="329" height="479" frameX="0" frameY="-7" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10004" x="4032" y="2135" width="328" height="481" frameX="-3" frameY="-5" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10005" x="4032" y="2135" width="328" height="481" frameX="-3" frameY="-5" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10006" x="4447" y="2135" width="326" height="485" frameX="-5" frameY="-1" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10007" x="4447" y="2135" width="326" height="485" frameX="-5" frameY="-1" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10008" x="4860" y="2135" width="326" height="486" frameX="-5" frameY="0" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10009" x="4860" y="2135" width="326" height="486" frameX="-5" frameY="0" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10010" x="5273" y="2135" width="326" height="486" frameX="-5" frameY="0" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF idle dance hub instance 10011" x="5273" y="2135" width="326" height="486" frameX="-5" frameY="0" frameWidth="331" frameHeight="486"/>
+	<SubTexture name="VBF interact end instance 10000" x="5686" y="2135" width="342" height="479" frameX="0" frameY="-9" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10001" x="6115" y="2135" width="342" height="479" frameX="0" frameY="-9" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10002" x="6544" y="2135" width="343" height="478" frameX="0" frameY="-10" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10003" x="6974" y="2135" width="343" height="478" frameX="0" frameY="-10" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10004" x="7404" y="2135" width="317" height="467" frameX="-22" frameY="-21" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10005" x="87" y="2956" width="317" height="467" frameX="-22" frameY="-21" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10006" x="491" y="2956" width="326" height="488" frameX="-23" frameY="0" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10007" x="491" y="2956" width="326" height="488" frameX="-23" frameY="0" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact end instance 10008" x="904" y="2956" width="326" height="487" frameX="-23" frameY="-1" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact loop instance 10000" x="1317" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10001" x="1747" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10002" x="2177" y="2956" width="344" height="480"/>
+	<SubTexture name="VBF interact loop instance 10003" x="2608" y="2956" width="344" height="480"/>
+	<SubTexture name="VBF interact loop instance 10004" x="3039" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10005" x="3469" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10006" x="3899" y="2956" width="342" height="480" frameX="-2" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10007" x="4328" y="2956" width="342" height="480" frameX="-2" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10008" x="4757" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10009" x="5187" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10010" x="5617" y="2956" width="344" height="480"/>
+	<SubTexture name="VBF interact loop instance 10011" x="6048" y="2956" width="344" height="480"/>
+	<SubTexture name="VBF interact loop instance 10012" x="6479" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10013" x="6909" y="2956" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10014" x="7339" y="2956" width="342" height="480" frameX="-2" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10015" x="87" y="3531" width="342" height="480" frameX="-2" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10016" x="516" y="3531" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10017" x="946" y="3531" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10018" x="1376" y="3531" width="344" height="480"/>
+	<SubTexture name="VBF interact loop instance 10019" x="1807" y="3531" width="344" height="480"/>
+	<SubTexture name="VBF interact loop instance 10020" x="2238" y="3531" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10021" x="2668" y="3531" width="343" height="480" frameX="-1" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10022" x="3098" y="3531" width="342" height="480" frameX="-2" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact loop instance 10023" x="3527" y="3531" width="342" height="480" frameX="-2" frameY="0" frameWidth="344" frameHeight="480"/>
+	<SubTexture name="VBF interact start instance 10000" x="3956" y="3531" width="325" height="488" frameX="-24" frameY="0" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10001" x="3956" y="3531" width="325" height="488" frameX="-24" frameY="0" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10002" x="4368" y="3531" width="316" height="466" frameX="-23" frameY="-22" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10003" x="4368" y="3531" width="316" height="466" frameX="-23" frameY="-22" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10004" x="4771" y="3531" width="344" height="478" frameX="0" frameY="-10" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10005" x="5202" y="3531" width="344" height="478" frameX="0" frameY="-10" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10006" x="5633" y="3531" width="343" height="479" frameX="0" frameY="-9" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF interact start instance 10007" x="6063" y="3531" width="343" height="479" frameX="0" frameY="-9" frameWidth="349" frameHeight="488"/>
+	<SubTexture name="VBF walk end instance 10000" x="6493" y="3531" width="391" height="444" frameX="0" frameY="-35" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10001" x="6971" y="3531" width="378" height="440" frameX="-5" frameY="-38" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10002" x="6971" y="3531" width="378" height="440" frameX="-5" frameY="-38" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10003" x="7436" y="3531" width="369" height="444" frameX="-24" frameY="-36" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10004" x="7436" y="3531" width="369" height="444" frameX="-24" frameY="-36" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10005" x="87" y="4106" width="364" height="446" frameX="-30" frameY="-34" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10006" x="87" y="4106" width="364" height="446" frameX="-30" frameY="-34" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10007" x="538" y="4106" width="360" height="457" frameX="-36" frameY="-32" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10008" x="538" y="4106" width="360" height="457" frameX="-36" frameY="-32" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10009" x="985" y="4106" width="355" height="458" frameX="-46" frameY="-23" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10010" x="985" y="4106" width="355" height="458" frameX="-46" frameY="-23" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10011" x="1427" y="4106" width="345" height="457" frameX="-65" frameY="-21" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10012" x="1427" y="4106" width="345" height="457" frameX="-65" frameY="-21" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10013" x="1859" y="4106" width="331" height="477" frameX="-89" frameY="0" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk end instance 10014" x="1859" y="4106" width="331" height="477" frameX="-89" frameY="0" frameWidth="420" frameHeight="489"/>
+	<SubTexture name="VBF walk loop instance 10000" x="2277" y="4106" width="373" height="446" frameX="-10" frameY="-2" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10001" x="2277" y="4106" width="373" height="446" frameX="-10" frameY="-2" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10002" x="2737" y="4106" width="374" height="448" frameX="-8" frameY="-1" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10003" x="2737" y="4106" width="374" height="448" frameX="-8" frameY="-1" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10004" x="3198" y="4106" width="405" height="441" frameX="-1" frameY="-7" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10005" x="3198" y="4106" width="405" height="441" frameX="-1" frameY="-7" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10006" x="3690" y="4106" width="391" height="444" frameX="-4" frameY="-4" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10007" x="3690" y="4106" width="391" height="444" frameX="-4" frameY="-4" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10008" x="4168" y="4106" width="383" height="443" frameX="-9" frameY="-4" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10009" x="4168" y="4106" width="383" height="443" frameX="-9" frameY="-4" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10010" x="4638" y="4106" width="375" height="449" frameX="-7" frameY="0" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10011" x="4638" y="4106" width="375" height="449" frameX="-7" frameY="0" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10012" x="5100" y="4106" width="400" height="438" frameX="0" frameY="-9" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10013" x="5100" y="4106" width="400" height="438" frameX="0" frameY="-9" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10014" x="5587" y="4106" width="391" height="443" frameX="-3" frameY="-5" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk loop instance 10015" x="5587" y="4106" width="391" height="443" frameX="-3" frameY="-5" frameWidth="406" frameHeight="449"/>
+	<SubTexture name="VBF walk start instance 10000" x="6065" y="4106" width="430" height="433" frameX="-33" frameY="-18" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10001" x="6065" y="4106" width="430" height="433" frameX="-33" frameY="-18" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10002" x="6582" y="4106" width="446" height="422" frameX="0" frameY="-30" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10003" x="6582" y="4106" width="446" height="422" frameX="0" frameY="-30" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10004" x="7115" y="4106" width="433" height="434" frameX="-24" frameY="-17" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10005" x="7115" y="4106" width="433" height="434" frameX="-24" frameY="-17" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10006" x="7635" y="4106" width="411" height="446" frameX="-46" frameY="-5" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10007" x="7635" y="4106" width="411" height="446" frameX="-46" frameY="-5" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10008" x="87" y="4670" width="382" height="451" frameX="-45" frameY="0" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk start instance 10009" x="87" y="4670" width="382" height="451" frameX="-45" frameY="0" frameWidth="463" frameHeight="452"/>
+	<SubTexture name="VBF walk turn instance 10000" x="556" y="4670" width="372" height="445" frameX="0" frameY="0" frameWidth="415" frameHeight="445"/>
+	<SubTexture name="VBF walk turn instance 10001" x="556" y="4670" width="372" height="445" frameX="0" frameY="0" frameWidth="415" frameHeight="445"/>
+	<SubTexture name="VBF walk turn instance 10002" x="1015" y="4670" width="350" height="433" frameX="-65" frameY="-7" frameWidth="415" frameHeight="445"/>
+	<SubTexture name="VBF walk turn instance 10003" x="1452" y="4670" width="350" height="433" frameX="-65" frameY="-7" frameWidth="415" frameHeight="445"/>
+</TextureAtlas>

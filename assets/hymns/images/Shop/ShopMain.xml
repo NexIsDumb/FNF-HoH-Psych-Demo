@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ShopMain.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Symbool 20000" x="3016" y="979" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20001" x="3755" y="979" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20002" x="4494" y="979" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20003" x="5233" y="979" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20004" x="5972" y="979" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20005" x="6711" y="979" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20006" x="3016" y="1829" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20007" x="3755" y="1829" width="709" height="820" frameX="0" frameY="-69" frameWidth="709" frameHeight="889"/>
+	<SubTexture name="Symbool 20008" x="60" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20009" x="799" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20010" x="1538" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20011" x="2277" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20012" x="3016" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20013" x="3755" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20014" x="4494" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20015" x="5233" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20016" x="5972" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20017" x="6711" y="60" width="709" height="889"/>
+	<SubTexture name="Symbool 20018" x="60" y="979" width="709" height="889"/>
+	<SubTexture name="Symbool 20019" x="799" y="979" width="709" height="889"/>
+	<SubTexture name="Symbool 20020" x="1538" y="979" width="709" height="889"/>
+	<SubTexture name="Symbool 20021" x="2277" y="979" width="709" height="889"/>
+</TextureAtlas>

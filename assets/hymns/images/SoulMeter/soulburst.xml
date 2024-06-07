@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="soulburst.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="soulburst0000" x="10" y="10" width="104" height="106" frameX="-65" frameY="-64" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0001" x="117" y="10" width="201" height="206" frameX="-16" frameY="-14" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0002" x="321" y="10" width="225" height="233" frameX="-4" frameY="0" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0003" x="549" y="10" width="220" height="203" frameX="0" frameY="-17" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0004" x="549" y="10" width="220" height="203" frameX="0" frameY="-17" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0005" x="772" y="10" width="192" height="200" frameX="-21" frameY="-17" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0006" x="772" y="10" width="192" height="200" frameX="-21" frameY="-17" frameWidth="229" frameHeight="233"/>
+	<SubTexture name="soulburst0007" x="967" y="10" width="0" height="0" frameX="41" frameY="33" frameWidth="229" frameHeight="233"/>
+</TextureAtlas>
