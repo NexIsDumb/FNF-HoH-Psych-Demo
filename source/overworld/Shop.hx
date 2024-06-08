@@ -405,8 +405,7 @@ class Shop extends FlxSpriteGroup
                         FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
                         OverworldManager.instance.dialogue.openBox("Sly", 
                         [
-                            ["Oh, it's been quite some time since I've played like that. I must admit that it was quite enjoyable! As much as it pains me...a battle lost is a battle lost. Here, take your reward and leave me to my Geo.. unless you plan to purchase some more of my wares…"],
-                            ["Check freeplay btw :3 :3 :3"]
+                            ["Oh, it's been quite some time since I've played like that. I must admit that it was quite enjoyable! As much as it pains me...a battle lost is a battle lost. Here, take your reward and leave me to my Geo.. unless you plan to purchase some more of my wares…"]
                         ],
                         function() {
                             DataSaver.slytries++;

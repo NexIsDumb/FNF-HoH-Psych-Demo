@@ -15,6 +15,7 @@ Good luck on your roblox games i guess Nld.
 As I said earlier, the modified libs are directly uploaded into this repository so need to reinstall them, all you have to do is having haxe at [4.2.5](https://haxe.org/download/version/4.2.5/) (or maybe beyond, haven't tested).
 
 # Credits
-- [Nld](https://www.github.com/NLD-Dev): Original coder
-- [Nex_isDumb](https://github.com/NexIsDumb) (me): Final Bugfixer and some Optimizations
 - Team Cheese: [Hymns of Hallownest](https://twitter.com/hk_fnf) Friday Night Funkin' mod (this whole project)
+- Translation Team: Translations
+- [Nld](https://www.github.com/NLD-Dev): Original coder
+- [Nex_isDumb](https://github.com/NexIsDumb) (myself and also included in the Translation Team): Final Bugfixer, some Optimizations, Italian translation

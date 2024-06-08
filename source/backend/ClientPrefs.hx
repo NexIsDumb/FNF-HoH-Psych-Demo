@@ -98,7 +98,8 @@ class ClientPrefs {
 		["Deutsch", "ger"],
 		["Polski", "pl"],
 		["Indonesia", "ind"],
-		["Finnish", "fin"]
+		["Finnish", "fin"],
+		["Русский[rus]", "rus"]
 	];
 
 	public static function getLanguage():String {

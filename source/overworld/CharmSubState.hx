@@ -139,6 +139,7 @@ class CharmSubState extends MusicBeatSubstate
 		selector.animation.play('loop', true);
 		add(selector);
 		sprites.push(selector);
+		selector.antialiasing = ClientPrefs.data.antialiasing;
 
 		selector.x = holders[0].x - (selector.width/4.2);
 		selector.y = holders[0].y - (selector.height/3.8);
@@ -336,6 +337,7 @@ class CharmSubState extends MusicBeatSubstate
 				var mainTxt:String = charmText.trim();
 
 				txt2.text = charmData[datar][2];
+				txt2.updateHitbox();
 				txt2.screenCenter();
 				txt2.x += 365;
 				txt2.y -= 225;
@@ -344,6 +346,7 @@ class CharmSubState extends MusicBeatSubstate
 				
 				txt3.text = 'Cost';
 				txt3.screenCenter();
+				txt3.updateHitbox();
 				txt3.x += 325;
 				txt3.y -= 190;
 
@@ -419,6 +422,25 @@ class CharmSubState extends MusicBeatSubstate
 		sprites.push(txt);
 		sprites.push(txt2);
 		sprites.push(txt3);
+
+		// I hate not fixing the other stuff and using nld's same coding format, but i gotta rush for the release  - Nex
+		var temp:FlxText;
+
+		sprites.push(temp = new FlxText(0, 60, 0, "Charms"));
+		add(temp.setFormat(Paths.font("trajan.ttf"), 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK).screenCenter(X));
+		temp.antialiasing = ClientPrefs.data.antialiasing;
+
+		sprites.push(temp = new FlxText(30, 40, 0, "Exit to Dirtmouth"));
+		add(temp.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		temp.antialiasing = ClientPrefs.data.antialiasing;
+
+		sprites.push(temp = new FlxText(130, 140, 0, "Equipped"));
+		add(temp.setFormat(Paths.font("trajan.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		temp.antialiasing = ClientPrefs.data.antialiasing;
+
+		sprites.push(temp = new FlxText(130, 270, 0, "Notches"));
+		add(temp.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		temp.antialiasing = ClientPrefs.data.antialiasing;
 	}
 
 	var shakeList:Array<Dynamic> = [];
@@ -550,7 +572,6 @@ class CharmSubState extends MusicBeatSubstate
 			if(controls.ACCEPT){
 				if(charmOrder.get(horiz + (rows[row-1]*(row-1))) != null){
 					var datar = charmOrder.get(horiz + (rows[row-1]*(row-1)));
-					trace(datar);
 
 					if(firstgoin == true){ firstgoin = false; }else{
 
@@ -687,12 +708,9 @@ class CharmSubState extends MusicBeatSubstate
 								charmsEquipped.remove(charm);
 								
 								FlxTween.tween(charm, {x: (holders[horiz + (rows[row-1]*(row-1))].x - (selector.width/4.2)) + charm.width/2.5 - 2, y: (holders[horiz + (rows[row-1]*(row-1))].y - (selector.height/3.8)) + charm.height/2.5}, 0.3, {ease: FlxEase.cubeOut});
-								trace(holders[datar].x + 2, holders[datar].y - (charm.height/2) + (holders[datar].width/2));
 								canMove = false;
 								DataSaver.charmOrder.remove(datar);
 								DataSaver.sillyOrder.remove(charmData[datar][2]);
-								trace(DataSaver.charmOrder);
-								trace(DataSaver.sillyOrder);
 								DataSaver.saveSettings(DataSaver.saveFile);
 
 								FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});

@@ -685,14 +685,13 @@ class FlxText extends FlxSprite
 	var customfonts:Array<String> = [
 		'chi',
 		'ukr',
+		'rus',
 		'jap'
 	];
 
 	public function translationPub(stringy:String) {
 		splitlang();
-		trace(stringy);
 		var silly:Int = defaultLang.indexOf(stringy);
-		trace(silly);
 		var thebool:Bool = false;
 		var Text:String = stringy;
 		var suffix:String = "";
@@ -776,20 +775,17 @@ class FlxText extends FlxSprite
 			_defaultFormat.size = Std.int(basesize);
 			offset.set(0, 0);
 			if(Text.endsWith("[chi]") || Text.endsWith("[jap]")){
-				font = getthefont("chinese.otf");
-				systemFont = font;
-				textField.text = Text.replace("[chi]", "");
-				textField.text = textField.text.replace("[jap]", "");
+				systemFont = font = getthefont("asian.otf");
+				textField.text = Text.replace("[chi]", "").replace("[jap]", "");
 				if(basefont == "Perpetua"){
 					_defaultFormat.size = Std.int(basesize/1.25);
 				}else{
 					offset.set(0, 7.5);
 				}
 				_regen = true;
-			}else if(Text.endsWith("[ukr]")){
-				font = getthefont("ukranian.ttf");
-				systemFont = font;
-				textField.text = Text.replace("[ukr]", "");
+			}else if(Text.endsWith("[ukr]") || Text.endsWith("[rus]")){
+				systemFont = font = getthefont("cyrillic.ttf");
+				textField.text = Text.replace("[ukr]", "").replace("[rus]", "");
 				_defaultFormat.size = Std.int(basesize*1.5);
 				_regen = true;
 			}else{

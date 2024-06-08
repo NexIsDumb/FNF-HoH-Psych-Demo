@@ -58,18 +58,11 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool');
 		addOption(option);
 
-		var translations:Array<String> = [];
-		for (i in 0...ClientPrefs.translations.length)
-		{
-			translations.push(ClientPrefs.translations[i][0]);
-		}
-		trace(translations);
-
 		var option:Option = new Option('Translations',
 			"Select your prefered translation of the game.",
 			'translation',
 			'string',
-			translations);
+			[for(lan in ClientPrefs.translations) lan[0]]);
 		addOption(option);
 
 		#if !mobile

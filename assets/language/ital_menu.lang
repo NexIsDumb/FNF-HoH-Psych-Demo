@@ -32,8 +32,8 @@ GPU Caching
 Se spuntato, diminuisce l’utilizzo della RAM se hai una buona GPU.
 Framerate
 Abbastanza ovvio, non credi?
-ON
-OFF
+Si
+No
 Skin Note 
 Default
 FNF
@@ -92,3 +92,12 @@ Riposa
 Ascolta
 Entra
 Negozio
+
+Amuleti
+Equipaggiati
+Incavi
+Costo
+Nessun Costo
+Sovraccarico
+
+Comprare?
