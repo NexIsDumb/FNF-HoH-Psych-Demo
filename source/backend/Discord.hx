@@ -117,7 +117,7 @@ class DiscordClient
 		_options.details = details;
 		_options.state = state;
 		_options.largeImageKey = 'icon';
-		_options.largeImageText = "Demo Build v" + Application.current.meta.get('version') + " - Psych Engine v" + states.MainMenuState.psychEngineVersion;
+		_options.largeImageText = "Demo Build " + Application.current.meta.get('version') + " - Psych Engine v" + states.MainMenuState.psychEngineVersion;
 		_options.smallImageKey = smallImageKey;
 		// Obtained times are in milliseconds so they are divided so Discord can use it
 		_options.startTimestamp = Std.int(startTimestamp / 1000);

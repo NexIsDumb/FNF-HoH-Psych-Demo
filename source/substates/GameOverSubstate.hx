@@ -31,7 +31,6 @@ class GameOverSubstate extends MusicBeatSubstate
 	var soundend:FlxSound;
 
 	public static var instance:GameOverSubstate;
-	var bg2:FlxSprite;
 
 	public static function resetVariables() {
 		characterName = 'VBF_DIES';
@@ -125,11 +124,6 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
-
-			new FlxTimer().start(0.3, function(tmr:FlxTimer)
-				{
-					bg2.destroy();
-				});
 		}
 		
 		if (boyfriends.animation.curAnim != null)
