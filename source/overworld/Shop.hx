@@ -11,7 +11,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
-import flixel.tweens.FlxTween;
+import flixel.tweens.FlxTween as OGTween;
 import flixel.tweens.FlxEase;
 
 import backend.Difficulty;
@@ -287,6 +287,7 @@ class Shop extends FlxSpriteGroup
             }else{
             if(firsttime == false || DataSaver.slytries > 0){
                 if(notch.alpha == 0){
+                    caninteractter = false;
                     FlxG.sound.play(Paths.sound("Sly_shop_open", 'hymns'));
                     FlxTween.tween(OverworldManager.instance.player, {x: 597.828381914635}, .75, {ease: FlxEase.quintOut});
                     OverworldManager.instance.player.flipX = true;
@@ -324,6 +325,7 @@ class Shop extends FlxSpriteGroup
                             OverworldManager.instance.scene.inshop = true;
                         });
                 }else{
+                    caninteractter = false;
                     main.animation.play("appear", true, true);
 
                     gradient.alpha = 0;
@@ -348,7 +350,6 @@ class Shop extends FlxSpriteGroup
             }else{
                 function filly() {
                     FlxG.sound.play(Paths.sound("Sly_shop_open", 'hymns'));
-                    caninteractter = true;
                     
                     main.animation.play("appear");
                     main.alpha = 1;
@@ -376,8 +377,9 @@ class Shop extends FlxSpriteGroup
                         gradient.alpha = 1;
                     });
                     FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-                    new FlxTimer().start(.75, function(tmr:FlxTimer)
+                    new FlxTimer().start(1.45, function(tmr:FlxTimer)
                         {
+                            caninteractter = true;
                             OverworldManager.instance.scene.inshop = true;
                         });
                 }
@@ -518,7 +520,7 @@ class Shop extends FlxSpriteGroup
                 }
 
                 //var targetPos = (array[0] * dist * pos) - charmGroup.y;
-                FlxTween.num(charmGroup.y, (array[0] * dist * pos), .5, {ease: FlxEase.quintOut}, function(num){charmGroup.setPosition(FlxG.width/2 + 35, num);} );
+                OGTween.num(charmGroup.y, (array[0] * dist * pos), .5, {ease: FlxEase.quintOut}, function(num){charmGroup.setPosition(FlxG.width/2 + 35, num);} );
             }
 
             if(amt > 0){
@@ -549,9 +551,7 @@ class Shop extends FlxSpriteGroup
         }
         #end
 
-        trace(caninteractter, OverworldManager.instance.scene.inshop);
         if(caninteractter && OverworldManager.instance.scene.inshop){
-            trace(isbuying);
             if(!isbuying){
                 if(controls.UI_DOWN_P){
                     changeselection(1);
@@ -603,7 +603,6 @@ class Shop extends FlxSpriteGroup
             }
 
             if(controls.BACK && OverworldManager.instance.scene.inshop){
-                trace("what");
                 if(!isbuying){
                     caninteractter = false;
                     new FlxTimer().start(.25, function(tmr:FlxTimer)
@@ -707,7 +706,6 @@ class Shop extends FlxSpriteGroup
             }else{
                 if(controls.ACCEPT && isbuying == true){
                     DataSaver.loadData(DataSaver.saveFile);
-                    trace(DataSaver.geo);
 
                     if(selected2 == yes){
                         if(DataSaver.geo >= Std.parseInt(charmList[selected][3])){
@@ -750,7 +748,6 @@ class Shop extends FlxSpriteGroup
 
                                     var songLowercase:String = Paths.formatToSongPath("Swindler");
                                     var poop:String = Highscore.formatSong(songLowercase, 1);
-                                    trace(poop);
 
                                     PlayState.SONG = Song.loadFromJson(poop, songLowercase);
                                     PlayState.storyDifficulty = 1;
@@ -880,7 +877,6 @@ class Shop extends FlxSpriteGroup
                                             {
                                                 OverworldManager.instance.scene.inshop = false;
                                             });
-                                            FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
                                             OverworldManager.instance.player.status.cripple = false;
                                             OverworldManager.instance.player.animation.play("interacte");
                                             FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -982,5 +978,14 @@ class Shop extends FlxSpriteGroup
                 }
             }
         }
+    }
+}
+
+class FlxTween  // I cant waste time in rewriting nld's awful code because of the imminent release, so  - Nex
+{
+    public static function tween(Object:Dynamic, Values:Dynamic, Duration:Float = 1, ?Options)
+    {
+        OGTween.cancelTweensOf(Object);
+        return OGTween.tween(Object, Values, Duration, Options);
     }
 }
