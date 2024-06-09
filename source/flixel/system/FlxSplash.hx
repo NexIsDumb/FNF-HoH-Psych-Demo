@@ -31,14 +31,20 @@ class FlxSplash extends FlxState
 		}
 	}
 
-	override public function destroy():Void
+	override public function update(elapsed:Float):Void
 	{
-		if(intro != null) intro.dispose();
-		super.destroy();
+		super.update(elapsed);
+		if (Controls.instance.ACCEPT)
+			onComplete();
 	}
 
+	private var fired:Bool = false;
 	function onComplete():Void
 	{
+		if(fired) return;  // Precautions because of the skippable part  - Nex
+		fired = true;
+
+		if(intro != null) intro.dispose();
 		FlxG.sound.muted = _cachedMuted;
 		FlxG.switchState(Type.createInstance(nextState, []));
 		FlxG.game._gameJustStarted = true;
