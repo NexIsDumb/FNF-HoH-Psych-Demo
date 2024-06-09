@@ -11,8 +11,8 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
-import states.TitleState;
 import states.MainMenuState;
+import flixel.input.keyboard.FlxKey;
 
 import openfl.system.System;
 import openfl.utils.AssetCache;
@@ -41,11 +41,15 @@ class Main extends Sprite
 		initialState: MainMenuState, // initial game state
 		zoom: -1.0, // game state bounds
 		framerate: 60, // default framerate
-		skipSplash: true, // if the default flixel splash screen should be skipped
+		skipSplash: false, // if the default flixel splash screen should be skipped
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
 	public static var fpsVar:FPS;
+
+	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
+	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
+	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -97,6 +101,15 @@ class Main extends Sprite
 		ClientPrefs.loadDefaultKeys();
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 
+		FlxG.fixedTimestep = false;
+		FlxG.game.focusLostFramerate = 60;
+		FlxG.keys.preventDefaultKeys = [TAB];
+		FlxG.mouse.visible = false;
+
+		FlxG.save.bind('hymns', CoolUtil.getSavePath());
+
+		ClientPrefs.loadPrefs();
+
 		FlxG.signals.gameResized.add(onResizeGame);
 		FlxG.signals.preStateSwitch.add(function () {
 			Paths.clearStoredMemory(true);
@@ -132,7 +145,6 @@ class Main extends Sprite
 
 		#if html5
 		FlxG.autoPause = false;
-		FlxG.mouse.visible = false;
 		#end
 		
 		#if CRASH_HANDLER

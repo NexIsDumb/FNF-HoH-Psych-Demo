@@ -55,16 +55,6 @@ class MainMenuState extends MusicBeatState
 		#end
 		Mods.loadTopMod();
 
-		FlxG.fixedTimestep = false;
-		FlxG.game.focusLostFramerate = 60;
-		FlxG.keys.preventDefaultKeys = [TAB];
-
-		FlxG.save.bind('hymns', CoolUtil.getSavePath());
-
-		FlxG.mouse.visible = false;
-
-		ClientPrefs.loadPrefs();
-
 		Highscore.load();
 
 		if(FlxG.sound.music == null) {
