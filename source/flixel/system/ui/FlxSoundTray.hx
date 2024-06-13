@@ -32,11 +32,14 @@ class FlxSoundTray extends Sprite
 
 	var _curFrame(default, set):Int;
 
+	/**The sound that'll play when you try to increase volume and it's already on the max.**/
+	public var volumeMaxSound:String = "assets/hymns/sounds/click_volume_max";
+
 	/**The sound used when increasing the volume.**/
-	public var volumeUpSound:String = "assets/hymns/sounds/soundbar";
+	public var volumeUpSound:String = "assets/hymns/sounds/click_volume_up";
 
 	/**The sound used when decreasing the volume.**/
-	public var volumeDownSound:String = "assets/hymns/sounds/soundbar";
+	public var volumeDownSound:String = "assets/hymns/sounds/click_volume_down";
 
 	/**Whether or not changing the volume should make noise.**/
 	public var silent:Bool = false;
@@ -129,18 +132,18 @@ class FlxSoundTray extends Sprite
 	 */
 	public function show(up:Bool = false):Void
 	{
-		if (!silent)
-		{
-			var sound = FlxAssets.getSound(up ? volumeUpSound : volumeDownSound);
-			if (sound != null)
-				FlxG.sound.load(sound).play();
-		}
-
 		_timer = 1;
 		if(!active) _curFrame = 0;
 		visible = true;
 		active = true;
 		var globalVolume:Int = FlxG.sound.muted ? 0 : Math.round(FlxG.sound.volume * 10);
+
+		if (!silent)
+		{
+			var sound = FlxAssets.getSound(up ? (globalVolume >= _bars.length - 1 && volumeMaxSound != null ? volumeMaxSound : volumeUpSound) : volumeDownSound);
+			if (sound != null)
+				FlxG.sound.load(sound).play();
+		}
 
 		for (i=>frame in _bars)
 		{
