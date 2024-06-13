@@ -1,16 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="volumebar.png">
-	<!-- Created with Adobe Animate version 23.0.0.407 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="VolumeMeter0000" x="5" y="5" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0001" x="326" y="5" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0002" x="5" y="12" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0003" x="326" y="12" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0004" x="5" y="19" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0005" x="326" y="19" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0006" x="5" y="26" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0007" x="326" y="26" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0008" x="5" y="33" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0009" x="326" y="33" width="321" height="7"/>
-	<SubTexture name="VolumeMeter0010" x="5" y="40" width="321" height="7"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="volumebar.png" width="3556" height="9">
+	<SubTexture name="VolumeMeter0000" x="1297" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0001" x="1620" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0002" x="1943" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0003" x="1" y="1" width="321" height="7" frameX="-0" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0004" x="325" y="1" width="321" height="7" frameX="-0" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0005" x="649" y="1" width="321" height="7" frameX="-0" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0006" x="2266" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0007" x="2589" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0008" x="2912" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0009" x="973" y="1" width="321" height="7" frameX="-0" frameY="-0" frameWidth="321" frameHeight="7"/>
+	<SubTexture name="VolumeMeter0010" x="3235" y="1" width="320" height="7" frameX="-1" frameY="-0" frameWidth="321" frameHeight="7"/>
 </TextureAtlas>

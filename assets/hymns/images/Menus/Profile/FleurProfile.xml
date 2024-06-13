@@ -1,18 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="FleurProfile.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="ProfileFleur0000" x="0" y="0" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0001" x="842" y="0" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0002" x="0" y="87" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0003" x="842" y="87" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0004" x="0" y="174" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0005" x="842" y="174" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0006" x="0" y="261" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0007" x="842" y="261" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0008" x="0" y="348" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0009" x="842" y="348" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0010" x="0" y="435" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0011" x="842" y="435" width="842" height="87"/>
-	<SubTexture name="ProfileFleur0012" x="0" y="522" width="842" height="87"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="FleurProfile.png" width="4372" height="86">
+	<SubTexture name="ProfileFleur0000" x="1" y="1" width="1" height="1" frameX="-0" frameY="-0" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0001" x="5" y="1" width="179" height="79" frameX="-6" frameY="-3" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0002" x="187" y="1" width="178" height="79" frameX="-7" frameY="-3" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0003" x="368" y="1" width="178" height="79" frameX="-7" frameY="-3" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0004" x="549" y="1" width="180" height="80" frameX="-5" frameY="-2" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0005" x="732" y="1" width="181" height="80" frameX="-4" frameY="-2" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0006" x="916" y="1" width="181" height="80" frameX="-4" frameY="-2" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0007" x="1100" y="1" width="182" height="80" frameX="-4" frameY="-2" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0008" x="2117" y="1" width="245" height="83" frameX="-4" frameY="-1" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0009" x="2365" y="1" width="427" height="84" frameX="-4" frameY="-0" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0010" x="2795" y="1" width="738" height="84" frameX="-4" frameY="-1" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0011" x="1285" y="1" width="829" height="82" frameX="-5" frameY="-2" frameWidth="842" frameHeight="87"/>
+	<SubTexture name="ProfileFleur0012" x="3536" y="1" width="835" height="84" frameX="-4" frameY="-1" frameWidth="842" frameHeight="87"/>
 </TextureAtlas>
