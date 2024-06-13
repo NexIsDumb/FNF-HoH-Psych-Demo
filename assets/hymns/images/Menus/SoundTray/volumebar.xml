@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="volumebar.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="VolumeMeter0000" x="5" y="5" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0001" x="326" y="5" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0002" x="5" y="12" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0003" x="326" y="12" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0004" x="5" y="19" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0005" x="326" y="19" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0006" x="5" y="26" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0007" x="326" y="26" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0008" x="5" y="33" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0009" x="326" y="33" width="321" height="7"/>
+	<SubTexture name="VolumeMeter0010" x="5" y="40" width="321" height="7"/>
+</TextureAtlas>
