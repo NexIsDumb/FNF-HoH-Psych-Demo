@@ -6,13 +6,14 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxBasic;
 import openfl.display.BlendMode;
-class ObjectBlendMode {
-    public static function blendMode(obj:FlxSprite, blend:String) {
-       	obj.blend = getBlendFromString(blend);
-    }
 
-    public static function getBlendFromString(blend:String):BlendMode {
-		switch(blend.toLowerCase()) {
+class ObjectBlendMode {
+	public static function blendMode(obj:FlxSprite, blend:String) {
+		obj.blend = getBlendFromString(blend);
+	}
+
+	public static function getBlendFromString(blend:String):BlendMode {
+		switch (blend.toLowerCase()) {
 			case 'add': return ADD;
 			case 'alpha': return ALPHA;
 			case 'darken': return DARKEN;
@@ -29,5 +30,5 @@ class ObjectBlendMode {
 			case 'subtract': return SUBTRACT;
 		}
 		return NORMAL;
-    }
+	}
 }

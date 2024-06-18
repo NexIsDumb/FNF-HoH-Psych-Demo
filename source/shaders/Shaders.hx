@@ -5,30 +5,29 @@ import flixel.FlxBasic;
 import flixel.system.FlxAssets.FlxShader;
 import openfl.Lib;
 
-//PERRY THE PLATYPUS, I PRESENT THE PIXELATOR 3000
+// PERRY THE PLATYPUS, I PRESENT THE PIXELATOR 3000
 
-class Pixelation extends FlxBasic
-{
+class Pixelation extends FlxBasic {
 	public var shader(default, null):Pixelator = new Pixelator();
 
 	var iTime:Float = 0;
 
 	public var amt(default, set):Float = 0;
 
-	public function new(amount:Float):Void{
+	public function new(amount:Float):Void {
 		super();
 
 		amt = amount;
 		shader.PIXEL_SIZE.value = [amount];
-		shader.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
+		shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
 	}
 
-	override public function update(elapsed:Float):Void{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
-		shader.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
+		shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
 	}
 
-	function set_amt(v:Float):Float{
+	function set_amt(v:Float):Float {
 		amt = v;
 		shader.PIXEL_SIZE.value = [amt];
 
@@ -38,8 +37,7 @@ class Pixelation extends FlxBasic
 	}
 }
 
-class Pixelator extends FlxShader
-{
+class Pixelator extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
 
@@ -61,35 +59,32 @@ class Pixelator extends FlxShader
 			gl_FragColor = texture2D(bitmap, uv);
 		}
 	')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }
 
-//noir
+// noir
 
-class NoirFilter extends FlxBasic
-{
+class NoirFilter extends FlxBasic {
 	public var shader(default, null):BnW = new BnW();
 
 	var iTime:Float = 0;
 
 	public var amt(default, set):Float = 0;
 
-	public function new(amount:Float):Void{
+	public function new(amount:Float):Void {
 		super();
 
 		amt = amount;
 		shader.amount.value = [amount];
 	}
 
-	override public function update(elapsed:Float):Void{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 	}
 
-	function set_amt(v:Float):Float{
+	function set_amt(v:Float):Float {
 		amt = v;
 		shader.amount.value = [amt];
 
@@ -97,8 +92,7 @@ class NoirFilter extends FlxBasic
 	}
 }
 
-class BnW extends FlxShader
-{
+class BnW extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
 
@@ -122,33 +116,30 @@ class BnW extends FlxShader
 			gl_FragColor = texColor;
 		}
 	')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }
 
-class ChromaticAbberation extends FlxBasic
-{
+class ChromaticAbberation extends FlxBasic {
 	public var shader(default, null):CAShader = new CAShader();
 
 	var iTime:Float = 0;
 
 	public var amt(default, set):Float = 0;
 
-	public function new(amount:Float):Void{
+	public function new(amount:Float):Void {
 		super();
 
 		amt = amount;
 		shader.amount.value = [amount];
 	}
 
-	override public function update(elapsed:Float):Void{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 	}
 
-	function set_amt(v:Float):Float{
+	function set_amt(v:Float):Float {
 		amt = v;
 		shader.amount.value = [amt];
 
@@ -156,8 +147,7 @@ class ChromaticAbberation extends FlxBasic
 	}
 }
 
-class CAShader extends FlxShader
-{
+class CAShader extends FlxShader {
 	@:glFragmentSource('
         #pragma header
 
@@ -180,30 +170,26 @@ class CAShader extends FlxShader
 		}
 
 	')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }
 
-class Bloom extends FlxBasic
-{
+class Bloom extends FlxBasic {
 	public var shader(default, null):BloomShader = new BloomShader();
 
 	var iTime:Float = 0;
 
-	public function new():Void{
+	public function new():Void {
 		super();
 	}
 
-	override public function update(elapsed:Float):Void{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 	}
 }
 
-class BloomShader extends FlxShader
-{
+class BloomShader extends FlxShader {
 	@:glFragmentSource('
         #pragma header
 
@@ -235,9 +221,7 @@ class BloomShader extends FlxShader
 		}
 	
 	')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }

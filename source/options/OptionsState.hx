@@ -6,10 +6,10 @@ import flixel.addons.transition.FlxTransitionableState;
 import hxcodec.flixel.*;
 import overworld.*;
 
-class OptionsState extends MusicBeatState
-{
+class OptionsState extends MusicBeatState {
 	var options:Array<String> = ['Note Colors', 'Controls', 'Graphics', 'Visuals and UI', 'Gameplay', 'Back'];
 	private var grpOptions:FlxTypedGroup<FlxText>;
+
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
@@ -25,46 +25,39 @@ class OptionsState extends MusicBeatState
 		FlxTween.tween(statetext, {alpha: 0}, .25, {ease: FlxEase.circOut});
 		fleur.animation.play('idle', true, true);
 		new FlxTimer().start(.35, function(tmr:FlxTimer) {
-			if(label != 'Note Colors' && label != 'Back'){
+			if (label != 'Note Colors' && label != 'Back') {
 				statetext.text = label;
 				statetext.screenCenter(X);
 				FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
 				fleur.animation.play('idle', true, false);
-			}else{
+			} else {
 				FlxTween.tween(fleur, {alpha: 0}, .25, {ease: FlxEase.circOut});
 			}
 
-			switch(label) {
-				case 'Note Colors':
-					openSubState(new options.NotesSubState());
-				case 'Controls':
-					openSubState(new options.ControlsSubState());
-				case 'Graphics':
-					openSubState(new options.GraphicsSettingsSubState());
-				case 'Visuals and UI':
-					openSubState(new options.VisualsUISubState());
-				case 'Gameplay':
-					openSubState(new options.GameplaySettingsSubState());
+			switch (label) {
+				case 'Note Colors': openSubState(new options.NotesSubState());
+				case 'Controls': openSubState(new options.ControlsSubState());
+				case 'Graphics': openSubState(new options.GraphicsSettingsSubState());
+				case 'Visuals and UI': openSubState(new options.VisualsUISubState());
+				case 'Gameplay': openSubState(new options.GameplaySettingsSubState());
 				case 'Back':
 					openingsub = true;
 					FlxG.sound.play(Paths.sound('cancelMenu'));
 
-						new FlxTimer().start(.5, function(tmr:FlxTimer) {
-							video.dispose();
-							video = null;
-						});
+					new FlxTimer().start(.5, function(tmr:FlxTimer) {
+						video.dispose();
+						video = null;
+					});
 
-					if(onPlayState)
-					{
+					if (onPlayState) {
 						StageData.loadDirectory(PlayState.SONG);
 						LoadingState.loadAndSwitchState(new PlayState());
 						FlxG.sound.music.volume = 0;
-					}else{
-						if(fromOverworld)
-						{
+					} else {
+						if (fromOverworld) {
 							LoadingState.loadAndSwitchState(new OverworldManager());
 							FlxG.sound.music.volume = 0;
-						}else{
+						} else {
 							MusicBeatState.switchState(new MainMenuState());
 						}
 					}
@@ -88,7 +81,7 @@ class OptionsState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 		selectedsumn = false;
 
-		if(video == null){
+		if (video == null) {
 			video = new FlxVideo();
 			video.play('assets/videos/Classic.mp4', true);
 			video.alpha = 0;
@@ -104,12 +97,11 @@ class OptionsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
 
-		for (i in 0...options.length - 1)
-		{
+		for (i in 0...options.length - 1) {
 			var optionText:FlxText = new FlxText(0, 0, 0, options[i], 12);
 			optionText.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenter();
-			optionText.y -= FlxG.height/6;
+			optionText.y -= FlxG.height / 6;
 			optionText.y += 50 * i;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
 			optionText.ID = i;
@@ -119,7 +111,7 @@ class OptionsState extends MusicBeatState
 		var optionText:FlxText = new FlxText(0, 0, 0, "Back", 12);
 		optionText.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER);
 		optionText.screenCenter();
-		optionText.y -= FlxG.height/6;
+		optionText.y -= FlxG.height / 6;
 		optionText.y += 50 * 8;
 		optionText.ID = 5;
 		optionText.antialiasing = ClientPrefs.data.antialiasing;
@@ -155,7 +147,7 @@ class OptionsState extends MusicBeatState
 		pointer2 = new FlxSprite(0, 0);
 		pointer2.frames = Paths.getSparrowAtlas('Menus/Main/pointer', 'hymns');
 		pointer2.animation.addByPrefix('idle', "pointer instantie 1", 24, false);
-	//	pointer2.animation.play('idle', true);
+		//	pointer2.animation.play('idle', true);
 		add(pointer2);
 		pointer2.antialiasing = ClientPrefs.data.antialiasing;
 		pointer2.flipX = true;
@@ -164,13 +156,13 @@ class OptionsState extends MusicBeatState
 
 		var spr = grpOptions.members[0];
 		pointer1.screenCenter(X);
-		pointer1.y = spr.getGraphicMidpoint().y - (spr.height/2);
-		pointer1.x -= (spr.width/2) + pointer1.width/1.5;
-		//pointer1.animation.play('idle', true);
-	
+		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
+		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
+		// pointer1.animation.play('idle', true);
+
 		pointer2.screenCenter(X);
-		pointer2.y = spr.getGraphicMidpoint().y - (spr.height/2);
-		pointer2.x += (spr.width/2) + pointer1.width/1.5;
+		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
+		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 		ClientPrefs.saveSettings();
 
 		changeSelection(0);
@@ -180,7 +172,7 @@ class OptionsState extends MusicBeatState
 
 	override function closeSubState() {
 		super.closeSubState();
-		if(openingsub == false){
+		if (openingsub == false) {
 			fleur.animation.play('idle', true, true);
 			FlxTween.tween(statetext, {alpha: 0}, .25, {ease: FlxEase.circOut});
 			new FlxTimer().start(.35, function(tmr:FlxTimer) {
@@ -199,7 +191,7 @@ class OptionsState extends MusicBeatState
 				FlxTween.tween(pointer2, {alpha: 1}, .25, {ease: FlxEase.circOut});
 				changeSelection(0);
 			});
-		}else{
+		} else {
 			openingsub = false;
 		}
 	}
@@ -209,10 +201,10 @@ class OptionsState extends MusicBeatState
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		if(video != null){
-			if(video.bitmapData != null){
+		if (video != null) {
+			if (video.bitmapData != null) {
 				bg.loadGraphic(video.bitmapData);
-				bg.setGraphicSize(1280,720);
+				bg.setGraphicSize(1280, 720);
 				bg.updateHitbox();
 				bg.screenCenter();
 			}
@@ -223,7 +215,7 @@ class OptionsState extends MusicBeatState
 			spr.screenCenter(X);
 		}
 
-		if(FlxG.state == this && subState == null){
+		if (FlxG.state == this && subState == null) {
 			if (controls.UI_UP_P) {
 				changeSelection(-1);
 			}
@@ -244,37 +236,34 @@ class OptionsState extends MusicBeatState
 					FlxTween.tween(fleur, {alpha: 0}, .25, {ease: FlxEase.circOut});
 					openingsub = true;
 					FlxG.sound.play(Paths.sound('cancelMenu'));
-					
+
 					new FlxTimer().start(.5, function(tmr:FlxTimer) {
 						video.dispose();
 						video = null;
 					});
-				
 
-					if(onPlayState)
-					{
+					if (onPlayState) {
 						StageData.loadDirectory(PlayState.SONG);
 						LoadingState.loadAndSwitchState(new PlayState());
 						FlxG.sound.music.volume = 0;
-					}else{
-						if(fromOverworld)
-						{
+					} else {
+						if (fromOverworld) {
 							LoadingState.loadAndSwitchState(new OverworldManager());
 							FlxG.sound.music.volume = 0;
-						}else{
+						} else {
 							MusicBeatState.switchState(new MainMenuState());
 						}
 					}
 				});
-			}
-			else if (controls.ACCEPT) openSelectedSubstate(options[curSelected]);
+			} else if (controls.ACCEPT)
+				openSelectedSubstate(options[curSelected]);
 		}
 	}
-	
+
 	function changeSelection(change:Int = 0) {
 		curSelected += change;
 		if (curSelected < 0)
-			curSelected = options.length-1;
+			curSelected = options.length - 1;
 		if (curSelected >= options.length)
 			curSelected = 0;
 
@@ -284,24 +273,22 @@ class OptionsState extends MusicBeatState
 		var bullShit:Int = 0;
 
 		for (spr in grpOptions.members) {
-			if (spr.ID == curSelected)
-			{
+			if (spr.ID == curSelected) {
 				pointer1.screenCenter(X);
-				pointer1.y = spr.getGraphicMidpoint().y - (spr.height/2);
-				pointer1.x -= (spr.width/2) + pointer1.width/1.5;
+				pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
+				pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 				pointer1.animation.play('idle', true);
-	
+
 				pointer2.screenCenter(X);
-				pointer2.y = spr.getGraphicMidpoint().y - (spr.height/2);
-				pointer2.x += (spr.width/2) + pointer1.width/1.5;
+				pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
+				pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 				pointer2.animation.play('idle', true);
 			}
 		}
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	override function destroy()
-	{
+	override function destroy() {
 		ClientPrefs.loadPrefs();
 		super.destroy();
 	}

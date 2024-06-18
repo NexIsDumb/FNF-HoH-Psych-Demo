@@ -39,7 +39,7 @@ class SpriteSymbol extends Sprite {
 	private var _symbolName:String;
 	private var _type:String;
 	private var _loopMode:String;
-	
+
 	private var _currentFrame:Int;
 	private var _composedFrame:Int;
 	private var _bitmap:Bitmap;
@@ -52,6 +52,7 @@ class SpriteSymbol extends Sprite {
 	private var _tempRect = new Rectangle();
 	private var _zeroPoint = new Point(0, 0);
 	private var filterHelper:BitmapData;
+
 	public var smoothing:Bool = true;
 
 	private static var sMatrix:Matrix = new Matrix();
@@ -151,9 +152,7 @@ class SpriteSymbol extends Sprite {
 			}
 
 			// this is confusing but needed :(
-			var oldSymbol:SpriteSymbol = (layer.numChildren > i) ? try
-				cast(layer.getChildAt(i), SpriteSymbol)
-			catch (e:Dynamic)
+			var oldSymbol:SpriteSymbol = (layer.numChildren > i) ? try cast(layer.getChildAt(i), SpriteSymbol) catch (e:Dynamic)
 				null : null;
 
 			var newSymbol:SpriteSymbol = null;
@@ -183,8 +182,6 @@ class SpriteSymbol extends Sprite {
 			newSymbol.setColor(elementData.color);
 			newSymbol.setLoop(elementData.loop);
 			newSymbol.setType(elementData.symbolType);
-			
-		
 
 			if (newSymbol.type == SymbolType.GRAPHIC) {
 				var firstFrame:Int = elementData.firstFrame;
@@ -198,7 +195,6 @@ class SpriteSymbol extends Sprite {
 					newSymbol.currentFrame = firstFrame + frameAge;
 				}
 			}
-			
 		}
 
 		var numObsoleteSymbols:Int = (layer.numChildren - numElements);
@@ -247,8 +243,6 @@ class SpriteSymbol extends Sprite {
 				clippedTexture.copyPixels(_texture, _tempRect, _zeroPoint);
 				_bitmap.bitmapData = clippedTexture;
 				_bitmap.smoothing = smoothing;
-				
-	
 			}
 			// aditional checks for rotation
 			if (spriteData.rotated) {
@@ -267,45 +261,39 @@ class SpriteSymbol extends Sprite {
 				_bitmap.parent.removeChild(_bitmap);
 		}
 	}
+
 	@:access(animateatlas)
-	private function setFilterData(data:FilterData):Void{
+	private function setFilterData(data:FilterData):Void {
 		var blur:BlurFilter;
 		var glow:GlowFilter;
-		if (data != null){
-			if (data.BlurFilter != null){
+		if (data != null) {
+			if (data.BlurFilter != null) {
 				blur = new BlurFilter();
 				blur.blurX = data.BlurFilter.blurX;
 				blur.blurY = data.BlurFilter.blurY;
 				blur.quality = data.BlurFilter.quality;
-				//_bitmap.bitmapData.applyFilter(_bitmap.bitmapData,new Rectangle(0,0,_bitmap.bitmapData.width,_bitmap.bitmapData.height),new Point(0,0),blur);
-				//filters.push(blur);
+				// _bitmap.bitmapData.applyFilter(_bitmap.bitmapData,new Rectangle(0,0,_bitmap.bitmapData.width,_bitmap.bitmapData.height),new Point(0,0),blur);
+				// filters.push(blur);
 			}
-			if (data.GlowFilter != null){
-				//trace('GLOW' + data.GlowFilter);
-				//glow = new GlowFilter();
-				//glow.blurX = data.GlowFilter.blurX;
-				//glow.blurY = data.GlowFilter.blurY;
-				//glow.color = data.GlowFilter.color;
-				//glow.alpha = data.GlowFilter.alpha;
-				//glow.quality = data.GlowFilter.quality;
-				//glow.strength = data.GlowFilter.strength;
-				//glow.knockout = data.GlowFilter.knockout;
-				//glow.inner = data.GlowFilter.inner;
-				//filters.push(glow);
-
-
-
-
+			if (data.GlowFilter != null) {
+				// trace('GLOW' + data.GlowFilter);
+				// glow = new GlowFilter();
+				// glow.blurX = data.GlowFilter.blurX;
+				// glow.blurY = data.GlowFilter.blurY;
+				// glow.color = data.GlowFilter.color;
+				// glow.alpha = data.GlowFilter.alpha;
+				// glow.quality = data.GlowFilter.quality;
+				// glow.strength = data.GlowFilter.strength;
+				// glow.knockout = data.GlowFilter.knockout;
+				// glow.inner = data.GlowFilter.inner;
+				// filters.push(glow);
 			}
-
 		}
-		
 	}
 
 	private function setTransformationMatrix(data:Matrix3DData):Void {
 		sMatrix.setTo(data.m00, data.m01, data.m10, data.m11, data.m30, data.m31);
-		if (sMatrix.a != transform.matrix.a || sMatrix.b != transform.matrix.b || sMatrix.c != transform.matrix.c || sMatrix.d != transform.matrix.d
-			|| sMatrix.tx != transform.matrix.tx || sMatrix.ty != transform.matrix.ty)
+		if (sMatrix.a != transform.matrix.a || sMatrix.b != transform.matrix.b || sMatrix.c != transform.matrix.c || sMatrix.d != transform.matrix.d || sMatrix.tx != transform.matrix.tx || sMatrix.ty != transform.matrix.ty)
 			transform.matrix = sMatrix.clone(); // todo stop the cloning :(
 	}
 
@@ -323,7 +311,6 @@ class SpriteSymbol extends Sprite {
 			newTransform.alphaMultiplier = (data.alphaMultiplier == null ? 1 : data.alphaMultiplier);
 		}
 		transform.colorTransform = newTransform;
-		
 	}
 
 	private function setLoop(data:String):Void {
@@ -384,8 +371,6 @@ class SpriteSymbol extends Sprite {
 		return _frameLabels.map(f -> f.name); // Inlining. I feel a js
 	}
 
-
-
 	function sortLabels(i1:FrameLabel, i2:FrameLabel):Int {
 		var f1 = i1.frame;
 		var f2 = i2.frame;
@@ -402,9 +387,9 @@ class SpriteSymbol extends Sprite {
 		return _layers[layerIndex];
 	}
 
-	public function getTexture():BitmapData{
-	//THIS GETS THE ENTIRE THING I'M RETARDED LOL
-	return _texture;
+	public function getTexture():BitmapData {
+		// THIS GETS THE ENTIRE THING I'M RETARDED LOL
+		return _texture;
 	}
 
 	public function getNextLabel(afterLabel:String = null):String {
@@ -521,5 +506,4 @@ class SpriteSymbol extends Sprite {
 
 		return layer.FrameMap.get(frameIndex);
 	}
-
 }

@@ -7,8 +7,7 @@ import flixel.addons.ui.interfaces.IResizable;
 /**
  * @author Lars Doucet
  */
-class FlxUIInputText extends FlxInputText implements IResizable implements IFlxUIWidget implements IHasParams
-{
+class FlxUIInputText extends FlxInputText implements IResizable implements IFlxUIWidget implements IHasParams {
 	public var name:String;
 
 	public var broadcastToFlxUI:Bool = true;
@@ -21,20 +20,16 @@ class FlxUIInputText extends FlxInputText implements IResizable implements IFlxU
 	public static inline var PASTE_EVENT:String = "paste_input_text"; // paste text in this text field
 	public static inline var CUT_EVENT:String = "cut_input_text"; // cut text in this text field
 
-	public function resize(w:Float, h:Float):Void
-	{
+	public function resize(w:Float, h:Float):Void {
 		width = w;
 		height = h;
 		calcFrame();
 	}
 
-	private override function onChange(action:String):Void
-	{
+	private override function onChange(action:String):Void {
 		super.onChange(action);
-		if (broadcastToFlxUI)
-		{
-			switch (action)
-			{
+		if (broadcastToFlxUI) {
+			switch (action) {
 				case FlxInputText.ENTER_ACTION: // press enter
 					FlxUI.event(ENTER_EVENT, this, text, params);
 				case FlxInputText.DELETE_ACTION, FlxInputText.BACKSPACE_ACTION: // deleted some text
@@ -43,14 +38,14 @@ class FlxUIInputText extends FlxInputText implements IResizable implements IFlxU
 				case FlxInputText.INPUT_ACTION: // text was input
 					FlxUI.event(INPUT_EVENT, this, text, params);
 					FlxUI.event(CHANGE_EVENT, this, text, params);
-             			case FlxInputText.COPY_ACTION: // text was copied
-                    			FlxUI.event(COPY_EVENT, this, text, params);
-                		case FlxInputText.PASTE_ACTION: // text was pasted
-                    			FlxUI.event(PASTE_EVENT, this, text, params);
-                    			FlxUI.event(CHANGE_EVENT, this, text, params);
-                		case FlxInputText.CUT_ACTION: // text was cut
-                    			FlxUI.event(CUT_EVENT, this, text, params);
-                    			FlxUI.event(CHANGE_EVENT, this, text, params);
+				case FlxInputText.COPY_ACTION: // text was copied
+					FlxUI.event(COPY_EVENT, this, text, params);
+				case FlxInputText.PASTE_ACTION: // text was pasted
+					FlxUI.event(PASTE_EVENT, this, text, params);
+					FlxUI.event(CHANGE_EVENT, this, text, params);
+				case FlxInputText.CUT_ACTION: // text was cut
+					FlxUI.event(CUT_EVENT, this, text, params);
+					FlxUI.event(CHANGE_EVENT, this, text, params);
 			}
 		}
 	}

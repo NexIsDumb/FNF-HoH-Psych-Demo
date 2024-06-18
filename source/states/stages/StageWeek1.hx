@@ -2,12 +2,11 @@ package states.stages;
 
 import objects.Character;
 
-class StageWeek1 extends BaseStage
-{
+class StageWeek1 extends BaseStage {
 	var dadbattleBlack:BGSprite;
 	var dadbattleLight:BGSprite;
-	override function create()
-	{
+
+	override function create() {
 		var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 		add(bg);
 
@@ -15,7 +14,7 @@ class StageWeek1 extends BaseStage
 		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 		stageFront.updateHitbox();
 		add(stageFront);
-		if(!ClientPrefs.data.lowQuality) {
+		if (!ClientPrefs.data.lowQuality) {
 			var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
 			stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
 			stageLight.updateHitbox();

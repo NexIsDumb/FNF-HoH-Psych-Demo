@@ -27,15 +27,14 @@ class RGBPalette {
 		shader.b.value = [color.redFloat, color.greenFloat, color.blueFloat];
 		return color;
 	}
-	
+
 	private function set_mult(value:Float) {
 		mult = Math.max(0, Math.min(1, value));
 		shader.mult.value = [mult];
 		return value;
 	}
 
-	public function new()
-	{
+	public function new() {
 		r = 0xFFFF0000;
 		g = 0xFF00FF00;
 		b = 0xFF0000FF;
@@ -44,8 +43,7 @@ class RGBPalette {
 }
 
 // automatic handler for easy usability
-class RGBShaderReference
-{
+class RGBShaderReference {
 	public var r(default, set):FlxColor;
 	public var g(default, set):FlxColor;
 	public var b(default, set):FlxColor;
@@ -53,10 +51,11 @@ class RGBShaderReference
 	public var enabled(default, set):Bool = true;
 
 	public var parent:RGBPalette;
+
 	private var _owner:FlxSprite;
 	private var _original:RGBPalette;
-	public function new(owner:FlxSprite, ref:RGBPalette)
-	{
+
+	public function new(owner:FlxSprite, ref:RGBPalette) {
 		parent = ref;
 		_owner = owner;
 		_original = ref;
@@ -70,40 +69,43 @@ class RGBShaderReference
 			mult = parent.mult;
 		}
 	}
-	
-	private function set_r(value:FlxColor)
-	{
-		if(allowNew && value != _original.r) cloneOriginal();
+
+	private function set_r(value:FlxColor) {
+		if (allowNew && value != _original.r)
+			cloneOriginal();
 		return (r = parent.r = value);
 	}
-	private function set_g(value:FlxColor)
-	{
-		if(allowNew && value != _original.g) cloneOriginal();
+
+	private function set_g(value:FlxColor) {
+		if (allowNew && value != _original.g)
+			cloneOriginal();
 		return (g = parent.g = value);
 	}
-	private function set_b(value:FlxColor)
-	{
-		if(allowNew && value != _original.b) cloneOriginal();
+
+	private function set_b(value:FlxColor) {
+		if (allowNew && value != _original.b)
+			cloneOriginal();
 		return (b = parent.b = value);
 	}
-	private function set_mult(value:Float)
-	{
-		if(allowNew && value != _original.mult) cloneOriginal();
+
+	private function set_mult(value:Float) {
+		if (allowNew && value != _original.mult)
+			cloneOriginal();
 		return (mult = parent.mult = value);
 	}
-	private function set_enabled(value:Bool)
-	{
+
+	private function set_enabled(value:Bool) {
 		_owner.shader = value ? parent.shader : null;
 		return (enabled = value);
 	}
 
 	public var allowNew = true;
-	private function cloneOriginal()
-	{
-		if(allowNew)
-		{
+
+	private function cloneOriginal() {
+		if (allowNew) {
 			allowNew = false;
-			if(_original != parent) return;
+			if (_original != parent)
+				return;
 
 			parent = new RGBPalette();
 			parent.r = _original.r;
@@ -111,7 +113,7 @@ class RGBShaderReference
 			parent.b = _original.b;
 			parent.mult = _original.mult;
 			_owner.shader = parent.shader;
-			//trace('created new shader');
+			// trace('created new shader');
 		}
 	}
 }
@@ -146,16 +148,13 @@ class RGBPaletteShader extends FlxShader {
 			}
 			return vec4(0.0, 0.0, 0.0, 0.0);
 		}')
-
 	@:glFragmentSource('
 		#pragma header
 
 		void main() {
 			gl_FragColor = flixel_texture2DCustom(bitmap, openfl_TextureCoordv);
 		}')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }

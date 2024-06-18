@@ -10,34 +10,34 @@ import flixel.math.FlxRandom;
 import shaders.Shaders;
 import Math;
 
-class Lake extends BaseStage
-{
+class Lake extends BaseStage {
 	var fogshader:FogEffect;
 	var mossknightdeath:FlxSprite;
+
 	public var alubas:Array<FlxSprite> = [];
 	public var turnalubas:Array<Int> = [];
-	override function create()
-	{
-		if(!ClientPrefs.data.lowQuality){
+
+	override function create() {
+		if (!ClientPrefs.data.lowQuality) {
 			fogshader = new FogEffect();
-			//backerground.shader = fogshader.shader;
+			// backerground.shader = fogshader.shader;
 		}
 
-		var backgroundSpr1:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/back_lichen', 'hymns'));
+		var backgroundSpr1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/back_lichen', 'hymns'));
 		backgroundSpr1.screenCenter();
 		backgroundSpr1.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr1.scale.set(2, 2);
 		backgroundSpr1.scrollFactor.set(.75, .75);
 		backgroundSpr1.active = false;
-		add(backgroundSpr1);	
+		add(backgroundSpr1);
 
-		var backgroundSpr2:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/foliage_lichen', 'hymns'));
+		var backgroundSpr2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/foliage_lichen', 'hymns'));
 		backgroundSpr2.screenCenter();
 		backgroundSpr2.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr2.scale.set(2, 2);
 		backgroundSpr2.scrollFactor.set(.85, .925);
 		backgroundSpr2.active = false;
-		add(backgroundSpr2);	
+		add(backgroundSpr2);
 
 		var floaticious = FlxG.random.float(.45, .55);
 		var aluba:FlxSprite = new FlxSprite(0, 0);
@@ -57,7 +57,7 @@ class Lake extends BaseStage
 		aluba.flipX = FlxG.random.bool(50);
 		add(aluba);
 		alubas.push(aluba);
-		turnalubas.push(FlxG.random.int(2,8));
+		turnalubas.push(FlxG.random.int(2, 8));
 
 		var floaticious = FlxG.random.float(.45, .55);
 		var aluba:FlxSprite = new FlxSprite(0, 0);
@@ -77,162 +77,161 @@ class Lake extends BaseStage
 		aluba.flipX = FlxG.random.bool(50);
 		add(aluba);
 		alubas.push(aluba);
-		turnalubas.push(FlxG.random.int(2,8));
+		turnalubas.push(FlxG.random.int(2, 8));
 
-		var backgroundSpr3:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/godray_lichen', 'hymns'));
+		var backgroundSpr3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/godray_lichen', 'hymns'));
 		backgroundSpr3.screenCenter();
 		backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr3.scale.set(1.8, 1.8);
 		backgroundSpr3.scrollFactor.set(1, 1);
 		backgroundSpr3.active = false;
-		add(backgroundSpr3);	
+		add(backgroundSpr3);
 
-		var backgroundSpr4:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
+		var backgroundSpr4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
 		backgroundSpr4.screenCenter();
 		backgroundSpr4.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr4.scale.set(2, 2);
 		backgroundSpr4.scrollFactor.set(0.95, 0.95);
-		add(backgroundSpr4);	
+		add(backgroundSpr4);
 
-		var backgroundSpr4:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
+		var backgroundSpr4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
 		backgroundSpr4.screenCenter();
 		backgroundSpr4.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr4.scale.set(2, 2);
 		backgroundSpr4.scrollFactor.set(1, 1);
 		backgroundSpr4.updateHitbox();
 		backgroundSpr4.x -= 250;
-		//backgroundSpr4.y += 150;
-		if(!ClientPrefs.data.lowQuality){
+		// backgroundSpr4.y += 150;
+		if (!ClientPrefs.data.lowQuality) {
 			backgroundSpr4.shader = fogshader.shader;
 		}
-		add(backgroundSpr4);	
+		add(backgroundSpr4);
 
-		var backgroundSpr5:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/hut_lichen', 'hymns'));
+		var backgroundSpr5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/hut_lichen', 'hymns'));
 		backgroundSpr5.screenCenter();
 		backgroundSpr5.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr5.scale.set(2, 2);
 		backgroundSpr5.scrollFactor.set(1, 1);
 		backgroundSpr5.active = false;
-		add(backgroundSpr5);	
+		add(backgroundSpr5);
 
 		mossknightdeath = new FlxSprite(0, 0);
 		mossknightdeath.frames = Paths.getSparrowAtlas('Stages/Lake/Moss_Knight_Death', 'hymns');
 		mossknightdeath.updateHitbox();
-        mossknightdeath.screenCenter();
-        mossknightdeath.y += 750;
-        mossknightdeath.x -= FlxG.width*1.175;
+		mossknightdeath.screenCenter();
+		mossknightdeath.y += 750;
+		mossknightdeath.x -= FlxG.width * 1.175;
 		mossknightdeath.animation.addByPrefix('die', 'moss knight dies', 24, false);
-		//mossknightdeath.animation.play('die', true);
+		// mossknightdeath.animation.play('die', true);
 		mossknightdeath.alpha = 0;
 		mossknightdeath.antialiasing = ClientPrefs.data.antialiasing;
 		add(mossknightdeath);
 	}
 
 	override function createPost() {
-		if(!ClientPrefs.data.lowQuality){
-			var backgroundSpr8:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/overlay_2', 'hymns'));
+		if (!ClientPrefs.data.lowQuality) {
+			var backgroundSpr8:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_2', 'hymns'));
 			backgroundSpr8.screenCenter();
 			backgroundSpr8.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr8.scale.set(2, 2);
 			backgroundSpr8.scrollFactor.set(1, 1);
 			backgroundSpr8.active = false;
 			ObjectBlendMode.blendMode(backgroundSpr8, "add");
-			add(backgroundSpr8);	
+			add(backgroundSpr8);
 		}
 
-		var backgroundSpr6:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/front_lichen', 'hymns'));
+		var backgroundSpr6:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/front_lichen', 'hymns'));
 		backgroundSpr6.screenCenter();
 		backgroundSpr6.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr6.scale.set(2, 2);
 		backgroundSpr6.scrollFactor.set(1.2, 1.2);
 		backgroundSpr6.active = false;
-		add(backgroundSpr6);	
+		add(backgroundSpr6);
 
-		if(!ClientPrefs.data.lowQuality){
-			var backgroundSpr7:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('Stages/Lake/overlay_1', 'hymns'));
+		if (!ClientPrefs.data.lowQuality) {
+			var backgroundSpr7:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_1', 'hymns'));
 			backgroundSpr7.screenCenter();
 			backgroundSpr7.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr7.scale.set(2, 2);
 			backgroundSpr7.scrollFactor.set(1, 1);
 			backgroundSpr7.active = false;
 			ObjectBlendMode.blendMode(backgroundSpr7, "add");
-			add(backgroundSpr7);	
+			add(backgroundSpr7);
 		}
 
 		chromaticAbberation = new ChromaticAbberation(0.00001);
-        add(chromaticAbberation);
-        var filter1:ShaderFilter = new ShaderFilter(chromaticAbberation.shader);
+		add(chromaticAbberation);
+		var filter1:ShaderFilter = new ShaderFilter(chromaticAbberation.shader);
 
-		if(!ClientPrefs.data.shaders){
+		if (!ClientPrefs.data.shaders) {
 			var bloom = new BloomEffect();
 			var filter2:ShaderFilter = new ShaderFilter(bloom.shader);
 			camHUD.alpha = 0;
 
 			camGame.setFilters([filter2, filter1]);
-		}else{
+		} else {
 			camGame.setFilters([filter1]);
 		}
 	}
 
-	override function update(elapsed:Float)
-	{
+	override function update(elapsed:Float) {
 		chromaticAbberation.update(elapsed);
-		if(fogshader != null){
+		if (fogshader != null) {
 			fogshader.update(elapsed);
 		}
-		if(alubas != null){
-			for(i in 0...alubas.length){
+		if (alubas != null) {
+			for (i in 0...alubas.length) {
 				var aluba = alubas[i];
-				if(turnalubas[i] != -10){
-					if(aluba != null){
-						var speed = 60/ClientPrefs.data.framerate;
-						var vel = 2.5*speed;
+				if (turnalubas[i] != -10) {
+					if (aluba != null) {
+						var speed = 60 / ClientPrefs.data.framerate;
+						var vel = 2.5 * speed;
 
-						if(aluba.flipX == false){
-							aluba.x -= 1*speed + vel * (aluba.ID/100) * (ClientPrefs.data.framerate / 60);
-						}else{
-							aluba.x += 1*speed + vel * (aluba.ID/100) * (ClientPrefs.data.framerate / 60);
+						if (aluba.flipX == false) {
+							aluba.x -= 1 * speed + vel * (aluba.ID / 100) * (ClientPrefs.data.framerate / 60);
+						} else {
+							aluba.x += 1 * speed + vel * (aluba.ID / 100) * (ClientPrefs.data.framerate / 60);
 						}
 
-						if(aluba.ID == 0){
+						if (aluba.ID == 0) {
 							aluba.animation.play('flap');
 							aluba.ID = 100;
 							turnalubas[i] -= 1;
 							trace(aluba.x);
-							if(turnalubas[i] == 0 || Math.floor(aluba.x) == Math.floor(-1752.14364491962)){
+							if (turnalubas[i] == 0 || Math.floor(aluba.x) == Math.floor(-1752.14364491962)) {
 								turnalubas[i] = -10;
 								aluba.animation.play('turn');
-							}else{
-								FlxTween.num(100, 0, 2.5, {ease: FlxEase.quadOut}, function(num) { aluba.ID = Std.int(num); });
+							} else {
+								FlxTween.num(100, 0, 2.5, {ease: FlxEase.quadOut}, function(num) {
+									aluba.ID = Std.int(num);});
 							}
-						}else{
-							if(aluba.animation.curAnim.finished && aluba.animation.curAnim.name == "flap"){
+						} else {
+							if (aluba.animation.curAnim.finished && aluba.animation.curAnim.name == "flap") {
 								aluba.animation.play('idle');
 							}
 						}
 					}
-				}else{
-					if(aluba.animation.curAnim.finished){
+				} else {
+					if (aluba.animation.curAnim.finished) {
 						aluba.flipX = !aluba.flipX;
 						aluba.animation.play('idle');
 
-						turnalubas[i] = FlxG.random.int(3,8);
-						FlxTween.num(100, 0, 2.5, {ease: FlxEase.quadOut}, function(num) { aluba.ID = Std.int(num); });
+						turnalubas[i] = FlxG.random.int(3, 8);
+						FlxTween.num(100, 0, 2.5, {ease: FlxEase.quadOut}, function(num) {
+							aluba.ID = Std.int(num);});
 					}
 				}
 			}
 		}
 	}
 
-	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
-	{
-		switch(eventName)
-		{
+	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float) {
+		switch (eventName) {
 			case "Mossknight":
 				dad.alpha = 0;
 				mossknightdeath.animation.play('die');
 				mossknightdeath.alpha = 1;
-				new FlxTimer().start((1/24)*45, function(tmr:FlxTimer) {
+				new FlxTimer().start((1 / 24) * 45, function(tmr:FlxTimer) {
 					mossknightdeath.alpha = 0;
 				});
 		}

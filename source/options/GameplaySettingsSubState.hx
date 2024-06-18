@@ -1,17 +1,15 @@
 package options;
 
-class GameplaySettingsSubState extends BaseOptionsMenu
-{
-	public function new()
-	{
+class GameplaySettingsSubState extends BaseOptionsMenu {
+	public function new() {
 		title = 'Gameplay Settings';
-		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
+		rpcTitle = 'Gameplay Settings Menu'; // for Discord Rich Presence
 
-		//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
-		var option:Option = new Option('Downscroll', //Name
-			'If checked, notes go Down instead of Up, simple enough.', //Description
-			'downScroll', //Save data variable name
-			'bool'); //Variable type
+		// I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
+		var option:Option = new Option('Downscroll', // Name
+			'If checked, notes go Down instead of Up, simple enough.', // Description
+			'downScroll', // Save data variable name
+			'bool'); // Variable type
 		addOption(option);
 
 		var option:Option = new Option('Middlescroll',
@@ -25,7 +23,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'ghostTapping',
 			'bool');
 		addOption(option);
-		
+
 		var option:Option = new Option('Auto Pause',
 			"If checked, the game automatically pauses if the screen isn't on focus.",
 			'autoPause',
@@ -64,13 +62,11 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		super();
 	}
 
-	function onChangeHitsoundVolume()
-	{
+	function onChangeHitsoundVolume() {
 		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
 	}
 
-	function onChangeAutoPause()
-	{
+	function onChangeAutoPause() {
 		FlxG.autoPause = ClientPrefs.data.autoPause;
 	}
 }

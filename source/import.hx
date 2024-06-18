@@ -1,15 +1,12 @@
-
-//Discord API
+// Discord API
 #if desktop
 import backend.Discord;
 #end
-
-//Psych
+// Psych
 #if LUA_ALLOWED
 import llua.*;
 import llua.Lua;
 #end
-
 import backend.Paths;
 import backend.Controls;
 import backend.CoolUtil;
@@ -21,14 +18,11 @@ import backend.Conductor;
 import backend.BaseStage;
 import backend.Difficulty;
 import backend.Mods;
-
 import objects.Alphabet;
 import objects.BGSprite;
-
 import states.PlayState;
 import states.LoadingState;
-
-//Flixel
+// Flixel
 #if (flixel >= "5.3.0")
 import flixel.sound.FlxSound;
 #else

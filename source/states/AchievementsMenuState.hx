@@ -3,12 +3,13 @@ package states;
 import backend.Achievements;
 import objects.AttachedAchievement;
 
-class AchievementsMenuState extends MusicBeatState
-{
+class AchievementsMenuState extends MusicBeatState {
 	#if ACHIEVEMENTS_ALLOWED
 	var options:Array<String> = [];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
+
 	private static var curSelected:Int = 0;
+
 	private var achievementArray:Array<AttachedAchievement> = [];
 	private var achievementIndex:Array<Int> = [];
 	private var descText:FlxText;
@@ -30,7 +31,7 @@ class AchievementsMenuState extends MusicBeatState
 
 		Achievements.loadAchievements();
 		for (i in 0...Achievements.achievementsStuff.length) {
-			if(!Achievements.achievementsStuff[i][3] || Achievements.achievementsMap.exists(Achievements.achievementsStuff[i][2])) {
+			if (!Achievements.achievementsStuff[i][3] || Achievements.achievementsMap.exists(Achievements.achievementsStuff[i][2])) {
 				options.push(Achievements.achievementsStuff[i]);
 				achievementIndex.push(i);
 			}
@@ -97,7 +98,7 @@ class AchievementsMenuState extends MusicBeatState
 
 		for (i in 0...achievementArray.length) {
 			achievementArray[i].alpha = 0.6;
-			if(i == curSelected) {
+			if (i == curSelected) {
 				achievementArray[i].alpha = 1;
 			}
 		}

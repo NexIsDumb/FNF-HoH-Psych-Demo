@@ -1,14 +1,17 @@
 package flixel.system;
 
 #if VIDEOS_ALLOWED
-#if (hxCodec >= "3.0.0") import hxcodec.flixel.FlxVideo as VideoHandler;
-#elseif (hxCodec >= "2.6.1") import hxcodec.VideoHandler as VideoHandler;
-#elseif (hxCodec == "2.6.0") import VideoHandler;
-#else import vlc.MP4Handler as VideoHandler; #end
+#if (hxCodec >= "3.0.0")
+import hxcodec.flixel.FlxVideo as VideoHandler;
+#elseif (hxCodec >= "2.6.1")
+import hxcodec.VideoHandler as VideoHandler;
+#elseif (hxCodec == "2.6.0")
+import VideoHandler;
+#else
+import vlc.MP4Handler as VideoHandler;
 #end
-
-class FlxSplash extends FlxState
-{
+#end
+class FlxSplash extends FlxState {
 	public static var nextState:Class<FlxState>;
 
 	/**
@@ -19,8 +22,7 @@ class FlxSplash extends FlxState
 	var intro:VideoHandler;
 	private var _cachedMuted:Bool;
 
-	override public function create():Void
-	{
+	override public function create():Void {
 		intro = new VideoHandler();
 		intro.play(Paths.video("splash"));
 		intro.onEndReached.add(onComplete, true);
@@ -31,20 +33,21 @@ class FlxSplash extends FlxState
 		}
 	}
 
-	override public function update(elapsed:Float):Void
-	{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 		if (Controls.instance.ACCEPT)
 			onComplete();
 	}
 
 	private var fired:Bool = false;
-	function onComplete():Void
-	{
-		if(fired) return;  // Precautions because of the skippable part  - Nex
+
+	function onComplete():Void {
+		if (fired)
+			return; // Precautions because of the skippable part  - Nex
 		fired = true;
 
-		if(intro != null) intro.dispose();
+		if (intro != null)
+			intro.dispose();
 		FlxG.sound.muted = _cachedMuted;
 		FlxG.switchState(Type.createInstance(nextState, []));
 		FlxG.game._gameJustStarted = true;

@@ -144,9 +144,7 @@ class TileContainerSymbol extends TileContainer {
 				continue;
 			}
 			// this is confusing but needed :(
-			var oldSymbol:TileContainerSymbol = (layer.numTiles > i) ? try
-				cast(layer.getTileAt(i), TileContainerSymbol)
-			catch (e:Dynamic)
+			var oldSymbol:TileContainerSymbol = (layer.numTiles > i) ? try cast(layer.getTileAt(i), TileContainerSymbol) catch (e:Dynamic)
 				null : null;
 
 			var newSymbol:TileContainerSymbol = null;
@@ -399,7 +397,6 @@ class TileContainerSymbol extends TileContainer {
 		return -1;
 	}
 
-	
 	private function get_currentFrame():Int {
 		return _currentFrame;
 	}

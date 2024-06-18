@@ -11,7 +11,6 @@ import openfl.display._internal.stats.DrawCallContext;
 #if flash
 import openfl.Lib;
 #end
-
 #if openfl
 import openfl.system.System;
 #end
@@ -24,8 +23,7 @@ import openfl.system.System;
 @:fileXml('tags="haxe,release"')
 @:noDebug
 #end
-class FPS extends TextField
-{
+class FPS extends TextField {
 	/**
 		The current frame rate, expressed using frames-per-second
 	**/
@@ -35,8 +33,7 @@ class FPS extends TextField
 	@:noCompletion private var currentTime:Float;
 	@:noCompletion private var times:Array<Float>;
 
-	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
-	{
+	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000) {
 		super();
 
 		this.x = x;
@@ -55,8 +52,7 @@ class FPS extends TextField
 		times = [];
 
 		#if flash
-		addEventListener(Event.ENTER_FRAME, function(e)
-		{
+		addEventListener(Event.ENTER_FRAME, function(e) {
 			var time = Lib.getTimer();
 			__enterFrame(time - currentTime);
 		});
@@ -65,33 +61,30 @@ class FPS extends TextField
 
 	// Event Handlers
 	@:noCompletion
-	private #if !flash override #end function __enterFrame(deltaTime:Float):Void
-	{
+	private #if !flash override #end function __enterFrame(deltaTime:Float):Void {
 		currentTime += deltaTime;
 		times.push(currentTime);
 
-		while (times[0] < currentTime - 1000)
-		{
+		while (times[0] < currentTime - 1000) {
 			times.shift();
 		}
 
 		var currentCount = times.length;
 		currentFPS = Math.round((currentCount + cacheCount) / 2);
-		if (currentFPS > ClientPrefs.data.framerate) currentFPS = ClientPrefs.data.framerate;
+		if (currentFPS > ClientPrefs.data.framerate)
+			currentFPS = ClientPrefs.data.framerate;
 
-		if (currentCount != cacheCount /*&& visible*/)
-		{
+		if (currentCount != cacheCount /*&& visible*/) {
 			text = "hps: " + currentFPS;
 			var memoryMegas:Float = 0;
-			
-			//#if openfl
-			//memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-			//text += "\nmemory: " + memoryMegas + " mb";
-			//#end
+
+			// #if openfl
+			// memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+			// text += "\nmemory: " + memoryMegas + " mb";
+			// #end
 
 			textColor = 0xFFFFFFFF;
-			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2)
-			{
+			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2) {
 				textColor = 0xFFFF0000;
 			}
 

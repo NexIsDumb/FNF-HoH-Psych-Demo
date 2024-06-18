@@ -3,23 +3,20 @@ package states;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
-
 import flixel.group.FlxGroup;
 import flixel.graphics.FlxGraphic;
-
 import objects.MenuItem;
 import objects.MenuCharacter;
-
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
 
-class StoryMenuState extends MusicBeatState
-{
+class StoryMenuState extends MusicBeatState {
 	public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
 
 	var scoreText:FlxText;
 
 	private static var lastDifficultyName:String = '';
+
 	var curDifficulty:Int = 1;
 
 	var txtWeekTitle:FlxText;
@@ -41,14 +38,14 @@ class StoryMenuState extends MusicBeatState
 
 	var loadedWeeks:Array<WeekData> = [];
 
-	override function create()
-	{
+	override function create() {
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
 		PlayState.isStoryMode = true;
 		WeekData.reloadWeekFiles(true);
-		if(curWeek >= WeekData.weeksList.length) curWeek = 0;
+		if (curWeek >= WeekData.weeksList.length)
+			curWeek = 0;
 		persistentUpdate = persistentDraw = true;
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
@@ -85,12 +82,10 @@ class StoryMenuState extends MusicBeatState
 		#end
 
 		var num:Int = 0;
-		for (i in 0...WeekData.weeksList.length)
-		{
+		for (i in 0...WeekData.weeksList.length) {
 			var weekFile:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var isLocked:Bool = weekIsLocked(WeekData.weeksList[i]);
-			if(!isLocked || !weekFile.hiddenUntilUnlocked)
-			{
+			if (!isLocked || !weekFile.hiddenUntilUnlocked) {
 				loadedWeeks.push(weekFile);
 				WeekData.setDirectoryFromWeek(weekFile);
 				var weekThing:MenuItem = new MenuItem(0, bgSprite.y + 396, WeekData.weeksList[i]);
@@ -102,8 +97,7 @@ class StoryMenuState extends MusicBeatState
 				// weekThing.updateHitbox();
 
 				// Needs an offset thingie
-				if (isLocked)
-				{
+				if (isLocked) {
 					var lock:FlxSprite = new FlxSprite(weekThing.width + 10 + weekThing.x);
 					lock.antialiasing = ClientPrefs.data.antialiasing;
 					lock.frames = ui_tex;
@@ -118,8 +112,7 @@ class StoryMenuState extends MusicBeatState
 
 		WeekData.setDirectoryFromWeek(loadedWeeks[0]);
 		var charArray:Array<String> = loadedWeeks[0].weekCharacters;
-		for (char in 0...3)
-		{
+		for (char in 0...3) {
 			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, charArray[char]);
 			weekCharacterThing.y += 70;
 			grpWeekCharacters.add(weekCharacterThing);
@@ -137,12 +130,11 @@ class StoryMenuState extends MusicBeatState
 		difficultySelectors.add(leftArrow);
 
 		Difficulty.resetList();
-		if(lastDifficultyName == '')
-		{
+		if (lastDifficultyName == '') {
 			lastDifficultyName = Difficulty.getDefault();
 		}
 		curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(lastDifficultyName)));
-		
+
 		sprDifficulty = new FlxSprite(0, leftArrow.y);
 		sprDifficulty.antialiasing = ClientPrefs.data.antialiasing;
 		difficultySelectors.add(sprDifficulty);
@@ -184,34 +176,30 @@ class StoryMenuState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	override function update(elapsed:Float)
-	{
+	override function update(elapsed:Float) {
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, FlxMath.bound(elapsed * 30, 0, 1)));
-		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
+		if (Math.abs(intendedScore - lerpScore) < 10)
+			lerpScore = intendedScore;
 
 		scoreText.text = "WEEK SCORE:" + lerpScore;
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 
-		if (!movedBack && !selectedWeek)
-		{
+		if (!movedBack && !selectedWeek) {
 			var upP = controls.UI_UP_P;
 			var downP = controls.UI_DOWN_P;
-			if (upP)
-			{
+			if (upP) {
 				changeWeek(-1);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 
-			if (downP)
-			{
+			if (downP) {
 				changeWeek(1);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 
-			if(FlxG.mouse.wheel != 0)
-			{
+			if (FlxG.mouse.wheel != 0) {
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 				changeWeek(-FlxG.mouse.wheel);
 				changeDifficulty();
@@ -234,25 +222,19 @@ class StoryMenuState extends MusicBeatState
 			else if (upP || downP)
 				changeDifficulty();
 
-			if(FlxG.keys.justPressed.CONTROL)
-			{
+			if (FlxG.keys.justPressed.CONTROL) {
 				persistentUpdate = false;
 				openSubState(new GameplayChangersSubstate());
-			}
-			else if(controls.RESET)
-			{
+			} else if (controls.RESET) {
 				persistentUpdate = false;
 				openSubState(new ResetScoreSubState('', curDifficulty, '', curWeek));
-				//FlxG.sound.play(Paths.sound('scrollMenu'));
-			}
-			else if (controls.ACCEPT)
-			{
+				// FlxG.sound.play(Paths.sound('scrollMenu'));
+			} else if (controls.ACCEPT) {
 				selectWeek();
 			}
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek)
-		{
+		if (controls.BACK && !movedBack && !selectedWeek) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
 			MusicBeatState.switchState(new MainMenuState());
@@ -260,8 +242,7 @@ class StoryMenuState extends MusicBeatState
 
 		super.update(elapsed);
 
-		grpLocks.forEach(function(lock:FlxSprite)
-		{
+		grpLocks.forEach(function(lock:FlxSprite) {
 			lock.y = grpWeekText.members[lock.ID].y;
 			lock.visible = (lock.y > FlxG.height / 2);
 		});
@@ -271,10 +252,8 @@ class StoryMenuState extends MusicBeatState
 	var selectedWeek:Bool = false;
 	var stopspamming:Bool = false;
 
-	function selectWeek()
-	{
-		if (!weekIsLocked(loadedWeeks[curWeek].fileName))
-		{
+	function selectWeek() {
+		if (!weekIsLocked(loadedWeeks[curWeek].fileName)) {
 			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
 			var songArray:Array<String> = [];
 			var leWeek:Array<Dynamic> = loadedWeeks[curWeek].songs;
@@ -283,49 +262,43 @@ class StoryMenuState extends MusicBeatState
 			}
 
 			// Nevermind that's stupid lmao
-			try
-			{
+			try {
 				PlayState.storyPlaylist = songArray;
 				PlayState.isStoryMode = true;
 				selectedWeek = true;
-	
+
 				var diffic = Difficulty.getFilePath(curDifficulty);
-				if(diffic == null) diffic = '';
-	
+				if (diffic == null)
+					diffic = '';
+
 				PlayState.storyDifficulty = curDifficulty;
-	
+
 				PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 				PlayState.campaignScore = 0;
 				PlayState.campaignMisses = 0;
-			}
-			catch(e:Dynamic)
-			{
+			} catch (e:Dynamic) {
 				trace('ERROR! $e');
 				return;
 			}
-			
-			if (stopspamming == false)
-			{
+
+			if (stopspamming == false) {
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				grpWeekText.members[curWeek].startFlashing();
 
-				for (char in grpWeekCharacters.members)
-				{
-					if (char.character != '' && char.hasConfirmAnimation)
-					{
+				for (char in grpWeekCharacters.members) {
+					if (char.character != '' && char.hasConfirmAnimation) {
 						char.animation.play('confirm');
 					}
 				}
 				stopspamming = true;
 			}
 
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
+			new FlxTimer().start(1, function(tmr:FlxTimer) {
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 				FreeplayState.destroyFreeplayVocals();
 			});
-			
+
 			#if MODS_ALLOWED
 			DiscordClient.loadModRPC();
 			#end
@@ -335,12 +308,12 @@ class StoryMenuState extends MusicBeatState
 	}
 
 	var tweenDifficulty:FlxTween;
-	function changeDifficulty(change:Int = 0):Void
-	{
+
+	function changeDifficulty(change:Int = 0):Void {
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
-			curDifficulty = Difficulty.list.length-1;
+			curDifficulty = Difficulty.list.length - 1;
 		if (curDifficulty >= Difficulty.list.length)
 			curDifficulty = 0;
 
@@ -348,21 +321,21 @@ class StoryMenuState extends MusicBeatState
 
 		var diff:String = Difficulty.getString(curDifficulty);
 		var newImage:FlxGraphic = Paths.image('menudifficulties/' + Paths.formatToSongPath(diff));
-		//trace(Mods.currentModDirectory + ', menudifficulties/' + Paths.formatToSongPath(diff));
+		// trace(Mods.currentModDirectory + ', menudifficulties/' + Paths.formatToSongPath(diff));
 
-		if(sprDifficulty.graphic != newImage)
-		{
+		if (sprDifficulty.graphic != newImage) {
 			sprDifficulty.loadGraphic(newImage);
 			sprDifficulty.x = leftArrow.x + 60;
 			sprDifficulty.x += (308 - sprDifficulty.width) / 3;
 			sprDifficulty.alpha = 0;
 			sprDifficulty.y = leftArrow.y - 15;
 
-			if(tweenDifficulty != null) tweenDifficulty.cancel();
-			tweenDifficulty = FlxTween.tween(sprDifficulty, {y: leftArrow.y + 15, alpha: 1}, 0.07, {onComplete: function(twn:FlxTween)
-			{
-				tweenDifficulty = null;
-			}});
+			if (tweenDifficulty != null)
+				tweenDifficulty.cancel();
+			tweenDifficulty = FlxTween.tween(sprDifficulty, {y: leftArrow.y + 15, alpha: 1}, 0.07, {
+				onComplete: function(twn:FlxTween) {
+					tweenDifficulty = null;
+				}});
 		}
 		lastDifficultyName = diff;
 
@@ -374,8 +347,7 @@ class StoryMenuState extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
-	function changeWeek(change:Int = 0):Void
-	{
+	function changeWeek(change:Int = 0):Void {
 		curWeek += change;
 
 		if (curWeek >= loadedWeeks.length)
@@ -393,8 +365,7 @@ class StoryMenuState extends MusicBeatState
 		var bullShit:Int = 0;
 
 		var unlocked:Bool = !weekIsLocked(leWeek.fileName);
-		for (item in grpWeekText.members)
-		{
+		for (item in grpWeekText.members) {
 			item.targetY = bullShit - curWeek;
 			if (item.targetY == Std.int(0) && unlocked)
 				item.alpha = 1;
@@ -405,7 +376,7 @@ class StoryMenuState extends MusicBeatState
 
 		bgSprite.visible = true;
 		var assetName:String = leWeek.weekBackground;
-		if(assetName == null || assetName.length < 1) {
+		if (assetName == null || assetName.length < 1) {
 			bgSprite.visible = false;
 		} else {
 			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
@@ -415,15 +386,14 @@ class StoryMenuState extends MusicBeatState
 		Difficulty.loadFromWeek();
 		difficultySelectors.visible = unlocked;
 
-		if(Difficulty.list.contains(Difficulty.getDefault()))
+		if (Difficulty.list.contains(Difficulty.getDefault()))
 			curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(Difficulty.getDefault())));
 		else
 			curDifficulty = 0;
 
 		var newPos:Int = Difficulty.list.indexOf(lastDifficultyName);
-		//trace('Pos of ' + lastDifficultyName + ' is ' + newPos);
-		if(newPos > -1)
-		{
+		// trace('Pos of ' + lastDifficultyName + ' is ' + newPos);
+		if (newPos > -1) {
 			curDifficulty = newPos;
 		}
 		updateText();
@@ -434,8 +404,7 @@ class StoryMenuState extends MusicBeatState
 		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!weekCompleted.exists(leWeek.weekBefore) || !weekCompleted.get(leWeek.weekBefore)));
 	}
 
-	function updateText()
-	{
+	function updateText() {
 		var weekArray:Array<String> = loadedWeeks[curWeek].weekCharacters;
 		for (i in 0...grpWeekCharacters.length) {
 			grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
@@ -448,8 +417,7 @@ class StoryMenuState extends MusicBeatState
 		}
 
 		txtTracklist.text = '';
-		for (i in 0...stringThing.length)
-		{
+		for (i in 0...stringThing.length) {
 			txtTracklist.text += stringThing[i] + '\n';
 		}
 

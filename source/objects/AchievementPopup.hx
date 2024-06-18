@@ -4,9 +4,10 @@ import backend.Achievements;
 
 class AchievementPopup extends FlxSpriteGroup {
 	public var onFinish:Void->Void = null;
+
 	var alphaTween:FlxTween;
-	public function new(name:String, ?camera:FlxCamera = null)
-	{
+
+	public function new(name:String, ?camera:FlxCamera = null) {
 		super(x, y);
 		ClientPrefs.saveSettings();
 
@@ -34,7 +35,7 @@ class AchievementPopup extends FlxSpriteGroup {
 		add(achievementIcon);
 
 		var cam:Array<FlxCamera> = FlxCamera.defaultCameras;
-		if(camera != null) {
+		if (camera != null) {
 			cam = [camera];
 		}
 		alpha = 0;
@@ -42,20 +43,22 @@ class AchievementPopup extends FlxSpriteGroup {
 		achievementName.cameras = cam;
 		achievementText.cameras = cam;
 		achievementIcon.cameras = cam;
-		alphaTween = FlxTween.tween(this, {alpha: 1}, 0.5, {onComplete: function (twn:FlxTween) {
-			alphaTween = FlxTween.tween(this, {alpha: 0}, 0.5, {
-				startDelay: 2.5,
-				onComplete: function(twn:FlxTween) {
-					alphaTween = null;
-					remove(this);
-					if(onFinish != null) onFinish();
-				}
-			});
-		}});
+		alphaTween = FlxTween.tween(this, {alpha: 1}, 0.5, {
+			onComplete: function(twn:FlxTween) {
+				alphaTween = FlxTween.tween(this, {alpha: 0}, 0.5, {
+					startDelay: 2.5,
+					onComplete: function(twn:FlxTween) {
+						alphaTween = null;
+						remove(this);
+						if (onFinish != null)
+							onFinish();
+					}
+				});
+			}});
 	}
 
 	override function destroy() {
-		if(alphaTween != null) {
+		if (alphaTween != null) {
 			alphaTween.cancel();
 		}
 		super.destroy();

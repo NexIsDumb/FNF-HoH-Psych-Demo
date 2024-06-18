@@ -5,21 +5,19 @@ import flixel.FlxBasic;
 import flixel.system.FlxAssets.FlxShader;
 import openfl.Lib;
 
-class OverlayFilter extends FlxBasic
-{
+class OverlayFilter extends FlxBasic {
 	public var shader(default, null):Overlay = new Overlay();
 
-	public function new():Void{
+	public function new():Void {
 		super();
 	}
 
-	override public function update(elapsed:Float):Void{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 	}
 }
 
-class Overlay extends FlxShader
-{
+class Overlay extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
 
@@ -57,9 +55,7 @@ class Overlay extends FlxShader
             gl_FragColor = opacity (alpha, texColor, blendResult);
         }
 	')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }

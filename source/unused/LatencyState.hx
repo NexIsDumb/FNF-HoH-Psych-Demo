@@ -2,21 +2,18 @@ package;
 
 import flixel.FlxState;
 
-class LatencyState extends FlxState
-{
+class LatencyState extends FlxState {
 	var offsetText:FlxText;
 	var noteGrp:FlxTypedGroup<Note>;
 	var strumLine:FlxSprite;
 
-	override function create()
-	{
+	override function create() {
 		FlxG.sound.playMusic(Paths.sound('soundTest'));
 
 		noteGrp = new FlxTypedGroup<Note>();
 		add(noteGrp);
 
-		for (i in 0...32)
-		{
+		for (i in 0...32) {
 			var note:Note = new Note(Conductor.crochet * i, 1);
 			noteGrp.add(note);
 		}
@@ -33,8 +30,7 @@ class LatencyState extends FlxState
 		super.create();
 	}
 
-	override function update(elapsed:Float)
-	{
+	override function update(elapsed:Float) {
 		offsetText.text = "Offset: " + Conductor.offset + "ms";
 
 		Conductor.songPosition = FlxG.sound.music.time - Conductor.offset;
@@ -49,15 +45,13 @@ class LatencyState extends FlxState
 		if (FlxG.keys.justPressed.LEFT)
 			Conductor.offset -= 1 * multiply;
 
-		if (FlxG.keys.justPressed.SPACE)
-		{
+		if (FlxG.keys.justPressed.SPACE) {
 			FlxG.sound.music.stop();
 
 			FlxG.resetState();
 		}
 
-		noteGrp.forEach(function(daNote:Note)
-		{
+		noteGrp.forEach(function(daNote:Note) {
 			daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * 0.45);
 			daNote.x = strumLine.x + 30;
 

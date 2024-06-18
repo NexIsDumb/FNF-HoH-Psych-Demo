@@ -1,19 +1,15 @@
 package substates;
 
 import backend.WeekData;
-
 import objects.Character;
 import flixel.FlxObject;
 import flixel.FlxSubState;
 import flixel.math.FlxPoint;
-
 import states.StoryMenuState;
 import states.FreeplayState;
-
 import overworld.*;
 
-class SillySub extends MusicBeatSubstate
-{
+class SillySub extends MusicBeatSubstate {
 	var camFollow:FlxObject;
 	var updateCamera:Bool = false;
 	var playingDeathSound:Bool = false;
@@ -21,18 +17,17 @@ class SillySub extends MusicBeatSubstate
 	var stageSuffix:String = "";
 
 	public static var instance:SillySub;
+
 	public var dialogue:Dialogue;
 
-	override function create()
-	{
+	override function create() {
 		instance = this;
 		PlayState.instance.callOnScripts('onGameOverStart', []);
 
 		super.create();
 	}
 
-	public function new(x:Float, y:Float, camX:Float, camY:Float)
-	{
+	public function new(x:Float, y:Float, camX:Float, camY:Float) {
 		super();
 
 		dialogue = new Dialogue();
@@ -42,10 +37,8 @@ class SillySub extends MusicBeatSubstate
 		dialogue.cameras = [PlayState.instance.camOtheristic];
 		add(dialogue);
 
-		dialogue.openBox("Elderbug", 
-			[
-				["I apologize, my singing must be a little rusty. Lets try that again, Traveler."]
-			],
+		dialogue.openBox("Elderbug",
+			[["I apologize, my singing must be a little rusty. Lets try that again, Traveler."]],
 			function() {
 				MusicBeatState.resetState();
 			}
@@ -53,15 +46,15 @@ class SillySub extends MusicBeatSubstate
 	}
 
 	public var startedDeath:Bool = false;
+
 	var isFollowingAlready:Bool = false;
-	override function update(elapsed:Float)
-	{
+
+	override function update(elapsed:Float) {
 		super.update(elapsed);
-		
+
 		FlxG.camera.followLerp = FlxMath.bound(elapsed * 0.6 / (FlxG.updateFramerate / 60), 0, 1);
 
-		if (FlxG.sound.music.playing)
-		{
+		if (FlxG.sound.music.playing) {
 			Conductor.songPosition = FlxG.sound.music.time;
 		}
 		PlayState.instance.callOnScripts('onUpdatePost', [elapsed]);
@@ -71,8 +64,7 @@ class SillySub extends MusicBeatSubstate
 
 	var isEnding:Bool = false;
 
-	override function destroy()
-	{
+	override function destroy() {
 		instance = null;
 		super.destroy();
 	}

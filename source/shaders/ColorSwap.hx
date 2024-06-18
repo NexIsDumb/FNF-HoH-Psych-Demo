@@ -26,8 +26,7 @@ class ColorSwap {
 		return brightness;
 	}
 
-	public function new()
-	{
+	public function new() {
 		shader.uTime.value = [0, 0, 0];
 		shader.awesomeOutline.value = [false];
 	}
@@ -208,9 +207,7 @@ class ColorSwapShader extends FlxShader {
 				openfl_ColorMultiplierv = colorMultiplier;
 			}
 		}')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }

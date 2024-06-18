@@ -1,7 +1,6 @@
 package;
 
 import flixel.graphics.FlxGraphic;
-
 import flixel.FlxGame;
 import flixel.FlxState;
 import openfl.Assets;
@@ -13,17 +12,14 @@ import openfl.display.StageScaleMode;
 import lime.app.Application;
 import states.MainMenuState;
 import flixel.input.keyboard.FlxKey;
-
 import openfl.system.System;
 import openfl.utils.AssetCache;
 import cpp.vm.Gc;
 import flixel.FlxCamera;
-
 #if linux
 import lime.graphics.Image;
 #end
-
-//crash handler stuff
+// crash handler stuff
 #if CRASH_HANDLER
 import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
@@ -33,8 +29,7 @@ import sys.io.File;
 import sys.io.Process;
 #end
 
-class Main extends Sprite
-{
+class Main extends Sprite {
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
@@ -53,49 +48,40 @@ class Main extends Sprite
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
-	public static function main():Void
-	{
+	public static function main():Void {
 		Lib.current.addChild(new Main());
 	}
 
-	public function new()
-	{
+	public function new() {
 		super();
 
-		if (stage != null)
-		{
+		if (stage != null) {
 			init();
-		}
-		else
-		{
+		} else {
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 	}
 
-	private function init(?E:Event):Void
-	{
-		if (hasEventListener(Event.ADDED_TO_STAGE))
-		{
+	private function init(?E:Event):Void {
+		if (hasEventListener(Event.ADDED_TO_STAGE)) {
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		}
 
 		setupGame();
 	}
 
-	private function setupGame():Void
-	{
+	private function setupGame():Void {
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 
-		if (game.zoom == -1.0)
-		{
+		if (game.zoom == -1.0) {
 			var ratioX:Float = stageWidth / game.width;
 			var ratioY:Float = stageHeight / game.height;
 			game.zoom = Math.min(ratioX, ratioY);
 			game.width = Math.ceil(stageWidth / game.zoom);
 			game.height = Math.ceil(stageHeight / game.zoom);
 		}
-	
+
 		#if LUA_ALLOWED Lua.set_callbacks_function(cpp.Callable.fromStaticFunction(psychlua.CallbackHandler.call)); #end
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
@@ -111,19 +97,19 @@ class Main extends Sprite
 		ClientPrefs.loadPrefs();
 
 		FlxG.signals.gameResized.add(onResizeGame);
-		FlxG.signals.preStateSwitch.add(function () {
+		FlxG.signals.preStateSwitch.add(function() {
 			Paths.clearStoredMemory(true);
 			FlxG.bitmap.dumpCache();
 
 			var cache = cast(Assets.cache, AssetCache);
-			for (key=>font in cache.font)
+			for (key => font in cache.font)
 				cache.removeFont(key);
-			for (key=>sound in cache.sound)
+			for (key => sound in cache.sound)
 				cache.removeSound(key);
 
 			gc();
 		});
-		FlxG.signals.postStateSwitch.add(function () {
+		FlxG.signals.postStateSwitch.add(function() {
 			Paths.clearUnusedMemory();
 			gc();
 		});
@@ -133,7 +119,7 @@ class Main extends Sprite
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
-		if(fpsVar != null) {
+		if (fpsVar != null) {
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
 		#end
@@ -146,7 +132,7 @@ class Main extends Sprite
 		#if html5
 		FlxG.autoPause = false;
 		#end
-		
+
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
 		#end
@@ -156,17 +142,17 @@ class Main extends Sprite
 		#end
 
 		// shader coords fix
-		FlxG.signals.gameResized.add(function (w, h) {
-		     if (FlxG.cameras != null) {
-			   for (cam in FlxG.cameras.list) {
-				@:privateAccess
-				if (cam != null && cam._filters != null)
-					resetSpriteCache(cam.flashSprite);
-			   }
-		     }
+		FlxG.signals.gameResized.add(function(w, h) {
+			if (FlxG.cameras != null) {
+				for (cam in FlxG.cameras.list) {
+					@:privateAccess
+					if (cam != null && cam._filters != null)
+						resetSpriteCache(cam.flashSprite);
+				}
+			}
 
-		     if (FlxG.game != null)
-			 resetSpriteCache(FlxG.game);
+			if (FlxG.game != null)
+				resetSpriteCache(FlxG.game);
 		});
 
 		setExitHandler(function() {
@@ -190,7 +176,7 @@ class Main extends Sprite
 
 	static function resetSpriteCache(sprite:Sprite):Void {
 		@:privateAccess {
-		        sprite.__cacheBitmap = null;
+			sprite.__cacheBitmap = null;
 			sprite.__cacheBitmapData = null;
 		}
 	}
@@ -198,8 +184,7 @@ class Main extends Sprite
 	// Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine", big props to them!!!
 	// very cool person for real they don't get enough credit for their work
 	#if CRASH_HANDLER
-	function onCrash(e:UncaughtErrorEvent):Void
-	{
+	function onCrash(e:UncaughtErrorEvent):Void {
 		var errMsg:String = "";
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
@@ -210,14 +195,10 @@ class Main extends Sprite
 
 		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
 
-		for (stackItem in callStack)
-		{
-			switch (stackItem)
-			{
-				case FilePos(s, file, line, column):
-					errMsg += file + " (line " + line + ")\n";
-				default:
-					Sys.println(stackItem);
+		for (stackItem in callStack) {
+			switch (stackItem) {
+				case FilePos(s, file, line, column): errMsg += file + " (line " + line + ")\n";
+				default: Sys.println(stackItem);
 			}
 		}
 
@@ -245,24 +226,22 @@ class Main extends Sprite
 			@:privateAccess
 			if (cam != null && (cam._filters != null || cam._filters != []))
 				fixShaderSize(cam);
-		}	
+		}
 	}
 
-	function fixShaderSize(camera:FlxCamera)
-		{
-			@:privateAccess {
-				var sprite:Sprite = camera.flashSprite;
-	
-				if (sprite != null)
-				{
-					sprite.__cacheBitmap = null;
-					sprite.__cacheBitmapData = null;
-					sprite.__cacheBitmapData2 = null;
-					sprite.__cacheBitmapData3 = null;
-					sprite.__cacheBitmapColorTransform = null;
-				}
+	function fixShaderSize(camera:FlxCamera) {
+		@:privateAccess {
+			var sprite:Sprite = camera.flashSprite;
+
+			if (sprite != null) {
+				sprite.__cacheBitmap = null;
+				sprite.__cacheBitmapData = null;
+				sprite.__cacheBitmapData2 = null;
+				sprite.__cacheBitmapData3 = null;
+				sprite.__cacheBitmapColorTransform = null;
 			}
 		}
+	}
 
 	public static function gc() {
 		#if cpp

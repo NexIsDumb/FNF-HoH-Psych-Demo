@@ -1,22 +1,19 @@
 package objects;
 
-class MenuItem extends FlxSprite
-{
+class MenuItem extends FlxSprite {
 	public var targetY:Float = 0;
 	public var flashingInt:Int = 0;
 
-	public function new(x:Float, y:Float, weekName:String = '')
-	{
+	public function new(x:Float, y:Float, weekName:String = '') {
 		super(x, y);
 		loadGraphic(Paths.image('storymenu/' + weekName));
 		antialiasing = ClientPrefs.data.antialiasing;
-		//trace('Test added: ' + WeekData.getWeekNumber(weekNum) + ' (' + weekNum + ')');
+		// trace('Test added: ' + WeekData.getWeekNumber(weekNum) + ' (' + weekNum + ')');
 	}
 
 	private var isFlashing:Bool = false;
 
-	public function startFlashing():Void
-	{
+	public function startFlashing():Void {
 		isFlashing = true;
 	}
 
@@ -26,8 +23,7 @@ class MenuItem extends FlxSprite
 	// I'm still learning how math works thanks whoever is reading this lol
 	var fakeFramerate:Int = Math.round((1 / FlxG.elapsed) / 10);
 
-	override function update(elapsed:Float)
-	{
+	override function update(elapsed:Float) {
 		super.update(elapsed);
 		y = FlxMath.lerp(y, (targetY * 120) + 480, FlxMath.bound(elapsed * 10.2, 0, 1));
 

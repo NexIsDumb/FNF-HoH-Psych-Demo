@@ -3,23 +3,19 @@ package shaders;
 // STOLEN FROM HAXEFLIXEL DEMO LOL
 import flixel.system.FlxAssets.FlxShader;
 
-class FogEffect
-{
+class FogEffect {
 	public var shader(default, null):FogShader = new FogShader();
 
-	public function new():Void
-	{
+	public function new():Void {
 		shader.iTime.value = [0];
 	}
 
-	public function update(elapsed:Float):Void
-	{
+	public function update(elapsed:Float):Void {
 		shader.iTime.value[0] += elapsed;
 	}
 }
 
-class FogShader extends FlxShader
-{
+class FogShader extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
 		float cloudDensity = .9; 	// overall density [0,1]
@@ -154,8 +150,7 @@ class FogShader extends FlxShader
             vec4 bgcolor = texture2D(bitmap, uv);
             gl_FragColor = vec4(FilterColor(q, bgcolor));
         }')
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }

@@ -4,23 +4,19 @@ package shaders.stages;
 import flixel.system.FlxAssets.FlxShader;
 import flixel.FlxBasic;
 
-class FogEffect
-{
+class FogEffect {
 	public var shader(default, null):FogShader = new FogShader();
 
-	public function new():Void
-	{
+	public function new():Void {
 		shader.iTime.value = [0];
 	}
 
-	public function update(elapsed:Float):Void
-	{
+	public function update(elapsed:Float):Void {
 		shader.iTime.value[0] += elapsed;
 	}
 }
 
-class FogShader extends FlxShader
-{
+class FogShader extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
 		float cloudDensity = 1; 	// overall density [0,1]
@@ -156,29 +152,24 @@ class FogShader extends FlxShader
             //FilterColor(q, bgcolor)
             gl_FragColor = vec4(q);
         }')
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }
 
-class BloomEffect
-{
+class BloomEffect {
 	public var shader(default, null):BloomShader = new BloomShader();
 
-	public function new():Void
-	{
+	public function new():Void {
 		//
 	}
 
-	public function update(elapsed:Float):Void
-	{
+	public function update(elapsed:Float):Void {
 		//
 	}
 }
 
-class BloomShader extends FlxShader
-{
+class BloomShader extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
         #define BLOOM_RADIUS 6.14
@@ -207,32 +198,30 @@ class BloomShader extends FlxShader
     
 			gl_FragColor = vec4(bloomed, 1.0);
 		}')
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }
 
-class NoirFilter extends FlxBasic
-{
+class NoirFilter extends FlxBasic {
 	public var shader(default, null):BnW = new BnW();
 
 	var iTime:Float = 0;
 
 	public var amt(default, set):Float = 0;
 
-	public function new(amount:Float):Void{
+	public function new(amount:Float):Void {
 		super();
 
 		amt = amount;
 		shader.amount.value = [amount];
 	}
 
-	override public function update(elapsed:Float):Void{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 	}
 
-	function set_amt(v:Float):Float{
+	function set_amt(v:Float):Float {
 		amt = v;
 		shader.amount.value = [amt];
 
@@ -240,8 +229,7 @@ class NoirFilter extends FlxBasic
 	}
 }
 
-class BnW extends FlxShader
-{
+class BnW extends FlxShader {
 	@:glFragmentSource('
 		#pragma header
 
@@ -265,9 +253,7 @@ class BnW extends FlxShader
 			gl_FragColor = texColor;
 		}
 	')
-
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 }

@@ -4,7 +4,9 @@ import backend.Achievements;
 
 class AttachedAchievement extends FlxSprite {
 	public var sprTracker:FlxSprite;
+
 	private var tag:String;
+
 	public function new(x:Float = 0, y:Float = 0, name:String) {
 		super(x, y);
 
@@ -18,7 +20,7 @@ class AttachedAchievement extends FlxSprite {
 	}
 
 	public function reloadAchievementImage() {
-		if(Achievements.isAchievementUnlocked(tag)) {
+		if (Achievements.isAchievementUnlocked(tag)) {
 			loadGraphic(Paths.image('achievements/' + tag));
 		} else {
 			loadGraphic(Paths.image('achievements/lockedachievement'));

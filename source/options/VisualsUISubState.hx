@@ -2,22 +2,19 @@ package options;
 
 import objects.Alphabet;
 
-class VisualsUISubState extends BaseOptionsMenu
-{
-	public function new()
-	{
+class VisualsUISubState extends BaseOptionsMenu {
+	public function new() {
 		title = 'Visuals and UI';
-		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
+		rpcTitle = 'Visuals & UI Settings Menu'; // for Discord Rich Presence
 
 		// options
 
 		var noteSkins:Array<String> = Mods.mergeAllTextsNamed('images/noteSkins/list.txt', 'shared');
-		if(noteSkins.length > 0)
-		{
-			if(!noteSkins.contains(ClientPrefs.data.noteSkin))
-				ClientPrefs.data.noteSkin = ClientPrefs.defaultData.noteSkin; //Reset to default if saved noteskin couldnt be found
+		if (noteSkins.length > 0) {
+			if (!noteSkins.contains(ClientPrefs.data.noteSkin))
+				ClientPrefs.data.noteSkin = ClientPrefs.defaultData.noteSkin; // Reset to default if saved noteskin couldnt be found
 
-			noteSkins.insert(0, ClientPrefs.defaultData.noteSkin); //Default skin always comes first
+			noteSkins.insert(0, ClientPrefs.defaultData.noteSkin); // Default skin always comes first
 			var option:Option = new Option('Note Skins',
 				"Select your prefered Note skin.",
 				'noteSkin',
@@ -25,14 +22,13 @@ class VisualsUISubState extends BaseOptionsMenu
 				noteSkins);
 			addOption(option);
 		}
-		
-		var noteSplashes:Array<String> = Mods.mergeAllTextsNamed('images/noteSplashes/list.txt', 'shared');
-		if(noteSplashes.length > 0)
-		{
-			if(!noteSplashes.contains(ClientPrefs.data.splashSkin))
-				ClientPrefs.data.splashSkin = ClientPrefs.defaultData.splashSkin; //Reset to default if saved splashskin couldnt be found
 
-			noteSplashes.insert(0, ClientPrefs.defaultData.splashSkin); //Default skin always comes first
+		var noteSplashes:Array<String> = Mods.mergeAllTextsNamed('images/noteSplashes/list.txt', 'shared');
+		if (noteSplashes.length > 0) {
+			if (!noteSplashes.contains(ClientPrefs.data.splashSkin))
+				ClientPrefs.data.splashSkin = ClientPrefs.defaultData.splashSkin; // Reset to default if saved splashskin couldnt be found
+
+			noteSplashes.insert(0, ClientPrefs.defaultData.splashSkin); // Default skin always comes first
 			var option:Option = new Option('Note Splashes',
 				"Select your prefered Note Splash variation or turn it off.",
 				'splashSkin',
@@ -62,7 +58,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"Select your prefered translation of the game.",
 			'translation',
 			'string',
-			[for(lan in ClientPrefs.translations) lan[0]]);
+			[for (lan in ClientPrefs.translations) lan[0]]);
 		addOption(option);
 
 		#if !mobile
@@ -86,9 +82,9 @@ class VisualsUISubState extends BaseOptionsMenu
 	}
 
 	var changedMusic:Bool = false;
-	function onChangePauseMusic()
-	{
-		if(ClientPrefs.data.pauseMusic == 'None')
+
+	function onChangePauseMusic() {
+		if (ClientPrefs.data.pauseMusic == 'None')
 			FlxG.sound.music.volume = 0;
 		else
 			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)));
@@ -96,16 +92,15 @@ class VisualsUISubState extends BaseOptionsMenu
 		changedMusic = true;
 	}
 
-	override function destroy()
-	{
-		if(changedMusic && !OptionsState.onPlayState) FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);
+	override function destroy() {
+		if (changedMusic && !OptionsState.onPlayState)
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);
 		super.destroy();
 	}
 
 	#if !mobile
-	function onChangeFPSCounter()
-	{
-		if(Main.fpsVar != null)
+	function onChangeFPSCounter() {
+		if (Main.fpsVar != null)
 			Main.fpsVar.visible = ClientPrefs.data.showFPS;
 	}
 	#end

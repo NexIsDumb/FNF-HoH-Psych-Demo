@@ -4,9 +4,7 @@ import flash.geom.Rectangle;
 import flixel.addons.ui.interfaces.IFlxUIClickable;
 import flixel.addons.ui.interfaces.IFlxUIWidget;
 import flixel.addons.ui.interfaces.IHasParams;
-
 import flixel.ui.FlxButton;
-
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxStringUtil;
 import flixel.addons.ui.FlxUIGroup;
@@ -18,29 +16,23 @@ import flixel.addons.ui.FlxUIAssets;
 import flixel.addons.ui.StrNameLabel;
 import flixel.addons.ui.FlxUI;
 
-
 /*
 
-THIS IS AN EDIT OF FlxUIDropDownMenu I'VE MADE BECAUSE I'M TIRED OF IT NOT SUPPORTING SCROLLING UP/DOWN
-BAH!
+	THIS IS AN EDIT OF FlxUIDropDownMenu I'VE MADE BECAUSE I'M TIRED OF IT NOT SUPPORTING SCROLLING UP/DOWN
+	BAH!
 
-The differences are the following:
-* Support to scrolling up/down with mouse wheel or arrow keys
-* THe default drop direction is "Down" instead of "Automatic"
+	The differences are the following:
+	* Support to scrolling up/down with mouse wheel or arrow keys
+	* THe default drop direction is "Down" instead of "Automatic"
 
-*/
-
-
-
+ */
 /**
  * @author larsiusprime
  */
-class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IFlxUIClickable implements IHasParams
-{
+class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IFlxUIClickable implements IHasParams {
 	public var skipButtonUpdate(default, set):Bool;
 
-	private function set_skipButtonUpdate(b:Bool):Bool
-	{
+	private function set_skipButtonUpdate(b:Bool):Bool {
 		skipButtonUpdate = b;
 		header.button.skipButtonUpdate = b;
 		return b;
@@ -52,33 +44,27 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 	private var _selectedId:String;
 	private var _selectedLabel:String;
 
-	private var currentScroll:Int = 0; //Handles the scrolling
+	private var currentScroll:Int = 0; // Handles the scrolling
+
 	public var canScroll:Bool = true;
 
-	private function get_selectedId():String
-	{
+	private function get_selectedId():String {
 		return _selectedId;
 	}
 
-	private function set_selectedId(str:String):String
-	{
+	private function set_selectedId(str:String):String {
 		if (_selectedId == str)
 			return str;
 
 		var i:Int = 0;
-		for (btn in list)
-		{
-			if (btn != null && btn.name == str)
-			{
+		for (btn in list) {
+			if (btn != null && btn.name == str) {
 				var item:FlxUIButton = list[i];
 				_selectedId = str;
-				if (item.label != null)
-				{
+				if (item.label != null) {
 					_selectedLabel = item.label.text;
 					header.text.text = item.label.text;
-				}
-				else
-				{
+				} else {
 					_selectedLabel = "";
 					header.text.text = "";
 				}
@@ -89,21 +75,17 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		return str;
 	}
 
-	private function get_selectedLabel():String
-	{
+	private function get_selectedLabel():String {
 		return _selectedLabel;
 	}
 
-	private function set_selectedLabel(str:String):String
-	{
+	private function set_selectedLabel(str:String):String {
 		if (_selectedLabel == str)
 			return str;
 
 		var i:Int = 0;
-		for (btn in list)
-		{
-			if (btn.label.text == str)
-			{
+		for (btn in list) {
+			if (btn.label.text == str) {
 				var item:FlxUIButton = list[i];
 				_selectedId = item.name;
 				_selectedLabel = str;
@@ -132,15 +114,13 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 
 	public var params(default, set):Array<Dynamic>;
 
-	private function set_params(p:Array<Dynamic>):Array<Dynamic>
-	{
+	private function set_params(p:Array<Dynamic>):Array<Dynamic> {
 		return params = p;
 	}
 
 	public var dropDirection(default, set):FlxUIDropDownMenuDropDirection = Down;
 
-	private function set_dropDirection(dropDirection):FlxUIDropDownMenuDropDirection
-	{
+	private function set_dropDirection(dropDirection):FlxUIDropDownMenuDropDirection {
 		this.dropDirection = dropDirection;
 		updateButtonPositions();
 		return dropDirection;
@@ -164,9 +144,7 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 	 * @param	ButtonList			Optional list of buttons to be used for the corresponding entry in DataList
 	 * @param	UIControlCallback	Used internally by FlxUI
 	 */
-	public function new(X:Float = 0, Y:Float = 0, DataList:Array<StrNameLabel>, ?Callback:String->Void, ?Header:FlxUIDropDownHeader,
-			?DropPanel:FlxUI9SliceSprite, ?ButtonList:Array<FlxUIButton>, ?UIControlCallback:Bool->FlxUIDropDownMenu->Void)
-	{
+	public function new(X:Float = 0, Y:Float = 0, DataList:Array<StrNameLabel>, ?Callback:String->Void, ?Header:FlxUIDropDownHeader, ?DropPanel:FlxUI9SliceSprite, ?ButtonList:Array<FlxUIButton>, ?UIControlCallback:Bool->FlxUIDropDownMenu->Void) {
 		super(X, Y);
 		callback = Callback;
 		header = Header;
@@ -175,25 +153,19 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		if (header == null)
 			header = new FlxUIDropDownHeader();
 
-		if (dropPanel == null)
-		{
+		if (dropPanel == null) {
 			var rect = new Rectangle(0, 0, header.background.width, header.background.height);
 			dropPanel = new FlxUI9SliceSprite(0, 0, FlxUIAssets.IMG_BOX, rect, [1, 1, 14, 14]);
 		}
 
-		if (DataList != null)
-		{
-			for (i in 0...DataList.length)
-			{
+		if (DataList != null) {
+			for (i in 0...DataList.length) {
 				var data = DataList[i];
 				list.push(makeListButton(i, data.label, data.name));
 			}
 			selectSomething(DataList[0].name, DataList[0].label);
-		}
-		else if (ButtonList != null)
-		{
-			for (btn in ButtonList)
-			{
+		} else if (ButtonList != null) {
+			for (btn in ButtonList) {
 				list.push(btn);
 				btn.resize(header.background.width, header.background.height);
 				btn.x = 1;
@@ -205,8 +177,7 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		dropPanel.visible = false;
 		add(dropPanel);
 
-		for (btn in list)
-		{
+		for (btn in list) {
 			add(btn);
 			btn.visible = false;
 		}
@@ -216,8 +187,7 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		add(header);
 	}
 
-	private function updateButtonPositions():Void
-	{
+	private function updateButtonPositions():Void {
 		var buttonHeight = header.background.height;
 		dropPanel.y = header.background.y;
 		if (dropsUp())
@@ -226,61 +196,50 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 			dropPanel.y += buttonHeight;
 
 		var offset = dropPanel.y;
-		for (i in 0...currentScroll) { //Hides buttons that goes before the current scroll
+		for (i in 0...currentScroll) { // Hides buttons that goes before the current scroll
 			var button:FlxUIButton = list[i];
-			if(button != null) {
+			if (button != null) {
 				button.y = -99999;
 			}
 		}
-		for (i in currentScroll...list.length)
-		{
+		for (i in currentScroll...list.length) {
 			var button:FlxUIButton = list[i];
-			if(button != null) {
+			if (button != null) {
 				button.y = offset;
 				offset += buttonHeight;
 			}
 		}
 	}
 
-	override function set_visible(Value:Bool):Bool
-	{
+	override function set_visible(Value:Bool):Bool {
 		var vDropPanel = dropPanel.visible;
 		var vButtons = [];
-		for (i in 0...list.length)
-		{
-			if (list[i] != null)
-			{
+		for (i in 0...list.length) {
+			if (list[i] != null) {
 				vButtons.push(list[i].visible);
-			}
-			else
-			{
+			} else {
 				vButtons.push(false);
 			}
 		}
 		super.set_visible(Value);
 		dropPanel.visible = vDropPanel;
-		for (i in 0...list.length)
-		{
-			if (list[i] != null)
-			{
+		for (i in 0...list.length) {
+			if (list[i] != null) {
 				list[i].visible = vButtons[i];
 			}
 		}
 		return Value;
 	}
 
-	private function dropsUp():Bool
-	{
+	private function dropsUp():Bool {
 		return dropDirection == Up || (dropDirection == Automatic && exceedsHeight());
 	}
 
-	private function exceedsHeight():Bool
-	{
+	private function exceedsHeight():Bool {
 		return y + getPanelHeight() + header.background.height > FlxG.height;
 	}
 
-	private function getPanelHeight():Float
-	{
+	private function getPanelHeight():Float {
 		return list.length * header.background.height;
 	}
 
@@ -288,34 +247,25 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 	 * Change the contents with a new data list
 	 * Replaces the old content with the new content
 	 */
-	public function setData(DataList:Array<StrNameLabel>):Void
-	{
+	public function setData(DataList:Array<StrNameLabel>):Void {
 		var i:Int = 0;
 
-		if (DataList != null)
-		{
-			for (data in DataList)
-			{
+		if (DataList != null) {
+			for (data in DataList) {
 				var recycled:Bool = false;
-				if (list != null)
-				{
-					if (i <= list.length - 1)
-					{ // If buttons exist, try to re-use them
+				if (list != null) {
+					if (i <= list.length - 1) { // If buttons exist, try to re-use them
 						var btn:FlxUIButton = list[i];
-						if (btn != null)
-						{
+						if (btn != null) {
 							btn.label.text = data.label; // Set the label
 							list[i].name = data.name; // Replace the name
 							recycled = true; // we successfully recycled it
 						}
 					}
-				}
-				else
-				{
+				} else {
 					list = [];
 				}
-				if (!recycled)
-				{ // If we couldn't recycle a button, make a fresh one
+				if (!recycled) { // If we couldn't recycle a button, make a fresh one
 					var t:FlxUIButton = makeListButton(i, data.label, data.name);
 					list.push(t);
 					add(t);
@@ -325,10 +275,8 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 			}
 
 			// Remove excess buttons:
-			if (list.length > DataList.length)
-			{ // we have more entries in the original set
-				for (j in DataList.length...list.length)
-				{ // start counting from end of list
+			if (list.length > DataList.length) { // we have more entries in the original set
+				for (j in DataList.length...list.length) { // start counting from end of list
 					var b:FlxUIButton = list.pop(); // remove last button on list
 					b.visible = false;
 					b.active = false;
@@ -345,15 +293,13 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		updateButtonPositions();
 	}
 
-	private function selectSomething(name:String, label:String):Void
-	{
+	private function selectSomething(name:String, label:String):Void {
 		header.text.text = label;
 		selectedId = name;
 		selectedLabel = label;
 	}
 
-	private function makeListButton(i:Int, Label:String, Name:String):FlxUIButton
-	{
+	private function makeListButton(i:Int, Label:String, Name:String):FlxUIButton {
 		var t:FlxUIButton = new FlxUIButton(0, 0, Label);
 		t.broadcastToFlxUI = false;
 		t.onUp.callback = onClickItem.bind(i);
@@ -374,8 +320,7 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		t.autoCenterLabel();
 		t.x = 1;
 
-		for (offset in t.labelOffsets)
-		{
+		for (offset in t.labelOffsets) {
 			offset.x += 2;
 		}
 
@@ -385,89 +330,74 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 	/*public function setUIControlCallback(UIControlCallback:Bool->FlxUIDropDownMenu->Void):Void {
 		_ui_control_callback = UIControlCallback;
 	}*/
-	public function changeLabelByIndex(i:Int, NewLabel:String):Void
-	{
+	public function changeLabelByIndex(i:Int, NewLabel:String):Void {
 		var btn:FlxUIButton = getBtnByIndex(i);
-		if (btn != null && btn.label != null)
-		{
+		if (btn != null && btn.label != null) {
 			btn.label.text = NewLabel;
 		}
 	}
 
-	public function changeLabelById(name:String, NewLabel:String):Void
-	{
+	public function changeLabelById(name:String, NewLabel:String):Void {
 		var btn:FlxUIButton = getBtnById(name);
-		if (btn != null && btn.label != null)
-		{
+		if (btn != null && btn.label != null) {
 			btn.label.text = NewLabel;
 		}
 	}
 
-	public function getBtnByIndex(i:Int):FlxUIButton
-	{
-		if (i >= 0 && i < list.length)
-		{
+	public function getBtnByIndex(i:Int):FlxUIButton {
+		if (i >= 0 && i < list.length) {
 			return list[i];
 		}
 		return null;
 	}
 
-	public function getBtnById(name:String):FlxUIButton
-	{
-		for (btn in list)
-		{
-			if (btn.name == name)
-			{
+	public function getBtnById(name:String):FlxUIButton {
+		for (btn in list) {
+			if (btn.name == name) {
 				return btn;
 			}
 		}
 		return null;
 	}
 
-	public override function update(elapsed:Float):Void
-	{
+	public override function update(elapsed:Float):Void {
 		super.update(elapsed);
 
 		#if FLX_MOUSE
-		if (dropPanel.visible)
-		{
-			if(list.length > 1 && canScroll) {
-				if(FlxG.mouse.wheel > 0 || FlxG.keys.justPressed.UP) {
+		if (dropPanel.visible) {
+			if (list.length > 1 && canScroll) {
+				if (FlxG.mouse.wheel > 0 || FlxG.keys.justPressed.UP) {
 					// Go up
 					--currentScroll;
-					if(currentScroll < 0) currentScroll = 0;
+					if (currentScroll < 0)
+						currentScroll = 0;
 					updateButtonPositions();
-				}
-				else if (FlxG.mouse.wheel < 0 || FlxG.keys.justPressed.DOWN) {
+				} else if (FlxG.mouse.wheel < 0 || FlxG.keys.justPressed.DOWN) {
 					// Go down
 					currentScroll++;
-					if(currentScroll >= list.length) currentScroll = list.length-1;
+					if (currentScroll >= list.length)
+						currentScroll = list.length - 1;
 					updateButtonPositions();
 				}
 			}
 
-			if (FlxG.mouse.justPressed && !mouseOverlapping())
-			{
+			if (FlxG.mouse.justPressed && !mouseOverlapping()) {
 				showList(false);
 			}
 		}
 		#end
 	}
 
-	function mouseOverlapping()
-	{
+	function mouseOverlapping() {
 		var mousePoint = FlxG.mouse.getScreenPosition(camera);
 		var objPoint = this.getScreenPosition(null, camera);
-		if(mousePoint.x >= objPoint.x && mousePoint.y >= objPoint.y &&
-			mousePoint.x < objPoint.x + this.width && mousePoint.y < objPoint.y + this.height)
-		{
+		if (mousePoint.x >= objPoint.x && mousePoint.y >= objPoint.y && mousePoint.x < objPoint.x + this.width && mousePoint.y < objPoint.y + this.height) {
 			return true;
 		}
 		return false;
 	}
 
-	override public function destroy():Void
-	{
+	override public function destroy():Void {
 		super.destroy();
 
 		dropPanel = FlxDestroyUtil.destroy(dropPanel);
@@ -477,16 +407,14 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		callback = null;
 	}
 
-	private function showList(b:Bool):Void
-	{
-		for (button in list)
-		{
+	private function showList(b:Bool):Void {
+		for (button in list) {
 			button.visible = b;
 			button.active = b;
 		}
 
 		dropPanel.visible = b;
-		if(currentScroll != 0) {
+		if (currentScroll != 0) {
 			currentScroll = 0;
 			updateButtonPositions();
 		}
@@ -494,24 +422,20 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		FlxUI.forceFocus(b, this); // avoid overlaps
 	}
 
-	private function onDropdown():Void
-	{
+	private function onDropdown():Void {
 		(dropPanel.visible) ? showList(false) : showList(true);
 	}
 
-	private function onClickItem(i:Int):Void
-	{
+	private function onClickItem(i:Int):Void {
 		var item:FlxUIButton = list[i];
 		selectSomething(item.name, item.label.text);
 		showList(false);
 
-		if (callback != null)
-		{
+		if (callback != null) {
 			callback(item.name);
 		}
 
-		if (broadcastToFlxUI)
-		{
+		if (broadcastToFlxUI) {
 			FlxUI.event(CLICK_EVENT, this, item.name, params);
 		}
 	}
@@ -523,14 +447,11 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 	 * @param	UseIndexID		Whether to use the integer index of the current string as ID.
 	 * @return	The StrIDLabel array ready to be used in FlxUIDropDownMenu's constructor
 	 */
-	public static function makeStrIdLabelArray(StringArray:Array<String>, UseIndexID:Bool = false):Array<StrNameLabel>
-	{
+	public static function makeStrIdLabelArray(StringArray:Array<String>, UseIndexID:Bool = false):Array<StrNameLabel> {
 		var strIdArray:Array<StrNameLabel> = [];
-		for (i in 0...StringArray.length)
-		{
+		for (i in 0...StringArray.length) {
 			var ID:String = StringArray[i];
-			if (UseIndexID)
-			{
+			if (UseIndexID) {
 				ID = Std.string(i);
 			}
 			strIdArray[i] = new StrNameLabel(ID, StringArray[i]);
@@ -542,8 +463,7 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 /**
  * Header for a FlxUIDropDownMenu
  */
-class FlxUIDropDownHeader extends FlxUIGroup
-{
+class FlxUIDropDownHeader extends FlxUIGroup {
 	/**
 	 * The background of the header.
 	 */
@@ -567,8 +487,7 @@ class FlxUIDropDownHeader extends FlxUIGroup
 	 * @param 	Text	Optional text that displays the current value
 	 * @param	Button	Optional button that toggles the dropdown list
 	 */
-	public function new(Width:Int = 120, ?Background:FlxSprite, ?Text:FlxUIText, ?Button:FlxUISpriteButton)
-	{
+	public function new(Width:Int = 120, ?Background:FlxSprite, ?Text:FlxUIText, ?Button:FlxUISpriteButton) {
 		super();
 
 		background = Background;
@@ -576,14 +495,12 @@ class FlxUIDropDownHeader extends FlxUIGroup
 		button = Button;
 
 		// Background
-		if (background == null)
-		{
+		if (background == null) {
 			background = new FlxUI9SliceSprite(0, 0, FlxUIAssets.IMG_BOX, new Rectangle(0, 0, Width, 20), [1, 1, 14, 14]);
 		}
 
 		// Button
-		if (button == null)
-		{
+		if (button == null) {
 			button = new FlxUISpriteButton(0, 0, new FlxSprite(0, 0, FlxUIAssets.IMG_DROPDOWN));
 			button.loadGraphicSlice9([FlxUIAssets.IMG_BUTTON_THIN], 80, 20, [FlxStringUtil.toIntArray(FlxUIAssets.SLICE9_BUTTON)],
 				FlxUI9SliceSprite.TILE_NONE, -1, false, FlxUIAssets.IMG_BUTTON_SIZE, FlxUIAssets.IMG_BUTTON_SIZE);
@@ -598,8 +515,7 @@ class FlxUIDropDownHeader extends FlxUIGroup
 		button.label.offset.x += button.offset.x;
 
 		// Text
-		if (text == null)
-		{
+		if (text == null) {
 			text = new FlxUIText(0, 0, Std.int(background.width));
 		}
 		text.setPosition(2, 4);
@@ -610,8 +526,7 @@ class FlxUIDropDownHeader extends FlxUIGroup
 		add(text);
 	}
 
-	override public function destroy():Void
-	{
+	override public function destroy():Void {
 		super.destroy();
 
 		background = FlxDestroyUtil.destroy(background);
@@ -620,8 +535,7 @@ class FlxUIDropDownHeader extends FlxUIGroup
 	}
 }
 
-enum FlxUIDropDownMenuDropDirection
-{
+enum FlxUIDropDownMenuDropDirection {
 	Automatic;
 	Down;
 	Up;

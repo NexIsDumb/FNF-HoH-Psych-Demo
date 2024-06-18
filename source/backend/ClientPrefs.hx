@@ -25,16 +25,8 @@ class SaveVariables {
 	public var noteOffset:Int = 0;
 	public var geo:Int = 0;
 	public var translation:String = "English";
-	public var arrowRGB:Array<Array<FlxColor>> = [
-		[0xFFC24B99, 0xFFFFFFFF, 0xFF3C1F56],
-		[0xFF00FFFF, 0xFFFFFFFF, 0xFF1542B7],
-		[0xFF12FA05, 0xFFFFFFFF, 0xFF0A4447],
-		[0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
-	public var arrowRGBPixel:Array<Array<FlxColor>> = [
-		[0xFFE276FF, 0xFFFFF9FF, 0xFF60008D],
-		[0xFF3DCAFF, 0xFFF4FFFF, 0xFF003060],
-		[0xFF71E300, 0xFFF6FFE6, 0xFF003100],
-		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
+	public var arrowRGB:Array<Array<FlxColor>> = [[0xFFC24B99, 0xFFFFFFFF, 0xFF3C1F56], [0xFF00FFFF, 0xFFFFFFFF, 0xFF1542B7], [0xFF12FA05, 0xFFFFFFFF, 0xFF0A4447], [0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
+	public var arrowRGBPixel:Array<Array<FlxColor>> = [[0xFFE276FF, 0xFFFFF9FF, 0xFF60008D], [0xFF3DCAFF, 0xFFF4FFFF, 0xFF003060], [0xFF71E300, 0xFFF6FFE6, 0xFF003100], [0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
@@ -47,7 +39,7 @@ class SaveVariables {
 	public var comboStacking:Bool = true;
 	public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
-		'scrolltype' => 'multiplicative', 
+		'scrolltype' => 'multiplicative',
 		// anyone reading this, amod is multiplicative speed mod, cmod is constant speed mod, and xmod is bpm based speed mod.
 		// an amod example would be chartSpeed * multiplier
 		// cmod would just be constantSpeed = chartSpeed
@@ -75,9 +67,8 @@ class SaveVariables {
 	public var safeFrames:Float = 10;
 	public var discordRPC:Bool = true;
 
-	public function new()
-	{
-		//Why does haxe needs this again?
+	public function new() {
+		// Why does haxe needs this again?
 	}
 }
 
@@ -85,92 +76,69 @@ class ClientPrefs {
 	public static var data:SaveVariables = null;
 	public static var defaultData:SaveVariables = null;
 
-	public static var translations:Array<Array<String>> = [
-		["English", "eng"],
-		//["中文[chi]", "chi"],
-		["Italiano", "ital"],
-		["Français", "fr"],
-		["Español", "spa"],
-		["Українська[ukr]", "ukr"],
-		["日本語[jap]", "jap"],
-		["Deutsch", "ger"],
-		["Polski", "pl"],
-		["Indonesia", "ind"],
-		["Finnish", "fin"],
-		["Русский[rus]", "rus"]
-	];
+	public static var translations:Array<Array<String>> = [["English", "eng"], // ["中文[chi]", "chi"],
+		["Italiano", "ital"], ["Français", "fr"], ["Español", "spa"], ["Українська[ukr]", "ukr"], ["日本語[jap]", "jap"], ["Deutsch", "ger"], ["Polski", "pl"], ["Indonesia", "ind"], ["Finnish", "fin"], ["Русский[rus]", "rus"]];
 
 	public static function getLanguage():String {
-		for (i in 0...ClientPrefs.translations.length)
-		{
+		for (i in 0...ClientPrefs.translations.length) {
 			var thingy = ClientPrefs.translations[i];
-			
-			if(thingy[0] == ClientPrefs.data.translation) {
+
+			if (thingy[0] == ClientPrefs.data.translation) {
 				return thingy[1];
 			}
 		}
 		return "eng";
 	}
 
-	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
+	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
-		//Key Bind, Name for ControlsSubState
-		'note_up'		=> [W, UP],
-		'note_left'		=> [A, LEFT],
-		'note_down'		=> [S, DOWN],
-		'note_right'	=> [D, RIGHT],
-		
-		'ui_up'			=> [W, UP],
-		'ui_left'		=> [A, LEFT],
-		'ui_down'		=> [S, DOWN],
-		'ui_right'		=> [D, RIGHT],
-		
-		'accept'		=> [SPACE, ENTER],
-		'back'			=> [BACKSPACE, ESCAPE],
-		'pause'			=> [ENTER, ESCAPE],
-		'reset'			=> [R],
-		
-		'volume_mute'	=> [ZERO],
-		'volume_up'		=> [NUMPADPLUS, PLUS],
-		'volume_down'	=> [NUMPADMINUS, MINUS],
-		
-		'debug_1'		=> [SEVEN],
-		'debug_2'		=> [EIGHT]
+		// Key Bind, Name for ControlsSubState
+		'note_up' => [W, UP],
+		'note_left' => [A, LEFT],
+		'note_down' => [S, DOWN],
+		'note_right' => [D, RIGHT],
+		'ui_up' => [W, UP],
+		'ui_left' => [A, LEFT],
+		'ui_down' => [S, DOWN],
+		'ui_right' => [D, RIGHT],
+		'accept' => [SPACE, ENTER],
+		'back' => [BACKSPACE, ESCAPE],
+		'pause' => [ENTER, ESCAPE],
+		'reset' => [R],
+		'volume_mute' => [ZERO],
+		'volume_up' => [NUMPADPLUS, PLUS],
+		'volume_down' => [NUMPADMINUS, MINUS],
+		'debug_1' => [SEVEN],
+		'debug_2' => [EIGHT]
 	];
 	public static var gamepadBinds:Map<String, Array<FlxGamepadInputID>> = [
-		'note_up'		=> [DPAD_UP, Y],
-		'note_left'		=> [DPAD_LEFT, X],
-		'note_down'		=> [DPAD_DOWN, A],
-		'note_right'	=> [DPAD_RIGHT, B],
-		
-		'ui_up'			=> [DPAD_UP, LEFT_STICK_DIGITAL_UP],
-		'ui_left'		=> [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],
-		'ui_down'		=> [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN],
-		'ui_right'		=> [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT],
-		
-		'accept'		=> [A, START],
-		'back'			=> [B],
-		'pause'			=> [START],
-		'reset'			=> [BACK]
+		'note_up' => [DPAD_UP, Y],
+		'note_left' => [DPAD_LEFT, X],
+		'note_down' => [DPAD_DOWN, A],
+		'note_right' => [DPAD_RIGHT, B],
+		'ui_up' => [DPAD_UP, LEFT_STICK_DIGITAL_UP],
+		'ui_left' => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],
+		'ui_down' => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN],
+		'ui_right' => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT],
+		'accept' => [A, START],
+		'back' => [B],
+		'pause' => [START],
+		'reset' => [BACK]
 	];
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 	public static var defaultButtons:Map<String, Array<FlxGamepadInputID>> = null;
 
-	public static function resetKeys(controller:Null<Bool> = null) //Null = both, False = Keyboard, True = Controller
+	public static function resetKeys(controller:Null<Bool> = null) // Null = both, False = Keyboard, True = Controller
 	{
-		if(controller != true)
-		{
-			for (key in keyBinds.keys())
-			{
-				if(defaultKeys.exists(key))
+		if (controller != true) {
+			for (key in keyBinds.keys()) {
+				if (defaultKeys.exists(key))
 					keyBinds.set(key, defaultKeys.get(key).copy());
 			}
 		}
-		if(controller != false)
-		{
-			for (button in gamepadBinds.keys())
-			{
-				if(defaultButtons.exists(button))
+		if (controller != false) {
+			for (button in gamepadBinds.keys()) {
+				if (defaultButtons.exists(button))
 					gamepadBinds.set(button, defaultButtons.get(button).copy());
 			}
 		}
@@ -179,8 +147,10 @@ class ClientPrefs {
 	public static function clearInvalidKeys(key:String) {
 		var keyBind:Array<FlxKey> = keyBinds.get(key);
 		var gamepadBind:Array<FlxGamepadInputID> = gamepadBinds.get(key);
-		while(keyBind != null && keyBind.contains(NONE)) keyBind.remove(NONE);
-		while(gamepadBind != null && gamepadBind.contains(NONE)) gamepadBind.remove(NONE);
+		while (keyBind != null && keyBind.contains(NONE))
+			keyBind.remove(NONE);
+		while (gamepadBind != null && gamepadBind.contains(NONE))
+			gamepadBind.remove(NONE);
 	}
 
 	public static function loadDefaultKeys() {
@@ -190,14 +160,14 @@ class ClientPrefs {
 
 	public static function saveSettings() {
 		for (key in Reflect.fields(data)) {
-			//trace('saved variable: $key');
+			// trace('saved variable: $key');
 			Reflect.setField(FlxG.save.data, key, Reflect.field(data, key));
 		}
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
 		FlxG.save.flush();
 
-		//Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		// Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v3', CoolUtil.getSavePath());
 		save.data.keyboard = keyBinds;
@@ -207,17 +177,19 @@ class ClientPrefs {
 	}
 
 	public static function loadPrefs() {
-		if(data == null) data = new SaveVariables();
-		if(defaultData == null) defaultData = new SaveVariables();
+		if (data == null)
+			data = new SaveVariables();
+		if (defaultData == null)
+			defaultData = new SaveVariables();
 
 		for (key in Reflect.fields(data)) {
 			if (key != 'gameplaySettings' && Reflect.hasField(FlxG.save.data, key)) {
-				//trace('loaded variable: $key');
+				// trace('loaded variable: $key');
 				Reflect.setField(data, key, Reflect.field(FlxG.save.data, key));
 			}
 		}
-		
-		if(Main.fpsVar != null) {
+
+		if (Main.fpsVar != null) {
 			Main.fpsVar.visible = data.showFPS;
 		}
 
@@ -225,7 +197,7 @@ class ClientPrefs {
 		FlxG.autoPause = ClientPrefs.data.autoPause;
 		#end
 
-		if(data.framerate > FlxG.drawFramerate) {
+		if (data.framerate > FlxG.drawFramerate) {
 			FlxG.updateFramerate = data.framerate;
 			FlxG.drawFramerate = data.framerate;
 		} else {
@@ -233,14 +205,14 @@ class ClientPrefs {
 			FlxG.updateFramerate = data.framerate;
 		}
 
-		if(FlxG.save.data.gameplaySettings != null) {
+		if (FlxG.save.data.gameplaySettings != null) {
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
 			for (name => value in savedMap)
 				data.gameplaySettings.set(name, value);
 		}
-		
+
 		// flixel automatically saves your volume!
-		if(FlxG.save.data.volume != null)
+		if (FlxG.save.data.volume != null)
 			FlxG.sound.volume = FlxG.save.data.volume;
 		if (FlxG.save.data.mute != null)
 			FlxG.sound.muted = FlxG.save.data.mute;
@@ -252,18 +224,19 @@ class ClientPrefs {
 		// controls on a separate save file
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v3', CoolUtil.getSavePath());
-		if(save != null)
-		{
-			if(save.data.keyboard != null) {
+		if (save != null) {
+			if (save.data.keyboard != null) {
 				var loadedControls:Map<String, Array<FlxKey>> = save.data.keyboard;
 				for (control => keys in loadedControls) {
-					if(keyBinds.exists(control)) keyBinds.set(control, keys);
+					if (keyBinds.exists(control))
+						keyBinds.set(control, keys);
 				}
 			}
-			if(save.data.gamepad != null) {
+			if (save.data.gamepad != null) {
 				var loadedControls:Map<String, Array<FlxGamepadInputID>> = save.data.gamepad;
 				for (control => keys in loadedControls) {
-					if(gamepadBinds.exists(control)) gamepadBinds.set(control, keys);
+					if (gamepadBinds.exists(control))
+						gamepadBinds.set(control, keys);
 				}
 			}
 			reloadVolumeKeys();
@@ -271,7 +244,8 @@ class ClientPrefs {
 	}
 
 	inline public static function getGameplaySetting(name:String, defaultValue:Dynamic = null, ?customDefaultValue:Bool = false):Dynamic {
-		if(!customDefaultValue) defaultValue = defaultData.gameplaySettings.get(name);
+		if (!customDefaultValue)
+			defaultValue = defaultData.gameplaySettings.get(name);
 		return /*PlayState.isStoryMode ? defaultValue : */ (data.gameplaySettings.exists(name) ? data.gameplaySettings.get(name) : defaultValue);
 	}
 
@@ -281,15 +255,13 @@ class ClientPrefs {
 		Main.volumeUpKeys = keyBinds.get('volume_up').copy();
 		toggleVolumeKeys(true);
 	}
+
 	public static function toggleVolumeKeys(turnOn:Bool) {
-		if(turnOn)
-		{
+		if (turnOn) {
 			FlxG.sound.muteKeys = Main.muteKeys;
 			FlxG.sound.volumeDownKeys = Main.volumeDownKeys;
 			FlxG.sound.volumeUpKeys = Main.volumeUpKeys;
-		}
-		else
-		{
+		} else {
 			FlxG.sound.muteKeys = [];
 			FlxG.sound.volumeDownKeys = [];
 			FlxG.sound.volumeUpKeys = [];

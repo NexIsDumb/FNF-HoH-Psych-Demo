@@ -17,8 +17,7 @@ typedef StageProperties = {
 	var interactionpoints:Array<Array<Dynamic>>;
 }
 
-class BaseScene extends FlxBasic
-{
+class BaseScene extends FlxBasic {
 	public var stageproperties:StageProperties = {
 		minCam: -100,
 		maxCam: 100,
@@ -28,25 +27,24 @@ class BaseScene extends FlxBasic
 	};
 	public var inshop = false;
 	public var slyshop:Bool = false;
+
 	var game = OverworldManager.instance;
 	var controls(get, never):Controls;
-	private function get_controls()
-	{
+
+	private function get_controls() {
 		return Controls.instance;
 	}
 
-	public function new(){
+	public function new() {
 		super();
 	}
 
-	public function create()
-	{}
+	public function create() {}
 
-	public function createPost() 
-	{}
+	public function createPost() {}
 
-	public function variableInitialize()
-	{}
+	public function variableInitialize() {}
 
-	function add(object:FlxBasic) game.add(object);
+	function add(object:FlxBasic)
+		game.add(object);
 }
