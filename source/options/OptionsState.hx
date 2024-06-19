@@ -6,14 +6,13 @@ import flixel.addons.transition.FlxTransitionableState;
 import hxcodec.flixel.*;
 import overworld.*;
 
-class OptionsState extends MusicBeatState {
+class OptionsState extends MenuBeatState {
 	var options:Array<String> = ['Note Colors', 'Controls', 'Graphics', 'Visuals and UI', 'Gameplay', 'Back'];
 	private var grpOptions:FlxTypedGroup<FlxText>;
 
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
-	public static var video:FlxVideo;
 	public static var fromOverworld:Bool = false;
 
 	function openSelectedSubstate(label:String) {
@@ -44,11 +43,6 @@ class OptionsState extends MusicBeatState {
 					openingsub = true;
 					FlxG.sound.play(Paths.sound('cancelMenu'));
 
-					new FlxTimer().start(.5, function(tmr:FlxTimer) {
-						video.dispose();
-						video = null;
-					});
-
 					if (onPlayState) {
 						StageData.loadDirectory(PlayState.SONG);
 						LoadingState.loadAndSwitchState(new PlayState());
@@ -70,7 +64,6 @@ class OptionsState extends MusicBeatState {
 	var fleur:FlxSprite;
 	var statetext:FlxText;
 
-	var bg:FlxSprite;
 	var openingsub:Bool = true;
 
 	override function create() {
@@ -80,19 +73,6 @@ class OptionsState extends MusicBeatState {
 
 		persistentUpdate = persistentDraw = true;
 		selectedsumn = false;
-
-		if (video == null) {
-			video = new FlxVideo();
-			video.play('assets/videos/Classic.mp4', true);
-			video.alpha = 0;
-		}
-
-		bg = new FlxSprite(-80).makeGraphic(1280, 720, FlxColor.BLACK);
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		add(bg);
-
-		bg.screenCenter();
-		add(bg);
 
 		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
@@ -201,15 +181,6 @@ class OptionsState extends MusicBeatState {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		if (video != null) {
-			if (video.bitmapData != null) {
-				bg.loadGraphic(video.bitmapData);
-				bg.setGraphicSize(1280, 720);
-				bg.updateHitbox();
-				bg.screenCenter();
-			}
-		}
-
 		statetext.screenCenter(X);
 		for (spr in grpOptions.members) {
 			spr.screenCenter(X);
@@ -236,11 +207,6 @@ class OptionsState extends MusicBeatState {
 					FlxTween.tween(fleur, {alpha: 0}, .25, {ease: FlxEase.circOut});
 					openingsub = true;
 					FlxG.sound.play(Paths.sound('cancelMenu'));
-
-					new FlxTimer().start(.5, function(tmr:FlxTimer) {
-						video.dispose();
-						video = null;
-					});
 
 					if (onPlayState) {
 						StageData.loadDirectory(PlayState.SONG);

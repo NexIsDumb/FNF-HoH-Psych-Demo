@@ -47,15 +47,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 #if VIDEOS_ALLOWED
-#if (hxCodec >= "3.0.0")
-import hxcodec.flixel.FlxVideo as VideoHandler;
-#elseif (hxCodec >= "2.6.1")
-import hxcodec.VideoHandler as VideoHandler;
-#elseif (hxCodec == "2.6.0")
-import VideoHandler;
-#else
-import vlc.MP4Handler as VideoHandler;
-#end
+import hxvlc.flixel.FlxVideoSprite;
 #end
 import objects.Note.EventNote;
 import objects.*;
@@ -985,23 +977,21 @@ class PlayState extends MusicBeatState {
 			return;
 		}
 
-		var video:VideoHandler = new VideoHandler();
-		#if (hxCodec >= "3.0.0")
-		// Recent versions
-		video.play(filepath);
-		video.onEndReached.add(function() {
-			video.dispose();
+		var video:FlxVideoSprite = new FlxVideoSprite();
+		if (video.load(filepath)) {
+			video.bitmap.onFormatSetup.add(() -> {
+				video.setGraphicSize(FlxG.width, FlxG.height);
+				video.updateHitbox();
+			});
+			video.bitmap.onEndReached.add(video.destroy);
+			video.bitmap.onEndReached.add(startAndEnd);
+			video.antialiasing = ClientPrefs.data.antialiasing;
+			video.scrollFactor.set();
+			video.cameras = [camHUD];
+			video.play();
+			add(video);
+		} else
 			startAndEnd();
-			return;
-		}, true);
-		#else
-		// Older versions
-		video.playVideo(filepath);
-		video.finishCallback = function() {
-			startAndEnd();
-			return;
-		}
-		#end
 		#else
 		FlxG.log.warn('Platform not supported!');
 		startAndEnd();
@@ -1689,9 +1679,9 @@ class PlayState extends MusicBeatState {
 
 	override public function update(elapsed:Float) {
 		/*if (FlxG.keys.justPressed.NINE)
-			{
-				iconP1.swapOldIcon();
-		}*/
+		{
+			iconP1.swapOldIcon();
+	}*/
 		callOnScripts('onUpdate', [elapsed]);
 
 		FlxG.camera.followLerp = 0;

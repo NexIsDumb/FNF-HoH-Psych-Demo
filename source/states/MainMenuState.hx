@@ -18,7 +18,7 @@ import backend.Highscore;
 import sys.thread.Thread;
 #end
 
-class MainMenuState extends MusicBeatState {
+class MainMenuState extends MenuBeatState {
 	public static var psychEngineVersion:String = '0.7.1h'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
@@ -31,9 +31,6 @@ class MainMenuState extends MusicBeatState {
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
-	public static var video:FlxVideo;
-
-	var bg:FlxSprite;
 	var pointer1:FlxSprite;
 	var pointer2:FlxSprite;
 
@@ -69,16 +66,6 @@ class MainMenuState extends MusicBeatState {
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-
-		bg = new FlxSprite(-80).makeGraphic(1280, 720, FlxColor.BLACK);
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		add(bg);
-
-		if (video == null) {
-			video = new FlxVideo();
-			video.play('assets/videos/Classic.mp4', true);
-			video.alpha = 0;
-		}
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -173,15 +160,6 @@ class MainMenuState extends MusicBeatState {
 		}
 		FlxG.camera.followLerp = FlxMath.bound(elapsed * 9 / (FlxG.updateFramerate / 60), 0, 1);
 
-		if (video != null) {
-			if (video.bitmapData != null) {
-				bg.loadGraphic(video.bitmapData);
-				bg.setGraphicSize(1280, 720);
-				bg.updateHitbox();
-				bg.screenCenter();
-			}
-		}
-
 		if (!selectedSomethin) {
 			if (controls.UI_UP_P) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -215,11 +193,6 @@ class MainMenuState extends MusicBeatState {
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 
 					new FlxTimer().start(.35, function(tmr:FlxTimer) {
-						new FlxTimer().start(.5, function(tmr:FlxTimer) {
-							video.dispose();
-							video = null;
-						});
-
 						var daChoice:String = optionShit[curSelected];
 
 						switch (daChoice) {

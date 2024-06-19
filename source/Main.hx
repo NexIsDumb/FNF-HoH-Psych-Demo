@@ -92,10 +92,6 @@ class Main extends Sprite {
 		FlxG.keys.preventDefaultKeys = [TAB];
 		FlxG.mouse.visible = false;
 
-		FlxG.save.bind('hymns', CoolUtil.getSavePath());
-
-		ClientPrefs.loadPrefs();
-
 		FlxG.signals.gameResized.add(onResizeGame);
 		FlxG.signals.preStateSwitch.add(function() {
 			Paths.clearStoredMemory(true);

@@ -7,14 +7,13 @@ import sys.io.File;
 import objects.AttachedSprite;
 import hxcodec.flixel.*;
 
-class CreditsState extends MusicBeatState {
+class CreditsState extends MenuBeatState {
 	var curSelected:Int = 0;
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var iconArray:Array<AttachedSprite> = [];
 	private var creditsStuff:Array<Array<String>> = [];
 
-	var bg:FlxSprite;
 	var descText:FlxText;
 	var intendedColor:FlxColor;
 	var colorTween:FlxTween;
@@ -25,8 +24,6 @@ class CreditsState extends MusicBeatState {
 	var pointer1:FlxSprite;
 	var pointer2:FlxSprite;
 	var fleur:FlxSprite;
-
-	public static var video:FlxVideo;
 
 	var icon:FlxSprite;
 	var name:FlxText;
@@ -41,17 +38,7 @@ class CreditsState extends MusicBeatState {
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		if (video == null) {
-			video = new FlxVideo();
-			video.play('assets/videos/Classic.mp4', true);
-			video.alpha = 0;
-		}
-
 		persistentUpdate = true;
-		bg = new FlxSprite();
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		add(bg);
-		bg.screenCenter();
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -185,15 +172,6 @@ class CreditsState extends MusicBeatState {
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (video != null) {
-			if (video.bitmapData != null) {
-				bg.loadGraphic(video.bitmapData);
-				bg.setGraphicSize(1280, 720);
-				bg.updateHitbox();
-				bg.screenCenter();
-			}
-		}
-
 		if (!quitting) {
 			if (creditsStuff.length > 1) {
 				var shiftMult:Int = 1;
@@ -230,11 +208,6 @@ class CreditsState extends MusicBeatState {
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
 				quitting = true;
-
-				new FlxTimer().start(.5, function(tmr:FlxTimer) {
-					video.dispose();
-					video = null;
-				});
 			}
 		}
 		super.update(elapsed);

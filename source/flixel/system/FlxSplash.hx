@@ -1,16 +1,10 @@
 package flixel.system;
 
+import openfl.Lib;
 #if VIDEOS_ALLOWED
-#if (hxCodec >= "3.0.0")
-import hxcodec.flixel.FlxVideo as VideoHandler;
-#elseif (hxCodec >= "2.6.1")
-import hxcodec.VideoHandler as VideoHandler;
-#elseif (hxCodec == "2.6.0")
-import VideoHandler;
-#else
-import vlc.MP4Handler as VideoHandler;
+import hxvlc.flixel.FlxVideoSprite;
 #end
-#end
+
 class FlxSplash extends FlxState {
 	public static var nextState:Class<FlxState>;
 
@@ -19,17 +13,37 @@ class FlxSplash extends FlxState {
 	 */
 	public static var muted:Bool = #if html5 true #else false #end;
 
-	var intro:VideoHandler;
 	private var _cachedMuted:Bool;
 
-	override public function create():Void {
-		intro = new VideoHandler();
-		intro.play(Paths.video("splash"));
-		intro.onEndReached.add(onComplete, true);
+	#if VIDEOS_ALLOWED
+	var intro:FlxVideoSprite;
+	#end
 
+	override public function create():Void {
+		super.create();
+
+		FlxG.save.bind('hymns', CoolUtil.getSavePath());
+		ClientPrefs.loadPrefs();
+
+		#if VIDEOS_ALLOWED
 		if (muted) {
 			_cachedMuted = FlxG.sound.muted;
 			FlxG.sound.muted = true;
+		}
+
+		if ((intro = new FlxVideoSprite()).load(Paths.video("splash"))) {
+			intro.bitmap.onFormatSetup.add(() -> {
+				intro.setGraphicSize(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
+				intro.updateHitbox();
+			});
+			intro.bitmap.onEndReached.add(onComplete);
+			intro.antialiasing = ClientPrefs.data.antialiasing;
+			intro.play();
+			add(intro);
+		} else
+		#end
+		{
+			onComplete();
 		}
 	}
 
@@ -42,12 +56,15 @@ class FlxSplash extends FlxState {
 	private var fired:Bool = false;
 
 	function onComplete():Void {
-		if (fired)
-			return; // Precautions because of the skippable part  - Nex
+		if (fired) // Precautions because of the skippable part  - Nex
+			return;
 		fired = true;
 
+		#if VIDEOS_ALLOWED
 		if (intro != null)
-			intro.dispose();
+			intro.destroy();
+		#end
+
 		FlxG.sound.muted = _cachedMuted;
 		FlxG.switchState(Type.createInstance(nextState, []));
 		FlxG.game._gameJustStarted = true;

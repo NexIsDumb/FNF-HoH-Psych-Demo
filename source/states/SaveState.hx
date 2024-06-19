@@ -7,11 +7,7 @@ import hxcodec.flixel.*;
 import states.savefile.*;
 import overworld.*;
 
-class SaveState extends MusicBeatState {
-	public static var video:FlxVideo;
-
-	var bg:FlxSprite;
-
+class SaveState extends MenuBeatState {
 	var saveFile1:SaveFile;
 	var saveFile2:SaveFile;
 	var saveFile3:SaveFile;
@@ -35,17 +31,6 @@ class SaveState extends MusicBeatState {
 		#end
 
 		persistentUpdate = persistentDraw = true;
-
-		if (video == null) {
-			video = new FlxVideo();
-			video.play('assets/videos/Classic.mp4', true);
-			video.alpha = 0;
-		}
-
-		bg = new FlxSprite(-80).makeGraphic(1280, 720, FlxColor.BLACK);
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.screenCenter();
-		add(bg);
 
 		var basey = 150;
 		var seperation = 15;
@@ -119,15 +104,6 @@ class SaveState extends MusicBeatState {
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
-
-		if (video != null) {
-			if (video.bitmapData != null) {
-				bg.loadGraphic(video.bitmapData);
-				bg.setGraphicSize(1280, 720);
-				bg.updateHitbox();
-				bg.screenCenter();
-			}
-		}
 
 		if (FlxG.state == this && debounce == true) {
 			if (controls.UI_UP_P && !clearingsave && !choosingstate) {
@@ -246,10 +222,6 @@ class SaveState extends MusicBeatState {
 								new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
 									MusicBeatState.switchState(new OverworldManager());
 								});
-								new FlxTimer().start(0.38 * 3, function(tmr:FlxTimer) {
-									video.dispose();
-									video = null;
-								});
 							} else {
 								for (i in 0...savefiles.length) {
 									var savefile = savefiles[i];
@@ -261,10 +233,6 @@ class SaveState extends MusicBeatState {
 								FlxTransitionableState.skipNextTransIn = false;
 								new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
 									MusicBeatState.switchState(new FreeplayState());
-								});
-								new FlxTimer().start(0.38 * 3, function(tmr:FlxTimer) {
-									video.dispose();
-									video = null;
 								});
 
 								FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
@@ -287,10 +255,6 @@ class SaveState extends MusicBeatState {
 								FlxG.sound.music.fadeOut(1, 0);
 								new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
 									MusicBeatState.switchState(new OverworldManager());
-								});
-								new FlxTimer().start(0.38 * 3, function(tmr:FlxTimer) {
-									video.dispose();
-									video = null;
 								});
 								FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 								FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
@@ -324,10 +288,6 @@ class SaveState extends MusicBeatState {
 
 						new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
 							MusicBeatState.switchState(new MainMenuState());
-						});
-						new FlxTimer().start(0.38 * 3, function(tmr:FlxTimer) {
-							video.dispose();
-							video = null;
 						});
 					}
 				}
