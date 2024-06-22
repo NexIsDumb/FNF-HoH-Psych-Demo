@@ -12,12 +12,11 @@ import backend.Song;
 typedef StageFile = {
 	var directory:String;
 	var defaultZoom:Float;
-	var isPixelStage:Bool;
 	var stageUI:String;
 
-	var boyfriend:Array<Dynamic>;
-	var girlfriend:Array<Dynamic>;
-	var opponent:Array<Dynamic>;
+	var boyfriend:Array<Float>;
+	var girlfriend:Array<Float>;
+	var opponent:Array<Float>;
 	var hide_girlfriend:Bool;
 
 	var camera_boyfriend:Array<Float>;
@@ -31,7 +30,6 @@ class StageData {
 		return {
 			directory: "",
 			defaultZoom: 0.9,
-			isPixelStage: false,
 			stageUI: "normal",
 
 			boyfriend: [770, 100],

@@ -33,24 +33,6 @@ typedef SwagSong = {
 }
 
 class Song {
-	public var song:String;
-	public var notes:Array<SwagSection>;
-	public var events:Array<Dynamic>;
-	public var bpm:Float;
-	public var needsVoices:Bool = true;
-	public var arrowSkin:String;
-	public var splashSkin:String;
-	public var gameOverChar:String;
-	public var gameOverSound:String;
-	public var gameOverLoop:String;
-	public var gameOverEnd:String;
-	public var disableNoteRGB:Bool = false;
-	public var speed:Float = 1;
-	public var stage:String;
-	public var player1:String = 'bf';
-	public var player2:String = 'dad';
-	public var gfVersion:String = 'gf';
-
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{
 		if (songJson.gfVersion == null) {
@@ -79,12 +61,6 @@ class Song {
 		}
 	}
 
-	public function new(song, notes, bpm) {
-		this.song = song;
-		this.notes = notes;
-		this.bpm = bpm;
-	}
-
 	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong {
 		var rawJson = null;
 
@@ -105,26 +81,7 @@ class Song {
 			#end
 		}
 
-		while (!rawJson.endsWith("}")) {
-			rawJson = rawJson.substr(0, rawJson.length - 1);
-			// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
-		}
-
-		// FIX THE CASTING ON WINDOWS/NATIVE
-		// Windows???
-		// trace(songData);
-
-		// trace('LOADED FROM JSON: ' + songData.notes);
-		/* 
-			for (i in 0...songData.notes.length)
-			{
-				trace('LOADED FROM JSON: ' + songData.notes[i].sectionNotes);
-				// songData.notes[i].sectionNotes = songData.notes[i].sectionNotes
-			}
-
-				daNotes = songData.notes;
-				daSong = songData.song;
-				daBpm = songData.bpm; */
+		rawJson = rawJson.substr(0, rawJson.lastIndexOf("}") + 1);
 
 		var songJson:Dynamic = parseJSONshit(rawJson);
 		if (jsonInput != 'events')

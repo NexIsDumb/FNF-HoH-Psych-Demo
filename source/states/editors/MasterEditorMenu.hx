@@ -89,7 +89,7 @@ class MasterEditorMenu extends MusicBeatState {
 			switch (options[curSelected]) {
 				case 'Chart Editor': // felt it would be cool maybe
 					LoadingState.loadAndSwitchState(new ChartingState(), false);
-				case 'Character Editor': LoadingState.loadAndSwitchState(new CharacterEditorState(Character.DEFAULT_CHARACTER, false));
+				case 'Character Editor': LoadingState.loadAndSwitchState(new CharacterEditorState(Constants.DEFAULT_CHARACTER, false));
 				case 'Week Editor': MusicBeatState.switchState(new WeekEditorState());
 				case 'Menu Character Editor': MusicBeatState.switchState(new MenuCharacterEditorState());
 				case 'Dialogue Editor': LoadingState.loadAndSwitchState(new DialogueEditorState(), false);

@@ -359,7 +359,7 @@ class Dirtmouth extends BaseScene {
 		add(interactionflair);
 
 		interactiontext = new FlxText(0, interactionflair.getGraphicMidpoint().y - interactionflair.height / 5, 0, 'Interact', 28);
-		interactiontext.setFormat(Paths.font("trajan.ttf"), 32, FlxColor.WHITE, CENTER);
+		interactiontext.setFormat(Constants.UI_FONT, 32, FlxColor.WHITE, CENTER);
 		interactiontext.antialiasing = ClientPrefs.data.antialiasing;
 		interactiontext.alpha = 0;
 		add(interactiontext);

@@ -28,7 +28,6 @@ class MainMenuState extends MenuBeatState {
 
 	var optionShit:Array<String> = ['Start Game', 'Options', 'Credits', 'Discord', 'Quit Game'];
 
-	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
 	var pointer1:FlxSprite;
@@ -70,15 +69,6 @@ class MainMenuState extends MenuBeatState {
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
-		magenta.antialiasing = ClientPrefs.data.antialiasing;
-		magenta.scrollFactor.set(0, yScroll);
-		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
-		magenta.updateHitbox();
-		magenta.screenCenter();
-		magenta.visible = false;
-		magenta.color = 0xFFfd719b;
-
 		menuItems = new FlxTypedGroup<FlxText>();
 		add(menuItems);
 
@@ -86,7 +76,7 @@ class MainMenuState extends MenuBeatState {
 
 		for (i in 0...optionShit.length) {
 			var optionText:FlxText = new FlxText(0, 0, 0, optionShit[i], 12);
-			optionText.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, CENTER);
+			optionText.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, CENTER);
 			optionText.text = optionShit[i];
 			optionText.screenCenter();
 			optionText.y += FlxG.height / 10;
@@ -120,7 +110,7 @@ class MainMenuState extends MenuBeatState {
 		versionShit = new FlxText(210, FlxG.height - 24, 0, Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.antialiasing = ClientPrefs.data.antialiasing;
-		versionShit.setFormat(Paths.font("trajan.ttf"), 15, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Constants.UI_FONT, 15, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 		versionShit.y = menuItems.members[optionShit.length - 1].y + 2.5;
 

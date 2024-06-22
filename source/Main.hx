@@ -1,29 +1,29 @@
 package;
 
-import flixel.graphics.FlxGraphic;
+import cpp.vm.Gc;
+import flixel.FlxCamera;
 import flixel.FlxGame;
 import flixel.FlxState;
+import flixel.graphics.FlxGraphic;
+import flixel.input.keyboard.FlxKey;
+import lime.app.Application;
 import openfl.Assets;
 import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
-import openfl.events.Event;
 import openfl.display.StageScaleMode;
-import lime.app.Application;
-import states.MainMenuState;
-import flixel.input.keyboard.FlxKey;
+import openfl.events.Event;
 import openfl.system.System;
 import openfl.utils.AssetCache;
-import cpp.vm.Gc;
-import flixel.FlxCamera;
+import states.MainMenuState;
 #if linux
 import lime.graphics.Image;
 #end
 // crash handler stuff
 #if CRASH_HANDLER
-import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
+import openfl.events.UncaughtErrorEvent;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
@@ -33,10 +33,10 @@ class Main extends Sprite {
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
-		initialState: MainMenuState, // initial game state
+		initialState: states.SplashScreen, // initial game state
 		zoom: -1.0, // game state bounds
 		framerate: 60, // default framerate
-		skipSplash: false, // if the default flixel splash screen should be skipped
+		skipSplash: true, // if the default flixel splash screen should be skipped
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
@@ -137,19 +137,19 @@ class Main extends Sprite {
 		DiscordClient.start();
 		#end
 
-		// shader coords fix
-		FlxG.signals.gameResized.add(function(w, h) {
-			if (FlxG.cameras != null) {
-				for (cam in FlxG.cameras.list) {
-					@:privateAccess
-					if (cam != null && cam._filters != null)
-						resetSpriteCache(cam.flashSprite);
+		/*// shader coords fix
+			FlxG.signals.gameResized.add(function(w, h) {
+				if (FlxG.cameras != null) {
+					for (cam in FlxG.cameras.list) {
+						@:privateAccess
+						if (cam != null && cam._filters != null)
+							resetSpriteCache(cam.flashSprite);
+					}
 				}
-			}
 
-			if (FlxG.game != null)
-				resetSpriteCache(FlxG.game);
-		});
+				if (FlxG.game != null)
+					resetSpriteCache(FlxG.game);
+		});*/
 
 		setExitHandler(function() {
 			DataSaver.saveSettings(DataSaver.saveFile);
@@ -220,7 +220,7 @@ class Main extends Sprite {
 
 		for (cam in FlxG.cameras.list) {
 			@:privateAccess
-			if (cam != null && (cam._filters != null || cam._filters != []))
+			if (cam != null && cam._filters != null && cam._filters.length > 0)
 				fixShaderSize(cam);
 		}
 	}
@@ -234,7 +234,6 @@ class Main extends Sprite {
 				sprite.__cacheBitmapData = null;
 				sprite.__cacheBitmapData2 = null;
 				sprite.__cacheBitmapData3 = null;
-				sprite.__cacheBitmapColorTransform = null;
 			}
 		}
 	}

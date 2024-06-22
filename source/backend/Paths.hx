@@ -24,15 +24,12 @@ import backend.Mods;
 #end
 
 class Paths {
-	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
-	inline public static var VIDEO_EXT = "mp4";
-
 	public static function excludeAsset(key:String) {
 		if (!dumpExclusions.contains(key))
 			dumpExclusions.push(key);
 	}
 
-	public static var dumpExclusions:Array<String> = ['assets/music/freakyMenu.$SOUND_EXT', 'assets/shared/music/breakfast.$SOUND_EXT', 'assets/shared/music/tea-time.$SOUND_EXT',];
+	public static var dumpExclusions:Array<String> = ['assets/music/freakyMenu.${Constants.SOUND_EXT}', 'assets/shared/music/breakfast.${Constants.SOUND_EXT}', 'assets/shared/music/tea-time.${Constants.SOUND_EXT}',];
 
 	/// haya I love you for the base cache dump I took to the max
 	public static function clearUnusedMemory() {
@@ -168,7 +165,7 @@ class Paths {
 			return file;
 		}
 		#end
-		return 'assets/videos/$key.$VIDEO_EXT';
+		return 'assets/videos/$key.${Constants.VIDEO_EXT}';
 	}
 
 	static public function sound(key:String, ?library:String):Sound {
@@ -187,7 +184,7 @@ class Paths {
 
 	inline static public function voices(song:String):Any {
 		#if html5
-		return 'songs:assets/songs/${formatToSongPath(song)}/Voices.$SOUND_EXT';
+		return 'songs:assets/songs/${formatToSongPath(song)}/Voices.${Constants.SOUND_EXT}';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Voices';
 		var voices = returnSound('songs', songKey);
@@ -197,7 +194,7 @@ class Paths {
 
 	inline static public function inst(song:String):Any {
 		#if html5
-		return 'songs:assets/songs/${formatToSongPath(song)}/Inst.$SOUND_EXT';
+		return 'songs:assets/songs/${formatToSongPath(song)}/Inst.${Constants.SOUND_EXT}';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Inst';
 		var inst = returnSound('songs', songKey);
@@ -350,11 +347,15 @@ class Paths {
 	}
 
 	inline static public function formatToSongPath(path:String) {
-		var invalidChars = ~/[~&\\;:<>#]/;
-		var hideChars = ~/[.,'"%?!]/;
+		return path.replace(' ', '-').toLowerCase();
+		// slow code below, but we dont need it
+		/*
+			var invalidChars = ~/[~&\\;:<>#]/;
+			var hideChars = ~/[.,'"%?!]/;
 
-		var path = invalidChars.split(path.replace(' ', '-')).join("-");
-		return hideChars.split(path).join("").toLowerCase();
+			var path = invalidChars.split(path.replace(' ', '-')).join("-");
+			return hideChars.split(path).join("").toLowerCase();
+		 */
 	}
 
 	public static var currentTrackedSounds:Map<String, Sound> = [];
@@ -371,7 +372,7 @@ class Paths {
 		}
 		#end
 		// I hate this so god damn much
-		var gottenPath:String = getPath('$path/$key.$SOUND_EXT', SOUND, library);
+		var gottenPath:String = getPath('$path/$key.${Constants.SOUND_EXT}', SOUND, library);
 		gottenPath = gottenPath.substring(gottenPath.indexOf(':') + 1, gottenPath.length);
 		// trace(gottenPath);
 		if (!currentTrackedSounds.exists(gottenPath))
@@ -383,7 +384,7 @@ class Paths {
 				if (path == 'songs')
 					folder = 'songs:';
 
-				currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(folder + getPath('$path/$key.$SOUND_EXT', SOUND, library)));
+				currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(folder + getPath('$path/$key.${Constants.SOUND_EXT}', SOUND, library)));
 			}
 			#end
 		localTrackedAssets.push(gottenPath);
@@ -404,11 +405,11 @@ class Paths {
 	}
 
 	inline static public function modsVideo(key:String) {
-		return modFolders('videos/' + key + '.' + VIDEO_EXT);
+		return modFolders('videos/' + key + '.' + Constants.VIDEO_EXT);
 	}
 
 	inline static public function modsSounds(path:String, key:String) {
-		return modFolders(path + '/' + key + '.' + SOUND_EXT);
+		return modFolders(path + '/' + key + '.' + Constants.SOUND_EXT);
 	}
 
 	inline static public function modsImages(key:String) {

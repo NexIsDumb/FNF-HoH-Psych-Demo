@@ -111,7 +111,7 @@ class FreeplayState extends MusicBeatState {
 		add(bg2);
 
 		songText = new FlxText(FlxG.height / 2 - 80, FlxG.height / 2 - 100, 0, "First-Steps", 12);
-		songText.setFormat(Paths.font("trajan.ttf"), 62, FlxColor.WHITE, CENTER);
+		songText.setFormat(Constants.UI_FONT, 62, FlxColor.WHITE, CENTER);
 		songText.antialiasing = ClientPrefs.data.antialiasing;
 		songText.screenCenter(X);
 		add(songText);
@@ -152,14 +152,14 @@ class FreeplayState extends MusicBeatState {
 		add(bg3);
 
 		scoreText = new FlxText(FlxG.height / 2 - 90, FlxG.height / 2 + 10, 0, "Personal Best : ?", 12);
-		scoreText.setFormat(Paths.font("trajan.ttf"), 20, FlxColor.WHITE, CENTER);
+		scoreText.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER);
 		scoreText.antialiasing = ClientPrefs.data.antialiasing;
 		scoreText.screenCenter(X);
 		add(scoreText);
 		scoreText.text = "Personal Best : ?";
 
 		var silly = new FlxText(90, FlxG.height - 30 - (52 / 1.5), 0, "Start", 12);
-		silly.setFormat(Paths.font("trajan.ttf"), 52, FlxColor.WHITE, CENTER);
+		silly.setFormat(Constants.UI_FONT, 52, FlxColor.WHITE, CENTER);
 		silly.antialiasing = ClientPrefs.data.antialiasing;
 		silly.screenCenter(X);
 		// add(silly);

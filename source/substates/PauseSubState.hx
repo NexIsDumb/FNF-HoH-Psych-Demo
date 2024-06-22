@@ -70,7 +70,7 @@ class PauseSubState extends MusicBeatSubstate {
 			levelInfo.text += PlayState.SONG.song;
 		}
 		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("trajan.ttf"), 46);
+		levelInfo.setFormat(Constants.UI_FONT, 46);
 		levelInfo.updateHitbox();
 		levelInfo.antialiasing = ClientPrefs.data.antialiasing;
 		add(levelInfo);
@@ -381,7 +381,7 @@ class PauseSubState extends MusicBeatSubstate {
 
 			var item = new FlxText(120, 50 * i + 290 * 1.3, menuItems[i], 24);
 			item.scrollFactor.set();
-			item.setFormat(Paths.font("trajan.ttf"), 26, FlxColor.WHITE, CENTER);
+			item.setFormat(Constants.UI_FONT, 26, FlxColor.WHITE, CENTER);
 			item.screenCenter(X);
 			item.x += offsetthingy - 1;
 			item.antialiasing = ClientPrefs.data.antialiasing;

@@ -7,7 +7,7 @@ import hxcodec.flixel.*;
 import overworld.*;
 
 class OptionsState extends MenuBeatState {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Graphics', 'Visuals and UI', 'Gameplay', 'Back'];
+	var options:Array<String> = [/*'Note Colors', */ 'Controls', 'Graphics', 'Visuals and UI', 'Gameplay', 'Back'];
 	private var grpOptions:FlxTypedGroup<FlxText>;
 
 	private static var curSelected:Int = 0;
@@ -34,7 +34,7 @@ class OptionsState extends MenuBeatState {
 			}
 
 			switch (label) {
-				case 'Note Colors': openSubState(new options.NotesSubState());
+				// case 'Note Colors': openSubState(new options.NotesSubState());
 				case 'Controls': openSubState(new options.ControlsSubState());
 				case 'Graphics': openSubState(new options.GraphicsSettingsSubState());
 				case 'Visuals and UI': openSubState(new options.VisualsUISubState());
@@ -79,7 +79,7 @@ class OptionsState extends MenuBeatState {
 
 		for (i in 0...options.length - 1) {
 			var optionText:FlxText = new FlxText(0, 0, 0, options[i], 12);
-			optionText.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER);
+			optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenter();
 			optionText.y -= FlxG.height / 6;
 			optionText.y += 50 * i;
@@ -89,7 +89,7 @@ class OptionsState extends MenuBeatState {
 		}
 
 		var optionText:FlxText = new FlxText(0, 0, 0, "Back", 12);
-		optionText.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER);
+		optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 		optionText.screenCenter();
 		optionText.y -= FlxG.height / 6;
 		optionText.y += 50 * 8;
@@ -109,7 +109,7 @@ class OptionsState extends MenuBeatState {
 		fleur.y -= 200;
 
 		statetext = new FlxText(0, 0, 0, "Options", 12);
-		statetext.setFormat(Paths.font("trajan.ttf"), 34, FlxColor.WHITE, CENTER);
+		statetext.setFormat(Constants.UI_FONT, 34, FlxColor.WHITE, CENTER);
 		statetext.screenCenter();
 		statetext.y = fleur.y - 40;
 		statetext.antialiasing = ClientPrefs.data.antialiasing;

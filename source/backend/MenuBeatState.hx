@@ -31,8 +31,10 @@ class MenuBeatState extends MusicBeatState {
 				bgVideo.scrollFactor.set();
 				insert(0, bgVideo);
 				bgVideo.play();
-			} else
+			} else {
+				trace("Couldn't load video: " + Paths.video("Classic"));
 				removeVideo();
+			}
 		} else
 			insert(0, bgVideo);
 		#end

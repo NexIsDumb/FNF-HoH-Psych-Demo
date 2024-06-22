@@ -72,7 +72,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 
 		#if desktop
 		var option:Option = new Option('Discord Rich Presence',
-			"Uncheck this to hide from your discord rpc.",
+			"Uncheck this to hide this game from Discord Now Playing.",
 			'discordRPC',
 			'bool');
 		addOption(option);

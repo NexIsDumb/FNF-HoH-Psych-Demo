@@ -85,7 +85,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		// add(text);
 		// text.x + 30, text.y
 		test = new FlxText(0, 0, 250, "...", 12);
-		test.setFormat(Paths.font("trajan.ttf"), 14, FlxColor.WHITE, RIGHT);
+		test.setFormat(Constants.UI_FONT, 14, FlxColor.WHITE, RIGHT);
 		test.antialiasing = ClientPrefs.data.antialiasing;
 		test.alpha = 0;
 		add(test);
@@ -125,7 +125,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 					if (!isDefaultKey) {
 						var text:FlxText = new FlxText(0, 0, 0, option[1], 12);
-						text.setFormat(Paths.font("trajan.ttf"), 17, FlxColor.WHITE, LEFT);
+						text.setFormat(Constants.UI_FONT, 17, FlxColor.WHITE, LEFT);
 						text.screenCenter();
 						text.x = FlxG.width / 3.75;
 						if (i > 6) {
@@ -152,7 +152,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 						if (ClientPrefs.keyBinds.get(option[2]) != null) {
 							var keytext:FlxText = new FlxText(0, 0, 100, InputFormatter.getKeyName(ClientPrefs.keyBinds.get(option[2])[0]), 12);
-							keytext.setFormat(Paths.font("trajan.ttf"), 16, FlxColor.WHITE, CENTER);
+							keytext.setFormat(Constants.UI_FONT, 16, FlxColor.WHITE, CENTER);
 							keytext.x = button.getGraphicMidpoint().x - (button.width / 2) - 3;
 							if (InputFormatter.getKeyName(ClientPrefs.keyBinds.get(option[2])[0]).length > 2) {
 								button.animation.play('longempty');
@@ -173,7 +173,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		}
 
 		reset = new FlxText(0, 0, 0, defaultKey, 12);
-		reset.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, LEFT);
+		reset.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, LEFT);
 		reset.screenCenter();
 		reset.y -= FlxG.height / 4;
 		reset.y += 60 * 6.75;
@@ -181,7 +181,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		add(reset);
 
 		back = new FlxText(0, 0, 0, "Back", 12);
-		back.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER);
+		back.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 		back.screenCenter();
 		back.y -= FlxG.height / 6;
 		back.y += 50 * 8;

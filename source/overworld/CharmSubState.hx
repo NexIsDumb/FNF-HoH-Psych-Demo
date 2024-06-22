@@ -392,7 +392,7 @@ class CharmSubState extends MusicBeatSubstate {
 
 		txt2 = new FlxText(0, FlxG.height - 44, 0, '', 12);
 		txt2.scrollFactor.set();
-		txt2.setFormat(Paths.font("trajan.ttf"), 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		txt2.setFormat(Constants.UI_FONT, 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		txt2.screenCenter();
 		txt2.x += 275;
 		txt2.y -= 225;
@@ -401,7 +401,7 @@ class CharmSubState extends MusicBeatSubstate {
 
 		txt3 = new FlxText(0, FlxG.height - 44, 0, 'Cost', 12);
 		txt3.scrollFactor.set();
-		txt3.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		txt3.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		txt3.screenCenter();
 		txt3.x += 315;
 		txt3.y -= 190;
@@ -416,19 +416,19 @@ class CharmSubState extends MusicBeatSubstate {
 		var temp:FlxText;
 
 		sprites.push(temp = new FlxText(0, 60, 0, "Charms"));
-		add(temp.setFormat(Paths.font("trajan.ttf"), 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK).screenCenter(X));
+		add(temp.setFormat(Constants.UI_FONT, 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK).screenCenter(X));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
 		sprites.push(temp = new FlxText(30, 40, 0, "Exit to Dirtmouth"));
-		add(temp.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		add(temp.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
 		sprites.push(temp = new FlxText(130, 140, 0, "Equipped"));
-		add(temp.setFormat(Paths.font("trajan.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		add(temp.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
 		sprites.push(temp = new FlxText(130, 270, 0, "Notches"));
-		add(temp.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		add(temp.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 	}
 

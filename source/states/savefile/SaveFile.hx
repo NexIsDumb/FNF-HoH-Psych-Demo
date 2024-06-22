@@ -83,13 +83,13 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		add(flair);
 
 		txt = new FlxText(x + 40, y + dirtmouth.height / 2.5 + 5, 0, "", 32);
-		txt.setFormat(Paths.font("trajan.ttf"), 37, FlxColor.WHITE, RIGHT);
+		txt.setFormat(Constants.UI_FONT, 37, FlxColor.WHITE, RIGHT);
 		txt.text = Std.string(data) + ".";
 		txt.antialiasing = ClientPrefs.data.antialiasing;
 		add(txt);
 
 		clearsave = new FlxText(x + flair.width + 120, y + dirtmouth.height / 2.5, 0, "", 32);
-		clearsave.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, RIGHT);
+		clearsave.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		clearsave.text = "Clear Save";
 		clearsave.antialiasing = ClientPrefs.data.antialiasing;
 		clearsave.alpha = 0;
@@ -97,21 +97,21 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		add(clearsave);
 
 		newgame = new FlxText(x + 130, y + dirtmouth.height / 2.5, 0, "", 32);
-		newgame.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, RIGHT);
+		newgame.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		newgame.text = "New Game";
 		newgame.antialiasing = ClientPrefs.data.antialiasing;
 		newgame.y += newgame.height / 4;
 		add(newgame);
 
 		yes = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, "", 32);
-		yes.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, RIGHT);
+		yes.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		yes.text = "Yes";
 		yes.antialiasing = ClientPrefs.data.antialiasing;
 		yes.y += yes.height / 4;
 		add(yes);
 
 		no = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, "", 32);
-		no.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, RIGHT);
+		no.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		no.text = "No";
 		no.antialiasing = ClientPrefs.data.antialiasing;
 		no.y += no.height / 4;
@@ -121,14 +121,14 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		yes.alpha = 0;
 
 		yes2 = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, "", 32);
-		yes2.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, RIGHT);
+		yes2.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		yes2.text = "Story";
 		yes2.antialiasing = ClientPrefs.data.antialiasing;
 		yes2.y += yes2.height / 4;
 		add(yes2);
 
 		no2 = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, "", 32);
-		no2.setFormat(Paths.font("trajan.ttf"), 22, FlxColor.WHITE, RIGHT);
+		no2.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		no2.text = "Freeplay";
 		no2.antialiasing = ClientPrefs.data.antialiasing;
 		no2.y += no2.height / 4;

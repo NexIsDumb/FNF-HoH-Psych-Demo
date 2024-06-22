@@ -1960,7 +1960,6 @@ class ChartingState extends MusicBeatState {
 	}
 
 	override function destroy() {
-		Note.globalRgbShaders = [];
 		backend.NoteTypesConfig.clearNoteTypesData();
 		super.destroy();
 	}
@@ -2446,7 +2445,7 @@ class ChartingState extends MusicBeatState {
 		if (!OpenFlAssets.exists(path))
 		#end
 		{
-			path = Paths.getPreloadPath('characters/' + Character.DEFAULT_CHARACTER + '.json'); // If a character couldn't be found, change him to BF just to prevent a crash
+			path = Paths.getPreloadPath('characters/' + Constants.DEFAULT_CHARACTER + '.json'); // If a character couldn't be found, change him to BF just to prevent a crash
 		}
 
 		#if MODS_ALLOWED
@@ -2603,7 +2602,6 @@ class ChartingState extends MusicBeatState {
 			note.noteType = i[3];
 		} else { // Event note
 			note.loadGraphic(Paths.image('eventArrow'));
-			note.rgbShader.enabled = false;
 			note.eventName = getEventName(i[1]);
 			note.eventLength = i[1].length;
 			if (i[1].length < 2) {

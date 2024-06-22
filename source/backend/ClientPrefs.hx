@@ -25,8 +25,6 @@ class SaveVariables {
 	public var noteOffset:Int = 0;
 	public var geo:Int = 0;
 	public var translation:String = "English";
-	public var arrowRGB:Array<Array<FlxColor>> = [[0xFFC24B99, 0xFFFFFFFF, 0xFF3C1F56], [0xFF00FFFF, 0xFFFFFFFF, 0xFF1542B7], [0xFF12FA05, 0xFFFFFFFF, 0xFF0A4447], [0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
-	public var arrowRGBPixel:Array<Array<FlxColor>> = [[0xFFE276FF, 0xFFFFF9FF, 0xFF60008D], [0xFF3DCAFF, 0xFFF4FFFF, 0xFF003060], [0xFF71E300, 0xFFF6FFE6, 0xFF003100], [0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
@@ -37,10 +35,7 @@ class SaveVariables {
 	public var pauseMusic:String = 'Tea Time';
 	public var checkForUpdates:Bool = true;
 	public var comboStacking:Bool = true;
-	public var gameplaySettings:Map<String, Dynamic> = [
-		'scrollspeed' => 1.0,
-		'scrolltype' => 'multiplicative',
-		// anyone reading this, amod is multiplicative speed mod, cmod is constant speed mod, and xmod is bpm based speed mod.
+	public var gameplaySettings:Map<String, Dynamic> = ['scrollspeed' => 1.0, 'scrolltype' => 'multiplicative', // anyone reading this, amod is multiplicative speed mod, cmod is constant speed mod, and xmod is bpm based speed mod.
 		// an amod example would be chartSpeed * multiplier
 		// cmod would just be constantSpeed = chartSpeed
 		// and xmod basically works by basing the speed on the bpm.
@@ -50,14 +45,7 @@ class SaveVariables {
 		// just fine. but I wont implement it because I don't know how you handle sustains and other stuff like that.
 		// oh yeah when you calculate the bps divide it by the songSpeed or rate because it wont scroll correctly when speeds exist.
 		// -kade
-		'songspeed' => 1.0,
-		'healthgain' => 1.0,
-		'healthloss' => 1.0,
-		'instakill' => false,
-		'practice' => false,
-		'botplay' => false,
-		'opponentplay' => false
-	];
+		'songspeed' => 1.0, 'healthgain' => 1.0, 'healthloss' => 1.0, 'instakill' => false, 'practice' => false, 'botplay' => false, 'opponentplay' => false];
 
 	public var comboOffset:Array<Int> = [0, 0, 0, 0];
 	public var ratingOffset:Int = 0;
@@ -77,7 +65,7 @@ class ClientPrefs {
 	public static var defaultData:SaveVariables = null;
 
 	public static var translations:Array<Array<String>> = [["English", "eng"], // ["中文[chi]", "chi"],
-		["Italiano", "ital"], ["Français", "fr"], ["Español", "spa"], ["Українська[ukr]", "ukr"], ["日本語[jap]", "jap"], ["Deutsch", "ger"], ["Polski", "pl"], ["Indonesia", "ind"], ["Finnish", "fin"], ["Русский[rus]", "rus"]];
+		["Italiano", "ital"], ["Français", "fr"], ["Español", "spa"], ["Українська[ukr]", "ukr"], ["日本語[jap]", "jap"], ["Deutsch", "ger"], ["Polski", "pl"], ["Indonesia", "ind"], ["Finnish", "fin"], ["Русский[rus]", "rus"],];
 
 	public static function getLanguage():String {
 		for (i in 0...ClientPrefs.translations.length) {
@@ -91,40 +79,9 @@ class ClientPrefs {
 	}
 
 	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
-	public static var keyBinds:Map<String, Array<FlxKey>> = [
-		// Key Bind, Name for ControlsSubState
-		'note_up' => [W, UP],
-		'note_left' => [A, LEFT],
-		'note_down' => [S, DOWN],
-		'note_right' => [D, RIGHT],
-		'ui_up' => [W, UP],
-		'ui_left' => [A, LEFT],
-		'ui_down' => [S, DOWN],
-		'ui_right' => [D, RIGHT],
-		'accept' => [SPACE, ENTER],
-		'back' => [BACKSPACE, ESCAPE],
-		'pause' => [ENTER, ESCAPE],
-		'reset' => [R],
-		'volume_mute' => [ZERO],
-		'volume_up' => [NUMPADPLUS, PLUS],
-		'volume_down' => [NUMPADMINUS, MINUS],
-		'debug_1' => [SEVEN],
-		'debug_2' => [EIGHT]
-	];
-	public static var gamepadBinds:Map<String, Array<FlxGamepadInputID>> = [
-		'note_up' => [DPAD_UP, Y],
-		'note_left' => [DPAD_LEFT, X],
-		'note_down' => [DPAD_DOWN, A],
-		'note_right' => [DPAD_RIGHT, B],
-		'ui_up' => [DPAD_UP, LEFT_STICK_DIGITAL_UP],
-		'ui_left' => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],
-		'ui_down' => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN],
-		'ui_right' => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT],
-		'accept' => [A, START],
-		'back' => [B],
-		'pause' => [START],
-		'reset' => [BACK]
-	];
+	public static var keyBinds:Map<String, Array<FlxKey>> = [ // Key Bind, Name for ControlsSubState
+		'note_up' => [W, UP], 'note_left' => [A, LEFT], 'note_down' => [S, DOWN], 'note_right' => [D, RIGHT], 'ui_up' => [W, UP], 'ui_left' => [A, LEFT], 'ui_down' => [S, DOWN], 'ui_right' => [D, RIGHT], 'accept' => [SPACE, ENTER], 'back' => [BACKSPACE, ESCAPE], 'pause' => [ENTER, ESCAPE], 'reset' => [R], 'volume_mute' => [ZERO], 'volume_up' => [NUMPADPLUS, PLUS], 'volume_down' => [NUMPADMINUS, MINUS], 'debug_1' => [SEVEN], 'debug_2' => [EIGHT]];
+	public static var gamepadBinds:Map<String, Array<FlxGamepadInputID>> = ['note_up' => [DPAD_UP, Y], 'note_left' => [DPAD_LEFT, X], 'note_down' => [DPAD_DOWN, A], 'note_right' => [DPAD_RIGHT, B], 'ui_up' => [DPAD_UP, LEFT_STICK_DIGITAL_UP], 'ui_left' => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT], 'ui_down' => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN], 'ui_right' => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT], 'accept' => [A, START], 'back' => [B], 'pause' => [START], 'reset' => [BACK]];
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 	public static var defaultButtons:Map<String, Array<FlxGamepadInputID>> = null;
 

@@ -347,15 +347,14 @@ class EditorPlayState extends MusicBeatSubstate {
 						unspawnNotes.push(sustainNote);
 
 						sustainNote.correctionOffset = swagNote.height / 2;
-						if (!PlayState.isPixelStage) {
-							if (oldNote.isSustainNote) {
-								oldNote.scale.y *= Note.SUSTAIN_SIZE / oldNote.frameHeight / playbackRate;
-								oldNote.updateHitbox();
-							}
 
-							if (ClientPrefs.data.downScroll)
-								sustainNote.correctionOffset = 0;
+						if (oldNote.isSustainNote) {
+							oldNote.scale.y *= Note.SUSTAIN_SIZE / oldNote.frameHeight / playbackRate;
+							oldNote.updateHitbox();
 						}
+
+						if (ClientPrefs.data.downScroll)
+							sustainNote.correctionOffset = 0;
 
 						if (sustainNote.mustPress)
 							sustainNote.x += FlxG.width / 2; // general offset

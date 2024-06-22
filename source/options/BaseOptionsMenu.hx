@@ -58,7 +58,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 		for (i in 0...optionsArray.length) {
 			var optionText:FlxText = new FlxText(0, 0, 0, "", 12);
-			optionText.setFormat(Paths.font("trajan.ttf"), 20, FlxColor.WHITE, LEFT);
+			optionText.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, LEFT);
 			optionText.text = optionsArray[i].name + ":";
 			optionText.screenCenter();
 			optionText.x = FlxG.width / 3.25;
@@ -70,7 +70,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 			if (optionsArray[i].type == 'bool') {
 				var optionText:FlxText = new FlxText(0, 0, 250, optionsArray[i].getValue() ? "ON" : "OFF", 12);
-				optionText.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
+				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
 				optionText.autoSize = false;
 				optionText.screenCenter();
 				optionText.x = FlxG.width - FlxG.width / 1.95;
@@ -81,7 +81,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				grpOptions.add(optionText);
 			} else {
 				var optionText:FlxText = new FlxText(0, 0, 250, optionsArray[i].getValue(), 12);
-				optionText.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
+				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
 				optionText.autoSize = false;
 				optionText.screenCenter();
 				optionText.x = FlxG.width - FlxG.width / 1.95;
@@ -114,7 +114,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		pointer2.updateHitbox();
 
 		back = new FlxText(0, 0, 0, "Back", 12);
-		back.setFormat(Paths.font("trajan.ttf"), 18, FlxColor.WHITE, CENTER);
+		back.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 		back.screenCenter();
 		back.y -= FlxG.height / 6;
 		back.y += 50 * 8;

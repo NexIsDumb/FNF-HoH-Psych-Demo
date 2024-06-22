@@ -433,7 +433,7 @@ class Shop extends FlxSpriteGroup {
 			charmGroup.add(geo);
 
 			var txt:FlxText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-			txt.setFormat(Paths.font("trajan.ttf"), 21, FlxColor.WHITE, RIGHT);
+			txt.setFormat(Constants.UI_FONT, 21, FlxColor.WHITE, RIGHT);
 			txt.x = geo.getGraphicMidpoint().x;
 			txt.y = geo.getGraphicMidpoint().y - (geo.height / 1.25) - 2.5;
 			txt.text = price;

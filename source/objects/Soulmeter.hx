@@ -206,7 +206,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 		new FlxTimer().start(11 * (1 / 15), function(tmr:FlxTimer) {
 			geotxt = new FlxText(FlxG.width * 0.7, 7, 0, "", 32);
-			geotxt.setFormat(Paths.font("trajan.ttf"), 28, FlxColor.WHITE, RIGHT);
+			geotxt.setFormat(Constants.UI_FONT, 28, FlxColor.WHITE, RIGHT);
 			geotxt.x = geo.getGraphicMidpoint().x + (geo.width / 2);
 			geotxt.y = geo.getGraphicMidpoint().y - (geo.height / 2);
 			geotxt.text = Std.string(DataSaver.geo);

@@ -82,7 +82,7 @@ class Dialogue extends FlxSpriteGroup {
 
 			if (speakerText == null) {
 				speakerText = new FlxText(-200, FlxG.height - 120, FlxG.width * 2, speaker, 64);
-				speakerText.setFormat(Paths.font("trajan.ttf"), 58, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				speakerText.setFormat(Constants.UI_FONT, 58, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				speakerText.borderSize = 2.5;
 				speakerText.antialiasing = ClientPrefs.data.antialiasing;
 				add(speakerText);

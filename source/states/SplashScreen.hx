@@ -1,13 +1,11 @@
-package flixel.system;
+package states;
 
 import openfl.Lib;
 #if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;
 #end
 
-class FlxSplash extends FlxState {
-	public static var nextState:Class<FlxState>;
-
+class SplashScreen extends flixel.FlxState {
 	/**
 	 * @since 4.8.0
 	 */
@@ -66,7 +64,7 @@ class FlxSplash extends FlxState {
 		#end
 
 		FlxG.sound.muted = _cachedMuted;
-		FlxG.switchState(Type.createInstance(nextState, []));
-		FlxG.game._gameJustStarted = true;
+		FlxG.switchState(new MainMenuState());
+		@:privateAccess FlxG.game._gameJustStarted = true;
 	}
 }

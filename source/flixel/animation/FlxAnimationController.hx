@@ -674,7 +674,7 @@ class FlxAnimationController implements IFlxDestroyable {
 		return Value;
 	}
 
-	function get_name():String {
+	inline function get_name():String {
 		var animName:String = null;
 		if (_curAnim != null) {
 			animName = _curAnim.name;
@@ -682,9 +682,35 @@ class FlxAnimationController implements IFlxDestroyable {
 		return animName;
 	}
 
-	function set_name(AnimName:String):String {
+	inline function set_name(AnimName:String):String {
 		play(AnimName);
 		return AnimName;
+	}
+
+	/**
+	 * Checks if an animation exists by it's name.
+	 * @param name The animation name.
+	 * @since 4.11.0
+	 */
+	public inline function exists(name:String):Bool {
+		return _animations.exists(name);
+	}
+
+	/**
+	 * Renames the animation with a new name.
+	 * @param oldName the name that is replaced.
+	 * @param newName the name that replaces the old one.
+	 * @since 4.11.0
+	 */
+	public function rename(oldName:String, newName:String):Void {
+		var anim = _animations.get(oldName);
+		if (anim == null) {
+			FlxG.log.warn('No animation called "$oldName"');
+			return;
+		}
+		_animations.set(newName, anim);
+		anim.name = newName;
+		_animations.remove(oldName);
 	}
 
 	inline function get_curAnim():FlxAnimation {
@@ -723,7 +749,7 @@ class FlxAnimationController implements IFlxDestroyable {
 		return Value;
 	}
 
-	function get_finished():Bool {
+	inline function get_finished():Bool {
 		var finished:Bool = true;
 		if (_curAnim != null) {
 			finished = _curAnim.finished;

@@ -123,4 +123,32 @@ class CoolUtil {
 		@:privateAccess
 		return #if (flixel < "5.0.0") folder #else FlxG.stage.application.meta.get('company') + '/' + FlxSave.validate(FlxG.stage.application.meta.get('file')) #end;
 	}
+
+	static final labels = "kmgt";
+
+	/**
+	 * Returns a string representation of a size, following this format: `1.02 GB`, `134.00 MB`
+	 *
+	 * Code from Codename Engine, but modified
+	 * @param size Size to convert to string
+	 * @return String Result string representation
+	 */
+	public static function getSizeString(size:Float):String {
+		var label:Int = 0;
+		while (size > 1024 && label < labels.length - 1) {
+			label++;
+			size /= 1024;
+		}
+		var fraction = Std.int((size % 1) * 100);
+		return '${Std.int(size)}.${lpadZero(Std.string(fraction), 2)} ${labels.charAt(label - 1)}b';
+	}
+
+	public static function lpadZero(s:String, l:Int):String {
+		var buf = new FastStringBuf();
+		l -= s.length;
+		while (buf.length < l)
+			buf.addStr('0');
+		buf.addStr(s);
+		return buf.toString();
+	}
 }
