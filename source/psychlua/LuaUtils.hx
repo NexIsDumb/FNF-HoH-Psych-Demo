@@ -239,7 +239,7 @@ class LuaUtils {
 		}
 	}
 
-	public static function resetTextTag(tag:String) {
+	public #if !LUA_ALLOWED inline #end static function resetTextTag(tag:String) {
 		#if LUA_ALLOWED
 		if (!PlayState.instance.modchartTexts.exists(tag)) {
 			return;
@@ -253,7 +253,7 @@ class LuaUtils {
 		#end
 	}
 
-	public static function resetSpriteTag(tag:String) {
+	public #if !LUA_ALLOWED inline #end static function resetSpriteTag(tag:String) {
 		#if LUA_ALLOWED
 		if (!PlayState.instance.modchartSprites.exists(tag)) {
 			return;
@@ -267,7 +267,7 @@ class LuaUtils {
 		#end
 	}
 
-	public static function cancelTween(tag:String) {
+	public #if !LUA_ALLOWED inline #end static function cancelTween(tag:String) {
 		#if LUA_ALLOWED
 		if (PlayState.instance.modchartTweens.exists(tag)) {
 			PlayState.instance.modchartTweens.get(tag).cancel();
@@ -286,7 +286,7 @@ class LuaUtils {
 		return sexyProp;
 	}
 
-	public static function cancelTimer(tag:String) {
+	public #if !LUA_ALLOWED inline #end static function cancelTimer(tag:String) {
 		#if LUA_ALLOWED
 		if (PlayState.instance.modchartTimers.exists(tag)) {
 			var theTimer:FlxTimer = PlayState.instance.modchartTimers.get(tag);
@@ -370,7 +370,7 @@ class LuaUtils {
 		return NORMAL;
 	}
 
-	public static function typeToString(type:Int):String {
+	public #if !LUA_ALLOWED inline #end static function typeToString(type:Int):String {
 		#if LUA_ALLOWED
 		switch (type) {
 			case Lua.LUA_TBOOLEAN: return "boolean";

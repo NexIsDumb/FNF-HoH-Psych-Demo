@@ -96,7 +96,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		silly.alpha = 0.5;
 		add(silly);
 
-		sillyview2 = FlxTween.tween(silly, {alpha: 0}, 1, {ease: FlxEase.quintInOut, type: FlxTween.PINGPONG});
+		sillyview2 = FlxTween.tween(silly, {alpha: 0}, 1, {ease: FlxEase.quintInOut, type: FlxTweenType.PINGPONG});
 
 		DataSaver.loadData(DataSaver.saveFile);
 		if (DataSaver.usedNotches <= 5) {
@@ -242,7 +242,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 		if (DataSaver.usedNotches > 5) {
 			silly.alpha = 0.5;
-			sillyview2 = FlxTween.tween(silly, {alpha: 1}, 1, {ease: FlxEase.quintInOut, type: FlxTween.PINGPONG});
+			sillyview2 = FlxTween.tween(silly, {alpha: 1}, 1, {ease: FlxEase.quintInOut, type: FlxTweenType.PINGPONG});
 		} else {
 			sillyview2 = FlxTween.tween(silly, {alpha: 0}, 1, {ease: FlxEase.quintOut});
 		}
@@ -483,15 +483,17 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			}
 		}
 
-		if (soulMeter.animation.curAnim.name != Std.string(Math.floor(0.37 * soul) + 1) && Math.min(Math.floor(0.37 * soul) + 1, 36) != 30) {
+		var meow = Math.floor(0.37 * soul) + 1;
+
+		if (soulMeter.animation.curAnim.name != Std.string(meow) && Math.min(meow, 36) != 30) {
 			frameIndex = soulMeter.animation.curAnim.curFrame;
-			soulMeter.animation.play(Std.string(Math.min(Math.floor(0.37 * soul) + 1, 37)), true);
-			soulMeter.y = ypossoul + 104 - 3 * (Math.min(Math.floor(0.37 * soul) + 1, 34));
-			if (Math.min(Math.floor(0.37 * soul) + 1, 35) == 35) {
+			soulMeter.animation.play(Std.string(Math.min(meow, 37)), true);
+			soulMeter.y = ypossoul + 104 - 3 * (Math.min(meow, 34));
+			if (Math.min(meow, 35) == 35) {
 				soulMeter.y -= 1.5;
 			}
 			soulMeter.animation.curAnim.curFrame = frameIndex;
-			if (Std.string(Math.min(Math.floor(0.37 * soul) + 1, 37)) == "37") {
+			if (Std.string(Math.min(meow, 37)) == "37") {
 				soulMeter.animation.curAnim.curFrame = 0;
 			}
 		}

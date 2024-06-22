@@ -1,19 +1,19 @@
 package states;
 
-import backend.WeekData;
 import backend.Achievements;
+import backend.Highscore;
+import backend.WeekData;
+import flash.system.System;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.input.keyboard.FlxKey;
+import hxcodec.flixel.*;
 import lime.app.Application;
 import objects.AchievementPopup;
-import states.editors.MasterEditorMenu;
 import options.OptionsState;
-import hxcodec.flixel.*;
 import overworld.*;
-import flash.system.System;
-import backend.Highscore;
+import states.editors.MasterEditorMenu;
 #if sys
 import sys.thread.Thread;
 #end

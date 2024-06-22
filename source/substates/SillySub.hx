@@ -22,7 +22,9 @@ class SillySub extends MusicBeatSubstate {
 
 	override function create() {
 		instance = this;
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onGameOverStart', []);
+		#end
 
 		super.create();
 	}
@@ -57,7 +59,9 @@ class SillySub extends MusicBeatSubstate {
 		if (FlxG.sound.music.playing) {
 			Conductor.songPosition = FlxG.sound.music.time;
 		}
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onUpdatePost', [elapsed]);
+		#end
 
 		dialogue.update(elapsed);
 	}

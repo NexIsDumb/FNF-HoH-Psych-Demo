@@ -1,13 +1,9 @@
 package substates;
 
-import backend.WeekData;
-import objects.Character;
 import flixel.FlxObject;
-import flixel.FlxSubState;
-import flixel.math.FlxPoint;
-import states.StoryMenuState;
-import states.FreeplayState;
+import objects.Character;
 import overworld.*;
+import states.FreeplayState;
 
 class GameOverSubstate extends MusicBeatSubstate {
 	public var boyfriends:Character;
@@ -50,7 +46,9 @@ class GameOverSubstate extends MusicBeatSubstate {
 
 	override function create() {
 		instance = this;
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onGameOverStart', []);
+		#end
 
 		super.create();
 	}
@@ -58,7 +56,9 @@ class GameOverSubstate extends MusicBeatSubstate {
 	public function new(x:Float, y:Float, camX:Float, camY:Float) {
 		super();
 
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.setOnScripts('inGameOver', true);
+		#end
 
 		Conductor.songPosition = 0;
 
@@ -100,7 +100,9 @@ class GameOverSubstate extends MusicBeatSubstate {
 		super.update(elapsed);
 		boyfriends.update(elapsed);
 
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onUpdate', [elapsed]);
+		#end
 
 		if (controls.ACCEPT) {
 			endBullshit();
@@ -120,7 +122,9 @@ class GameOverSubstate extends MusicBeatSubstate {
 				MusicBeatState.switchState(new FreeplayState());
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
+			#end
 		}
 
 		if (boyfriends.animation.curAnim != null) {
@@ -136,20 +140,8 @@ class GameOverSubstate extends MusicBeatSubstate {
 
 				if (boyfriends.animation.curAnim.finished && !playingDeathSound) {
 					startedDeath = true;
-					if (PlayState.SONG.stage == 'tank') {
-						playingDeathSound = true;
-						coolStartDeath(0.2);
-
-						var exclude:Array<Int> = [];
-						// if(!ClientPrefs.cursing) exclude = [1, 3, 8, 13, 17, 21];
-
-						FlxG.sound.play(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, exclude)), 1, false, null, true, function() {
-							if (!isEnding) {
-								FlxG.sound.music.fadeIn(0.2, 1, 4);
-							}
-						});
-					} else
-						coolStartDeath();
+					playingDeathSound = true;
+					coolStartDeath();
 				}
 			}
 		}
@@ -159,7 +151,9 @@ class GameOverSubstate extends MusicBeatSubstate {
 		if (FlxG.sound.music.playing) {
 			Conductor.songPosition = FlxG.sound.music.time;
 		}
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onUpdatePost', [elapsed]);
+		#end
 	}
 
 	var isEnding:Bool = false;
@@ -186,7 +180,9 @@ class GameOverSubstate extends MusicBeatSubstate {
 					}
 				});
 			});
+			#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 			PlayState.instance.callOnScripts('onGameOverConfirm', [true]);
+			#end
 		}
 	}
 
