@@ -73,7 +73,8 @@ class PlayState extends MusicBeatState {
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
-	public static var ratingStuff:Array<Dynamic> = [['You Suck!', 0.2], // From 0% to 19%
+	public static var ratingStuff:Array<Dynamic> = [
+		['You Suck!', 0.2], // From 0% to 19%
 		['Shit', 0.4], // From 20% to 39%
 		['Bad', 0.5], // From 40% to 49%
 		['Bruh', 0.6], // From 50% to 59%
@@ -1524,7 +1525,11 @@ class PlayState extends MusicBeatState {
 		eventNotes.push(subEvent);
 		eventPushed(subEvent);
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-		callOnScripts('onEventPushed', [subEvent.event, subEvent.value1 != null ? subEvent.value1 : '', subEvent.value2 != null ? subEvent.value2 : '', subEvent.strumTime]);
+		callOnScripts('onEventPushed', [
+			subEvent.event,
+			subEvent.value1 != null ? subEvent.value1 : '',
+			subEvent.value2 != null ? subEvent.value2 : '',
+			subEvent.strumTime]);
 		#end
 	}
 
@@ -1815,7 +1820,12 @@ class PlayState extends MusicBeatState {
 				dunceNote.spawned = true;
 
 				#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-				callOnLuas('onSpawnNote', [notes.members.indexOf(dunceNote), dunceNote.noteData, dunceNote.noteType, dunceNote.isSustainNote, dunceNote.strumTime]);
+				callOnLuas('onSpawnNote', [
+					notes.members.indexOf(dunceNote),
+					dunceNote.noteData,
+					dunceNote.noteType,
+					dunceNote.isSustainNote,
+					dunceNote.strumTime]);
 				callOnHScript('onSpawnNote', [dunceNote]);
 				#end
 			}
@@ -3146,7 +3156,11 @@ class PlayState extends MusicBeatState {
 		note.hitByOpponent = true;
 
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-		var result:Dynamic = callOnLuas('opponentNoteHit', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
+		var result:Dynamic = callOnLuas('opponentNoteHit', [
+			notes.members.indexOf(note),
+			Math.abs(note.noteData),
+			note.noteType,
+			note.isSustainNote]);
 		if (result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll)
 			callOnHScript('opponentNoteHit', [note]);
 		#end

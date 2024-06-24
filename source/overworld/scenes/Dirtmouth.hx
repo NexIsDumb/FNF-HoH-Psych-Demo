@@ -36,7 +36,11 @@ class Dirtmouth extends BaseScene {
 		stageproperties.minX = stageproperties.minCam - FlxG.width + game.player.width * 1.5;
 		stageproperties.maxX = stageproperties.maxCam + FlxG.width - game.player.width * 2.5;
 
-		stageproperties.interactionpoints = [[elderbug.x, "elderbuginteract"], [sly.x + sly.width / 1.45, "doorinteract"], [game.player.x + 10, "silly"]];
+		stageproperties.interactionpoints = [
+			[elderbug.x, "elderbuginteract"],
+			[sly.x + sly.width / 1.45, "doorinteract"],
+			[game.player.x + 10, "silly"]
+		];
 		trace(sly.x + sly.width / 1.45);
 	}
 
@@ -240,7 +244,10 @@ class Dirtmouth extends BaseScene {
 
 	override public function createPost() {
 		add(playerfog);
-		game.player.benchpos = [(stageproperties.minCam + stageproperties.maxCam) / 2 - (game.player.width / 2), game.player.y - 20];
+		game.player.benchpos = [
+			(stageproperties.minCam + stageproperties.maxCam) / 2 - (game.player.width / 2),
+			game.player.y - 20
+		];
 		game.player.oldy = game.player.y;
 
 		var roadmain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/roadmain', 'hymns'));
@@ -608,7 +615,11 @@ class Dirtmouth extends BaseScene {
 					switch (DataSaver.elderbugstate) {
 						case 0:
 							game.dialogue.openBox("Elderbug",
-								[["Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it."]],
+								[
+									[
+										"Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it."
+									]
+								],
 								call
 							);
 							DataSaver.elderbugstate++;
@@ -623,7 +634,11 @@ class Dirtmouth extends BaseScene {
 
 								if (DataSaver.diedonfirststeps == false) {
 									game.dialogue.openBox("Elderbug",
-										[["Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company."]],
+										[
+											[
+												"Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company."
+											]
+										],
 										function() {
 											Difficulty.resetList();
 											PlayState.storyDifficulty = 1;
@@ -647,7 +662,9 @@ class Dirtmouth extends BaseScene {
 									DataSaver.saveSettings(DataSaver.saveFile);
 								} else {
 									game.dialogue.openBox("Elderbug",
-										[["I apologize, my singing must be a little rusty. Lets try that again, Traveler."]],
+										[
+											["I apologize, my singing must be a little rusty. Lets try that again, Traveler."]
+										],
 										function() {
 											Difficulty.resetList();
 											PlayState.storyDifficulty = 1;
@@ -672,7 +689,11 @@ class Dirtmouth extends BaseScene {
 								}
 							} else {
 								game.dialogue.openBox("Elderbug",
-									[["Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you."]],
+									[
+										[
+											"Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you."
+										]
+									],
 									function() {
 										indialogue = false;
 										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -699,7 +720,11 @@ class Dirtmouth extends BaseScene {
 												elderbug.animation.play('talk');
 											}
 											game.dialogue.openBox("Elderbug",
-												[["Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels."]],
+												[
+													[
+														"Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels."
+													]
+												],
 												function() {
 													indialogue = false;
 													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -723,7 +748,17 @@ class Dirtmouth extends BaseScene {
 									if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
 										if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
 											if (lightcd == false) {
-												var randomlines = [["The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is."], ["The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug."], ["Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!"]];
+												var randomlines = [
+													[
+														"The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is."
+													],
+													[
+														"The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug."
+													],
+													[
+														"Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!"
+													]
+												];
 
 												lightcd = true;
 
@@ -746,7 +781,14 @@ class Dirtmouth extends BaseScene {
 										} else {
 											DataSaver.interacts[0] = true;
 											game.dialogue.openBox("Elderbug",
-												[["You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really."], ["I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."]],
+												[
+													[
+														"You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really."
+													],
+													[
+														"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+													]
+												],
 												function() {
 													indialogue = false;
 													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -761,7 +803,11 @@ class Dirtmouth extends BaseScene {
 									} else {
 										DataSaver.interacts[2] = true;
 										game.dialogue.openBox("Elderbug",
-											[["Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns."]],
+											[
+												[
+													"Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns."
+												]
+											],
 											function() {
 												indialogue = false;
 												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -776,7 +822,14 @@ class Dirtmouth extends BaseScene {
 								} else {
 									DataSaver.interacts[1] = true;
 									game.dialogue.openBox("Elderbug",
-										[["You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain."], ["I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."]],
+										[
+											[
+												"You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain."
+											],
+											[
+												"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+											]
+										],
 										function() {
 											indialogue = false;
 											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -800,7 +853,17 @@ class Dirtmouth extends BaseScene {
 								if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
 									if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
 										if (lightcd == false) {
-											var randomlines = [["The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is."], ["The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug."], ["Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!"]];
+											var randomlines = [
+												[
+													"The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is."
+												],
+												[
+													"The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug."
+												],
+												[
+													"Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!"
+												]
+											];
 
 											lightcd = true;
 
@@ -823,7 +886,14 @@ class Dirtmouth extends BaseScene {
 									} else {
 										DataSaver.interacts[0] = true;
 										game.dialogue.openBox("Elderbug",
-											[["You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really."], ["I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."]],
+											[
+												[
+													"You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really."
+												],
+												[
+													"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+												]
+											],
 											function() {
 												indialogue = false;
 												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -838,7 +908,11 @@ class Dirtmouth extends BaseScene {
 								} else {
 									DataSaver.interacts[2] = true;
 									game.dialogue.openBox("Elderbug",
-										[["Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns."]],
+										[
+											[
+												"Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns."
+											]
+										],
 										function() {
 											indialogue = false;
 											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
@@ -853,7 +927,14 @@ class Dirtmouth extends BaseScene {
 							} else {
 								DataSaver.interacts[1] = true;
 								game.dialogue.openBox("Elderbug",
-									[["You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain."], ["I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."]],
+									[
+										[
+											"You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain."
+										],
+										[
+											"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+										]
+									],
 									function() {
 										indialogue = false;
 										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});

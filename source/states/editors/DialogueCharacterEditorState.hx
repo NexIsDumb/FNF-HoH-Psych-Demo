@@ -159,7 +159,10 @@ class DialogueCharacterEditorState extends MusicBeatState {
 		addTypeUI();
 		add(UI_typebox);
 
-		var tabs = [{name: 'Animations', label: 'Animations'}, {name: 'Character', label: 'Character'},];
+		var tabs = [
+			{name: 'Animations', label: 'Animations'},
+			{name: 'Character', label: 'Character'},
+		];
 		UI_mainbox = new FlxUITabMenu(null, tabs, true);
 		UI_mainbox.resize(200, 250);
 		UI_mainbox.x = UI_typebox.x + UI_typebox.width;
@@ -511,7 +514,12 @@ class DialogueCharacterEditorState extends MusicBeatState {
 			}
 
 			var negaMult:Array<Int> = [1, 1, -1, -1];
-			var controlArray:Array<Bool> = [FlxG.keys.pressed.J, FlxG.keys.pressed.I, FlxG.keys.pressed.L, FlxG.keys.pressed.K];
+			var controlArray:Array<Bool> = [
+				FlxG.keys.pressed.J,
+				FlxG.keys.pressed.I,
+				FlxG.keys.pressed.L,
+				FlxG.keys.pressed.K
+			];
 			for (i in 0...controlArray.length) {
 				if (controlArray[i]) {
 					if (i % 2 == 1) {
@@ -525,8 +533,18 @@ class DialogueCharacterEditorState extends MusicBeatState {
 			if (UI_mainbox.selected_tab_id == 'Animations' && curSelectedAnim != null && character.dialogueAnimations.exists(curSelectedAnim)) {
 				var moved:Bool = false;
 				var animShit:DialogueAnimArray = character.dialogueAnimations.get(curSelectedAnim);
-				var controlArrayLoop:Array<Bool> = [FlxG.keys.justPressed.A, FlxG.keys.justPressed.W, FlxG.keys.justPressed.D, FlxG.keys.justPressed.S];
-				var controlArrayIdle:Array<Bool> = [FlxG.keys.justPressed.LEFT, FlxG.keys.justPressed.UP, FlxG.keys.justPressed.RIGHT, FlxG.keys.justPressed.DOWN];
+				var controlArrayLoop:Array<Bool> = [
+					FlxG.keys.justPressed.A,
+					FlxG.keys.justPressed.W,
+					FlxG.keys.justPressed.D,
+					FlxG.keys.justPressed.S
+				];
+				var controlArrayIdle:Array<Bool> = [
+					FlxG.keys.justPressed.LEFT,
+					FlxG.keys.justPressed.UP,
+					FlxG.keys.justPressed.RIGHT,
+					FlxG.keys.justPressed.DOWN
+				];
 				for (i in 0...controlArrayLoop.length) {
 					if (controlArrayLoop[i]) {
 						if (i % 2 == 1) {

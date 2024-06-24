@@ -207,9 +207,27 @@ class NoteOffsetState extends MusicBeatState {
 			if (FlxG.keys.justPressed.ANY || FlxG.gamepads.anyJustPressed(ANY)) {
 				var controlArray:Array<Bool> = null;
 				if (!controls.controllerMode) {
-					controlArray = [FlxG.keys.justPressed.LEFT, FlxG.keys.justPressed.RIGHT, FlxG.keys.justPressed.UP, FlxG.keys.justPressed.DOWN, FlxG.keys.justPressed.A, FlxG.keys.justPressed.D, FlxG.keys.justPressed.W, FlxG.keys.justPressed.S];
+					controlArray = [
+						FlxG.keys.justPressed.LEFT,
+						FlxG.keys.justPressed.RIGHT,
+						FlxG.keys.justPressed.UP,
+						FlxG.keys.justPressed.DOWN,
+						FlxG.keys.justPressed.A,
+						FlxG.keys.justPressed.D,
+						FlxG.keys.justPressed.W,
+						FlxG.keys.justPressed.S
+					];
 				} else {
-					controlArray = [FlxG.gamepads.anyJustPressed(DPAD_LEFT), FlxG.gamepads.anyJustPressed(DPAD_RIGHT), FlxG.gamepads.anyJustPressed(DPAD_UP), FlxG.gamepads.anyJustPressed(DPAD_DOWN), FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_LEFT), FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_RIGHT), FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_UP), FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_DOWN)];
+					controlArray = [
+						FlxG.gamepads.anyJustPressed(DPAD_LEFT),
+						FlxG.gamepads.anyJustPressed(DPAD_RIGHT),
+						FlxG.gamepads.anyJustPressed(DPAD_UP),
+						FlxG.gamepads.anyJustPressed(DPAD_DOWN),
+						FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_LEFT),
+						FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_RIGHT),
+						FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_UP),
+						FlxG.gamepads.anyJustPressed(RIGHT_STICK_DIGITAL_DOWN)
+					];
 				}
 
 				if (controlArray.contains(true)) {

@@ -16,7 +16,9 @@ typedef ModsList = {
 
 class Mods {
 	static public var currentModDirectory:String = '';
-	public static var ignoreModFolders:Array<String> = ['characters', 'custom_events', 'custom_notetypes', 'data', 'songs', 'music', 'sounds', 'shaders', 'videos', 'images', 'stages', 'weeks', 'fonts', 'scripts', 'achievements'];
+	public static var ignoreModFolders:Array<String> = [
+		'characters', 'custom_events', 'custom_notetypes', 'data', 'songs', 'music', 'sounds', 'shaders', 'videos', 'images', 'stages', 'weeks', 'fonts', 'scripts', 'achievements'
+	];
 
 	private static var globalMods:Array<String> = [];
 

@@ -9,7 +9,15 @@ import states.MainMenuState;
 import states.FreeplayState;
 
 class MasterEditorMenu extends MusicBeatState {
-	var options:Array<String> = ['Chart Editor', 'Character Editor', 'Week Editor', 'Menu Character Editor', 'Dialogue Editor', 'Dialogue Portrait Editor', 'Note Splash Debug'];
+	var options:Array<String> = [
+		'Chart Editor',
+		'Character Editor',
+		'Week Editor',
+		'Menu Character Editor',
+		'Dialogue Editor',
+		'Dialogue Portrait Editor',
+		'Note Splash Debug'
+	];
 	private var grpTexts:FlxTypedGroup<Alphabet>;
 	private var directories:Array<String> = [null];
 

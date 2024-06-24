@@ -149,8 +149,10 @@ class CharacterEditorState extends MusicBeatState {
 
 		FlxG.camera.follow(camFollow);
 
-		var tabs = [ // {name: 'Offsets', label: 'Offsets'},
-			{name: 'Settings', label: 'Settings'},];
+		var tabs = [
+			// {name: 'Offsets', label: 'Offsets'},
+			{name: 'Settings', label: 'Settings'},
+		];
 
 		UI_box = new FlxUITabMenu(null, tabs, true);
 		UI_box.cameras = [camMenu];
@@ -160,7 +162,10 @@ class CharacterEditorState extends MusicBeatState {
 		UI_box.y = 25;
 		UI_box.scrollFactor.set();
 
-		var tabs = [{name: 'Character', label: 'Character'}, {name: 'Animations', label: 'Animations'},];
+		var tabs = [
+			{name: 'Character', label: 'Character'},
+			{name: 'Animations', label: 'Animations'},
+		];
 		UI_characterbox = new FlxUITabMenu(null, tabs, true);
 		UI_characterbox.cameras = [camMenu];
 
@@ -995,7 +1000,11 @@ class CharacterEditorState extends MusicBeatState {
 
 		#if MODS_ALLOWED
 		characterList = [];
-		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Mods.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
+		var directories:Array<String> = [
+			Paths.mods('characters/'),
+			Paths.mods(Mods.currentModDirectory + '/characters/'),
+			Paths.getPreloadPath('characters/')
+		];
 		for (mod in Mods.getGlobalMods())
 			directories.push(Paths.mods(mod + '/characters/'));
 		for (i in 0...directories.length) {
@@ -1048,7 +1057,13 @@ class CharacterEditorState extends MusicBeatState {
 			textAnim.text = '';
 		}
 
-		var inputTexts:Array<FlxUIInputText> = [animationInputText, imageInputText, healthIconInputText, animationNameInputText, animationIndicesInputText];
+		var inputTexts:Array<FlxUIInputText> = [
+			animationInputText,
+			imageInputText,
+			healthIconInputText,
+			animationNameInputText,
+			animationIndicesInputText
+		];
 		for (i in 0...inputTexts.length) {
 			if (inputTexts[i].hasFocus) {
 				ClientPrefs.toggleVolumeKeys(false);
@@ -1128,7 +1143,12 @@ class CharacterEditorState extends MusicBeatState {
 					genBoyOffsets();
 				}
 
-				var controlArray:Array<Bool> = [FlxG.keys.justPressed.LEFT, FlxG.keys.justPressed.RIGHT, FlxG.keys.justPressed.UP, FlxG.keys.justPressed.DOWN];
+				var controlArray:Array<Bool> = [
+					FlxG.keys.justPressed.LEFT,
+					FlxG.keys.justPressed.RIGHT,
+					FlxG.keys.justPressed.UP,
+					FlxG.keys.justPressed.DOWN
+				];
 
 				for (i in 0...controlArray.length) {
 					if (controlArray[i]) {

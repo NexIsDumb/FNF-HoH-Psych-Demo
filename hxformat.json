@@ -21,9 +21,6 @@
 			"defaultWrap": "noWrap"
 		},
 		"arrayMatrixWrap": "matrixWrapWithAlign",
-		"arrayWrap": {
-			"defaultWrap": "noWrap"
-		},
 		"functionSignature": {
 			"defaultWrap": "noWrap"
 		},

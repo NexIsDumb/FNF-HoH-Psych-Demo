@@ -270,7 +270,14 @@ class Shop extends FlxSpriteGroup {
 				FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 
 				OverworldManager.instance.dialogue.openBox("Sly",
-					[["Back for more? I’m afraid I have nothing left to offer you. You’ve cleaned me out."], ["I believe I might have more items locked away in my storeroom, but I seem to have lost the key. So, no more business between us I’m afraid! Until that key shows up again at least…"]],
+					[
+						[
+							"Back for more? I’m afraid I have nothing left to offer you. You’ve cleaned me out."
+						],
+						[
+							"I believe I might have more items locked away in my storeroom, but I seem to have lost the key. So, no more business between us I’m afraid! Until that key shows up again at least…"
+						]
+					],
 					function() {
 						filly();
 					});
@@ -381,7 +388,11 @@ class Shop extends FlxSpriteGroup {
 					if (rawData == false) {
 						FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 						OverworldManager.instance.dialogue.openBox("Sly",
-							[["Ah, Hello! I knew we'd meet again. Seems like you've gotten yourself a bit of a makeover, hm?"]],
+							[
+								[
+									"Ah, Hello! I knew we'd meet again. Seems like you've gotten yourself a bit of a makeover, hm?"
+								]
+							],
 							function() {
 								filly();
 							});
@@ -389,7 +400,11 @@ class Shop extends FlxSpriteGroup {
 						if (DataSaver.slytries == 0) {
 							FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 							OverworldManager.instance.dialogue.openBox("Sly",
-								[["Oh, it's been quite some time since I've played like that. I must admit that it was quite enjoyable! As much as it pains me...a battle lost is a battle lost. Here, take your reward and leave me to my Geo.. unless you plan to purchase some more of my wares…"]],
+								[
+									[
+										"Oh, it's been quite some time since I've played like that. I must admit that it was quite enjoyable! As much as it pains me...a battle lost is a battle lost. Here, take your reward and leave me to my Geo.. unless you plan to purchase some more of my wares…"
+									]
+								],
 								function() {
 									DataSaver.slytries++;
 									DataSaver.saveSettings(DataSaver.saveFile);
@@ -740,7 +755,12 @@ class Shop extends FlxSpriteGroup {
 								FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 								new FlxTimer().start(.6, function(tmr:FlxTimer) {
 									OverworldManager.instance.dialogue.openBox("Sly",
-										[["Oh! You wish to sing? Hmm… it's rare for someone to challenge me..."], ["Alright, I accept! I must say that I am not much of a singer myself… but I am curious about your skills."]],
+										[
+											["Oh! You wish to sing? Hmm… it's rare for someone to challenge me..."],
+											[
+												"Alright, I accept! I must say that I am not much of a singer myself… but I am curious about your skills."
+											]
+										],
 										function() {
 											filly();
 										});
@@ -853,7 +873,11 @@ class Shop extends FlxSpriteGroup {
 								} else {
 									new FlxTimer().start(.6, function(tmr:FlxTimer) {
 										OverworldManager.instance.dialogue.openBox("Sly",
-											[["Thank you for your kind patronage! I assure you, my other wares are worth a look at as well! They may even increase your chances at survival down below…"]],
+											[
+												[
+													"Thank you for your kind patronage! I assure you, my other wares are worth a look at as well! They may even increase your chances at survival down below…"
+												]
+											],
 											function() {
 												filly();
 											});
@@ -901,7 +925,11 @@ class Shop extends FlxSpriteGroup {
 							FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 							new FlxTimer().start(.7, function(tmr:FlxTimer) {
 								OverworldManager.instance.dialogue.openBox("Sly",
-									[["Pockets feeling empty? If you are on the hunt for more geo, the ruins below have much to offer!"]],
+									[
+										[
+											"Pockets feeling empty? If you are on the hunt for more geo, the ruins below have much to offer!"
+										]
+									],
 									function() {
 										filly();
 									});

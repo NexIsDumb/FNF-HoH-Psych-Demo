@@ -51,7 +51,67 @@ class ChartingState extends MusicBeatState {
 	var curNoteTypes:Array<String> = [];
 	var undos = [];
 	var redos = [];
-	var eventStuff:Array<Dynamic> = [['', "Nothing. Yep, that's right."], ['Set GF Speed', "Sets GF head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"], ['Add Camera Zoom', "Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."], ['Play Animation', "Plays an animation on a Character,\nonce the animation is completed,\nthe animation changes to Idle\n\nValue 1: Animation to play.\nValue 2: Character (Dad, BF, GF)"], ['Camera Follow Pos', "Value 1: X\nValue 2: Y\n\nThe camera won't change the follow point\nafter using this, for getting it back\nto normal, leave both values blank."], ['Alt Idle Animation', "Sets a specified suffix after the idle animation name.\nYou can use this to trigger 'idle-alt' if you set\nValue 2 to -alt\n\nValue 1: Character to set (Dad, BF or GF)\nValue 2: New suffix (Leave it blank to disable)"], ['Screen Shake', "Value 1: Camera shake\nValue 2: HUD shake\n\nEvery value works as the following example: \"1, 0.05\".\nThe first number (1) is the duration.\nThe second number (0.05) is the intensity."], ['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"], ['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."], ['Set Property', "Value 1: Variable name\nValue 2: New value"], ['Play Sound', "Value 1: Sound file name\nValue 2: Volume (Default: 1), ranges from 0 to 1"], ['Paper Mario BF Turn', "womp womps"], ['Change Camera Offset', "bwomp"], ['HUD Transparency', "Value 1: Alpha [0-1]\nValue2: Speed to tween with"], ['Set Camera Zoom', "Value 1: Camera Zoom\n[ENTER NOTHING == DEFAULT]"], ['Make Vignette', "Value 1: Speed\nValue 2: true or false/alpha"], ['Cinematic Bars', "Value 1: Speed and Distance [0/10]\nValue 2: Camera Layer [game, hud, other]"], ['Flash Camera', "Value 1: Color [white, black, red]/alpha[optional]\nValue 2: Speed to tween with"], ['Cover Camera', "Value 1: Color [white, black, red]"], ['RFlash Camera', "Value 1: Color [white, black, red]\nValue 2: Speed to tween with"], ['Make Vignette', "Value 1: Speed\nValue 2: true or false/alpha"], ['Set Saturation', "Value 1: Amount\nValue2: Speed"], ['Mossknight', "a"]];
+	var eventStuff:Array<Dynamic> = [
+		['', "Nothing. Yep, that's right."],
+		[
+			'Set GF Speed',
+			"Sets GF head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"
+		],
+		[
+			'Add Camera Zoom',
+			"Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."
+		],
+		[
+			'Play Animation',
+			"Plays an animation on a Character,\nonce the animation is completed,\nthe animation changes to Idle\n\nValue 1: Animation to play.\nValue 2: Character (Dad, BF, GF)"
+		],
+		[
+			'Camera Follow Pos',
+			"Value 1: X\nValue 2: Y\n\nThe camera won't change the follow point\nafter using this, for getting it back\nto normal, leave both values blank."
+		],
+		[
+			'Alt Idle Animation',
+			"Sets a specified suffix after the idle animation name.\nYou can use this to trigger 'idle-alt' if you set\nValue 2 to -alt\n\nValue 1: Character to set (Dad, BF or GF)\nValue 2: New suffix (Leave it blank to disable)"
+		],
+		[
+			'Screen Shake',
+			"Value 1: Camera shake\nValue 2: HUD shake\n\nEvery value works as the following example: \"1, 0.05\".\nThe first number (1) is the duration.\nThe second number (0.05) is the intensity."
+		],
+		[
+			'Change Character',
+			"Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"
+		],
+		[
+			'Change Scroll Speed',
+			"Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."
+		],
+		['Set Property', "Value 1: Variable name\nValue 2: New value"],
+		[
+			'Play Sound',
+			"Value 1: Sound file name\nValue 2: Volume (Default: 1), ranges from 0 to 1"
+		],
+		['Paper Mario BF Turn', "womp womps"],
+		['Change Camera Offset', "bwomp"],
+		['HUD Transparency', "Value 1: Alpha [0-1]\nValue2: Speed to tween with"],
+		['Set Camera Zoom', "Value 1: Camera Zoom\n[ENTER NOTHING == DEFAULT]"],
+		['Make Vignette', "Value 1: Speed\nValue 2: true or false/alpha"],
+		[
+			'Cinematic Bars',
+			"Value 1: Speed and Distance [0/10]\nValue 2: Camera Layer [game, hud, other]"
+		],
+		[
+			'Flash Camera',
+			"Value 1: Color [white, black, red]/alpha[optional]\nValue 2: Speed to tween with"
+		],
+		['Cover Camera', "Value 1: Color [white, black, red]"],
+		[
+			'RFlash Camera',
+			"Value 1: Color [white, black, red]\nValue 2: Speed to tween with"
+		],
+		['Make Vignette', "Value 1: Speed\nValue 2: true or false/alpha"],
+		['Set Saturation', "Value 1: Amount\nValue2: Speed"],
+		['Mossknight', "a"]
+	];
 
 	var _file:FileReference;
 
@@ -256,7 +316,14 @@ class ChartingState extends MusicBeatState {
 		dummyArrow.antialiasing = ClientPrefs.data.antialiasing;
 		add(dummyArrow);
 
-		var tabs = [{name: "Song", label: 'Song'}, {name: "Section", label: 'Section'}, {name: "Note", label: 'Note'}, {name: "Events", label: 'Events'}, {name: "Charting", label: 'Charting'}, {name: "Data", label: 'Data'},];
+		var tabs = [
+			{name: "Song", label: 'Song'},
+			{name: "Section", label: 'Section'},
+			{name: "Note", label: 'Note'},
+			{name: "Events", label: 'Events'},
+			{name: "Charting", label: 'Charting'},
+			{name: "Data", label: 'Data'},
+		];
 
 		UI_box = new FlxUITabMenu(null, tabs, true);
 
@@ -411,7 +478,11 @@ class ChartingState extends MusicBeatState {
 		stepperSpeed.name = 'song_speed';
 		blockPressWhileTypingOnStepper.push(stepperSpeed);
 		#if MODS_ALLOWED
-		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Mods.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
+		var directories:Array<String> = [
+			Paths.mods('characters/'),
+			Paths.mods(Mods.currentModDirectory + '/characters/'),
+			Paths.getPreloadPath('characters/')
+		];
 		for (mod in Mods.getGlobalMods())
 			directories.push(Paths.mods(mod + '/characters/'));
 		#else
@@ -466,7 +537,11 @@ class ChartingState extends MusicBeatState {
 		blockPressWhileScrolling.push(player2DropDown);
 
 		#if MODS_ALLOWED
-		var directories:Array<String> = [Paths.mods('stages/'), Paths.mods(Mods.currentModDirectory + '/stages/'), Paths.getPreloadPath('stages/')];
+		var directories:Array<String> = [
+			Paths.mods('stages/'),
+			Paths.mods(Mods.currentModDirectory + '/stages/'),
+			Paths.getPreloadPath('stages/')
+		];
 		for (mod in Mods.getGlobalMods())
 			directories.push(Paths.mods(mod + '/stages/'));
 		#else

@@ -14,7 +14,22 @@ class ControlsSubState extends MusicBeatSubstate {
 	var curAlt:Bool = false;
 
 	// Show on gamepad - Display name - Save file key - Rebind display name
-	var options:Array<Dynamic> = [[true, 'Left', 'note_left', 'Note Left'], [true, 'Down', 'note_down', 'Note Down'], [true, 'Up', 'note_up', 'Note Up'], [true, 'Right', 'note_right', 'Note Right'], [true, 'Accept', 'accept', 'Accept'], [true, 'Back', 'back', 'Back'], [true, 'Pause', 'pause', 'Pause'], [true, 'UI Left', 'ui_left', 'UI Left'], [true, 'UI Down', 'ui_down', 'UI Down'], [true, 'UI Up', 'ui_up', 'UI Up'], [true, 'UI Right', 'ui_right', 'UI Right'], [false, 'Mute', 'volume_mute', 'Volume Mute'], [false, 'Volume Up', 'volume_up', 'Volume Up'], [false, 'Volume Down', 'volume_down', 'Volume Down'],];
+	var options:Array<Dynamic> = [
+		[true, 'Left', 'note_left', 'Note Left'],
+		[true, 'Down', 'note_down', 'Note Down'],
+		[true, 'Up', 'note_up', 'Note Up'],
+		[true, 'Right', 'note_right', 'Note Right'],
+		[true, 'Accept', 'accept', 'Accept'],
+		[true, 'Back', 'back', 'Back'],
+		[true, 'Pause', 'pause', 'Pause'],
+		[true, 'UI Left', 'ui_left', 'UI Left'],
+		[true, 'UI Down', 'ui_down', 'UI Down'],
+		[true, 'UI Up', 'ui_up', 'UI Up'],
+		[true, 'UI Right', 'ui_right', 'UI Right'],
+		[false, 'Mute', 'volume_mute', 'Volume Mute'],
+		[false, 'Volume Up', 'volume_up', 'Volume Up'],
+		[false, 'Volume Down', 'volume_down', 'Volume Down'],
+	];
 	var curOptions:Array<Int>;
 	var curOptionsValid:Array<Int>;
 

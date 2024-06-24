@@ -48,8 +48,171 @@ class CreditsState extends MenuBeatState {
 			pushModCreditsToList(mod);
 		#end
 
-		var defaultList:Array<Array<String>> = [ // Name -- Icon Name -- Role -- Bio -- Link
-			['Cheez', 'director/cheez', 'Director/Assistant Animator', "y'all lucky i didn't kill myself in the 2 years making this", 'https://twitter.com/cheezsomething'], ['nld', 'director/nld', 'Old Director/Old Coder', 'i schlipped', 'https://twitter.com/LocalizedDeku'], ['Avenge', 'director/avenge', 'Director/Musician/Charter', 'this mod sucks', 'https://twitter.com/howtoavenge101'], ["Favhri", "artist/favhri", "Artist/Translator", "If they talk behind yo back, then fart", "https://x.com/Favhri_idk"], ["NateTDOM", "artist/nate", "Artist/Animator", "hi i did some sprites they are all pretty old now", "https://twitter.com/nathanwvg"], ["Matiaz", "artist/matiaz", "Artist/Animator", "i made bf sprites follow me on twitter", "https://twitter.com/MatiazAnimates"], ["Merritz", "artist/merritz", "Artist/Animator", "No, Cheez, I will not work on Hollows Eve", "https://twitter.com/Not_Merritz"], ["ThatN003", "artist/N003", "Artist/Animator", "What are we some kind of Hymns of Hallownest?", "https://twitter.com/ThatN003"], ["Zial", "artist/zial", "Artist/Animator", "No im not obsessed with robots", "https://twitter.com/hollow_ant"], ["Nex_isDumb", "translator/fushi", "New Coder/Translator", "le goofy (I swear I'll optimize everything in codename engine in the full release:pray:)", "https://linktr.ee/just_nex"], ["R_RedJK7", "artist/red", "Artist", "tell your mother i said hi", "https://twitter.com/rredjk7"], ["FDW", "artist/FDW", "Icon Art", "fdw", "https://twitter.com/FireyFlamingKid"], ["DemoAsh", "artist/demo", "Concept Artist", "WHY IS MY PIZZA BLA-", "https://twitter.com/DemoAsh_"], ["Bluenebula", "musician/bluenebula", "Composer", "what the fuck is this bullshit", "https://www.youtube.com/channel/UCL9ridOdtqFNzQ_kPjb_Vog"], ["Zomboi", "musician/zomboi", "Music Production", "FL is bloatware", "https://twitter.com/_Zombeats"], ["UnderCastle", "charter/undertale", "Charter", "Hey guys I finished charting christmas ballad like not even an hour before it got released, this mod team is always on time!!", "https://twitter.com/Under_castle777"], ["Dest", "charter/dest", "Charter", "only in ohio", "https://twitter.com/DesttBruh"], ["HeroBrenn", "writer/herobrenn", "Concept Artist/Writer", "Cheez said he'd kill me if I didn't change my quote to something else", "https://twitter.com/HeroBrenn"], ["Nosk.Xml", "translator/nosk", "Translator", "Somehow I made it here with grammar skills of a insect", "https://x.com/nosk_artist"], ["Chloe", "translator/chloe", "Translator", "God, do you see the radiant light? Do you hear the beautiful chant? Do you feel the tender warmth...? Nothing here - Pitch black - Pure white - All the same", "https://enderpuff.github.io/"], ["中空[chi]", "translator/hollow", "Translator", "Translating was the easy part,\nwaiting was what was hard.", "https://twitter.com/HollowTheProto"], ["Keith", "translator/keith", "Translator", "am I silly enough to start eating rocks", "https://x.com/SillyCatKeith?t=H-AAkd4cz80jSK486rwvDA&s=09"], ["FlipDesert", "translator/flipdesert", "Translator", "Blows up mod with mind...", "https://flips-homepage.carrd.co/"], ["Snakeguy", "translator/snakeguy", "Translator", "I just love Hollow Knight", "https://www.youtube.com/channel/UCRxRBVC9ztuAIm2pvFOTWHA"],];
+		var defaultList:Array<Array<String>> = [
+			// Name -- Icon Name -- Role -- Bio -- Link
+			[
+				'Cheez',
+				'director/cheez',
+				'Director/Assistant Animator',
+				"y'all lucky i didn't kill myself in the 2 years making this",
+				'https://twitter.com/cheezsomething'
+			],
+			[
+				'nld',
+				'director/nld',
+				'Old Director/Old Coder',
+				'i schlipped',
+				'https://twitter.com/LocalizedDeku'
+			],
+			[
+				'Avenge',
+				'director/avenge',
+				'Director/Musician/Charter',
+				'this mod sucks',
+				'https://twitter.com/howtoavenge101'
+			],
+			[
+				"Favhri",
+				"artist/favhri",
+				"Artist/Translator",
+				"If they talk behind yo back, then fart",
+				"https://x.com/Favhri_idk"
+			],
+			[
+				"NateTDOM",
+				"artist/nate",
+				"Artist/Animator",
+				"hi i did some sprites they are all pretty old now",
+				"https://twitter.com/nathanwvg"
+			],
+			[
+				"Matiaz",
+				"artist/matiaz",
+				"Artist/Animator",
+				"i made bf sprites follow me on twitter",
+				"https://twitter.com/MatiazAnimates"
+			],
+			[
+				"Merritz",
+				"artist/merritz",
+				"Artist/Animator",
+				"No, Cheez, I will not work on Hollows Eve",
+				"https://twitter.com/Not_Merritz"
+			],
+			[
+				"ThatN003",
+				"artist/N003",
+				"Artist/Animator",
+				"What are we some kind of Hymns of Hallownest?",
+				"https://twitter.com/ThatN003"
+			],
+			[
+				"Zial",
+				"artist/zial",
+				"Artist/Animator",
+				"No im not obsessed with robots",
+				"https://twitter.com/hollow_ant"
+			],
+			[
+				"Nex_isDumb",
+				"translator/fushi",
+				"New Coder/Translator",
+				"le goofy (I swear I'll optimize everything in codename engine in the full release:pray:)",
+				"https://linktr.ee/just_nex"
+			],
+			[
+				"R_RedJK7",
+				"artist/red",
+				"Artist",
+				"tell your mother i said hi",
+				"https://twitter.com/rredjk7"
+			],
+			["FDW", "artist/FDW", "Icon Art", "fdw", "https://twitter.com/FireyFlamingKid"],
+			[
+				"DemoAsh",
+				"artist/demo",
+				"Concept Artist",
+				"WHY IS MY PIZZA BLA-",
+				"https://twitter.com/DemoAsh_"
+			],
+			[
+				"Bluenebula",
+				"musician/bluenebula",
+				"Composer",
+				"what the fuck is this bullshit",
+				"https://www.youtube.com/channel/UCL9ridOdtqFNzQ_kPjb_Vog"
+			],
+			[
+				"Zomboi",
+				"musician/zomboi",
+				"Music Production",
+				"FL is bloatware",
+				"https://twitter.com/_Zombeats"
+			],
+			[
+				"UnderCastle",
+				"charter/undertale",
+				"Charter",
+				"Hey guys I finished charting christmas ballad like not even an hour before it got released, this mod team is always on time!!",
+				"https://twitter.com/Under_castle777"
+			],
+			[
+				"Dest",
+				"charter/dest",
+				"Charter",
+				"only in ohio",
+				"https://twitter.com/DesttBruh"
+			],
+			[
+				"HeroBrenn",
+				"writer/herobrenn",
+				"Concept Artist/Writer",
+				"Cheez said he'd kill me if I didn't change my quote to something else",
+				"https://twitter.com/HeroBrenn"
+			],
+			[
+				"Nosk.Xml",
+				"translator/nosk",
+				"Translator",
+				"Somehow I made it here with grammar skills of a insect",
+				"https://x.com/nosk_artist"
+			],
+			[
+				"Chloe",
+				"translator/chloe",
+				"Translator",
+				"God, do you see the radiant light? Do you hear the beautiful chant? Do you feel the tender warmth...? Nothing here - Pitch black - Pure white - All the same",
+				"https://enderpuff.github.io/"
+			],
+			[
+				"中空[chi]",
+				"translator/hollow",
+				"Translator",
+				"Translating was the easy part,\nwaiting was what was hard.",
+				"https://twitter.com/HollowTheProto"
+			],
+			[
+				"Keith",
+				"translator/keith",
+				"Translator",
+				"am I silly enough to start eating rocks",
+				"https://x.com/SillyCatKeith?t=H-AAkd4cz80jSK486rwvDA&s=09"
+			],
+			[
+				"FlipDesert",
+				"translator/flipdesert",
+				"Translator",
+				"Blows up mod with mind...",
+				"https://flips-homepage.carrd.co/"
+			],
+			[
+				"Snakeguy",
+				"translator/snakeguy",
+				"Translator",
+				"I just love Hollow Knight",
+				"https://www.youtube.com/channel/UCRxRBVC9ztuAIm2pvFOTWHA"
+			],
+		];
 
 		for (i in defaultList) {
 			creditsStuff.push(i);
