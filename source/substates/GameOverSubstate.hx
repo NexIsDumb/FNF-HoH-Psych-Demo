@@ -72,7 +72,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 		// FlxG.camera.focusOn(new FlxPoint((PlayState.instance.camGame.x * (1 - PlayState.instance.defaultCamZoom + 1)) + (PlayState.instance.camGame.width/2) * (1 - PlayState.instance.defaultCamZoom + 1), (PlayState.instance.camGame.y * (1 - PlayState.instance.defaultCamZoom + 1)) + (PlayState.instance.camGame.height/2) * (1 - PlayState.instance.defaultCamZoom + 1)));
 		add(camFollow);
 
-		if (PlayState.SONG.song.toLowerCase() == "swindler") {
+		if (PlayState.instance.formattedSong == "swindler") {
 			FlxG.sound.play("songs:assets/songs/swindler/gameoverStart.ogg");
 			soundloop = FlxG.sound.load("songs:assets/songs/swindler/gameoverLoop.ogg");
 			soundloop.looped = true;
@@ -83,10 +83,12 @@ class GameOverSubstate extends MusicBeatSubstate {
 			soundloop.looped = true;
 			soundend = FlxG.sound.load("songs:assets/songs/lichen/gameOverLichEnd.ogg");
 			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 2.5, {ease: FlxEase.circOut});
-			camFollow.setPosition(boyfriends.getMidpoint().x + boyfriends.width / 2, boyfriends.getMidpoint().y - boyfriends.height / 2);
+			var pos = boyfriends.getMidpoint();
+			camFollow.setPosition(pos.x + boyfriends.width / 2, pos.y - boyfriends.height / 2);
 			if (boyfriends.curCharacter == "vbflichendead") {
-				camFollow.setPosition(boyfriends.getMidpoint().x + boyfriends.width / 3, boyfriends.getMidpoint().y - boyfriends.height / 3.5);
+				camFollow.setPosition(pos.x + boyfriends.width / 3, pos.y - boyfriends.height / 3.5);
 			}
+			pos.put();
 		}
 		FlxTween.tween(PlayState.instance.blackahhh, {alpha: .8}, 4, {ease: FlxEase.circOut});
 		FlxTween.tween(PlayState.instance.playerfog, {alpha: .5}, 4, {ease: FlxEase.circOut});

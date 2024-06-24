@@ -1,5 +1,6 @@
 package overworld;
 
+import overworld.Charms;
 #if desktop
 import backend.Discord.DiscordClient;
 #end
@@ -27,6 +28,15 @@ import overworld.*;
 
 using StringTools;
 
+@:structInit
+class CharmsSprData {
+	public var spr:FlxSprite;
+	// public var dataList:Array<String>; // deprecated
+	public var data:Charm;
+	public var order:Int;
+	public var idx:Int;
+}
+
 class CharmSubState extends MusicBeatSubstate {
 	public var notchAmount:Int = 5;
 	public var usedNotches:Int = 0;
@@ -52,8 +62,8 @@ class CharmSubState extends MusicBeatSubstate {
 	var sillycam:FlxCamera;
 
 	var rows:Array<Int> = [9, 9,];
-	var charmData:Array<Array<Dynamic>> = [];
-	var charmOrder:Map<Int, Int> = new Map();
+	var charmData:Array<CharmsSprData> = [];
+	var charmsOrder:Map<Int, Int> = [];
 
 	public function new(x:Float, y:Float, cam:FlxCamera) {
 		super();
@@ -211,98 +221,162 @@ class CharmSubState extends MusicBeatSubstate {
 		}
 	}
 
-	var charmshii:Array<FlxSprite> = [];
-
 	public function makeCharms() {
-		var directories:Array<String> = ['assets/hymns/charms/'];
+		var id = 0;
+		for (slot => cd in Charms.charms) {
+			var charmId = cd.str_id;
 
-		for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) {
-				var itee:Int = 0;
-				for (file in FileSystem.readDirectory(directory)) {
-					var charmName:String = file;
+			// if (DataSaver.unlockedCharms.get(charmId) != true)
+			//	continue;
 
-					// var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
-					var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName/base', 'hymns'));
-					charm.scale.set(0.25, 0.25);
-					charm.updateHitbox();
-					charm.screenCenterXY();
-					charm.antialiasing = ClientPrefs.data.antialiasing;
-					charm.ID = -5;
-					sprites.push(charm);
+			var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/${charmId}', 'hymns'));
+			charm.scale.set(0.25, 0.25);
+			charm.updateHitbox();
+			charm.screenCenterXY();
+			charm.antialiasing = ClientPrefs.data.antialiasing;
+			charm.ID = -5;
+			sprites.push(charm);
 
-					var rawData:String = Paths.getContent('hymns/charms/' + charmName + '/data.charm', 'hymns');
-					var rawData2:Int = Std.parseInt(Paths.getContent('hymns/charms/' + charmName + '/order.txt', 'hymns').trim());
-					var dataList:Array<Dynamic> = rawData.trim().split('\n');
-					dataList[5] = rawData2 + 1;
+			var holder = holders[slot];
 
-					charm.x = holders[rawData2].x - (charm.width / 2) + (holders[rawData2].width / 2) + 2;
-					charm.y = holders[rawData2].y - (charm.height / 2) + (holders[rawData2].width / 2);
+			charm.x = holder.x - (charm.width / 2) + (holder.width / 2);
+			charm.y = holder.y - (charm.height / 2) + (holder.height / 2);
 
-					var makeCharm = DataSaver.charmsunlocked.get(charmName);
+			var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/${charmId}', 'hymns'));
+			charmtr.scale.set(0.25, 0.25);
+			charmtr.updateHitbox();
+			charmtr.screenCenterXY();
+			charmtr.antialiasing = ClientPrefs.data.antialiasing;
+			charmtr.color = 0xFF2D2D2D;
+			add(charmtr);
+			charmtr.x = charm.x;
+			charmtr.y = charm.y;
+			sprites.push(charmtr);
 
-					if (makeCharm != true) {
-						makeCharm = false;
-						charm.visible = false;
-					} else {
-						var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('/charms/$charmName/base', 'hymns'));
-						charmtr.scale.set(0.25, 0.25);
-						charmtr.updateHitbox();
-						charmtr.screenCenterXY();
-						charmtr.antialiasing = ClientPrefs.data.antialiasing;
-						charmtr.color = 0xFF2D2D2D;
-						add(charmtr);
-						charmtr.x = charm.x;
-						charmtr.y = charm.y;
-						sprites.push(charmtr);
-						charmshii.push(charmtr);
-					}
-					if (makeCharm == true) {
-						add(charm);
-						charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
+			add(charm);
+			// charmData.push([charm, dataList, charmId, makeCharm, rawData2, rawData2, dataList[6]]);
+			charmData.push({
+				spr: charm,
+				// dataList: dataList,
+				data: cd,
+				order: slot,
+				idx: id
+			});
+			charmsOrder.set(slot, id);
 
-						charmOrder.set(rawData2, itee);
-						itee++;
+			id++;
+		}
+
+		/*var directories:Array<String> = ['assets/hymns/charms/'];
+
+			for (i in 0...directories.length) {
+				var directory:String = directories[i];
+				if (FileSystem.exists(directory)) {
+					var itee:Int = 0;
+					for (file in FileSystem.readDirectory(directory)) {
+						var charmName:String = file;
+
+						trace(charmName);
+
+						// var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
+						var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName', 'hymns'));
+						charm.scale.set(0.25, 0.25);
+						charm.updateHitbox();
+						charm.screenCenterXY();
+						charm.antialiasing = ClientPrefs.data.antialiasing;
+						charm.ID = -5;
+						sprites.push(charm);
+
+						var rawData:String = Paths.getContent('hymns/charms/' + charmName + '/data.charm', 'hymns');
+						var rawData2:Int = Std.parseInt(Paths.getContent('hymns/charms/' + charmName + '/order.txt', 'hymns').trim());
+						var dataList:Array<Dynamic> = rawData.trim().split('\n');
+						dataList[5] = rawData2 + 1;
+
+						var makeCharm = DataSaver.unlockedCharms.get(charmName);
+
+						if (makeCharm != true) {
+							makeCharm = false;
+							charm.visible = false;
+						} else {
+							var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName/base', 'hymns'));
+							charmtr.scale.set(0.25, 0.25);
+							charmtr.updateHitbox();
+							charmtr.screenCenterXY();
+							charmtr.antialiasing = ClientPrefs.data.antialiasing;
+							charmtr.color = 0xFF2D2D2D;
+							add(charmtr);
+							charmtr.x = charm.x;
+							charmtr.y = charm.y;
+							sprites.push(charmtr);
+						}
+						if (makeCharm == true) {
+							add(charm);
+							charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
+
+							charmsOrder.push(rawData2);
+							itee++;
+						}
 					}
 				}
+		}*/
+
+		trace(charmData);
+	}
+
+	function getCharmFromId(charm:String) {
+		for (c in charmData) {
+			if (c.data.str_id == charm) {
+				return c;
 			}
 		}
-		trace(charmData);
+		return null;
 	}
 
 	public function getCharmLocation() {
 		DataSaver.loadData(DataSaver.saveFile);
 		usedNotches = DataSaver.usedNotches;
-		for (i in 0...charmData.length) {
-			var charmsdata = charmData[i];
-			var charm:FlxSprite = charmsdata[0];
-			var dataList = charmsdata[1];
 
-			DataSaver.loadData(DataSaver.saveFile);
-			var dat:Bool = DataSaver.charms.get(charmData[i][2]);
-			var dater:Int = Std.parseInt(Paths.getContent('charms/${charmsdata[2]}/order.txt', 'hymns').trim());
+		for (i in 0...DataSaver.equippedCharms.length) {
+			var charmId = DataSaver.equippedCharms[i];
+			var charm = getCharmFromId(charmId);
 
-			if (dat == true) {
-				trace(DataSaver.sillyOrder);
-				for (uh in 0...DataSaver.sillyOrder.length) {
-					var sillydat = DataSaver.sillyOrder[uh];
-					var gooberdat = DataSaver.charmOrder[uh];
+			if (charm != null) {
+				var slot = charm.idx;
+				var spr:FlxSprite = charm.spr;
+				spr.x = holderCharms.x - (spr.width / 2) + (holders[slot].width / 2);
+				spr.y = holderCharms.y - (spr.height / 2) + (holders[slot].height / 2);
+				holderCharms.x += (35 + (holderCharms.width / 2));
+				if (usedNotches >= notchAmount) {
+					FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeOut});
+				}
+				charmsEquipped.push(spr);
+			}
 
-					trace(sillydat, charmsdata[2]);
-					if (sillydat == charmsdata[2]) {
-						new FlxTimer().start(0.01 * gooberdat, function(tmr:FlxTimer) {
-							charm.x = holderCharms.x - (charm.width / 2) + (holders[dater].width / 2) + 2;
-							charm.y = holderCharms.y - (charm.height / 2) + (holders[dater].height / 2);
+			/*for (i in 0...charmData.length) {
+				var charm = charmData[i];
+				var spr:FlxSprite = charm.spr;
+
+				DataSaver.loadData(DataSaver.saveFile);
+				var dat:Bool = charm.data.isEquipped();
+
+				if (dat == true) {
+					for (charm in charmData) {
+						var slot = charm.order;
+						if (charmsOrder.exists(slot)) {
+							slot = charmsOrder.get(slot);
+						}
+						new FlxTimer().start(0.01 * slot, function(tmr:FlxTimer) {
+							spr.x = holderCharms.x - (spr.width / 2) + (holders[slot].width / 2);
+							spr.y = holderCharms.y - (spr.height / 2) + (holders[slot].height / 2);
 							holderCharms.x += (35 + (holderCharms.width / 2));
 							if (usedNotches >= notchAmount) {
 								FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeOut});
 							}
-							charmsEquipped.push(charm);
+							charmsEquipped.push(spr);
 						});
 					}
 				}
-			}
+			}*/
 		}
 	}
 
@@ -315,49 +389,52 @@ class CharmSubState extends MusicBeatSubstate {
 			}
 		}
 
-		if (charmOrder.get(horiz + (rows[row - 1] * (row - 1))) != null) {
-			var datar = charmOrder.get(horiz + (rows[row - 1] * (row - 1)));
-			if (charmData[datar][3] == true) {
-				var charmText:String = charmData[datar][1][1];
-				var mainTxt:String = charmText.trim();
+		var charmSlot = horiz + (rows[row - 1] * (row - 1));
 
-				txt2.text = charmData[datar][2];
-				txt2.updateHitbox();
-				txt2.screenCenterXY();
-				txt2.x += 365;
-				txt2.y -= 225;
+		if (charmsOrder.exists(charmSlot)) {
+			var charm = charmData[charmsOrder.get(charmSlot)];
+			// var datar = charmOrder.get(horiz + (rows[row - 1] * (row - 1)));
+			// if (charm[3] == true) {
+			var charmText:String = charm.data.description;
+			var mainTxt:String = charmText.trim();
 
-				txt.text = 'Tuneful charm created for\nthose who wish to chant\n\n\nGrants its bearer the ability to sing\nin return rewarding them soul';
+			txt2.text = charm.data.name;
+			txt2.updateHitbox();
+			txt2.screenCenterXY();
+			txt2.x += 365;
+			txt2.y -= 225;
 
-				txt3.text = 'Cost';
-				txt3.screenCenterXY();
-				txt3.updateHitbox();
-				txt3.x += 325;
-				txt3.y -= 190;
+			// txt.text = 'Tuneful charm created for\nthose who wish to chant\n\n\nGrants its bearer the ability to sing\nin return rewarding them soul';
 
-				createCost(Std.parseInt(charmData[datar][1][6]));
+			txt3.text = 'Cost';
+			txt3.screenCenterXY();
+			txt3.updateHitbox();
+			txt3.x += 325;
+			txt3.y -= 190;
 
-				if (Std.parseInt(charmData[datar][4]) == 0) {
-					txt3.x += 25;
-					txt3.text = 'No Cost';
-				}
-				charmIcon.loadGraphic(Paths.image('charms/${charmData[datar][2]}/base', 'hymns'));
-				charmIcon.scale.set(0.7, 0.7);
-				charmIcon.updateHitbox();
-				charmIcon.x = txt.x + 50;
-				charmIcon.y = txt.y - charmIcon.height;
-				charmIcon.alpha = 1;
-				charmIcon.antialiasing = ClientPrefs.data.antialiasing;
-				add(charmIcon);
+			createCost(charm.data.cost);
 
-				trace(mainTxt);
-				txt.text = mainTxt;
-				txt.translation(mainTxt);
-
-				trace(txt.translationPub(mainTxt));
-			} else {
-				clearicon();
+			if (charm.data.cost == 0) {
+				txt3.x += 25;
+				txt3.text = 'No Cost';
 			}
+			charmIcon.loadGraphic(Paths.image('charms/${charm.data.str_id}', 'hymns'));
+			charmIcon.scale.set(0.7, 0.7);
+			charmIcon.updateHitbox();
+			charmIcon.x = txt.x + 50;
+			charmIcon.y = txt.y - charmIcon.height;
+			charmIcon.alpha = 1;
+			charmIcon.antialiasing = ClientPrefs.data.antialiasing;
+			add(charmIcon);
+
+			trace(mainTxt);
+			txt.text = mainTxt;
+			txt.translation(mainTxt);
+
+			trace(txt.translationPub(mainTxt));
+			// } else {
+			//	clearicon();
+			// }
 		} else {
 			clearicon();
 		}
@@ -449,8 +526,8 @@ class CharmSubState extends MusicBeatSubstate {
 				Obj.x -= savedposx;
 				Obj.y -= savedposy;
 
-				savedposx = FlxG.random.float(-0.025 * Obj.width, 0.025 * Obj.width) * 1 * FlxG.scaleMode.scale.x;
-				savedposy = FlxG.random.float(-0.025 * Obj.height, 0.025 * Obj.height) * 1 * FlxG.scaleMode.scale.y;
+				savedposx = FlxG.random.float(-0.025 * Obj.width, 0.025 * Obj.width);
+				savedposy = FlxG.random.float(-0.025 * Obj.height, 0.025 * Obj.height);
 
 				Obj.x += savedposx;
 				Obj.y += savedposy;
@@ -466,8 +543,8 @@ class CharmSubState extends MusicBeatSubstate {
 						Obj.x -= savedposx;
 						Obj.y -= savedposy;
 
-						savedposx = FlxG.random.float(-_fxShakeIntensity * Obj.width, _fxShakeIntensity * Obj.width) * 1 * FlxG.scaleMode.scale.x;
-						savedposy = FlxG.random.float(-_fxShakeIntensity * Obj.height, _fxShakeIntensity * Obj.height) * 1 * FlxG.scaleMode.scale.y;
+						savedposx = FlxG.random.float(-_fxShakeIntensity * Obj.width, _fxShakeIntensity * Obj.width);
+						savedposy = FlxG.random.float(-_fxShakeIntensity * Obj.height, _fxShakeIntensity * Obj.height);
 
 						Obj.x += savedposx;
 						Obj.y += savedposy;
@@ -490,37 +567,30 @@ class CharmSubState extends MusicBeatSubstate {
 		if (controls.UI_RIGHT_P) {
 			horiz++;
 			FlxG.sound.play(Paths.sound('scrollMenu'));
-		} else {
-			if (controls.UI_LEFT_P) {
-				horiz--;
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-			} else {
-				if (controls.UI_UP_P) {
-					row--;
-					FlxG.sound.play(Paths.sound('scrollMenu'));
-				} else {
-					if (controls.UI_DOWN_P) {
-						row++;
-						FlxG.sound.play(Paths.sound('scrollMenu'));
-					}
-				}
-			}
+		}
+		if (controls.UI_LEFT_P) {
+			horiz--;
+			FlxG.sound.play(Paths.sound('scrollMenu'));
+		}
+		if (controls.UI_UP_P) {
+			row--;
+			FlxG.sound.play(Paths.sound('scrollMenu'));
+		}
+		if (controls.UI_DOWN_P) {
+			row++;
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 
 		if (row > 2) {
 			row = 2;
-		} else {
-			if (row < 1) {
-				row = 1;
-			}
+		} else if (row < 1) {
+			row = 1;
 		}
 
 		if (horiz > rows[row - 1] - 1) {
 			horiz = 0;
-		} else {
-			if (horiz < 0) {
-				horiz = rows[row - 1] - 1;
-			}
+		} else if (horiz < 0) {
+			horiz = rows[row - 1] - 1;
 		}
 
 		if (controls.BACK) {
@@ -549,171 +619,186 @@ class CharmSubState extends MusicBeatSubstate {
 
 		if (canMove == true && OverworldManager.instance.subState == this) {
 			if (controls.ACCEPT) {
-				if (charmOrder.get(horiz + (rows[row - 1] * (row - 1))) != null) {
-					var datar = charmOrder.get(horiz + (rows[row - 1] * (row - 1)));
+				var slot = horiz + (rows[row - 1] * (row - 1));
+				if (charmsOrder.exists(slot)) {
+					var datar = charmsOrder.get(slot);
+
+					var charm = charmData[datar];
 
 					if (firstgoin == true) {
 						firstgoin = false;
 					} else {
-						if (charmData[datar][3] == true) {
-							DataSaver.loadData(DataSaver.saveFile);
-							var rawData:Bool = DataSaver.charms.get(charmData[datar][2]);
-							if (rawData == false) {
-								if (usedNotches < notchAmount) {
-									FlxG.sound.play(Paths.sound('charm_equipping_again_1', 'hymns'));
-									trace(charmData[datar][2]);
-									DataSaver.charms.set(charmData[datar][2], true);
-									DataSaver.saveSettings(DataSaver.saveFile);
+						// if (charm[3] == true) {
+						DataSaver.loadData(DataSaver.saveFile);
+						trace(charm.data);
+						if (charm.data.isEquipped() == false) {
+							if (usedNotches < notchAmount) {
+								FlxG.sound.play(Paths.sound('charm_equipping_again_1', 'hymns'));
+								charm.data.equip();
+								trace("Equipping " + charm.data);
+								DataSaver.saveSettings(DataSaver.saveFile);
 
-									var charm = charmData[datar][0];
-									charmsEquipped.push(charm);
+								var spr = charm.spr;
+								charmsEquipped.push(spr);
 
-									FlxTween.tween(charm, {x: holderCharms.x - (charm.width / 2) + (holders[datar].width / 2) + 2, y: holderCharms.y - (charm.height / 2) + (holders[datar].width / 2)}, 0.3, {ease: FlxEase.cubeIn});
-									canMove = false;
-									DataSaver.charmOrder.push(datar);
-									DataSaver.sillyOrder.push(charmData[datar][2]);
-									trace(DataSaver.charmOrder);
-									trace(DataSaver.sillyOrder);
-									DataSaver.saveSettings(DataSaver.saveFile);
+								FlxTween.tween(spr, {
+									x: holderCharms.x - (spr.width / 2) + (holders[datar].width / 2),
+									y: holderCharms.y - (spr.height / 2) + (holders[datar].width / 2)
+								}, 0.3, {ease: FlxEase.cubeIn});
+								canMove = false;
+								DataSaver.charmOrder.push(charm.data.str_id);
+								trace(DataSaver.charmOrder);
+								DataSaver.saveSettings(DataSaver.saveFile);
 
-									var rowy:String = charmData[datar][1][6];
+								var rowy = charm.data.cost;
 
-									charmselect = charm;
-									tempEmit.x = charm.getMidpoint().x;
-									tempEmit.y = charm.getMidpoint().y - charm.height;
-									tempEmit.start(false, 0.01);
+								charmselect = spr;
+								tempEmit.x = spr.getMidpoint().x;
+								tempEmit.y = spr.getMidpoint().y - spr.height;
+								tempEmit.start(false, 0.01);
 
-									if (charmData[datar][2] == "Baldur's Blessing") {
-										OverworldManager.instance.soulMeter.changebaldurview();
-									}
-
-									FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});
-									new FlxTimer().start(0.15, function(tmr:FlxTimer) {
-										if (usedNotches + Std.parseInt(rowy) < notchAmount) {
-											FlxTween.tween(holderCharms.scale, {x: 0.6, y: 0.6}, 0.15, {ease: FlxEase.cubeOut});
-										}
-										holderCharms.x += (35 + (holderCharms.width / 2));
-									});
-
-									new FlxTimer().start(0.3, function(tmr:FlxTimer) {
-										charmselect = null;
-										tempEmit.start(true, 0);
-
-										usedNotches += Std.parseInt(rowy);
-
-										var selectedGlow:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/glow', 'hymns'));
-										selectedGlow.scale.set(0.9, 0.9);
-										selectedGlow.updateHitbox();
-										selectedGlow.screenCenterXY();
-										selectedGlow.alpha = 1.2;
-										selectedGlow.antialiasing = ClientPrefs.data.antialiasing;
-										add(selectedGlow);
-										sprites.push(selectedGlow);
-										selectedGlow.x = charm.getMidpoint().x - (charm.width / 1.5);
-										selectedGlow.y = charm.getMidpoint().y - (charm.height / 1.5);
-										FlxTween.tween(selectedGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
-										FlxTween.tween(selectedGlow.scale, {x: 0.6, y: 0.6}, 1.05, {ease: FlxEase.cubeOut});
-
-										if (usedNotches > notchAmount) {
-											fleurs.loadGraphic(Paths.image('Menus/Charm/overcharm', 'hymns'));
-											fleurs.setGraphicSize(1280, 720);
-											fleurs.updateHitbox();
-											fleurs.screenCenterXY();
-
-											overcharmGlow.x = charm.getMidpoint().x - (overcharmGlow.width / 2);
-											overcharmGlow.y = charm.getMidpoint().y - (overcharmGlow.height / 2);
-
-											overcharmGlow.alpha = 0.5;
-											FlxTween.tween(overcharmGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
-
-											for (i in 0...sprites.length) {
-												var spriter = sprites[i];
-												if (spriter != null) {
-													shakeObject(spriter);
-												}
-											}
-
-											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.usedNotches = usedNotches;
-											trace(DataSaver.usedNotches);
-											DataSaver.saveSettings(DataSaver.saveFile);
-											FlxG.sound.play(Paths.sound('overcharm', 'hymns'));
-
-											OverworldManager.instance.soulMeter.changeovercharmview();
-										} else {
-											fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
-											fleurs.setGraphicSize(1280, 720);
-											fleurs.updateHitbox();
-											fleurs.screenCenterXY();
-
-											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.usedNotches = usedNotches;
-											DataSaver.saveSettings(DataSaver.saveFile);
-
-											trace(DataSaver.usedNotches);
-										}
-									});
-
-									new FlxTimer().start(0.5, function(tmr:FlxTimer) {
-										canMove = true;
-									});
+								if (charm.data.id == BALDURS_BLESSING) {
+									OverworldManager.instance.soulMeter.changebaldurview();
 								}
-							} else {
-								if (charmData[datar][2] != "Melodic Shell") {
-									FlxG.sound.play(Paths.sound('charm_click_in', 'hymns'));
 
-									DataSaver.charms.set(charmData[datar][2], false);
-									DataSaver.saveSettings(DataSaver.saveFile);
-
-									var charm = charmData[datar][0];
-									var charmIndex = charmsEquipped.indexOf(charm);
-
-									for (i in 0...charmsEquipped.length) {
-										if (i > charmIndex) {
-											var charmy = charmsEquipped[i];
-											FlxTween.tween(charmy, {x: charmy.x - (35 + (holderCharms.width / 2))}, 0.3, {ease: FlxEase.cubeOut});
-										}
-									}
-
-									charmsEquipped.remove(charm);
-
-									FlxTween.tween(charm, {x: (holders[horiz + (rows[row - 1] * (row - 1))].x - (selector.width / 4.2)) + charm.width / 2.5 - 2, y: (holders[horiz + (rows[row - 1] * (row - 1))].y - (selector.height / 3.8)) + charm.height / 2.5}, 0.3, {ease: FlxEase.cubeOut});
-									canMove = false;
-									DataSaver.charmOrder.remove(datar);
-									DataSaver.sillyOrder.remove(charmData[datar][2]);
-									DataSaver.saveSettings(DataSaver.saveFile);
-
-									FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});
-
-									new FlxTimer().start(0.15, function(tmr:FlxTimer) {
+								FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});
+								new FlxTimer().start(0.15, function(tmr:FlxTimer) {
+									if (usedNotches + (rowy) < notchAmount) {
 										FlxTween.tween(holderCharms.scale, {x: 0.6, y: 0.6}, 0.15, {ease: FlxEase.cubeOut});
-										holderCharms.x -= (35 + (holderCharms.width / 2));
-									});
+									}
+									holderCharms.x += (35 + (holderCharms.width / 2));
+								});
 
-									var notchies = Std.parseInt(charmData[datar][1][6]);
+								new FlxTimer().start(0.3, function(tmr:FlxTimer) {
+									charmselect = null;
+									tempEmit.start(true, 0);
 
-									fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
-									fleurs.setGraphicSize(1280, 720);
-									fleurs.updateHitbox();
-									fleurs.screenCenterXY();
+									usedNotches += (rowy);
 
-									new FlxTimer().start(0.2, function(tmr:FlxTimer) {
-										usedNotches -= notchies;
+									var selectedGlow:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/glow', 'hymns'));
+									selectedGlow.scale.set(0.9, 0.9);
+									selectedGlow.updateHitbox();
+									selectedGlow.screenCenterXY();
+									selectedGlow.alpha = 1.2;
+									selectedGlow.antialiasing = ClientPrefs.data.antialiasing;
+									add(selectedGlow);
+									sprites.push(selectedGlow);
+									selectedGlow.x = spr.getMidpoint().x - (spr.width / 1.5);
+									selectedGlow.y = spr.getMidpoint().y - (spr.height / 1.5);
+									FlxTween.tween(selectedGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
+									FlxTween.tween(selectedGlow.scale, {x: 0.6, y: 0.6}, 1.05, {ease: FlxEase.cubeOut});
+
+									if (usedNotches > notchAmount) {
+										fleurs.loadGraphic(Paths.image('Menus/Charm/overcharm', 'hymns'));
+										fleurs.setGraphicSize(1280, 720);
+										fleurs.updateHitbox();
+										fleurs.screenCenterXY();
+
+										overcharmGlow.x = spr.getMidpoint().x - (overcharmGlow.width / 2);
+										overcharmGlow.y = spr.getMidpoint().y - (overcharmGlow.height / 2);
+
+										overcharmGlow.alpha = 0.5;
+										FlxTween.tween(overcharmGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
+
+										for (i in 0...sprites.length) {
+											var spriter = sprites[i];
+											if (spriter != null) {
+												shakeObject(spriter);
+											}
+										}
+
+										DataSaver.loadData(DataSaver.saveFile);
+										DataSaver.usedNotches = usedNotches;
+										trace(DataSaver.usedNotches);
+										DataSaver.saveSettings(DataSaver.saveFile);
+										FlxG.sound.play(Paths.sound('overcharm', 'hymns'));
+
+										OverworldManager.instance.soulMeter.changeovercharmview();
+									} else {
+										fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
+										fleurs.setGraphicSize(1280, 720);
+										fleurs.updateHitbox();
+										fleurs.screenCenterXY();
+
+										DataSaver.loadData(DataSaver.saveFile);
 										DataSaver.usedNotches = usedNotches;
 										DataSaver.saveSettings(DataSaver.saveFile);
-										OverworldManager.instance.soulMeter.changeovercharmview();
-									});
 
-									new FlxTimer().start(0.5, function(tmr:FlxTimer) {
-										canMove = true;
-									});
-
-									if (charmData[datar][2] == "Baldur's Blessing") {
-										OverworldManager.instance.soulMeter.changebaldurview();
+										trace(DataSaver.usedNotches);
 									}
+								});
+
+								new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+									canMove = true;
+								});
+							}
+						} else {
+							var charm = charmData[datar];
+
+							if (charm.data.id != MELODIC_SHELL) {
+								FlxG.sound.play(Paths.sound('charm_click_in', 'hymns'));
+
+								charm.data.unequip();
+								trace("Unequipping " + charm.data);
+								DataSaver.saveSettings(DataSaver.saveFile);
+
+								var spr = charm.spr;
+								var charmIndex = charmsEquipped.indexOf(spr);
+
+								for (i in 0...charmsEquipped.length) {
+									if (i > charmIndex) {
+										var charmy = charmsEquipped[i];
+										FlxTween.tween(charmy, {x: charmy.x - (35 + (holderCharms.width / 2))}, 0.3, {ease: FlxEase.cubeOut});
+									}
+								}
+
+								charmsEquipped.remove(spr);
+
+								var holder = holders[datar];
+
+								// charm.x = holder.x - (charm.width / 2) + (holder.width / 2);
+								// charm.y = holder.y - (charm.height / 2) + (holder.height / 2);
+
+								FlxTween.tween(spr, {
+									x: holder.x - (spr.width / 2) + (holder.width / 2),
+									y: holder.y - (spr.height / 2) + (holder.height / 2) //	x: (holder.x - (selector.width / 4.2)) + spr.width / 2 + 2,
+									//	y: (holder.y - (selector.height / 3.8)) + spr.height / 2
+								}, 0.3, {ease: FlxEase.cubeOut});
+								canMove = false;
+								DataSaver.charmOrder.remove(charm.data.str_id);
+								DataSaver.saveSettings(DataSaver.saveFile);
+
+								FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});
+
+								new FlxTimer().start(0.15, function(tmr:FlxTimer) {
+									FlxTween.tween(holderCharms.scale, {x: 0.6, y: 0.6}, 0.15, {ease: FlxEase.cubeOut});
+									holderCharms.x -= (35 + (holderCharms.width / 2));
+								});
+
+								var notchies = charm.data.cost;
+
+								fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
+								fleurs.setGraphicSize(1280, 720);
+								fleurs.updateHitbox();
+								fleurs.screenCenterXY();
+
+								new FlxTimer().start(0.2, function(tmr:FlxTimer) {
+									usedNotches -= notchies;
+									DataSaver.usedNotches = usedNotches;
+									DataSaver.saveSettings(DataSaver.saveFile);
+									OverworldManager.instance.soulMeter.changeovercharmview();
+								});
+
+								new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+									canMove = true;
+								});
+
+								if (charm.data.id == BALDURS_BLESSING) {
+									OverworldManager.instance.soulMeter.changebaldurview();
 								}
 							}
 						}
+						// }
 					}
 				}
 			}
@@ -738,15 +823,19 @@ class CharmSubState extends MusicBeatSubstate {
 			}
 		}
 
-		if (current != horiz + (rows[row - 1] * (row - 1))) {
+		var slot = horiz + (rows[row - 1] * (row - 1));
+		if (current != slot) {
 			if (selectorTween != null) {
 				selectorTween.cancel();
 			}
 
-			selectorTween = FlxTween.tween(selector, {x: holders[horiz + (rows[row - 1] * (row - 1))].x - (selector.width / 4.2), y: holders[horiz + (rows[row - 1] * (row - 1))].y - (selector.height / 3.8)}, 0.5, {ease: FlxEase.cubeOut});
+			selectorTween = FlxTween.tween(selector, {
+				x: holders[slot].x - (selector.width / 4.2),
+				y: holders[slot].y - (selector.height / 3.8)
+			}, 0.5, {ease: FlxEase.cubeOut});
 			setTextIcon();
 
-			current = horiz + (rows[row - 1] * (row - 1));
+			current = slot;
 		}
 
 		selectorGlow.x = selector.getMidpoint().x - (selectorGlow.width / 1.5);

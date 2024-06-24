@@ -3190,7 +3190,7 @@ class PlayState extends MusicBeatState {
 			bfCurAnim = "move";
 			if (soulMeter != null) {
 				DataSaver.loadData(DataSaver.saveFile);
-				var rawData:Bool = DataSaver.charms.get("Critical Focus");
+				var rawData:Bool = Charms.isCharmEquipped(CRITICAL_FOCUS);
 
 				if (rawData) {
 					soulMeter.soul += Math.round(1.25 * healthGain);

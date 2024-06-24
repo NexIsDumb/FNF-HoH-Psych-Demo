@@ -7,8 +7,8 @@ import flixel.graphics.FlxGraphic;
 class DataSaver {
 	// needs to be saved
 	public static var geo:Int = 0;
-	public static var charms:Map<String, Bool> = new Map();
-	public static var charmsunlocked:Map<String, Bool> = new Map();
+	public static var equippedCharms:Array<String> = [];
+	public static var unlockedCharms:Map<String, Bool> = new Map();
 	public static var songScores:Map<String, Int> = new Map();
 	public static var weekScores:Map<String, Int> = new Map();
 	public static var songRating:Map<String, Float> = new Map();
@@ -22,8 +22,7 @@ class DataSaver {
 	public static var diedonfirststeps:Bool = false;
 	public static var interacts = [false, false, false];
 
-	public static var charmOrder:Array<Dynamic> = [];
-	public static var sillyOrder:Array<Dynamic> = [];
+	public static var charmOrder:Array<String> = [];
 
 	// vars
 	public static var saveFile:Int = 0;
@@ -36,8 +35,8 @@ class DataSaver {
 		curSave.bind('saveData' + saveFile, 'nld');
 
 		curSave.data.geo = geo;
-		curSave.data.charms = charms;
-		curSave.data.charmsunlocked = charmsunlocked;
+		curSave.data.equippedCharms = equippedCharms;
+		curSave.data.unlockedCharms = unlockedCharms;
 		curSave.data.songScores = songScores;
 		curSave.data.weekScores = songScores;
 		curSave.data.songRating = songScores;
@@ -51,7 +50,6 @@ class DataSaver {
 		curSave.data.lichendone = lichendone;
 		curSave.data.diedonfirststeps = diedonfirststeps;
 		curSave.data.interacts = interacts;
-		curSave.data.sillyOrder = sillyOrder;
 
 		curSave.flush();
 		FlxG.log.add("Settings saved!");
@@ -64,11 +62,10 @@ class DataSaver {
 		curSave.bind('saveData' + saveFile, 'nld');
 
 		geo = 0;
-		charms = new Map();
-		charms.set("Melodic Shell", false);
-		charmsunlocked = new Map();
-		charmsunlocked.set("Melodic Shell", false);
-		charmsunlocked.set("Swindler", false);
+		equippedCharms = [];
+		unlockedCharms = ["melodic_shell" => true /*, "swindler" => false*/];
+		// unlockedCharms.set("Melodic Shell", false);
+		// unlockedCharms.set("Swindler", false);
 		songScores = new Map();
 		weekScores = new Map();
 		songRating = new Map();
@@ -82,16 +79,15 @@ class DataSaver {
 		lichendone = false;
 		diedonfirststeps = false;
 		interacts = [false, false, false];
-		sillyOrder = [];
 
 		if (curSave.data.geo != null) {
 			geo = curSave.data.geo;
 		}
-		if (curSave.data.charms != null) {
-			charms = curSave.data.charms;
+		if (curSave.data.equippedCharms != null) {
+			equippedCharms = curSave.data.equippedCharms;
 		}
-		if (curSave.data.charmsunlocked != null) {
-			charmsunlocked = curSave.data.charmsunlocked;
+		if (curSave.data.unlockedCharms != null) {
+			unlockedCharms = curSave.data.unlockedCharms;
 		}
 		if (curSave.data.songScores != null) {
 			songScores = curSave.data.songScores;
@@ -131,9 +127,6 @@ class DataSaver {
 		}
 		if (curSave.data.interacts != null) {
 			interacts = curSave.data.interacts;
-		}
-		if (curSave.data.sillyOrder != null) {
-			sillyOrder = curSave.data.sillyOrder;
 		}
 
 		curSave.flush();

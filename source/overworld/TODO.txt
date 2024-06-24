@@ -1,0 +1,3 @@
+Charms:
+Fix alignment bug
+Fix overcharmed text

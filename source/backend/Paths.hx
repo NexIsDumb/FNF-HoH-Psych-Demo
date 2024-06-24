@@ -224,6 +224,7 @@ class Paths {
 			currentTrackedAssets.set(file, newGraphic);
 			return newGraphic;
 		}
+		trace("Image not found: " + file);
 		return null;
 	}
 

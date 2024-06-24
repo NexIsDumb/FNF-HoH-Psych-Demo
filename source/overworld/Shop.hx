@@ -184,7 +184,7 @@ class Shop extends FlxSpriteGroup {
 		titledesc.push(desc1);
 
 		DataSaver.loadData(DataSaver.saveFile);
-		var rawData:Bool = DataSaver.charmsunlocked.get("Swindler");
+		var rawData:Bool = DataSaver.unlockedCharms.get("Swindler");
 
 		if (rawData == false) {
 			addCharm("Swindler",
@@ -192,9 +192,9 @@ class Shop extends FlxSpriteGroup {
 				0, "50", "swindler");
 		} else {
 			DataSaver.loadData(DataSaver.saveFile);
-			var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-			var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-			var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+			var rawData1:Bool = DataSaver.unlockedCharms.get("Baldur's Blessing");
+			var rawData2:Bool = DataSaver.unlockedCharms.get("Lifeblood Seed");
+			var rawData3:Bool = DataSaver.unlockedCharms.get("Critical Focus");
 
 			addCharm("Baldur's Blessing",
 				"Finding yourself running into trouble down below? Baldur shells are so tough that they are said to protect the wearer from harm! However it does not seem indestructible, so do take care.",
@@ -366,7 +366,7 @@ class Shop extends FlxSpriteGroup {
 					OverworldManager.instance.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
 					DataSaver.loadData(DataSaver.saveFile);
-					var rawData:Bool = DataSaver.charmsunlocked.get("Swindler");
+					var rawData:Bool = DataSaver.unlockedCharms.get("Swindler");
 
 					if (rawData == false) {
 						FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
@@ -409,7 +409,7 @@ class Shop extends FlxSpriteGroup {
 
 	function addCharm(name, desc, notch, price, image) {
 		DataSaver.loadData(DataSaver.saveFile);
-		if (DataSaver.charmsunlocked.get(name) == null || DataSaver.charmsunlocked.get(name) == false) {
+		if (DataSaver.unlockedCharms.get(name) == null || DataSaver.unlockedCharms.get(name) == false) {
 			var charmGroup:FlxSpriteGroup = new FlxSpriteGroup(0, 0);
 			add(charmGroup);
 
@@ -659,7 +659,7 @@ class Shop extends FlxSpriteGroup {
 
 					if (selected2 == yes) {
 						if (DataSaver.geo >= Std.parseInt(charmList[selected][3])) {
-							DataSaver.charmsunlocked.set(charmList[selected][4][0], true);
+							DataSaver.unlockedCharms.set(charmList[selected][4][0], true);
 							DataSaver.geo -= Std.parseInt(charmList[selected][3]);
 							DataSaver.saveSettings(DataSaver.saveFile);
 							FlxG.sound.play(Paths.sound("geo_deplete_count_down", 'hymns'));
@@ -748,9 +748,9 @@ class Shop extends FlxSpriteGroup {
 
 								function filly() {
 									DataSaver.loadData(DataSaver.saveFile);
-									var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-									var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-									var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+									var rawData1:Bool = DataSaver.unlockedCharms.get("Baldur's Blessing");
+									var rawData2:Bool = DataSaver.unlockedCharms.get("Lifeblood Seed");
+									var rawData3:Bool = DataSaver.unlockedCharms.get("Critical Focus");
 									if (rawData1 && rawData2 && rawData3) {
 										caninteractter = true;
 										new FlxTimer().start(.75, function(tmr:FlxTimer) {
@@ -790,9 +790,9 @@ class Shop extends FlxSpriteGroup {
 
 								FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 
-								var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-								var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-								var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+								var rawData1:Bool = DataSaver.unlockedCharms.get("Baldur's Blessing");
+								var rawData2:Bool = DataSaver.unlockedCharms.get("Lifeblood Seed");
+								var rawData3:Bool = DataSaver.unlockedCharms.get("Critical Focus");
 								if (rawData1 && rawData2 && rawData3) {
 									new FlxTimer().start(.6, function(tmr:FlxTimer) {
 										OverworldManager.instance.dialogue.openBox("Sly",

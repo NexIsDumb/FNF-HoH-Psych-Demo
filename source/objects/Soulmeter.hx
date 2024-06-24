@@ -20,6 +20,7 @@
 
 package objects;
 
+import overworld.Charms;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -197,7 +198,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		baldur.centerOffsets();
 		baldur.centerOrigin();
 		DataSaver.loadData(DataSaver.saveFile);
-		var rawData:Bool = DataSaver.charms.get("Baldur's Blessing");
+		var rawData:Bool = Charms.isCharmEquipped(BALDURS_BLESSING);
 		if (rawData == false) {
 			baldur.alpha = 0;
 		}
@@ -286,7 +287,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		}
 
 		DataSaver.loadData(DataSaver.saveFile);
-		var rawData:Bool = DataSaver.charms.get("Lifeblood Seed");
+		var rawData:Bool = Charms.isCharmEquipped(LIFEBLOOD_SEED);
 		if (rawData == true) {
 			for (i in 0...2) {
 				var spacing:Int = -1;
@@ -526,7 +527,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			trace(soul, healingSoul);
 			if (soul >= (healingSoul - 33) && singVar) {
 				DataSaver.loadData(DataSaver.saveFile);
-				var rawData:Bool = DataSaver.charms.get("Critical Focus");
+				var rawData:Bool = Charms.isCharmEquipped(CRITICAL_FOCUS);
 
 				if (rawData) {
 					if (masks <= maxMasks / 2) {
