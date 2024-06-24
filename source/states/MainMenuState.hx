@@ -78,7 +78,7 @@ class MainMenuState extends MenuBeatState {
 			var optionText:FlxText = new FlxText(0, 0, 0, optionShit[i], 12);
 			optionText.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, CENTER);
 			optionText.text = optionShit[i];
-			optionText.screenCenter();
+			optionText.screenCenterXY();
 			optionText.y += FlxG.height / 10;
 			optionText.y += 45 * i;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
@@ -124,7 +124,7 @@ class MainMenuState extends MenuBeatState {
 		title = new FlxSprite(1088, 0).loadGraphic(Paths.image('Menus/Main/title', 'hymns'));
 		title.setGraphicSize(Std.int(title.width * 0.4));
 		title.updateHitbox();
-		title.screenCenter();
+		title.screenCenterXY();
 		title.y -= FlxG.height / 5;
 		add(title);
 		title.antialiasing = ClientPrefs.data.antialiasing;
@@ -212,7 +212,7 @@ class MainMenuState extends MenuBeatState {
 		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxText) {
-			spr.screenCenter(X);
+			spr.screenCenterX();
 		});
 	}
 
@@ -226,12 +226,12 @@ class MainMenuState extends MenuBeatState {
 
 		menuItems.forEach(function(spr:FlxText) {
 			if (spr.ID == curSelected) {
-				pointer1.screenCenter(X);
+				pointer1.screenCenterX();
 				pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 				pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 				pointer1.animation.play('idle', true);
 
-				pointer2.screenCenter(X);
+				pointer2.screenCenterX();
 				pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 				pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 				pointer2.animation.play('idle', true);

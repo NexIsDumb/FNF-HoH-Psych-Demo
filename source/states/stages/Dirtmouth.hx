@@ -20,7 +20,7 @@ class Dirtmouth extends BaseStage {
 
 	override function create() {
 		group = new FlxTypedSpriteGroup(0, 0, 30);
-		group.screenCenter();
+		group.screenCenterXY();
 		add(group);
 
 		var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/bg', 'hymns'));
@@ -28,7 +28,7 @@ class Dirtmouth extends BaseStage {
 		bg.scrollFactor.set(0.7, 0.7);
 		bg.scale.set(2.5, 2.5);
 		bg.updateHitbox();
-		bg.screenCenter();
+		bg.screenCenterXY();
 		bg.y -= 150;
 		add(bg);
 
@@ -37,7 +37,7 @@ class Dirtmouth extends BaseStage {
 		townmidbehind.scrollFactor.set(0.68, 0.68);
 		townmidbehind.scale.set(2.5, 2.5);
 		townmidbehind.updateHitbox();
-		townmidbehind.screenCenter();
+		townmidbehind.screenCenterXY();
 		add(townmidbehind);
 
 		var townmidsmallhouse:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidsmallhouse', 'hymns'));
@@ -45,7 +45,7 @@ class Dirtmouth extends BaseStage {
 		townmidsmallhouse.scrollFactor.set(0.7, 0.7);
 		townmidsmallhouse.scale.set(2.5, 2.5);
 		townmidsmallhouse.updateHitbox();
-		townmidsmallhouse.screenCenter();
+		townmidsmallhouse.screenCenterXY();
 		add(townmidsmallhouse);
 
 		var townmidbighouse:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidbighouse', 'hymns'));
@@ -53,7 +53,7 @@ class Dirtmouth extends BaseStage {
 		townmidbighouse.scrollFactor.set(0.73, 0.73);
 		townmidbighouse.scale.set(2.5, 2.5);
 		townmidbighouse.updateHitbox();
-		townmidbighouse.screenCenter();
+		townmidbighouse.screenCenterXY();
 		add(townmidbighouse);
 
 		var townmid:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmid', 'hymns'));
@@ -61,7 +61,7 @@ class Dirtmouth extends BaseStage {
 		townmid.scrollFactor.set(0.75, 0.75);
 		townmid.scale.set(2.5, 2.5);
 		townmid.updateHitbox();
-		townmid.screenCenter();
+		townmid.screenCenterXY();
 		add(townmid);
 
 		if (!ClientPrefs.data.lowQuality) {
@@ -72,7 +72,7 @@ class Dirtmouth extends BaseStage {
 			lights2.scrollFactor.set(0.75, 0.75);
 			lights2.scale.set(2.5, 2.5);
 			lights2.updateHitbox();
-			lights2.screenCenter();
+			lights2.screenCenterXY();
 			lights2.y -= 50;
 			add(lights2);
 		}
@@ -82,7 +82,7 @@ class Dirtmouth extends BaseStage {
 		lamp1.scrollFactor.set(1.005, 1.005);
 		lamp1.scale.set(2.5, 2.5);
 		lamp1.updateHitbox();
-		lamp1.screenCenter();
+		lamp1.screenCenterXY();
 		add(lamp1);
 
 		if (!ClientPrefs.data.lowQuality) {
@@ -91,7 +91,7 @@ class Dirtmouth extends BaseStage {
 			ObjectBlendMode.blendMode(lights4, "screen");
 			lights4.scale.set(2.5, 2.5);
 			lights4.updateHitbox();
-			lights4.screenCenter();
+			lights4.screenCenterXY();
 			lights4.y -= 50;
 			lights4.scrollFactor.set(0.87, 0.87);
 			add(lights4);
@@ -102,7 +102,7 @@ class Dirtmouth extends BaseStage {
 			lights3.alpha = 0.2;
 			lights3.scale.set(2.5, 2.5);
 			lights3.updateHitbox();
-			lights3.screenCenter();
+			lights3.screenCenterXY();
 			add(lights3);
 		}
 
@@ -110,7 +110,7 @@ class Dirtmouth extends BaseStage {
 		bench.antialiasing = ClientPrefs.data.antialiasing;
 		bench.scale.set(2.6, 2.6);
 		bench.updateHitbox();
-		bench.screenCenter();
+		bench.screenCenterXY();
 		bench.y += FlxG.height / 1.5 + 240;
 		add(bench);
 
@@ -120,7 +120,7 @@ class Dirtmouth extends BaseStage {
 			ObjectBlendMode.blendMode(lights5, "screen");
 			lights5.scale.set(2.5, 2.5);
 			lights5.updateHitbox();
-			lights5.screenCenter();
+			lights5.screenCenterXY();
 			lights5.scrollFactor.set(0.9, 0.9);
 			lights5.alpha = 0.5;
 			add(lights5);
@@ -130,7 +130,7 @@ class Dirtmouth extends BaseStage {
 		sly.frames = Paths.getSparrowAtlas('Overworld/DMShopSly', 'hymns');
 		sly.scale.set(2.56, 2.56);
 		sly.updateHitbox();
-		sly.screenCenter();
+		sly.screenCenterXY();
 		sly.y += 45;
 		sly.x -= FlxG.width * 1.85;
 		sly.animation.addByPrefix('door', 'ShopDoorIdleClosed', 15, false);
@@ -151,14 +151,14 @@ class Dirtmouth extends BaseStage {
 		stagstation.antialiasing = ClientPrefs.data.antialiasing;
 		stagstation.scale.set(2.5, 2.5);
 		stagstation.updateHitbox();
-		stagstation.screenCenter();
+		stagstation.screenCenterXY();
 		add(stagstation);
 
 		var corniferandbretta:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/corniferandbretta', 'hymns'));
 		corniferandbretta.antialiasing = ClientPrefs.data.antialiasing;
 		corniferandbretta.scale.set(2.5, 2.5);
 		corniferandbretta.updateHitbox();
-		corniferandbretta.screenCenter();
+		corniferandbretta.screenCenterXY();
 		corniferandbretta.scrollFactor.set(1.005, 1.005);
 		add(corniferandbretta);
 
@@ -177,7 +177,7 @@ class Dirtmouth extends BaseStage {
 		roadmain.antialiasing = ClientPrefs.data.antialiasing;
 		roadmain.scale.set(2.5, 2.5);
 		roadmain.updateHitbox();
-		roadmain.screenCenter();
+		roadmain.screenCenterXY();
 		add(roadmain);
 
 		var road2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road2', 'hymns'));
@@ -185,7 +185,7 @@ class Dirtmouth extends BaseStage {
 		road2.scrollFactor.set(1.05, 1.05);
 		road2.scale.set(2.5, 2.5);
 		road2.updateHitbox();
-		road2.screenCenter();
+		road2.screenCenterXY();
 		add(road2);
 
 		var road3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road3', 'hymns'));
@@ -193,7 +193,7 @@ class Dirtmouth extends BaseStage {
 		road3.scrollFactor.set(1.1, 1.1);
 		road3.scale.set(2.5, 2.5);
 		road3.updateHitbox();
-		road3.screenCenter();
+		road3.screenCenterXY();
 		add(road3);
 
 		var road4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road4', 'hymns'));
@@ -201,7 +201,7 @@ class Dirtmouth extends BaseStage {
 		road4.scrollFactor.set(1.15, 1.15);
 		road4.scale.set(2.5, 2.5);
 		road4.updateHitbox();
-		road4.screenCenter();
+		road4.screenCenterXY();
 		add(road4);
 
 		var road5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road5', 'hymns'));
@@ -209,14 +209,14 @@ class Dirtmouth extends BaseStage {
 		road5.scrollFactor.set(1.2, 1.2);
 		road5.scale.set(2.5, 2.5);
 		road5.updateHitbox();
-		road5.screenCenter();
+		road5.screenCenterXY();
 		add(road5);
 
 		var poles:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/poles', 'hymns'));
 		poles.antialiasing = ClientPrefs.data.antialiasing;
 		poles.scale.set(2.5, 2.5);
 		poles.updateHitbox();
-		poles.screenCenter();
+		poles.screenCenterXY();
 		poles.scrollFactor.set(1.2, 1.2);
 		add(poles);
 
@@ -224,7 +224,7 @@ class Dirtmouth extends BaseStage {
 		fences.antialiasing = ClientPrefs.data.antialiasing;
 		fences.scale.set(2.5, 2.5);
 		fences.updateHitbox();
-		fences.screenCenter();
+		fences.screenCenterXY();
 		fences.scrollFactor.set(1.2, 1.2);
 		add(fences);
 
@@ -232,7 +232,7 @@ class Dirtmouth extends BaseStage {
 		lamplights.antialiasing = ClientPrefs.data.antialiasing;
 		lamplights.scale.set(2.5, 2.5);
 		lamplights.updateHitbox();
-		lamplights.screenCenter();
+		lamplights.screenCenterXY();
 		lamplights.scrollFactor.set(1.005, 1.005);
 		add(lamplights);
 
@@ -242,7 +242,7 @@ class Dirtmouth extends BaseStage {
 			ObjectBlendMode.blendMode(lights1, "add");
 			lights1.scale.set(2.5, 2.5);
 			lights1.updateHitbox();
-			lights1.screenCenter();
+			lights1.screenCenterXY();
 			lights1.alpha = 0.75;
 			lights1.scrollFactor.set(1.005, 1.005);
 			add(lights1);
@@ -253,7 +253,7 @@ class Dirtmouth extends BaseStage {
 		fog.alpha = 0.75;
 		fog.scale.set(8, 8);
 		fog.updateHitbox();
-		fog.screenCenter();
+		fog.screenCenterXY();
 		ObjectBlendMode.blendMode(fog, "add");
 		add(fog);
 
@@ -270,7 +270,7 @@ class Dirtmouth extends BaseStage {
 			fog.alpha = 0.75;
 			fog.scale.set(8, 8);
 			fog.updateHitbox();
-			fog.screenCenter();
+			fog.screenCenterXY();
 			ObjectBlendMode.blendMode(fog, "add");
 			add(fog);
 

@@ -253,7 +253,6 @@ class Note extends FlxSprite {
 			animName = animation.curAnim.name;
 		}
 
-		var skinPixel:String = skin;
 		var lastScaleY:Float = scale.y;
 		var skinPostfix:String = getNoteSkinPostfix();
 		var customSkin:String = skin + skinPostfix;
@@ -302,16 +301,18 @@ class Note extends FlxSprite {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		if (mustPress) {
-			canBeHit = (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * lateHitMult) && strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult));
+		var songPos = Conductor.songPosition;
 
-			if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
+		if (mustPress) {
+			canBeHit = (strumTime > songPos - (Conductor.safeZoneOffset * lateHitMult) && strumTime < songPos + (Conductor.safeZoneOffset * earlyHitMult));
+
+			if (strumTime < songPos - Conductor.safeZoneOffset && !wasGoodHit)
 				tooLate = true;
 		} else {
 			canBeHit = false;
 
-			if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult)) {
-				if ((isSustainNote && prevNote.wasGoodHit) || strumTime <= Conductor.songPosition)
+			if (strumTime < songPos + (Conductor.safeZoneOffset * earlyHitMult)) {
+				if ((isSustainNote && prevNote.wasGoodHit) || strumTime <= songPos)
 					wasGoodHit = true;
 			}
 		}
@@ -332,7 +333,7 @@ class Note extends FlxSprite {
 		var strumY:Float = myStrum.y;
 		var strumAngle:Float = myStrum.angle;
 		var strumAlpha:Float = myStrum.alpha;
-		var strumDirection:Float = myStrum.direction;
+		// var strumDirection:Float = myStrum.direction;
 
 		// if (copyX || copyY)
 		myStrum.updateDirection();
@@ -378,5 +379,15 @@ class Note extends FlxSprite {
 			}
 			clipRect = swagRect;
 		}
+	}
+
+	override function set_clipRect(rect:FlxRect):FlxRect {
+		clipRect = rect;
+
+		if (frames != null) {
+			frame = frames.frames[animation.frameIndex];
+		}
+
+		return rect;
 	}
 }

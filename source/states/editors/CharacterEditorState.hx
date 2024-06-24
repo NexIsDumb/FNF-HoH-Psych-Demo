@@ -81,7 +81,7 @@ class CharacterEditorState extends MusicBeatState {
 		var bg = new FlxSprite().loadGraphic("Menus/Freeplay/First-Steps");
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
-		bg.screenCenter();
+		bg.screenCenterXY();
 
 		var pointer:FlxGraphic = FlxGraphic.fromClass(GraphicCursorCross);
 		cameraFollowPointer = new FlxSprite().loadGraphic(pointer);
@@ -126,7 +126,7 @@ class CharacterEditorState extends MusicBeatState {
 		genBoyOffsets();
 
 		camFollow = new FlxObject(0, 0, 2, 2);
-		camFollow.screenCenter();
+		camFollow.screenCenterXY();
 		add(camFollow);
 
 		var tipTextArray:Array<String> = "E/Q - Camera Zoom In/Out

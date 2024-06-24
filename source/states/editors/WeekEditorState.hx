@@ -128,20 +128,20 @@ class WeekEditorState extends MusicBeatState {
 		var loadWeekButton:FlxButton = new FlxButton(0, 650, "Load Week", function() {
 			loadWeek();
 		});
-		loadWeekButton.screenCenter(X);
+		loadWeekButton.screenCenterX();
 		loadWeekButton.x -= 120;
 		add(loadWeekButton);
 
 		var freeplayButton:FlxButton = new FlxButton(0, 650, "Freeplay", function() {
 			MusicBeatState.switchState(new WeekEditorFreeplayState(weekFile));
 		});
-		freeplayButton.screenCenter(X);
+		freeplayButton.screenCenterX();
 		add(freeplayButton);
 
 		var saveWeekButton:FlxButton = new FlxButton(0, 650, "Save Week", function() {
 			saveWeek(weekFile);
 		});
-		saveWeekButton.screenCenter(X);
+		saveWeekButton.screenCenterX();
 		saveWeekButton.x += 120;
 		add(saveWeekButton);
 	}
@@ -302,7 +302,7 @@ class WeekEditorState extends MusicBeatState {
 
 		txtTracklist.text = txtTracklist.text.toUpperCase();
 
-		txtTracklist.screenCenter(X);
+		txtTracklist.screenCenterX();
 		txtTracklist.x -= FlxG.width * 0.35;
 
 		txtWeekTitle.text = weekFile.storyName.toUpperCase();
@@ -435,7 +435,7 @@ class WeekEditorState extends MusicBeatState {
 	}
 
 	function recalculateStuffPosition() {
-		weekThing.screenCenter(X);
+		weekThing.screenCenterX();
 		lock.x = weekThing.width + 10 + weekThing.x;
 	}
 
@@ -593,7 +593,7 @@ class WeekEditorFreeplayState extends MusicBeatState {
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+			// songText.screenCenterX();
 		}
 
 		addEditorBox();
@@ -623,20 +623,20 @@ class WeekEditorFreeplayState extends MusicBeatState {
 		var loadWeekButton:FlxButton = new FlxButton(0, 685, "Load Week", function() {
 			WeekEditorState.loadWeek();
 		});
-		loadWeekButton.screenCenter(X);
+		loadWeekButton.screenCenterX();
 		loadWeekButton.x -= 120;
 		add(loadWeekButton);
 
 		var storyModeButton:FlxButton = new FlxButton(0, 685, "Story Mode", function() {
 			MusicBeatState.switchState(new WeekEditorState(weekFile));
 		});
-		storyModeButton.screenCenter(X);
+		storyModeButton.screenCenterX();
 		add(storyModeButton);
 
 		var saveWeekButton:FlxButton = new FlxButton(0, 685, "Save Week", function() {
 			WeekEditorState.saveWeek(weekFile);
 		});
-		saveWeekButton.screenCenter(X);
+		saveWeekButton.screenCenterX();
 		saveWeekButton.x += 120;
 		add(saveWeekButton);
 	}

@@ -70,7 +70,7 @@ class NoteOffsetState extends MusicBeatState {
 
 		// Combo stuff
 		coolText = new FlxText(0, 0, 0, '', 32);
-		coolText.screenCenter();
+		coolText.screenCenterXY();
 		coolText.x = FlxG.width * 0.35;
 
 		rating = new FlxSprite().loadGraphic(Paths.image('sick'));
@@ -129,7 +129,7 @@ class NoteOffsetState extends MusicBeatState {
 
 		timeBar = new HealthBar(0, timeTxt.y + (timeTxt.height / 3), 'healthBar', function() return barPercent, delayMin, delayMax);
 		timeBar.scrollFactor.set();
-		timeBar.screenCenter(X);
+		timeBar.screenCenterX();
 		timeBar.visible = false;
 		timeBar.cameras = [camHUD];
 		timeBar.leftBar.color = FlxColor.LIME;
@@ -153,7 +153,7 @@ class NoteOffsetState extends MusicBeatState {
 
 		controllerPointer = new FlxShapeCircle(0, 0, 20, {thickness: 0}, FlxColor.WHITE);
 		controllerPointer.offset.set(20, 20);
-		controllerPointer.screenCenter();
+		controllerPointer.screenCenterXY();
 		controllerPointer.alpha = 0.6;
 		controllerPointer.cameras = [camHUD];
 		add(controllerPointer);
@@ -420,11 +420,11 @@ class NoteOffsetState extends MusicBeatState {
 	}
 
 	function repositionCombo() {
-		rating.screenCenter();
+		rating.screenCenterXY();
 		rating.x = coolText.x - 40 + ClientPrefs.data.comboOffset[0];
 		rating.y -= 60 + ClientPrefs.data.comboOffset[1];
 
-		comboNums.screenCenter();
+		comboNums.screenCenterXY();
 		comboNums.x = coolText.x - 90 + ClientPrefs.data.comboOffset[2];
 		comboNums.y += 80 - ClientPrefs.data.comboOffset[3];
 		reloadTexts();

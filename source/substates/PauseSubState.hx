@@ -116,10 +116,10 @@ class PauseSubState extends MusicBeatSubstate {
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 200}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-		chartingText.screenCenter(X);
-		practiceText.screenCenter(X);
-		blueballedTxt.screenCenter(X);
-		levelInfo.screenCenter(X);
+		chartingText.screenCenterX();
+		practiceText.screenCenterX();
+		blueballedTxt.screenCenterX();
+		levelInfo.screenCenterX();
 
 		chartingText.x += offsetthingy;
 		practiceText.x += offsetthingy;
@@ -350,13 +350,13 @@ class PauseSubState extends MusicBeatSubstate {
 				if (menuItems.length > 4) {
 					add = grpMenuShit.length * 8;
 				}
-				pointer1.screenCenter(X);
+				pointer1.screenCenterX();
 				pointer1.y = spr.getGraphicMidpoint().y - (spr.height * 0.5);
 				pointer1.x -= (spr.width / 1.55);
 				pointer1.x += offsetthingy;
 				pointer1.animation.play('idle', true);
 
-				pointer2.screenCenter(X);
+				pointer2.screenCenterX();
 				pointer2.y = spr.getGraphicMidpoint().y - (spr.height * 0.5);
 				pointer2.x += (spr.width / 1.55) + offsetthingy;
 				pointer2.animation.play('idle', true);
@@ -382,7 +382,7 @@ class PauseSubState extends MusicBeatSubstate {
 			var item = new FlxText(120, 50 * i + 290 * 1.3, menuItems[i], 24);
 			item.scrollFactor.set();
 			item.setFormat(Constants.UI_FONT, 26, FlxColor.WHITE, CENTER);
-			item.screenCenter(X);
+			item.screenCenterX();
 			item.x += offsetthingy - 1;
 			item.antialiasing = ClientPrefs.data.antialiasing;
 			item.ID = i;
@@ -403,7 +403,7 @@ class PauseSubState extends MusicBeatSubstate {
 		flair1.antialiasing = ClientPrefs.data.antialiasing;
 		flair1.setGraphicSize(Std.int(flair1.width * 0.6));
 		add(flair1);
-		flair1.screenCenter();
+		flair1.screenCenterXY();
 		flair1.y -= 115 * 0.3;
 		flair1.x += offsetthingy;
 
@@ -414,7 +414,7 @@ class PauseSubState extends MusicBeatSubstate {
 		flair2.antialiasing = ClientPrefs.data.antialiasing;
 		flair2.setGraphicSize(Std.int(flair1.width * 0.6));
 		add(flair2);
-		flair2.screenCenter();
+		flair2.screenCenterXY();
 		flair2.y += 145 * 1.6 + (50 * (menuItems.length - 4));
 		flair2.x += offsetthingy;
 

@@ -136,7 +136,7 @@ class Dialogue extends FlxSpriteGroup {
 
 		new FlxTimer().start(.35, function(tmr:FlxTimer) {
 			arrow.animation.play(arrowsuffix + "appear", true);
-			arrow.screenCenter(X);
+			arrow.screenCenterX();
 			arrow.alpha = 1;
 
 			if (arrow.animation.curAnim.name == "sappear") {}

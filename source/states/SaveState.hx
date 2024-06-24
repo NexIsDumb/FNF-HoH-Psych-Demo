@@ -343,7 +343,7 @@ class SaveState extends MenuBeatState {
 				spr = savefiles[curSelectedy].no2;
 			}
 
-		pointer1.screenCenter(X);
+		pointer1.screenCenterX();
 		if (clearingsave || choosingstate)
 			pointer1.x = spr.getGraphicMidpoint().x + 10;
 		if (choosingstate)
@@ -358,7 +358,7 @@ class SaveState extends MenuBeatState {
 		pointer1.x -= (spr.width / 1.35) + pointer1.width / 1.5 + 25;
 		pointer1.animation.play('idle', true);
 
-		pointer2.screenCenter(X);
+		pointer2.screenCenterX();
 		if (clearingsave || choosingstate)
 			pointer2.x = spr.getGraphicMidpoint().x - 25;
 

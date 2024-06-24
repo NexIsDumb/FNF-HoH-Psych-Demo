@@ -24,7 +24,7 @@ class FlashingState extends MusicBeatState {
 			You've been warned!",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
-		warnText.screenCenter(Y);
+		warnText.screenCenterY();
 		add(warnText);
 	}
 

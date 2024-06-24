@@ -38,7 +38,7 @@ class SlyShop extends BaseScene {
 	override public function create() {
 		var backgroundSpr1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_1_sly', 'hymns'));
 		backgroundSpr1.scale.set(0.4, 0.4);
-		backgroundSpr1.screenCenter();
+		backgroundSpr1.screenCenterXY();
 		backgroundSpr1.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr1.scrollFactor.set(1, 1);
 		backgroundSpr1.active = false;
@@ -46,14 +46,14 @@ class SlyShop extends BaseScene {
 
 		var backgroundSpr2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_2_sly', 'hymns'));
 		backgroundSpr2.scale.set(0.4, 0.4);
-		backgroundSpr2.screenCenter();
+		backgroundSpr2.screenCenterXY();
 		backgroundSpr2.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr2.scrollFactor.set(1, 1);
 		backgroundSpr2.active = false;
 		add(backgroundSpr2);
 
 		shop = new Shop();
-		shop.screenCenter();
+		shop.screenCenterXY();
 		shop.x += FlxG.width / 4;
 		shop.cameras = [game.camDIALOG];
 		add(shop);
@@ -66,7 +66,7 @@ class SlyShop extends BaseScene {
 		sly.frames = Paths.getSparrowAtlas('Overworld/SlyShop (1)', 'hymns');
 		sly.scale.set(0.24, 0.24);
 		sly.updateHitbox();
-		sly.screenCenter();
+		sly.screenCenterXY();
 		sly.x += 250;
 		sly.y += 225;
 		sly.animation.addByPrefix('idle', 'SlyShopidle', 24, true);
@@ -91,7 +91,7 @@ class SlyShop extends BaseScene {
 			backgroundSpr3.scale.set(0.4, 0.4);
 			backgroundSpr3.y -= 50;
 			backgroundSpr3.x += 10;
-			backgroundSpr3.screenCenter();
+			backgroundSpr3.screenCenterXY();
 			backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr3.scrollFactor.set(1, 1);
 			ObjectBlendMode.blendMode(backgroundSpr3, "add");
@@ -101,7 +101,7 @@ class SlyShop extends BaseScene {
 
 		var backgroundSpr5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/slyshop', 'hymns'));
 		backgroundSpr5.scale.set(0.415, 0.415);
-		backgroundSpr5.screenCenter();
+		backgroundSpr5.screenCenterXY();
 		backgroundSpr5.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr5.y -= 17;
 		backgroundSpr5.x -= 117.5;

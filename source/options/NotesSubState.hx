@@ -140,7 +140,7 @@ class NotesSubState extends MusicBeatSubstate {
 
 		controllerPointer = new FlxShapeCircle(0, 0, 20, {thickness: 0}, FlxColor.WHITE);
 		controllerPointer.offset.set(20, 20);
-		controllerPointer.screenCenter();
+		controllerPointer.screenCenterXY();
 		controllerPointer.alpha = 0.6;
 		add(controllerPointer);
 

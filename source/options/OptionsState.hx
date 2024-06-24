@@ -26,7 +26,7 @@ class OptionsState extends MenuBeatState {
 		new FlxTimer().start(.35, function(tmr:FlxTimer) {
 			if (label != 'Note Colors' && label != 'Back') {
 				statetext.text = label;
-				statetext.screenCenter(X);
+				statetext.screenCenterX();
 				FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
 				fleur.animation.play('idle', true, false);
 			} else {
@@ -80,7 +80,7 @@ class OptionsState extends MenuBeatState {
 		for (i in 0...options.length - 1) {
 			var optionText:FlxText = new FlxText(0, 0, 0, options[i], 12);
 			optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
-			optionText.screenCenter();
+			optionText.screenCenterXY();
 			optionText.y -= FlxG.height / 6;
 			optionText.y += 50 * i;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
@@ -90,7 +90,7 @@ class OptionsState extends MenuBeatState {
 
 		var optionText:FlxText = new FlxText(0, 0, 0, "Back", 12);
 		optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
-		optionText.screenCenter();
+		optionText.screenCenterXY();
 		optionText.y -= FlxG.height / 6;
 		optionText.y += 50 * 8;
 		optionText.ID = 5;
@@ -105,12 +105,12 @@ class OptionsState extends MenuBeatState {
 		fleur.antialiasing = ClientPrefs.data.antialiasing;
 		fleur.setGraphicSize(Std.int(fleur.width * 0.475));
 		fleur.updateHitbox();
-		fleur.screenCenter();
+		fleur.screenCenterXY();
 		fleur.y -= 200;
 
 		statetext = new FlxText(0, 0, 0, "Options", 12);
 		statetext.setFormat(Constants.UI_FONT, 34, FlxColor.WHITE, CENTER);
-		statetext.screenCenter();
+		statetext.screenCenterXY();
 		statetext.y = fleur.y - 40;
 		statetext.antialiasing = ClientPrefs.data.antialiasing;
 		add(statetext);
@@ -135,12 +135,12 @@ class OptionsState extends MenuBeatState {
 		pointer2.updateHitbox();
 
 		var spr = grpOptions.members[0];
-		pointer1.screenCenter(X);
+		pointer1.screenCenterX();
 		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 		// pointer1.animation.play('idle', true);
 
-		pointer2.screenCenter(X);
+		pointer2.screenCenterX();
 		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 		ClientPrefs.saveSettings();
@@ -157,7 +157,7 @@ class OptionsState extends MenuBeatState {
 			FlxTween.tween(statetext, {alpha: 0}, .25, {ease: FlxEase.circOut});
 			new FlxTimer().start(.35, function(tmr:FlxTimer) {
 				statetext.text = "Options";
-				statetext.screenCenter(X);
+				statetext.screenCenterX();
 				FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
 				fleur.animation.play('idle', true, false);
 				FlxTween.tween(fleur, {alpha: 1}, .25, {ease: FlxEase.circOut});
@@ -181,9 +181,9 @@ class OptionsState extends MenuBeatState {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		statetext.screenCenter(X);
+		statetext.screenCenterX();
 		for (spr in grpOptions.members) {
-			spr.screenCenter(X);
+			spr.screenCenterX();
 		}
 
 		if (FlxG.state == this && subState == null) {
@@ -240,12 +240,12 @@ class OptionsState extends MenuBeatState {
 
 		for (spr in grpOptions.members) {
 			if (spr.ID == curSelected) {
-				pointer1.screenCenter(X);
+				pointer1.screenCenterX();
 				pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 				pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 				pointer1.animation.play('idle', true);
 
-				pointer2.screenCenter(X);
+				pointer2.screenCenterX();
 				pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 				pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 				pointer2.animation.play('idle', true);

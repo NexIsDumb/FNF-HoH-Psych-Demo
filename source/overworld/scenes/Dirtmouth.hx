@@ -48,7 +48,7 @@ class Dirtmouth extends BaseScene {
 		var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/bg', 'hymns'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0.7, 0.7);
-		bg.screenCenter();
+		bg.screenCenterXY();
 		bg.y -= 150;
 		bg.updateHitbox();
 		add(bg);
@@ -56,28 +56,28 @@ class Dirtmouth extends BaseScene {
 		var townmidbehind:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidbehind', 'hymns'));
 		townmidbehind.antialiasing = ClientPrefs.data.antialiasing;
 		townmidbehind.scrollFactor.set(0.68, 0.68);
-		townmidbehind.screenCenter();
+		townmidbehind.screenCenterXY();
 		townmidbehind.updateHitbox();
 		add(townmidbehind);
 
 		var townmidsmallhouse:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidsmallhouse', 'hymns'));
 		townmidsmallhouse.antialiasing = ClientPrefs.data.antialiasing;
 		townmidsmallhouse.scrollFactor.set(0.7, 0.7);
-		townmidsmallhouse.screenCenter();
+		townmidsmallhouse.screenCenterXY();
 		townmidsmallhouse.updateHitbox();
 		add(townmidsmallhouse);
 
 		var townmidbighouse:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidbighouse', 'hymns'));
 		townmidbighouse.antialiasing = ClientPrefs.data.antialiasing;
 		townmidbighouse.scrollFactor.set(0.73, 0.73);
-		townmidbighouse.screenCenter();
+		townmidbighouse.screenCenterXY();
 		townmidbighouse.updateHitbox();
 		add(townmidbighouse);
 
 		var townmid:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmid', 'hymns'));
 		townmid.antialiasing = ClientPrefs.data.antialiasing;
 		townmid.scrollFactor.set(0.75, 0.75);
-		townmid.screenCenter();
+		townmid.screenCenterXY();
 		townmid.updateHitbox();
 		add(townmid);
 
@@ -87,7 +87,7 @@ class Dirtmouth extends BaseScene {
 			ObjectBlendMode.blendMode(lights2, "multiply");
 			lights2.alpha = 0.8;
 			lights2.scrollFactor.set(0.75, 0.75);
-			lights2.screenCenter();
+			lights2.screenCenterXY();
 			lights2.y -= 50;
 			lights2.updateHitbox();
 			add(lights2);
@@ -96,13 +96,13 @@ class Dirtmouth extends BaseScene {
 		var lamp1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lamp1', 'hymns'));
 		lamp1.antialiasing = ClientPrefs.data.antialiasing;
 		lamp1.scrollFactor.set(1.005, 1.005);
-		lamp1.screenCenter();
+		lamp1.screenCenterXY();
 		lamp1.updateHitbox();
 		add(lamp1);
 		lights4 = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171515', 'hymns'));
 		lights4.antialiasing = ClientPrefs.data.antialiasing;
 		ObjectBlendMode.blendMode(lights4, "screen");
-		lights4.screenCenter();
+		lights4.screenCenterXY();
 		lights4.y -= 50;
 		lights4.scrollFactor.set(0.87, 0.87);
 		lights4.updateHitbox();
@@ -113,14 +113,14 @@ class Dirtmouth extends BaseScene {
 			lights3.antialiasing = ClientPrefs.data.antialiasing;
 			ObjectBlendMode.blendMode(lights3, "add");
 			lights3.alpha = 0.2;
-			lights3.screenCenter();
+			lights3.screenCenterXY();
 			lights3.updateHitbox();
 			add(lights3);
 		}
 
 		var bench:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/bench', 'hymns'));
 		bench.antialiasing = ClientPrefs.data.antialiasing;
-		bench.screenCenter();
+		bench.screenCenterXY();
 		bench.y += FlxG.height / 3 + 50;
 		bench.updateHitbox();
 		add(bench);
@@ -128,35 +128,35 @@ class Dirtmouth extends BaseScene {
 		var buildingfront4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront4', 'hymns'));
 		buildingfront4.antialiasing = ClientPrefs.data.antialiasing;
 		buildingfront4.scrollFactor.set(0.8, 0.8);
-		buildingfront4.screenCenter();
+		buildingfront4.screenCenterXY();
 		buildingfront4.updateHitbox();
 		add(buildingfront4);
 
 		var buildingfront3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront3', 'hymns'));
 		buildingfront3.antialiasing = ClientPrefs.data.antialiasing;
 		buildingfront3.scrollFactor.set(0.85, 0.85);
-		buildingfront3.screenCenter();
+		buildingfront3.screenCenterXY();
 		buildingfront3.updateHitbox();
 		add(buildingfront3);
 
 		var buildingfront2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront2', 'hymns'));
 		buildingfront2.antialiasing = ClientPrefs.data.antialiasing;
 		buildingfront2.scrollFactor.set(0.9, 0.9);
-		buildingfront2.screenCenter();
+		buildingfront2.screenCenterXY();
 		buildingfront2.updateHitbox();
 		add(buildingfront2);
 
 		var buildingfront1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront1', 'hymns'));
 		buildingfront1.antialiasing = ClientPrefs.data.antialiasing;
 		buildingfront1.scrollFactor.set(0.95, 0.95);
-		buildingfront1.screenCenter();
+		buildingfront1.screenCenterXY();
 		buildingfront1.updateHitbox();
 		add(buildingfront1);
 		if (!ClientPrefs.data.lowQuality) {
 			var lights5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171511', 'hymns'));
 			lights5.antialiasing = ClientPrefs.data.antialiasing;
 			ObjectBlendMode.blendMode(lights5, "screen");
-			lights5.screenCenter();
+			lights5.screenCenterXY();
 			lights5.updateHitbox();
 			lights5.scrollFactor.set(0.9, 0.9);
 			lights5.alpha = 0.5;
@@ -166,7 +166,7 @@ class Dirtmouth extends BaseScene {
 		var lamp2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lamp2', 'hymns'));
 		lamp2.antialiasing = ClientPrefs.data.antialiasing;
 		lamp2.scrollFactor.set(1.005, 1.005);
-		lamp2.screenCenter();
+		lamp2.screenCenterXY();
 		lamp2.updateHitbox();
 		add(lamp2);
 
@@ -174,7 +174,7 @@ class Dirtmouth extends BaseScene {
 		sly.frames = Paths.getSparrowAtlas('Overworld/DMShopSly', 'hymns');
 		sly.scale.set(1.06, 1.06);
 		sly.updateHitbox();
-		sly.screenCenter();
+		sly.screenCenterXY();
 		sly.y += 15;
 		sly.x -= FlxG.width / 1.35;
 		sly.animation.addByPrefix('door', 'ShopDoorIdleClosed', 15, false);
@@ -193,13 +193,13 @@ class Dirtmouth extends BaseScene {
 
 		var stagstation:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/stagstation', 'hymns'));
 		stagstation.antialiasing = ClientPrefs.data.antialiasing;
-		stagstation.screenCenter();
+		stagstation.screenCenterXY();
 		stagstation.updateHitbox();
 		add(stagstation);
 
 		var corniferandbretta:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/corniferandbretta', 'hymns'));
 		corniferandbretta.antialiasing = ClientPrefs.data.antialiasing;
-		corniferandbretta.screenCenter();
+		corniferandbretta.screenCenterXY();
 		corniferandbretta.updateHitbox();
 		corniferandbretta.scrollFactor.set(1.005, 1.005);
 		add(corniferandbretta);
@@ -208,7 +208,7 @@ class Dirtmouth extends BaseScene {
 		elderbug.frames = Paths.getSparrowAtlas('Overworld/Elderbug', 'hymns');
 		elderbug.scale.set(0.33, 0.33);
 		elderbug.updateHitbox();
-		elderbug.screenCenter();
+		elderbug.screenCenterXY();
 		elderbug.y += 160;
 		elderbug.x -= FlxG.width / 4;
 		elderbug.animation.addByPrefix('idle', 'elderbug town idle0', 24, true);
@@ -252,62 +252,62 @@ class Dirtmouth extends BaseScene {
 
 		var roadmain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/roadmain', 'hymns'));
 		roadmain.antialiasing = ClientPrefs.data.antialiasing;
-		roadmain.screenCenter();
+		roadmain.screenCenterXY();
 		roadmain.y += 100;
 		roadmain.updateHitbox();
 		add(roadmain);
 
 		var roadmain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/roadmain', 'hymns'));
 		roadmain.antialiasing = ClientPrefs.data.antialiasing;
-		roadmain.screenCenter();
+		roadmain.screenCenterXY();
 		roadmain.updateHitbox();
 		add(roadmain);
 
 		var road2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road2', 'hymns'));
 		road2.antialiasing = ClientPrefs.data.antialiasing;
 		road2.scrollFactor.set(1.05, 1.05);
-		road2.screenCenter();
+		road2.screenCenterXY();
 		road2.updateHitbox();
 		add(road2);
 
 		var road3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road3', 'hymns'));
 		road3.antialiasing = ClientPrefs.data.antialiasing;
 		road3.scrollFactor.set(1.1, 1.1);
-		road3.screenCenter();
+		road3.screenCenterXY();
 		road3.updateHitbox();
 		add(road3);
 
 		var road4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road4', 'hymns'));
 		road4.antialiasing = ClientPrefs.data.antialiasing;
 		road4.scrollFactor.set(1.15, 1.15);
-		road4.screenCenter();
+		road4.screenCenterXY();
 		road4.updateHitbox();
 		add(road4);
 
 		var road5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road5', 'hymns'));
 		road5.antialiasing = ClientPrefs.data.antialiasing;
 		road5.scrollFactor.set(1.2, 1.2);
-		road5.screenCenter();
+		road5.screenCenterXY();
 		road5.updateHitbox();
 		add(road5);
 
 		var poles:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/poles', 'hymns'));
 		poles.antialiasing = ClientPrefs.data.antialiasing;
-		poles.screenCenter();
+		poles.screenCenterXY();
 		poles.updateHitbox();
 		poles.scrollFactor.set(1.2, 1.2);
 		add(poles);
 
 		fences = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/fences', 'hymns'));
 		fences.antialiasing = ClientPrefs.data.antialiasing;
-		fences.screenCenter();
+		fences.screenCenterXY();
 		fences.updateHitbox();
 		fences.scrollFactor.set(1.2, 1.2);
 		add(fences);
 
 		var lamplights:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lamplights', 'hymns'));
 		lamplights.antialiasing = ClientPrefs.data.antialiasing;
-		lamplights.screenCenter();
+		lamplights.screenCenterXY();
 		lamplights.updateHitbox();
 		lamplights.scrollFactor.set(1.005, 1.005);
 		add(lamplights);
@@ -316,7 +316,7 @@ class Dirtmouth extends BaseScene {
 			var lights1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171523', 'hymns'));
 			lights1.antialiasing = ClientPrefs.data.antialiasing;
 			ObjectBlendMode.blendMode(lights1, "add");
-			lights1.screenCenter();
+			lights1.screenCenterXY();
 			lights1.updateHitbox();
 			lights1.alpha = 0.75;
 			lights1.scrollFactor.set(1.005, 1.005);
@@ -328,7 +328,7 @@ class Dirtmouth extends BaseScene {
 		fog.alpha = 0.75;
 		fog.scale.set(8, 8);
 		fog.updateHitbox();
-		fog.screenCenter();
+		fog.screenCenterXY();
 		ObjectBlendMode.blendMode(fog, "add");
 		add(fog);
 
@@ -345,7 +345,7 @@ class Dirtmouth extends BaseScene {
 			fog.alpha = 0.75;
 			fog.scale.set(8, 8);
 			fog.updateHitbox();
-			fog.screenCenter();
+			fog.screenCenterXY();
 			ObjectBlendMode.blendMode(fog, "add");
 			add(fog);
 

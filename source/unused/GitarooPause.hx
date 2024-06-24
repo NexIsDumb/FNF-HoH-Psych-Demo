@@ -24,7 +24,7 @@ class GitarooPause extends MusicBeatState {
 		bf.animation.addByPrefix('lol', "funnyThing", 13);
 		bf.animation.play('lol');
 		add(bf);
-		bf.screenCenter(X);
+		bf.screenCenterX();
 
 		replayButton = new FlxSprite(FlxG.width * 0.28, FlxG.height * 0.7);
 		replayButton.frames = Paths.getSparrowAtlas('pauseAlt/pauseUI');

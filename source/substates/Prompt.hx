@@ -73,9 +73,9 @@ class Prompt extends MusicBeatSubstate {
 				buttons.animation.play('but0');
 				buttons.scrollFactor.set(); */
 			panel.scrollFactor.set();
-			panel.screenCenter();
+			panel.screenCenterXY();
 			panelbg.scrollFactor.set();
-			panelbg.screenCenter();
+			panelbg.screenCenterXY();
 
 			add(panelbg);
 			add(panel);
@@ -85,9 +85,9 @@ class Prompt extends MusicBeatSubstate {
 			var textshit:FlxText = new FlxText(buttonNo.width * 2, panel.y, 300, theText, 16);
 			textshit.alignment = 'center';
 			add(textshit);
-			textshit.screenCenter();
-			buttonAccept.screenCenter();
-			buttonNo.screenCenter();
+			textshit.screenCenterXY();
+			buttonAccept.screenCenterXY();
+			buttonNo.screenCenterXY();
 			buttonAccept.x -= buttonNo.width / 1.5;
 			buttonAccept.y = panel.y + panel.height - 30;
 			buttonNo.x += buttonNo.width / 1.5;

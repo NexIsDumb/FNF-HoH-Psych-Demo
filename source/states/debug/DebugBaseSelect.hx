@@ -75,7 +75,7 @@ class DebugBaseSelect extends MusicBeatState {
 
 		searchTxt = new FlxText(0, 10, FlxG.width, "");
 		searchTxt.setFormat(Constants.GENERIC_FONT, 16, -1, "center");
-		searchTxt.screenCenter(X);
+		searchTxt.screenCenterX();
 		add(searchTxt);
 
 		super.create();

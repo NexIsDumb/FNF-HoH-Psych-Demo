@@ -92,7 +92,7 @@ class FreeplayState extends MusicBeatState {
 		bg = new FlxSprite();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
-		bg.screenCenter();
+		bg.screenCenterXY();
 
 		grpSongs = new FlxTypedGroup<FlxText>();
 		add(grpSongs);
@@ -101,19 +101,19 @@ class FreeplayState extends MusicBeatState {
 		bg2.antialiasing = ClientPrefs.data.antialiasing;
 		bg2.setGraphicSize(1280, 720);
 		bg2.updateHitbox();
-		bg2.screenCenter();
+		bg2.screenCenterXY();
 		bg2.alpha = 0.5;
 		add(bg2);
 
 		var bg2 = new FlxSprite(0, 0).loadGraphic(Paths.image("Menus/Freeplay/blackthing", 'hymns'));
 		bg2.antialiasing = ClientPrefs.data.antialiasing;
-		bg2.screenCenter(X);
+		bg2.screenCenterX();
 		add(bg2);
 
 		songText = new FlxText(FlxG.height / 2 - 80, FlxG.height / 2 - 100, 0, "First-Steps", 12);
 		songText.setFormat(Constants.UI_FONT, 62, FlxColor.WHITE, CENTER);
 		songText.antialiasing = ClientPrefs.data.antialiasing;
-		songText.screenCenter(X);
+		songText.screenCenterX();
 		add(songText);
 		WeekData.setDirectoryFromWeek();
 
@@ -135,12 +135,12 @@ class FreeplayState extends MusicBeatState {
 		pointer2.updateHitbox();
 
 		var spr = songText;
-		pointer1.screenCenter(X);
+		pointer1.screenCenterX();
 		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 3);
 		pointer1.x -= (spr.width / 1.5) + pointer1.width / 1.5;
 		// pointer1.animation.play('idle', true);
 
-		pointer2.screenCenter(X);
+		pointer2.screenCenterX();
 		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 3);
 		pointer2.x += (spr.width / 1.5) + pointer1.width / 1.5;
 
@@ -148,20 +148,20 @@ class FreeplayState extends MusicBeatState {
 		bg3.antialiasing = ClientPrefs.data.antialiasing;
 		bg3.scale.set(0.85, 0.85);
 		bg3.updateHitbox();
-		bg3.screenCenter(X);
+		bg3.screenCenterX();
 		add(bg3);
 
 		scoreText = new FlxText(FlxG.height / 2 - 90, FlxG.height / 2 + 10, 0, "Personal Best : ?", 12);
 		scoreText.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER);
 		scoreText.antialiasing = ClientPrefs.data.antialiasing;
-		scoreText.screenCenter(X);
+		scoreText.screenCenterX();
 		add(scoreText);
 		scoreText.text = "Personal Best : ?";
 
 		var silly = new FlxText(90, FlxG.height - 30 - (52 / 1.5), 0, "Start", 12);
 		silly.setFormat(Constants.UI_FONT, 52, FlxColor.WHITE, CENTER);
 		silly.antialiasing = ClientPrefs.data.antialiasing;
-		silly.screenCenter(X);
+		silly.screenCenterX();
 		// add(silly);
 
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
@@ -257,7 +257,7 @@ class FreeplayState extends MusicBeatState {
 
 		var pb:String = lerpScore + ' (' + ratingSplit.join('.') + '%)';
 		scoreText.text = pb;
-		scoreText.screenCenter(X);
+		scoreText.screenCenterX();
 
 		var shiftMult:Int = 1;
 		if (FlxG.keys.pressed.SHIFT)
@@ -335,7 +335,7 @@ class FreeplayState extends MusicBeatState {
 				if (errorStr.startsWith('[file_contents,assets/data/'))
 					errorStr = 'Missing file: ' + errorStr.substring(27, errorStr.length - 1); // Missing chart
 				missingText.text = 'ERROR WHILE LOADING CHART:\n$errorStr';
-				missingText.screenCenter(Y);
+				missingText.screenCenterY();
 				missingText.visible = true;
 				missingTextBG.visible = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -432,21 +432,21 @@ class FreeplayState extends MusicBeatState {
 
 		var stringer = songs[curSelected].songName;
 		songText.text = stringer;
-		songText.screenCenter(X);
+		songText.screenCenterX();
 
 		bg.loadGraphic(Paths.image("Menus/Freeplay/" + songs[curSelected].songName, 'hymns'));
 		bg.setGraphicSize(1280, 720);
-		bg.screenCenter();
+		bg.screenCenterXY();
 
 		bg3.loadGraphic(Paths.image("Menus/Freeplay/" + songs[curSelected].songName + "-d", 'hymns'));
 
 		var spr = songText;
-		pointer1.screenCenter(X);
+		pointer1.screenCenterX();
 		pointer1.y = FlxG.height / 2 - pointer1.height / 2;
 		pointer1.x -= FlxG.width / 2.2;
 		pointer1.animation.play('idle', true);
 
-		pointer2.screenCenter(X);
+		pointer2.screenCenterX();
 		pointer2.y = FlxG.height / 2 - pointer2.height / 2;
 		pointer2.x += FlxG.width / 2.2;
 		pointer2.animation.play('idle', true);
@@ -457,7 +457,7 @@ class FreeplayState extends MusicBeatState {
 	}
 
 	private function positionHighscore() {
-		scoreText.screenCenter(X);
+		scoreText.screenCenterX();
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));

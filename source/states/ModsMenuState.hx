@@ -64,7 +64,7 @@ class ModsMenuState extends MusicBeatState {
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
-		bg.screenCenter();
+		bg.screenCenterXY();
 
 		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
 		if (FlxG.random.bool(0.1))
@@ -73,7 +73,7 @@ class ModsMenuState extends MusicBeatState {
 		noModsTxt.scrollFactor.set();
 		noModsTxt.borderSize = 2;
 		add(noModsTxt);
-		noModsTxt.screenCenter();
+		noModsTxt.screenCenterXY();
 		visibleWhenNoMods.push(noModsTxt);
 
 		var list:ModsList = Mods.parseList();

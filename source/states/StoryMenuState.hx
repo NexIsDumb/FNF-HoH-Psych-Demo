@@ -59,7 +59,7 @@ class StoryMenuState extends MusicBeatState {
 		rankText.text = 'RANK: GREAT';
 		rankText.setFormat(Constants.GENERIC_FONT, 32);
 		rankText.size = scoreText.size;
-		rankText.screenCenter(X);
+		rankText.screenCenterX();
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
@@ -93,7 +93,7 @@ class StoryMenuState extends MusicBeatState {
 				weekThing.targetY = num;
 				grpWeekText.add(weekThing);
 
-				weekThing.screenCenter(X);
+				weekThing.screenCenterX();
 				// weekThing.updateHitbox();
 
 				// Needs an offset thingie
@@ -423,7 +423,7 @@ class StoryMenuState extends MusicBeatState {
 
 		txtTracklist.text = txtTracklist.text.toUpperCase();
 
-		txtTracklist.screenCenter(X);
+		txtTracklist.screenCenterX();
 		txtTracklist.x -= FlxG.width * 0.35;
 
 		#if !switch

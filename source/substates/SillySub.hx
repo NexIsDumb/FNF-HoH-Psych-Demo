@@ -33,7 +33,7 @@ class SillySub extends MusicBeatSubstate {
 		super();
 
 		dialogue = new Dialogue();
-		dialogue.screenCenter();
+		dialogue.screenCenterXY();
 		dialogue.y -= 200;
 		dialogue.x += 10;
 		dialogue.cameras = [PlayState.instance.camOtheristic];

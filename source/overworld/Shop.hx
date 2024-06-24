@@ -89,7 +89,7 @@ class Shop extends FlxSpriteGroup {
 		title2 = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 170, 0, "help");
 		title2.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		title2.antialiasing = ClientPrefs.data.antialiasing;
-		title2.screenCenter(X);
+		title2.screenCenterX();
 		title2.x -= main.width / 1.58;
 		title2.alpha = 0;
 		add(title2);
@@ -105,7 +105,7 @@ class Shop extends FlxSpriteGroup {
 		purchase = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 350, 0, "Purchase this Item?");
 		purchase.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		purchase.antialiasing = ClientPrefs.data.antialiasing;
-		purchase.screenCenter(X);
+		purchase.screenCenterX();
 		purchase.x -= main.width / 1.58;
 		purchase.alpha = 0;
 		add(purchase);
@@ -113,7 +113,7 @@ class Shop extends FlxSpriteGroup {
 		yes = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 420, 0, "Yes");
 		yes.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		yes.antialiasing = ClientPrefs.data.antialiasing;
-		yes.screenCenter(X);
+		yes.screenCenterX();
 		yes.x -= main.width / 1.58;
 		yes.alpha = 0;
 		add(yes);
@@ -123,7 +123,7 @@ class Shop extends FlxSpriteGroup {
 		no = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 480, 0, "No");
 		no.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		no.antialiasing = ClientPrefs.data.antialiasing;
-		no.screenCenter(X);
+		no.screenCenterX();
 		no.x -= main.width / 1.58;
 		no.alpha = 0;
 		add(no);
@@ -151,12 +151,12 @@ class Shop extends FlxSpriteGroup {
 
 		var spr = yes;
 
-		pointer1.screenCenter(X);
+		pointer1.screenCenterX();
 		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 4);
 		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 		pointer1.animation.play('idle', true);
 
-		pointer2.screenCenter(X);
+		pointer2.screenCenterX();
 		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 4);
 		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 		pointer2.animation.play('idle', true);
@@ -563,12 +563,12 @@ class Shop extends FlxSpriteGroup {
 					else
 						selected2 = yes;
 
-					pointer1.screenCenter(X);
+					pointer1.screenCenterX();
 					pointer1.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
 					pointer1.x -= (selected2.width / 2) + pointer1.width / 1.5;
 					pointer1.animation.play('idle', true);
 
-					pointer2.screenCenter(X);
+					pointer2.screenCenterX();
 					pointer2.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
 					pointer2.x += (selected2.width / 2) + pointer1.width / 1.5;
 					pointer2.animation.play('idle', true);
@@ -584,12 +584,12 @@ class Shop extends FlxSpriteGroup {
 					else
 						selected2 = yes;
 
-					pointer1.screenCenter(X);
+					pointer1.screenCenterX();
 					pointer1.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
 					pointer1.x -= (selected2.width / 2) + pointer1.width / 1.5;
 					pointer1.animation.play('idle', true);
 
-					pointer2.screenCenter(X);
+					pointer2.screenCenterX();
 					pointer2.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
 					pointer2.x += (selected2.width / 2) + pointer1.width / 1.5;
 					pointer2.animation.play('idle', true);
@@ -685,7 +685,7 @@ class Shop extends FlxSpriteGroup {
 					title2.text = charmList[selected][4][0];
 
 					title2.updateHitbox();
-					title2.screenCenter(X);
+					title2.screenCenterX();
 					title2.x += main.width / 1.75;
 
 					charmsy.loadGraphic('hymns:assets/hymns/images/Menus/Charm/charms/' + charmList[selected][5] + '.png');

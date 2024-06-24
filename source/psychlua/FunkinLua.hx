@@ -349,6 +349,7 @@ class FunkinLua {
 				}
 			}
 		});*/
+
 		Lua_helper.add_callback(lua, "isRunning", function(luaFile:String) {
 			var foundScript:String = findScript(luaFile);
 			if (foundScript != null)
@@ -1215,10 +1216,10 @@ class FunkinLua {
 			if (spr != null) {
 				switch (pos.trim().toLowerCase()) {
 					case 'x':
-						spr.screenCenter(X);
+						spr.screenCenterX();
 						return;
 					case 'y':
-						spr.screenCenter(Y);
+						spr.screenCenterY();
 						return;
 					default:
 						spr.screenCenter(XY);

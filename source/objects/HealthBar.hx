@@ -4,9 +4,9 @@ import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
 
 class HealthBar extends FlxSpriteGroup {
-	public var leftBar:FlxSprite;
-	public var rightBar:FlxSprite;
-	public var bg:FlxSprite;
+	public var leftBar:FlxClipSprite;
+	public var rightBar:FlxClipSprite;
+	public var bg:FlxClipSprite;
 	public var valueFunction:Void->Float = function() return 0;
 	public var percent(default, set):Float = 0;
 	public var bounds:Dynamic = {min: 0, max: 1};
@@ -25,16 +25,19 @@ class HealthBar extends FlxSpriteGroup {
 			this.valueFunction = valueFunction;
 		setBounds(boundX, boundY);
 
-		bg = new FlxSprite().loadGraphic(Paths.image(image));
+		bg = new FlxClipSprite();
+		bg.loadGraphic(Paths.image(image));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		barWidth = Std.int(bg.width - 6);
 		barHeight = Std.int(bg.height - 6);
 
-		leftBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
+		leftBar = new FlxClipSprite();
+		leftBar.makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
 		// leftBar.color = FlxColor.WHITE;
 		leftBar.antialiasing = antialiasing = ClientPrefs.data.antialiasing;
 
-		rightBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
+		rightBar = new FlxClipSprite();
+		rightBar.makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
 		rightBar.color = FlxColor.BLACK;
 		rightBar.antialiasing = ClientPrefs.data.antialiasing;
 
@@ -131,5 +134,17 @@ class HealthBar extends FlxSpriteGroup {
 		barHeight = value;
 		regenerateClips();
 		return value;
+	}
+}
+
+class FlxClipSprite extends FlxSprite {
+	override function set_clipRect(rect:FlxRect):FlxRect {
+		clipRect = rect;
+
+		if (frames != null) {
+			frame = frames.frames[animation.frameIndex];
+		}
+
+		return rect;
 	}
 }

@@ -221,7 +221,7 @@ class CreditsState extends MenuBeatState {
 		name = new FlxText(0, 0, 1180, creditsStuff[0][0], 32);
 		name.setFormat(Paths.font("perpetua.ttf"), 64, FlxColor.WHITE, CENTER);
 		name.scrollFactor.set();
-		name.screenCenter();
+		name.screenCenterXY();
 		name.y += 130;
 		name.antialiasing = ClientPrefs.data.antialiasing;
 		add(name);
@@ -229,7 +229,7 @@ class CreditsState extends MenuBeatState {
 		role = new FlxText(0, 0, 1180, creditsStuff[0][2], 32);
 		role.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		role.scrollFactor.set();
-		role.screenCenter();
+		role.screenCenterXY();
 		role.y += 175;
 		role.antialiasing = ClientPrefs.data.antialiasing;
 		add(role);
@@ -237,7 +237,7 @@ class CreditsState extends MenuBeatState {
 		desc = new FlxText(0, 0, 1180, '"' + creditsStuff[0][3] + '"', 32);
 		desc.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
 		desc.scrollFactor.set();
-		desc.screenCenter();
+		desc.screenCenterXY();
 		desc.y += 220;
 		desc.antialiasing = ClientPrefs.data.antialiasing;
 		add(desc);
@@ -245,7 +245,7 @@ class CreditsState extends MenuBeatState {
 		icon = new FlxSprite(0, 0).loadGraphic(Paths.image('Credits/' + creditsStuff[0][1], 'hymns'));
 		icon.scale.set(0.2, 0.2);
 		icon.updateHitbox();
-		icon.screenCenter();
+		icon.screenCenterXY();
 		icon.y -= 150;
 		add(icon);
 		icon.antialiasing = ClientPrefs.data.antialiasing;
@@ -258,13 +258,13 @@ class CreditsState extends MenuBeatState {
 		fleur.antialiasing = ClientPrefs.data.antialiasing;
 		fleur.setGraphicSize(Std.int(fleur.width * 0.525));
 		fleur.updateHitbox();
-		fleur.screenCenter();
+		fleur.screenCenterXY();
 		fleur.y += 75;
 
 		var main:FlxText = new FlxText(0, 0, 1180, 'Cheez', 32);
 		main.setFormat(Paths.font("perpetua.ttf"), 42, FlxColor.WHITE, CENTER);
 		main.scrollFactor.set();
-		main.screenCenter();
+		main.screenCenterXY();
 		main.y += 300;
 		main.antialiasing = ClientPrefs.data.antialiasing;
 		add(main);
@@ -272,7 +272,7 @@ class CreditsState extends MenuBeatState {
 		var one:FlxText = new FlxText(0, 0, 1180, 'Avenge', 32);
 		one.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
 		one.scrollFactor.set();
-		one.screenCenter();
+		one.screenCenterXY();
 		one.y += 300;
 		one.x -= 150;
 		one.alpha = 0.5;
@@ -282,7 +282,7 @@ class CreditsState extends MenuBeatState {
 		var two:FlxText = new FlxText(0, 0, 1180, 'nld', 32);
 		two.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
 		two.scrollFactor.set();
-		two.screenCenter();
+		two.screenCenterXY();
 		two.y += 300;
 		two.x += 150;
 		two.alpha = 0.5;
@@ -311,12 +311,12 @@ class CreditsState extends MenuBeatState {
 		pointer2.updateHitbox();
 
 		// 1
-		pointer1.screenCenter();
+		pointer1.screenCenterXY();
 		pointer1.y += 300;
 		pointer1.x -= 250;
 		pointer1.animation.play("idle");
 		// 2
-		pointer2.screenCenter();
+		pointer2.screenCenterXY();
 		pointer2.y += 300;
 		pointer2.x += 250;
 		pointer2.animation.play("idle");
@@ -395,7 +395,7 @@ class CreditsState extends MenuBeatState {
 		icon.loadGraphic(Paths.image('Credits/' + creditsStuff[curSelected][1], 'hymns'));
 		icon.scale.set(0.2, 0.2);
 		icon.updateHitbox();
-		icon.screenCenter();
+		icon.screenCenterXY();
 		icon.y -= 150;
 		icon.antialiasing = ClientPrefs.data.antialiasing;
 
@@ -438,7 +438,7 @@ class CreditsState extends MenuBeatState {
 				}
 			 */
 
-			names.screenCenter(X);
+			names.screenCenterX();
 			if (i == 0) {
 				names.x += 150;
 			} else {

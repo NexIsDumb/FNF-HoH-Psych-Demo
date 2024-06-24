@@ -49,11 +49,8 @@ using StringTools;
 
 class Timebar extends FlxTypedGroup<FlxBasic> {
 	var base:FlxSprite;
-
 	var barblack:FlxSprite;
-
 	var thebar:FlxBar;
-	var percentagestff:Float = 0;
 
 	public function new(x:Float, y:Float, camera:FlxCamera) {
 		super();
@@ -67,17 +64,19 @@ class Timebar extends FlxTypedGroup<FlxBasic> {
 		barblack.animation.addByPrefix("temp", "time bar backboard enter", 15, false);
 		barblack.animation.play("temp");
 		barblack.antialiasing = ClientPrefs.data.antialiasing;
-		barblack.alpha = 0;
+		barblack.alpha = 0.0000001;
 		add(barblack);
 
-		thebar = new FlxBar(x + 172, y + 46, LEFT_TO_RIGHT, Std.int(barblack.width * 1.225), Std.int(barblack.height * 2), "percentagestff", 0, 1);
+		thebar = new FlxBar(x + 172, y + 46, LEFT_TO_RIGHT, Std.int(barblack.width * 1.225), Std.int(barblack.height * 2), null, "", 0, 1);
 		thebar.cameras = [camera];
 		thebar.scale.set(0.8, 0.8);
 		thebar.updateHitbox();
 		thebar.createImageEmptyBar(Paths.image('Timer/empty', 'hymns'), FlxColor.BLUE);
 		thebar.createImageFilledBar(Paths.image('Timer/filled', 'hymns'), FlxColor.WHITE);
-		thebar.numDivisions = 350;
-		thebar.alpha = 0;
+		thebar.numDivisions = 10000;
+		thebar.unbounded = true;
+		thebar.antialiasing = ClientPrefs.data.antialiasing;
+		thebar.alpha = 0.0000001;
 		add(thebar);
 
 		base = new FlxSprite(x + 25, y);
@@ -91,8 +90,7 @@ class Timebar extends FlxTypedGroup<FlxBasic> {
 		base.animation.play("idle");
 		add(base);
 
-		percentagestff = 0;
-		thebar.value = percentagestff;
+		thebar.value = 0;
 		thebar.updateBar();
 	}
 
@@ -101,8 +99,7 @@ class Timebar extends FlxTypedGroup<FlxBasic> {
 		barblack.update(elapsed);
 
 		if (thebar.alpha == 1) {
-			percentagestff = PlayState.songPercent;
-			thebar.value = percentagestff;
+			thebar.value = PlayState.instance.songPercent;
 			thebar.updateBar();
 		}
 		if (barblack.animation.curAnim.finished && barblack.animation.curAnim.name == "appear") {

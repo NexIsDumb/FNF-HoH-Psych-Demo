@@ -2947,7 +2947,7 @@ class ChartingState extends MusicBeatState {
 				missingTextTimer.cancel();
 
 			missingText.text = 'ERROR WHILE LOADING CHART:\n$errorStr';
-			missingText.screenCenter(Y);
+			missingText.screenCenterY();
 
 			missingTextTimer = new FlxTimer().start(5, function(tmr:FlxTimer) {
 				remove(missingText);

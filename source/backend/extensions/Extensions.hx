@@ -1,5 +1,6 @@
 package backend.extensions;
 
+import flixel.FlxObject;
 import flixel.graphics.FlxGraphic;
 
 class Extensions {
@@ -68,5 +69,24 @@ class Extensions {
 		sprite.scale.set(Width / 2, Height / 2);
 		sprite.updateHitbox();
 		return sprite;
+	}
+
+	public static inline function screenCenterX(spr:FlxObject):FlxObject {
+		spr.x = (FlxG.width - spr.width) / 2;
+
+		return spr;
+	}
+
+	public static inline function screenCenterY(spr:FlxObject):FlxObject {
+		spr.y = (FlxG.height - spr.height) / 2;
+
+		return spr;
+	}
+
+	public static inline function screenCenterXY(spr:FlxObject):FlxObject {
+		spr.x = (FlxG.width - spr.width) / 2;
+		spr.y = (FlxG.height - spr.height) / 2;
+
+		return spr;
 	}
 }

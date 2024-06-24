@@ -264,7 +264,6 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			mask.animation.addByPrefix('empty', 'maskshatter', 15, false);
 
 			mask.x += (spacing + (mask.width / 2)) * i;
-			trace(mask.width);
 
 			mask.antialiasing = ClientPrefs.data.antialiasing;
 			add(mask);

@@ -219,7 +219,7 @@ class MusicBeatState extends FlxUIState {
 			_message.alignment = CENTER;
 			_message.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			_message.scrollFactor.set();
-			_message.screenCenter();
+			_message.screenCenterXY();
 			_message.alpha = 0;
 		}
 
@@ -241,7 +241,7 @@ class MusicBeatState extends FlxUIState {
 		}
 		message.text = text;
 
-		message.screenCenter();
+		message.screenCenterXY();
 
 		remove(message, true);
 		add(message);

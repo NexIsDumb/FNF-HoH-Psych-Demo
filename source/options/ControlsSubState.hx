@@ -141,7 +141,7 @@ class ControlsSubState extends MusicBeatSubstate {
 					if (!isDefaultKey) {
 						var text:FlxText = new FlxText(0, 0, 0, option[1], 12);
 						text.setFormat(Constants.UI_FONT, 17, FlxColor.WHITE, LEFT);
-						text.screenCenter();
+						text.screenCenterXY();
 						text.x = FlxG.width / 3.75;
 						if (i > 6) {
 							text.x = FlxG.width / 1.75;
@@ -189,7 +189,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 		reset = new FlxText(0, 0, 0, defaultKey, 12);
 		reset.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, LEFT);
-		reset.screenCenter();
+		reset.screenCenterXY();
 		reset.y -= FlxG.height / 4;
 		reset.y += 60 * 6.75;
 		reset.antialiasing = ClientPrefs.data.antialiasing;
@@ -197,7 +197,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 		back = new FlxText(0, 0, 0, "Back", 12);
 		back.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
-		back.screenCenter();
+		back.screenCenterXY();
 		back.y -= FlxG.height / 6;
 		back.y += 50 * 8;
 		back.ID = options.length + 1;
@@ -208,7 +208,7 @@ class ControlsSubState extends MusicBeatSubstate {
 	}
 
 	function addCenteredText(text:Alphabet, option:Array<Dynamic>, id:Int) {
-		text.screenCenter(X);
+		text.screenCenterX();
 		text.y -= 55;
 		text.startPosition.y -= 55;
 	}
@@ -493,12 +493,12 @@ class ControlsSubState extends MusicBeatSubstate {
 			if (curSelected - 7 == 1)
 				spr = back;
 
-			pointer1.screenCenter(X);
+			pointer1.screenCenterX();
 			pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 			pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 			pointer1.animation.play('idle', true);
 
-			pointer2.screenCenter(X);
+			pointer2.screenCenterX();
 			pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
 			pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 			pointer2.animation.play('idle', true);

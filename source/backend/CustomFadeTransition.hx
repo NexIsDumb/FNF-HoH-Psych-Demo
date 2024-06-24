@@ -24,7 +24,7 @@ class CustomFadeTransition extends MusicBeatSubstate {
 		transBlack.scale.x = width * 2;
 		transBlack.updateHitbox();
 		transBlack.scrollFactor.set();
-		transBlack.screenCenter();
+		transBlack.screenCenterXY();
 		transBlack.alpha = 0;
 		add(transBlack);
 

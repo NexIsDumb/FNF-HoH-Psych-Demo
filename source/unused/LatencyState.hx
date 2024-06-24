@@ -19,7 +19,7 @@ class LatencyState extends FlxState {
 		}
 
 		offsetText = new FlxText();
-		offsetText.screenCenter();
+		offsetText.screenCenterXY();
 		add(offsetText);
 
 		strumLine = new FlxSprite(FlxG.width / 2, 100).makeGraphic(FlxG.width, 5);

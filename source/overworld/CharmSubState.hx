@@ -62,14 +62,14 @@ class CharmSubState extends MusicBeatSubstate {
 		sillycam = cam;
 
 		var black:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
-		black.screenCenter();
+		black.screenCenterXY();
 		add(black);
 		black.alpha = 0.5;
 
 		overcharmGlow = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/glow', 'hymns'));
 		overcharmGlow.scale.set(8, 5);
 		overcharmGlow.updateHitbox();
-		overcharmGlow.screenCenter();
+		overcharmGlow.screenCenterXY();
 		overcharmGlow.alpha = 0;
 		overcharmGlow.color = 0xFF985189;
 		overcharmGlow.antialiasing = ClientPrefs.data.antialiasing;
@@ -78,7 +78,7 @@ class CharmSubState extends MusicBeatSubstate {
 		fleurs = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
 		fleurs.setGraphicSize(1280, 720);
 		fleurs.updateHitbox();
-		fleurs.screenCenter();
+		fleurs.screenCenterXY();
 		fleurs.antialiasing = ClientPrefs.data.antialiasing;
 		fleurs.ID = -2;
 		add(fleurs);
@@ -86,7 +86,7 @@ class CharmSubState extends MusicBeatSubstate {
 		selectorGlow = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/glow', 'hymns'));
 		selectorGlow.scale.set(0.6, 0.6);
 		selectorGlow.updateHitbox();
-		selectorGlow.screenCenter();
+		selectorGlow.screenCenterXY();
 		selectorGlow.alpha = 0.25;
 		selectorGlow.color = 0xFF7A94FE;
 		selectorGlow.antialiasing = ClientPrefs.data.antialiasing;
@@ -112,7 +112,7 @@ class CharmSubState extends MusicBeatSubstate {
 		holderCharms = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/charmholder', 'hymns'));
 		holderCharms.scale.set(0.6, 0.6);
 		holderCharms.updateHitbox();
-		holderCharms.screenCenter();
+		holderCharms.screenCenterXY();
 		holderCharms.antialiasing = ClientPrefs.data.antialiasing;
 		holderCharms.x -= FlxG.width / 2.6;
 		holderCharms.y -= 150;
@@ -153,7 +153,7 @@ class CharmSubState extends MusicBeatSubstate {
 			var notch = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/charmnotch', 'hymns'));
 			notch.scale.set(0.6, 0.6);
 			notch.updateHitbox();
-			notch.screenCenter();
+			notch.screenCenterXY();
 			notch.antialiasing = ClientPrefs.data.antialiasing;
 			notch.x -= FlxG.width / 2.6;
 			notch.y -= 55;
@@ -174,7 +174,7 @@ class CharmSubState extends MusicBeatSubstate {
 			var notch = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/fillednotch', 'hymns'));
 			notch.scale.set(0.5, 0.5);
 			notch.updateHitbox();
-			notch.screenCenter();
+			notch.screenCenterXY();
 			notch.antialiasing = ClientPrefs.data.antialiasing;
 			notch.x = txt3.x + 65;
 			notch.y = txt3.y - (notch.height / 4) - 5;
@@ -198,7 +198,7 @@ class CharmSubState extends MusicBeatSubstate {
 				var holder = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/charmholder', 'hymns'));
 				holder.scale.set(0.6, 0.6);
 				holder.updateHitbox();
-				holder.screenCenter();
+				holder.screenCenterXY();
 				holder.antialiasing = ClientPrefs.data.antialiasing;
 				holder.x -= FlxG.width / 2.6;
 				holder.y += vert;
@@ -228,7 +228,7 @@ class CharmSubState extends MusicBeatSubstate {
 					var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
 					charm.scale.set(0.25, 0.25);
 					charm.updateHitbox();
-					charm.screenCenter();
+					charm.screenCenterXY();
 					charm.antialiasing = ClientPrefs.data.antialiasing;
 					charm.ID = -5;
 					sprites.push(charm);
@@ -250,7 +250,7 @@ class CharmSubState extends MusicBeatSubstate {
 						var charmtr = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
 						charmtr.scale.set(0.25, 0.25);
 						charmtr.updateHitbox();
-						charmtr.screenCenter();
+						charmtr.screenCenterXY();
 						charmtr.antialiasing = ClientPrefs.data.antialiasing;
 						charmtr.color = 0xFF2D2D2D;
 						add(charmtr);
@@ -324,14 +324,14 @@ class CharmSubState extends MusicBeatSubstate {
 
 				txt2.text = charmData[datar][2];
 				txt2.updateHitbox();
-				txt2.screenCenter();
+				txt2.screenCenterXY();
 				txt2.x += 365;
 				txt2.y -= 225;
 
 				txt.text = 'Tuneful charm created for\nthose who wish to chant\n\n\nGrants its bearer the ability to sing\nin return rewarding them soul';
 
 				txt3.text = 'Cost';
-				txt3.screenCenter();
+				txt3.screenCenterXY();
 				txt3.updateHitbox();
 				txt3.x += 325;
 				txt3.y -= 190;
@@ -366,12 +366,12 @@ class CharmSubState extends MusicBeatSubstate {
 
 	function clearicon() {
 		txt.text = '';
-		txt2.screenCenter();
+		txt2.screenCenterXY();
 		txt2.x += 225;
 		txt2.y -= 225;
 		txt2.text = '';
 
-		txt3.screenCenter();
+		txt3.screenCenterXY();
 		txt3.x += 315;
 		txt3.y -= 190;
 		txt3.text = '';
@@ -384,7 +384,7 @@ class CharmSubState extends MusicBeatSubstate {
 		txt.setFormat(Paths.font("perpetua.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		txt.autoSize = false;
 		txt.wordWrap = true;
-		txt.screenCenter();
+		txt.screenCenterXY();
 		txt.x += 367;
 		txt.y += 75;
 		txt.antialiasing = ClientPrefs.data.antialiasing;
@@ -393,7 +393,7 @@ class CharmSubState extends MusicBeatSubstate {
 		txt2 = new FlxText(0, FlxG.height - 44, 0, '', 12);
 		txt2.scrollFactor.set();
 		txt2.setFormat(Constants.UI_FONT, 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		txt2.screenCenter();
+		txt2.screenCenterXY();
 		txt2.x += 275;
 		txt2.y -= 225;
 		txt2.antialiasing = ClientPrefs.data.antialiasing;
@@ -402,7 +402,7 @@ class CharmSubState extends MusicBeatSubstate {
 		txt3 = new FlxText(0, FlxG.height - 44, 0, 'Cost', 12);
 		txt3.scrollFactor.set();
 		txt3.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		txt3.screenCenter();
+		txt3.screenCenterXY();
 		txt3.x += 315;
 		txt3.y -= 190;
 		txt3.antialiasing = ClientPrefs.data.antialiasing;
@@ -416,7 +416,7 @@ class CharmSubState extends MusicBeatSubstate {
 		var temp:FlxText;
 
 		sprites.push(temp = new FlxText(0, 60, 0, "Charms"));
-		add(temp.setFormat(Constants.UI_FONT, 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK).screenCenter(X));
+		add(temp.setFormat(Constants.UI_FONT, 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK).screenCenterX());
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
 		sprites.push(temp = new FlxText(30, 40, 0, "Exit to Dirtmouth"));
@@ -605,7 +605,7 @@ class CharmSubState extends MusicBeatSubstate {
 										var selectedGlow:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/glow', 'hymns'));
 										selectedGlow.scale.set(0.9, 0.9);
 										selectedGlow.updateHitbox();
-										selectedGlow.screenCenter();
+										selectedGlow.screenCenterXY();
 										selectedGlow.alpha = 1.2;
 										selectedGlow.antialiasing = ClientPrefs.data.antialiasing;
 										add(selectedGlow);
@@ -619,7 +619,7 @@ class CharmSubState extends MusicBeatSubstate {
 											fleurs.loadGraphic(Paths.image('Menus/Charm/overcharm', 'hymns'));
 											fleurs.setGraphicSize(1280, 720);
 											fleurs.updateHitbox();
-											fleurs.screenCenter();
+											fleurs.screenCenterXY();
 
 											overcharmGlow.x = charm.getMidpoint().x - (overcharmGlow.width / 2);
 											overcharmGlow.y = charm.getMidpoint().y - (overcharmGlow.height / 2);
@@ -645,7 +645,7 @@ class CharmSubState extends MusicBeatSubstate {
 											fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
 											fleurs.setGraphicSize(1280, 720);
 											fleurs.updateHitbox();
-											fleurs.screenCenter();
+											fleurs.screenCenterXY();
 
 											DataSaver.loadData(DataSaver.saveFile);
 											DataSaver.usedNotches = usedNotches;
@@ -696,7 +696,7 @@ class CharmSubState extends MusicBeatSubstate {
 									fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
 									fleurs.setGraphicSize(1280, 720);
 									fleurs.updateHitbox();
-									fleurs.screenCenter();
+									fleurs.screenCenterXY();
 
 									new FlxTimer().start(0.2, function(tmr:FlxTimer) {
 										usedNotches -= notchies;

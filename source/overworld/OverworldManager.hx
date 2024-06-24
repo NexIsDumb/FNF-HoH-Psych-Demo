@@ -49,7 +49,7 @@ class OverworldManager extends MusicBeatState {
 		camDIALOG.bgColor.alpha = 0;
 
 		dialogue = new Dialogue();
-		dialogue.screenCenter();
+		dialogue.screenCenterXY();
 		dialogue.y -= 200;
 		dialogue.x += 10;
 		dialogue.cameras = [camDIALOG];
@@ -57,7 +57,7 @@ class OverworldManager extends MusicBeatState {
 
 		black = new FlxSprite(0, 0).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
 		black.cameras = [camDIALOG];
-		black.screenCenter();
+		black.screenCenterXY();
 		add(black);
 		black.alpha = 1;
 
@@ -95,7 +95,7 @@ class OverworldManager extends MusicBeatState {
 		FlxG.camera.setFilters([]);
 
 		player = new Player(0, 0);
-		player.screenCenter();
+		player.screenCenterXY();
 		player.y += FlxG.height / 3 - 1;
 		add(player);
 
@@ -119,7 +119,7 @@ class OverworldManager extends MusicBeatState {
 			FlxG.sound.music.fadeIn(2, 0, .8);
 			thebop.volume = 0;
 			thebop.fadeIn(4, 0, 1);
-			player.screenCenter();
+			player.screenCenterXY();
 			player.y += FlxG.height / 3 - 1;
 			player.flipX = true;
 
@@ -174,7 +174,7 @@ class OverworldManager extends MusicBeatState {
 					scene.create();
 
 					player = new Player(0, 0);
-					player.screenCenter();
+					player.screenCenterXY();
 					player.y += FlxG.height / 3 - 1;
 					player.status.cripple = true;
 					add(player);

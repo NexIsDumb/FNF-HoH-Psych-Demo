@@ -16,14 +16,14 @@ class Shop extends BaseStage {
 
 	override function create() {
 		var backgroundSpr1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_1_sly', 'hymns'));
-		backgroundSpr1.screenCenter();
+		backgroundSpr1.screenCenterXY();
 		backgroundSpr1.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr1.scrollFactor.set(1, 1);
 		backgroundSpr1.active = false;
 		add(backgroundSpr1);
 
 		var backgroundSpr2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_2_sly', 'hymns'));
-		backgroundSpr2.screenCenter();
+		backgroundSpr2.screenCenterXY();
 		backgroundSpr2.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr2.scrollFactor.set(1, 1);
 		backgroundSpr2.active = false;
@@ -33,7 +33,7 @@ class Shop extends BaseStage {
 	override function createPost() {
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_blend_sly', 'hymns'));
-			backgroundSpr3.screenCenter();
+			backgroundSpr3.screenCenterXY();
 			backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr3.scrollFactor.set(1, 1);
 			ObjectBlendMode.blendMode(backgroundSpr3, "add");
@@ -53,14 +53,14 @@ class Shop extends BaseStage {
 		var backgroundSpr5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_3_sly', 'hymns'));
 		backgroundSpr5.scale.set(1.05, 1.05);
 		backgroundSpr5.updateHitbox();
-		backgroundSpr5.screenCenter();
+		backgroundSpr5.screenCenterXY();
 		backgroundSpr5.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr5.scrollFactor.set(1.15, 1.15);
 		backgroundSpr5.active = false;
 		add(backgroundSpr5);
 
 		spotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/spotlight', 'hymns'));
-		spotlight.screenCenter();
+		spotlight.screenCenterXY();
 		spotlight.x -= 150;
 		spotlight.y -= 300;
 		spotlight.antialiasing = ClientPrefs.data.antialiasing;

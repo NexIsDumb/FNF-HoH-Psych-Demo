@@ -453,7 +453,7 @@ class EditorPlayState extends MusicBeatSubstate {
 		var placement:String = Std.string(combo);
 
 		var coolText:FlxText = new FlxText(0, 0, 0, placement, 32);
-		coolText.screenCenter();
+		coolText.screenCenterXY();
 		coolText.x = FlxG.width * 0.35;
 
 		var rating:FlxSprite = new FlxSprite();
@@ -482,7 +482,7 @@ class EditorPlayState extends MusicBeatSubstate {
 		var pixelShitPart2:String = '';
 
 		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating.image + pixelShitPart2));
-		rating.screenCenter();
+		rating.screenCenterXY();
 		rating.x = coolText.x - 40;
 		rating.y -= 60;
 		rating.acceleration.y = 550 * playbackRate * playbackRate;
@@ -493,7 +493,7 @@ class EditorPlayState extends MusicBeatSubstate {
 		rating.y -= ClientPrefs.data.comboOffset[1];
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
-		comboSpr.screenCenter();
+		comboSpr.screenCenterXY();
 		comboSpr.x = coolText.x;
 		comboSpr.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
 		comboSpr.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
@@ -543,7 +543,7 @@ class EditorPlayState extends MusicBeatSubstate {
 		}
 		for (i in seperatedScore) {
 			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
-			numScore.screenCenter();
+			numScore.screenCenterXY();
 			numScore.x = coolText.x + (43 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
 			numScore.y += 80 - ClientPrefs.data.comboOffset[3];
 

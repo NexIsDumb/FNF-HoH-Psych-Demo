@@ -24,7 +24,7 @@ class Lake extends BaseStage {
 		}
 
 		var backgroundSpr1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/back_lichen', 'hymns'));
-		backgroundSpr1.screenCenter();
+		backgroundSpr1.screenCenterXY();
 		backgroundSpr1.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr1.scale.set(2, 2);
 		backgroundSpr1.scrollFactor.set(.75, .75);
@@ -32,7 +32,7 @@ class Lake extends BaseStage {
 		add(backgroundSpr1);
 
 		var backgroundSpr2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/foliage_lichen', 'hymns'));
-		backgroundSpr2.screenCenter();
+		backgroundSpr2.screenCenterXY();
 		backgroundSpr2.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr2.scale.set(2, 2);
 		backgroundSpr2.scrollFactor.set(.85, .925);
@@ -44,7 +44,7 @@ class Lake extends BaseStage {
 		aluba.frames = Paths.getSparrowAtlas('Stages/Lake/Aluba', 'hymns');
 		aluba.scale.set(floaticious, floaticious);
 		aluba.updateHitbox();
-		aluba.screenCenter();
+		aluba.screenCenterXY();
 		aluba.y -= 350;
 		aluba.y -= FlxG.random.int(0, 75);
 		aluba.animation.addByPrefix('idle', 'aluba idle', 24, true);
@@ -64,7 +64,7 @@ class Lake extends BaseStage {
 		aluba.frames = Paths.getSparrowAtlas('Stages/Lake/Aluba', 'hymns');
 		aluba.scale.set(floaticious, floaticious);
 		aluba.updateHitbox();
-		aluba.screenCenter();
+		aluba.screenCenterXY();
 		aluba.y -= 550;
 		aluba.y -= FlxG.random.int(165, 250);
 		aluba.animation.addByPrefix('idle', 'aluba idle', 24, true);
@@ -80,7 +80,7 @@ class Lake extends BaseStage {
 		turnalubas.push(FlxG.random.int(2, 8));
 
 		var backgroundSpr3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/godray_lichen', 'hymns'));
-		backgroundSpr3.screenCenter();
+		backgroundSpr3.screenCenterXY();
 		backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr3.scale.set(1.8, 1.8);
 		backgroundSpr3.scrollFactor.set(1, 1);
@@ -88,14 +88,14 @@ class Lake extends BaseStage {
 		add(backgroundSpr3);
 
 		var backgroundSpr4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
-		backgroundSpr4.screenCenter();
+		backgroundSpr4.screenCenterXY();
 		backgroundSpr4.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr4.scale.set(2, 2);
 		backgroundSpr4.scrollFactor.set(0.95, 0.95);
 		add(backgroundSpr4);
 
 		var backgroundSpr4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
-		backgroundSpr4.screenCenter();
+		backgroundSpr4.screenCenterXY();
 		backgroundSpr4.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr4.scale.set(2, 2);
 		backgroundSpr4.scrollFactor.set(1, 1);
@@ -108,7 +108,7 @@ class Lake extends BaseStage {
 		add(backgroundSpr4);
 
 		var backgroundSpr5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/hut_lichen', 'hymns'));
-		backgroundSpr5.screenCenter();
+		backgroundSpr5.screenCenterXY();
 		backgroundSpr5.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr5.scale.set(2, 2);
 		backgroundSpr5.scrollFactor.set(1, 1);
@@ -118,7 +118,7 @@ class Lake extends BaseStage {
 		mossknightdeath = new FlxSprite(0, 0);
 		mossknightdeath.frames = Paths.getSparrowAtlas('Stages/Lake/Moss_Knight_Death', 'hymns');
 		mossknightdeath.updateHitbox();
-		mossknightdeath.screenCenter();
+		mossknightdeath.screenCenterXY();
 		mossknightdeath.y += 750;
 		mossknightdeath.x -= FlxG.width * 1.175;
 		mossknightdeath.animation.addByPrefix('die', 'moss knight dies', 24, false);
@@ -131,7 +131,7 @@ class Lake extends BaseStage {
 	override function createPost() {
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr8:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_2', 'hymns'));
-			backgroundSpr8.screenCenter();
+			backgroundSpr8.screenCenterXY();
 			backgroundSpr8.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr8.scale.set(2, 2);
 			backgroundSpr8.scrollFactor.set(1, 1);
@@ -141,7 +141,7 @@ class Lake extends BaseStage {
 		}
 
 		var backgroundSpr6:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/front_lichen', 'hymns'));
-		backgroundSpr6.screenCenter();
+		backgroundSpr6.screenCenterXY();
 		backgroundSpr6.antialiasing = ClientPrefs.data.antialiasing;
 		backgroundSpr6.scale.set(2, 2);
 		backgroundSpr6.scrollFactor.set(1.2, 1.2);
@@ -150,7 +150,7 @@ class Lake extends BaseStage {
 
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr7:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_1', 'hymns'));
-			backgroundSpr7.screenCenter();
+			backgroundSpr7.screenCenterXY();
 			backgroundSpr7.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr7.scale.set(2, 2);
 			backgroundSpr7.scrollFactor.set(1, 1);

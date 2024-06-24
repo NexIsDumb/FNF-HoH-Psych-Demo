@@ -50,7 +50,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 		descText = new FlxText(0, 0, 0, optionsArray[curSelected].description, 12);
 		descText.setFormat(Paths.font("perpetua.ttf"), 16, FlxColor.WHITE, LEFT);
-		descText.screenCenter();
+		descText.screenCenterXY();
 		descText.x = FlxG.width / 3.25 + 10;
 		descText.y -= FlxG.height / 6;
 		descText.antialiasing = ClientPrefs.data.antialiasing;
@@ -60,7 +60,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			var optionText:FlxText = new FlxText(0, 0, 0, "", 12);
 			optionText.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, LEFT);
 			optionText.text = optionsArray[i].name + ":";
-			optionText.screenCenter();
+			optionText.screenCenterXY();
 			optionText.x = FlxG.width / 3.25;
 			optionText.y -= FlxG.height / 6;
 			optionText.y += 50 * i;
@@ -72,7 +72,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				var optionText:FlxText = new FlxText(0, 0, 250, optionsArray[i].getValue() ? "ON" : "OFF", 12);
 				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
 				optionText.autoSize = false;
-				optionText.screenCenter();
+				optionText.screenCenterXY();
 				optionText.x = FlxG.width - FlxG.width / 1.95;
 				optionText.y -= FlxG.height / 6;
 				optionText.y += 50 * i;
@@ -83,7 +83,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				var optionText:FlxText = new FlxText(0, 0, 250, optionsArray[i].getValue(), 12);
 				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
 				optionText.autoSize = false;
-				optionText.screenCenter();
+				optionText.screenCenterXY();
 				optionText.x = FlxG.width - FlxG.width / 1.95;
 				optionText.y -= FlxG.height / 6;
 				optionText.y += 50 * i;
@@ -115,7 +115,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 		back = new FlxText(0, 0, 0, "Back", 12);
 		back.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
-		back.screenCenter();
+		back.screenCenterXY();
 		back.y -= FlxG.height / 6;
 		back.y += 50 * 8;
 		back.ID = optionsArray.length;
@@ -231,7 +231,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 							curOption.change();
 							var optiona = grpOptions.members[curSelected];
 							optiona.updateHitbox();
-							optiona.screenCenter();
+							optiona.screenCenterXY();
 							optiona.x = FlxG.width - FlxG.width / 1.95;
 							optiona.y -= FlxG.height / 6;
 							optiona.y += 50 * curSelected;
@@ -252,7 +252,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 							curOption.change();
 							var optiona = grpOptions.members[curSelected];
 							optiona.updateHitbox();
-							optiona.screenCenter();
+							optiona.screenCenterXY();
 							optiona.x = FlxG.width - FlxG.width / 1.95;
 							optiona.y -= FlxG.height / 6;
 							optiona.y += 50 * curSelected;
@@ -296,7 +296,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 		for (spr in grpOptions.members) {
 			if (spr.ID == curSelected) {
-				spr.screenCenter();
+				spr.screenCenterXY();
 				spr.x = FlxG.width - FlxG.width / 1.95;
 				spr.y -= FlxG.height / 6;
 				spr.y += 50 * curSelected;
@@ -318,7 +318,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			option.text = silly;
 			var optiona = grpOptions.members[curSelected];
 			optiona.updateHitbox();
-			optiona.screenCenter();
+			optiona.screenCenterXY();
 			optiona.x = FlxG.width - FlxG.width / 1.95;
 			optiona.y -= FlxG.height / 6;
 			optiona.y += 50 * curSelected;
@@ -358,12 +358,12 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		}
 
 		if (back.ID == curSelected) {
-			pointer1.screenCenter(X);
+			pointer1.screenCenterX();
 			pointer1.y = back.getGraphicMidpoint().y - (back.height / 2);
 			pointer1.x -= (back.width / 2) + pointer1.width / 1.5;
 			pointer1.animation.play('idle', true);
 
-			pointer2.screenCenter(X);
+			pointer2.screenCenterX();
 			pointer2.y = back.getGraphicMidpoint().y - (back.height / 2);
 			pointer2.x += (back.width / 2) + pointer1.width / 1.5;
 			pointer2.animation.play('idle', true);
