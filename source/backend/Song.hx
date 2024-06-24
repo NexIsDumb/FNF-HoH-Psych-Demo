@@ -59,38 +59,77 @@ class Song {
 				}
 			}
 		}
+
+		return songJson;
 	}
 
-	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong {
-		var rawJson = null;
-
+	public static function getChartPath(jsonInput:String, folder:String):String {
+		// fileName = jsonInput;
 		var formattedFolder:String = Paths.formatToSongPath(folder);
 		var formattedSong:String = Paths.formatToSongPath(jsonInput);
 		#if MODS_ALLOWED
 		var moddyFile:String = Paths.modsJson(formattedFolder + '/' + formattedSong);
 		if (FileSystem.exists(moddyFile)) {
-			rawJson = File.getContent(moddyFile).trim();
+			return moddyFile;
 		}
 		#end
 
-		if (rawJson == null) {
-			#if sys
-			rawJson = File.getContent(Paths.json(formattedFolder + '/' + formattedSong)).trim();
-			#else
-			rawJson = Assets.getText(Paths.json(formattedFolder + '/' + formattedSong)).trim();
-			#end
+		return Paths.json(formattedFolder + '/' + formattedSong);
+	}
+
+	public static function getExistingSongs(list:Array<String>, diffic:String):{
+		songs:Array<String>,
+		missingSongs:Array<String>
+	} {
+		var missingSongs:Array<String> = [];
+		var songs:Array<String> = [];
+		for (song in list) {
+			if (Song.doesChartExist(song + diffic, song)) {
+				songs.push(song);
+			} else {
+				missingSongs.push(CoolUtil.trimTextStart(Song.getChartPath(song + diffic, song), "assets/data/"));
+			}
 		}
 
-		rawJson = rawJson.substr(0, rawJson.lastIndexOf("}") + 1);
+		return {
+			songs: songs,
+			missingSongs: missingSongs
+		};
+	}
 
-		var songJson:Dynamic = parseJSONshit(rawJson);
-		if (jsonInput != 'events')
+	public static function doesChartExist(jsonInput:String, folder:String):Bool {
+		var file = getChartPath(jsonInput, folder);
+
+		#if sys
+		return FileSystem.exists(file);
+		#else
+		return Assets.exists(file, TEXT);
+		#end
+	}
+
+	public static function getChartData(jsonInput:String, folder:String):String {
+		var file = getChartPath(jsonInput, folder);
+
+		#if sys
+		return File.getContent(file).trim();
+		#else
+		return Assets.getText(file, TEXT).trim();
+		#end
+	}
+
+	public static function loadFromJson(jsonInput:String, folder:String):SwagSong {
+		var rawJson:String = getChartData(jsonInput, folder);
+		rawJson = rawJson.substr(0, rawJson.lastIndexOf('}') + 1);
+
+		var songJson:SwagSong = parseJSONshit(rawJson);
+		if (jsonInput != 'events') {
 			StageData.loadDirectory(songJson);
-		onLoadJson(songJson);
+		}
 		return songJson;
 	}
 
 	public static function parseJSONshit(rawJson:String):SwagSong {
-		return cast Json.parse(rawJson).song;
+		var swagShit:SwagSong = cast Json.parse(rawJson).song;
+		return onLoadJson(swagShit);
 	}
 }

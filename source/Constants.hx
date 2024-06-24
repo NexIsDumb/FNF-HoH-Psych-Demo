@@ -4,6 +4,15 @@ class Constants {
 
 	public static inline final DEFAULT_CHARACTER = 'bf'; // In case a character is missing, it will use BF on its place
 
+	public static var GENERIC_FONT(get, null):String = null;
+
+	private inline static function get_GENERIC_FONT():String {
+		if (GENERIC_FONT == null) {
+			GENERIC_FONT = Paths.font("vcr.ttf");
+		}
+		return GENERIC_FONT;
+	}
+
 	public static var UI_FONT(get, null):String = null;
 
 	private inline static function get_UI_FONT():String {

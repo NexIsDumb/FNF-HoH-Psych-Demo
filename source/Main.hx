@@ -46,6 +46,15 @@ class Main extends Sprite {
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
 
+	public static var pathBack =
+		#if windows
+		"../../../../"
+		#elseif mac
+		"../../../../../../../"
+		#else
+		""
+		#end;
+
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
 	public static function main():Void {

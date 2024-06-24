@@ -3,7 +3,7 @@ package states;
 import backend.Achievements;
 import backend.Highscore;
 import backend.WeekData;
-import flash.system.System;
+import openfl.system.System;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;

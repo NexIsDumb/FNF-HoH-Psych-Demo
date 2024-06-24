@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.util.FlxGradient;
 import flixel.util.FlxSave;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
@@ -124,6 +125,41 @@ class CoolUtil {
 		return #if (flixel < "5.0.0") folder #else FlxG.stage.application.meta.get('company') + '/' + FlxSave.validate(FlxG.stage.application.meta.get('file')) #end;
 	}
 
+	/**
+	 * Modulo that works for negative numbers
+	 */
+	public static inline function mod(n:Int, m:Int):Int {
+		return ((n % m) + m) % m;
+	}
+
+	public static function makeGradient(width:Int, height:Int, colors:Array<FlxColor>, chunkSize:UInt = 1, rotation:Int = 90, interpolate:Bool = true):FlxSprite {
+		var gradWidth = width;
+		var gradHeight = height;
+		var gradXScale = 1;
+		var gradYScale = 1;
+
+		var modRotation = mod(rotation, 360);
+
+		if (modRotation == 90 || modRotation == 270) {
+			gradXScale = width;
+			gradWidth = 1;
+		}
+
+		if (modRotation == 0 || modRotation == 180) {
+			gradYScale = height;
+			gradHeight = 1;
+		}
+
+		var gradient:FlxSprite = FlxGradient.createGradientFlxSprite(gradWidth, gradHeight, colors, chunkSize, rotation, interpolate);
+		gradient.scale.set(gradXScale, gradYScale);
+		gradient.updateHitbox();
+		return gradient;
+	}
+
+	public inline static function getBrightness(value:Float) {
+		return Math.round(value * 255) * 0x010101;
+	}
+
 	static final labels = "kmgt";
 
 	/**
@@ -150,5 +186,12 @@ class CoolUtil {
 			buf.addStr('0');
 		buf.addStr(s);
 		return buf.toString();
+	}
+
+	public static inline function trimTextStart(text:String, toRemove:String, unsafe:Bool = false):String {
+		if (unsafe || text.startsWith(toRemove)) {
+			return text.substr(toRemove.length);
+		}
+		return text;
 	}
 }

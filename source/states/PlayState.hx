@@ -163,6 +163,8 @@ class PlayState extends MusicBeatState {
 
 	private var curSong:String = "";
 
+	public var formattedSong:String;
+
 	public var gfSpeed:Int = 1;
 	public var health:Float = 1;
 	public var combo:Int = 0;
@@ -340,10 +342,12 @@ class PlayState extends MusicBeatState {
 		persistentDraw = true;
 
 		if (SONG == null)
-			SONG = Song.loadFromJson('tutorial');
+			SONG = Song.loadFromJson('tutorial', 'tutorial');
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.bpm = SONG.bpm;
+
+		formattedSong = Paths.formatToSongPath(SONG.song);
 
 		#if desktop
 		storyDifficultyText = Difficulty.getString();
@@ -449,7 +453,7 @@ class PlayState extends MusicBeatState {
 		playerfog.updateHitbox();
 		playerfog.alpha = 0;
 
-		if (SONG.song.toLowerCase() == "swindler") {
+		if (formattedSong == "swindler") {
 			playerfog.loadGraphic(Paths.image('Overworld/glow', 'hymns'));
 			playerfog.scale.set(.75, .75);
 			playerfog.updateHitbox();
@@ -511,7 +515,7 @@ class PlayState extends MusicBeatState {
 		startCharacterScripts(boyfriend.curCharacter);
 
 		var bfdeadthing:String = "VBF_DIES";
-		switch (SONG.song.toLowerCase()) {
+		switch (formattedSong) {
 			case "swindler": bfdeadthing = "vbfswindlerdead";
 			case "lichen": bfdeadthing = "vbflichendead";
 		}
@@ -532,7 +536,7 @@ class PlayState extends MusicBeatState {
 		hitvfx.centerOffsets();
 		hitvfx.centerOrigin();
 		add(hitvfx);
-		if (SONG.song.toLowerCase() == "swindler") {
+		if (formattedSong == "swindler") {
 			hitvfx.x -= 850;
 			hitvfx.scale.set(0.8, 0.8);
 		}
@@ -1130,7 +1134,7 @@ class PlayState extends MusicBeatState {
 				var introAlts:Array<String> = introAssets.get(stageUI);
 				var antialias:Bool = (ClientPrefs.data.antialiasing);
 				var tick:Countdown = THREE;
-				if (SONG.song.toLowerCase() != "lichen") {
+				if (formattedSong != "lichen") {
 					tick = START;
 
 					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 6, {ease: FlxEase.circOut});
@@ -1971,7 +1975,7 @@ class PlayState extends MusicBeatState {
 				persistentUpdate = false;
 				persistentDraw = true;
 
-				if (SONG.song.toLowerCase() != "first-steps") {
+				if (formattedSong != "first-steps") {
 					#if LUA_ALLOWED
 					for (tween in modchartTweens) {
 						tween.active = true;
@@ -2592,7 +2596,7 @@ class PlayState extends MusicBeatState {
 			DataSaver.elderbugstate = 6;
 		}
 		trace(SONG.song);
-		if (SONG.song.toLowerCase() == "lichen") {
+		if (formattedSong == "lichen") {
 			DataSaver.lichendone = true;
 		}
 		DataSaver.saveSettings(DataSaver.saveFile);
@@ -2609,7 +2613,7 @@ class PlayState extends MusicBeatState {
 			if (FlxTransitionableState.skipNextTransIn) {
 				CustomFadeTransition.nextCamera = null;
 			}
-			if (SONG.song.toLowerCase() == "swindler") {
+			if (formattedSong == "swindler") {
 				OverworldManager.goober = "Sly";
 			} else {
 				OverworldManager.goober = "Dirtmouth";
@@ -3117,7 +3121,7 @@ class PlayState extends MusicBeatState {
 	}
 
 	function opponentNoteHit(note:Note):Void {
-		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
+		if (formattedSong != 'tutorial')
 			camZooming = false;
 
 		if (note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
@@ -3733,7 +3737,7 @@ class PlayState extends MusicBeatState {
 
 						case 'toastie': unlock = (/*ClientPrefs.data.framerate <= 60 &&*/ !ClientPrefs.data.shaders && ClientPrefs.data.lowQuality && !ClientPrefs.data.antialiasing);
 
-						case 'debugger': unlock = (Paths.formatToSongPath(SONG.song) == 'test' && !usedPractice);
+						case 'debugger': unlock = (formattedSong == 'test' && !usedPractice);
 					}
 				}
 

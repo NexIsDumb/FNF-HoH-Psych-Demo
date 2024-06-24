@@ -22,11 +22,11 @@ class AchievementPopup extends FlxSpriteGroup {
 		achievementIcon.updateHitbox();
 
 		var achievementName:FlxText = new FlxText(achievementIcon.x + achievementIcon.width + 20, achievementIcon.y + 16, 280, Achievements.achievementsStuff[id][0], 16);
-		achievementName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
+		achievementName.setFormat(Constants.GENERIC_FONT, 16, FlxColor.WHITE, LEFT);
 		achievementName.scrollFactor.set();
 
 		var achievementText:FlxText = new FlxText(achievementName.x, achievementName.y + 32, 280, Achievements.achievementsStuff[id][1], 16);
-		achievementText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
+		achievementText.setFormat(Constants.GENERIC_FONT, 16, FlxColor.WHITE, LEFT);
 		achievementText.scrollFactor.set();
 
 		add(achievementBG);

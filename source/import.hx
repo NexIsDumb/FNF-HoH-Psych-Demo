@@ -1,3 +1,4 @@
+#if !macro
 // Discord API
 #if desktop
 import backend.Discord;
@@ -42,3 +43,5 @@ import states.LoadingState;
 import states.PlayState;
 
 using StringTools;
+using backend.extensions.Extensions;
+#end

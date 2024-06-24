@@ -6,7 +6,7 @@ class DebugLuaText extends FlxText {
 	public function new() {
 		super(10, 10, FlxG.width - 20, '', 16);
 
-		setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		setFormat(Constants.GENERIC_FONT, 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scrollFactor.set();
 		borderSize = 1;
 	}

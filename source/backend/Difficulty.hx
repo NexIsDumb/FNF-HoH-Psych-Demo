@@ -41,6 +41,16 @@ class Difficulty {
 			resetList();
 	}
 
+	public static function getByName(name:String):Int {
+		name = Paths.formatToSongPath(name);
+		for (i in 0...list.length) {
+			if (Paths.formatToSongPath(list[i]) == name) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
 	inline public static function resetList() {
 		list = defaultList.copy();
 	}

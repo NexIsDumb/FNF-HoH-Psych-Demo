@@ -58,6 +58,19 @@ class MusicBeatState extends FlxUIState {
 			}
 		}
 
+		#if (debug && sys)
+		if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.Z) {
+			FlxTransitionableState.skipNextTransOut = true;
+			FlxTransitionableState.skipNextTransIn = true;
+			MusicBeatState.switchState(new states.debug.DebugSongSelect());
+		}
+		if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.X) {
+			FlxTransitionableState.skipNextTransOut = true;
+			FlxTransitionableState.skipNextTransIn = true;
+			MusicBeatState.switchState(new states.debug.DebugStateSelect());
+		}
+		#end
+
 		if (FlxG.save.data != null)
 			FlxG.save.data.fullscreen = FlxG.fullscreen;
 
@@ -193,5 +206,56 @@ class MusicBeatState extends FlxUIState {
 		if (PlayState.SONG != null && PlayState.SONG.notes[curSection] != null)
 			val = PlayState.SONG.notes[curSection].sectionBeats;
 		return val == null ? 4 : val;
+	}
+
+	var _message:FlxText;
+	var message(get, null):FlxText;
+
+	function get_message():FlxText {
+		if (_message == null) {
+			_message = new FlxText(0, 0, FlxG.width);
+			_message.size = 26;
+			_message.borderSize = 1.25;
+			_message.alignment = CENTER;
+			_message.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			_message.scrollFactor.set();
+			_message.screenCenter();
+			_message.alpha = 0;
+		}
+
+		return _message;
+	}
+
+	var messageTween:FlxTween;
+
+	public function showMessage(text:String = "", level = 0, delayUntilFade:Float = 0.5):Void {
+		// TODO: Add message queue
+		message.alpha = 1;
+
+		message.color = switch (level) {
+			case 0: 0xFFffffff; // Info
+			case 1: 0xFFff0000; // Error
+			case 2: 0xFFffFF00; // Warning
+			case 3: 0xFF00FF00; // Good
+			default: 0xFFffffff;
+		}
+		message.text = text;
+
+		message.screenCenter();
+
+		remove(message, true);
+		add(message);
+
+		message.cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+
+		if (messageTween != null) {
+			messageTween.cancel();
+		}
+		messageTween = FlxTween.tween(message, {alpha: 0}, 1.3, {
+			startDelay: delayUntilFade,
+			onComplete: (v) -> {
+				remove(message, true);
+			}
+		});
 	}
 }
