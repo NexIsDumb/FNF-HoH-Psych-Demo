@@ -1,10 +1,5 @@
 package cutscenes;
 
-import tjson.TJSON as Json;
-#if sys
-import sys.FileSystem;
-import sys.io.File;
-#end
 import lime.utils.Assets;
 
 typedef DialogueAnimArray = {
@@ -68,11 +63,14 @@ class DialogueCharacter extends FlxSprite {
 		if (!FileSystem.exists(path)) {
 			path = Paths.getPreloadPath('images/dialogue/' + DEFAULT_CHARACTER + '.json');
 		}
-		rawJson = File.getContent(path);
-		#else
-		var path:String = Paths.getPreloadPath(characterPath);
-		rawJson = Assets.getText(path);
+		if (FileSystem.exists(path))
+			rawJson = File.getContent(path);
 		#end
+
+		if (rawJson == null) {
+			var path:String = Paths.getPreloadPath(characterPath);
+			rawJson = Assets.getText(path);
+		}
 
 		jsonFile = cast Json.parse(rawJson);
 	}

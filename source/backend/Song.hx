@@ -1,11 +1,6 @@
 package backend;
 
-import tjson.TJSON as Json;
 import lime.utils.Assets;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 import backend.Section;
 
 typedef SwagSong = {
@@ -33,17 +28,17 @@ typedef SwagSong = {
 }
 
 class Song {
-	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
+	private static function onLoadJson(json:Dynamic) // Convert old charts to newest format
 	{
-		if (songJson.gfVersion == null) {
-			songJson.gfVersion = songJson.player3;
-			songJson.player3 = null;
+		if (json.gfVersion == null) {
+			json.gfVersion = json.player3;
+			json.player3 = null;
 		}
 
-		if (songJson.events == null) {
-			songJson.events = [];
-			for (secNum in 0...songJson.notes.length) {
-				var sec:SwagSection = songJson.notes[secNum];
+		if (json.events == null) {
+			json.events = [];
+			for (secNum in 0...json.notes.length) {
+				var sec:SwagSection = json.notes[secNum];
 
 				var i:Int = 0;
 				var notes:Array<Dynamic> = sec.sectionNotes;
@@ -51,7 +46,7 @@ class Song {
 				while (i < len) {
 					var note:Array<Dynamic> = notes[i];
 					if (note[1] < 0) {
-						songJson.events.push([note[0], [[note[2], note[3], note[4]]]]);
+						json.events.push([note[0], [[note[2], note[3], note[4]]]]);
 						notes.remove(note);
 						len = notes.length;
 					} else
@@ -60,7 +55,7 @@ class Song {
 			}
 		}
 
-		return songJson;
+		return json;
 	}
 
 	public static function getChartPath(jsonInput:String, folder:String):String {
@@ -101,31 +96,33 @@ class Song {
 		var file = getChartPath(jsonInput, folder);
 
 		#if sys
-		return FileSystem.exists(file);
-		#else
-		return Assets.exists(file, TEXT);
+		if (FileSystem.exists(file))
+			return true;
 		#end
+
+		return Assets.exists(file, TEXT);
 	}
 
 	public static function getChartData(jsonInput:String, folder:String):String {
 		var file = getChartPath(jsonInput, folder);
 
 		#if sys
-		return File.getContent(file).trim();
-		#else
-		return Assets.getText(file, TEXT).trim();
+		if (FileSystem.exists(file))
+			return File.getContent(file).trim();
 		#end
+
+		return Assets.getText(file).trim();
 	}
 
 	public static function loadFromJson(jsonInput:String, folder:String):SwagSong {
 		var rawJson:String = getChartData(jsonInput, folder);
 		rawJson = rawJson.substr(0, rawJson.lastIndexOf('}') + 1);
 
-		var songJson:SwagSong = parseJSONshit(rawJson);
+		var json:SwagSong = parseJSONshit(rawJson);
 		if (jsonInput != 'events') {
-			StageData.loadDirectory(songJson);
+			StageData.loadDirectory(json);
 		}
-		return songJson;
+		return json;
 	}
 
 	public static function parseJSONshit(rawJson:String):SwagSong {

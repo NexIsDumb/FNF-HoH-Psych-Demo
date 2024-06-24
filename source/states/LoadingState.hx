@@ -10,7 +10,8 @@ import lime.utils.AssetManifest;
 import backend.StageData;
 import haxe.io.Path;
 
-class LoadingState extends MusicBeatState {
+class LoadingState #if NO_PRELOAD_ALL extends MusicBeatState #end {
+	#if NO_PRELOAD_ALL
 	inline static var MIN_TIME = 1.0;
 
 	// Browsers will load create(), you can make your song load a custom directory there
@@ -126,6 +127,7 @@ class LoadingState extends MusicBeatState {
 	static function getVocalPath() {
 		return Paths.voices(PlayState.SONG.song);
 	}
+	#end
 
 	inline static public function loadAndSwitchState(target:FlxState, stopMusic = false) {
 		MusicBeatState.switchState(getNextState(target, stopMusic));
@@ -166,7 +168,6 @@ class LoadingState extends MusicBeatState {
 	static function isLibraryLoaded(library:String):Bool {
 		return Assets.getLibrary(library) != null;
 	}
-	#end
 
 	override function destroy() {
 		super.destroy();
@@ -225,8 +226,10 @@ class LoadingState extends MusicBeatState {
 
 		return promise.future;
 	}
+	#end
 }
 
+#if NO_PRELOAD_ALL
 class MultiCallback {
 	public var callback:Void->Void;
 	public var logId:String = null;
@@ -278,3 +281,4 @@ class MultiCallback {
 	public function getUnfired()
 		return [for (id in unfired.keys()) id];
 }
+#end

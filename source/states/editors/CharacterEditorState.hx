@@ -20,10 +20,9 @@ import tjson.TJSON as Json;
 import objects.Character;
 import objects.HealthIcon;
 import objects.HealthBar;
-#if MODS_ALLOWED
-import sys.FileSystem;
-#end
 
+#if MODS_ALLOWED
+#end
 class CharacterEditorState extends MusicBeatState {
 	var char:Character;
 	var ghostChar:Character;

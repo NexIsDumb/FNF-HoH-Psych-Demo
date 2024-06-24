@@ -95,12 +95,12 @@
 	</section>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 
-	<section if="debug"> <!-- This is for debugging purposes only -->
+	<!-- <section if="debug"> This is for debugging purposes only
 		<assets path='assets' embed='false'/>
 	</section>
 	<section unless="debug">
 		<assets path='assets' embed='true'/>
-	</section>
+	</section> -->
 
 	<!-- _______________________________ Libraries ______________________________ -->
 

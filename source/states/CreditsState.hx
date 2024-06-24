@@ -1,8 +1,6 @@
 package states;
 
 #if MODS_ALLOWED
-import sys.FileSystem;
-import sys.io.File;
 #end
 import objects.AttachedSprite;
 import hxcodec.flixel.*;

@@ -11,7 +11,6 @@ import openfl.events.Event;
 import openfl.display.Tilemap;
 import openfl.display.Tileset;
 import openfl.Assets;
-import tjson.TJSON as Json;
 import animateatlas.tilecontainer.TileAnimationLibrary;
 import animateatlas.tilecontainer.TileContainerMovieClip;
 import animateatlas.displayobject.SpriteAnimationLibrary;

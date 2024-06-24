@@ -32,13 +32,13 @@ class FlxSoundTray extends Sprite {
 	var _curFrame(default, set):Int;
 
 	/**The sound that'll play when you try to increase volume and it's already on the max.**/
-	public var volumeMaxSound:String = "assets/hymns/sounds/click_volume_max";
+	public var volumeMaxSound:String = "hymns:assets/hymns/sounds/click_volume_max";
 
 	/**The sound used when increasing the volume.**/
-	public var volumeUpSound:String = "assets/hymns/sounds/click_volume_up";
+	public var volumeUpSound:String = "hymns:assets/hymns/sounds/click_volume_up";
 
 	/**The sound used when decreasing the volume.**/
-	public var volumeDownSound:String = "assets/hymns/sounds/click_volume_down";
+	public var volumeDownSound:String = "hymns:assets/hymns/sounds/click_volume_down";
 
 	/**Whether or not changing the volume should make noise.**/
 	public var silent:Bool = false;

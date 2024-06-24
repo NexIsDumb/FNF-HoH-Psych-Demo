@@ -8,7 +8,6 @@ import openfl.ui.Keyboard;
 import openfl.events.KeyboardEvent;
 import flixel.FlxG;
 import flixel.text.FlxText;
-import sys.FileSystem;
 
 using StringTools;
 

@@ -9,10 +9,9 @@ import objects.HealthIcon;
 import states.editors.ChartingState;
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
-#if MODS_ALLOWED
-import sys.FileSystem;
-#end
 
+#if MODS_ALLOWED
+#end
 class FreeplayState extends MusicBeatState {
 	var songs:Array<SongMetadata> = [];
 
@@ -209,8 +208,9 @@ class FreeplayState extends MusicBeatState {
 	}
 
 	function weekIsLocked(name:String):Bool {
-		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
-		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
+		// var leWeek:WeekData = WeekData.weeksLoaded.get(name);
+		return false;
+		// return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
 	}
 
 	/*public function addWeek(songs:Array<String>, weekNum:Int, weekColor:Int, ?songCharacters:Array<String>)
@@ -382,7 +382,7 @@ class FreeplayState extends MusicBeatState {
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
 		#end
-		trace(intendedScore, intendedRating);
+		// trace(intendedScore, intendedRating);
 
 		lastDifficultyName = Difficulty.getString(curDifficulty);
 		if (Difficulty.list.length > 1)

@@ -1,4 +1,6 @@
 #if !macro
+import backend.native.File;
+import backend.native.FileSystem;
 // Discord API
 #if desktop
 import backend.Discord;
@@ -41,6 +43,7 @@ import objects.Alphabet;
 import objects.BGSprite;
 import states.LoadingState;
 import states.PlayState;
+import tjson.TJSON as Json;
 
 using StringTools;
 using backend.extensions.Extensions;

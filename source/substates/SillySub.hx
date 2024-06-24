@@ -5,7 +5,6 @@ import objects.Character;
 import flixel.FlxObject;
 import flixel.FlxSubState;
 import flixel.math.FlxPoint;
-import states.StoryMenuState;
 import states.FreeplayState;
 import overworld.*;
 

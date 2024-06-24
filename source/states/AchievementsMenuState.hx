@@ -1,7 +1,9 @@
 package states;
 
+#if ACHIEVEMENTS_ALLOWED
 import backend.Achievements;
 import objects.AttachedAchievement;
+#end
 
 class AchievementsMenuState extends MusicBeatState {
 	#if ACHIEVEMENTS_ALLOWED

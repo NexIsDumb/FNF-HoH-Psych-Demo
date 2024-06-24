@@ -24,8 +24,6 @@ import lime.graphics.Image;
 import haxe.CallStack;
 import haxe.io.Path;
 import openfl.events.UncaughtErrorEvent;
-import sys.FileSystem;
-import sys.io.File;
 import sys.io.Process;
 #end
 

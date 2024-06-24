@@ -36,8 +36,6 @@ import objects.Character;
 import substates.Prompt;
 #if sys
 import openfl.media.Sound;
-import sys.FileSystem;
-import sys.io.File;
 #end
 
 @:access(flixel.sound.FlxSound._sound)

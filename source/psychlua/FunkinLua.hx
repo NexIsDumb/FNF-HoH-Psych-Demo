@@ -12,17 +12,12 @@ import flixel.addons.transition.FlxTransitionableState;
 #if (!flash && sys)
 import flixel.addons.display.FlxRuntimeShader;
 #end
-#if sys
-import sys.FileSystem;
-import sys.io.File;
-#end
 import cutscenes.DialogueBoxPsych;
 import objects.StrumNote;
 import objects.Note;
 import objects.NoteSplash;
 import objects.Character;
 import states.MainMenuState;
-import states.StoryMenuState;
 import states.FreeplayState;
 import substates.PauseSubState;
 import substates.GameOverSubstate;
@@ -803,10 +798,10 @@ class FunkinLua {
 			if (FlxTransitionableState.skipNextTransIn)
 				CustomFadeTransition.nextCamera = null;
 
-			if (PlayState.isStoryMode)
-				MusicBeatState.switchState(new StoryMenuState());
-			else
-				MusicBeatState.switchState(new FreeplayState());
+			// if (PlayState.isStoryMode)
+			//	MusicBeatState.switchState(new StoryMenuState());
+			// else
+			MusicBeatState.switchState(new FreeplayState());
 
 			#if desktop DiscordClient.resetClientID(); #end
 

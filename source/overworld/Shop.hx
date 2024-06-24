@@ -96,7 +96,7 @@ class Shop extends FlxSpriteGroup {
 		title2.alpha = 0;
 		add(title2);
 
-		charmsy = new FlxSprite(title2.x, 220).loadGraphic('hymns:assets/hymns/charms/Lifeblood Seed/base.png');
+		charmsy = new FlxSprite(title2.x, 220).loadGraphic(Paths.image('charms/Lifeblood Seed/base', 'hymns'));
 		charmsy.antialiasing = ClientPrefs.data.antialiasing;
 		charmsy.scale.set(0.4, 0.4);
 		charmsy.updateHitbox();
@@ -413,8 +413,8 @@ class Shop extends FlxSpriteGroup {
 			var charmGroup:FlxSpriteGroup = new FlxSpriteGroup(0, 0);
 			add(charmGroup);
 
-			trace('hymns:assets/hymns/charms/' + name + '/base.png');
-			var charm:FlxSprite = new FlxSprite(45, 305).loadGraphic('hymns:assets/hymns/images/Menus/Charm/charms/' + image + '.png');
+			trace(Paths.image('charms/$name/base', 'hymns'));
+			var charm:FlxSprite = new FlxSprite(45, 305).loadGraphic(Paths.image('charms/$image/base', 'hymns'));
 			charm.antialiasing = ClientPrefs.data.antialiasing;
 			charm.scale.set(0.17, 0.17);
 			charm.updateHitbox();
@@ -642,7 +642,7 @@ class Shop extends FlxSpriteGroup {
 					title2.screenCenterX();
 					title2.x += main.width / 1.75;
 
-					charmsy.loadGraphic('hymns:assets/hymns/images/Menus/Charm/charms/' + charmList[selected][5] + '.png');
+					charmsy.loadGraphic(Paths.image('charms/${charmList[selected][5]}/base', 'hymns'));
 					charmsy.antialiasing = ClientPrefs.data.antialiasing;
 					charmsy.scale.set(0.4, 0.4);
 					charmsy.updateHitbox();

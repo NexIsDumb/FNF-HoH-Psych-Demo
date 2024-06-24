@@ -8,10 +8,6 @@ import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import lime.utils.Assets;
 import tjson.TJSON as Json;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 import objects.AttachedSprite;
 
 /*import haxe.zip.Reader;

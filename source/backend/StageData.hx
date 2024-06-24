@@ -1,12 +1,6 @@
 package backend;
 
-#if MODS_ALLOWED
-import sys.io.File;
-import sys.FileSystem;
-#else
 import openfl.utils.Assets;
-#end
-import tjson.TJSON as Json;
 import backend.Song;
 
 typedef StageFile = {
@@ -51,17 +45,7 @@ class StageData {
 		if (SONG.stage != null) {
 			stage = SONG.stage;
 		} else if (SONG.song != null) {
-			switch (SONG.song.toLowerCase().replace(' ', '-')) {
-				case 'spookeez' | 'south' | 'monster': stage = 'spooky';
-				case 'pico' | 'blammed' | 'philly' | 'philly-nice': stage = 'philly';
-				case 'milf' | 'satin-panties' | 'high': stage = 'limo';
-				case 'cocoa' | 'eggnog': stage = 'mall';
-				case 'winter-horrorland': stage = 'mallEvil';
-				case 'senpai' | 'roses': stage = 'school';
-				case 'thorns': stage = 'schoolEvil';
-				case 'ugh' | 'guns' | 'stress': stage = 'tank';
-				default: stage = 'stage';
-			}
+			stage = vanillaSongStage(SONG.song);
 		} else {
 			stage = 'stage';
 		}
@@ -76,37 +60,32 @@ class StageData {
 
 	public static function getStageFile(stage:String):StageFile {
 		var rawJson:String = null;
-		var path:String = Paths.getPreloadPath('stages/' + stage + '.json');
 
 		#if MODS_ALLOWED
 		var modPath:String = Paths.modFolders('stages/' + stage + '.json');
-		if (FileSystem.exists(modPath)) {
+		if (FileSystem.exists(modPath))
 			rawJson = File.getContent(modPath);
-		} else if (FileSystem.exists(path)) {
-			rawJson = File.getContent(path);
-		}
-		#else
-		if (Assets.exists(path)) {
-			rawJson = Assets.getText(path);
-		}
 		#end
-	else {
-		return null;
-	}
+
+		var path:String = Paths.getPreloadPath('stages/' + stage + '.json');
+
+		#if sys
+		if (rawJson == null && FileSystem.exists(path))
+			rawJson = File.getContent(path);
+		#end
+
+		if (rawJson == null && Assets.exists(path, TEXT))
+			rawJson = Assets.getText(path);
+
+		if (rawJson == null)
+			return null;
+
 		return cast Json.parse(rawJson);
 	}
 
-	public static function vanillaSongStage(songName):String {
-		switch (songName) {
-			case 'spookeez' | 'south' | 'monster': return 'spooky';
-			case 'pico' | 'blammed' | 'philly' | 'philly-nice': return 'philly';
-			case 'milf' | 'satin-panties' | 'high': return 'limo';
-			case 'cocoa' | 'eggnog': return 'mall';
-			case 'winter-horrorland': return 'mallEvil';
-			case 'senpai' | 'roses': return 'school';
-			case 'thorns': return 'schoolEvil';
-			case 'ugh' | 'guns' | 'stress': return 'tank';
-		}
+	public static function vanillaSongStage(songName:String):String {
+		// songName = Paths.formatToSongPath(songName);
+		// switch (songName) {}
 		return 'stage';
 	}
 }

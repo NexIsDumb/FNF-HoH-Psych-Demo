@@ -3,12 +3,9 @@ package objects;
 import animateatlas.AtlasFrameMaker;
 import flixel.util.FlxSort;
 #if MODS_ALLOWED
-import sys.io.File;
-import sys.FileSystem;
 #end
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
-import tjson.TJSON as Json;
 import backend.Song;
 import backend.Section;
 

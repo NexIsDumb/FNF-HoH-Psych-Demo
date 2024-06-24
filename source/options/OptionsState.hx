@@ -1,6 +1,5 @@
 package options;
 
-import flixel.FlxObject;
 import states.MainMenuState;
 import backend.StageData;
 import flixel.addons.transition.FlxTransitionableState;
@@ -220,7 +219,7 @@ class OptionsState extends MenuBeatState {
 		}
 	}
 
-	function updatePointers(spr:FlxObject) {
+	function updatePointers(spr:FlxSprite) {
 		var pos = spr.getGraphicMidpoint();
 		pointer1.screenCenterX();
 		pointer1.y = pos.y - (spr.height / 2);

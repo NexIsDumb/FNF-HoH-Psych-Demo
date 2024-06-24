@@ -2,7 +2,6 @@ package states.editors;
 
 import backend.WeekData;
 #if MODS_ALLOWED
-import sys.FileSystem;
 #end
 import objects.Character;
 import states.MainMenuState;
@@ -99,7 +98,6 @@ class MasterEditorMenu extends MusicBeatState {
 					LoadingState.loadAndSwitchState(new ChartingState(), false);
 				case 'Character Editor': LoadingState.loadAndSwitchState(new CharacterEditorState(Constants.DEFAULT_CHARACTER, false));
 				case 'Week Editor': MusicBeatState.switchState(new WeekEditorState());
-				case 'Menu Character Editor': MusicBeatState.switchState(new MenuCharacterEditorState());
 				case 'Dialogue Editor': LoadingState.loadAndSwitchState(new DialogueEditorState(), false);
 				case 'Dialogue Portrait Editor': LoadingState.loadAndSwitchState(new DialogueCharacterEditorState(), false);
 				case 'Note Splash Debug': LoadingState.loadAndSwitchState(new NoteSplashDebugState());

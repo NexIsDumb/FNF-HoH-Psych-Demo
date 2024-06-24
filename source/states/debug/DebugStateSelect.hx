@@ -4,7 +4,6 @@ import states.debug.ClassUtils;
 import haxe.io.Path;
 import lime.ui.KeyModifier;
 import lime.ui.KeyCode;
-import sys.FileSystem;
 
 using StringTools;
 

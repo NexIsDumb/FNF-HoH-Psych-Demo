@@ -4,10 +4,6 @@ import flixel.util.FlxGradient;
 import flixel.util.FlxSave;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 
 class CoolUtil {
 	inline public static function quantize(f:Float, snap:Float) {
@@ -22,15 +18,12 @@ class CoolUtil {
 
 	inline public static function coolTextFile(path:String):Array<String> {
 		var daList:String = null;
-		#if (sys && MODS_ALLOWED)
-		var formatted:Array<String> = path.split(':'); // prevent "shared:", "preload:" and other library names on file path
-		path = formatted[formatted.length - 1];
+		#if (sys)
 		if (FileSystem.exists(path))
 			daList = File.getContent(path);
-		#else
-		if (Assets.exists(path))
-			daList = Assets.getText(path);
 		#end
+		if (daList == null && Assets.exists(path))
+			daList = Assets.getText(path);
 		return daList != null ? listFromString(daList) : [];
 	}
 
@@ -163,7 +156,7 @@ class CoolUtil {
 	static final labels = "kmgt";
 
 	/**
-	 * Returns a string representation of a size, following this format: `1.02 GB`, `134.00 MB`
+	 * Returns a string representation of a size, following this format: `1.02 gb`, `134.00 mb`
 	 *
 	 * Code from Codename Engine, but modified
 	 * @param size Size to convert to string

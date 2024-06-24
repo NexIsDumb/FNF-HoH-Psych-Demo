@@ -40,7 +40,6 @@ import openfl.utils.Assets as OpenFlAssets;
 import overworld.*;
 import shaders.Shaders;
 import states.FreeplayState;
-import states.StoryMenuState;
 import states.editors.CharacterEditorState;
 import states.editors.ChartingState;
 import states.stages.objects.*;
@@ -51,10 +50,6 @@ import tjson.TJSON as Json;
 #if !flash
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
-#end
-#if sys
-import sys.FileSystem;
-import sys.io.File;
 #end
 #if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;

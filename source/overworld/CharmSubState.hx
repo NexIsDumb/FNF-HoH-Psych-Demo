@@ -18,8 +18,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import flixel.input.keyboard.FlxKey;
-import sys.io.File;
-import sys.FileSystem;
 import flixel.util.FlxTimer;
 import flixel.util.FlxAxes;
 import flixel.effects.particles.FlxEmitter;
@@ -225,7 +223,8 @@ class CharmSubState extends MusicBeatSubstate {
 				for (file in FileSystem.readDirectory(directory)) {
 					var charmName:String = file;
 
-					var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
+					// var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
+					var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName/base', 'hymns'));
 					charm.scale.set(0.25, 0.25);
 					charm.updateHitbox();
 					charm.screenCenterXY();
@@ -233,8 +232,8 @@ class CharmSubState extends MusicBeatSubstate {
 					charm.ID = -5;
 					sprites.push(charm);
 
-					var rawData:String = File.getContent('./assets/hymns/charms/' + charmName + '/data.charm');
-					var rawData2:Int = Std.parseInt(File.getContent('./assets/hymns/charms/' + charmName + '/order.txt').trim());
+					var rawData:String = Paths.getContent('hymns/charms/' + charmName + '/data.charm', 'hymns');
+					var rawData2:Int = Std.parseInt(Paths.getContent('hymns/charms/' + charmName + '/order.txt', 'hymns').trim());
 					var dataList:Array<Dynamic> = rawData.trim().split('\n');
 					dataList[5] = rawData2 + 1;
 
@@ -247,7 +246,7 @@ class CharmSubState extends MusicBeatSubstate {
 						makeCharm = false;
 						charm.visible = false;
 					} else {
-						var charmtr = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
+						var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('/charms/$charmName/base', 'hymns'));
 						charmtr.scale.set(0.25, 0.25);
 						charmtr.updateHitbox();
 						charmtr.screenCenterXY();
@@ -282,7 +281,7 @@ class CharmSubState extends MusicBeatSubstate {
 
 			DataSaver.loadData(DataSaver.saveFile);
 			var dat:Bool = DataSaver.charms.get(charmData[i][2]);
-			var dater:Int = Std.parseInt(File.getContent('./assets/hymns/charms/' + charmsdata[2] + '/order.txt').trim());
+			var dater:Int = Std.parseInt(Paths.getContent('charms/${charmsdata[2]}/order.txt', 'hymns').trim());
 
 			if (dat == true) {
 				trace(DataSaver.sillyOrder);
@@ -342,7 +341,7 @@ class CharmSubState extends MusicBeatSubstate {
 					txt3.x += 25;
 					txt3.text = 'No Cost';
 				}
-				charmIcon.loadGraphic('hymns:assets/hymns/charms/' + charmData[datar][2] + '/base.png');
+				charmIcon.loadGraphic(Paths.image('charms/${charmData[datar][2]}/base', 'hymns'));
 				charmIcon.scale.set(0.7, 0.7);
 				charmIcon.updateHitbox();
 				charmIcon.x = txt.x + 50;
