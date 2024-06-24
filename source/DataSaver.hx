@@ -1,5 +1,6 @@
 package;
 
+import overworld.Charms.CharmId;
 import flixel.FlxG;
 import flixel.util.FlxSave;
 import flixel.graphics.FlxGraphic;
@@ -7,8 +8,8 @@ import flixel.graphics.FlxGraphic;
 class DataSaver {
 	// needs to be saved
 	public static var geo:Int = 0;
-	public static var equippedCharms:Array<String> = [];
-	public static var unlockedCharms:Map<String, Bool> = new Map();
+	public static var equippedCharms:Array<CharmId> = [];
+	public static var unlockedCharms:Map<CharmId, Bool> = new Map();
 	public static var songScores:Map<String, Int> = new Map();
 	public static var weekScores:Map<String, Int> = new Map();
 	public static var songRating:Map<String, Float> = new Map();
@@ -22,7 +23,7 @@ class DataSaver {
 	public static var diedonfirststeps:Bool = false;
 	public static var interacts = [false, false, false];
 
-	public static var charmOrder:Array<String> = [];
+	public static var charmOrder:Array<CharmId> = [];
 
 	// vars
 	public static var saveFile:Int = 0;
@@ -63,7 +64,7 @@ class DataSaver {
 
 		geo = 0;
 		equippedCharms = [];
-		unlockedCharms = ["melodic_shell" => true /*, "swindler" => false*/];
+		unlockedCharms = [CharmId.MELODIC_SHELL => true /*, "swindler" => false*/];
 		// unlockedCharms.set("Melodic Shell", false);
 		// unlockedCharms.set("Swindler", false);
 		songScores = new Map();

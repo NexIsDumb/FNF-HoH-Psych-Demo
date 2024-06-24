@@ -226,8 +226,8 @@ class CharmSubState extends MusicBeatSubstate {
 		for (slot => cd in Charms.charms) {
 			var charmId = cd.str_id;
 
-			// if (DataSaver.unlockedCharms.get(charmId) != true)
-			//	continue;
+			if (cd.isUnlocked() == false)
+				continue;
 
 			var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/${charmId}', 'hymns'));
 			charm.scale.set(0.25, 0.25);

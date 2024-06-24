@@ -135,7 +135,7 @@ class SaveState extends MenuBeatState {
 
 								FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
 								FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								var rawData:Bool = DataSaver.unlockedCharms.get("Swindler");
+								var rawData:Bool = DataSaver.unlockedCharms.get("swindler");
 								if (!rawData) {
 									savefiles[curSelectedy].no2.color = FlxColor.fromRGB(150, 150, 150);
 								} else {
@@ -208,7 +208,7 @@ class SaveState extends MenuBeatState {
 							}
 						}
 					} else {
-						var rawData:Bool = DataSaver.unlockedCharms.get("Swindler");
+						var rawData:Bool = DataSaver.unlockedCharms.get("swindler");
 						if (rawData) {
 							if (curSelectedx == 0) {
 								for (i in 0...savefiles.length) {

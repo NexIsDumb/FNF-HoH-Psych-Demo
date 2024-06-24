@@ -1,10 +1,10 @@
 package overworld;
 
-enum CharmId {
-	MELODIC_SHELL;
-	BALDURS_BLESSING;
-	LIFEBLOOD_SEED;
-	CRITICAL_FOCUS;
+enum abstract CharmId(Int) {
+	var MELODIC_SHELL;
+	var BALDURS_BLESSING;
+	var LIFEBLOOD_SEED;
+	var CRITICAL_FOCUS;
 }
 
 @:structInit
@@ -17,6 +17,10 @@ class Charm {
 
 	public function isEquipped():Bool {
 		return DataSaver.equippedCharms.contains(str_id);
+	}
+
+	public function isUnlocked():Bool {
+		return DataSaver.unlockedCharms.exists(str_id) && DataSaver.unlockedCharms.exists(str_id) == true;
 	}
 
 	public function equip() {
@@ -100,6 +104,15 @@ class Charms {
 		for (c in charms) {
 			if (c.id == charm) {
 				return c.isEquipped();
+			}
+		}
+		return false;
+	}
+
+	public static function isCharmUnlocked(charm:CharmId) {
+		for (c in charms) {
+			if (c.id == charm) {
+				return c.isUnlocked();
 			}
 		}
 		return false;
