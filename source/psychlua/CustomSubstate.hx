@@ -27,8 +27,10 @@ class CustomSubstate extends MusicBeatSubstate {
 			}
 		}
 		PlayState.instance.openSubState(new CustomSubstate(name));
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.setOnHScript('customSubstate', instance);
 		PlayState.instance.setOnHScript('customSubstateName', name);
+		#end
 	}
 
 	public static function closeCustomSubstate() {
@@ -62,9 +64,13 @@ class CustomSubstate extends MusicBeatSubstate {
 	override function create() {
 		instance = this;
 
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onCustomSubstateCreate', [name]);
+		#end
 		super.create();
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onCustomSubstateCreatePost', [name]);
+		#end
 	}
 
 	public function new(name:String) {
@@ -74,17 +80,25 @@ class CustomSubstate extends MusicBeatSubstate {
 	}
 
 	override function update(elapsed:Float) {
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onCustomSubstateUpdate', [name, elapsed]);
+		#end
 		super.update(elapsed);
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onCustomSubstateUpdatePost', [name, elapsed]);
+		#end
 	}
 
 	override function destroy() {
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.callOnScripts('onCustomSubstateDestroy', [name]);
+		#end
 		name = 'unnamed';
 
+		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		PlayState.instance.setOnHScript('customSubstate', null);
 		PlayState.instance.setOnHScript('customSubstateName', name);
+		#end
 		super.destroy();
 	}
 }

@@ -32,7 +32,6 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.ui.FlxBar;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxTimer;
@@ -117,7 +116,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 		// initGeo(backBoard, camera, '257175');
 
-		soulMeter = new FlxSprite(backBoard.getGraphicMidpoint().x - 119.5 * 1.325, backBoard.getGraphicMidpoint().y - 68);
+		var pos = backBoard.getGraphicMidpoint();
+		soulMeter = new FlxSprite(pos.x - 119.5 * 1.325, pos.y - 68);
+		pos.put();
 		soulMeter.cameras = [camera];
 		soulMeter.frames = Paths.getSparrowAtlas('SoulMeter/HoH_Soul', 'hymns');
 		soulMeter.updateHitbox();
@@ -132,7 +133,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		add(soulMeter);
 		ypossoul = soulMeter.y;
 
-		soulEyes = new FlxSprite(soulMeter.getGraphicMidpoint().x - soulMeter.width / 1.42, soulMeter.getGraphicMidpoint().y + 51);
+		var pos = soulMeter.getGraphicMidpoint();
+		soulEyes = new FlxSprite(pos.x - soulMeter.width / 1.42, pos.y + 51);
+		pos.put();
 		soulEyes.cameras = [camera];
 		soulEyes.frames = Paths.getSparrowAtlas('SoulMeter/Soul_Eyes', 'hymns');
 		soulEyes.scale.set(0.7, 0.7);
@@ -143,7 +146,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		soulEyes.antialiasing = ClientPrefs.data.antialiasing;
 		add(soulEyes);
 
-		soulPulse = new FlxSprite(backBoard.getGraphicMidpoint().x - 119.5 * 2, backBoard.getGraphicMidpoint().y - 66);
+		var pos = backBoard.getGraphicMidpoint();
+		soulPulse = new FlxSprite(pos.x - 119.5 * 2, pos.y - 66);
+		pos.put();
 		soulPulse.cameras = [camera];
 		soulPulse.frames = Paths.getSparrowAtlas('SoulMeter/pulse_soul', 'hymns');
 		soulPulse.scale.set(0.7, 0.7);
@@ -154,7 +159,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		add(soulPulse);
 		soulPulse.y = ypossoul - 104 / 1.2;
 
-		soulBurst = new FlxSprite(soulMeter.getMidpoint().x - 265 / 1.27, soulMeter.getMidpoint().y - 208 / 1.3);
+		var pos = soulMeter.getGraphicMidpoint();
+		soulBurst = new FlxSprite(pos.x - 265 / 1.27, pos.y - 208 / 1.3);
+		pos.put();
 		soulBurst.cameras = [camera];
 		soulBurst.frames = Paths.getSparrowAtlas('SoulMeter/soulburst', 'hymns');
 		soulBurst.scale.set(1.8, 1.8);
@@ -176,7 +183,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 	var baldur:FlxSprite;
 
 	function initGeo(backboard:FlxSprite, camera:FlxCamera, geoAmt:String) {
-		baldur = new FlxSprite(backboard.getGraphicMidpoint().x - 217, backboard.getGraphicMidpoint().y - 36);
+		var pos = backboard.getGraphicMidpoint();
+		baldur = new FlxSprite(pos.x - 217, pos.y - 36);
+		pos.put();
 		baldur.cameras = [camera];
 		baldur.frames = Paths.getSparrowAtlas('SoulMeter/BaldursBlessingHUD_Assets', 'hymns');
 		baldur.scale.set(0.7, 0.7);
@@ -194,7 +203,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		}
 		add(baldur);
 
-		geo = new FlxSprite(backboard.getGraphicMidpoint().x - 60, backboard.getGraphicMidpoint().y - 20);
+		var pos = backboard.getGraphicMidpoint();
+		geo = new FlxSprite(pos.x - 60, pos.y - 20);
+		pos.put();
 		geo.cameras = [camera];
 		geo.frames = Paths.getSparrowAtlas('SoulMeter/geo', 'hymns');
 		geo.scale.set(0.8, 0.8);
@@ -207,8 +218,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		new FlxTimer().start(11 * (1 / 15), function(tmr:FlxTimer) {
 			geotxt = new FlxText(FlxG.width * 0.7, 7, 0, "", 32);
 			geotxt.setFormat(Constants.UI_FONT, 28, FlxColor.WHITE, RIGHT);
-			geotxt.x = geo.getGraphicMidpoint().x + (geo.width / 2);
-			geotxt.y = geo.getGraphicMidpoint().y - (geo.height / 2);
+			var pos = geo.getGraphicMidpoint();
+			geotxt.x = pos.x + (geo.width / 2);
+			geotxt.y = pos.y - (geo.height / 2);
 			geotxt.text = Std.string(DataSaver.geo);
 			geotxt.cameras = [camera];
 			geotxt.antialiasing = ClientPrefs.data.antialiasing;

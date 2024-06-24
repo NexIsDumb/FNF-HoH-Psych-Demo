@@ -1,6 +1,7 @@
 package psychlua;
 
 class CallbackHandler {
+	#if LUA_ALLOWED
 	public static inline function call(l:State, fname:String):Int {
 		try {
 			// trace('calling $fname');
@@ -48,4 +49,9 @@ class CallbackHandler {
 		}
 		return 0;
 	}
+	#else
+	public static inline function call(l:Dynamic, fname:String):Int {
+		return 0;
+	}
+	#end
 }

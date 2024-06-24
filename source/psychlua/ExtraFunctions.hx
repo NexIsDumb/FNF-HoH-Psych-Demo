@@ -12,6 +12,7 @@ import openfl.utils.Assets;
 //
 class ExtraFunctions {
 	public static function implement(funk:FunkinLua) {
+		#if LUA_ALLOWED
 		var lua:State = funk.lua;
 
 		// Keyboard & Gamepads
@@ -249,5 +250,6 @@ class ExtraFunctions {
 		Lua_helper.add_callback(lua, "getRandomBool", function(chance:Float = 50) {
 			return FlxG.random.bool(chance);
 		});
+		#end
 	}
 }

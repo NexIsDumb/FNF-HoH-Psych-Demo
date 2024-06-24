@@ -1215,16 +1215,11 @@ class FunkinLua {
 
 			if (spr != null) {
 				switch (pos.trim().toLowerCase()) {
-					case 'x':
-						spr.screenCenterX();
-						return;
-					case 'y':
-						spr.screenCenterY();
-						return;
-					default:
-						spr.screenCenter(XY);
-						return;
+					case 'x': spr.screenCenterX();
+					case 'y': spr.screenCenterY();
+					default: spr.screenCenterXY();
 				}
+				return;
 			}
 			luaTrace("screenCenter: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
 		});

@@ -217,25 +217,25 @@ class MainMenuState extends MenuBeatState {
 	}
 
 	function changeItem(huh:Int = 0) {
-		curSelected += huh;
+		curSelected = CoolUtil.mod(curSelected + huh, menuItems.length);
 
-		if (curSelected >= menuItems.length)
-			curSelected = 0;
-		if (curSelected < 0)
-			curSelected = menuItems.length - 1;
+		var selectedItem:FlxText = menuItems.members[curSelected];
 
-		menuItems.forEach(function(spr:FlxText) {
-			if (spr.ID == curSelected) {
-				pointer1.screenCenterX();
-				pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
-				pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
-				pointer1.animation.play('idle', true);
+		if (selectedItem != null) {
+			var spr = selectedItem;
+			var point = spr.getGraphicMidpoint();
 
-				pointer2.screenCenterX();
-				pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
-				pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
-				pointer2.animation.play('idle', true);
-			}
-		});
+			pointer1.screenCenterX();
+			pointer1.y = point.y - (spr.height / 2);
+			pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
+			pointer1.animation.play('idle', true);
+
+			pointer2.screenCenterX();
+			pointer2.y = point.y - (spr.height / 2);
+			pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
+			pointer2.animation.play('idle', true);
+
+			point.put();
+		}
 	}
 }

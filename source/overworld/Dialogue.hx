@@ -180,11 +180,10 @@ class Dialogue extends FlxSpriteGroup {
 				if (text.text == publine) {
 					lineindex++;
 
+					publine = "ABSDGJKASGJKhksJAG!!";
 					if (lineindex != scriptpub.length) {
-						publine = "ABSDGJKASGJKhksJAG!!";
 						showline(scriptpub[lineindex][0]);
 					} else {
-						publine = "ABSDGJKASGJKhksJAG!!";
 						publiccall[0]();
 						closeBox();
 					}

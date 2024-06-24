@@ -6,6 +6,7 @@ import flixel.addons.display.FlxRuntimeShader;
 
 class ShaderFunctions {
 	public static function implement(funk:FunkinLua) {
+		#if LUA_ALLOWED
 		var lua = funk.lua;
 		// shader shit
 		funk.addLocalCallback("initLuaShader", function(name:String, ?glslVersion:Int = 120) {
@@ -246,6 +247,7 @@ class ShaderFunctions {
 			return false;
 			#end
 		});
+		#end
 	}
 
 	#if (!flash && sys)

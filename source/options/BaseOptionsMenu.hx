@@ -341,7 +341,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 		for (spr in grpOptions.members) {
 			if (spr.ID == curSelected) {
-				var they = spr.getGraphicMidpoint().y - (spr.height / 2);
+				var pos = spr.getGraphicMidpoint();
+
+				var they = pos.y - (spr.height / 2);
 				pointer1.x = spr.x;
 				pointer1.y = they;
 				pointer1.x -= 265;
@@ -353,22 +355,28 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				pointer2.animation.play('idle', true);
 
 				descText.text = optionsArray[curSelected].description;
-				descText.y = spr.getGraphicMidpoint().y + 10;
+				descText.y = pos.y + 10;
+
+				pos.put();
 			}
 		}
 
 		if (back.ID == curSelected) {
+			var pos = back.getGraphicMidpoint();
+
 			pointer1.screenCenterX();
-			pointer1.y = back.getGraphicMidpoint().y - (back.height / 2);
+			pointer1.y = pos.y - (back.height / 2);
 			pointer1.x -= (back.width / 2) + pointer1.width / 1.5;
 			pointer1.animation.play('idle', true);
 
 			pointer2.screenCenterX();
-			pointer2.y = back.getGraphicMidpoint().y - (back.height / 2);
+			pointer2.y = pos.y - (back.height / 2);
 			pointer2.x += (back.width / 2) + pointer1.width / 1.5;
 			pointer2.animation.play('idle', true);
 
 			descText.text = "";
+
+			pos.put();
 		}
 
 		curOption = optionsArray[curSelected]; // shorter lol

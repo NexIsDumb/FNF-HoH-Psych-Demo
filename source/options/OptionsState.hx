@@ -1,5 +1,6 @@
 package options;
 
+import flixel.FlxObject;
 import states.MainMenuState;
 import backend.StageData;
 import flixel.addons.transition.FlxTransitionableState;
@@ -135,14 +136,7 @@ class OptionsState extends MenuBeatState {
 		pointer2.updateHitbox();
 
 		var spr = grpOptions.members[0];
-		pointer1.screenCenterX();
-		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
-		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
-		// pointer1.animation.play('idle', true);
-
-		pointer2.screenCenterX();
-		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
-		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
+		updatePointers(spr);
 		ClientPrefs.saveSettings();
 
 		changeSelection(0);
@@ -226,6 +220,21 @@ class OptionsState extends MenuBeatState {
 		}
 	}
 
+	function updatePointers(spr:FlxObject) {
+		var pos = spr.getGraphicMidpoint();
+		pointer1.screenCenterX();
+		pointer1.y = pos.y - (spr.height / 2);
+		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
+		pointer1.animation.play('idle', true);
+
+		pointer2.screenCenterX();
+		pointer2.y = pos.y - (spr.height / 2);
+		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
+		pointer2.animation.play('idle', true);
+
+		pos.put();
+	}
+
 	function changeSelection(change:Int = 0) {
 		curSelected += change;
 		if (curSelected < 0)
@@ -240,15 +249,7 @@ class OptionsState extends MenuBeatState {
 
 		for (spr in grpOptions.members) {
 			if (spr.ID == curSelected) {
-				pointer1.screenCenterX();
-				pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
-				pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
-				pointer1.animation.play('idle', true);
-
-				pointer2.screenCenterX();
-				pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
-				pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
-				pointer2.animation.play('idle', true);
+				updatePointers(spr);
 			}
 		}
 		FlxG.sound.play(Paths.sound('scrollMenu'));

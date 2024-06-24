@@ -168,13 +168,15 @@ class ControlsSubState extends MusicBeatSubstate {
 						if (ClientPrefs.keyBinds.get(option[2]) != null) {
 							var keytext:FlxText = new FlxText(0, 0, 100, InputFormatter.getKeyName(ClientPrefs.keyBinds.get(option[2])[0]), 12);
 							keytext.setFormat(Constants.UI_FONT, 16, FlxColor.WHITE, CENTER);
-							keytext.x = button.getGraphicMidpoint().x - (button.width / 2) - 3;
+							var pos = button.getGraphicMidpoint();
+							keytext.x = pos.x - (button.width / 2) - 3;
+							keytext.y = pos.y - (button.height / 10);
 							if (InputFormatter.getKeyName(ClientPrefs.keyBinds.get(option[2])[0]).length > 2) {
 								button.animation.play('longempty');
 								button.x -= button.width / 2.5 - 8;
 								keytext.x -= button.width / 12 - 10;
 							}
-							keytext.y = button.getGraphicMidpoint().y - (button.height / 10);
+							pos.put();
 							keytext.antialiasing = ClientPrefs.data.antialiasing;
 							keytext.ID = i;
 							grpOptions.add(keytext);
@@ -457,14 +459,16 @@ class ControlsSubState extends MusicBeatSubstate {
 			grpDisplay.forEachAlive(function(item:FlxText) {
 				if (item.ID == curselected2) {
 					var spr = item;
+					var pos = spr.getGraphicMidpoint();
 					pointer1.x = spr.x - 25;
-					pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2) - 2;
+					pointer1.y = pos.y - (spr.height / 2) - 2;
 					pointer1.animation.play('idle', true);
 
 					pointer2.x = spr.x;
-					pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2) - 2;
+					pointer2.y = pos.y - (spr.height / 2) - 2;
 					pointer2.x += 300;
 					pointer2.animation.play('idle', true);
+					pos.put();
 				}
 				if (grpButtons.members[item.ID] != null) {
 					grpButtons.members[item.ID].x = item.x + 225;
@@ -479,7 +483,9 @@ class ControlsSubState extends MusicBeatSubstate {
 				}
 				if (grpButtons.members[item.ID] != null) {
 					var button:FlxSprite = grpButtons.members[item.ID];
-					item.x = button.getGraphicMidpoint().x - (button.width / 2) - 3;
+					var pos = button.getGraphicMidpoint();
+					item.x = pos.x - (button.width / 2) - 3;
+					pos.put();
 					button.animation.play('empty');
 					if (item.text.length > 2) {
 						button.animation.play('longempty');
@@ -493,15 +499,19 @@ class ControlsSubState extends MusicBeatSubstate {
 			if (curSelected - 7 == 1)
 				spr = back;
 
+			var pos = spr.getGraphicMidpoint();
+
 			pointer1.screenCenterX();
-			pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 2);
+			pointer1.y = pos.y - (spr.height / 2);
 			pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 			pointer1.animation.play('idle', true);
 
 			pointer2.screenCenterX();
-			pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 2);
+			pointer2.y = pos.y - (spr.height / 2);
 			pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 			pointer2.animation.play('idle', true);
+
+			pos.put();
 		}
 
 		FlxG.sound.play(Paths.sound('scrollMenu'));

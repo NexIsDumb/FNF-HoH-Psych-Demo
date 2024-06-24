@@ -2,6 +2,7 @@ package psychlua;
 
 class TextFunctions {
 	public static function implement(funk:FunkinLua) {
+		#if LUA_ALLOWED
 		var lua = funk.lua;
 		var game:PlayState = PlayState.instance;
 		Lua_helper.add_callback(lua, "makeLuaText", function(tag:String, text:String, width:Int, x:Float, y:Float) {
@@ -152,5 +153,6 @@ class TextFunctions {
 				game.modchartTexts.remove(tag);
 			}
 		});
+		#end
 	}
 }

@@ -86,7 +86,9 @@ class Shop extends FlxSpriteGroup {
 		title.antialiasing = ClientPrefs.data.antialiasing;
 		add(title);
 
-		title2 = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 170, 0, "help");
+		var mainPos = main.getGraphicMidpoint();
+
+		title2 = new FlxText(mainPos.x - main.width / 6, 170, 0, "help");
 		title2.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		title2.antialiasing = ClientPrefs.data.antialiasing;
 		title2.screenCenterX();
@@ -102,7 +104,7 @@ class Shop extends FlxSpriteGroup {
 		charmsy.alpha = 0;
 		add(charmsy);
 
-		purchase = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 350, 0, "Purchase this Item?");
+		purchase = new FlxText(mainPos.x - main.width / 6, 350, 0, "Purchase this Item?");
 		purchase.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		purchase.antialiasing = ClientPrefs.data.antialiasing;
 		purchase.screenCenterX();
@@ -110,7 +112,7 @@ class Shop extends FlxSpriteGroup {
 		purchase.alpha = 0;
 		add(purchase);
 
-		yes = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 420, 0, "Yes");
+		yes = new FlxText(mainPos.x - main.width / 6, 420, 0, "Yes");
 		yes.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		yes.antialiasing = ClientPrefs.data.antialiasing;
 		yes.screenCenterX();
@@ -120,7 +122,7 @@ class Shop extends FlxSpriteGroup {
 
 		selected2 = yes;
 
-		no = new FlxText(main.getGraphicMidpoint().x - main.width / 6, 480, 0, "No");
+		no = new FlxText(mainPos.x - main.width / 6, 480, 0, "No");
 		no.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
 		no.antialiasing = ClientPrefs.data.antialiasing;
 		no.screenCenterX();
@@ -149,20 +151,9 @@ class Shop extends FlxSpriteGroup {
 		pointer2.updateHitbox();
 		pointer2.alpha = 0;
 
-		var spr = yes;
+		mainPos.put();
 
-		pointer1.screenCenterX();
-		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 4);
-		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
-		pointer1.animation.play('idle', true);
-
-		pointer2.screenCenterX();
-		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 4);
-		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
-		pointer2.animation.play('idle', true);
-
-		pointer1.x -= main.width / 1.58;
-		pointer2.x -= main.width / 1.58;
+		updatePointers(yes);
 
 		selector = new FlxSprite(25, 300).loadGraphic(Paths.image('Shop/selector', 'hymns'));
 		selector.scale.set(0.7, 0.7);
@@ -251,9 +242,10 @@ class Shop extends FlxSpriteGroup {
 		}
 
 		function callbackk() {
+			final playerXTweenFinal = 597.828381914635;
 			DataSaver.loadData(DataSaver.saveFile);
 			if (purchasedall) {
-				FlxTween.tween(OverworldManager.instance.player, {x: 597.828381914635}, .75, {ease: FlxEase.quintOut});
+				FlxTween.tween(OverworldManager.instance.player, {x: playerXTweenFinal}, .75, {ease: FlxEase.quintOut});
 				OverworldManager.instance.player.flipX = true;
 				OverworldManager.instance.player.animation.play("interacts");
 				OverworldManager.instance.player.offset.set(99.6 + 5, 145.8 + 2.5);
@@ -286,7 +278,7 @@ class Shop extends FlxSpriteGroup {
 					if (notch.alpha == 0) {
 						caninteractter = false;
 						FlxG.sound.play(Paths.sound("Sly_shop_open", 'hymns'));
-						FlxTween.tween(OverworldManager.instance.player, {x: 597.828381914635}, .75, {ease: FlxEase.quintOut});
+						FlxTween.tween(OverworldManager.instance.player, {x: playerXTweenFinal}, .75, {ease: FlxEase.quintOut});
 						OverworldManager.instance.player.flipX = true;
 						OverworldManager.instance.player.animation.play("interacts");
 						OverworldManager.instance.player.offset.set(99.6 + 5, 145.8 + 2.5);
@@ -294,12 +286,9 @@ class Shop extends FlxSpriteGroup {
 						main.animation.play("appear");
 						main.alpha = 1;
 
-						FlxTween.tween(notch, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(desc1, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(title, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(selector, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowtop, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowbot, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
+						for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+							FlxTween.tween(spr, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
+						}
 
 						for (notch2 in notches) {
 							FlxTween.tween(notch2, {alpha: 1}, 1.3, {ease: FlxEase.quintOut});
@@ -324,12 +313,9 @@ class Shop extends FlxSpriteGroup {
 						main.animation.play("appear", true, true);
 
 						gradient.alpha = 0;
-						FlxTween.tween(notch, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(desc1, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(title, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(selector, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowtop, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowbot, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+						for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+							FlxTween.tween(spr, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+						}
 
 						for (notch2 in notches) {
 							FlxTween.tween(notch2, {alpha: 0}, 1.3, {ease: FlxEase.quintOut});
@@ -348,12 +334,9 @@ class Shop extends FlxSpriteGroup {
 						main.animation.play("appear");
 						main.alpha = 1;
 
-						FlxTween.tween(notch, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(desc1, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(title, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(selector, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowtop, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowbot, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
+						for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+							FlxTween.tween(spr, {alpha: 1}, 1.2, {ease: FlxEase.quintOut});
+						}
 
 						for (notch2 in notches) {
 							FlxTween.tween(notch2, {alpha: 1}, 1.3, {ease: FlxEase.quintOut});
@@ -377,7 +360,7 @@ class Shop extends FlxSpriteGroup {
 					}
 
 					firsttime = false;
-					FlxTween.tween(OverworldManager.instance.player, {x: 597.828381914635}, .75, {ease: FlxEase.quintOut});
+					FlxTween.tween(OverworldManager.instance.player, {x: playerXTweenFinal}, .75, {ease: FlxEase.quintOut});
 					OverworldManager.instance.player.flipX = true;
 					OverworldManager.instance.player.animation.play("interacts");
 					OverworldManager.instance.player.offset.set(99.6 + 5, 145.8 + 2.5);
@@ -449,8 +432,10 @@ class Shop extends FlxSpriteGroup {
 
 			var txt:FlxText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
 			txt.setFormat(Constants.UI_FONT, 21, FlxColor.WHITE, RIGHT);
-			txt.x = geo.getGraphicMidpoint().x;
-			txt.y = geo.getGraphicMidpoint().y - (geo.height / 1.25) - 2.5;
+			var pos = geo.getGraphicMidpoint();
+			txt.x = pos.x;
+			txt.y = pos.y - (geo.height / 1.25) - 2.5;
+			pos.put();
 			txt.text = price;
 			txt.antialiasing = ClientPrefs.data.antialiasing;
 			charmGroup.add(txt);
@@ -463,10 +448,7 @@ class Shop extends FlxSpriteGroup {
 			charmGroup.y += charmGroup.height * dist * charmList.length;
 			charmGroup.alpha = 0;
 
-			charmList.push(
-				[charmGroup.height, charmGroup, notch, price, [name, desc], image
-				]
-			);
+			charmList.push([charmGroup.height, charmGroup, notch, price, [name, desc], image]);
 		}
 	}
 
@@ -515,7 +497,8 @@ class Shop extends FlxSpriteGroup {
 
 				// var targetPos = (array[0] * dist * pos) - charmGroup.y;
 				OGTween.num(charmGroup.y, (array[0] * dist * pos), .5, {ease: FlxEase.quintOut}, function(num) {
-					charmGroup.setPosition(FlxG.width / 2 + 35, num);});
+					charmGroup.setPosition(FlxG.width / 2 + 35, num);
+				});
 			}
 
 			if (amt > 0) {
@@ -528,6 +511,27 @@ class Shop extends FlxSpriteGroup {
 				}
 			}
 		}
+	}
+
+	function updatePointers(spr:FlxSprite) {
+		var pos = spr.getGraphicMidpoint();
+
+		pointer1.screenCenterX();
+		pointer1.y = pos.y - (spr.height / 4);
+		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
+		pointer1.animation.play('idle', true);
+
+		pointer2.screenCenterX();
+		pointer2.y = pos.y - (spr.height / 4);
+		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
+		pointer2.animation.play('idle', true);
+
+		pointer1.x += main.width / 1.58;
+		pointer1.x -= spr.width + 5;
+		pointer2.x += main.width / 1.58;
+		pointer2.x -= spr.width + 5;
+
+		pos.put();
 	}
 
 	var isbuying:Bool = false;
@@ -554,50 +558,14 @@ class Shop extends FlxSpriteGroup {
 				if (controls.UI_UP_P) {
 					changeselection(-1);
 				}
-
-				trace(controls.UI_UP_P);
 			} else {
-				if (controls.UI_DOWN_P) {
+				if (controls.UI_DOWN_P || controls.UI_UP_P) {
 					if (selected2 == yes)
 						selected2 = no;
 					else
 						selected2 = yes;
 
-					pointer1.screenCenterX();
-					pointer1.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
-					pointer1.x -= (selected2.width / 2) + pointer1.width / 1.5;
-					pointer1.animation.play('idle', true);
-
-					pointer2.screenCenterX();
-					pointer2.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
-					pointer2.x += (selected2.width / 2) + pointer1.width / 1.5;
-					pointer2.animation.play('idle', true);
-
-					pointer1.x += main.width / 1.58;
-					pointer1.x -= selected2.width + 5;
-					pointer2.x += main.width / 1.58;
-					pointer2.x -= selected2.width + 5;
-				}
-				if (controls.UI_UP_P) {
-					if (selected2 == yes)
-						selected2 = no;
-					else
-						selected2 = yes;
-
-					pointer1.screenCenterX();
-					pointer1.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
-					pointer1.x -= (selected2.width / 2) + pointer1.width / 1.5;
-					pointer1.animation.play('idle', true);
-
-					pointer2.screenCenterX();
-					pointer2.y = selected2.getGraphicMidpoint().y - (selected2.height / 4);
-					pointer2.x += (selected2.width / 2) + pointer1.width / 1.5;
-					pointer2.animation.play('idle', true);
-
-					pointer1.x += main.width / 1.58;
-					pointer1.x -= selected2.width + 5;
-					pointer2.x += main.width / 1.58;
-					pointer2.x -= selected2.width + 5;
+					updatePointers(selected2);
 				}
 			}
 
@@ -621,12 +589,9 @@ class Shop extends FlxSpriteGroup {
 						});
 					});
 				} else {
-					FlxTween.tween(notch, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(desc1, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(title, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(selector, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(arrowtop, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(arrowbot, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+					for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+						FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+					}
 
 					for (i in 0...charmList.length) {
 						var array = charmList[i];
@@ -639,13 +604,9 @@ class Shop extends FlxSpriteGroup {
 						FlxTween.tween(notchie, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 					}
 
-					FlxTween.tween(purchase, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(yes, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(no, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(title2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(charmsy, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(pointer1, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(pointer2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+					for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
+						FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+					}
 					isbuying = false;
 				}
 			}
@@ -654,12 +615,9 @@ class Shop extends FlxSpriteGroup {
 				if (controls.ACCEPT) {
 					caninteractter = false;
 					isbuying = true;
-					FlxTween.tween(notch, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(desc1, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(title, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(selector, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(arrowtop, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(arrowbot, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+					for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+						FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+					}
 
 					for (i in 0...charmList.length) {
 						var array = charmList[i];
@@ -673,13 +631,9 @@ class Shop extends FlxSpriteGroup {
 						FlxTween.tween(notchie, {alpha: 0}, .6, {ease: FlxEase.quintOut});
 					}
 
-					FlxTween.tween(purchase, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(yes, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(no, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(title2, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(charmsy, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(pointer1, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-					FlxTween.tween(pointer2, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+					for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
+						FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+					}
 
 					purchase.text = "Purchase this Item?";
 					title2.text = charmList[selected][4][0];
@@ -712,22 +666,16 @@ class Shop extends FlxSpriteGroup {
 
 							if (charmList[selected][4][0] == "Swindler") {
 								caninteractter = false;
-								FlxTween.tween(purchase, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(yes, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(no, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(title2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(charmsy, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(pointer1, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(pointer2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+								for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
+									FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+								}
+
 								main.animation.play("appear", true, true);
 								gradient.alpha = 0;
 
-								FlxTween.tween(notch, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(desc1, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(title, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(selector, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(arrowtop, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(arrowbot, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+								for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+									FlxTween.tween(spr, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+								}
 
 								for (notch2 in notches) {
 									FlxTween.tween(notch2, {alpha: 0}, 1.3, {ease: FlxEase.quintOut});
@@ -780,22 +728,15 @@ class Shop extends FlxSpriteGroup {
 								charmList.remove(charmList[selected]);
 								isbuying = false;
 
-								FlxTween.tween(purchase, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(yes, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(no, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(title2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(charmsy, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(pointer1, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-								FlxTween.tween(pointer2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+								for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
+									FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+								}
 								main.animation.play("appear", true, true);
 								gradient.alpha = 0;
 
-								FlxTween.tween(notch, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(desc1, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(title, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(selector, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(arrowtop, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-								FlxTween.tween(arrowbot, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+								for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+									FlxTween.tween(spr, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+								}
 
 								for (notch2 in notches) {
 									FlxTween.tween(notch2, {alpha: 0}, 1.3, {ease: FlxEase.quintOut});
@@ -826,12 +767,9 @@ class Shop extends FlxSpriteGroup {
 											gradient.alpha = 1;
 										});
 
-										FlxTween.tween(notch, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-										FlxTween.tween(desc1, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-										FlxTween.tween(title, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-										FlxTween.tween(selector, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-										FlxTween.tween(arrowtop, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-										FlxTween.tween(arrowbot, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+										for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+											FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+										}
 
 										for (i in 0...charmList.length) {
 											var array = charmList[i];
@@ -888,22 +826,16 @@ class Shop extends FlxSpriteGroup {
 							isbuying = false;
 
 							caninteractter = false;
-							FlxTween.tween(purchase, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-							FlxTween.tween(yes, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-							FlxTween.tween(no, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-							FlxTween.tween(title2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-							FlxTween.tween(charmsy, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-							FlxTween.tween(pointer1, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-							FlxTween.tween(pointer2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+							for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
+								FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+							}
 							main.animation.play("appear", true, true);
 							gradient.alpha = 0;
 
 							FlxTween.tween(notch, {alpha: 0.01}, 1.2, {ease: FlxEase.quintOut});
-							FlxTween.tween(desc1, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-							FlxTween.tween(title, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-							FlxTween.tween(selector, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-							FlxTween.tween(arrowtop, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
-							FlxTween.tween(arrowbot, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+							for (spr in [desc1, title, selector, arrowtop, arrowbot]) {
+								FlxTween.tween(spr, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+							}
 
 							for (notch2 in notches) {
 								FlxTween.tween(notch2, {alpha: 0}, 1.3, {ease: FlxEase.quintOut});
@@ -936,12 +868,9 @@ class Shop extends FlxSpriteGroup {
 							});
 						}
 					} else {
-						FlxTween.tween(notch, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(desc1, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(title, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(selector, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowtop, {alpha: 1}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(arrowbot, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+						for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
+							FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+						}
 
 						for (i in 0...charmList.length) {
 							var array = charmList[i];
@@ -954,13 +883,9 @@ class Shop extends FlxSpriteGroup {
 							FlxTween.tween(notchie, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 						}
 
-						FlxTween.tween(purchase, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(yes, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(no, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(title2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(charmsy, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(pointer1, {alpha: 0}, .6, {ease: FlxEase.quintOut});
-						FlxTween.tween(pointer2, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+						for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
+							FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
+						}
 						isbuying = false;
 					}
 				}

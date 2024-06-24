@@ -6,6 +6,7 @@ package psychlua;
 //
 class DeprecatedFunctions {
 	public static function implement(funk:FunkinLua) {
+		#if LUA_ALLOWED
 		var lua:State = funk.lua;
 		// DEPRECATED, DONT MESS WITH THESE SHITS, ITS JUST THERE FOR BACKWARD COMPATIBILITY
 		Lua_helper.add_callback(lua, "addAnimationByIndicesLoop", function(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24) {
@@ -142,5 +143,6 @@ class DeprecatedFunctions {
 			FlxG.sound.music.fadeOut(duration, toValue);
 			FunkinLua.luaTrace('musicFadeOut is deprecated! Use soundFadeOut instead.', false, true);
 		});
+		#end
 	}
 }

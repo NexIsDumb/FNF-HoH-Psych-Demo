@@ -10,6 +10,7 @@ import substates.GameOverSubstate;
 //
 class ReflectionFunctions {
 	public static function implement(funk:FunkinLua) {
+		#if LUA_ALLOWED
 		var lua:State = funk.lua;
 		Lua_helper.add_callback(lua, "getProperty", function(variable:String, ?allowMaps:Bool = false) {
 			var split:Array<String> = variable.split('.');
@@ -168,6 +169,7 @@ class ReflectionFunctions {
 			} else
 				FunkinLua.luaTrace('addInstance: Can\'t add what doesn\'t exist~ ($objectName)', false, false, FlxColor.RED);
 		});
+		#end
 	}
 
 	static function callMethodFromObject(classObj:Dynamic, funcStr:String, args:Array<Dynamic> = null) {

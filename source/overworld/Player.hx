@@ -1,8 +1,9 @@
 package overworld;
 
-typedef PlayerStatus = {
-	var cripple:Bool;
-	var bench:Bool;
+@:structInit
+class PlayerStatus {
+	public var cripple:Bool;
+	public var bench:Bool;
 }
 
 class Player extends FlxSprite {
@@ -20,8 +21,6 @@ class Player extends FlxSprite {
 			cripple: false,
 			bench: false,
 		};
-		status.cripple = false;
-		status.bench = false;
 
 		frames = Paths.getSparrowAtlas('Overworld/VBF_OVERWORLD', 'hymns');
 		// scale
