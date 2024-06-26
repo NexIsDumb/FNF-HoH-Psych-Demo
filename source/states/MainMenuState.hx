@@ -1,6 +1,9 @@
 package states;
 
+#if ACHIEVEMENTS_ALLOWED
 import backend.Achievements;
+import objects.AchievementPopup;
+#end
 import backend.Highscore;
 import backend.WeekData;
 import openfl.system.System;
@@ -10,7 +13,6 @@ import flixel.effects.FlxFlicker;
 import flixel.input.keyboard.FlxKey;
 import hxcodec.flixel.*;
 import lime.app.Application;
-import objects.AchievementPopup;
 import options.OptionsState;
 import overworld.*;
 import states.editors.MasterEditorMenu;

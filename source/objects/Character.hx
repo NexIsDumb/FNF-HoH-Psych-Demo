@@ -181,7 +181,7 @@ class Character extends FlxSprite {
 			flipX = !flipX;
 		}
 
-		if (PlayState.curStage == "shop") {
+		if (PlayState.instance != null && PlayState.instance.curStage == "shop") {
 			flipX = !flipX;
 			if (animation.exists('singLEFT') && animation.exists('singRIGHT')) {
 				var oldRight = animation.getByName('singRIGHT').frames;

@@ -214,59 +214,60 @@ class CharmSubState extends MusicBeatSubstate {
 	var charmshii:Array<FlxSprite> = [];
 
 	public function makeCharms() {
-		var directories:Array<String> = ['assets/hymns/charms/'];
+		// var directories:Array<String> = ['assets/hymns/charms/'];
 
-		for (i in 0...directories.length) {
+		/*for (i in 0...directories.length) {
 			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) {
-				var itee:Int = 0;
-				for (file in FileSystem.readDirectory(directory)) {
-					var charmName:String = file;
+			if (FileSystem.exists(directory)) { */
+		for (charmId in DataSaver.allCharms) {
+			var itee:Int = 0;
+			// for (file in FileSystem.readDirectory(directory)) {
+			var charmName:String = charmId;
 
-					// var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
-					var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName/base', 'hymns'));
-					charm.scale.set(0.25, 0.25);
-					charm.updateHitbox();
-					charm.screenCenterXY();
-					charm.antialiasing = ClientPrefs.data.antialiasing;
-					charm.ID = -5;
-					sprites.push(charm);
+			// var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
+			var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName/base', 'hymns'));
+			charm.scale.set(0.25, 0.25);
+			charm.updateHitbox();
+			charm.screenCenterXY();
+			charm.antialiasing = ClientPrefs.data.antialiasing;
+			charm.ID = -5;
+			sprites.push(charm);
 
-					var rawData:String = Paths.getContent('hymns/charms/' + charmName + '/data.charm', 'hymns');
-					var rawData2:Int = Std.parseInt(Paths.getContent('hymns/charms/' + charmName + '/order.txt', 'hymns').trim());
-					var dataList:Array<Dynamic> = rawData.trim().split('\n');
-					dataList[5] = rawData2 + 1;
+			var rawData:String = Paths.getContent('hymns/charms/' + charmName + '/data.charm', 'hymns');
+			var rawData2:Int = Std.parseInt(Paths.getContent('hymns/charms/' + charmName + '/order.txt', 'hymns').trim());
+			var dataList:Array<Dynamic> = rawData.trim().split('\n');
+			dataList[5] = rawData2 + 1;
 
-					charm.x = holders[rawData2].x - (charm.width / 2) + (holders[rawData2].width / 2) + 2;
-					charm.y = holders[rawData2].y - (charm.height / 2) + (holders[rawData2].width / 2);
+			charm.x = holders[rawData2].x - (charm.width / 2) + (holders[rawData2].width / 2) + 2;
+			charm.y = holders[rawData2].y - (charm.height / 2) + (holders[rawData2].width / 2);
 
-					var makeCharm = DataSaver.charmsunlocked.get(charmName);
+			var makeCharm = DataSaver.charmsunlocked.get(charmId);
 
-					if (makeCharm != true) {
-						makeCharm = false;
-						charm.visible = false;
-					} else {
-						var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('/charms/$charmName/base', 'hymns'));
-						charmtr.scale.set(0.25, 0.25);
-						charmtr.updateHitbox();
-						charmtr.screenCenterXY();
-						charmtr.antialiasing = ClientPrefs.data.antialiasing;
-						charmtr.color = 0xFF2D2D2D;
-						add(charmtr);
-						charmtr.x = charm.x;
-						charmtr.y = charm.y;
-						sprites.push(charmtr);
-						charmshii.push(charmtr);
-					}
-					if (makeCharm == true) {
-						add(charm);
-						charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
-
-						charmOrder.set(rawData2, itee);
-						itee++;
-					}
-				}
+			if (makeCharm != true) {
+				makeCharm = false;
+				charm.visible = false;
+			} else {
+				var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('/charms/$charmName/base', 'hymns'));
+				charmtr.scale.set(0.25, 0.25);
+				charmtr.updateHitbox();
+				charmtr.screenCenterXY();
+				charmtr.antialiasing = ClientPrefs.data.antialiasing;
+				charmtr.color = 0xFF2D2D2D;
+				add(charmtr);
+				charmtr.x = charm.x;
+				charmtr.y = charm.y;
+				sprites.push(charmtr);
+				charmshii.push(charmtr);
 			}
+			if (makeCharm == true) {
+				add(charm);
+				charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
+
+				charmOrder.set(rawData2, itee);
+				itee++;
+			}
+			// }
+			// }
 		}
 		trace(charmData);
 	}

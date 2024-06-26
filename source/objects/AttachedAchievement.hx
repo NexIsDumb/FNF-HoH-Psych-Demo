@@ -1,3 +1,4 @@
+#if ACHIEVEMENTS_ALLOWED
 package objects;
 
 import backend.Achievements;
@@ -36,3 +37,4 @@ class AttachedAchievement extends FlxSprite {
 		super.update(elapsed);
 	}
 }
+#end

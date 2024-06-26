@@ -75,17 +75,13 @@ class Alphabet extends FlxSpriteGroup {
 	}
 
 	public function clearLetters() {
-		var i:Int = letters.length;
-		while (i > 0) {
-			--i;
-			var letter:AlphaCharacter = letters[i];
+		while (letters.length > 0) {
+			var letter:AlphaCharacter = letters.pop();
 			if (letter != null) {
 				letter.kill();
-				letters.remove(letter);
-				remove(letter);
+				remove(letter, true);
 			}
 		}
-		letters = [];
 		rows = 0;
 	}
 
@@ -169,55 +165,52 @@ class Alphabet extends FlxSpriteGroup {
 		var rowData:Array<Float> = [];
 		rows = 0;
 		for (character in newText.split('')) {
-			if (character != '\n') {
-				var spaceChar:Bool = (character == " " || (bold && character == "_"));
-				if (spaceChar)
-					consecutiveSpaces++;
-
-				var isAlphabet:Bool = AlphaCharacter.isTypeAlphabet(character.toLowerCase());
-				if (AlphaCharacter.allLetters.exists(character.toLowerCase()) && (!bold || !spaceChar)) {
-					if (consecutiveSpaces > 0) {
-						xPos += 28 * consecutiveSpaces * scaleX;
-						if (!bold && xPos >= FlxG.width * 0.65) {
-							xPos = 0;
-							rows++;
-						}
-					}
-					consecutiveSpaces = 0;
-
-					var letter:AlphaCharacter = cast recycle(AlphaCharacter, true);
-					letter.scale.x = scaleX;
-					letter.scale.y = scaleY;
-
-					letter.setupAlphaCharacter(xPos, rows * Y_PER_ROW * scale.y, character, bold);
-					@:privateAccess letter.parent = this;
-
-					letter.row = rows;
-					var off:Float = 0;
-					if (!bold)
-						off = 2;
-					xPos += letter.width + (letter.letterOffset[0] + off) * scale.x;
-					rowData[rows] = xPos;
-
-					add(letter);
-					letters.push(letter);
-				}
-			} else {
+			if (character == '\n') {
 				xPos = 0;
 				rows++;
+				continue;
+			}
+			var spaceChar:Bool = (character == " " || (bold && character == "_"));
+			if (spaceChar)
+				consecutiveSpaces++;
+
+			// var isAlphabet:Bool = AlphaCharacter.isTypeAlphabet(character.toLowerCase());
+			if (AlphaCharacter.allLetters.exists(character.toLowerCase()) && (!bold || !spaceChar)) {
+				if (consecutiveSpaces > 0) {
+					xPos += 28 * consecutiveSpaces * scaleX;
+					if (!bold && xPos >= FlxG.width * 0.65) {
+						xPos = 0;
+						rows++;
+					}
+				}
+				consecutiveSpaces = 0;
+
+				var letter:AlphaCharacter = cast recycle(AlphaCharacter, true);
+				letter.scale.x = scaleX;
+				letter.scale.y = scaleY;
+
+				letter.setupAlphaCharacter(xPos, rows * Y_PER_ROW * scale.y, character, bold);
+				@:privateAccess letter.parent = this;
+
+				letter.row = rows;
+				var off:Float = 0;
+				if (!bold)
+					off = 2;
+				xPos += letter.width + (letter.letterOffset[0] + off) * scale.x;
+				rowData[rows] = xPos;
+
+				add(letter);
+				letters.push(letter);
 			}
 		}
-
 		for (letter in letters) {
 			letter.rowWidth = rowData[letter.row];
 		}
-
 		if (letters.length > 0)
 			rows++;
 	}
-}
+} ///////////////////////////////////////////
 
-///////////////////////////////////////////
 // ALPHABET LETTERS, SYMBOLS AND NUMBERS //
 ///////////////////////////////////////////
 
@@ -416,7 +409,7 @@ class AlphaCharacter extends FlxSprite {
 		updateHitbox();
 	}
 
-	public static function isTypeAlphabet(c:String) // thanks kade
+	@:pure public static function isTypeAlphabet(c:String) // thanks kade
 	{
 		var ascii = StringTools.fastCodeAt(c, 0);
 		return (ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122) || (ascii >= 192 && ascii <= 214) || (ascii >= 216 && ascii <= 246) || (ascii >= 248 && ascii <= 255);

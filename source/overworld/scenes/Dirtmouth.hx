@@ -577,7 +577,8 @@ class Dirtmouth extends BaseScene {
 					function call() {
 						indialogue = false;
 						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
-							DataSaver.charmsunlocked.set("Melodic Shell", true);
+							DataSaver.charmsunlocked.set(MelodicShell, true);
+							DataSaver.saveSettings(DataSaver.saveFile);
 							charmsaquire = new CharmAquireElderbug();
 							charmsaquire.cameras = [game.camDIALOG];
 							charmsaquire.y -= 25;
@@ -586,6 +587,7 @@ class Dirtmouth extends BaseScene {
 								game.player.status.cripple = false;
 								new FlxTimer().start(1.25, function(tmr:FlxTimer) {
 									charmsaquire.destroy();
+									remove(charmsaquire, true);
 									new FlxTimer().start(.7, function(tmr:FlxTimer) {
 										doingelderbuginteract = false;
 									});
@@ -627,7 +629,7 @@ class Dirtmouth extends BaseScene {
 
 						case 1:
 							DataSaver.loadData(DataSaver.saveFile);
-							var rawData:Bool = DataSaver.charms.get("Melodic Shell");
+							var rawData:Bool = DataSaver.charms.get(MelodicShell);
 
 							if (rawData == true) {
 								DataSaver.loadData(DataSaver.saveFile);
@@ -706,7 +708,7 @@ class Dirtmouth extends BaseScene {
 								DataSaver.saveSettings(DataSaver.saveFile);
 							}
 						case 6:
-							if (DataSaver.charmsunlocked.get("Swindler") == false) {
+							if (DataSaver.charmsunlocked.get(Swindler) == false) {
 								FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 								game.dialogue.openBox("Elderbug",
 									[["Oh my, I haven't felt such enjoyment in quite a long time!"],],
@@ -740,11 +742,11 @@ class Dirtmouth extends BaseScene {
 								DataSaver.elderbugstate++;
 								DataSaver.saveSettings(DataSaver.saveFile);
 							} else {
-								if (DataSaver.charmsunlocked.get("Swindler") == false || DataSaver.interacts[1] == true) {
+								if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
 									DataSaver.loadData(DataSaver.saveFile);
-									var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-									var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-									var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+									var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+									var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+									var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 									if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
 										if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
 											if (lightcd == false) {
@@ -845,11 +847,11 @@ class Dirtmouth extends BaseScene {
 						case 7:
 							DataSaver.loadData(DataSaver.saveFile);
 
-							if (DataSaver.charmsunlocked.get("Swindler") == false || DataSaver.interacts[1] == true) {
+							if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
 								DataSaver.loadData(DataSaver.saveFile);
-								var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-								var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-								var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+								var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+								var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+								var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 								if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
 									if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
 										if (lightcd == false) {

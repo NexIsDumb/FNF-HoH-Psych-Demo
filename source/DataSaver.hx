@@ -4,11 +4,22 @@ import flixel.FlxG;
 import flixel.util.FlxSave;
 import flixel.graphics.FlxGraphic;
 
+enum abstract Charm(String) to String {
+	var MelodicShell = "Melodic Shell";
+	var BaldursBlessing = "Baldur's Blessing";
+	var LifebloodSeed = "Lifeblood Seed";
+	var CriticalFocus = "Critical Focus";
+
+	var Swindler = "Swindler"; // Shop item, just nld using it, not a real charm
+}
+
 class DataSaver {
+	public static final allCharms:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus];
+
 	// needs to be saved
 	public static var geo:Int = 0;
-	public static var charms:Map<String, Bool> = new Map();
-	public static var charmsunlocked:Map<String, Bool> = new Map();
+	public static var charms:Map<Charm, Bool> = new Map();
+	public static var charmsunlocked:Map<Charm, Bool> = new Map();
 	public static var songScores:Map<String, Int> = new Map();
 	public static var weekScores:Map<String, Int> = new Map();
 	public static var songRating:Map<String, Float> = new Map();
@@ -55,20 +66,13 @@ class DataSaver {
 
 		curSave.flush();
 		FlxG.log.add("Settings saved!");
+		trace("Saved Savefile");
 	}
 
-	public static function loadData(saveFileData:Int) {
-		saveFile = saveFileData;
-
-		var curSave:FlxSave = new FlxSave();
-		curSave.bind('saveData' + saveFile, 'nld');
-
+	static function resetData() {
 		geo = 0;
-		charms = new Map();
-		charms.set("Melodic Shell", false);
-		charmsunlocked = new Map();
-		charmsunlocked.set("Melodic Shell", false);
-		charmsunlocked.set("Swindler", false);
+		charms = [MelodicShell => false,];
+		charmsunlocked = [MelodicShell => false, Swindler => false,];
 		songScores = new Map();
 		weekScores = new Map();
 		songRating = new Map();
@@ -83,6 +87,15 @@ class DataSaver {
 		diedonfirststeps = false;
 		interacts = [false, false, false];
 		sillyOrder = [];
+	}
+
+	public static function loadData(saveFileData:Int) {
+		saveFile = saveFileData;
+
+		var curSave:FlxSave = new FlxSave();
+		curSave.bind('saveData' + saveFile, 'nld');
+
+		resetData();
 
 		if (curSave.data.geo != null) {
 			geo = curSave.data.geo;
@@ -138,6 +151,7 @@ class DataSaver {
 
 		curSave.flush();
 		FlxG.log.add("Loaded!");
+		trace("Loaded Savefile");
 	}
 
 	public static function wipeData(saveFileData:Int) {

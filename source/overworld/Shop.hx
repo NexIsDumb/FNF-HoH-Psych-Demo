@@ -184,27 +184,27 @@ class Shop extends FlxSpriteGroup {
 		titledesc.push(desc1);
 
 		DataSaver.loadData(DataSaver.saveFile);
-		var rawData:Bool = DataSaver.charmsunlocked.get("Swindler");
+		var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 
 		if (rawData == false) {
-			addCharm("Swindler",
+			addCharm(Swindler,
 				"",
 				0, "50", "swindler");
 		} else {
 			DataSaver.loadData(DataSaver.saveFile);
-			var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-			var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-			var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+			var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+			var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+			var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 
-			addCharm("Baldur's Blessing",
+			addCharm(BaldursBlessing,
 				"Finding yourself running into trouble down below? Baldur shells are so tough that they are said to protect the wearer from harm! However it does not seem indestructible, so do take care.",
 				3, "250", "bb");
 
-			addCharm("Lifeblood Seed",
+			addCharm(LifebloodSeed,
 				"Need a little bit of a boost? Then this charm is the thing for you! Lifeblood may be seen as a bit of a taboo, but it certainly will make you feel healthier! Just don’t let anyone know who sold it to you.",
 				2, "175", "lb");
 
-			addCharm("Critical Focus",
+			addCharm(CriticalFocus,
 				"If you have trouble focusing in dangerous situations, this is the charm for you! I heard that it can help the wearer gather “SOUL” when in danger, whatever that means.",
 				2, "450", "cf");
 
@@ -366,7 +366,7 @@ class Shop extends FlxSpriteGroup {
 					OverworldManager.instance.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
 					DataSaver.loadData(DataSaver.saveFile);
-					var rawData:Bool = DataSaver.charmsunlocked.get("Swindler");
+					var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 
 					if (rawData == false) {
 						FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
@@ -748,9 +748,9 @@ class Shop extends FlxSpriteGroup {
 
 								function filly() {
 									DataSaver.loadData(DataSaver.saveFile);
-									var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-									var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-									var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+									var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+									var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+									var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 									if (rawData1 && rawData2 && rawData3) {
 										caninteractter = true;
 										new FlxTimer().start(.75, function(tmr:FlxTimer) {
@@ -790,9 +790,9 @@ class Shop extends FlxSpriteGroup {
 
 								FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 
-								var rawData1:Bool = DataSaver.charmsunlocked.get("Baldur's Blessing");
-								var rawData2:Bool = DataSaver.charmsunlocked.get("Lifeblood Seed");
-								var rawData3:Bool = DataSaver.charmsunlocked.get("Critical Focus");
+								var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+								var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+								var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 								if (rawData1 && rawData2 && rawData3) {
 									new FlxTimer().start(.6, function(tmr:FlxTimer) {
 										OverworldManager.instance.dialogue.openBox("Sly",

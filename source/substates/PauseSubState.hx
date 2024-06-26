@@ -300,7 +300,7 @@ class PauseSubState extends MusicBeatSubstate {
 				case "Exit to Freeplay":
 					DataSaver.saveSettings(DataSaver.saveFile);
 					DataSaver.loadData(DataSaver.saveFile);
-					var rawData:Bool = DataSaver.charmsunlocked.get("Swindler");
+					var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 					if (rawData) {
 						PlayState.deathCounter = 0;
 						PlayState.seenCutscene = false;
@@ -388,7 +388,7 @@ class PauseSubState extends MusicBeatSubstate {
 			item.ID = i;
 			grpMenuShit.add(item);
 
-			var rawData:Bool = DataSaver.charmsunlocked.get("Swindler");
+			var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 			if (!rawData) {
 				if (menuItems[i] == "Exit to Freeplay") {
 					item.color = FlxColor.fromRGB(150, 150, 150);

@@ -9,7 +9,9 @@ package states;
 // "function eventEarlyTrigger" - Used for making your event start a few MILLISECONDS earlier
 // "function triggerEvent" - Called when the song hits your event's timestamp, this is probably what you were looking for
 import ComboSprite;
+#if ACHIEVEMENTS_ALLOWED
 import backend.Achievements;
+#end
 import backend.Highscore;
 import backend.ObjectBlendMode;
 import backend.Rating;
@@ -66,8 +68,8 @@ import tea.SScript;
 #end
 
 class PlayState extends MusicBeatState {
-	public static var STRUM_X = 42;
-	public static var STRUM_X_MIDDLESCROLL = -278;
+	public inline static final STRUM_X = 42;
+	public inline static final STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], // From 0% to 19%
@@ -121,8 +123,8 @@ class PlayState extends MusicBeatState {
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
 
-	public static var curStage:String = '';
-	public static var stageUI:String = "normal";
+	public var curStage:String = '';
+	public var stageUI:String = "normal";
 
 	public static var SONG:SwagSong = null;
 	public static var isStoryMode:Bool = false;
@@ -219,9 +221,6 @@ class PlayState extends MusicBeatState {
 
 	public var defaultCamZoom:Float = 1.05;
 
-	// how big to stretch the pixel art assets
-	public static var daPixelZoom:Float = 6;
-
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	public var inCutscene:Bool = false;
@@ -240,11 +239,13 @@ class PlayState extends MusicBeatState {
 	var detailsPausedText:String = "";
 	#end
 
-	// Achievement shit
 	public static var keysPressed:Array<Int> = [];
 
+	#if ACHIEVEMENTS_ALLOWED
+	// Achievement shit
 	var boyfriendIdleTime:Float = 0.0;
 	var boyfriendIdled:Bool = false;
+	#end
 
 	// Lua shit
 	public static var instance:PlayState;
@@ -1383,10 +1384,11 @@ class PlayState extends MusicBeatState {
 
 		var file:String = Paths.json(songName + '/events');
 		#if MODS_ALLOWED
-		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
+		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file))
 		#else
-		if (OpenFlAssets.exists(file)) {
+		if (OpenFlAssets.exists(file))
 		#end
+		{
 			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
 			for (event in eventsData) // Event Notes
 				for (i in 0...event[1].length)
@@ -1695,6 +1697,7 @@ class PlayState extends MusicBeatState {
 
 	public var paused:Bool = false;
 	public var canReset:Bool = true;
+
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 
@@ -1706,6 +1709,7 @@ class PlayState extends MusicBeatState {
 		FlxG.camera.followLerp = 0;
 		if (!inCutscene && !paused) {
 			FlxG.camera.followLerp = FlxMath.bound(elapsed * 2.4 * cameraSpeed * playbackRate / (FlxG.updateFramerate / 60), 0, 1);
+			#if ACHIEVEMENTS_ALLOWED
 			if (!startingSong && !endingSong && boyfriend.animation.curAnim != null && boyfriend.animation.curAnim.name.startsWith('idle')) {
 				boyfriendIdleTime += elapsed;
 				if (boyfriendIdleTime >= 0.15) { // Kind of a mercy thing for making the achievement easier to get as it's apparently frustrating to some playerss
@@ -1714,6 +1718,7 @@ class PlayState extends MusicBeatState {
 			} else {
 				boyfriendIdleTime = 0;
 			}
+			#end
 		}
 
 		super.update(elapsed);
@@ -1956,7 +1961,9 @@ class PlayState extends MusicBeatState {
 	}
 
 	function openChartEditor() {}
+
 	function openCharacterEditor() {}
+
 	public var isDead:Bool = false; // Don't mess with this on Lua!!!
 
 	function doDeathCheck(?skipHealthCheck:Bool = false) {
@@ -2022,7 +2029,7 @@ class PlayState extends MusicBeatState {
 					persistentUpdate = true;
 				}
 
-				if (SONG.song == "First-Steps") {
+				if (formattedSong == "first-steps") {
 					DataSaver.loadData(DataSaver.saveFile);
 					DataSaver.diedonfirststeps = true;
 					DataSaver.saveSettings(DataSaver.saveFile);
@@ -2687,6 +2694,7 @@ class PlayState extends MusicBeatState {
 	public var totalNotesHit:Float = 0.0;
 	public var showComboNum:Bool = false;
 	public var showRating:Bool = false;
+
 	var alphaZero = @:fixed {alpha: 0};
 
 	private function cachePopUpScore() {
@@ -2876,11 +2884,6 @@ class PlayState extends MusicBeatState {
 						noteMissPress(key);
 				}
 
-				// I dunno what you need this for but here you go
-				//									- Shubs
-
-				// Shubs, this is for the "Just the Two of Us" achievement lol
-				//									- Shadow Mario
 				if (!keysPressed.contains(key))
 					keysPressed.push(key);
 
@@ -3190,7 +3193,7 @@ class PlayState extends MusicBeatState {
 			bfCurAnim = "move";
 			if (soulMeter != null) {
 				DataSaver.loadData(DataSaver.saveFile);
-				var rawData:Bool = DataSaver.charms.get("Critical Focus");
+				var rawData:Bool = DataSaver.charms.get(CriticalFocus);
 
 				if (rawData) {
 					soulMeter.soul += Math.round(1.25 * healthGain);
@@ -3787,7 +3790,7 @@ class PlayState extends MusicBeatState {
 		}
 		FlxG.log.warn('Missing shader $name .frag AND .vert files!');
 		#else
-		FlxG.log.warn('This platform doesn\'t support Runtime Shaders!', false, false, FlxColor.RED);
+		FlxG.log.warn('This platform doesn\'t support Runtime Shaders!');
 		#end
 		return false;
 	}

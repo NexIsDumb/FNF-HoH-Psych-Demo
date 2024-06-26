@@ -1,5 +1,6 @@
 package backend;
 
+import backend.native.Utils;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
@@ -100,11 +101,7 @@ class Paths {
 		if (currentLevel != null) {
 			var levelPath:String = '';
 			levelPath = getLibraryPathForce(file, "shared");
-			#if sys
-			if (FileSystem.exists(levelPath))
-				return levelPath;
-			#end
-			if (OpenFlAssets.exists(levelPath, type))
+			if (fileExistsDirect(levelPath, type))
 				return levelPath;
 		}
 
@@ -200,13 +197,19 @@ class Paths {
 			localTrackedAssets.push(file);
 			return currentTrackedAssets.get(file);
 		}
+
+		#if debug
+		trace(file);
+		#end
 		#if sys
 		if (FileSystem.exists(file))
-			bitmap = BitmapData.fromFile(file);
+			bitmap = BitmapData.fromFile(Utils.removeLibraryPath(file));
 		#end
 
+		#if !sys
 		if (bitmap == null && OpenFlAssets.exists(file, IMAGE))
 			bitmap = OpenFlAssets.getBitmapData(file);
+		#end
 
 		if (bitmap != null) {
 			localTrackedAssets.push(file);
@@ -224,6 +227,7 @@ class Paths {
 			currentTrackedAssets.set(file, newGraphic);
 			return newGraphic;
 		}
+		trace("Bitmap is null", file);
 		return null;
 	}
 
@@ -233,8 +237,10 @@ class Paths {
 		if (FileSystem.exists(path))
 			return File.getContent(path);
 		#end
+		#if !sys
 		if (OpenFlAssets.exists(path, TEXT))
 			return Assets.getText(path);
+		#end
 		return null;
 	}
 
@@ -244,8 +250,10 @@ class Paths {
 		if (FileSystem.exists(path))
 			return File.getContent(path);
 		#end
+		#if !sys
 		if (OpenFlAssets.exists(path, TEXT))
 			return Assets.getText(path);
+		#end
 		return null;
 	}
 
@@ -258,31 +266,28 @@ class Paths {
 		return 'assets/fonts/$key';
 	}
 
-	public inline static function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String = null) {
-		var path:String = getPath(key, type, library, ignoreMods);
-
+	public inline static function fileExistsDirect(path:String, type:AssetType) {
 		#if sys
 		if (FileSystem.exists(path))
 			return true;
 		#end
-		if (OpenFlAssets.exists(path))
+		#if !sys
+		if (OpenFlAssets.exists(path, type))
 			return true;
+		#end
 		return false;
+	}
+
+	public inline static function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String = null) {
+		var path:String = getPath(key, type, library, ignoreMods);
+
+		return fileExistsDirect(path, type);
 	}
 
 	// less optimized but automatic handling
 	public static function getAtlas(key:String, ?library:String = null):FlxAtlasFrames {
-		#if MODS_ALLOWED
-		if (FileSystem.exists(modsXml(key)))
-			return getSparrowAtlas(key, library);
-		#end
-
 		var path = getPath('images/$key.xml', library);
-		#if sys
-		if (FileSystem.exists(path))
-			return getSparrowAtlas(key, library);
-		#end
-		if (OpenFlAssets.exists(path, TEXT))
+		if (fileExistsDirect(path, TEXT))
 			return getSparrowAtlas(key, library);
 
 		return getPackerAtlas(key, library);
@@ -297,8 +302,10 @@ class Paths {
 		if (FileSystem.exists(xmlPath))
 			data = File.getContent(xmlPath);
 		#end
+		#if !sys
 		if (data == null)
 			data = Assets.getText(xmlPath);
+		#end
 
 		return FlxAtlasFrames.fromSparrow(image, data);
 	}
@@ -312,8 +319,10 @@ class Paths {
 		if (FileSystem.exists(txtPath))
 			data = File.getContent(txtPath);
 		#end
+		#if !sys
 		if (data == null)
 			data = Assets.getText(txtPath);
+		#end
 
 		return FlxAtlasFrames.fromSpriteSheetPacker(image, data);
 	}
@@ -353,8 +362,10 @@ class Paths {
 			if (FileSystem.exists(filePath))
 				snd = Sound.fromFile('./' + filePath);
 			#end
+			#if !sys
 			if (snd == null)
 				snd = OpenFlAssets.getSound(libPath);
+			#end
 			if (snd == null)
 				FlxG.log.warn("[SOUND] Sound " + libPath + " not found");
 			currentTrackedSounds.set(filePath, snd);
@@ -396,19 +407,6 @@ class Paths {
 		return modFolders('images/' + key + '.txt');
 	}
 
-	/* Goes unused for now
-
-		public inline static function modsShaderFragment(key:String, ?library:String)
-		{
-			return modFolders('shaders/'+key+'.frag');
-		}
-		public inline static function modsShaderVertex(key:String, ?library:String)
-		{
-			return modFolders('shaders/'+key+'.vert');
-		}
-		public inline static function modsAchievements(key:String) {
-			return modFolders('achievements/' + key + '.json');
-	}*/
 	public static function modFolders(key:String) {
 		if (Mods.currentModDirectory != null && Mods.currentModDirectory.length > 0) {
 			var fileToCheck:String = mods(Mods.currentModDirectory + '/' + key);

@@ -1,3 +1,4 @@
+#if ACHIEVEMENTS_ALLOWED
 package backend;
 
 class Achievements {
@@ -97,3 +98,4 @@ class Achievements {
 		}
 	}
 }
+#end
