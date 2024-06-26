@@ -286,6 +286,37 @@ class Dirtmouth extends BaseStage {
 		var filter1:ShaderFilter = new ShaderFilter(chromaticAbberation.shader);
 
 		camGame.setFilters([filter1]);
+
+		_piss = game.soulMeter != null && isStoryMode && !seenCutscene && songName == "first-steps"; // life tutorial  - Nex
+	}
+
+	private var _piss:Bool;
+
+	override function countdownTick(count:Countdown, num:Int) {
+		if (_piss) {
+			game.startedCountdown = false;
+			game.soulMeter.soulCooldown = true;
+
+			new FlxTimer().start(2, function(_) {
+				new FlxTimer().start(2, function(_) game.soulMeter.changeMasks(-(game.soulMeter.masks / 2)));
+				FlxTween.tween(game.soulMeter, {soul: 99}, 3, {ease: FlxEase.quintOut});
+
+				new FlxTimer().start(3, function(_) {
+					var lifeTut = new LifeTutorial();
+					lifeTut.cameras = [game.camHUD];
+					lifeTut.call = function() new FlxTimer().start(1.2, function(_) {
+						game.soulMeter.soulCooldown = false;
+						game.startedCountdown = true;
+						game.setSongTime(0);
+						lifeTut.destroy();
+					});
+					lifeTut.y -= 22;
+					add(lifeTut);
+				});
+			});
+		}
+
+		super.countdownTick(count, num);
 	}
 
 	var angle = 0.5;
@@ -315,5 +346,106 @@ class Dirtmouth extends BaseStage {
 		}
 		playerfog.x = PlayState.instance.boyfriend.x - (playerfog.width / 2) + (PlayState.instance.boyfriend.width / 2);
 		playerfog.y = PlayState.instance.boyfriend.y - (playerfog.height / 2) + (PlayState.instance.boyfriend.height / 2);
+	}
+}
+
+class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired screen  - Nex
+	public var call = function() {};
+
+	var hasfinished:Bool = false;
+	var controls(get, never):Controls;
+
+	private function get_controls() {
+		return Controls.instance;
+	}
+
+	var dissapear = function() {};
+
+	public function new() {
+		super();
+
+		var blackShit:FlxSprite = new FlxSprite(-FlxG.width * FlxG.camera.zoom, -FlxG.height * FlxG.camera.zoom).makeSolid(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+		blackShit.alpha = 0;
+		add(blackShit);
+
+		var collected = new FlxText(0, 0, FlxG.width * 2, "Higher beings, these words are for you alone.");
+		collected.setFormat(Paths.font("perpetua.ttf"), 48, FlxColor.WHITE, CENTER);
+		collected.antialiasing = ClientPrefs.data.antialiasing;
+		collected.screenCenterXY();
+		collected.y -= FlxG.height / 3;
+		collected.alpha = 0;
+		add(collected);
+
+		var flair:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/Warning_Fleur0008', 'hymns'));
+		flair.antialiasing = ClientPrefs.data.antialiasing;
+		flair.y = collected.y + collected.height;
+		flair.scale.set(0.4, 0.4);
+		flair.updateHitbox();
+		flair.screenCenterX();
+		flair.alpha = 0;
+		add(flair);
+
+		var desc1 = new FlxText(0, 0, FlxG.width * 2, "Your great strength marks you amongst us.\nFocus your soul and you shall achieve feats of which others can only dream.");
+		desc1.setFormat(Paths.font("perpetua.ttf"), 30, FlxColor.WHITE, CENTER);
+		desc1.antialiasing = ClientPrefs.data.antialiasing;
+		desc1.screenCenterXY();
+		desc1.y = flair.y + flair.height * 1.5;
+		desc1.alpha = 0;
+		add(desc1);
+
+		var bench:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lifeTut', 'hymns'));
+		bench.antialiasing = ClientPrefs.data.antialiasing;
+		bench.scale.set(0.225, 0.225);
+		bench.updateHitbox();
+		bench.screenCenterXY();
+		bench.y += 100;
+		bench.alpha = 0;
+		add(bench);
+
+		var desc2 = new FlxText(0, 0, FlxG.width * 2, "Collect SOUL by hitting notes.\nOnce enough SOUL is collected, hold SPACE while not singing to focus SOUL and heal.");
+		desc2.setFormat(Paths.font("perpetua.ttf"), 27, FlxColor.WHITE, CENTER);
+		desc2.antialiasing = ClientPrefs.data.antialiasing;
+		desc2.screenCenterXY();
+		desc2.y += 300;
+		desc2.alpha = 0;
+		add(desc2);
+
+		FlxTween.tween(blackShit, {alpha: .7}, 1.2, {ease: FlxEase.quintOut});
+		FlxTween.tween(collected, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+		FlxTween.tween(flair, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+
+		FlxG.sound.play(Paths.sound('spell_information_screen', 'hymns'));
+
+		new FlxTimer().start(1, function(tmr:FlxTimer) {
+			FlxTween.tween(desc1, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+		});
+
+		new FlxTimer().start(2.25, function(tmr:FlxTimer) {
+			FlxTween.tween(bench, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+			FlxTween.tween(desc2, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+			new FlxTimer().start(1, function(tmr:FlxTimer) {
+				hasfinished = true;
+			});
+		});
+
+		dissapear = function() {
+			FlxTween.tween(blackShit, {alpha: 0}, 1.2, {ease: FlxEase.quintOut});
+			FlxTween.tween(collected, {alpha: 0}, 1, {ease: FlxEase.quintOut});
+			FlxTween.tween(flair, {alpha: 0}, 1, {ease: FlxEase.quintOut});
+
+			FlxTween.tween(bench, {alpha: 0}, 1, {ease: FlxEase.quintOut});
+			FlxTween.tween(desc2, {alpha: 0}, 1, {ease: FlxEase.quintOut});
+			FlxTween.tween(desc1, {alpha: 0}, 1, {ease: FlxEase.quintOut});
+		}
+	}
+
+	var hasconfirmed:Bool = false;
+
+	override function update(elapsed:Float) {
+		if (hasfinished && !hasconfirmed && controls.ACCEPT) {
+			hasconfirmed = true;
+			dissapear();
+			call();
+		}
 	}
 }

@@ -9,7 +9,7 @@ class ComboSprite extends FlxSprite {
 	public function new(X:Float = 0, Y:Float = 0, ?Sprite:String) {
 		super(X, Y);
 
-		frames = Paths.getSparrowAtlas("comboSpritesheet");
+		// frames = Paths.getSparrowAtlas("comboSpritesheet");
 
 		if (Sprite != null)
 			loadSprite(Sprite);
