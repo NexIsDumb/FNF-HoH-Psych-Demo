@@ -217,7 +217,7 @@ class FlxText extends FlxSprite {
 		font = FlxAssets.FONT_DEFAULT;
 		_formatAdjusted = new TextFormat();
 		textField.defaultTextFormat = _defaultFormat;
-		textField.text = Text;
+		textField.text = Uwuifier.uwuifySentence(Text);
 		fieldWidth = FieldWidth;
 		textField.embedFonts = EmbeddedFont;
 		textField.sharpness = 100;
@@ -733,10 +733,10 @@ class FlxText extends FlxSprite {
 		}
 		if (suffix != "") {
 			textField.text = textField.text.replace(":", "");
-			textField.text = textField.text + suffix;
+			textField.text += suffix;
 		}
 
-		dialog(sui);
+		// dialog(sui);
 	}
 
 	public function dialog(sui:String) {
@@ -775,8 +775,9 @@ class FlxText extends FlxSprite {
 			var ot:String = textField.text;
 			textField.text = Text;
 			basetext = Text;
-			_regen = (textField.text != ot) || _regen;
 			translation(Text);
+			textField.text = Uwuifier.uwuifySentence(Text);
+			_regen = (textField.text != ot) || _regen;
 		}
 		return Text;
 	}
