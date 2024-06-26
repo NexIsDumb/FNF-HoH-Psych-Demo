@@ -447,7 +447,7 @@ class PlayState extends MusicBeatState {
 
 		playerfog = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/whiteglow', 'hymns'));
 		playerfog.antialiasing = ClientPrefs.data.antialiasing;
-		ObjectBlendMode.blendMode(playerfog, "add");
+		playerfog.blend = ADD;
 		playerfog.scale.set(.75, .75);
 		playerfog.updateHitbox();
 		playerfog.alpha = 0;
@@ -774,14 +774,14 @@ class PlayState extends MusicBeatState {
 			}
 		}
 
-		var cache = new ComboSprite();
-		cache.loadSprite("sick");
-		cache.alpha = 0.000001;
-		comboLayer.add(cache);
+		/*var cache = new ComboSprite();
+			cache.loadSprite("sick");
+			cache.alpha = 0.000001;
+			comboLayer.add(cache);
 
-		new FlxTimer().start(3, (_) -> {
-			cache.kill();
-		});
+			new FlxTimer().start(3, (_) -> {
+				cache.kill();
+		});*/
 
 		super.create();
 		Paths.clearUnusedMemory();
@@ -2698,16 +2698,16 @@ class PlayState extends MusicBeatState {
 	var alphaZero = @:fixed {alpha: 0};
 
 	private function cachePopUpScore() {
-		var uiPrefix:String = '';
-		var uiSuffix:String = '';
-		if (stageUI != "normal") {
-			uiPrefix = '${stageUI}UI/';
-		}
+		/*var uiPrefix:String = '';
+			var uiSuffix:String = '';
+			if (stageUI != "normal") {
+				uiPrefix = '${stageUI}UI/';
+			}
 
-		for (rating in ratingsData)
-			Paths.image(uiPrefix + rating.image + uiSuffix);
-		for (i in 0...10)
-			Paths.image(uiPrefix + 'num' + i + uiSuffix);
+			for (rating in ratingsData)
+				Paths.image(uiPrefix + rating.image + uiSuffix);
+			for (i in 0...10)
+				Paths.image(uiPrefix + 'num' + i + uiSuffix); */
 	}
 
 	private function popUpScore(note:Note):Void {
@@ -2736,95 +2736,95 @@ class PlayState extends MusicBeatState {
 			}
 		}
 
-		if (ClientPrefs.data.hideHud)
-			return;
+		/*if (ClientPrefs.data.hideHud)
+				return;
 
-		if (!ClientPrefs.data.comboStacking) {
-			comboLayer.forEach((v) -> {
-				FlxTween.cancelTweensOf(v); // unsure since resetprops does it
-				v.kill();
-			});
-		}
+			if (!ClientPrefs.data.comboStacking) {
+				comboLayer.forEach((v) -> {
+					FlxTween.cancelTweensOf(v); // unsure since resetprops does it
+					v.kill();
+				});
+			}
 
-		var placement:Float = FlxG.width * 0.35;
+			var placement:Float = FlxG.width * 0.35;
 
-		var uiPrefix:String = "";
-		var uiSuffix:String = '';
-		var antialias:Bool = ClientPrefs.data.antialiasing;
+			var uiPrefix:String = "";
+			var uiSuffix:String = '';
+			var antialias:Bool = ClientPrefs.data.antialiasing;
 
-		if (stageUI != "normal") {
-			uiPrefix = '${stageUI}UI/';
-		}
+			if (stageUI != "normal") {
+				uiPrefix = '${stageUI}UI/';
+			}
 
-		if (showRating) {
-			var rating = comboLayer.recycleLoop(ComboSprite).resetProps();
-			rating.loadSprite(uiPrefix + daRating.image + uiSuffix);
-			rating.screenCenterY();
-			rating.x = placement - 40;
-			rating.y -= 60;
-			rating.acceleration.y = 550;
-			rating.velocity.y -= FlxG.random.int(140, 175);
-			rating.velocity.x -= FlxG.random.int(0, 10);
-			rating.x += ClientPrefs.data.comboOffset[0];
-			rating.y -= ClientPrefs.data.comboOffset[1];
+			if (showRating) {
+				var rating = comboLayer.recycleLoop(ComboSprite).resetProps();
+				rating.loadSprite(uiPrefix + daRating.image + uiSuffix);
+				rating.screenCenterY();
+				rating.x = placement - 40;
+				rating.y -= 60;
+				rating.acceleration.y = 550;
+				rating.velocity.y -= FlxG.random.int(140, 175);
+				rating.velocity.x -= FlxG.random.int(0, 10);
+				rating.x += ClientPrefs.data.comboOffset[0];
+				rating.y -= ClientPrefs.data.comboOffset[1];
 
-			rating.setGraphicSize(Std.int(rating.width * 0.7));
-			rating.antialiasing = ClientPrefs.data.antialiasing;
+				rating.setGraphicSize(Std.int(rating.width * 0.7));
+				rating.antialiasing = ClientPrefs.data.antialiasing;
 
-			rating.updateHitbox();
+				rating.updateHitbox();
 
-			FlxTween.tween(rating, alphaZero, 0.2, {
-				startDelay: Conductor.crochet * 0.001,
-				onComplete: function(tween:FlxTween) {
-					rating.kill();
-				}
-			});
+				FlxTween.tween(rating, alphaZero, 0.2, {
+					startDelay: Conductor.crochet * 0.001,
+					onComplete: function(tween:FlxTween) {
+						rating.kill();
+					}
+				});
 
-			comboLayer.addEnd(rating);
-		}
+				comboLayer.addEnd(rating);
+			}
 
-		if (!showComboNum)
-			return;
+			if (!showComboNum)
+				return;
 
-		var seperatedScore:Array<Int> = [];
+			var seperatedScore:Array<Int> = [];
 
-		if (combo >= 1000) {
-			seperatedScore.push(Math.floor(combo / 1000) % 10);
-		}
-		seperatedScore.push(Math.floor(combo / 100) % 10);
-		seperatedScore.push(Math.floor(combo / 10) % 10);
-		seperatedScore.push(combo % 10);
+			if (combo >= 1000) {
+				seperatedScore.push(Math.floor(combo / 1000) % 10);
+			}
+			seperatedScore.push(Math.floor(combo / 100) % 10);
+			seperatedScore.push(Math.floor(combo / 10) % 10);
+			seperatedScore.push(combo % 10);
 
-		var daLoop:Int = 0;
-		for (i in seperatedScore) {
-			var numScore = comboLayer.recycleLoop(ComboSprite).resetProps();
-			numScore.loadSprite(uiPrefix + 'num' + Std.string(i) + uiSuffix);
-			numScore.screenCenterY();
-			numScore.x = placement + (43 * daLoop) - 90;
-			numScore.y += 80;
+			var daLoop:Int = 0;
+			for (i in seperatedScore) {
+				var numScore = comboLayer.recycleLoop(ComboSprite).resetProps();
+				numScore.loadSprite(uiPrefix + 'num' + Std.string(i) + uiSuffix);
+				numScore.screenCenterY();
+				numScore.x = placement + (43 * daLoop) - 90;
+				numScore.y += 80;
 
-			numScore.x += ClientPrefs.data.comboOffset[2];
-			numScore.y -= ClientPrefs.data.comboOffset[3];
+				numScore.x += ClientPrefs.data.comboOffset[2];
+				numScore.y -= ClientPrefs.data.comboOffset[3];
 
-			numScore.antialiasing = ClientPrefs.data.antialiasing;
-			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
-			numScore.updateHitbox();
+				numScore.antialiasing = ClientPrefs.data.antialiasing;
+				numScore.setGraphicSize(Std.int(numScore.width * 0.5));
+				numScore.updateHitbox();
 
-			numScore.acceleration.y = FlxG.random.int(200, 300);
-			numScore.velocity.y -= FlxG.random.int(140, 160);
-			numScore.velocity.x = FlxG.random.float(-5, 5);
+				numScore.acceleration.y = FlxG.random.int(200, 300);
+				numScore.velocity.y -= FlxG.random.int(140, 160);
+				numScore.velocity.x = FlxG.random.float(-5, 5);
 
-			comboLayer.addEnd(numScore);
+				comboLayer.addEnd(numScore);
 
-			FlxTween.tween(numScore, alphaZero, 0.2, {
-				onComplete: function(tween:FlxTween) {
-					numScore.kill();
-				},
-				startDelay: Conductor.crochet * 0.002
-			});
+				FlxTween.tween(numScore, alphaZero, 0.2, {
+					onComplete: function(tween:FlxTween) {
+						numScore.kill();
+					},
+					startDelay: Conductor.crochet * 0.002
+				});
 
-			daLoop++;
-		}
+				daLoop++;
+		}*/
 	}
 
 	public var strumsBlocked:Array<Bool> = [];

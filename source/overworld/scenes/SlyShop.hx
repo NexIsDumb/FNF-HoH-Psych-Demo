@@ -94,7 +94,7 @@ class SlyShop extends BaseScene {
 			backgroundSpr3.screenCenterXY();
 			backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr3.scrollFactor.set(1, 1);
-			ObjectBlendMode.blendMode(backgroundSpr3, "add");
+			backgroundSpr3.blend = ADD;
 			backgroundSpr3.active = false;
 			add(backgroundSpr3);
 		}

@@ -67,7 +67,7 @@ class Dirtmouth extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			var lights2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth_Hymns_of_the_sorcerers_stone2_20230913200805', 'hymns'));
 			lights2.antialiasing = ClientPrefs.data.antialiasing;
-			ObjectBlendMode.blendMode(lights2, "multiply");
+			lights2.blend = MULTIPLY;
 			lights2.alpha = 0.8;
 			lights2.scrollFactor.set(0.75, 0.75);
 			lights2.scale.set(2.5, 2.5);
@@ -88,7 +88,7 @@ class Dirtmouth extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			var lights4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171515', 'hymns'));
 			lights4.antialiasing = ClientPrefs.data.antialiasing;
-			ObjectBlendMode.blendMode(lights4, "screen");
+			lights4.blend = SCREEN;
 			lights4.scale.set(2.5, 2.5);
 			lights4.updateHitbox();
 			lights4.screenCenterXY();
@@ -98,7 +98,7 @@ class Dirtmouth extends BaseStage {
 
 			var lights3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth_Hymns_of_the_sorcerers_stone2_20230913201027', 'hymns'));
 			lights3.antialiasing = ClientPrefs.data.antialiasing;
-			ObjectBlendMode.blendMode(lights3, "add");
+			lights3.blend = ADD;
 			lights3.alpha = 0.2;
 			lights3.scale.set(2.5, 2.5);
 			lights3.updateHitbox();
@@ -117,7 +117,7 @@ class Dirtmouth extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			var lights5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171511', 'hymns'));
 			lights5.antialiasing = ClientPrefs.data.antialiasing;
-			ObjectBlendMode.blendMode(lights5, "screen");
+			lights5.blend = SCREEN;
 			lights5.scale.set(2.5, 2.5);
 			lights5.updateHitbox();
 			lights5.screenCenterXY();
@@ -164,7 +164,7 @@ class Dirtmouth extends BaseStage {
 
 		playerfog = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/glow', 'hymns'));
 		playerfog.antialiasing = ClientPrefs.data.antialiasing;
-		ObjectBlendMode.blendMode(playerfog, "add");
+		playerfog.blend = ADD;
 		playerfog.scale.set(2.41509434, 2.41509434);
 		playerfog.updateHitbox();
 		playerfog.alpha = 0.75;
@@ -239,7 +239,7 @@ class Dirtmouth extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			var lights1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171523', 'hymns'));
 			lights1.antialiasing = ClientPrefs.data.antialiasing;
-			ObjectBlendMode.blendMode(lights1, "add");
+			lights1.blend = ADD;
 			lights1.scale.set(2.5, 2.5);
 			lights1.updateHitbox();
 			lights1.screenCenterXY();
@@ -254,7 +254,7 @@ class Dirtmouth extends BaseStage {
 		fog.scale.set(8, 8);
 		fog.updateHitbox();
 		fog.screenCenterXY();
-		ObjectBlendMode.blendMode(fog, "add");
+		fog.blend = ADD;
 		add(fog);
 
 		fog.x -= FlxG.width * 4;
@@ -271,7 +271,7 @@ class Dirtmouth extends BaseStage {
 			fog.scale.set(8, 8);
 			fog.updateHitbox();
 			fog.screenCenterXY();
-			ObjectBlendMode.blendMode(fog, "add");
+			fog.blend = ADD;
 			add(fog);
 
 			fog.x -= FlxG.width * 4;
@@ -327,11 +327,12 @@ class Dirtmouth extends BaseStage {
 	override function update(elapsed:Float) {
 		chromaticAbberation.update(elapsed);
 		sly.update(elapsed);
+		var lerpVal = (ClientPrefs.data.framerate / 60);
 		for (i in 0...thefog.length) {
 			var fog = thefog[i];
-			fog.x += FlxG.random.int(15, 20) * (ClientPrefs.data.framerate / 60);
-			fog.angle += angle * FlxG.random.int(-2, 2, [0]) * (ClientPrefs.data.framerate / 60);
-			fog.y += FlxG.random.int(-5, 5) * (ClientPrefs.data.framerate / 60);
+			fog.x += FlxG.random.int(15, 20) * lerpVal;
+			fog.angle += angle * FlxG.random.int(-2, 2, [0]) * lerpVal;
+			fog.y += FlxG.random.int(-5, 5) * lerpVal;
 
 			if (!fog.isOnScreen() && fog.x > pos + FlxG.width / 1.25) {
 				fog.angle = 0;

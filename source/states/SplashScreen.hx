@@ -1,5 +1,6 @@
 package states;
 
+import flixel.input.keyboard.FlxKey;
 import openfl.Lib;
 #if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;
@@ -22,6 +23,8 @@ class SplashScreen extends flixel.FlxState {
 
 		FlxG.save.bind('hymns', CoolUtil.getSavePath());
 		ClientPrefs.loadPrefs();
+
+		@:privateAccess FlxG.keys._nativeCorrection.set("0_43", FlxKey.PLUS);
 
 		#if VIDEOS_ALLOWED
 		if (muted) {

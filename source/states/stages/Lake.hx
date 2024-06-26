@@ -136,7 +136,7 @@ class Lake extends BaseStage {
 			backgroundSpr8.scale.set(2, 2);
 			backgroundSpr8.scrollFactor.set(1, 1);
 			backgroundSpr8.active = false;
-			ObjectBlendMode.blendMode(backgroundSpr8, "add");
+			backgroundSpr8.blend = ADD;
 			add(backgroundSpr8);
 		}
 
@@ -155,7 +155,7 @@ class Lake extends BaseStage {
 			backgroundSpr7.scale.set(2, 2);
 			backgroundSpr7.scrollFactor.set(1, 1);
 			backgroundSpr7.active = false;
-			ObjectBlendMode.blendMode(backgroundSpr7, "add");
+			backgroundSpr7.blend = ADD;
 			add(backgroundSpr7);
 		}
 

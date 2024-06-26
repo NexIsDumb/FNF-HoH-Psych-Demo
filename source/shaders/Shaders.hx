@@ -153,12 +153,12 @@ class CAShader extends FlxShader {
 
 uniform float amount;
 
-void main( )
+void main()
 {
 	vec2 uv = openfl_TextureCoordv;
 	vec2 distFromCenter = uv - 0.5;
 
-	vec2 aberrated = vec2(amount * pow(distFromCenter.x, 3.0), amount * pow(distFromCenter.y, 3));
+	vec2 aberrated = vec2(amount * pow(distFromCenter.x, 3.0), amount * pow(distFromCenter.y, 3.0));
 
 	gl_FragColor = vec4
 	(
@@ -202,7 +202,7 @@ float luma(vec3 color) {
 void main( )
 {
 	vec2 uv = openfl_TextureCoordv;
-	vec2 scalar = 1.0 / vec2(textureSize(bitmap, 0).xy);
+	vec2 scalar = 1.0 / openfl_TextureSize;
 
 	vec3 col = texture2D(bitmap, uv).rgb;
 

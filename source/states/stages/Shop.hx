@@ -36,7 +36,7 @@ class Shop extends BaseStage {
 			backgroundSpr3.screenCenterXY();
 			backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
 			backgroundSpr3.scrollFactor.set(1, 1);
-			ObjectBlendMode.blendMode(backgroundSpr3, "add");
+			backgroundSpr3.blend = ADD;
 			backgroundSpr3.active = false;
 			add(backgroundSpr3);
 		}
@@ -67,7 +67,7 @@ class Shop extends BaseStage {
 		spotlight.scrollFactor.set(1, 1);
 		spotlight.alpha = 0;
 		spotlight.active = false;
-		ObjectBlendMode.blendMode(spotlight, "multiply");
+		spotlight.blend = MULTIPLY;
 		add(spotlight);
 	}
 
