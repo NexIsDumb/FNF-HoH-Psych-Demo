@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Hymns of Hallownest" file="HoH" packageName="com.nld.hymns" package="com.nld.hymns" main="Main" version="v0.0.0.DEMO" company="nld" />
+	<app title="Hymns of Hallownest DEMO" file="HoH" packageName="com.nld.hymns" package="com.nld.hymns" main="Main" version="v0.0.0.DEMO" company="nld" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -71,13 +71,15 @@
 	<section if="PRELOAD_ALL">
 		<library name="songs"         preload="true" />
 		<library name="shared"        preload="true" />
-		<library name="hymns"   preload="true" />
+		<library name="hymns"         preload="true" />
+		<library name="translations"  preload="true" />
 	</section>
 
 	<section if="NO_PRELOAD_ALL">
 		<library name="songs"         preload="false" />
 		<library name="shared"        preload="false" />
-		<library name="hymns"   preload="false" />
+		<library name="hymns"         preload="false" />
+		<library name="translations"  preload="false" />
 	</section>
 
 	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
@@ -85,10 +87,10 @@
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
-	<assets path="assets/hymns"   library="hymns"    exclude="*.ogg" if="web"/>
-	<assets path="assets/hymns"   library="hymns"    exclude="*.mp3" unless="web"/>
+	<assets path="assets/hymns"         library="hymns"    exclude="*.ogg" if="web"/>
+	<assets path="assets/hymns"         library="hymns"    exclude="*.mp3" unless="web"/>
 
-	<assets path='assets/language' embed='false'/>
+	<assets path='assets/translations'  library="translations" embed='false'/>
 
 	<section if="MODS_ALLOWED">
 		<assets path='example_mods' rename='mods' embed='false'/>

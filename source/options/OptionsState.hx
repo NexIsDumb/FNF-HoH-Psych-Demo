@@ -2,8 +2,6 @@ package options;
 
 import states.MainMenuState;
 import backend.StageData;
-import flixel.addons.transition.FlxTransitionableState;
-import hxcodec.flixel.*;
 import overworld.*;
 
 class OptionsState extends MenuBeatState {
@@ -14,6 +12,7 @@ class OptionsState extends MenuBeatState {
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
 	public static var fromOverworld:Bool = false;
+	public static var restartVisuals:Null<Int> = null;
 
 	function openSelectedSubstate(label:String) {
 		for (spr in grpOptions.members) {
@@ -134,11 +133,21 @@ class OptionsState extends MenuBeatState {
 		pointer2.setGraphicSize(Std.int(pointer2.width * 0.25));
 		pointer2.updateHitbox();
 
-		var spr = grpOptions.members[0];
-		updatePointers(spr);
+		updatePointers(grpOptions.members[0]);
 		ClientPrefs.saveSettings();
 
-		changeSelection(0);
+		if (restartVisuals != null) {
+			for (spr in grpOptions.members)
+				spr.alpha = 0;
+			pointer1.alpha = pointer2.alpha = statetext.alpha = 0;
+			statetext.text = "Visuals and UI";
+			statetext.screenCenterX();
+			statetext.alpha = 1;
+			fleur.animation.play('idle', true, false);
+			fleur.animation.finish();
+			openSubState(new options.VisualsUISubState());
+		} else
+			changeSelection(0);
 
 		super.create();
 	}

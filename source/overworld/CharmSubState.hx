@@ -353,9 +353,9 @@ class CharmSubState extends MusicBeatSubstate {
 
 				trace(mainTxt);
 				txt.text = mainTxt;
-				txt.translation(mainTxt);
+				// txt.translation(mainTxt);
 
-				trace(txt.translationPub(mainTxt));
+				// trace(txt.translationPub(mainTxt));
 			} else {
 				clearicon();
 			}

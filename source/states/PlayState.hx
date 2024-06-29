@@ -1261,10 +1261,10 @@ class PlayState extends MusicBeatState {
 			str = "?";
 		}
 
-		var scoree = scoreTxt.translationPub("Score");
-		var missess = scoreTxt.translationPub("Misses");
-		var ratingg = scoreTxt.translationPub("Rating");
-		var suffix = scoreTxt.suffixPub("Score");
+		var scoree = "";
+		var missess = "";
+		var ratingg = "";
+		var suffix = "";
 
 		scoreTxt.text = scoree + ': ' + songScore + ' | ' + missess + ': ' + songMisses + ' | ' + ratingg + ': ' + str + suffix;
 

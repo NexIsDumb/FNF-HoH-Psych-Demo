@@ -1,6 +1,6 @@
 package options;
 
-import objects.Alphabet;
+import flixel.addons.transition.FlxTransitionableState;
 
 class VisualsUISubState extends BaseOptionsMenu {
 	public function new() {
@@ -56,10 +56,11 @@ class VisualsUISubState extends BaseOptionsMenu {
 
 		var option:Option = new Option('Translations',
 			"Select your prefered translation of the game.",
-			'translation',
+			'language',
 			'string',
-			[for (lan in ClientPrefs.translations) lan[0]]);
+			[TransManager.DEFAULT_LANGUAGE].concat(TransManager.translList()));
 		addOption(option);
+		option.onChange = onChangeLanguage;
 
 		#if !mobile
 		var option:Option = new Option('FPS Counter',
@@ -79,6 +80,11 @@ class VisualsUISubState extends BaseOptionsMenu {
 		#end
 
 		super();
+
+		if (OptionsState.restartVisuals != null) {
+			changeSelection(OptionsState.restartVisuals);
+			OptionsState.restartVisuals = null;
+		}
 	}
 
 	var changedMusic:Bool = false;
@@ -90,6 +96,16 @@ class VisualsUISubState extends BaseOptionsMenu {
 			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)));
 
 		changedMusic = true;
+	}
+
+	function onChangeLanguage() {
+		TransManager.setTransl();
+		ClientPrefs.saveSettings();
+
+		OptionsState.restartVisuals = curSelected;
+		FlxTransitionableState.skipNextTransOut = true;
+		FlxTransitionableState.skipNextTransIn = true;
+		MusicBeatState.resetState();
 	}
 
 	override function destroy() {

@@ -93,9 +93,9 @@ class Dialogue extends FlxSpriteGroup {
 			speakerText.alpha = 0;
 			FlxTween.tween(speakerText, {alpha: 1}, .5, {ease: FlxEase.quintOut});
 
-			for (i in 0...script.length - 1) {
+			/*for (i in 0...script.length - 1) {
 				script[i][0] = text.dialog(script[i][0]);
-			}
+			}*/
 
 			showline(scriptpub[0][0]);
 		}
@@ -117,7 +117,7 @@ class Dialogue extends FlxSpriteGroup {
 			arrowsuffix = "s";
 		}
 
-		var theoneliner = text.dialog(line);
+		var theoneliner = "";
 		publine = theoneliner;
 
 		text.text = "";
@@ -130,7 +130,7 @@ class Dialogue extends FlxSpriteGroup {
 			var textywesty:String = linesplit[0];
 			new FlxTimer().start(0.025, function(tmr:FlxTimer) {
 				textywesty += linesplit[linesplit.length - tmr.loopsLeft - 1];
-				text.text = textywesty + text.suffixPub("");
+				// text.text = textywesty + text.suffixPub("");
 			}, linesplit.length - 1);
 		});
 

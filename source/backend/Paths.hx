@@ -374,6 +374,10 @@ class Paths {
 		return currentTrackedSounds.get(filePath);
 	}
 
+	inline static public function transMainFolder(key:String = '') {
+		return 'assets/translations/' + key;
+	}
+
 	#if MODS_ALLOWED
 	public inline static function mods(key:String = '') {
 		return 'mods/' + key;

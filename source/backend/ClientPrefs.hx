@@ -24,7 +24,7 @@ class SaveVariables {
 	public var hideHud:Bool = false;
 	public var noteOffset:Int = 0;
 	public var geo:Int = 0;
-	public var translation:String = "English";
+	public var language:String = TransManager.DEFAULT_LANGUAGE;
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
@@ -86,17 +86,6 @@ class ClientPrefs {
 		["Finnish", "fin"],
 		["Русский[rus]", "rus"],
 	];
-
-	public static function getLanguage():String {
-		for (i in 0...ClientPrefs.translations.length) {
-			var thingy = ClientPrefs.translations[i];
-
-			if (thingy[0] == ClientPrefs.data.translation) {
-				return thingy[1];
-			}
-		}
-		return "eng";
-	}
 
 	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
