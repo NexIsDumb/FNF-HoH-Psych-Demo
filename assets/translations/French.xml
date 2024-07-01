@@ -1,0 +1,175 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Carapace mélodieuse"/>
+	<trans id="lifeblood-seed" string="Grain Sang-de-vie"/>
+	<trans id="critical-focus" string="Canalisation critique"/>
+	<trans id="baldur's-blessing" string="Bénédiction de Baldur"/>
+
+	<trans id="melodic-shell-desc" string="Charme mélodieux créé pour ceux qui souhaitent chanter. Vous donnent la capacité de chanter tout en recevant de l'âme en retour."/>
+	<trans id="lifeblood-seed-desc" string="Contient un noyau vivant rempli de Sang-de-vie. Sur un banc, vous gagnerez une couche de Sang-de-vie qui vous protègera d’une quantité modeste de dégâts."/>
+	<trans id="critical-focus-desc" string="Un artefact chaman qui a longtemps été oublié. Ainsi, des cristaux ont commencé à se former dessus, amplifiant ses capacités. Lorsque vous êtes en dessous de la moitié de votre vie, vous recevez de l'âme supplémentaire lorsque vous frappez des ennemis."/>
+	<trans id="baldur's-blessing-desc" string="Vous protège avec une coquille dure lorsque vous rencontrez une mort certaine. La coquille n’est pas indestructible et se brisera après une utilisation."/>
+
+	<trans id="baldur's-blessing-tip" string="Vous vous retrouvez en difficulté en bas? Les coquilles de Baldurs sont si durs qu’il est dit qu'elles sont censées vous protéger de tout dégâts! Cependant, il ne semble pas indestructible, alors faites attention."/>
+	<trans id="lifeblood-seed-tip" string="Besoin d’un petit coup de pouce? Alors ce charme est fait pour vous! Le Sang-de-vie peut être considéré comme un tabou, mais il vous fera certainement vous sentir en meilleure santé! Ne dites juste pas qui vous l’a vendu."/>
+	<trans id="critical-focus-tip" string="Si vous avez du mal à vous concentrer dans des situations dangereuses, voici le charme pour vous! J’ai entendu dire que ce charme peut vous aider à rassembler de l' &quot;ÂME&quot; lorsque vous êtes en danger, peu importe ce que ça veut dire."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Ah, Voyageur ! Tu es revenu ! J’aurais juré que tu étais passé près de moi il y a une minute. Tu semblais avoir laissé tomber ceci en descendant. Tiens, prends ça."/>
+	<trans id="elderbug-dialog-2" string="Tiens, pourquoi ne pas l’essayer maintenant? Un peu de pratique ne devrait pas faire de mal. De plus, j’apprécie la compagnie supplémentaire."/>
+	<trans id="elderbug-dialog-3" string="Je m’excuse, mes cordes vocales doivent être un peu rouillé. Essayons encore, Voyageur."/>
+	<trans id="elderbug-dialog-4" string="Voyageur, ton aiguillon semble être dans un état lamentable. Il ne te fera aucun bien là-bas. Peut-être que ce charme te sera utile."/>
+	<trans id="elderbug-dialog-5" string="Oh la la, je n’ai pas ressenti un tel plaisir depuis longtemps!"/>
+	<trans id="elderbug-dialog-6" string="Ah, Il semble que nous avons attiré l’attention du marchand! Peut-être devrais-tu lui rendre visite? Je crois qu’il a peut-être quelque chose qui pourrait t'aider dans ton voyage."/>
+	<trans id="elderbug-dialog-7" string="Le couple de marchands de cartes... Oh, Je ne souhaite que le meilleur pour ces deux-là. Si seulement ils auraient pu installer leur boutique dans un endroit plus grand... Je ne supporte pas de voir la femme se pencher pour passer la porte."/>
+	<trans id="elderbug-dialog-8" string="Le marchand? Il a l'air de tout avoir dans son petit magasin! À ta place, je serais prudent si j'allais lui acheter quelque chose... Il gère des affaires difficiles pour sa marchandise, celui-là." />
+	<trans id="elderbug-dialog-9" string="Beaucoup venaient à la recherche du royaume juste en dessous d’où nous sommes. Hallownest, il s'appelait. J'ai entendu dire que c'était le plus grand royaume qu’il y ait jamais eu. C’est devenu une ruine depuis, l’air maladif en dessous pourrais rendre fou!"/>
+	<trans id="elderbug-dialog-10" string="Tu m'as l'aire épuisé, voyageur. Je suppose que tu t'es aventuré dans les cavernes feuillues en dessous? C’est un très bel endroit, vraiment."/>
+	<trans id="elderbug-dialog-11" string="Je te suggère de te reposer sur ce banc avant de t'aventurer encore une foit. Je t'assure que c’est très confortable."/>
+	<trans id="elderbug-dialog-12" string="Oh, je vois que tu as acheté quelque chose de ce marchand, hm? Tu m'as l'aire bien préparée pour ta prochaine aventure. Mais reste sur tes gardes, qui savent ce que tu pourrais rencontrer dans ces cavernes."/>
+	<trans id="elderbug-dialog-13" string="Tu m'as l'aire épuisé, voyageur. On dirait que tu as eu un dur combat pour une bonne affaire."/>
+
+	<trans id="sly-dialog-1" string="Ah, bonjour! Je savais que nous nous rencontrerions encore. Tu as l'aire de t'être fait un petit relooking, hm?"/>
+	<trans id="sly-dialog-2" string="Oh! Tu souhaites chanter? Hmm... c'est rare que quelqu'un me défi..."/>
+	<trans id="sly-dialog-3" string="Très bien, j'accepte! Je dois dire que je ne suis pas un très bon chanteur... mais je suis curieux de ton talent."/>
+	<trans id="sly-dialog-4" string="Oh, ça fait un bon moment que je n'ai pas joué comme ça. Je dois avouer que c'était assez agréable! Même si sa me fait mal... Une défaite est une défaite. Tiens, prends ta récompense et laisse-moi avec mes Geo... à moins que tu ne prévoies d’acheter plus de ma marchandise..."/>
+	<trans id="sly-dialog-5" string="J'ai peur que je n'ai plus rien à t'offrir. Tu m'as mis à sec."/>
+	<trans id="sly-dialog-6" string="Merci de ta gentillesse! Je t'assure, le reste de ma marchandise vaut le coût aussi! Certaines pourraient même augmenter tes chances de survie en dessous..."/>
+	<trans id="sly-dialog-7" string="Tu as les poches vides? Si tu recherches plus de Geo, Les ruines en dessous ont beaucoup à offrir!"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="Options"/>
+	<trans id="note-colors" string="Couleurs des notes"/>
+	<trans id="controls" string="Contrôles"/>
+	<trans id="graphics" string="Graphiques"/>
+	<trans id="visuals-and-ui" string="Visuels et UI"/>
+	<trans id="gameplay" string="Gameplay"/>
+	<trans id="back" string="Retour"/>
+
+	<trans id="left" string="Gauche"/>
+	<trans id="down" string="Bas"/>
+	<trans id="up" string="Haut"/>
+	<trans id="right" string="Droite"/>
+	<trans id="focus" string="Canalisation"/>
+	<trans id="accept" string="Accepter"/>
+	<trans id="pause" string="Pause"/>
+	<trans id="ui-up" string="UI Haut"/>
+	<trans id="ui-left" string="UI Gauche"/>
+	<trans id="ui-down" string="UI Bas"/>
+	<trans id="ui-right" string="UI Droite"/>
+	<trans id="ui-back" string="UI Retour"/>
+	<trans id="reset" string="Recommencer"/>
+	<trans id="mute" string="Muet"/>
+	<trans id="volume-up" string="Volume Haut"/>
+	<trans id="volume-down" string="Volume Bas"/>
+	<trans id="reset-to-default-keys" string="Remettre au contrôles par défaut"/>
+
+	<trans id="on" string="Oui"/>
+	<trans id="off" string="Non"/>
+	<trans id="none" string="Rien"/>
+
+	<trans id="low-quality" string="Qualité Basse"/>
+	<trans id="anti-aliasing" string="Anticrénelage"/>
+	<trans id="shaders" string="Shaders"/>
+	<trans id="gpu-caching" string="Mise en cache GPU"/>
+	<trans id="framerate" string="Framerate"/>
+	<trans id="note-skins" string="Skins des notes"/>
+	<trans id="note-splashes" string="Eclaboussures des notes"/>
+	<trans id="note-splash-opacity" string="Opacité des éclaboussures des notes"/>
+	<trans id="flashing-lights" string="Lumières clignotantes"/>
+	<trans id="translations" string="Traductions"/>
+	<trans id="fps-counter" string="Compteur FPS"/>
+	<trans id="discord-rich-presence" string="Discord Rich Presence (RPC)"/>
+	<trans id="downscroll" string="Downscroll"/>
+	<trans id="middlescroll" string="Middlescroll"/>
+	<trans id="ghost-tapping" string="Ghost Tapping"/>
+	<trans id="auto-pause" string="Pause automatique"/>
+	<trans id="disable-reset-button" string="Désactiver le bouton de recommencer"/>
+	<trans id="hitsound-volume" string="Volume Hitsound"/>
+	<trans id="safe-frames" string="Safe Frames"/>
+
+	<trans id="low-quality-desc" string="Si coché, désactive certains détails d’arrière-plan."/>
+	<trans id="anti-aliasing-desc" string="Si elle n’est pas cochée, désactive l’anticrénelage, augmentant les performances au prix de visuels moins définis."/>
+	<trans id="shaders-desc" string="Si non coché, désactive les shaders (effects visuels)."/>
+	<trans id="gpu-caching-desc" string="Si coché, diminue l’utilisation de la RAM si vous avez un bon GPU."/>
+	<trans id="framerate-desc" string="Assez explicite, non?"/>
+	<trans id="note-skins-desc" string="Sélectionnez votre skin de note préférée."/>
+	<trans id="note-splashes-desc" string="Sélectionnez votre variante préférée d'éclaboussures des notes ou désactivez-les."/>
+	<trans id="note-splash-opacity-desc" string="La transparence des éclaboussures des notes"/>
+	<trans id="flashing-lights-desc" string="Décochez cette case si vous êtes sensible aux lumières clignotantes!"/>
+	<trans id="translations-desc" string="Sélectionnez votre traduction préférée du jeu."/>
+	<trans id="fps-counter-desc" string="S’il n’est pas coché, cache le compteur FPS."/>
+	<trans id="discord-rich-presence-desc" string="Décochez cette case pour vous cacher de votre discord RPC."/>
+	<trans id="downscroll-desc" string="Si coché, les notes vont vers le bas au lieu de haut, assez simple."/>
+	<trans id="middlescroll-desc" string="Si coché, vos notes sont centrées."/>
+	<trans id="ghost-tapping-desc" string="Si cette option est cochée, vous ne manquerez pas si vous appuyer sur les touches quand il n'y a pas de notes sur l’écran."/>
+	<trans id="auto-pause-desc" string="Si coché, le jeu s’interrompt automatiquement si vous n'êtes pas sur cette fenêtre."/>
+	<trans id="disable-reset-button-desc" string="Si coché, appuyer sur Recommencer ne fera rien."/>
+	<trans id="hitsound-volume-desc" string="Les notes font &quot;Tick!&quot; quand vous les frappez."/>
+	<trans id="safe-frames-desc" string="Modifie le nombre d’images que vous avez pour frapper une note plus tôt ou plus tard."/>
+
+	<trans id="start-game" string="Commencer le jeu"/>
+	<trans id="credits" string="Crédits"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="Quitter le jeu"/>
+
+	<trans id="new-game" string="Nouvelle Partie"/>
+	<trans id="clear-save" string="Supprimer la sauvegarde"/>
+	<trans id="freeplay" string="Freeplay"/>
+	<trans id="story" string="Histoire"/>
+
+	<trans id="personal-best" string="Record personnel"/>
+	<trans id="score" string="Score"/>
+	<trans id="misses" string="Notes manqués"/>
+	<trans id="rating" string="Notation"/>
+
+	<trans id="you-have-died" string="Vous êtes morts"/>
+	<trans id="times" string="fois."/>
+	<trans id="resume" string="Reprendre"/>
+	<trans id="exit-to-freeplay" string="Retourner au Freeplay"/>
+	<trans id="exit-to-menu" string="Retourner au Menu"/>
+	<trans id="exit-to-dirtmouth" string="Retourner à Dirtmouth"/>
+	<trans id="restart-song" string="Recommencer"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Se reposer"/>
+	<trans id="listen" string="Écouter"/>
+	<trans id="enter" string="Entrer"/>
+	<trans id="shop" string="Shop"/>
+
+	<trans id="purchase-this-item?" string="Acheter?"/>
+	<trans id="yes" string="Oui"/>
+	<trans id="no" string="Non"/>
+
+	<trans id="charms" string="Charmes"/>
+	<trans id="equipped" string="Équipé"/>
+	<trans id="notches" string="Emplacements"/>
+	<trans id="cost" string="Coût"/>
+	<trans id="no-cost" string="Aucun coût"/>
+	<trans id="overcharmed" string="Surcharmé"/>
+
+	<trans id="life-tutorial-1" string="Êtres supérieurs, ces mots sont pour vous seul."/>
+	<trans id="life-tutorial-2" string="Votre grande force vous marque parmi nous.&#xA;Canalisez votre âme et vous accomplirez des explois que d'autres ne peuvent rêver."/>
+	<trans id="life-tutorial-3" string="Régénérez l'ÂME en appuyant sur des notes.&#xA;Une fois que vous aurez accumulé suffisament d'ÂME, mantenir ESPACE pendant que vous ne chantez pas pour canaliser l'ÂME et se soigner."/>
+
+	<trans id="charms-tutorial-1" string="Charme récupéré"/>
+	<trans id="charms-tutorial-2" string="Équipez un charme pour activez ses puissants attributs."/>
+	<trans id="charms-tutorial-3" string="Pour équiper un Charme, ouvrez le menu CHARMES pendant que vous vous reposez sur un banc."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="T'es nul!"/>
+	<trans id="shit" string="Merde"/>
+	<trans id="bad" string="Nul"/>
+	<trans id="bruh" string="Bruh"/>
+	<trans id="meh" string="Meh"/>
+	<trans id="nice" string="Nice"/>
+	<trans id="good" string="Bon"/>
+	<trans id="great" string="Très bon"/>
+	<trans id="sick!" string="Stylé!"/>
+	<trans id="perfect!!" string="Parfait!!"/>
+</translations>

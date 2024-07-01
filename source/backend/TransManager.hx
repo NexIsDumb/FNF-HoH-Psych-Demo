@@ -74,6 +74,7 @@ class TransManager {
 	 * If `name` is `null`, it's gonna use the current language.
 	 */
 	public static function setTransl(?name:String) {
+		languageFont = null;
 		if (name == null)
 			name = get_curLanguage();
 		transMap = loadLanguage(name);
