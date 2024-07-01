@@ -23,6 +23,8 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	public var title:String;
 	public var rpcTitle:String;
 
+	public var _booltexts:Array<String>;
+
 	public function new() {
 		super();
 
@@ -49,12 +51,14 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		descBox.alpha = 0.6;
 
 		descText = new FlxText(0, 0, 0, optionsArray[curSelected].description, 12);
-		descText.setFormat(Paths.font("perpetua.ttf"), 16, FlxColor.WHITE, LEFT);
+		descText.setFormat(Constants.HK_FONT, 16, FlxColor.WHITE, LEFT);
 		descText.screenCenterXY();
 		descText.x = FlxG.width / 3.25 + 10;
 		descText.y -= FlxG.height / 6;
 		descText.antialiasing = ClientPrefs.data.antialiasing;
 		add(descText);
+
+		_booltexts = [TM.checkTransl("ON", "on"), TM.checkTransl("OFF", "off")];
 
 		for (i in 0...optionsArray.length) {
 			var optionText:FlxText = new FlxText(0, 0, 0, "", 12);
@@ -69,7 +73,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			grpTexts.add(optionText);
 
 			if (optionsArray[i].type == 'bool') {
-				var optionText:FlxText = new FlxText(0, 0, 250, optionsArray[i].getValue() ? "ON" : "OFF", 12);
+				var optionText:FlxText = new FlxText(0, 0, 250, _booltexts[optionsArray[i].getValue() ? 0 : 1], 12);
 				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
 				optionText.autoSize = false;
 				optionText.screenCenterXY();
@@ -146,6 +150,11 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	public function addOption(option:Option) {
 		if (optionsArray == null || optionsArray.length < 1)
 			optionsArray = [];
+
+		var name = option.name.toLowerCase().replace(" ", "-");
+		option.description = TM.checkTransl(option.description, name + "-desc");
+		option.name = TM.checkTransl(option.name, name);
+
 		optionsArray.push(option);
 	}
 
@@ -386,8 +395,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	function reloadCheckboxes() {
 		for (i in 0...optionsArray.length) {
 			if (optionsArray[i].type == 'bool') {
-				if (!(grpOptions.members[i].text == (optionsArray[i].getValue() ? "ON" : "OFF"))) {
-					grpOptions.members[i].text = optionsArray[i].getValue() ? "ON" : "OFF";
+				var check = _booltexts[optionsArray[i].getValue() ? 0 : 1];
+				if (!(grpOptions.members[i].text == check)) {
+					grpOptions.members[i].text = check;
 				}
 			} else {
 				if (!(grpOptions.members[i].text == optionsArray[i].getValue())) {

@@ -150,12 +150,12 @@ class FreeplayState extends MusicBeatState {
 		bg3.screenCenterX();
 		add(bg3);
 
-		scoreText = new FlxText(FlxG.height / 2 - 90, FlxG.height / 2 + 10, 0, "Personal Best : ?", 12);
+		scoreText = new FlxText(FlxG.height / 2 - 90, FlxG.height / 2 + 10, 0, TM.checkTransl("Personal Best", "personal-best") + " : ?", 12);
 		scoreText.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER);
 		scoreText.antialiasing = ClientPrefs.data.antialiasing;
 		scoreText.screenCenterX();
 		add(scoreText);
-		scoreText.text = "Personal Best : ?";
+		// scoreText.text = "Personal Best : ?";
 
 		var silly = new FlxText(90, FlxG.height - 30 - (52 / 1.5), 0, "Start", 12);
 		silly.setFormat(Constants.UI_FONT, 52, FlxColor.WHITE, CENTER);

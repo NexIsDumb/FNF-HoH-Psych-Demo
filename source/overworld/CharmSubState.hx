@@ -322,7 +322,10 @@ class CharmSubState extends MusicBeatSubstate {
 				var charmText:String = charmData[datar][1][1];
 				var mainTxt:String = charmText.trim();
 
-				txt2.text = charmData[datar][2];
+				var piss:String = charmData[datar][2];
+				var name = piss.toLowerCase().replace(" ", "-");
+
+				txt2.text = TM.checkTransl(piss, name);
 				txt2.updateHitbox();
 				txt2.screenCenterXY();
 				txt2.x += 365;
@@ -330,7 +333,7 @@ class CharmSubState extends MusicBeatSubstate {
 
 				txt.text = 'Tuneful charm created for\nthose who wish to chant\n\n\nGrants its bearer the ability to sing\nin return rewarding them soul';
 
-				txt3.text = 'Cost';
+				txt3.text = TM.checkTransl('Cost', "cost");
 				txt3.screenCenterXY();
 				txt3.updateHitbox();
 				txt3.x += 325;
@@ -340,7 +343,7 @@ class CharmSubState extends MusicBeatSubstate {
 
 				if (Std.parseInt(charmData[datar][4]) == 0) {
 					txt3.x += 25;
-					txt3.text = 'No Cost';
+					txt3.text = TM.checkTransl('No Cost', "no-cost");
 				}
 				charmIcon.loadGraphic(Paths.image('charms/${charmData[datar][2]}/base', 'hymns'));
 				charmIcon.scale.set(0.7, 0.7);
@@ -351,8 +354,7 @@ class CharmSubState extends MusicBeatSubstate {
 				charmIcon.antialiasing = ClientPrefs.data.antialiasing;
 				add(charmIcon);
 
-				trace(mainTxt);
-				txt.text = mainTxt;
+				txt.text = TM.checkTransl(mainTxt, name + "-desc");
 				// txt.translation(mainTxt);
 
 				// trace(txt.translationPub(mainTxt));
@@ -381,7 +383,7 @@ class CharmSubState extends MusicBeatSubstate {
 	function addText() {
 		txt = new FlxText(0, FlxG.height - 44, 350, '', 12);
 		txt.scrollFactor.set();
-		txt.setFormat(Paths.font("perpetua.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		txt.setFormat(Constants.HK_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		txt.autoSize = false;
 		txt.wordWrap = true;
 		txt.screenCenterXY();
@@ -415,19 +417,19 @@ class CharmSubState extends MusicBeatSubstate {
 		// I hate not fixing the other stuff and using nld's same coding format, but i gotta rush for the release  - Nex
 		var temp:FlxText;
 
-		sprites.push(temp = new FlxText(0, 60, 0, "Charms"));
+		sprites.push(temp = new FlxText(0, 60, 0, TM.checkTransl("Charms", "charms")));
 		add(temp.setFormat(Constants.UI_FONT, 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK).screenCenterX());
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
-		sprites.push(temp = new FlxText(30, 40, 0, "Exit to Dirtmouth"));
+		sprites.push(temp = new FlxText(30, 40, 0, TM.checkTransl("Exit to Dirtmouth", "exit-to-dirtmouth")));
 		add(temp.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
-		sprites.push(temp = new FlxText(130, 140, 0, "Equipped"));
+		sprites.push(temp = new FlxText(130, 140, 0, TM.checkTransl("Equipped", "equipped")));
 		add(temp.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
-		sprites.push(temp = new FlxText(130, 270, 0, "Notches"));
+		sprites.push(temp = new FlxText(130, 270, 0, TM.checkTransl("Notches", "notches")));
 		add(temp.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 	}

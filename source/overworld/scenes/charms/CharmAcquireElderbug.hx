@@ -11,7 +11,7 @@ import flixel.tweens.FlxEase;
 
 using StringTools;
 
-class CharmAquireElderbug extends FlxSpriteGroup {
+class CharmAcquireElderbug extends FlxSpriteGroup {
 	public var call = function() {};
 
 	var hasfinished:Bool = false;
@@ -30,8 +30,8 @@ class CharmAquireElderbug extends FlxSpriteGroup {
 		blackShit.alpha = 0;
 		add(blackShit);
 
-		var collected = new FlxText(0, 0, FlxG.width * 2, "Collected a Charm");
-		collected.setFormat(Paths.font("perpetua.ttf"), 48, FlxColor.WHITE, CENTER);
+		var collected = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("Collected a Charm", "charms-tutorial-1"));
+		collected.setFormat(Constants.HK_FONT, 48, FlxColor.WHITE, CENTER);
 		collected.antialiasing = ClientPrefs.data.antialiasing;
 		collected.screenCenterXY();
 		collected.y -= FlxG.height / 3;
@@ -57,8 +57,8 @@ class CharmAquireElderbug extends FlxSpriteGroup {
 		charm.alpha = 0;
 		add(charm);
 
-		var charmname = new FlxText(0, 0, FlxG.width * 2, "Melodic Shell");
-		charmname.setFormat(Paths.font("perpetua.ttf"), 35, FlxColor.WHITE, CENTER);
+		var charmname = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("Melodic Shell", "melodic-shell"));
+		charmname.setFormat(Constants.HK_FONT, 35, FlxColor.WHITE, CENTER);
 		charmname.antialiasing = ClientPrefs.data.antialiasing;
 		charmname.screenCenterXY();
 		charmname.y = flair.y + flair.height * 1.25;
@@ -66,8 +66,8 @@ class CharmAquireElderbug extends FlxSpriteGroup {
 		charmname.alpha = 0;
 		add(charmname);
 
-		var desc1 = new FlxText(0, 0, FlxG.width * 2, "Equip a charm to activate its powerful abilities.");
-		desc1.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
+		var desc1 = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("Equip a charm to activate its powerful abilities.", "charms-tutorial-2"));
+		desc1.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, CENTER);
 		desc1.antialiasing = ClientPrefs.data.antialiasing;
 		desc1.screenCenterXY();
 		desc1.y = charmname.y + charmname.height * 1.5;
@@ -83,8 +83,8 @@ class CharmAquireElderbug extends FlxSpriteGroup {
 		bench.alpha = 0;
 		add(bench);
 
-		var desc2 = new FlxText(0, 0, FlxG.width * 2, "To equip a charm, open the CHARMS menu while resting at a bench.");
-		desc2.setFormat(Paths.font("perpetua.ttf"), 27, FlxColor.WHITE, CENTER);
+		var desc2 = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("To equip a charm, open the CHARMS menu while resting at a bench.", "charms-tutorial-3"));
+		desc2.setFormat(Constants.HK_FONT, 27, FlxColor.WHITE, CENTER);
 		desc2.antialiasing = ClientPrefs.data.antialiasing;
 		desc2.screenCenterXY();
 		desc2.y += 300;

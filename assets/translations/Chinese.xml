@@ -1,0 +1,177 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations font="asian.otf">
+	<!-- Charms -->
+	<trans id="melodic-shell" string="音律之壳"/>
+	<trans id="lifeblood-seed" string="生命之种"/>
+	<trans id="critical-focus" string="临界凝聚"/>
+	<trans id="baldur's-blessing" string="巴德尔的祝福"/>
+
+	<trans id="melodic-shell-desc" string="为那些想要说唱的人创造的富有乐感的护符. 装备后持有者会拥有歌唱的能力,而作为回报赐予他们灵魂."/>
+	<trans id="lifeblood-seed-desc" string="它包含一个鲜活的核心,流淌着珍贵的生命之血. 在休息时,它将赋予持有者一层生命之血&#xA;可以保护持有者免受一定程度的伤害."/>
+	<trans id="critical-focus" string="一件早已被遗忘的萨满遗物. 然而水晶体开始在这件物品上蔓延, 延续并增强了它的能力. 当持有者的生命值低于一半时, 持有者在攻击敌人时会赋予额外的灵魂."/>
+	<trans id="baldur's-blessing-desc" string="装备后持有者死亡时,它会用坚硬的外壳保护它的持有者. 但这外壳并非坚不可摧,使用一次后就会破碎."/>
+
+	<trans id="baldur's-blessing-tip" string="自己在下面遇到了小小的麻烦? 巴德尔的壳非常坚韧,据说可以保护佩戴者免受伤害! 对了,它不是无坚不摧的,定要谨慎使用."/>
+	<trans id="lifeblood-seed-tip" string="需要一点小增益?这个护符正好适合你!生命之血或许是一禁忌,但绝对会让你更加健康!只是不要让他人知道谁卖给了你."/>
+	<trans id="critical-focus-tip" string="如果您在的麻烦，这就是最适合您的护符!我听说带着它可以命悬一线时更好的凝聚 &quot;灵魂&quot; 不管那是什么意思."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="啊!旅行之人!你回来了!我很确定你刚刚与我擦肩而过.你貌似落下了这个.来,收好吧."/>
+	<trans id="elderbug-dialog-2" string="这样,我们为何不现在试试?一次小小的练习不是会伤害到你的.不仅如此,我很喜欢做额外的工作."/>
+	<trans id="elderbug-dialog-3" string="实在抱歉,我唱歌一定有一点生疏了.我们再试一次,旅行之人."/>
+	<trans id="elderbug-dialog-4" string="旅行之人,你的骨钉状态可不太妙啊.它不会帮助你半点儿的.或许你的符文对你有一些帮助."/>
+	<trans id="elderbug-dialog-5" string="天啊,我从未感到如此愉悦了!"/>
+	<trans id="elderbug-dialog-6" string="哦,我们貌似吸引了了店主的注意力,或许你应该看看他的商品? 我相信他绝对有你在旅行中用得上的东西."/>
+	<trans id="elderbug-dialog-7" string="地图商店的一对儿..哦,我致他们最好的祝福.要是他们可以把商店开在宽敞点儿的地方. 我看不得他的妻子弯着腰挤入门中,她实在是一只很高的虫子."/>
+	<trans id="elderbug-dialog-8" string="那个店主?他的小商店中貌似什么都有!如果我是你的话,我会很小心的..那虫子讨价还价特别厉害."/>
+	<trans id="elderbug-dialog-9" string="曾经有许多人寻找我们脚下的王国.这个王国的名字曾叫做圣巢.听说这是史上最伟大的王国. 自从下面成为了废墟，连浑浊的空气都可以让人作呕"/>
+	<trans id="elderbug-dialog-10" string="你看起来很疲倦,旅行.我猜你已经探索到繁茂的洞穴了吧?那里的景色的确美不胜收."/>
+	<trans id="elderbug-dialog-11" string="我建议你在继续探索之前坐在椅子上休息一会儿. 我保证,这样很舒服."/>
+	<trans id="elderbug-dialog-12" string="哦,我看见你从商店买的物品了,不是吗?看起来你准备好了下一次冒险了.但记住探索时一定要谨慎，天知道你会在洞穴中遇到什么."/>
+	<trans id="elderbug-dialog-13" string="你看起来很疲倦,旅行之人.你貌似砍了很久的价格吧"/>
+
+	<trans id="sly-dialog-1" string="啊,你好!我就知道我们还会见面.看起来你已经改头换面了呢,嗯?"/>
+	<trans id="sly-dialog-2" string="哦!你要唱歌?唔...很少有人挑战我..."/>
+	<trans id="sly-dialog-3" string="好吧,我接受挑战!我得承认自己不是唱歌的好手...但我好奇你的能力."/>
+	<trans id="sly-dialog-4" string="哦,很久没有这样尽兴了.我得承认很有趣!尽管这痛了我的心...但输了就是输了.拿好你的奖励,我要和我的吉欧呆在一起..除非你打算购买更多物品..."/>
+	<trans id="sly-dialog-5" string="恐怕我没有可提供的物品了.你扫空了我的商店."/>
+	<trans id="sly-dialog-6" string="谢谢惠顾!我向你保证，其他的物品也值得一看!他们甚至可以提高你在下面生还的可能性. "/>
+	<trans id="sly-dialog-7" string="口袋空空?如果你要去赚更多的吉欧,下方的废墟还能提供更多呢!"/>
+
+	<trans id="elderbug-name" string="虫长者"/>
+	<trans id="sly-name" string="斯莱"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="选项"/>
+	<trans id="note-colors" string="箭头颜色"/>
+	<trans id="controls" string="控制"/>
+	<trans id="graphics" string="图像"/>
+	<trans id="visuals-and-ui" string="视觉效果"/>
+	<trans id="gameplay" string="游戏相关设置"/>
+	<trans id="back" string="返回"/>
+
+	<trans id="left" string="左"/>
+	<trans id="down" string="下"/>
+	<trans id="up" string="上"/>
+	<trans id="right" string="右"/>
+	<trans id="focus" string="凝聚"/>
+	<trans id="accept" string="接受"/>
+	<trans id="pause" string="暂停"/>
+	<trans id="ui-up" string="UI向上"/>
+	<trans id="ui-left" string="UI向左"/>
+	<trans id="ui-right" string="UI向右"/>
+	<trans id="ui-down" string="UI向下"/>
+	<trans id="ui-back" string="UI返回"/>
+	<trans id="reset" string="重置"/>
+	<trans id="mute" string="静音"/>
+	<trans id="volume-up" string="提高音量"/>
+	<trans id="volume-down" string="降低音量"/>
+	<trans id="reset-to-default-keys" string="重置至默认键位"/>
+
+	<trans id="on" string="是"/>
+	<trans id="off" string="否"/>
+	<trans id="none" string="无"/>
+
+	<trans id="low-quality" string="低画质"/>
+	<trans id="anti-aliasing" string="抗锯齿"/>
+	<trans id="shaders" string="渲染"/>
+	<trans id="gpu-caching" string="GPU缓存"/>
+	<trans id="framerate" string="帧率"/>
+	<trans id="note-skins" string="箭头皮肤"/>
+	<trans id="note-splashes" string="箭头水花迸溅效果"/>
+	<trans id="note-splash-opacity" string="箭头水花迸溅效果不透明度"/>
+	<trans id="flashing-lights" string="闪光灯"/>
+	<trans id="translations" string="翻译"/>
+	<trans id="fps-counter" string="显示FPS"/>
+	<trans id="discord-rich-presence" string="Discord Rich Presence"/>
+	<trans id="downscroll" string="箭头向下滚动"/>
+	<trans id="middlescroll" string="箭头集中中间"/>
+	<trans id="ghost-tapping" string="击空惩罚"/>
+	<trans id="auto-pause" string="自动暂停"/>
+	<trans id="disable-reset-button" string="关闭重置按钮"/>
+	<trans id="hitsound-volume" string="击中箭头音效"/>
+	<trans id="safe-frames" string="判定范围"/>
+
+	<trans id="low-quality-desc" string="开启后将精简一些背景细节."/>
+	<trans id="anti-aliasing-desc" string=" 未选择将关闭抗锯齿功能,以视觉体验为代价提升流畅度"/>
+	<trans id="shaders-desc" string="未选择将暂停渲染(视觉效果)."/>
+	<trans id="gpu-caching-desc" string="开启后降低内存使用,前提是你有个好GPU"/>
+	<trans id="framerate-desc" string="很明显了,不是吗?"/>
+	<trans id="note-skins-desc" string="选择自己喜爱的箭头皮肤"/>
+	<trans id="note-splashes-desc" string="选择自己喜爱的箭头皮肤或暂停使用他们"/>
+	<trans id="note-splash-desc" string="水花迸溅效果的透明度."/>
+	<trans id="flashing-lights-desc" string="如果您对闪光灯敏感,请不要开启该选项"/>
+	<trans id="translations-desc" string="选择您在游戏中需要的语言"/>
+	<trans id="fps-counter-desc" string="未选择将关闭FPS显示"/>
+	<trans id="discord-rich-presence-desc" string="关闭该选项以隐藏Discord中显示您在游玩该游戏"/>
+	<trans id="downscroll-desc" string="开启后箭头向下滚动而不是向上滚动,够简单的."/>
+	<trans id="middlescroll-desc" string="开启后箭头将会集中在中央出现"/>
+	<trans id="ghost-tapping-desc" string="开启后您不会因为按下不在屏幕上的按键而失误."/>
+	<trans id="auto-pause-desc" string="开启后游戏自动暂停运行,如果界面被切换到其他地方"/>
+	<trans id="disable-reset-button-desc" string="开启后按重置按钮后不会死亡"/>
+	<trans id="hitsound-volume-desc" string="有趣的箭头们会发出 &quot;叮!&quot; 当你击中他们."/>
+	<trans id="safe-frames-desc" string="更改击中箭头的判定"/>
+
+	<trans id="start-game" string="开始游戏"/>
+	<trans id="credits" string="参与开发者名单"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="退出游戏"/>
+
+	<trans id="new-game" string="新建游戏"/>
+	<trans id="clear-save" string="删除存档"/>
+	<trans id="freeplay" string="自由选择曲目"/>
+	<trans id="story" string="故事模式"/>
+
+	<trans id="personal-best" string="个人纪录"/>
+	<trans id="score" string="分数"/>
+	<trans id="misses" string="未击中"/>
+	<trans id="rating" string="评分等级"/>
+
+	<trans id="you-have-died" string="你死了"/>
+	<trans id="times" string="次."/>
+	<trans id="resume" string="继续"/>
+	<trans id="exit-to-freeplay" string="返回至选择曲目界面"/>
+	<trans id="exit-to-menu" string="返回至菜单"/>
+	<trans id="exit-to-dirtmouth" string="返回至德特茅斯"/>
+	<trans id="restart-song" string="重唱该歌曲"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="休息"/>
+	<trans id="listen" string="倾听"/>
+	<trans id="enter" string="进入"/>
+	<trans id="shop" string="商店"/>
+
+	<trans id="purchase-this-item?" string="是否购买?"/>
+
+	<trans id="charms" string="符文"/>
+	<trans id="equipped" string="已装备"/>
+	<trans id="notches" string="符文槽"/>
+	<trans id="cost" string="花费"/>
+	<trans id="no-cost" string="无花费"/>
+	<trans id="overcharmed" string="符文过载"/>
+
+	<trans id="life-tutorial-1" string="更高级的存在,这些句子为了你而存在"/>
+	<trans id="life-tutorial-2" string="你强大而力量脱颖而出&#xA;凝聚你的灵魂,你将实现别人望而却步的梦想."/>
+	<trans id="life-tutorial-3" string="击中箭头以收集灵魂.&#xA;当你收集一定量的灵魂后, 在没有唱歌时长按空格键以凝聚灵魂并治疗"/>
+
+	<trans id="charms-tutorial-1" string="收集符文"/>
+	<trans id="charms-tutorial-2" string="装备一个符文以激活其强大的能力."/>
+	<trans id="charms-tutorial-3" string="为了激活一个符文,在长凳休息时打开符文菜单"/>
+
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="你烂透了!"/>
+	<trans id="shit" string="屎"/>
+	<trans id="bad" string="坏"/>
+	<trans id="bruh" string="额"/>
+	<trans id="meh" string="还行"/>
+	<trans id="nice" string="好"/>
+	<trans id="good" string="棒"/>
+	<trans id="great" string="很好"/>
+	<trans id="sick!" string="酷!"/>
+	<trans id="perfect!!" string="完美!!"/>
+</translations>

@@ -217,7 +217,7 @@ class CreditsState extends MenuBeatState {
 		}
 
 		name = new FlxText(0, 0, 1180, creditsStuff[0][0], 32);
-		name.setFormat(Paths.font("perpetua.ttf"), 64, FlxColor.WHITE, CENTER);
+		name.setFormat(Constants.HK_FONT, 64, FlxColor.WHITE, CENTER);
 		name.scrollFactor.set();
 		name.screenCenterXY();
 		name.y += 130;
@@ -225,7 +225,7 @@ class CreditsState extends MenuBeatState {
 		add(name);
 
 		role = new FlxText(0, 0, 1180, creditsStuff[0][2], 32);
-		role.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
+		role.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		role.scrollFactor.set();
 		role.screenCenterXY();
 		role.y += 175;
@@ -233,7 +233,7 @@ class CreditsState extends MenuBeatState {
 		add(role);
 
 		desc = new FlxText(0, 0, 1180, '"' + creditsStuff[0][3] + '"', 32);
-		desc.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
+		desc.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, CENTER);
 		desc.scrollFactor.set();
 		desc.screenCenterXY();
 		desc.y += 220;
@@ -260,7 +260,7 @@ class CreditsState extends MenuBeatState {
 		fleur.y += 75;
 
 		var main:FlxText = new FlxText(0, 0, 1180, 'Cheez', 32);
-		main.setFormat(Paths.font("perpetua.ttf"), 42, FlxColor.WHITE, CENTER);
+		main.setFormat(Constants.HK_FONT, 42, FlxColor.WHITE, CENTER);
 		main.scrollFactor.set();
 		main.screenCenterXY();
 		main.y += 300;
@@ -268,7 +268,7 @@ class CreditsState extends MenuBeatState {
 		add(main);
 
 		var one:FlxText = new FlxText(0, 0, 1180, 'Avenge', 32);
-		one.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
+		one.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, CENTER);
 		one.scrollFactor.set();
 		one.screenCenterXY();
 		one.y += 300;
@@ -278,7 +278,7 @@ class CreditsState extends MenuBeatState {
 		add(one);
 
 		var two:FlxText = new FlxText(0, 0, 1180, 'nld', 32);
-		two.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
+		two.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, CENTER);
 		two.scrollFactor.set();
 		two.screenCenterXY();
 		two.y += 300;
@@ -423,14 +423,14 @@ class CreditsState extends MenuBeatState {
 					}
 				}else{
 					if(names.font != "Riven"){
-						names.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, CENTER);
+						names.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, CENTER);
 						if(thecur == curSelected){
-							name.setFormat(Paths.font("perpetua.ttf"), 64, FlxColor.WHITE, CENTER);
-							names.setFormat(Paths.font("perpetua.ttf"), 42, FlxColor.WHITE, CENTER);
+							name.setFormat(Constants.HK_FONT, 64, FlxColor.WHITE, CENTER);
+							names.setFormat(Constants.HK_FONT, 42, FlxColor.WHITE, CENTER);
 						}
 					}else{
 						if(name.size != 64 && thecur == curSelected){
-							name.setFormat(Paths.font("perpetua.ttf"), 64, FlxColor.WHITE, CENTER);
+							name.setFormat(Constants.HK_FONT, 64, FlxColor.WHITE, CENTER);
 						}
 					}
 				}

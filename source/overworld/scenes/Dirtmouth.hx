@@ -461,15 +461,15 @@ class Dirtmouth extends BaseScene {
 				if (point[0] - extrarange < game.player.x && point[0] + extrarange > game.player.x) {
 					hasfound = true;
 
-					interactiontext.text = "Listen";
+					interactiontext.text = TM.checkTransl("Listen", "listen");
 					if (sly.animation.curAnim.name == "open") {
 						if (point[1] == "doorinteract") {
-							interactiontext.text = "Enter";
+							interactiontext.text = TM.checkTransl("Enter", "enter");
 						}
 					}
 
 					if (point[1] == "silly") {
-						interactiontext.text = "Rest";
+						interactiontext.text = TM.checkTransl("Rest", "rest");
 					}
 					if (game.player.status.bench == true) {
 						if (interactionflair.animation.curAnim.name != "disappear") {
@@ -535,7 +535,7 @@ class Dirtmouth extends BaseScene {
 	}
 
 	var doingelderbuginteract:Bool = false;
-	var charmsaquire:CharmAquireElderbug;
+	var charmsaquire:CharmAcquireElderbug;
 	var cutscene:Bool = false;
 	var lightcd:Bool = false;
 
@@ -579,7 +579,7 @@ class Dirtmouth extends BaseScene {
 						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
 							DataSaver.charmsunlocked.set(MelodicShell, true);
 							DataSaver.saveSettings(DataSaver.saveFile);
-							charmsaquire = new CharmAquireElderbug();
+							charmsaquire = new CharmAcquireElderbug();
 							charmsaquire.cameras = [game.camDIALOG];
 							charmsaquire.y -= 25;
 							charmsaquire.call = function() {
@@ -619,7 +619,7 @@ class Dirtmouth extends BaseScene {
 							game.dialogue.openBox("Elderbug",
 								[
 									[
-										"Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it."
+										TM.checkTransl("Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it.", "elderbug-dialog-1")
 									]
 								],
 								call
@@ -638,7 +638,7 @@ class Dirtmouth extends BaseScene {
 									game.dialogue.openBox("Elderbug",
 										[
 											[
-												"Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company."
+												TM.checkTransl("Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company.", "elderbug-dialog-2")
 											]
 										],
 										function() {
@@ -665,7 +665,9 @@ class Dirtmouth extends BaseScene {
 								} else {
 									game.dialogue.openBox("Elderbug",
 										[
-											["I apologize, my singing must be a little rusty. Lets try that again, Traveler."]
+											[
+												TM.checkTransl("I apologize, my singing must be a little rusty. Lets try that again, Traveler.", "elderbug-dialog-3")
+											]
 										],
 										function() {
 											Difficulty.resetList();
@@ -693,7 +695,7 @@ class Dirtmouth extends BaseScene {
 								game.dialogue.openBox("Elderbug",
 									[
 										[
-											"Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you."
+											TM.checkTransl("Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you.", "elderbug-dialog-4")
 										]
 									],
 									function() {
@@ -711,7 +713,11 @@ class Dirtmouth extends BaseScene {
 							if (DataSaver.charmsunlocked.get(Swindler) == false) {
 								FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 								game.dialogue.openBox("Elderbug",
-									[["Oh my, I haven't felt such enjoyment in quite a long time!"],],
+									[
+										[
+											TM.checkTransl("Oh my, I haven't felt such enjoyment in quite a long time!", "elderbug-dialog-5")
+										],
+									],
 									function() {
 										dooropen();
 
@@ -724,7 +730,7 @@ class Dirtmouth extends BaseScene {
 											game.dialogue.openBox("Elderbug",
 												[
 													[
-														"Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels."
+														TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
 													]
 												],
 												function() {
@@ -752,13 +758,13 @@ class Dirtmouth extends BaseScene {
 											if (lightcd == false) {
 												var randomlines = [
 													[
-														"The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is."
+														TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
 													],
 													[
-														"The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug."
+														TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
 													],
 													[
-														"Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!"
+														TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
 													]
 												];
 
@@ -785,10 +791,10 @@ class Dirtmouth extends BaseScene {
 											game.dialogue.openBox("Elderbug",
 												[
 													[
-														"You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really."
+														TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
 													],
 													[
-														"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+														TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 													]
 												],
 												function() {
@@ -807,7 +813,7 @@ class Dirtmouth extends BaseScene {
 										game.dialogue.openBox("Elderbug",
 											[
 												[
-													"Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns."
+													TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
 												]
 											],
 											function() {
@@ -826,10 +832,10 @@ class Dirtmouth extends BaseScene {
 									game.dialogue.openBox("Elderbug",
 										[
 											[
-												"You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain."
+												TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
 											],
 											[
-												"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+												TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 											]
 										],
 										function() {
@@ -857,13 +863,13 @@ class Dirtmouth extends BaseScene {
 										if (lightcd == false) {
 											var randomlines = [
 												[
-													"The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is."
+													TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
 												],
 												[
-													"The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug."
+													TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
 												],
 												[
-													"Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!"
+													TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
 												]
 											];
 
@@ -890,10 +896,10 @@ class Dirtmouth extends BaseScene {
 										game.dialogue.openBox("Elderbug",
 											[
 												[
-													"You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really."
+													TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
 												],
 												[
-													"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+													TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 												]
 											],
 											function() {
@@ -912,7 +918,7 @@ class Dirtmouth extends BaseScene {
 									game.dialogue.openBox("Elderbug",
 										[
 											[
-												"Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns."
+												TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
 											]
 										],
 										function() {
@@ -931,10 +937,10 @@ class Dirtmouth extends BaseScene {
 								game.dialogue.openBox("Elderbug",
 									[
 										[
-											"You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain."
+											TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
 										],
 										[
-											"I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable."
+											TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 										]
 									],
 									function() {

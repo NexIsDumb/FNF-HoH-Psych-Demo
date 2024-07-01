@@ -13,12 +13,21 @@ class Constants {
 		return GENERIC_FONT;
 	}
 
+	public static var HK_FONT(get, null):String = null;
+
+	private inline static function get_HK_FONT():String {
+		var val = Paths.font(TM.get_curFont());
+		if (HK_FONT != val)
+			HK_FONT = val;
+		return HK_FONT;
+	}
+
 	public static var UI_FONT(get, null):String = null;
 
 	private inline static function get_UI_FONT():String {
-		if (UI_FONT == null) {
-			UI_FONT = Paths.font("trajan.ttf");
-		}
+		var val = Paths.font(TM.get_curUIFont());
+		if (UI_FONT != val)
+			UI_FONT = val;
 		return UI_FONT;
 	}
 

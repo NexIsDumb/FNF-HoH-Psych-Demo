@@ -370,7 +370,7 @@ class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired scr
 		add(blackShit);
 
 		var collected = new FlxText(0, 0, FlxG.width * 2, "Higher beings, these words are for you alone.");
-		collected.setFormat(Paths.font("perpetua.ttf"), 48, FlxColor.WHITE, CENTER);
+		collected.setFormat(Constants.HK_FONT, 48, FlxColor.WHITE, CENTER);
 		collected.antialiasing = ClientPrefs.data.antialiasing;
 		collected.screenCenterXY();
 		collected.y -= FlxG.height / 3;
@@ -387,7 +387,7 @@ class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired scr
 		add(flair);
 
 		var desc1 = new FlxText(0, 0, FlxG.width * 2, "Your great strength marks you amongst us.\nFocus your soul and you shall achieve feats of which others can only dream.");
-		desc1.setFormat(Paths.font("perpetua.ttf"), 30, FlxColor.WHITE, CENTER);
+		desc1.setFormat(Constants.HK_FONT, 30, FlxColor.WHITE, CENTER);
 		desc1.antialiasing = ClientPrefs.data.antialiasing;
 		desc1.screenCenterXY();
 		desc1.y = flair.y + flair.height * 1.5;
@@ -404,7 +404,7 @@ class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired scr
 		add(bench);
 
 		var desc2 = new FlxText(0, 0, FlxG.width * 2, "Collect SOUL by hitting notes.\nOnce enough SOUL is collected, hold SPACE while not singing to focus SOUL and heal.");
-		desc2.setFormat(Paths.font("perpetua.ttf"), 27, FlxColor.WHITE, CENTER);
+		desc2.setFormat(Constants.HK_FONT, 27, FlxColor.WHITE, CENTER);
 		desc2.antialiasing = ClientPrefs.data.antialiasing;
 		desc2.screenCenterXY();
 		desc2.y += 300;

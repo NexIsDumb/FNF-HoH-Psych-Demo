@@ -1,0 +1,172 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations font="cyrillic.ttf">
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Мелодична мушля"/>
+	<trans id="lifeblood-seed" string="Сем'я живокрові"/>
+	<trans id="critical-focus" string="Швидкий фокус"/>
+	<trans id="baldur's-blessing" string="Благословлення Бальдура"/>
+
+	<trans id="melodic-shell-desc" string="Мелодичний амулет, зроблений для тих хто бажає співати. Дає носію можливість співати нагороджуючи душою."/>
+	<trans id="lifeblood-seed-desc" string="Має живе ядро, яке випромінює живокров. Підчас відпочинку носій отримую пласт живокрові,&#xA;який захищає його від більшості пошкоджень."/>
+	<trans id="critical-focus" string="Забутий шаманський артефакт. На ньому почали форморуватися кристали, змінюючи його можливості. Коли у носія менше половини здоро'я, він буде отримувати більше душі з ворогів."/>
+	<trans id="baldur's-blessing-desc" string="Захищає носія панцирем перед смертю. Панцир ламається після одного використовування."/>
+
+	<trans id="baldur's-blessing-tip" string="Опинився в небезпеці? Корпус Бальдура достатньо товстий, щоб захистити носія від небезпеки! Але його можна зламати, тому будь обережним."/>
+	<trans id="lifeblood-seed-tip" string="Потрібна допомога? Тоді цей амулет для тебе! Хоча живокров заборонена, але завдяки ній ти будеш почувати себе краще! Просто не кажи хто тобі його продав."/>
+	<trans id="critical-focus-tip" string="Якщо тобі складно сконцектруватися в небезпеці, тоді цей амулет для тебе! Я чув, що носій може збирати &quot;Душу&quot; в небезпеці, щоб це не значило."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Друже! Ти повернувся! Можу побитись об заклад ти тут був секунду назад. Ти це загубив. Візьми."/>
+	<trans id="elderbug-dialog-2" string="Чому б тобі це не випробувати? Трохи практики не зашкодить. Плюс, я б був не проти компаніх."/>
+	<trans id="elderbug-dialog-3" string="Вибач, давно не співав. Спробуємо знову."/>
+	<trans id="elderbug-dialog-4" string="Друже, твій гвіздь в поганому стані. Тобі він не допоможу. Але амулет буде корисним."/>
+	<trans id="elderbug-dialog-5" string="Я ніколи не відчував стільки радості!"/>
+	<trans id="elderbug-dialog-6" string="Здається ми пригорнули увагу торговця! Може ти до нього звернешся? Думаю в нього є багато речей, які допоможуть тобі в подорожах."/>
+	<trans id="elderbug-dialog-7" string="Пара картографів.. Я бажаю ним тілько добра. Якби вони могли придбати приміщення побільше... Не можу дивитися, як висока жінка нахиляється щоб пройти у двері."/>
+	<trans id="elderbug-dialog-8" string="Торговець? На мою думку в його магазині є все! Я б був обережним при покупці... Цей жук ставить великий цінник на свій товар."/>
+	<trans id="elderbug-dialog-9" string="Багато хто прийшов сюди в пошуках загубленого королівства. Халоунест, його звали. Я чув що це було найбільше королівство. З того часу, як воно стало руїною, одного повітря вистачає, щоб звести жука з розуму!"/>
+	<trans id="elderbug-dialog-10" string="Здається ти втомився, друже. Думаю ти дійшов до листяних печер? Там справді гарно."/>
+	<trans id="elderbug-dialog-11" string="Я б на твоєму місці відпочив би на лавці. Вона дуже зручна."/>
+	<trans id="elderbug-dialog-12" string="Я бачу ти щось придбав у торговця. Виглядаєш готовим до наступних пригод. Але будь обережним, хто знає кого ти можеш зустріти там внизу."/>
+	<trans id="elderbug-dialog-13" string="Ти виглядаєш втомленим, друже. Здається ти бився за торг."/>
+
+	<trans id="sly-dialog-1" string="Привіт! Я знав, що ми зустрінемось знов. Здається ти трохи змінився."/>
+	<trans id="sly-dialog-2" string="О! Хочеш поспівати? Хмм... це рідкість, коли хтось кидає мені виклик..."/>
+	<trans id="sly-dialog-3" string="Добре, я його приймаю! Мушу сказати, що я не дуже хороший співак... але мені цікаві твої можливості."/>
+	<trans id="sly-dialog-4" string="Я давно не грав. I have to admit, it's been pretty fun! As much as it pains me... a battle lost is a losing battle. Here, take your reward and leave me to my Geo... unless you intend to buy more goods..."/>
+	<trans id="sly-dialog-5" string="В мене більше немає пропозиція. Ти мене очистив!"/>
+	<trans id="sly-dialog-6" string="Дякую за покупку! Також подивись на інші речі! Вони можуть підвищити твох шанси на виживання там внизу... "/>
+	<trans id="sly-dialog-7" string="Твої кишені пусті? Якщо тобі потрібно Гео, руїни внизу тобі допоможуть!"/>
+
+	<trans id="elderbug-name" string="Старець"/>
+	<trans  id="sly-name" string="Слай"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="Параметри"/>
+	<trans id="note-colors" string="Кольори стрілок"/>
+	<trans id="controls" string="Управління"/>
+	<trans id="graphics" string="Графіка"/>
+	<trans id="visuals-and-ui" string="Візуальний"/>
+	<trans id="gameplay" string="Процес гри"/>
+	<trans id="back" string="Назад"/>
+
+	<trans id="left" string="Ліворуч"/>
+	<trans id="down" string="Вниз"/>
+	<trans id="up" string="Вверх"/>
+	<trans id="right" string="Праворуч"/>
+	<trans id="focus" string="Концетрування"/>
+	<trans id="accept" string="Прайняти"/>
+	<trans id="pause" string="Пауза"/>
+	<trans id="ui-up" string="Меню Вправо"/>
+	<trans id="ui-left" string="Меню Вліво"/>
+	<trans id="ui-right" string="Меню зліва"/>
+	<trans id="ui-down" string="Меня Вниз"/>
+	<trans id="ui-back" string="Меня Назад"/>
+	<trans id="reset" string="Сбросити"/>
+	<trans id="mute" string="Заглушити"/>
+	<trans id="volume-up" string="Громше"/>
+	<trans id="volume-down" string="Тише"/>
+	<trans id="reset-to-default-keys" string="Сбросити до початкових клавіш"/>
+
+	<trans id="on" string="Так"/>
+	<trans id="off" string="Ні"/>
+	<trans id="none" string="Нічого"/>
+
+	<trans id="low-quality" string="Низько графіка"/>
+	<trans id="anti-aliasing" string="Згладжування"/>
+	<trans id="shaders" string="Шейдери"/>
+	<trans id="gpu-caching" string="Кешування Графічного Процесора"/>
+	<trans id="framerate" string="Частота Кадрів"/>
+	<trans id="note-skins" string="Вид Стрілок"/>
+	<trans id="note-splashes" string="Анімація Стрілок"/>
+	<trans id="note-splash-opacity" string="Прозорість Анімації стрілок"/>
+	<trans id="flashing-lights" string="Мигаючі Вогні"/>
+	<trans id="translations" string="Мови"/>
+	<trans id="fps-counter" string="Лічильник FPS"/>
+	<trans id="ghost-tapping" string="Прозоре Натискання"/>
+	<trans id="auto-pause" string="Авто Пауза"/>
+	<trans id="disable-reset-button" string="Вимкнути кнопку сбросу"/>
+	<trans id="hitsound-volume" string="Гучність звуку натискання"/>
+	<trans id="safe-frames" string="Безпечні Кадри"/>
+
+	<trans id="low-quality-desc" string="Якщо увімкнено, то прибирає деякі деталі фону."/>
+	<trans id="anti-aliasing-desc" string="Якщо вимкнено, то відключає згладжування, підіймає продуктивність, знижаючи візуал."/>
+	<trans id="shaders-desc" string="Якщо вимкнено, то вимикає шейдери (візуальні ефекти)."/>
+	<trans id="gpu-caching-desc" string="Якщо увімкнено, то зменшує використання оперативної пам'яті, якщо у вас є хороший графічний процесор .."/>
+	<trans id="framerate-desc" string="Це і так зрозуміло, чи не правда?"/>
+	<trans id="note-skins-desc" string="Виберіть свій улюблений вид стрілок."/>
+	<trans id="note-splashes-desc" string="Виберіть свою улюблену анімацію стрілок, або вимкніть її."/>
+	<trans id="note-splash-desc" string="Наскільки прозорими мають бути анімації стрілок."/>
+	<trans id="flashing-lights-desc" string="Вимкніть це, якщо ви вразливі до миготливих вогней!"/>
+	<trans id="translations-desc" string="Виберіть вашу мову."/>
+	<trans id="fps-counter-desc" string="Якщо вимкнено, то ховає лічильник ФПС."/>
+	<trans id="discord-rich-presence-desc" string="Вимкніть це, якщо хочете сховати гру з вашої активності у Discord (Discord RPC)"/>
+	<trans id="downscroll-desc" string="Якщо увімкнено то стрілки будуть іти зверху вниз."/>
+	<trans id="middlescroll-desc" string="Якщо увімкнено, то стрілки будуть посередині екрану."/>
+	<trans id="ghost-tapping-desc" string="Якщо увімкнено, то ви не отримаєте пропуск за натискання на клавішу, коли ніяких стрілок немає."/>
+	<trans id="auto-pause-desc" string="Якщо увімкнено, то гра буде ставитись на паузу коли вона не в фокусі екрану.."/>
+	<trans id="disable-reset-button-desc" string="Якщо увімкнено, то натискаючи на кнопку перезапуску нічого не станеться.."/>
+	<trans id="hitsound-volume-desc" string="Стрілки будуть робити &quot;Клац!&quot; коли на них натискаєш."/>
+	<trans id="safe-frames-desc" string="Змінює скільки кадрів в тебе є щоб натиснути на стрілку раніше, або пізніше."/>
+
+	<trans id="start-game" string="Грати"/>
+	<trans id="credits" string="Разробники"/>
+	<trans id="quit-game" string="Покинути Гру"/>
+
+	<trans id="new-game" string="Нова Гра"/>
+	<trans id="clear-save" string="Очистити Збереження"/>
+	<trans id="freeplay" string="Вільна Гра"/>
+	<trans id="story" string="Історія"/>
+
+	<trans id="personal-best" string="Власний Рекорд"/>
+	<trans id="score" string="Очки"/>
+	<trans id="misses" string="Промах"/>
+	<trans id="rating" string="Рейтинк"/>
+
+	<trans id="you-have-died" string="Ти помер"/>
+	<trans id="times" string="разів."/>
+	<trans id="resume" string="Продовжити"/>
+	<trans id="exit-to-freeplay" string="Повернутись у Вільну Гру"/>
+	<trans id="exit-to-menu" string="Повернутись у Меню"/>
+	<trans id="exit-to-dirtmouth" string="Повернутись у Грязьмут"/>
+	<trans id="restart-song" string="Перещапустити Піснб"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Відпочити"/>
+	<trans id="listen" string="Слухати"/>
+	<trans id="enter" string="Зайти"/>
+	<trans id="shop" string="Магазин"/>
+
+	<trans id="purchase-this-item?" string="Купити?"/>
+
+	<trans id="charms" string="Амулети"/>
+	<trans id="equipped" string="Одягнені"/>
+	<trans id="notches" string="Слоти"/>
+	<trans id="cost" string="Ціна"/>
+	<trans id="no-cost" string="Нема Ціни"/>
+	<trans id="overcharmed" string="Перечарований"/>
+
+	<trans id="life-tutorial-1" string="Вищі створіння, ці слова для вас."/>
+	<trans id="life-tutorial-2" string="Ваша велика сила розрізняє вас серед нас.&#xA;Зосередьте свою душу, та отримайте силу, про яку інші можуть тільки мріяти."/>
+	<trans id="life-tutorial-3" string="Збирайте ДУШУ натискаючи на стрілки.&#xA;Коли у вас достатньо ДУШІ, затисніть SPACE щоб почати зосередження і лікуватись."/>
+
+	<trans id="charms-tutorial-1" string="Підібран Амулет"/>
+	<trans id="charms-tutorial-2" string="Одягніть Амулет, щоб відкрити його сили."/>
+	<trans id="charms-tutorial-3" string="Щоб одягнути амулет, відктрийте меню АМУЛЕТИ поки відпочиваєте на лавці."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Жахливо!"/>
+	<trans id="shit" string="Дуже погано"/>
+	<trans id="bad" string="Погано"/>
+	<trans id="bruh" string="Незовсім"/>
+	<trans id="meh" string="Таке собі"/>
+	<trans id="nice" string="Непогано"/>
+	<trans id="good" string="Чудово"/>
+	<trans id="great" string="Добре"/>
+	<trans id="sick!" string="Прекрасно!"/>
+	<trans id="perfect!!" string="Ідеально!!"/>
+</translations>

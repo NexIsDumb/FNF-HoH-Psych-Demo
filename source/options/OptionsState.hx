@@ -77,7 +77,7 @@ class OptionsState extends MenuBeatState {
 		add(grpOptions);
 
 		for (i in 0...options.length - 1) {
-			var optionText:FlxText = new FlxText(0, 0, 0, options[i], 12);
+			var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl(options[i], options[i].toLowerCase().replace(" ", "-")), 12);
 			optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenterXY();
 			optionText.y -= FlxG.height / 6;
@@ -87,7 +87,7 @@ class OptionsState extends MenuBeatState {
 			grpOptions.add(optionText);
 		}
 
-		var optionText:FlxText = new FlxText(0, 0, 0, "Back", 12);
+		var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl("Back", "back"), 12);
 		optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 		optionText.screenCenterXY();
 		optionText.y -= FlxG.height / 6;

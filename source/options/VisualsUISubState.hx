@@ -58,7 +58,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 			"Select your prefered translation of the game.",
 			'language',
 			'string',
-			[TransManager.DEFAULT_LANGUAGE].concat(TransManager.translList()));
+			[TM.DEFAULT_LANGUAGE].concat(TM.translList()));
 		addOption(option);
 		option.onChange = onChangeLanguage;
 
@@ -99,7 +99,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 	}
 
 	function onChangeLanguage() {
-		TransManager.setTransl();
+		TM.setTransl();
 		ClientPrefs.saveSettings();
 
 		OptionsState.restartVisuals = curSelected;

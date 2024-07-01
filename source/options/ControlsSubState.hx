@@ -139,7 +139,7 @@ class ControlsSubState extends MusicBeatSubstate {
 					var isDisplayKey:Bool = (isCentered && !isDefaultKey);
 
 					if (!isDefaultKey) {
-						var text:FlxText = new FlxText(0, 0, 0, option[1], 12);
+						var text:FlxText = new FlxText(0, 0, 0, TM.checkTransl(option[1], option[1].toLowerCase().replace(" ", "-")), 12);
 						text.setFormat(Constants.UI_FONT, 17, FlxColor.WHITE, LEFT);
 						text.screenCenterXY();
 						text.x = FlxG.width / 3.75;
@@ -189,7 +189,7 @@ class ControlsSubState extends MusicBeatSubstate {
 			}
 		}
 
-		reset = new FlxText(0, 0, 0, defaultKey, 12);
+		reset = new FlxText(0, 0, 0, TM.checkTransl(defaultKey, "reset-to-default-keys"), 12);
 		reset.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, LEFT);
 		reset.screenCenterXY();
 		reset.y -= FlxG.height / 4;
@@ -197,7 +197,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		reset.antialiasing = ClientPrefs.data.antialiasing;
 		add(reset);
 
-		back = new FlxText(0, 0, 0, "Back", 12);
+		back = new FlxText(0, 0, 0, TM.checkTransl("Back", "back"), 12);
 		back.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 		back.screenCenterXY();
 		back.y -= FlxG.height / 6;

@@ -72,24 +72,24 @@ class Shop extends FlxSpriteGroup {
 		add(main);
 
 		notch = new FlxText(250, 220, FlxG.width / 4.75, "Notch Cost");
-		notch.setFormat(Paths.font("perpetua.ttf"), 23, FlxColor.WHITE, CENTER);
+		notch.setFormat(Constants.HK_FONT, 23, FlxColor.WHITE, CENTER);
 		notch.antialiasing = ClientPrefs.data.antialiasing;
 		add(notch);
 
 		desc1 = new FlxText(250, 330, FlxG.width / 4.75, "null");
-		desc1.setFormat(Paths.font("perpetua.ttf"), 23, FlxColor.WHITE, LEFT);
+		desc1.setFormat(Constants.HK_FONT, 23, FlxColor.WHITE, LEFT);
 		desc1.antialiasing = ClientPrefs.data.antialiasing;
 		add(desc1);
 
 		title = new FlxText(250, 170, FlxG.width / 4.75, "null");
-		title.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
+		title.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		title.antialiasing = ClientPrefs.data.antialiasing;
 		add(title);
 
 		var mainPos = main.getGraphicMidpoint();
 
 		title2 = new FlxText(mainPos.x - main.width / 6, 170, 0, "help");
-		title2.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
+		title2.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		title2.antialiasing = ClientPrefs.data.antialiasing;
 		title2.screenCenterX();
 		title2.x -= main.width / 1.58;
@@ -104,8 +104,8 @@ class Shop extends FlxSpriteGroup {
 		charmsy.alpha = 0;
 		add(charmsy);
 
-		purchase = new FlxText(mainPos.x - main.width / 6, 350, 0, "Purchase this Item?");
-		purchase.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
+		purchase = new FlxText(mainPos.x - main.width / 6, 350, 0, TM.checkTransl("Purchase this Item?", "purchase-this-item?"));
+		purchase.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		purchase.antialiasing = ClientPrefs.data.antialiasing;
 		purchase.screenCenterX();
 		purchase.x -= main.width / 1.58;
@@ -113,7 +113,7 @@ class Shop extends FlxSpriteGroup {
 		add(purchase);
 
 		yes = new FlxText(mainPos.x - main.width / 6, 420, 0, "Yes");
-		yes.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
+		yes.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		yes.antialiasing = ClientPrefs.data.antialiasing;
 		yes.screenCenterX();
 		yes.x -= main.width / 1.58;
@@ -123,7 +123,7 @@ class Shop extends FlxSpriteGroup {
 		selected2 = yes;
 
 		no = new FlxText(mainPos.x - main.width / 6, 480, 0, "No");
-		no.setFormat(Paths.font("perpetua.ttf"), 32, FlxColor.WHITE, CENTER);
+		no.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		no.antialiasing = ClientPrefs.data.antialiasing;
 		no.screenCenterX();
 		no.x -= main.width / 1.58;
@@ -197,15 +197,15 @@ class Shop extends FlxSpriteGroup {
 			var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 
 			addCharm(BaldursBlessing,
-				"Finding yourself running into trouble down below? Baldur shells are so tough that they are said to protect the wearer from harm! However it does not seem indestructible, so do take care.",
+				TM.checkTransl("Finding yourself running into trouble down below? Baldur shells are so tough that they are said to protect the wearer from harm! However it does not seem indestructible, so do take care.", "baldur's-blessing-tip"),
 				3, "250", "bb");
 
 			addCharm(LifebloodSeed,
-				"Need a little bit of a boost? Then this charm is the thing for you! Lifeblood may be seen as a bit of a taboo, but it certainly will make you feel healthier! Just don’t let anyone know who sold it to you.",
+				TM.checkTransl("Need a little bit of a boost? Then this charm is the thing for you! Lifeblood may be seen as a bit of a taboo, but it certainly will make you feel healthier! Just don’t let anyone know who sold it to you.", "lifeblood-seed-tip"),
 				2, "175", "lb");
 
 			addCharm(CriticalFocus,
-				"If you have trouble focusing in dangerous situations, this is the charm for you! I heard that it can help the wearer gather “SOUL” when in danger, whatever that means.",
+				TM.checkTransl("If you have trouble focusing in dangerous situations, this is the charm for you! I heard that it can help the wearer gather “SOUL” when in danger, whatever that means.", "critical-focus-tip"),
 				2, "450", "cf");
 
 			if (rawData1 && rawData2 && rawData3) {
@@ -264,11 +264,11 @@ class Shop extends FlxSpriteGroup {
 				OverworldManager.instance.dialogue.openBox("Sly",
 					[
 						[
-							"Back for more? I’m afraid I have nothing left to offer you. You’ve cleaned me out."
+							/*Back for more?*/ TM.checkTransl("I’m afraid I have nothing left to offer you. You’ve cleaned me out.", "sly-dialog-5")
 						],
-						[
-							"I believe I might have more items locked away in my storeroom, but I seem to have lost the key. So, no more business between us I’m afraid! Until that key shows up again at least…"
-						]
+						/*[  // No translations for this :(
+								"I believe I might have more items locked away in my storeroom, but I seem to have lost the key. So, no more business between us I’m afraid! Until that key shows up again at least…"
+							] */
 					],
 					function() {
 						filly();
@@ -373,7 +373,7 @@ class Shop extends FlxSpriteGroup {
 						OverworldManager.instance.dialogue.openBox("Sly",
 							[
 								[
-									"Ah, Hello! I knew we'd meet again. Seems like you've gotten yourself a bit of a makeover, hm?"
+									TM.checkTransl("Ah, Hello! I knew we'd meet again. Seems like you've gotten yourself a bit of a makeover, hm?", "sly-dialog-1")
 								]
 							],
 							function() {
@@ -385,7 +385,7 @@ class Shop extends FlxSpriteGroup {
 							OverworldManager.instance.dialogue.openBox("Sly",
 								[
 									[
-										"Oh, it's been quite some time since I've played like that. I must admit that it was quite enjoyable! As much as it pains me...a battle lost is a battle lost. Here, take your reward and leave me to my Geo.. unless you plan to purchase some more of my wares…"
+										TM.checkTransl("Oh, it's been quite some time since I've played like that. I must admit that it was quite enjoyable! As much as it pains me...a battle lost is a battle lost. Here, take your reward and leave me to my Geo.. unless you plan to purchase some more of my wares…", "sly-dialog-4")
 									]
 								],
 								function() {
@@ -635,7 +635,7 @@ class Shop extends FlxSpriteGroup {
 						FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 					}
 
-					purchase.text = "Purchase this Item?";
+					purchase.text = TM.checkTransl("Purchase this Item?", "purchase-this-item?");
 					title2.text = charmList[selected][4][0];
 
 					title2.updateHitbox();
@@ -704,9 +704,11 @@ class Shop extends FlxSpriteGroup {
 								new FlxTimer().start(.6, function(tmr:FlxTimer) {
 									OverworldManager.instance.dialogue.openBox("Sly",
 										[
-											["Oh! You wish to sing? Hmm… it's rare for someone to challenge me..."],
 											[
-												"Alright, I accept! I must say that I am not much of a singer myself… but I am curious about your skills."
+												TM.checkTransl("Oh! You wish to sing? Hmm… it's rare for someone to challenge me...", "sly-dialog-2")
+											],
+											[
+												TM.checkTransl("Alright, I accept! I must say that I am not much of a singer myself… but I am curious about your skills.", "sly-dialog-3")
 											]
 										],
 										function() {
@@ -796,7 +798,11 @@ class Shop extends FlxSpriteGroup {
 								if (rawData1 && rawData2 && rawData3) {
 									new FlxTimer().start(.6, function(tmr:FlxTimer) {
 										OverworldManager.instance.dialogue.openBox("Sly",
-											[["I’m afraid I have nothing left to offer you. You’ve cleaned me out."]],
+											[
+												[
+													TM.checkTransl("I’m afraid I have nothing left to offer you. You’ve cleaned me out.", "sly-dialog-5")
+												]
+											],
 											function() {
 												caninteractter = true;
 												purchasedall = true;
@@ -813,7 +819,7 @@ class Shop extends FlxSpriteGroup {
 										OverworldManager.instance.dialogue.openBox("Sly",
 											[
 												[
-													"Thank you for your kind patronage! I assure you, my other wares are worth a look at as well! They may even increase your chances at survival down below…"
+													TM.checkTransl("Thank you for your kind patronage! I assure you, my other wares are worth a look at as well! They may even increase your chances at survival down below…", "sly-dialog-6")
 												]
 											],
 											function() {
@@ -859,7 +865,7 @@ class Shop extends FlxSpriteGroup {
 								OverworldManager.instance.dialogue.openBox("Sly",
 									[
 										[
-											"Pockets feeling empty? If you are on the hunt for more geo, the ruins below have much to offer!"
+											TM.checkTransl("Pockets feeling empty? If you are on the hunt for more geo, the ruins below have much to offer!", "sly-dialog-7")
 										]
 									],
 									function() {

@@ -1,0 +1,174 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Melodyjna Skorupa"/>
+	<trans id="lifeblood-seed" string="Życiodajne Nasiono"/>
+	<trans id="critical-focus" string="Błyskawiczne Skupienie"/>
+	<trans id="baldur's-blessing" string="Błogosławieńtwo Baldura"/>
+
+	<trans id="melodic-shell-desc" string="Amulet muzyczny stworzony dla tych, którzy szukają umiejętności śpiewu. Daje swojemu posiadaczowi umiejętność intonacji, za którą otrzymuje dusze."/>
+	<trans id="lifeblood-seed-desc" string="Zawiera żywy rdzeń, który wydziela drogocenną krew życia.Podczas odpoczynku posiadacz zostanie okryty powłoką krwi życia, która chroni go przed niewielką ilością obrażeń."/>
+	<trans id="critical-focus" string="Dawno zapomniany artefakt Szamanów.Pradawne kryształy zaczęły się na nim formować, wzmacniając jego moce. Gdy posiadacz ma mniej niż połowę swojego życia, amulet zapewnia dodatkowe dusze z przeciwników."/>
+	<trans id="baldur's-blessing-desc" string="Chroni posiadacza swoją twardą skorupą w obliczu bliskiej śmierci. Skorupa nie jest niezniszczalna i rozkruszy się po użyciu."/>
+
+	<trans id="baldur's-blessing-tip" string="Ciągle napotykasz trudności na dole? Skorupy Baldurów są tak mocne, że podobno chronią posiadacza przed obrażeniami. Lecz uważaj, nie są niezniszczalne."/>
+	<trans id="lifeblood-seed-tip" string="Potrzebujesz małego doładowania? W takim razie ten amulet jest dla Ciebie! Krew życia może być uznana przez niektórych jako zakazana, ale dzięki niej na pewno poczujesz się lepiej! Tylko nikt się nie może dowiedzieć, kto Ci to sprzedał."/>
+	<trans id="critical-focus-tip" string="Jeśli masz problem w skupieniu się podczas trudnych sytuacji, ten amulet jest dla Ciebie! Słyszałem, że pomaga posiadaczowi zbierać “DUSZE”, gdy znajduje się w niebezpieczeństwie, cokolwiek to znaczy."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Ah, Wędrowcze! Wróciłeś! Mogę przyrzec, że minąłeś mnie chwilę temu. Upuściłeś to podczas swojej wędrówki na dół. Proszę, weź."/>
+	<trans id="elderbug-dialog-2" string="Śmiało, czemu nie wypróbujesz go teraz? Odrobina praktyki nie zaszkodzi. Poza tym, doceniam czas spędzony w miłym towarzystwie."/>
+	<trans id="elderbug-dialog-3" string="Wybacz mi, musiałem wyjść trochę z wprawy. Spróbujmy jeszcze raz Wędrowcze."/>
+	<trans id="elderbug-dialog-4" string="Wędrowcze, twoja broń jest w dość opłakanym stanie. Może się to dla ciebie źle skończyć. Możliwe, że twój amulet Ci pomoże."/>
+	<trans id="elderbug-dialog-5" string="Ohoho, nie bawiłem się tak dobrze od bardzo dawna!"/>
+	<trans id="elderbug-dialog-6" string="Hm, wygląda na to, że przykuliśmy uwagę naszego sklepikarza! Może go odwiedzisz? Myślę, że będzie miał coś, co Ci pomoże w twoich wyprawach."/>
+	<trans id="elderbug-dialog-7" string="Ta para w sklepie z mapami.. Oh, życzę żeby się im jak najlepiej powodziło. Gdyby tylko mogli postawić ten sklep w jakimś większym mieście.. nie mogę patrzeć jak jego małżonka schyla się, aby przejść przez te małe drzwi. Jest z niej taki wysoki robak."/>
+	<trans id="elderbug-dialog-8" string="Tamten sklepikarz? Wydaje się, że ma wszystko w swoim małym sklepiku! Ale uważałbym, jeśli planujesz coś od niego kupić.. Dość mocno targuje się o swoje towary." />
+	<trans id="elderbug-dialog-9" string="Wielu przychodziło tu szukać królestwa, które jest pod nami, zwą je Hallownest. Mówiono mi, że to najpotężniejsze królestwo jakie istnieje. Lecz stało się ruiną przez powietrze, które wywołuje u każdego szaleństwo!"/>
+	<trans id="elderbug-dialog-10" string="Wydajesz się zmęczony Wędrowcze. Uznaję, że wędrowałeś po liściastych jaskiniach tam na dole? Przepiękne widoki."/>
+	<trans id="elderbug-dialog-11" string="Sugeruję, żebyś odpoczął na ławce obok, zanim znów wyruszysz. Zapewniam Cię, jest wygodna."/>
+	<trans id="elderbug-dialog-12" string="Oh, widzę, że kupiłeś coś od naszego sklepikarza czyż nie? Wydajesz się gotowy na kolejną wyprawę. Ale pamiętaj, wciąż musisz być ostrożny, kto wie co napotkasz w tych jaskiniach."/>
+	<trans id="elderbug-dialog-13" string="Wydajesz się zmęczony Podróżniku. Wygląda na to, że stoczyłeś ciężką walkę."/>
+
+	<trans id="sly-dialog-1" string="Ah, witaj! Wiedziałem, że jeszcze się spotkamy. Wygląda na to, że zrobiłeś sobie małą metamorfozę, hm?"/>
+	<trans id="sly-dialog-2" string="Oh! Chciałbyś pośpiewać? Hmm...rzadko się zdarza, żeby ktoś rzucał mi wyzwanie..."/>
+	<trans id="sly-dialog-3" string="W porządku, zgadzam się! Muszę przyznać, że nie jestem zbyt dobrym śpiewakiem... lecz jestem ciekaw twoich umiejętności."/>
+	<trans id="sly-dialog-4" string="Ah, trochę czasu minęło, odkąd tak grałem. Muszę przyznać to było całkiem przyjemne! Mówię to z wielkiem bólem ale...przegrana jest przegraną. Proszę, weź swoją nagrodę i zostaw mnie z moim Geo.. chyba że chcesz kupić któryś z moich towarów..."/>
+	<trans id="sly-dialog-5" string="Obawiam się, że nie mam nic, co mogę ci zaoferować. Wykupiłeś ode mnie wszystko."/>
+	<trans id="sly-dialog-6" string="Dziękuję za twój życzliwy patronat! Gwarantuję, że moje inne towary również są warte swojej ceny! Może nawet zwiększą twoje szanse przetrwania na dole..."/>
+	<trans id="sly-dialog-7" string="Pusto w kieszeniach? Jeżeli polujesz na więcej Geo, ruiny pod nami mają wiele do zaoferowania!"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="Opcje"/>
+	<trans id="note-colors" string="Kolory nut"/>
+	<trans id="controls" string="Sterowanie"/>
+	<trans id="graphics" string="Grafika"/>
+	<trans id="visuals-and-ui" string="Wygląd i interfejs"/>
+	<trans id="gameplay" string="Rozgrywka"/>
+	<trans id="back" string="Wróć"/>
+
+	<trans id="left" string="Lewo"/>
+	<trans id="down" string="Dół"/>
+	<trans id="up" string="Góra"/>
+	<trans id="right" string="Prawo"/>
+	<trans id="focus" string="Skupienie"/>
+	<trans id="accept" string="Potwierdź"/>
+	<trans id="pause" string="Pauza"/>
+	<trans id="ui-up" string="UI Góra"/>
+	<trans id="ui-left" string="UI Lewo"/>
+	<trans id="ui-right" string="UI Prawo"/>
+	<trans id="ui-down" string="UI Dół"/>
+	<trans id="ui-back" string="UI Tył"/>
+	<trans id="reset" string="Restart"/>
+	<trans id="mute" string="Wycisz"/>
+	<trans id="volume-up" string="Zwiększ głośność"/>
+	<trans id="volume-down" string="Zmniejsz głośność"/>
+	<trans id="reset-to-default-keys" string="Przywróć klawisze domyślne"/>
+
+	<trans id="on" string="Tak"/>
+	<trans id="off" string="Nie"/>
+	<trans id="none" string="Nic"/>
+
+	<trans id="low-quality" string="Niska jakość"/>
+	<trans id="anti-aliasing" string="Anti-Aliasing"/>
+	<trans id="shaders" string="Shadery"/>
+	<trans id="gpu-caching" string="Buforowanie GPU"/>
+	<trans id="framerate" string="FPS"/>
+	<trans id="note-skins" string="Skórki nut"/>
+	<trans id="note-splashes" string="Efekty nut"/>
+	<trans id="note-splash-opacity" string="Nieprzezroczystość efektów nut"/>
+	<trans id="flashing-lights" string="Migające światła"/>
+	<trans id="translations" string="Język"/>
+	<trans id="fps-counter" string="Licznik FPS"/>
+	<trans id="discord-rich-presence" string="Aktywność Discord"/>
+	<trans id="downscroll" string="Przewijanie w dół"/>
+	<trans id="middlescroll" string="Wyśrodkowanie"/>
+	<trans id="ghost-tapping" string="Przyciski widmo"/>
+	<trans id="auto-pause" string="Automatyczna pauza"/>
+	<trans id="disable-reset-button" string="Wyłącz przycisk Restart"/>
+	<trans id="hitsound-volume" string="Głośność uderzenia w nutę"/>
+	<trans id="safe-frames" string="Bezpieczne klatki"/>
+
+	<trans id="low-quality-desc" string="Gdy jest włączone ukrywa detale."/>
+	<trans id="anti-aliasing-desc" string="Wyłącza anti-aliasing poprawiając wydajność."/>
+	<trans id="shaders-desc" string="Wyłącza shadery (efekty wizualne)."/>
+	<trans id="gpu-caching-desc" string="Gdy jest włączone zmniejsza użycie pamięci RAM, jeśli masz dobrą kartę graficzną."/>
+	<trans id="framerate-desc" string="Całkiem oczywiste, czyż nie?"/>
+	<trans id="note-skins-desc" string="Wybierz skórkę dla swoich nut."/>
+	<trans id="note-splashes-desc" string="Wybierz preferowane efekty nut lub je wyłącz."/>
+	<trans id="note-splash-desc" string="Ustaw jak bardzo efekty nut są przezroczyste."/>
+	<trans id="flashing-lights-desc" string="Wyłącz jeśli jesteś wrażliwy na migające światła!"/>
+	<trans id="translations-desc" string="Wybierz preferowany język gry."/>
+	<trans id="fps-counter-desc" string="Gdy jest wyłączone, ukrywa licznik FPS."/>
+	<trans id="discord-rich-presence-desc" string="Wyłącz żeby ukryć aktywność na Discordzie."/>
+	<trans id="downscroll-desc" string="Gdy jest włączone nuty idą w dół zamiast w górę."/>
+	<trans id="middlescroll-desc" string="Gdy jest włączone twoje nuty zostają wyśrodkowane."/>
+	<trans id="ghost-tapping-desc" string="Gdy jest włączone nie będą liczone pudła za wciskanie przycisków których nie ma na ekranie."/>
+	<trans id="auto-pause-desc" string="Gdy jest włączone gra automatycznie się pauzuje, gdy ekran nie jest na niej skupiony."/>
+	<trans id="disable-reset-button-desc" string="Gdy jest włączone wciskanie przycisku Restart nie będzie nic robić."/>
+	<trans id="hitsound-volume-desc" string="Nuty robią &quot;Tik!&quot; gdy w nie trafiasz. "/>
+	<trans id="safe-frames-desc" string="Zmienia ile masz klatek na trafienie w nutę."/>
+
+	<trans id="start-game" string="Rozpocznij grę"/>
+	<trans id="credits" string="Podziękowania"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="Wyjdź z gry"/>
+
+	<trans id="new-game" string="Nowa Gra"/>
+	<trans id="clear-save" string="Usuń Zapis"/>
+	<trans id="freeplay" string="Freeplay"/>
+	<trans id="story" string="Historia"/>
+
+	<trans id="personal-best" string="Najlepszy wynik"/>
+	<trans id="score" string="Wynik"/>
+	<trans id="misses" string="Pudła"/>
+	<trans id="rating" string="Ocena"/>
+
+	<trans id="you-have-died" string="Zginąłeś"/>
+	<trans id="times" string="razy."/>
+	<trans id="resume" string="Wznów"/>
+	<trans id="exit-to-freeplay" string="Wróć do Freeplay"/>
+	<trans id="exit-to-menu" string="Wróć do menu"/>
+	<trans id="exit-to-dirtmouth" string="Wróć do Dirtmouth"/>
+	<trans id="restart-song" string="Restart Piosenki"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Odpocznij"/>
+	<trans id="listen" string="Posłuchaj"/>
+	<trans id="enter" string="Wejdź"/>
+	<trans id="shop" string="Sklep"/>
+
+	<trans id="purchase-this-item?" string="Kupić?"/>
+
+	<trans id="charms" string="Amulety"/>
+	<trans id="equipped" string="Założone"/>
+	<trans id="notches" string="Miejsca na amulet"/>
+	<trans id="cost" string="Miejsca"/>
+	<trans id="no-cost" string="Brak"/>
+	<trans id="overcharmed" string="Przeciążony"/>
+
+	<trans id="life-tutorial-1" string="Istoty Wyższe, te słowa są dla was."/>
+	<trans id="life-tutorial-2" string="Wasza siła wyróżnia Was między nami.&#xA;Skupcie Swoją duszę a osiągniecie rzeczy o których inni mogą tylko marzyć."/>
+	<trans id="life-tutorial-3" string="Zbierajcie DUSZE klikając w nuty.&#xA;Po zebraniu wystarczającej ilości DUSZ, przytrzymajcie SPACE poza śpiewem by skupić DUSZE lecząc się."/>
+
+	<trans id="charms-tutorial-1" string="Zebrano amulet"/>
+	<trans id="charms-tutorial-2" string="Załóż amulet by zdobyć jego potężne umiejętności"/>
+	<trans id="charms-tutorial-3" string="Aby założyć amulet otwórz menu AMULETY podczas odpoczynku na ławce."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Żałosne!"/>
+	<trans id="shit" string="Beznadzieja"/>
+	<trans id="bad" string="Źle"/>
+	<trans id="bruh" string="Bruh"/>
+	<trans id="meh" string="Meh"/>
+	<trans id="nice" string="Fajnie"/>
+	<trans id="good" string="Dobrze"/>
+	<trans id="great" string="Świetnie"/>
+	<trans id="sick!" string="Super!"/>
+	<trans id="perfect!!" string="Idealnie!!"/>
+
+</translations>

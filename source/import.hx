@@ -12,7 +12,7 @@ import llua.Lua;
 #end
 import backend.BaseStage;
 import backend.ClientPrefs;
-import backend.TransManager;
+import backend.TransManager as TM;
 import backend.Conductor;
 import backend.Controls;
 import backend.CoolUtil;

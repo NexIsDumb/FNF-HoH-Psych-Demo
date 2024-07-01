@@ -77,26 +77,26 @@ class PauseSubState extends MusicBeatSubstate {
 
 		var blueballedTxt:FlxText = new FlxText(20 * 1.4, (15 + 70) * 1.6, 0, "", 32);
 		if (!silly) {
-			// blueballedTxt.text = blueballedTxt.translationPub("You have died") + " " + PlayState.deathCounter + " " + blueballedTxt.translationPub("times.") + blueballedTxt.suffixPub("");
+			blueballedTxt.text = TM.checkTransl("You have died", "you-have-died") + " " + PlayState.deathCounter + " " + TM.checkTransl("times.", "times");
 		} else {
 			blueballedTxt.visible = false;
 		}
 		blueballedTxt.scrollFactor.set();
-		blueballedTxt.setFormat(Paths.font('trajan.ttf'), 28);
+		blueballedTxt.setFormat(Constants.UI_FONT, 28);
 		blueballedTxt.updateHitbox();
 		blueballedTxt.antialiasing = ClientPrefs.data.antialiasing;
 		add(blueballedTxt);
 
 		practiceText = new FlxText(20 * 1.4, (15 + 101) * 1.4, 0, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();
-		practiceText.setFormat(Paths.font('trajan.ttf'), 32);
+		practiceText.setFormat(Constants.UI_FONT, 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.updateHitbox();
 		// add(practiceText);
 
 		var chartingText:FlxText = new FlxText(20 * 1.4, (15 + 101) * 1.4, 0, "CHARTING MODE", 32);
 		chartingText.scrollFactor.set();
-		chartingText.setFormat(Paths.font('trajan.ttf'), 32);
+		chartingText.setFormat(Constants.UI_FONT, 32);
 		chartingText.x = FlxG.width - (chartingText.width + 20);
 		chartingText.y = FlxG.height - (chartingText.height + 20);
 		chartingText.updateHitbox();
@@ -379,7 +379,7 @@ class PauseSubState extends MusicBeatSubstate {
 			// item.targetY = i;
 			// grpMenuShit.add(item);
 
-			var item = new FlxText(120, 50 * i + 290 * 1.3, menuItems[i], 24);
+			var item = new FlxText(120, 50 * i + 290 * 1.3, TM.checkTransl(menuItems[i], menuItems[i].toLowerCase().replace(" ", "-")), 24);
 			item.scrollFactor.set();
 			item.setFormat(Constants.UI_FONT, 26, FlxColor.WHITE, CENTER);
 			item.screenCenterX();

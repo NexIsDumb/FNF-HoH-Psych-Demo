@@ -65,7 +65,7 @@ class Dialogue extends FlxSpriteGroup {
 		add(arrow);
 
 		text = new FlxText(70, 50, FlxG.width - 600, 'Hahaha i am elderbug.exe', 28);
-		text.setFormat(Paths.font("perpetua.ttf"), 28, FlxColor.WHITE, LEFT);
+		text.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, LEFT);
 		text.antialiasing = ClientPrefs.data.antialiasing;
 		text.alpha = 0;
 		add(text);
@@ -117,7 +117,7 @@ class Dialogue extends FlxSpriteGroup {
 			arrowsuffix = "s";
 		}
 
-		var theoneliner = "";
+		var theoneliner = line;
 		publine = theoneliner;
 
 		text.text = "";
@@ -130,7 +130,7 @@ class Dialogue extends FlxSpriteGroup {
 			var textywesty:String = linesplit[0];
 			new FlxTimer().start(0.025, function(tmr:FlxTimer) {
 				textywesty += linesplit[linesplit.length - tmr.loopsLeft - 1];
-				// text.text = textywesty + text.suffixPub("");
+				text.text = textywesty /*+ text.suffixPub("")*/;
 			}, linesplit.length - 1);
 		});
 

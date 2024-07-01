@@ -172,7 +172,7 @@ class SlyShop extends BaseScene {
 				interactionBackdrop.y = interactionflair.getGraphicMidpoint().y - interactionflair.height / 2.5;
 				interactionBackdrop.x = interactionflair.getGraphicMidpoint().x - interactionflair.width / 3.25;
 
-				interactiontext.text = "Shop";
+				interactiontext.text = TM.checkTransl("Shop", "shop");
 
 				if (interactionflair.animation.curAnim.name != "idle") {
 					if (interactionflair.animation.curAnim.name == "appear" && interactionflair.animation.curAnim.finished) {

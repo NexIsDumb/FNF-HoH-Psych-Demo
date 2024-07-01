@@ -1253,7 +1253,7 @@ class PlayState extends MusicBeatState {
 	}
 
 	public function updateScore(miss:Bool = false) {
-		var str:String = ratingName;
+		var str:String = TM.checkTransl(ratingName, ratingName.toLowerCase().replace(" ", "-"));
 		if (totalPlayed != 0) {
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
 			str += ' ($percent%) - $ratingFC';
@@ -1261,12 +1261,11 @@ class PlayState extends MusicBeatState {
 			str = "?";
 		}
 
-		var scoree = "";
-		var missess = "";
-		var ratingg = "";
-		var suffix = "";
+		var scoree = TM.checkTransl("Score", "score");
+		var missess = TM.checkTransl("Misses", "misses");
+		var ratingg = TM.checkTransl("Rating", "rating");
 
-		scoreTxt.text = scoree + ': ' + songScore + ' | ' + missess + ': ' + songMisses + ' | ' + ratingg + ': ' + str + suffix;
+		scoreTxt.text = scoree + ': ' + songScore + ' | ' + missess + ': ' + songMisses + ' | ' + ratingg + ': ' + str;
 
 		if (ClientPrefs.data.scoreZoom && !miss && !cpuControlled) {
 			if (scoreTxtTween != null) {

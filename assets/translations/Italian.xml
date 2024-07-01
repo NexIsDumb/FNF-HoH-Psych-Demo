@@ -5,14 +5,14 @@
     <trans id="melodic-shell" string="Guscio Melodico"/>
     <trans id="lifeblood-seed" string="Seme di Lifeblood"/>
     <trans id="critical-focus" string="Concentrazione Rapida"/>
-    <trans id="baldur-blessing" string="Benedizione di Baldur"/>
+    <trans id="baldur's-blessing" string="Benedizione di Baldur"/>
 
     <trans id="melodic-shell-desc" string="Amuleto melodico creato per coloro che desiderano cantare Concede a chi lo porta la capacità di cantare in cambio ricompensandogli l'anima."/>
     <trans id="lifeblood-seed-desc" string="Contiene un nucleo vivente che gocciola prezioso sangue vitale. Quando riposa, il portatore riceve uno strato di sangue vitale&#xA;che protegge da una modesta quantità di danni."/>
     <trans id="critical-focus" string="Un manufatto sciamano dimenticato da tempo. Come risultato, su di esso iniziarono a formarsi cristalli, amplificando le sue abilità. Mentre il portatore è al di sotto della metà della sua salute attuale, gli viene concessa un'anima aggiuntiva quando colpisce i nemici."/>
-    <trans id="baldur-blessing-desc" string="Protegge chi lo indossa con un guscio duro in caso di morte certa. Il guscio non è indistruttibile e si frantuma dopo un solo utilizzo."/>
+    <trans id="baldur's-blessing-desc" string="Protegge chi lo indossa con un guscio duro in caso di morte certa. Il guscio non è indistruttibile e si frantuma dopo un solo utilizzo."/>
 
-    <trans id="baldur-blessing-tip" string="Ti ritrovi nei guai laggiù? I carpaci di Baldoro sono così resistenti che si dice proteggano chi li indossa dai danni! Tuttavia non sembra indistruttibile, quindi fai attenzione."/>
+    <trans id="baldur's-blessing-tip" string="Ti ritrovi nei guai laggiù? I carpaci di Baldoro sono così resistenti che si dice proteggano chi li indossa dai danni! Tuttavia non sembra indistruttibile, quindi fai attenzione."/>
     <trans id="lifeblood-seed-tip" string="Hai bisogno di un piccolo potenziamento? Allora questo amuleto è quello che fa al caso tuo! Il sangue vitale può essere visto come un tabù, ma sicuramente ti farà sentire più sano! Basta non far sapere a nessuno chi te l'ha venduto."/>
     <trans id="critical-focus-tip" string="Se hai difficoltà a concentrarti in situazioni pericolose, questo è l'amuleto che fa al caso tuo! Ho sentito che può aiutare chi lo indossa a raccogliere &quot;ANIMA&quot; quando è in pericolo, qualunque cosa significhi."/>
 
@@ -48,19 +48,20 @@
     <trans id="note-colors" string="Colori Note"/>
     <trans id="controls" string="Controlli"/>
     <trans id="graphics" string="Grafica"/>
-    <trans id="visuals-and-ui" string="Grafica"/>
+    <trans id="visuals-and-ui" string="Visuali e UI"/>
     <trans id="gameplay" string="Gameplay"/>
     <trans id="back" string="Indietro"/>
 
     <trans id="left" string="Sinistra"/>
     <trans id="down" string="Giú"/>
     <trans id="up" string="Su"/>
-    <trans id="Right" string="Destra"/>
+    <trans id="right" string="Destra"/>
     <trans id="focus" string="Focus"/>
     <trans id="accept" string="Accetta"/>
     <trans id="pause" string="Pausa"/>
     <trans id="ui-up" string="UI Su"/>
     <trans id="ui-left" string="UI Sinistra"/>
+    <trans id="ui-right" string="UI Destra"/>
     <trans id="ui-down" string="UI Giú"/>
     <trans id="ui-back" string="UI Indietro"/>
     <trans id="reset" string="Ripristina"/>

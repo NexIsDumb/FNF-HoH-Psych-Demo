@@ -40,7 +40,9 @@ class SillySub extends MusicBeatSubstate {
 
 		dialogue.openBox("Elderbug",
 			[
-				["I apologize, my singing must be a little rusty. Lets try that again, Traveler."]
+				[
+					TM.checkTransl("I apologize, my singing must be a little rusty. Lets try that again, Traveler.", "elderbug-dialog-3")
+				]
 			],
 			function() {
 				MusicBeatState.resetState();

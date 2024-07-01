@@ -24,6 +24,33 @@ class TransManager {
 	public static inline var DEFAULT_LANGUAGE:String = 'English';
 
 	/**
+	 * The default font used.
+	 */
+	public static inline var DEFAULT_FONT:String = 'perpetua.ttf';
+
+	/**
+	 * The default font used for the ui.
+	 */
+	public static inline var DEFAULT_UI_FONT:String = 'trajan.ttf';
+
+	/**
+	 * The font found inside the language's file (CAN BE `null`!!).
+	 */
+	public static var languageFont:String = null;
+
+	/**
+	 * Returns the current font.
+	 */
+	inline public static function get_curFont():String
+		return languageFont == null ? DEFAULT_UI_FONT : languageFont;
+
+	/**
+	 * Returns the current ui font.
+	 */
+	inline public static function get_curUIFont():String
+		return languageFont == null ? DEFAULT_FONT : languageFont;
+
+	/**
 	 * Returns the current language.
 	 */
 	inline public static function get_curLanguage():String
@@ -50,7 +77,6 @@ class TransManager {
 		if (name == null)
 			name = get_curLanguage();
 		transMap = loadLanguage(name);
-		trace(transMap);
 	}
 
 	/**
@@ -96,25 +122,26 @@ class TransManager {
 	 */
 	public static function loadLanguage(name:String):Map<String, String> {
 		if (!Paths.fileExists(name + ".xml", TEXT, false, "translations"))
-			return [];
+			return _returnAndNullFont([]);
 
 		var xml = null;
 		try {
-			xml = new Access(Xml.parse(Paths.getTextFromFile(Paths.transMainFolder(name) + ".xml", false)));
+			xml = new Access(Xml.parse(Paths.getTextFromFile(name + ".xml", false, "translations")));
 		} catch (e) {
 			var err = 'Error while parsing the language\'s xml: ${Std.string(e)}';
 			FlxG.log.error(err);
 			throw new Exception(err);
 		}
 		if (xml == null)
-			return [];
+			return _returnAndNullFont([]);
 		if (!xml.hasNode.translations) {
 			FlxG.log.warn("A translation xml file requires a translations root element.");
-			return [];
+			return _returnAndNullFont([]);
 		}
 
 		var leMap:Map<String, String> = [];
-		for (node in xml.node.translations.elements) {
+		var transNode = xml.node.translations;
+		for (node in transNode.elements) {
 			switch (node.name) {
 				case "trans":
 					if (!node.has.id) {
@@ -130,9 +157,14 @@ class TransManager {
 			}
 		}
 
-		if (leMap == null)
-			return [];
-		else
-			return leMap;
+		languageFont = transNode.has.font ? transNode.att.resolve("font") : null;
+		return leMap;
+	}
+
+	private static inline function _returnAndNullFont(val:Map<String, String>):Map<String, String> {
+		if (val == null || val == [])
+			languageFont = null;
+
+		return val;
 	}
 }

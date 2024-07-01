@@ -89,7 +89,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 
 		clearsave = new FlxText(x + flair.width + 120, y + dirtmouth.height / 2.5, 0, "", 32);
 		clearsave.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		clearsave.text = "Clear Save";
+		clearsave.text = TM.checkTransl("Clear Save", "clear-save");
 		clearsave.antialiasing = ClientPrefs.data.antialiasing;
 		clearsave.alpha = 0;
 		clearsave.y += clearsave.height / 4;
@@ -97,7 +97,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 
 		newgame = new FlxText(x + 130, y + dirtmouth.height / 2.5, 0, "", 32);
 		newgame.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		newgame.text = "New Game";
+		newgame.text = TM.checkTransl("New Game", "new-game");
 		newgame.antialiasing = ClientPrefs.data.antialiasing;
 		newgame.y += newgame.height / 4;
 		add(newgame);
@@ -121,7 +121,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 
 		yes2 = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, "", 32);
 		yes2.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		yes2.text = "Story";
+		yes2.text = TM.checkTransl("Story", "story");
 		yes2.antialiasing = ClientPrefs.data.antialiasing;
 		yes2.y += yes2.height / 4;
 		add(yes2);

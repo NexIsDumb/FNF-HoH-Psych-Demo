@@ -244,8 +244,8 @@ class Paths {
 		return null;
 	}
 
-	public static function getTextFromFile(key:String, ?ignoreMods:Bool = false):String {
-		var path:String = getPath(key, TEXT, null, ignoreMods);
+	public static function getTextFromFile(key:String, ?ignoreMods:Bool = false, ?library:String):String {
+		var path:String = getPath(key, TEXT, library, ignoreMods);
 		#if sys
 		if (FileSystem.exists(path))
 			return File.getContent(path);

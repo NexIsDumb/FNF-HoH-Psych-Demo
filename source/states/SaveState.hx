@@ -159,7 +159,7 @@ class SaveState extends MenuBeatState {
 								FlxTween.tween(savefiles[curSelectedy].no, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 
 								new FlxTimer().start(0.15, function(tmr:FlxTimer) {
-									savefiles[curSelectedy].newgame.text = "New Game";
+									savefiles[curSelectedy].newgame.text = TM.checkTransl("New Game", "new-game");
 									FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
 								});
 
@@ -182,7 +182,7 @@ class SaveState extends MenuBeatState {
 								}
 								savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
 
-								savefiles[curSelectedy].newgame.text = "Clear Save?";
+								savefiles[curSelectedy].newgame.text = TM.checkTransl("Clear Save", "clear-save") + "?";
 								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .5, {ease: FlxEase.quadInOut});
 								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 								changeSelection(0);
@@ -200,7 +200,7 @@ class SaveState extends MenuBeatState {
 								savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
 
 								new FlxTimer().start(0.15, function(tmr:FlxTimer) {
-									savefiles[curSelectedy].newgame.text = "New Game";
+									savefiles[curSelectedy].newgame.text = TM.checkTransl("New Game", "new-game");
 								});
 								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 0}, .15, {ease: FlxEase.quadInOut});
 								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
