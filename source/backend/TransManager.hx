@@ -26,12 +26,12 @@ class TransManager {
 	/**
 	 * The default font used.
 	 */
-	public static inline var DEFAULT_FONT:String = 'perpetua.ttf';
+	public static inline var DEFAULT_FONT:String = 'trajan.ttf';
 
 	/**
 	 * The default font used for the ui.
 	 */
-	public static inline var DEFAULT_UI_FONT:String = 'trajan.ttf';
+	public static inline var DEFAULT_UI_FONT:String = 'perpetua.ttf';
 
 	/**
 	 * The font found inside the language's file (CAN BE `null`!!).

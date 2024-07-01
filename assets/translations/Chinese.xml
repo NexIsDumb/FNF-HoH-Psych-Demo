@@ -9,7 +9,7 @@
 
 	<trans id="melodic-shell-desc" string="为那些想要说唱的人创造的富有乐感的护符. 装备后持有者会拥有歌唱的能力,而作为回报赐予他们灵魂."/>
 	<trans id="lifeblood-seed-desc" string="它包含一个鲜活的核心,流淌着珍贵的生命之血. 在休息时,它将赋予持有者一层生命之血&#xA;可以保护持有者免受一定程度的伤害."/>
-	<trans id="critical-focus" string="一件早已被遗忘的萨满遗物. 然而水晶体开始在这件物品上蔓延, 延续并增强了它的能力. 当持有者的生命值低于一半时, 持有者在攻击敌人时会赋予额外的灵魂."/>
+	<trans id="critical-focus-desc" string="一件早已被遗忘的萨满遗物. 然而水晶体开始在这件物品上蔓延, 延续并增强了它的能力. 当持有者的生命值低于一半时, 持有者在攻击敌人时会赋予额外的灵魂."/>
 	<trans id="baldur's-blessing-desc" string="装备后持有者死亡时,它会用坚硬的外壳保护它的持有者. 但这外壳并非坚不可摧,使用一次后就会破碎."/>
 
 	<trans id="baldur's-blessing-tip" string="自己在下面遇到了小小的麻烦? 巴德尔的壳非常坚韧,据说可以保护佩戴者免受伤害! 对了,它不是无坚不摧的,定要谨慎使用."/>
@@ -102,7 +102,7 @@
 	<trans id="framerate-desc" string="很明显了,不是吗?"/>
 	<trans id="note-skins-desc" string="选择自己喜爱的箭头皮肤"/>
 	<trans id="note-splashes-desc" string="选择自己喜爱的箭头皮肤或暂停使用他们"/>
-	<trans id="note-splash-desc" string="水花迸溅效果的透明度."/>
+	<trans id="note-splash-opacity-desc" string="水花迸溅效果的透明度."/>
 	<trans id="flashing-lights-desc" string="如果您对闪光灯敏感,请不要开启该选项"/>
 	<trans id="translations-desc" string="选择您在游戏中需要的语言"/>
 	<trans id="fps-counter-desc" string="未选择将关闭FPS显示"/>
@@ -117,7 +117,6 @@
 
 	<trans id="start-game" string="开始游戏"/>
 	<trans id="credits" string="参与开发者名单"/>
-	<trans id="discord" string="Discord"/>
 	<trans id="quit-game" string="退出游戏"/>
 
 	<trans id="new-game" string="新建游戏"/>
@@ -146,6 +145,8 @@
 	<trans id="shop" string="商店"/>
 
 	<trans id="purchase-this-item?" string="是否购买?"/>
+	<trans id="yes" string="是"/>
+	<trans id="no" string="不"/>
 
 	<trans id="charms" string="符文"/>
 	<trans id="equipped" string="已装备"/>

@@ -79,7 +79,6 @@ class MainMenuState extends MenuBeatState {
 		for (i in 0...optionShit.length) {
 			var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl(optionShit[i], optionShit[i].toLowerCase().replace(" ", "-")), 12);
 			optionText.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, CENTER);
-			optionText.text = optionShit[i];
 			optionText.screenCenterXY();
 			optionText.y += FlxG.height / 10;
 			optionText.y += 45 * i;

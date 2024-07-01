@@ -117,7 +117,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		pointer2.setGraphicSize(Std.int(pointer2.width * 0.25));
 		pointer2.updateHitbox();
 
-		back = new FlxText(0, 0, 0, "Back", 12);
+		back = new FlxText(0, 0, 0, TM.checkTransl("Back", "back"), 12);
 		back.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 		back.screenCenterXY();
 		back.y -= FlxG.height / 6;

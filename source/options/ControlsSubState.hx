@@ -139,7 +139,7 @@ class ControlsSubState extends MusicBeatSubstate {
 					var isDisplayKey:Bool = (isCentered && !isDefaultKey);
 
 					if (!isDefaultKey) {
-						var text:FlxText = new FlxText(0, 0, 0, TM.checkTransl(option[1], option[1].toLowerCase().replace(" ", "-")), 12);
+						var text:FlxText = new FlxText(0, 0, 0, TM.checkTransl(option[1], cast(option[1], String).toLowerCase().replace(" ", "-")), 12);
 						text.setFormat(Constants.UI_FONT, 17, FlxColor.WHITE, LEFT);
 						text.screenCenterXY();
 						text.x = FlxG.width / 3.75;

@@ -5,11 +5,11 @@
     <trans id="melodic-shell" string="Guscio Melodico"/>
     <trans id="lifeblood-seed" string="Seme di Lifeblood"/>
     <trans id="critical-focus" string="Concentrazione Rapida"/>
-    <trans id="baldur's-blessing" string="Benedizione di Baldur"/>
+    <trans id="baldur's-blessing" string="Benedizione di Baldoro"/>
 
     <trans id="melodic-shell-desc" string="Amuleto melodico creato per coloro che desiderano cantare Concede a chi lo porta la capacità di cantare in cambio ricompensandogli l'anima."/>
     <trans id="lifeblood-seed-desc" string="Contiene un nucleo vivente che gocciola prezioso sangue vitale. Quando riposa, il portatore riceve uno strato di sangue vitale&#xA;che protegge da una modesta quantità di danni."/>
-    <trans id="critical-focus" string="Un manufatto sciamano dimenticato da tempo. Come risultato, su di esso iniziarono a formarsi cristalli, amplificando le sue abilità. Mentre il portatore è al di sotto della metà della sua salute attuale, gli viene concessa un'anima aggiuntiva quando colpisce i nemici."/>
+    <trans id="critical-focus-desc" string="Un manufatto sciamano dimenticato da tempo. Come risultato, su di esso iniziarono a formarsi cristalli, amplificando le sue abilità. Mentre il portatore è al di sotto della metà della sua salute attuale, gli viene concessa un'anima aggiuntiva quando colpisce i nemici."/>
     <trans id="baldur's-blessing-desc" string="Protegge chi lo indossa con un guscio duro in caso di morte certa. Il guscio non è indistruttibile e si frantuma dopo un solo utilizzo."/>
 
     <trans id="baldur's-blessing-tip" string="Ti ritrovi nei guai laggiù? I carpaci di Baldoro sono così resistenti che si dice proteggano chi li indossa dai danni! Tuttavia non sembra indistruttibile, quindi fai attenzione."/>
@@ -93,7 +93,7 @@
     <trans id="framerate-desc" string="Abbastanza ovvio, non credi?"/>
     <trans id="note-skins-desc" string="Seleziona le tue Skin delle Note preferite."/>
     <trans id="note-splashes-desc" string="Seleziona la tua variante preferita degli Splash Note oppure disabilitale."/>
-    <trans id="note-splash-desc" string="Quanto trasparenti dovrebbero essere gli Splash Note."/>
+    <trans id="note-splash-opacity-desc" string="Quanto trasparenti dovrebbero essere gli Splash Note."/>
     <trans id="flashing-lights-desc" string="Non spuntare questo se sei sensibile alle luci lampeggianti!"/>
     <trans id="translations-desc" string="Seleziona la traduzione preferita del gioco."/>
     <trans id="fps-counter-desc" string="Se non spuntato, nasconde il counter degli FPS."/>
@@ -135,6 +135,8 @@
     <trans id="shop" string="Negozio"/>
 
     <trans id="purchase-this-item?" string="Comprare?"/>
+    <trans id="yes" string="Si"/>
+    <trans id="no" string="No"/>
 
     <trans id="charms" string="Amuleti"/>
     <trans id="equipped" string="Equipaggiati"/>

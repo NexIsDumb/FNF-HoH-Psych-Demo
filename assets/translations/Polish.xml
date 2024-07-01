@@ -9,7 +9,7 @@
 
 	<trans id="melodic-shell-desc" string="Amulet muzyczny stworzony dla tych, którzy szukają umiejętności śpiewu. Daje swojemu posiadaczowi umiejętność intonacji, za którą otrzymuje dusze."/>
 	<trans id="lifeblood-seed-desc" string="Zawiera żywy rdzeń, który wydziela drogocenną krew życia.Podczas odpoczynku posiadacz zostanie okryty powłoką krwi życia, która chroni go przed niewielką ilością obrażeń."/>
-	<trans id="critical-focus" string="Dawno zapomniany artefakt Szamanów.Pradawne kryształy zaczęły się na nim formować, wzmacniając jego moce. Gdy posiadacz ma mniej niż połowę swojego życia, amulet zapewnia dodatkowe dusze z przeciwników."/>
+	<trans id="critical-focus-desc" string="Dawno zapomniany artefakt Szamanów.Pradawne kryształy zaczęły się na nim formować, wzmacniając jego moce. Gdy posiadacz ma mniej niż połowę swojego życia, amulet zapewnia dodatkowe dusze z przeciwników."/>
 	<trans id="baldur's-blessing-desc" string="Chroni posiadacza swoją twardą skorupą w obliczu bliskiej śmierci. Skorupa nie jest niezniszczalna i rozkruszy się po użyciu."/>
 
 	<trans id="baldur's-blessing-tip" string="Ciągle napotykasz trudności na dole? Skorupy Baldurów są tak mocne, że podobno chronią posiadacza przed obrażeniami. Lecz uważaj, nie są niezniszczalne."/>
@@ -99,7 +99,7 @@
 	<trans id="framerate-desc" string="Całkiem oczywiste, czyż nie?"/>
 	<trans id="note-skins-desc" string="Wybierz skórkę dla swoich nut."/>
 	<trans id="note-splashes-desc" string="Wybierz preferowane efekty nut lub je wyłącz."/>
-	<trans id="note-splash-desc" string="Ustaw jak bardzo efekty nut są przezroczyste."/>
+	<trans id="note-splash-opacity-desc" string="Ustaw jak bardzo efekty nut są przezroczyste."/>
 	<trans id="flashing-lights-desc" string="Wyłącz jeśli jesteś wrażliwy na migające światła!"/>
 	<trans id="translations-desc" string="Wybierz preferowany język gry."/>
 	<trans id="fps-counter-desc" string="Gdy jest wyłączone, ukrywa licznik FPS."/>
@@ -114,7 +114,6 @@
 
 	<trans id="start-game" string="Rozpocznij grę"/>
 	<trans id="credits" string="Podziękowania"/>
-	<trans id="discord" string="Discord"/>
 	<trans id="quit-game" string="Wyjdź z gry"/>
 
 	<trans id="new-game" string="Nowa Gra"/>
@@ -143,6 +142,8 @@
 	<trans id="shop" string="Sklep"/>
 
 	<trans id="purchase-this-item?" string="Kupić?"/>
+	<trans id="yes" string="Tak"/>
+	<trans id="no" string="Nie"/>
 
 	<trans id="charms" string="Amulety"/>
 	<trans id="equipped" string="Założone"/>

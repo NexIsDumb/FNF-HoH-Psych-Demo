@@ -102,16 +102,14 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		newgame.y += newgame.height / 4;
 		add(newgame);
 
-		yes = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, "", 32);
+		yes = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, TM.checkTransl("Yes", "yes"), 32);
 		yes.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		yes.text = "Yes";
 		yes.antialiasing = ClientPrefs.data.antialiasing;
 		yes.y += yes.height / 4;
 		add(yes);
 
-		no = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, "", 32);
+		no = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, TM.checkTransl("No", "no"), 32);
 		no.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		no.text = "No";
 		no.antialiasing = ClientPrefs.data.antialiasing;
 		no.y += no.height / 4;
 		add(no);
@@ -119,16 +117,14 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		no.alpha = 0;
 		yes.alpha = 0;
 
-		yes2 = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, "", 32);
+		yes2 = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, TM.checkTransl("Story", "story"), 32);
 		yes2.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		yes2.text = TM.checkTransl("Story", "story");
 		yes2.antialiasing = ClientPrefs.data.antialiasing;
 		yes2.y += yes2.height / 4;
 		add(yes2);
 
-		no2 = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, "", 32);
+		no2 = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, TM.checkTransl("Freeplay", "freeplay"), 32);
 		no2.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
-		no2.text = "Freeplay";
 		no2.antialiasing = ClientPrefs.data.antialiasing;
 		no2.y += no2.height / 4;
 		add(no2);

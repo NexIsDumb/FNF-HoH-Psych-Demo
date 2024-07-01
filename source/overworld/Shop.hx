@@ -71,7 +71,7 @@ class Shop extends FlxSpriteGroup {
 		main.updateHitbox();
 		add(main);
 
-		notch = new FlxText(250, 220, FlxG.width / 4.75, "Notch Cost");
+		notch = new FlxText(250, 220, FlxG.width / 4.75, TM.checkTransl("Notch Cost", "notches")); // Workaround since i fucking forgot to tell to translators to translate this too  - Nex
 		notch.setFormat(Constants.HK_FONT, 23, FlxColor.WHITE, CENTER);
 		notch.antialiasing = ClientPrefs.data.antialiasing;
 		add(notch);
@@ -112,7 +112,7 @@ class Shop extends FlxSpriteGroup {
 		purchase.alpha = 0;
 		add(purchase);
 
-		yes = new FlxText(mainPos.x - main.width / 6, 420, 0, "Yes");
+		yes = new FlxText(mainPos.x - main.width / 6, 420, 0, TM.checkTransl("Yes", "yes"));
 		yes.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		yes.antialiasing = ClientPrefs.data.antialiasing;
 		yes.screenCenterX();
@@ -122,7 +122,7 @@ class Shop extends FlxSpriteGroup {
 
 		selected2 = yes;
 
-		no = new FlxText(mainPos.x - main.width / 6, 480, 0, "No");
+		no = new FlxText(mainPos.x - main.width / 6, 480, 0, TM.checkTransl("No", "no"));
 		no.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		no.antialiasing = ClientPrefs.data.antialiasing;
 		no.screenCenterX();
@@ -225,7 +225,7 @@ class Shop extends FlxSpriteGroup {
 
 		if (charmList.length > 0) {
 			generateNotches(charmList[selected][2]);
-			title.text = charmList[selected][4][0];
+			title.text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
 			desc1.text = charmList[selected][4][1];
 		}
 
@@ -482,7 +482,7 @@ class Shop extends FlxSpriteGroup {
 			selected += amt;
 
 			generateNotches(charmList[selected][2]);
-			titledesc[0].text = charmList[selected][4][0];
+			titledesc[0].text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
 			titledesc[1].text = charmList[selected][4][1];
 			trace(charmList.length);
 			for (i in 0...charmList.length) {
@@ -636,7 +636,7 @@ class Shop extends FlxSpriteGroup {
 					}
 
 					purchase.text = TM.checkTransl("Purchase this Item?", "purchase-this-item?");
-					title2.text = charmList[selected][4][0];
+					title2.text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
 
 					title2.updateHitbox();
 					title2.screenCenterX();

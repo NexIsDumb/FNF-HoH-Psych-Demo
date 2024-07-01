@@ -71,6 +71,8 @@ class Dialogue extends FlxSpriteGroup {
 		add(text);
 	}
 
+	var curSpeaker:String;
+
 	public function openBox(speaker:String, script, call) {
 		if (debounce == false) {
 			debounce = true;
@@ -80,6 +82,8 @@ class Dialogue extends FlxSpriteGroup {
 
 			publiccall.push(call);
 
+			curSpeaker = speaker;
+			speaker = TM.checkTransl(speaker, speaker.toLowerCase().replace(" ", "-") + "-name");
 			if (speakerText == null) {
 				speakerText = new FlxText(-200, FlxG.height - 120, FlxG.width * 2, speaker, 64);
 				speakerText.setFormat(Constants.UI_FONT, 58, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -105,7 +109,7 @@ class Dialogue extends FlxSpriteGroup {
 	var publine:String = "";
 
 	function showline(line:String) {
-		FlxG.sound.play(Paths.soundRandom(speakerText.text + "_0", 1, 4, 'hymns'));
+		FlxG.sound.play(Paths.soundRandom(curSpeaker + "_0", 1, 4, 'hymns'));
 		arrow.animation.play(arrowsuffix + "appear", true, true);
 		if (arrowTween != null) {
 			arrowTween.cancel();
