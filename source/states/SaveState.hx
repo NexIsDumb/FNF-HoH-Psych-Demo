@@ -279,6 +279,10 @@ class SaveState extends MenuBeatState {
 						changeSelection(0);
 					} else if (!clearingsave) {
 						selected = true;
+
+						for (spr in [pointer1, pointer2, selector])
+							FlxTween.tween(spr, {alpha: 0}, .25, {ease: FlxEase.circOut});
+
 						for (i in 0...savefiles.length) {
 							var savefile = savefiles[i];
 							new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
@@ -343,35 +347,19 @@ class SaveState extends MenuBeatState {
 				spr = savefiles[curSelectedy].no2;
 			}
 
-		pointer1.screenCenterX();
-		if (clearingsave || choosingstate)
-			pointer1.x = spr.getGraphicMidpoint().x + 10;
-		if (choosingstate)
-			pointer1.x += 10;
-
-		if (curSelectedx == 1 && !clearingsave)
-			pointer1.x = spr.getGraphicMidpoint().x + 25;
-
+		var add = (spr.width / 2) + 25;
+		pointer1.screenCenterXToSprite(spr);
 		pointer1.y = spr.getGraphicMidpoint().y - (spr.height / 1.55);
 		if (spr == selector)
 			pointer1.y += 15;
-		pointer1.x -= (spr.width / 1.35) + pointer1.width / 1.5 + 25;
+		pointer1.x -= add;
 		pointer1.animation.play('idle', true);
 
-		pointer2.screenCenterX();
-		if (clearingsave || choosingstate)
-			pointer2.x = spr.getGraphicMidpoint().x - 25;
-
-		if (curSelectedx == 1 && !clearingsave || (curSelectedx == 1))
-			pointer2.x = spr.getGraphicMidpoint().x - 5;
-
-		if (curSelectedx == 1 && choosingstate)
-			pointer2.x = spr.getGraphicMidpoint().x - 17.5;
-
+		pointer2.screenCenterXToSprite(spr);
 		pointer2.y = spr.getGraphicMidpoint().y - (spr.height / 1.55);
 		if (spr == selector)
-			pointer2.y += 15;
-		pointer2.x += (spr.width / 4) + pointer1.width / 1.5 + 25;
+			pointer2.setPosition(pointer2.x + 30, pointer2.y + 15);
+		pointer2.x += add;
 		pointer2.animation.play('idle', true);
 
 		FlxG.sound.play(Paths.sound('scrollMenu'));

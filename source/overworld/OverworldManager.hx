@@ -79,6 +79,10 @@ class OverworldManager extends MusicBeatState {
 	public static var goober:String = "Dirtmouth";
 
 	override function create() {
+		#if desktop
+		DiscordClient.changePresence("In the Overworld", null);
+		#end
+
 		// INITIALIZE
 		instance = this;
 		persistentUpdate = persistentDraw = true;
