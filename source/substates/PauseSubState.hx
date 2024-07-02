@@ -25,6 +25,7 @@ class PauseSubState extends MusicBeatSubstate {
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options', 'Exit to Dirtmouth', 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
+	var overworld:Bool;
 
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
@@ -38,26 +39,23 @@ class PauseSubState extends MusicBeatSubstate {
 	// var botplayText:FlxText;
 	var offsetthingy:Int = 160;
 
-	public static var silly:Bool = false;
-
 	public static var songName:String = '';
 
-	public function new(x:Float, y:Float) {
+	public function new(overworld:Bool = false) {
 		super();
 
+		this.overworld = overworld;
 		menuItems = menuItemsOG;
 
-		if (!PlayState.isStoryMode) {
+		if (overworld) {
+			menuItems = ['Resume', 'Options', 'Exit to Freeplay', 'Exit to menu'];
+			menuItemsOG = ['Resume', 'Options', 'Exit to Freeplay', 'Exit to menu'];
+		} else if (!PlayState.isStoryMode) {
 			menuItems = ['Resume', 'Restart Song', 'Options', 'Exit to Dirtmouth', 'Exit to Freeplay'];
 			menuItemsOG = ['Resume', 'Restart Song', 'Options', 'Exit to Dirtmouth', 'Exit to Freeplay'];
 		} else {
 			menuItems = ['Resume', 'Restart Song', 'Options', 'Exit to Dirtmouth', 'Exit to menu'];
 			menuItemsOG = ['Resume', 'Restart Song', 'Options', 'Exit to Dirtmouth', 'Exit to menu'];
-		}
-
-		if (silly) {
-			menuItems = ['Resume', 'Options', 'Exit to Freeplay', 'Exit to menu'];
-			menuItemsOG = ['Resume', 'Options', 'Exit to Freeplay', 'Exit to menu'];
 		}
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(Std.int(FlxG.width * 1.4), Std.int(FlxG.height * 1.4), FlxColor.BLACK);
@@ -66,7 +64,7 @@ class PauseSubState extends MusicBeatSubstate {
 		add(bg);
 
 		var levelInfo:FlxText = new FlxText(20 * 1.4, 150, 0, "", 32);
-		if (!silly) {
+		if (!overworld) {
 			levelInfo.text += PlayState.SONG.song;
 		}
 		levelInfo.scrollFactor.set();
@@ -76,7 +74,7 @@ class PauseSubState extends MusicBeatSubstate {
 		add(levelInfo);
 
 		var blueballedTxt:FlxText = new FlxText(20 * 1.4, (15 + 70) * 1.6, 0, "", 32);
-		if (!silly) {
+		if (!overworld) {
 			blueballedTxt.text = TM.checkTransl("You have died", "you-have-died") + " " + PlayState.deathCounter + " " + TM.checkTransl("times.", "times");
 		} else {
 			blueballedTxt.visible = false;
@@ -100,7 +98,7 @@ class PauseSubState extends MusicBeatSubstate {
 		chartingText.x = FlxG.width - (chartingText.width + 20);
 		chartingText.y = FlxG.height - (chartingText.height + 20);
 		chartingText.updateHitbox();
-		if (!silly) {
+		if (!overworld) {
 			chartingText.visible = PlayState.chartingMode;
 		} else {
 			chartingText.visible = false;
@@ -227,7 +225,7 @@ class PauseSubState extends MusicBeatSubstate {
 					FlxG.camera.followLerp = 1;
 					persistentUpdate = true;
 
-					if (silly == true) {
+					if (overworld == true) {
 						if (FlxG.sound.music != null) {
 							FlxG.sound.music.resume();
 						}
@@ -249,7 +247,7 @@ class PauseSubState extends MusicBeatSubstate {
 				case "Options":
 					DataSaver.saveSettings(DataSaver.saveFile);
 					MusicBeatState.switchState(new OptionsState());
-					if (!silly) {
+					if (!overworld) {
 						OptionsState.onPlayState = true;
 					} else {
 						OptionsState.fromOverworld = true;

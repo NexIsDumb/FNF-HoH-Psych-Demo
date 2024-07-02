@@ -145,6 +145,7 @@ class OptionsState extends MenuBeatState {
 			statetext.alpha = 1;
 			fleur.animation.play('idle', true, false);
 			fleur.animation.finish();
+			openingsub = false;
 			openSubState(new options.VisualsUISubState());
 		} else
 			changeSelection(0);

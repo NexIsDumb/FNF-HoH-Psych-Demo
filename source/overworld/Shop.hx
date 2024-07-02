@@ -189,7 +189,7 @@ class Shop extends FlxSpriteGroup {
 		if (rawData == false) {
 			addCharm(Swindler,
 				"",
-				0, "50", "swindler");
+				0, "50");
 		} else {
 			DataSaver.loadData(DataSaver.saveFile);
 			var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
@@ -198,15 +198,15 @@ class Shop extends FlxSpriteGroup {
 
 			addCharm(BaldursBlessing,
 				TM.checkTransl("Finding yourself running into trouble down below? Baldur shells are so tough that they are said to protect the wearer from harm! However it does not seem indestructible, so do take care.", "baldur's-blessing-tip"),
-				3, "250", "bb");
+				3, "250");
 
 			addCharm(LifebloodSeed,
 				TM.checkTransl("Need a little bit of a boost? Then this charm is the thing for you! Lifeblood may be seen as a bit of a taboo, but it certainly will make you feel healthier! Just don’t let anyone know who sold it to you.", "lifeblood-seed-tip"),
-				2, "175", "lb");
+				2, "175");
 
 			addCharm(CriticalFocus,
 				TM.checkTransl("If you have trouble focusing in dangerous situations, this is the charm for you! I heard that it can help the wearer gather “SOUL” when in danger, whatever that means.", "critical-focus-tip"),
-				2, "450", "cf");
+				2, "450");
 
 			if (rawData1 && rawData2 && rawData3) {
 				purchasedall = true;
@@ -407,14 +407,13 @@ class Shop extends FlxSpriteGroup {
 		// changeselection(0);
 	}
 
-	function addCharm(name, desc, notch, price, image) {
+	function addCharm(name, desc, notch, price) {
 		DataSaver.loadData(DataSaver.saveFile);
 		if (DataSaver.charmsunlocked.get(name) == null || DataSaver.charmsunlocked.get(name) == false) {
 			var charmGroup:FlxSpriteGroup = new FlxSpriteGroup(0, 0);
 			add(charmGroup);
 
-			trace(Paths.image('charms/$name/base', 'hymns'));
-			var charm:FlxSprite = new FlxSprite(45, 305).loadGraphic(Paths.image('charms/$image/base', 'hymns'));
+			var charm:FlxSprite = new FlxSprite(45, 305).loadGraphic(Paths.image('charms/$name/base', 'hymns'));
 			charm.antialiasing = ClientPrefs.data.antialiasing;
 			charm.scale.set(0.17, 0.17);
 			charm.updateHitbox();
@@ -448,7 +447,7 @@ class Shop extends FlxSpriteGroup {
 			charmGroup.y += charmGroup.height * dist * charmList.length;
 			charmGroup.alpha = 0;
 
-			charmList.push([charmGroup.height, charmGroup, notch, price, [name, desc], image]);
+			charmList.push([charmGroup.height, charmGroup, notch, price, [name, desc]]);
 		}
 	}
 
@@ -496,9 +495,7 @@ class Shop extends FlxSpriteGroup {
 				}
 
 				// var targetPos = (array[0] * dist * pos) - charmGroup.y;
-				OGTween.num(charmGroup.y, (array[0] * dist * pos), .5, {ease: FlxEase.quintOut}, function(num) {
-					charmGroup.setPosition(FlxG.width / 2 + 35, num);
-				});
+				FlxTween.tween(charmGroup, {y: array[0] * dist * pos}, .5, {ease: FlxEase.quintOut});
 			}
 
 			if (amt > 0) {
@@ -635,14 +632,15 @@ class Shop extends FlxSpriteGroup {
 						FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 					}
 
+					var realName:String = charmList[selected][4][0];
 					purchase.text = TM.checkTransl("Purchase this Item?", "purchase-this-item?");
-					title2.text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
+					title2.text = TM.checkTransl(realName, realName.toLowerCase().replace(" ", "-"));
 
 					title2.updateHitbox();
 					title2.screenCenterX();
 					title2.x += main.width / 1.75;
 
-					charmsy.loadGraphic(Paths.image('charms/${charmList[selected][5]}/base', 'hymns'));
+					charmsy.loadGraphic(Paths.image('charms/$realName/base', 'hymns'));
 					charmsy.antialiasing = ClientPrefs.data.antialiasing;
 					charmsy.scale.set(0.4, 0.4);
 					charmsy.updateHitbox();
@@ -773,14 +771,11 @@ class Shop extends FlxSpriteGroup {
 											FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 										}
 
-										for (i in 0...charmList.length) {
-											var array = charmList[i];
-											var charmGroup = array[1];
-											FlxTween.tween(charmGroup, {alpha: 1}, .6, {ease: FlxEase.quintOut});
+										for (charm in charmList) {
+											FlxTween.tween(charm[1], {alpha: 1}, .6, {ease: FlxEase.quintOut});
 										}
 
-										for (i in 0...notches.length) {
-											var notchie = notches[i];
+										for (notchie in notches) {
 											FlxTween.tween(notchie, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 										}
 										new FlxTimer().start(.7, function(tmr:FlxTimer) {

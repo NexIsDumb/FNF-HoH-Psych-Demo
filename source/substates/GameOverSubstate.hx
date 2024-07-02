@@ -64,8 +64,6 @@ class GameOverSubstate extends MusicBeatSubstate {
 
 		boyfriends = PlayState.instance.boyfriendd;
 
-		FlxG.sound.play(Paths.sound("deathhymn", "hymns"));
-
 		boyfriends.playAnim('firstDeath');
 
 		camFollow = new FlxObject(camX, camY, 1, 1);
@@ -79,6 +77,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 			soundend = FlxG.sound.load("songs:assets/songs/swindler/gameoverEnd.ogg");
 			FlxTween.tween(FlxG.camera, {zoom: 1.5}, 2.5, {ease: FlxEase.circOut});
 		} else {
+			FlxG.sound.play(Paths.sound("deathhymn", "hymns"));
 			soundloop = FlxG.sound.load("songs:assets/songs/lichen/gameOverLichLoop.ogg");
 			soundloop.looped = true;
 			soundend = FlxG.sound.load("songs:assets/songs/lichen/gameOverLichEnd.ogg");

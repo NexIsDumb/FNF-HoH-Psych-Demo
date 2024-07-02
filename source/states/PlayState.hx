@@ -1949,7 +1949,7 @@ class PlayState extends MusicBeatState {
 						note.resetAnim = 0;
 					}
 			}
-			openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+			openSubState(new PauseSubState());
 			// debouncey = false;
 			// }
 

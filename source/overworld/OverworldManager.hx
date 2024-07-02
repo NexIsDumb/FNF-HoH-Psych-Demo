@@ -224,7 +224,6 @@ class OverworldManager extends MusicBeatState {
 		player.x = Math.min(scene.stageproperties.maxX, player.x);
 
 		if (controls.BACK && OverworldManager.instance.scene.inshop == false) {
-			PauseSubState.silly = true;
 			if (this.subState == null) {
 				openPauseMenu();
 			}
@@ -248,6 +247,6 @@ class OverworldManager extends MusicBeatState {
 			FlxG.sound.music.pause();
 			thebop.pause();
 		}
-		openSubState(new PauseSubState(0, 0));
+		openSubState(new PauseSubState(true));
 	}
 }
