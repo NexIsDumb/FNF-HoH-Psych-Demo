@@ -450,7 +450,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 				}
 			}
 			if (timer % 300 == 1) {
-				if ((mask.animation.curAnim.name == 'full' && mask.animation.curAnim.finished == true)) {
+				if (mask.animation.curAnim.finished && mask.animation.curAnim.name == 'full') {
 					mask.animation.play('full', true);
 					mask.centerOrigin();
 					mask.centerOffsets();

@@ -54,8 +54,8 @@ class DataSaver {
 		curSave.data.charms = charms;
 		curSave.data.charmsunlocked = charmsunlocked;
 		curSave.data.songScores = songScores;
-		curSave.data.weekScores = songScores;
-		curSave.data.songRating = songScores;
+		curSave.data.weekScores = weekScores;
+		curSave.data.songRating = songRating;
 		curSave.data.unlocked = unlocked;
 		curSave.data.played = played;
 		curSave.data.elderbugstate = elderbugstate;

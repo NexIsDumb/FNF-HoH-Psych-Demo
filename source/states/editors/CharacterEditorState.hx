@@ -77,7 +77,7 @@ class CharacterEditorState extends MusicBeatState {
 		charLayer = new FlxTypedGroup<Character>();
 		add(charLayer);
 
-		var bg = new FlxSprite().loadGraphic("Menus/Freeplay/First-Steps");
+		var bg = new FlxSprite().loadGraphic(Paths.image("Menus/Freeplay/songs/first-steps", 'hymns'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		bg.screenCenterXY();

@@ -368,9 +368,9 @@ class Note extends FlxSprite {
 
 			if (myStrum.downScroll) {
 				if (y - offset.y * scale.y + height >= center) {
-					swagRect.y = frameHeight - swagRect.height;
 					swagRect.width = frameWidth;
 					swagRect.height = (center - y) / scale.y;
+					swagRect.y = frameHeight - swagRect.height;
 				}
 			} else if (y + offset.y * scale.y <= center) {
 				swagRect.y = (center - y) / scale.y;

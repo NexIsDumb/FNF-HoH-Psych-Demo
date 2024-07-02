@@ -643,18 +643,17 @@ class Dirtmouth extends BaseScene {
 										],
 										function() {
 											Difficulty.resetList();
-											PlayState.storyDifficulty = 1;
+											PlayState.storyDifficulty = Difficulty.NORMAL;
 
-											var songLowercase:String = Paths.formatPath("First-Steps");
-											var poop:String = Highscore.formatSong(songLowercase, 1);
+											var songLowercase:String = Paths.formatPath("First Steps");
+											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
 											trace(poop);
 
 											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.doingsong = "First-Steps";
+											DataSaver.doingsong = "First Steps";
 											DataSaver.saveSettings(DataSaver.saveFile);
 
 											PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-											PlayState.storyDifficulty = 1;
 											PlayState.isStoryMode = true;
 											LoadingState.loadAndSwitchState(new PlayState());
 
@@ -671,18 +670,17 @@ class Dirtmouth extends BaseScene {
 										],
 										function() {
 											Difficulty.resetList();
-											PlayState.storyDifficulty = 1;
+											PlayState.storyDifficulty = Difficulty.NORMAL;
 
-											var songLowercase:String = Paths.formatPath("First-Steps");
-											var poop:String = Highscore.formatSong(songLowercase, 1);
+											var songLowercase:String = Paths.formatPath("First Steps");
+											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
 											trace(poop);
 
 											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.doingsong = "First-Steps";
+											DataSaver.doingsong = "First Steps";
 											DataSaver.saveSettings(DataSaver.saveFile);
 
 											PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-											PlayState.storyDifficulty = 1;
 											PlayState.isStoryMode = true;
 											LoadingState.loadAndSwitchState(new PlayState());
 

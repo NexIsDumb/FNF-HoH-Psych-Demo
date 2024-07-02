@@ -161,7 +161,6 @@
 		260,
 		40
 	],
-	"sing_duration": 12,
-	"scale": 1,
-	"idlereturn": true
+	"sing_duration": 6,
+	"scale": 1
 }

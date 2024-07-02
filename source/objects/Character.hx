@@ -201,7 +201,7 @@ class Character extends FlxSprite {
 			if (heyTimer > 0) {
 				heyTimer -= elapsed * PlayState.instance.playbackRate;
 				if (heyTimer <= 0) {
-					if (specialAnim && animation.curAnim.name == 'hey' || animation.curAnim.name == 'cheer') {
+					if (specialAnim && (animation.curAnim.name == 'hey' || animation.curAnim.name == 'cheer')) {
 						specialAnim = false;
 						dance();
 					}
@@ -306,11 +306,11 @@ class Character extends FlxSprite {
 		danceEveryNumBeats = (danceIdle ? 1 : 2);
 	}
 
-	public function addOffset(name:String, x:Float = 0, y:Float = 0) {
+	public inline function addOffset(name:String, x:Float = 0, y:Float = 0) {
 		animOffsets[name] = [x, y];
 	}
 
-	public function quickAnimAdd(name:String, anim:String) {
+	public inline function quickAnimAdd(name:String, anim:String) {
 		animation.addByPrefix(name, anim, 24, false);
 	}
 }

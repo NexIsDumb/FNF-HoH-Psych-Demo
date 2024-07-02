@@ -1,8 +1,11 @@
 package backend;
 
 class Difficulty {
-	public static var defaultList(default, never):Array<String> = ['Easy', 'Normal', 'Hard'];
-	public static var list:Array<String> = [];
+	public static inline final NORMAL:Int = 0;
+
+	// public static var defaultList(default, never):Array<String> = ['Easy', 'Normal', 'Hard'];
+	public static var defaultList(default, never):Array<String> = ['Normal'];
+	public static var list:Array<String> = ['Normal'];
 	private static var defaultDifficulty(default, never):String = 'Normal'; // The chart that has no suffix and starting difficulty on Freeplay/Story Mode
 
 	inline public static function getFilePath(num:Null<Int> = null) {

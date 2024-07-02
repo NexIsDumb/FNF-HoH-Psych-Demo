@@ -43,8 +43,6 @@ class MainMenuState extends MenuBeatState {
 		#end
 		Mods.loadTopMod();
 
-		Highscore.load();
-
 		if (FlxG.sound.music == null) {
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}

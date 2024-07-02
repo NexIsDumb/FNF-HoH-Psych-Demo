@@ -2613,7 +2613,7 @@ class PlayState extends MusicBeatState {
 		}
 		DataSaver.loadData(DataSaver.saveFile);
 		DataSaver.geo += Std.int(songLength / 1000 * 1.6);
-		if (DataSaver.doingsong == "First-Steps") {
+		if (Paths.formatPath(DataSaver.doingsong) == "first-steps") {
 			DataSaver.elderbugstate = 6;
 		}
 		trace(SONG.song);
@@ -3360,7 +3360,7 @@ class PlayState extends MusicBeatState {
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
 
-		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
+		if (gf != null && curBeat % (gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
 			gf.dance();
 		if (curBeat % boyfriend.danceEveryNumBeats == 0 && boyfriend.animation.curAnim != null && !boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.stunned)
 			boyfriend.dance();

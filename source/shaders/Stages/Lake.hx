@@ -19,7 +19,7 @@ class FogEffect {
 class FogShader extends FlxShader {
 	@:glFragmentSource('
 #pragma header
-float cloudDensity = 1; 	// overall density [0,1]
+float cloudDensity = 1.0; 	// overall density [0,1]
 float noisiness = 0.25; 	// overall strength of the noise effect [0,1]
 float speed = 0.125;			// controls the animation speed [0, 0.1 ish)
 float cloudHeight = 3.5; 	// (inverse) height of the input gradient [0,...)
@@ -132,7 +132,7 @@ float fBm(vec3 uv)
 
 // Simple vertical gradient:
 vec4 gradient(vec2 uv) {
-	float x = 1 + length(uv) * cos( atan(uv.y,-uv.x) + .5*.628 ) ;
+	float x = 1.0 + length(uv) * cos( atan(uv.y,-uv.x) + .5*.628 ) ;
 		//202/255, 250/255, 233/255, 1
 	return mix( vec4(0, 0, 0, 0), vec4(202/255, 250/255, 233/255, 1), smoothstep(0.,1.,x) );
 }
