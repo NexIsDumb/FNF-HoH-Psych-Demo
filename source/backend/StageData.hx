@@ -84,7 +84,7 @@ class StageData {
 	}
 
 	public static function vanillaSongStage(songName:String):String {
-		// songName = Paths.formatToSongPath(songName);
+		// songName = Paths.formatPath(songName);
 		// switch (songName) {}
 		return 'stage';
 	}

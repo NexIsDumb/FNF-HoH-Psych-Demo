@@ -214,18 +214,13 @@ class CharmSubState extends MusicBeatSubstate {
 	var charmshii:Array<FlxSprite> = [];
 
 	public function makeCharms() {
-		// var directories:Array<String> = ['assets/hymns/charms/'];
-
-		/*for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) { */
 		for (charmId in DataSaver.allCharms) {
 			var itee:Int = 0;
 			// for (file in FileSystem.readDirectory(directory)) {
-			var charmName:String = charmId;
+			var charmName = charmId;
 
 			// var charm = new FlxSprite(0, 0).loadGraphic('hymns:assets/hymns/charms/' + charmName + '/base.png');
-			var charm = new FlxSprite(0, 0).loadGraphic(Paths.image('charms/$charmName/base', 'hymns'));
+			var charm = new FlxSprite(0, 0).loadGraphic(DataSaver.getCharmImage(charmName));
 			charm.scale.set(0.25, 0.25);
 			charm.updateHitbox();
 			charm.screenCenterXY();
@@ -247,7 +242,7 @@ class CharmSubState extends MusicBeatSubstate {
 				makeCharm = false;
 				charm.visible = false;
 			} else {
-				var charmtr = new FlxSprite(0, 0).loadGraphic(Paths.image('/charms/$charmName/base', 'hymns'));
+				var charmtr = new FlxSprite(0, 0).loadGraphic(DataSaver.getCharmImage(charmName));
 				charmtr.scale.set(0.25, 0.25);
 				charmtr.updateHitbox();
 				charmtr.screenCenterXY();
@@ -345,7 +340,8 @@ class CharmSubState extends MusicBeatSubstate {
 					txt3.x += 25;
 					txt3.text = TM.checkTransl('No Cost', "no-cost");
 				}
-				charmIcon.loadGraphic(Paths.image('charms/${charmData[datar][2]}/base', 'hymns'));
+
+				charmIcon.loadGraphic(DataSaver.getCharmImage(charmData[datar][2]));
 				charmIcon.scale.set(0.7, 0.7);
 				charmIcon.updateHitbox();
 				charmIcon.x = txt.x + 50;

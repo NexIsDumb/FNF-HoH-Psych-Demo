@@ -286,6 +286,8 @@ class PlayState extends MusicBeatState {
 	var uB:Float = 0;
 	var lB:Float = 0;
 
+	var loadedSaveFile:Bool = false;
+
 	var noirFilter:NoirFilter;
 
 	override public function create() {
@@ -346,7 +348,7 @@ class PlayState extends MusicBeatState {
 		Conductor.mapBPMChanges(SONG);
 		Conductor.bpm = SONG.bpm;
 
-		formattedSong = Paths.formatToSongPath(SONG.song);
+		formattedSong = Paths.formatPath(SONG.song);
 
 		#if desktop
 		storyDifficultyText = Difficulty.getString();
@@ -362,7 +364,7 @@ class PlayState extends MusicBeatState {
 		#end
 
 		GameOverSubstate.resetVariables();
-		songName = Paths.formatToSongPath(SONG.song);
+		songName = Paths.formatPath(SONG.song);
 		if (SONG.stage == null || SONG.stage.length < 1) {
 			SONG.stage = StageData.vanillaSongStage(songName);
 		}
@@ -431,9 +433,9 @@ class PlayState extends MusicBeatState {
 		FlxTween.tween(bg2.scale, {x: bg2.scale.x + 0.05, y: bg2.scale.y + 0.05}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
 
 		switch (curStage) {
-			case 'hallowseve':
-				new states.stages.HallowsEve();
-				movecamtopos = false;
+			// case 'hallowseve':
+			//	new states.stages.HallowsEve();
+			//	movecamtopos = false;
 			case 'dirtmouth': new states.stages.Dirtmouth();
 			case 'lake': new states.stages.Lake();
 			case 'shop': new states.stages.Shop();
@@ -751,7 +753,7 @@ class PlayState extends MusicBeatState {
 		if (PauseSubState.songName != null) {
 			precacheList.set(PauseSubState.songName, 'music');
 		} else if (ClientPrefs.data.pauseMusic != 'None') {
-			precacheList.set(Paths.formatToSongPath(ClientPrefs.data.pauseMusic), 'music');
+			precacheList.set(Paths.formatPath(ClientPrefs.data.pauseMusic), 'music');
 		}
 
 		precacheList.set('alphabet', 'image');
@@ -3049,7 +3051,10 @@ class PlayState extends MusicBeatState {
 				bg2tween = FlxTween.tween(bg2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 			}
 
-			DataSaver.loadData(DataSaver.saveFile);
+			if (!loadedSaveFile) {
+				DataSaver.loadData(DataSaver.saveFile);
+				loadedSaveFile = true;
+			}
 			if (DataSaver.usedNotches > 5) {
 				soulMeter.changeMasks(-1);
 			}
@@ -3191,7 +3196,10 @@ class PlayState extends MusicBeatState {
 			health += note.hitHealth * healthGain;
 			bfCurAnim = "move";
 			if (soulMeter != null) {
-				DataSaver.loadData(DataSaver.saveFile);
+				if (!loadedSaveFile) {
+					DataSaver.loadData(DataSaver.saveFile);
+					loadedSaveFile = true;
+				}
 				var rawData:Bool = DataSaver.charms.get(CriticalFocus);
 
 				if (rawData) {

@@ -171,18 +171,18 @@ class Paths {
 
 	public inline static function voices(song:String):#if html5 String #else Sound #end {
 		#if html5
-		return 'songs:assets/songs/${formatToSongPath(song)}/Voices.${Constants.SOUND_EXT}';
+		return 'songs:assets/songs/${formatPath(song)}/Voices.${Constants.SOUND_EXT}';
 		#else
-		var songKey:String = '${formatToSongPath(song)}/Voices';
+		var songKey:String = '${formatPath(song)}/Voices';
 		return returnSound('songs', songKey);
 		#end
 	}
 
 	public inline static function inst(song:String):#if html5 String #else Sound #end {
 		#if html5
-		return 'songs:assets/songs/${formatToSongPath(song)}/Inst.${Constants.SOUND_EXT}';
+		return 'songs:assets/songs/${formatPath(song)}/Inst.${Constants.SOUND_EXT}';
 		#else
-		var songKey:String = '${formatToSongPath(song)}/Inst';
+		var songKey:String = '${formatPath(song)}/Inst';
 		return returnSound('songs', songKey);
 		#end
 	}
@@ -327,7 +327,7 @@ class Paths {
 		return FlxAtlasFrames.fromSpriteSheetPacker(image, data);
 	}
 
-	public inline static function formatToSongPath(path:String) {
+	public inline static function formatPath(path:String) {
 		return path.replace(' ', '-').toLowerCase();
 		// slow code below, but we dont need it
 		/*

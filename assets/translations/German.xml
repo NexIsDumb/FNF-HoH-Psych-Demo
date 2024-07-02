@@ -1,0 +1,178 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Melodischer Panzer"/>
+	<trans id="lifeblood-seed" string="Lebensblutsamen"/>
+	<trans id="critical-focus" string="Kritischer Fokus"/>
+	<trans id="baldur's-blessing" string="Baldurs Segen"/>
+
+	<trans id="melodic-shell-desc" string="Melodischer Talisman, geschaffen für die, die wünschen zu singen. Erlaubt den Träger die Fähigkeit zu singen, was ihm im Gegenzug Seele liefert."/>
+	<trans id="lifeblood-seed-desc" string="Enthält einen lebenden Kern von dem wunderschönes Lebensblut tropft. Wenn der Träger sich ausruht, dann erhält er eine Beschichtung aus Lebensblut, die ihn vor einer bescheidenen Anzahl an Schaden schützt"/>
+	<trans id="critical-focus" string="Ein schamanisches Artefakt, was längst vergessen wurde. Infolgedessen haben sich Kristalle darauf gebildet, was ihre Fähigkeiten verstärkt. Während der Träger unter der Hälfte seiner Gesundheit ist, wird ihm zusätzliche Seele gegeben, wenn er Gegner trifft."/>
+	<trans id="baldur's-blessing-desc" string="Schützt den Träger mit einem harten Panzer, wenn er dem sicheren Tod gegenüber steht. Der Panzer ist jedoch nicht unzerstörbar und wird nach einem Verbrauch zerbrechen."/>
+
+	<trans id="baldur's-blessing-tip" string="Haben sie Probleme sich unten zurecht zu finden? Baldur Panzer sind so stark, dass man sagt, dass sie den Träger von jeglichen Schaden schützt! Dennoch scheinen sie nicht unzerstörbar zu sein, also pass auf!"/>
+	<trans id="lifeblood-seed-tip" string="Sie brauchen einen kleinen boost? Dann ist dieser Talisman perfekt für sie! Lebensblut wird zwar als Taboo angesehen, jedoch wird es sie viel besser fühlen lassen! Erzähl aber niemandem, wer es ihnen verkauft hat."/>
+	<trans id="critical-focus-tip" string="Wenn sie Probleme haben, sich in gefährlichen Situationen zu konzentrieren, dann ist dieser Talisman genau für sie! Ich habe gehört das es dem Träger hilft, &quot;SEELE&quot; zusammen zu kriegen, wenn er in Gefahr ist...was auch immer das bedeutet."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Ah, Reisender! Sie sind zurück gekommen! Ich hätte schwören können sie sind for einer Minute an mir vorbeigelaufen. Sieht so aus als wäre ihnen das auf deinem Weg runtergefallen. Hier, nimm es."/>
+	<trans id="elderbug-dialog-2" string="Hier, wieso probieren sie es nicht mal an mir aus? Ein bisschen Übung kann ja nicht schaden. Außerdem könnte ich etwas Gesellschaft gebrauchen."/>
+	<trans id="elderbug-dialog-3" string="Ich entschuldige mich, Mein singen ist wohl noch ein bisschen eingerostet. Versuchen wir es nochmal, Reisender."/>
+	<trans id="elderbug-dialog-4" string="Reisender, diesen Nagel den sie da besitzen scheint in einem bedauerlichem Zustand zu sein. Da unten wird er ihnen nichts zu guten tun. Vielleicht könnte einer ihrer Talismane nützlich sein."/>
+	<trans id="elderbug-dialog-5" string="Oho, solche Freude habe ich seit langer Zeit nicht erlebt!"/>
+	<trans id="elderbug-dialog-6" string="Oh, es sieht so aus, als hätten sie die Interesse von unserem Ladenbesitzer geweckt! Wie wäre es, wenn sie ihn mal besuchen? Ich glaube, er hat etwas für sie, dass ihnen bei der Reise Hilfe leisten könnte."/>
+	<trans id="elderbug-dialog-7" string="Das Paar im Kartenladen...Oh, ich wünsche nichts als das Beste für die beiden. Wenn sie doch nur in einer größeren Stube ihren Laden eröffnet hätten...Ich halte es nicht aus Cornifers Frau zu zusehen, wie sie sich beugen muss, um überhaupt hinein zu kommen. Was ein großes Insekt sie doch ist."/>
+	<trans id="elderbug-dialog-8" string="Der Ladenbesitzer? Er scheint alles in seinem kleinen Laden zu besitzen! Ich wäre vorsichtig , wenn sie etwas von ihm kaufen möchten...Er macht bei seinen Waren ziemlich harte Geschäfte, dieser Käfer." />
+	<trans id="elderbug-dialog-9" string="Viele kamen früher auf der Suche nach einem Königreich direkt unter unseren Füßen. Hallownest hieß es. Mir wurde erzählt, dass es das größte Königreich war, das es je gab. Seitdem ist es eine Ruine, die üble Luft unten reicht aus, um einen in den Wahnsinn treiben!"/>
+	<trans id="elderbug-dialog-10" string="Sie scheinen erschöpft zu sein, Reisender. Ich nehme an, sie haben sich in die grünen Höhlen unter dir gewagt? Es ist wirklich ein wunderschöner Anblick."/>
+	<trans id="elderbug-dialog-11" string="Ich schlage vor, dass sie sich auf dieser Bank ausruhen, bevor sie sich wieder auf den Weg machen. Ich versichere ihnen, sie ist ziemlich bequem."/>
+	<trans id="elderbug-dialog-12" string="Oh, ich sehe, Sie haben bei diesem Händler gekauft, oder? Sie sehen aus, als seien Sie bereit für Ihr nächstes Abenteuer. Aber denken Sie daran, da draußen vorsichtig zu sein. Wer weiß, was Ihnen in diesen Höhlen begegnen könnte."/>
+	<trans id="elderbug-dialog-13" string="Sie sehen erschöpft aus, Reisender. Scheint, als hätten Sie hart um ein Schnäppchen gekämpft."/>
+
+	<trans id="sly-dialog-1" string="Ah, Hallo! I wusste, dass wir uns wiedersehen würden. Sieht aus, als hätten Sie sich ein bisschen umgestaltet, hm?"/>
+	<trans id="sly-dialog-2" string="OH! Do you want to sing? Hmm... it's rare for anyone to challenge me..."/>
+	<trans id="sly-dialog-3" string="Alles klar, ich aktzeptiere! Ich muss gestehen, dass ich auch nicht gerade der beste Sänger bin,...aber ich bin deiner Fähigkeiten neugierig..."/>
+	<trans id="sly-dialog-4" string="Oh, es ist schon eine ganze Weile her, dass ich so gespielt habe. Ich muss zugeben, dass es recht unterhaltsam war! So sehr es mich auch schmerzt...eine verlorene Schlacht ist eine verlorene Schlacht. Hier, nehmt eure Belohnung und überlasst mich meinem Geo...es sei denn, sie wollen noch mehr von meinen Waren kaufen..."/>
+	<trans id="sly-dialog-5" string="Ich fürchte, ich kann euch nichts mehr anbieten. Ihr habt mich völlig ausgeplündert."/>
+	<trans id="sly-dialog-6" string="Vielen Dank für Ihr freundliches Entgegenkommen! Ich versichere Euch, auch meine anderen Waren sind einen Blick wert! Sie könnten sogar Eure Überlebenschancen da unten erhöhen..."/>
+	<trans id="sly-dialog-7" string="Fühlen sich die Taschen leer an? Wenn sie auf der Suche nach mehr Geo sind, haben die Ruinen dort unten viel zu bieten!"/>
+
+	<trans id="elderbug-name" string="Käferältester"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="Einstellung"/>
+	<trans id="note-colors" string="Noten Farben"/>
+	<trans id="controls" string="Steuerung"/>
+	<trans id="graphics" string="Grafik"/>
+	<trans id="visuals-and-ui" string="Erscheinungsbild und UI"/>
+	<trans id="gameplay" string="Gameplay"/>
+	<trans id="back" string="Zurück"/>
+
+	<trans id="left" string="Links"/>
+	<trans id="down" string="Unten"/>
+	<trans id="up" string="Oben"/>
+	<trans id="Right" string="Rechts"/>
+	<trans id="focus" string="Fokus"/>
+	<trans id="accept" string="Akzeptieren"/>
+	<trans id="pause" string="Pause"/>
+	<trans id="ui-up" string="UI Oben"/>
+	<trans id="ui-left" string="UI Links"/>
+	<trans id="ui-down" string="UI Unten"/>
+	<trans id="ui-right" string="UI Rechts"/>
+	<trans id="ui-back" string="UI Zurück"/>
+	<trans id="reset" string="Zurücksetzen"/>
+	<trans id="mute" string="Stummen"/>
+	<trans id="volume-up" string="Lautstärke hoch"/>
+	<trans id="volume-down" string="Lautstärke runter"/>
+	<trans id="reset-to-default-keys" string="Zurücksetzen zu standard Tasten"/>
+
+	<trans id="on" string="Ja"/>
+	<trans id="off" string="Nein"/>
+	<trans id="none" string="Keine"/>
+
+	<trans id="low-quality" string="Niedrige Qualität"/>
+	<trans id="anti-aliasing" string="Anti-Aliasing"/>
+	<trans id="shaders" string="Shader"/>
+	<trans id="gpu-caching" string="GPU Caching"/>
+	<trans id="framerate" string="Framerate"/>
+	<trans id="note-skins" string="Notenskin"/>
+	<trans id="note-splashes" string="Noteneffekt"/>
+	<trans id="note-splash-opacity" string="Noteneffekt Opazität"/>
+	<trans id="flashing-lights" string="Blinkende Lichter"/>
+	<trans id="translations" string="Übersetzungen"/>
+	<trans id="fps-counter" string="Fps-Zähler"/>
+	<trans id="discord-rich-presence" string="In Discord anzeigen"/>
+	<trans id="downscroll" string="unteres scrollen"/>
+	<trans id="middlescroll" string="mittleres scrollen"/>
+	<trans id="ghost-tapping" string="Ghost Tapping"/>
+	<trans id="auto-pause" string="Automatisch Pausieren"/>
+	<trans id="disable-reset-button" string="Deaktivierung der Zurücksetzungstaste"/>
+	<trans id="hitsound-volume" string="Trefferlautstärke"/>
+	<trans id="safe-frames" string="Sichere Frames"/>
+
+	<trans id="low-quality-desc" string="Wenn angekreuzt, deaktiviert ein paar Hintergrund Details."/>
+	<trans id="anti-aliasing-desc" string="Wenn unangekreuzt, deaktiviert Anti-Aliasing, erhöht die Leistung auf Kosten weniger definierten Bild."/>
+	<trans id="shaders-desc" string="Wenn unangekreuzt, deaktiviert Shaders."/>
+	<trans id="gpu-caching-desc" string="Wenn angekreuzt, senkt RAM-nutzung wenn du einen guten GPU hast."/>
+	<trans id="framerate-desc" string="Ziemlich selbsterklärend, oder nicht?"/>
+	<trans id="note-skins-desc" string="Such dir deinen Noten skin deiner Wahl aus."/>
+	<trans id="note-splashes-desc" string="Such dir ein Noteneffektvariante deiner Wahl aus oder schalte es aus."/>
+	<trans id="note-splash-opacity-desc" string="Wie transparent der Noteneffekt sein soll."/>
+	<trans id="flashing-lights-desc" string="Nicht ankreuzen, wenn du sensibel gegen blinkende Lichter bist!"/>
+	<trans id="translations-desc" string="Wähle deine bevorzugte Übersetzung."/>
+	<trans id="fps-counter-desc" string="Wenn un angekreuzt, versteckt den FPS Zähler."/>
+	<trans id="discord-rich-presence-desc" string="Nicht ankreuzen, um dich von deiner Discord RPC zu verbergen. Die Mod wird in Discord nicht als Aktivität angezeigt."/>
+	<trans id="downscroll-desc" string="Wenn angekreuzt, dann gehen die Noten nach unten anstatt nach oben, ganz einfach."/>
+	<trans id="middlescroll-desc" string="Wenn angekreuzt, dann sind deine Noten zentriert."/>
+	<trans id="ghost-tapping-desc" string="Wenn angekreuzt, dann wirst du nicht fürs drücken leerer Notenfelder bestraft."/>
+	<trans id="auto-pause-desc" string="Wenn angekreuzt, wird das Spiel automatisch angehalten wenn der Bildschirm nicht im Fokus ist."/>
+	<trans id="disable-reset-button-desc" string="Wenn angekreuzt, wird beim drücken von der Zurücksetzungstaste nichts passieren."/>
+	<trans id="hitsound-volume-desc" string="Lustige Noten machen ein &quot;Tick!&quot; Wenn du sie triffst."/>
+	<trans id="safe-frames-desc" string="Ändert sich basierend auf wie viele Frames du hast, wenn du eine Note zu früh oder zu spät drückst."/>
+
+	<trans id="start-game" string="Spiel starten"/>
+	<trans id="credits" string="Mitwirkende"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="Spiel verlassen"/>
+
+	<trans id="new-game" string="Neues Spiel"/>
+	<trans id="clear-save" string="Spielstand löschen"/>
+	<trans id="freeplay" string="Freies Spiel"/>
+	<trans id="story" string="Kampangne"/>
+
+	<trans id="personal-best" string="Persönlicher Rekord"/>
+	<trans id="score" string="Punkte"/>
+	<trans id="misses" string="Verfehlungen"/>
+	<trans id="rating" string="Bewertung"/>
+
+	<trans id="you-have-died" string="Du bist gestorben."/>
+	<trans id="times" string="times."/>
+	<trans id="resume" string="Weiter"/>
+	<trans id="exit-to-freeplay" string="Zurück zu Freies Spiel"/>
+	<trans id="exit-to-menu" string="Zurück zum Menü"/>
+	<trans id="exit-to-dirtmouth" string="Zurück zu Mistmund"/>
+	<trans id="restart-song" string="Song neustarten"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Ausruhen"/>
+	<trans id="listen" string="Zuhöhren"/>
+	<trans id="enter" string="Eintreten"/>
+	<trans id="shop" string="Laden"/>
+
+	<trans id="purchase-this-item" string="Kaufen?"/>
+	<trans id="yes" string="Ja"/>
+	<trans id="no" string="Nein"/>
+
+	<trans id="charms" string="Talismane"/>
+	<trans id="equipped" string="Ausgerüstet"/>
+	<trans id="notches" string="Sockel"/>
+	<trans id="cost" string="Kosten"/>
+	<trans id="no-cost" string="Keine Kosten"/>
+	<trans id="overcharmed" string="Talismanie"/>
+
+	<trans id="life-tutorial-1" string="Höhere Wesen, diese Worte sind euch allein bestimmt"/>
+	<trans id="life-tutorial-2" string="Eure große Stärke zeichnet euch als uns zugehörig aus.&#xA;Fokussiert eure Seele und vollbringt taten, wovon andere nur träumen können."/>
+	<trans id="life-tutorial-3" string="Sammle SEELE, indem du Noten triffst.&#xA;Sobald sie genug SEELE gesammelt haben, halten sie LEERTASTE gedrückt während sie nicht singen, um zu heilen."/>
+
+	<trans id="charms-tutorial-1" string="Talisman erhalten"/>
+	<trans id="charms-tutorial-2" string="Rüste einen Talisman aus, um seine mächtigen Fähigkeiten zu aktivieren."/>
+	<trans id="charms-tutorial-3" string="Um einen Talisman auszurüsten, öffne das TALISMANE-Menü, während sie sich auf einer Bank ausruhen."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Loser!"/>
+	<trans id="shit" string="Scheiße"/>
+	<trans id="bad" string="Schlecht"/>
+	<trans id="bruh" string="Bruh"/>
+	<trans id="meh" string="Meh"/>
+	<trans id="nice" string="Nice"/>
+	<trans id="good" string="Gut"/>
+	<trans id="great" string="Super"/>
+	<trans id="sick!" string="Geil!"/>
+	<trans id="perfect!!" string="Perfekt!!"/>
+
+</translations>

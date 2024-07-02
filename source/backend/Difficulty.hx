@@ -15,7 +15,7 @@ class Difficulty {
 		} else {
 			fileSuffix = '';
 		}
-		return Paths.formatToSongPath(fileSuffix);
+		return Paths.formatPath(fileSuffix);
 	}
 
 	inline public static function loadFromWeek(week:WeekData = null) {
@@ -42,9 +42,9 @@ class Difficulty {
 	}
 
 	public static function getByName(name:String):Int {
-		name = Paths.formatToSongPath(name);
+		name = Paths.formatPath(name);
 		for (i in 0...list.length) {
-			if (Paths.formatToSongPath(list[i]) == name) {
+			if (Paths.formatPath(list[i]) == name) {
 				return i;
 			}
 		}

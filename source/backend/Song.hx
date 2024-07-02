@@ -60,8 +60,8 @@ class Song {
 
 	public static function getChartPath(jsonInput:String, folder:String):String {
 		// fileName = jsonInput;
-		var formattedFolder:String = Paths.formatToSongPath(folder);
-		var formattedSong:String = Paths.formatToSongPath(jsonInput);
+		var formattedFolder:String = Paths.formatPath(folder);
+		var formattedSong:String = Paths.formatPath(jsonInput);
 		#if MODS_ALLOWED
 		var moddyFile:String = Paths.modsJson(formattedFolder + '/' + formattedSong);
 		if (FileSystem.exists(moddyFile)) {

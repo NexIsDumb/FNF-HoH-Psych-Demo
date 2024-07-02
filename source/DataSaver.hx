@@ -14,6 +14,10 @@ enum abstract Charm(String) to String {
 }
 
 class DataSaver {
+	public static function getCharmImage(charm:Charm) {
+		return Paths.image('charms/$charm/base', 'hymns');
+	}
+
 	public static final allCharms:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus];
 
 	// needs to be saved

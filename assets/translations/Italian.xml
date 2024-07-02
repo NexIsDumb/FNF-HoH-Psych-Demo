@@ -134,7 +134,7 @@
     <trans id="enter" string="Entra"/>
     <trans id="shop" string="Negozio"/>
 
-    <trans id="purchase-this-item?" string="Comprare?"/>
+    <trans id="purchase-this-item" string="Comprare?"/>
     <trans id="yes" string="Si"/>
     <trans id="no" string="No"/>
 

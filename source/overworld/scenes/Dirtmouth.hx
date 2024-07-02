@@ -645,7 +645,7 @@ class Dirtmouth extends BaseScene {
 											Difficulty.resetList();
 											PlayState.storyDifficulty = 1;
 
-											var songLowercase:String = Paths.formatToSongPath("First-Steps");
+											var songLowercase:String = Paths.formatPath("First-Steps");
 											var poop:String = Highscore.formatSong(songLowercase, 1);
 											trace(poop);
 
@@ -673,7 +673,7 @@ class Dirtmouth extends BaseScene {
 											Difficulty.resetList();
 											PlayState.storyDifficulty = 1;
 
-											var songLowercase:String = Paths.formatToSongPath("First-Steps");
+											var songLowercase:String = Paths.formatPath("First-Steps");
 											var poop:String = Highscore.formatSong(songLowercase, 1);
 											trace(poop);
 

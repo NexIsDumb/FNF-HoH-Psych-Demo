@@ -47,7 +47,7 @@ class CharmAcquireElderbug extends FlxSpriteGroup {
 		flair.alpha = 0;
 		add(flair);
 
-		var charm:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/base', 'hymns'));
+		var charm:FlxSprite = new FlxSprite(0, 0).loadGraphic(DataSaver.getCharmImage(MelodicShell));
 		charm.antialiasing = ClientPrefs.data.antialiasing;
 		charm.scale.set(0.2, 0.2);
 		charm.updateHitbox();

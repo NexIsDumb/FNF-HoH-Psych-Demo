@@ -144,7 +144,7 @@
 	<trans id="enter" string="进入"/>
 	<trans id="shop" string="商店"/>
 
-	<trans id="purchase-this-item?" string="是否购买?"/>
+	<trans id="purchase-this-item" string="是否购买?"/>
 	<trans id="yes" string="是"/>
 	<trans id="no" string="不"/>
 

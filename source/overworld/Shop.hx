@@ -1,5 +1,6 @@
 package overworld;
 
+import DataSaver.Charm;
 import haxe.macro.Expr.FieldType;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -96,7 +97,7 @@ class Shop extends FlxSpriteGroup {
 		title2.alpha = 0;
 		add(title2);
 
-		charmsy = new FlxSprite(title2.x, 220).loadGraphic(Paths.image('charms/Lifeblood Seed/base', 'hymns'));
+		charmsy = new FlxSprite(title2.x, 220).loadGraphic(DataSaver.getCharmImage(LifebloodSeed));
 		charmsy.antialiasing = ClientPrefs.data.antialiasing;
 		charmsy.scale.set(0.4, 0.4);
 		charmsy.updateHitbox();
@@ -104,7 +105,7 @@ class Shop extends FlxSpriteGroup {
 		charmsy.alpha = 0;
 		add(charmsy);
 
-		purchase = new FlxText(mainPos.x - main.width / 6, 350, 0, TM.checkTransl("Purchase this Item?", "purchase-this-item?"));
+		purchase = new FlxText(mainPos.x - main.width / 6, 350, 0, TM.checkTransl("Purchase this Item?", "purchase-this-item"));
 		purchase.setFormat(Constants.HK_FONT, 32, FlxColor.WHITE, CENTER);
 		purchase.antialiasing = ClientPrefs.data.antialiasing;
 		purchase.screenCenterX();
@@ -153,8 +154,6 @@ class Shop extends FlxSpriteGroup {
 
 		mainPos.put();
 
-		updatePointers(yes);
-
 		selector = new FlxSprite(25, 300).loadGraphic(Paths.image('Shop/selector', 'hymns'));
 		selector.scale.set(0.7, 0.7);
 		selector.updateHitbox();
@@ -189,7 +188,7 @@ class Shop extends FlxSpriteGroup {
 		if (rawData == false) {
 			addCharm(Swindler,
 				"",
-				0, "50");
+				0, 50);
 		} else {
 			DataSaver.loadData(DataSaver.saveFile);
 			var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
@@ -198,15 +197,15 @@ class Shop extends FlxSpriteGroup {
 
 			addCharm(BaldursBlessing,
 				TM.checkTransl("Finding yourself running into trouble down below? Baldur shells are so tough that they are said to protect the wearer from harm! However it does not seem indestructible, so do take care.", "baldur's-blessing-tip"),
-				3, "250");
+				3, 250);
 
 			addCharm(LifebloodSeed,
 				TM.checkTransl("Need a little bit of a boost? Then this charm is the thing for you! Lifeblood may be seen as a bit of a taboo, but it certainly will make you feel healthier! Just don’t let anyone know who sold it to you.", "lifeblood-seed-tip"),
-				2, "175");
+				2, 175);
 
 			addCharm(CriticalFocus,
 				TM.checkTransl("If you have trouble focusing in dangerous situations, this is the charm for you! I heard that it can help the wearer gather “SOUL” when in danger, whatever that means.", "critical-focus-tip"),
-				2, "450");
+				2, 450);
 
 			if (rawData1 && rawData2 && rawData3) {
 				purchasedall = true;
@@ -226,6 +225,7 @@ class Shop extends FlxSpriteGroup {
 		if (charmList.length > 0) {
 			generateNotches(charmList[selected][2]);
 			title.text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
+			title.y = 200 - title.height;
 			desc1.text = charmList[selected][4][1];
 		}
 
@@ -405,15 +405,18 @@ class Shop extends FlxSpriteGroup {
 
 		// callback();
 		// changeselection(0);
+
+		updatePointers(selected2);
+		/// cum
 	}
 
-	function addCharm(name, desc, notch, price) {
+	function addCharm(name:Charm, desc:String, notch:Int, price:Int) {
 		DataSaver.loadData(DataSaver.saveFile);
 		if (DataSaver.charmsunlocked.get(name) == null || DataSaver.charmsunlocked.get(name) == false) {
 			var charmGroup:FlxSpriteGroup = new FlxSpriteGroup(0, 0);
 			add(charmGroup);
 
-			var charm:FlxSprite = new FlxSprite(45, 305).loadGraphic(Paths.image('charms/$name/base', 'hymns'));
+			var charm:FlxSprite = new FlxSprite(45, 305).loadGraphic(DataSaver.getCharmImage(name));
 			charm.antialiasing = ClientPrefs.data.antialiasing;
 			charm.scale.set(0.17, 0.17);
 			charm.updateHitbox();
@@ -435,7 +438,7 @@ class Shop extends FlxSpriteGroup {
 			txt.x = pos.x;
 			txt.y = pos.y - (geo.height / 1.25) - 2.5;
 			pos.put();
-			txt.text = price;
+			txt.text = Std.string(price);
 			txt.antialiasing = ClientPrefs.data.antialiasing;
 			charmGroup.add(txt);
 
@@ -482,6 +485,7 @@ class Shop extends FlxSpriteGroup {
 
 			generateNotches(charmList[selected][2]);
 			titledesc[0].text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
+			title.y = 200 - title.height;
 			titledesc[1].text = charmList[selected][4][1];
 			trace(charmList.length);
 			for (i in 0...charmList.length) {
@@ -512,22 +516,15 @@ class Shop extends FlxSpriteGroup {
 
 	function updatePointers(spr:FlxSprite) {
 		var pos = spr.getGraphicMidpoint();
-
-		pointer1.screenCenterX();
+		pointer1.screenCenterXToSprite(spr);
 		pointer1.y = pos.y - (spr.height / 4);
 		pointer1.x -= (spr.width / 2) + pointer1.width / 1.5;
 		pointer1.animation.play('idle', true);
 
-		pointer2.screenCenterX();
+		pointer2.screenCenterXToSprite(spr);
 		pointer2.y = pos.y - (spr.height / 4);
 		pointer2.x += (spr.width / 2) + pointer1.width / 1.5;
 		pointer2.animation.play('idle', true);
-
-		pointer1.x += main.width / 1.58;
-		pointer1.x -= spr.width + 5;
-		pointer2.x += main.width / 1.58;
-		pointer2.x -= spr.width + 5;
-
 		pos.put();
 	}
 
@@ -632,15 +629,15 @@ class Shop extends FlxSpriteGroup {
 						FlxTween.tween(spr, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 					}
 
-					var realName:String = charmList[selected][4][0];
-					purchase.text = TM.checkTransl("Purchase this Item?", "purchase-this-item?");
-					title2.text = TM.checkTransl(realName, realName.toLowerCase().replace(" ", "-"));
+					var realName:Charm = charmList[selected][4][0];
+					purchase.text = TM.checkTransl("Purchase this Item?", "purchase-this-item");
+					title2.text = TM.checkTransl(realName, Paths.formatPath(cast(realName, String)));
 
 					title2.updateHitbox();
 					title2.screenCenterX();
 					title2.x += main.width / 1.75;
 
-					charmsy.loadGraphic(Paths.image('charms/$realName/base', 'hymns'));
+					charmsy.loadGraphic(DataSaver.getCharmImage(realName));
 					charmsy.antialiasing = ClientPrefs.data.antialiasing;
 					charmsy.scale.set(0.4, 0.4);
 					charmsy.updateHitbox();
@@ -687,7 +684,7 @@ class Shop extends FlxSpriteGroup {
 									Difficulty.resetList();
 									PlayState.storyDifficulty = 1;
 
-									var songLowercase:String = Paths.formatToSongPath("Swindler");
+									var songLowercase:String = Paths.formatPath("Swindler");
 									var poop:String = Highscore.formatSong(songLowercase, 1);
 
 									PlayState.SONG = Song.loadFromJson(poop, songLowercase);

@@ -71,6 +71,25 @@ class Extensions {
 		return sprite;
 	}
 
+	public static inline function screenCenterXToSprite(spr:FlxObject, Center:FlxObject):FlxObject {
+		spr.x = Center.x + (Center.width - spr.width) / 2;
+
+		return spr;
+	}
+
+	public static inline function screenCenterYToSprite(spr:FlxObject, Center:FlxObject):FlxObject {
+		spr.y = Center.y + (Center.height - spr.height) / 2;
+
+		return spr;
+	}
+
+	public static inline function screenCenterXYToSprite(spr:FlxObject, Center:FlxObject):FlxObject {
+		spr.x = Center.x + (Center.width - spr.width) / 2;
+		spr.y = Center.y + (Center.height - spr.height) / 2;
+
+		return spr;
+	}
+
 	public static inline function screenCenterX(spr:FlxObject):FlxObject {
 		spr.x = (FlxG.width - spr.width) / 2;
 

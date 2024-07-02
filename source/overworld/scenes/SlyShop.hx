@@ -63,7 +63,7 @@ class SlyShop extends BaseScene {
 
 	override public function createPost() {
 		sly = new FlxSprite(0, 0);
-		sly.frames = Paths.getSparrowAtlas('Overworld/SlyShop (1)', 'hymns');
+		sly.frames = Paths.getSparrowAtlas('Overworld/SlyShop', 'hymns');
 		sly.scale.set(0.24, 0.24);
 		sly.updateHitbox();
 		sly.screenCenterXY();
