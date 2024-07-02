@@ -26,7 +26,7 @@ class TransManager {
 	/**
 	 * The default font used.
 	 */
-	public static inline var DEFAULT_FONT:String = 'trajan.ttf';
+	public static inline var DEFAULT_FONT:String = 'TrajanPro-Regular.ttf';
 
 	/**
 	 * The default font used for the ui.
