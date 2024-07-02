@@ -66,7 +66,7 @@ class TransManager {
 	 * Returns if any translation is loaded.
 	 */
 	inline public static function is_anyTransLoaded():Bool
-		return transMap != [];
+		return Lambda.count(transMap) > 0;
 
 	/**
 	 * Changes the translations map.
@@ -163,7 +163,7 @@ class TransManager {
 	}
 
 	private static inline function _returnAndNullFont(val:Map<String, String>):Map<String, String> {
-		if (val == null || val == [])
+		if (val == null || Lambda.count(val) == 0)
 			languageFont = null;
 
 		return val;

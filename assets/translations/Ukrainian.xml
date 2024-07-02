@@ -1,6 +1,6 @@
 <!DOCTYPE hymns-language-translation>
 
-<translations font="cyrillic.ttf">
+<translations font="krka.ttf">
 	<!-- Charms -->
 	<trans id="melodic-shell" string="Мелодична мушля"/>
 	<trans id="lifeblood-seed" string="Сем'я живокрові"/>
