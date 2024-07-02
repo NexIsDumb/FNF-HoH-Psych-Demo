@@ -210,7 +210,7 @@ class Character extends FlxSprite {
 			} else if (specialAnim && animation.curAnim.finished) {
 				specialAnim = false;
 				dance();
-			} else if (animation.curAnim.name.endsWith('miss') && animation.curAnim.finished) {
+			} else if (animation.curAnim.finished && animation.curAnim.name.endsWith('miss')) {
 				dance();
 				animation.finish();
 			}
@@ -220,16 +220,13 @@ class Character extends FlxSprite {
 			else if (isPlayer)
 				holdTimer = 0;
 
-			if (idleReturn) {
-				if (!isPlayer && holdTimer >= Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1))) {
-					dance();
-					holdTimer = 0;
-				}
-			} else {
-				if (!isPlayer && holdTimer >= Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1)) * singDuration) {
-					dance();
-					holdTimer = 0;
-				}
+			var idleReturnTime = Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1));
+			if (!idleReturn)
+				idleReturnTime *= singDuration;
+
+			if (!isPlayer && holdTimer >= idleReturnTime) {
+				dance();
+				holdTimer = 0;
 			}
 
 			if (animation.curAnim.finished && animation.exists(animation.curAnim.name + '-loop'))
@@ -274,17 +271,17 @@ class Character extends FlxSprite {
 
 		if (animOffsets.exists(animName)) {
 			var daOffset = animOffsets.get(animName);
-			if (scale.x <= 0.5) {
-				switch (animName) {
-					case "singLEFT": offset.set(-18, -6);
-					case "singRIGHT": offset.set(14, -2);
-					case "singUP": offset.set(-9, 21);
-					case "singDOWN": offset.set(-4, -31);
-					default: offset.set(daOffset[0], daOffset[1]);
-				}
-			} else {
-				offset.set(daOffset[0], daOffset[1]);
-			}
+			// if (scale.x <= 0.5) {
+			//	switch (animName) {
+			//		case "singLEFT": offset.set(-18, -6);
+			//		case "singRIGHT": offset.set(14, -2);
+			//		case "singUP": offset.set(-9, 21);
+			//		case "singDOWN": offset.set(-4, -31);
+			//		default: offset.set(daOffset[0], daOffset[1]);
+			//	}
+			// } else {
+			offset.set(daOffset[0], daOffset[1]);
+			// }
 		} else
 			offset.set(0, 0);
 
