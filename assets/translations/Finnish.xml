@@ -1,0 +1,186 @@
+<!DOCTYPE hymns-language-translation>
+
+<!-- You could probably translate this in a day tbh -->
+<!-- But I'm just the master procastinator -->
+<!-- (Also because NDL took so fucking long) -->
+<!-- Also also why TF is there no finnish translation for "framerate" --> <!-- Cuz theres no option for that LOL  - Nex -->
+<!-- Worst fucking language ever I swear to GOD -->
+<!-- RAAAAAAAAAGGHHHHGGHGHHhhhHHGHGH -->
+
+<translations>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Melodinen kuori"/>
+	<trans id="lifeblood-seed" string="Elämänveri siemen"/>
+	<trans id="critical-focus" string="Kriittinen keskittyminen"/>
+	<trans id="baldur's-blessing" string="Balurin siunaus"/>
+
+	<trans id="melodic-shell-desc" string="Melodinen amuletti luotu niille, jotka haluavat laulaa. Antaa kantajalleen kyvyn laulaa ja palkitsee heidät vastineeksi sielulla."/>
+	<trans id="lifeblood-seed-desc" string="Sisältää elävän ytimen, joka vuotaa kallisarvoista elämänverta. Levätessään kantaja saa kerroksen elämänverta&#xA;joka suojaa kohtuulliselta määrältä vahinkoa."/>
+	<trans id="critical-focus" string="Shamaanien artifakti, joka on ollut pitkään jo unohdettu. Sen seurauksena sen päälle alkoi muodostua kristalleja, jotka vahvistivat sen kykyjä. Kun kantaja on alle puolet nykyisestä terveydestään, hän saa lisää sielua iskiessään vihollisia."/>
+	<trans id="baldur's-blessing-desc" string="Suojaa kantajaansa kovalla kuorella, jos häntä uhkaa varma kuolema. Kuori ei ole tuhoutumaton, ja särkyy yhden käyttökerran jälkeen."/>
+
+	<trans id="baldur's-blessing-tip" string="Huomaatko joutuvasi vaikeuksiin alhaalla? Baldur-kuoret ovat niin kovia, että niiden sanotaan suojaavan käyttäjäänsä vahingoittumiselta! Se ei kuitenkaan vaikuta tuhoutumattomalta, joten ole varovainen."/>
+	<trans id="lifeblood-seed-tip" string="Tarvitsetko vähän lisäpotkua? Silloin tämä amuletti on juuri sinua varten! Elämänverta saatetaan pitää hieman tabuna, mutta se saa sinut varmasti tuntemaan terveellisemmältä! Älä vain kerro kenellekään, kuka sen on sinulle myynyt."/>
+	<trans id="critical-focus-tip" string="Jos sinulla on vaikeuksia keskittyä vaarallisissa tilanteissa, tämä on oikea amuletti sinulle! Olen kuullut, että se voi auttaa käyttäjäänsä keräämään &quot;SIELUA&quot; vaaratilanteessa, mitä se sitten tarkoittaakin."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Ah, Matkaaja! Palasit takaisin! Olisin voinut vannoa, että ohitit minut hetki sitten. Näytit pudottaneen tämän matkallasi alas. Tässä, ota se."/>
+	<trans id="elderbug-dialog-2" string="Tässä, voit yrittää sitä minua vastaan. Pienestä harjoittelusta ei pitäisi olla haittaa. Sitä paitsi, arvostan aina lisäseuraa."/>
+	<trans id="elderbug-dialog-3" string="Suokaa anteeksi, laulutaitoni taitaa olla hieman ruosteessa. Kokeilkaamme vielä uudelleen, Matkaaja."/>
+	<trans id="elderbug-dialog-4" string="Matkaaja, tuo kyntesi näyttäisi olevan melko surkeassa kunnossa. Siitä ei ole mitään hyötyä sinulle tuolla alhaalla. Ehkäpä tuosta amuletistasi voisi olla vielä hyötyä."/>
+	<trans id="elderbug-dialog-5" string="Voi sentään, en ole tuntenut tällaista nautintoa pitkään aikaan!"/>
+	<trans id="elderbug-dialog-6" string="Näyttäisi siltä, että saimme kauppiaamme huomion! Kenties teidän kannattaisi käydä hänen luonaan? Arvelen, että hänellä saattaisi olla jotain, joka voi auttaa teitä matkoillanne."/>
+	<trans id="elderbug-dialog-7" string="Se karttakaupan pariskunta... Toivon heille vain parasta. Kunpa he olisivat voineet perustaa liikkeen johonkin suurempaan paikkaan... En kestä katsoa, kun hänen vaimonsa kumartuu kävelemään tuosta ovesta sisään, niin pitkä hyönteinen hän on."/>
+	<trans id="elderbug-dialog-8" string="Kauppias? Hänellä näyttää olevan kaikkea tuossa pienessä kaupassaan! Tosin, sinuna olisin varovainen, jos haluat tehdä kauppaa hänen kanssaan... Se hyönteinen tinkii kovasti tavaroistaan." />
+	<trans id="elderbug-dialog-9" string="Monet tulivat etsimään valtakuntaa jalkojemme alta. Pyhäinpesä, sitä kutsuttiin. Se oli kuulemma mahtavin valtakunta, mitä on koskaan ollut. Siitä on sittemmin tullut raunio, ja alapuolella oleva sairaalloinen ilma riittää ajamaan hulluuteen!"/>
+	<trans id="elderbug-dialog-10" string="Vaikutat uupuneelta, Matkaaja. Olet kai laskeutunut alla oleviin vehreisiin luoliin? Se on todellakin kaunis näky."/>
+	<trans id="elderbug-dialog-11" string="Ehdotan, että lepäätte tuolla penkillä ennen kuin jatkatte matkaa. Voin luvata, että se on varsin miellyttävä."/>
+	<trans id="elderbug-dialog-12" string="Ah, olet näköjään tehnyt ostoksia tuolta kauppiaalta? Vaikutat olevan valmiina tulevaan matkaasi. Mutta muista olla tarkkana, kuka tietää mihin saatat törmätä noissa luolastoissa."/>
+	<trans id="elderbug-dialog-13" string="Vaikutat uupuneelta, Matkaaja. Näyttää siltä, että olet kamppaillut rankasti kaupoista."/>
+
+	<trans id="sly-dialog-1" string="Ah, päivää! Tiesin, että tapaisimme taas. Näyttää siltä, että olet saanut itsellesi pienen muodonmuutoksen, hm?"/>
+	<trans id="sly-dialog-2" string="Ai! Tahdotko laulaa? Hmm...on harvoin, että joku haastaa minut..."/>
+	<trans id="sly-dialog-3" string="Hyvä on, otan haasteen vastaan! Pakko sanoa, etten ole itsekään mikään suuri laulutaituri... mutta olen kyllä utelias taidoistasi."/>
+	<trans id="sly-dialog-4" string="Voi, siitä on jo aikaa, kun olen viimeksi soittanut näin. On myönnettävä, että se oli varsin nautinnollista! Vaikka se kuinka sattuu... hävitty taistelu on hävitty taistelu. Ole hyvä, ota palkkiosi ja jätä minut Geoni ääreen... paitsi jos aiotte ostaa lisää tuotteitani..."/>
+	<trans id="sly-dialog-5" string="Valitettavasti minulla ei ole muuta tarjottavaa. Olet tyhjentänyt hyllyni."/>
+	<trans id="sly-dialog-6" string="Kiitoksia ystävällisestä kannatuksestanne! Lupaan teille, että muutkin tavarani ovat tarkastelun arvoisia! Ne saattavat jopa lisätä mahdollisuuksiasi jäädä henkiin tuolla alhaalla... "/>
+	<trans id="sly-dialog-7" string="Tuntuvatko taskut tyhjiltä? Jos olet saalistamassa lisää Geoa, alla olevilla raunioilla on paljon tarjottavaa!"/>
+
+	<trans id="elderbug-name" string="Vanhuskuoriainen"/>
+	<!-- I can't change sly's name, it's just too clever -->
+
+	<!-- Menus -->
+	<trans id="options" string="Asetukset"/>
+	<trans id="note-colors" string="Nuotti värit"/>
+	<trans id="controls" string="Kontrollit"/>
+	<trans id="graphics" string="Grafiikat"/>
+	<trans id="visuals-and-ui" string="Visuaalit ja UI"/>
+	<trans id="gameplay" string="Pelaus"/>
+	<trans id="back" string="Takaisin"/>
+
+	<trans id="left" string="Vasen"/>
+	<trans id="down" string="Alas"/>
+	<trans id="up" string="Ylös"/>
+	<trans id="Right" string="Oikea"/>
+	<trans id="focus" string="Keskittyminen"/>
+	<trans id="accept" string="Hyväksy"/>
+	<trans id="pause" string="Pysäytä"/>
+	<trans id="ui-up" string="UI Ylös"/>
+	<trans id="ui-left" string="UI Vasen"/>
+	<trans id="ui-right" string="UI Oikea"/>
+	<trans id="ui-down" string="UI Alas"/>
+	<trans id="ui-back" string="UI TAkaisin"/>
+	<trans id="reset" string="Nollaa"/>
+	<trans id="mute" string="Mykistä"/>
+	<trans id="volume-up" string="äänentaso ylös"/>
+	<trans id="volume-down" string="äänentaso alas"/>
+	<trans id="reset-to-default-keys" string="Nollaa oletusnäppäimiin"/>
+
+	<trans id="on" string="Päällä"/>
+	<trans id="off" string="Pois"/>
+	<trans id="none" string="Tyhjä"/>
+
+	<trans id="low-quality" string="Matala Laatu"/>
+	<trans id="anti-aliasing" string="Anti-Aliasing"/>
+	<trans id="shaders" string="Sävyttimet"/>
+	<trans id="gpu-caching" string="GPU:n välimuistitallennus"/>
+	<trans id="framerate" string="FPS"/>
+	<trans id="note-skins" string="Nuotti Skin:it"/>
+	<trans id="note-splashes" string="Nuotti Roiskeet"/>
+	<trans id="note-splash-opacity" string="Nuotti Roiske Läpinäkyvyys"/>
+	<trans id="flashing-lights" string="Vilkkuvat valot"/>
+	<trans id="translations" string="Käännökset"/>
+	<trans id="fps-counter" string="FPS laskuri"/>
+	<trans id="discord-rich-presence" string="Discord Rich Presence"/>
+	<trans id="downscroll" string="Alasnuotitus"/>
+	<trans id="middlescroll" string="Keskinuotitus"/>
+	<trans id="ghost-tapping" string="Ghost Tapping"/>
+	<trans id="auto-pause" string="Automaattinen Pysäytys"/>
+	<trans id="disable-reset-button" string="Nollaus Nappi Pois Päältä"/>
+	<trans id="hitsound-volume" string="Osumaäänen-taso"/>
+	<trans id="safe-frames" string="Turva Frame:it"/>
+
+	<trans id="low-quality-desc" string="Jos valittu, poistaa joitakin tausta-grafiikkoja."/>
+	<trans id="anti-aliasing-desc" string="Jos ei valittu, poistaa anti-aliasing käytöstä, parantaen suorituskykyä vähentäen grafiikkojen tarkkuutta."/>
+	<trans id="shaders-desc" string="Jos ei valittu, poistaa Sävyttimet käytöstä."/>
+	<trans id="gpu-caching-desc" string="Jos valittu, vähentää RAM:in käyttöä jos sinulla on hyvä GPU."/>
+	<trans id="framerate-desc" string="Aika itse-selitteinen, eikö?"/>
+	<trans id="note-skins-desc" string="Valitse haluttu nuotti skin."/>
+	<trans id="note-splashes-desc" string="Valitse haluttu Nuotti Roiske variaatio tai poista käytöstä."/>
+	<trans id="note-splash-opacity-desc" string="Kuinka läpinäkyvät Nuotti Roiskeet ovat."/>
+	<trans id="flashing-lights-desc" string="älä valitse tätä jos olet herkkä vilkkuville valoille!!"/>
+	<trans id="translations-desc" string="Valitse haluttu pelin käännös."/>
+	<trans id="fps-counter-desc" string="Jos ei valittuna, piilottaa FPS laskurin."/>
+	<trans id="discord-rich-presence-desc" string="Poistä tämä jo haluat piilottaa peli toiminnan Discord:ista (Discord RPC)"/>
+	<trans id="downscroll-desc" string="Jos valittu, nuotit menevät alas, eikä ylös, simppeliä."/>
+	<trans id="middlescroll-desc" string="Jos valittu, nuottisi menevät keskeltä."/>
+	<trans id="ghost-tapping-desc" string="Jos valittu, et voi hutita pelikomentojen lyömistä, kun niiden alla ei ole nuotteja."/>
+	<trans id="auto-pause-desc" string="Jos valittuna, peli automaattisesti pysähtyy jos ei ole keskitettynä."/>
+	<trans id="disable-reset-button-desc" string="Jos valittu, nollaus-painikkeen painaminen ei tee mitään."/>
+	<trans id="hitsound-volume-desc" string="Ooga booga, nuotti menee &quot;Tick!&quot; kun osut siihen."/>
+	<trans id="safe-frames-desc" string="Vaihda kuinka monta &quot;frame&quot;:iä sinulla on osua nuottiin aikaisemmin tai myöhemmin."/>
+
+	<trans id="start-game" string="Aloita Peli"/>
+	<trans id="credits" string="Ansioluettelo"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="Poistu Pelistä"/>
+
+	<trans id="new-game" string="Uusi Peli"/>
+	<trans id="clear-save" string="Poista Tallennus"/>
+	<trans id="freeplay" string="Freeplay"/>
+	<trans id="story" string="Tarina"/>
+
+	<trans id="personal-best" string="Oma Paras"/>
+	<trans id="score" string="Pisteet"/>
+	<trans id="misses" string="Hutit"/>
+	<trans id="rating" string="Arvosana"/>
+
+	<trans id="you-have-died" string="Olet kuollut"/>
+	<trans id="times" string="kertaa."/>
+	<trans id="resume" string="Jatka"/>
+	<trans id="exit-to-freeplay" string="Takaisin Kappaleihin"/>
+	<trans id="exit-to-menu" string="Takaisin Valikkoon"/>
+	<trans id="exit-to-dirtmouth" string="Takaisin Multaporttiin"/>
+	<trans id="restart-song" string="Aloita uudelleen"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Lepää"/>
+	<trans id="listen" string="Kuuntele"/>
+	<trans id="enter" string="Astu sisään"/>
+	<trans id="shop" string="Kauppa"/>
+
+	<trans id="purchase-this-item" string="Osta?"/>
+	<trans id="yes" string="Joo"/>
+	<trans id="no" string="Ei"/>
+
+	<trans id="charms" string="Amuletit"/>
+	<trans id="equipped" string="Käytössä"/>
+	<trans id="notches" string="Pykälät"/>
+	<trans id="cost" string="Hinta"/>
+	<trans id="no-cost" string="Ei hintaa"/>
+	<trans id="overcharmed" string="Ylihuumattu"/>
+
+	<trans id="life-tutorial-1" string="Korkeammat olennot, nämä kirjoitukset ovat vain teille."/>
+	<trans id="life-tutorial-2" string="Suuri voimasi erottaa sinut keskuudestamme.&#xA;Keskity sielusi ja tulet saavuttamaan tekoja, joista muut voivat vain uneksia."/>
+	<trans id="life-tutorial-3" string="Kerää SIELUA painamalla nuotteja.&#xA;Kun olet kerännyt tarpeeksi SIELUA, pidä VäLI painettuna silloin kun et laula, ja keskitä SIELUA parantuaksesi."/>
+
+	<trans id="charms-tutorial-1" string="Kerätty Amuletti"/>
+	<trans id="charms-tutorial-2" string="Käytä amulettia aktivoidaksesi sen voimakkaat kyvyt."/>
+	<trans id="charms-tutorial-3" string="Voit varustaa amuletin avaamalla AMULETIT-valikon, kun lepäät penkillä."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Olet Surkea!"/>
+	<trans id="shit" string="Paska"/>
+	<trans id="bad" string="Huono"/>
+	<trans id="bruh" string="Bruh"/>
+	<trans id="meh" string="Meh"/>
+	<trans id="nice" string="Hienoa"/>
+	<trans id="good" string="Hyvä"/>
+	<trans id="great" string="Loistava"/>
+	<trans id="sick!" string="Mahtava!"/>
+	<trans id="perfect!!" string="Täydellinen!!"/>
+</translations>
+
+<!-- HAAIIIIII *Waves at you* :3 :Jeom -->
