@@ -1,0 +1,175 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Melodic Shell"/>
+	<trans id="lifeblood-seed" string="Lifeblood Seed"/>
+	<trans id="critical-focus" string="Rapid Focus"/>
+	<trans id="baldur-blessing" string="Baldur's Blessing"/>
+
+	<trans id="melodic-shell-desc" string="Jimat merdu yang diciptakan untuk mereka yang ingin bernyanyi. Memberikan pemiliknya kemampuan untuk bernyanyi sebagai imbalannya menghadiahi mereka jiwa."/>
+	<trans id="lifeblood-seed-desc" string="Berisi sari hidup yang meneteskan cairan darah kehidupan yang berharga. Saat beristirahat, pemakainya akan mendapatkan lapisan darah kehidupan&#xA;yang melindungi dari sejumlah kecil kerusakan."/>
+	<trans id="critical-focus" string="Sebuah artefak dukun yang sudah lama terlupakan. Sebagai akibatnya kristal mulai terbentuk diatasnya, memperkuatkan kemampuannya. Ketika pemakainya sedang berada di bawah setengah dari nyawanya, mereka diberikan jiwa tambahan saat menyerang musuh."/>
+	<trans id="baldur-blessing-desc" string="Melindungi pemakainya dengan cangkang yang keras saat bertemu dengan kematian tertentu. Cangkang ini gampang rapuh dan akan pecah setelah sekali digunakan."/>
+
+	<trans id="baldur-blessing-tip" string="Menemukan diri anda mengalami sebuah masalah dibawah? Cangkung baldur ini sangat tangguh sehingga mereka dikatakan dapat melindungi pemakai dari bahaya! Namun tampaknya cangkang ini gampang rapuh, jadi berhati-hatilah."/>
+	<trans id="lifeblood-seed-tip" string="Butuh sedikit dorongan? Jimat ini cocok untuk anda! Darah kehidupan mungkin dianggap agak terlarang, tapi itu pasti akan membuat anda merasa lebih sehat! Asal jangan kau beri tahu siapa yang menjualnya kepadamu."/>
+	<trans id="critical-focus-tip" string="Jika kau punya masalah memfokus di situasi yang berbahaya, ini jimat untukmu! Ku dengar ini bisa membantu pemakainya mengumpuli &quot;JIWA&quot; saat dalam bahaya, apapun maksudnya itu."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Oh, Penjelajah! Kau telah kembali! Kukira engkau baru saja melewati saya tadi. Tampaknya tadi kau menjatuhkan ini saat perjalanan kebawah. Ini, ambillah."/>
+	<trans id="elderbug-dialog-2" string="Sini, bagaimana kalau engkau mencobanya kepada saya, sedikit latihan tidak ada salahnya. Lagi pula saya menikmati mempunyai teman baru untuk berbicara."/>
+	<trans id="elderbug-dialog-3" string="Maafkan aku, ku rasa nyanyian ku sedikit kaku. Mari kita coba lagi, Penjelajah."/>
+	<trans id="elderbug-dialog-4" string="Penjelajah, Pakumu kelihatannya sudah dalam bentuk yang rapuh. Itu tidak akan membantumu dibawah sini. Mungkin jimatmu itu bisa berguna untuk membantumu."/>
+	<trans id="elderbug-dialog-5" string="Oh, Sudah lama saya tidak merasa sesenang ini!"/>
+	<trans id="elderbug-dialog-6" string="Oh, sepertinya kita telah menarik perhatian para pemilik toko! Mungkin engkau ingin mengunjungi tokonya? Mungkin saja mereka ada sesuatu yang dapat membantumu dalam perjalanan."/>
+	<trans id="elderbug-dialog-7" string="Pasangan di toko peta... oh saya tidak berharap apapun selain yang terbaik untuk mereka berdua. Kalau saja mereka mendirikan tokonya di tempat yang lebih luas.. saya tidak tahan melihat istrinya harus membungkuk tiap kali ia melewati pintu itu."/>
+	<trans id="elderbug-dialog-8" string="Si penjaga toko? ia tampaknya memilik segala macam barang di toko kecilnya itu! Kusarankan untuk berhati hati jika engkau ingin membeli barang darinya.. ia melakukan penawaran yang cukup rumit untuk barang dagangannya." />
+	<trans id="elderbug-dialog-9" string="Dahulu kala banyak yang datang untuk mencari kerajaan yang tepat dibawah tempat kami berdiri. Hallownest, dulunya disebut. Kerajaan teragung yang pernah ada. Sejak itu menjadi reruntuhan, Udaranya yang memuakkan dibawah itu cukup untuk membuat seseorang menjadi gila!"/>
+	<trans id="elderbug-dialog-10" string="Tampaknya engkau kelelahan, Penjelajah. Saya anggap engkau telah berkelana ke gua-gua rindang di bawah? Pemandangannya cukup indah."/>
+	<trans id="elderbug-dialog-11" string="Saya sarankan kau beristirahat di bangku itu sebelum bepergian lagi. Kujaminkan itu cukup nyaman."/>
+	<trans id="elderbug-dialog-12" string="Oh, sepertinya kau telah berbelanja dari toko itu bukan? Tampaknya engkau cukup bersedia untuk petualanganmu berikutnya. Tapi ingatlah untuk tetap berwaspada, entahlah apa yang akan engkau mungkin temui di gua-gua itu."/>
+	<trans id="elderbug-dialog-13" string="Engkau terlihat kelelahan, Penjelajah. Sepertinya engkau telah berjuang keras untuk sebuah penawaran."/>
+
+	<trans id="sly-dialog-1" string="Oh, halo! Saya tahu kita akan bertemu lagi. Sepertinya kau memiliki gaya baru, hm?"/>
+	<trans id="sly-dialog-2" string="Oh! Kamu ingin bernyanyi? Hmm... jarang ada orang yang ingin menantangku..."/>
+	<trans id="sly-dialog-3" string="Baiklah, aku setuju! Saya harus bilang bahwa saya bukan penyanyi yang hebat... tetapi saya penasaran dengan bakat mu."/>
+	<trans id="sly-dialog-4" string="Oh, sudah cukup lama sejak saya bermain seperti itu. Harus kuakui itu cukup menyenangkan! Sebanyak itu menyakitkanku...sebuah kekalahan itu sebuah kekalahan. Ini, ambillah hadiah mu dan tinggalkan aku dengan Geo ku..kecuali engkau berencana untuk membeli beberapa daganganku..."/>
+	<trans id="sly-dialog-5" string="Ku rasa saya tidak punya apapun lagi untuk kutawar kepada mu. Kau sudah memborongku."/>
+	<trans id="sly-dialog-6" string="Terima kasih atas langganan yang baik mu! Saya jamin, barang dagangan ku yang lain layak dilihat juga! Mereka bahkan mungkin bisa meningkatkan peluang anda dalam bertahan hidup jauh di bawah..."/>
+	<trans id="sly-dialog-7" string="Kantong terasa kosong? Jika kamu sedang berburu lebih banyak geo, reruntuhan dibawah mempunyai banyak untuk ditawarkan!"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="Opsi"/>
+	<trans id="note-colors" string="Warna nota"/>
+	<trans id="controls" string="Controls"/>
+	<trans id="graphics" string="Grafik"/>
+	<trans id="visuals-and-ui" string="Grafik"/>
+	<trans id="gameplay" string="Gameplay"/>
+	<trans id="back" string="Kembali"/>
+
+	<trans id="left" string="Kiri"/>
+	<trans id="down" string="Bawah"/>
+	<trans id="up" string="Atas"/>
+	<trans id="Right" string="Kanan"/>
+	<trans id="focus" string="Fokus"/>
+	<trans id="accept" string="Setuju"/>
+	<trans id="pause" string="Pause"/>
+	<trans id="ui-up" string="UI Atas"/>
+	<trans id="ui-left" string="UI Kiri"/>
+	<trans id="ui-right" string="UI Kanan"/>
+	<trans id="ui-down" string="UI Bawah"/>
+	<trans id="ui-back" string="UI Kembali"/>
+	<trans id="reset" string="Reset"/>
+	<trans id="mute" string="Bisukan"/>
+	<trans id="volume-up" string="Volume Atas"/>
+	<trans id="volume-down" string="Volume Bawah"/>
+	<trans id="reset-to-default-keys" string="Reset ke Kunci Biasa"/>
+
+	<trans id="on" string="On"/>
+	<trans id="off" string="Off"/>
+	<trans id="none" string="Nothing"/>
+
+	<trans id="low-quality" string="Kualitas Rendah"/>
+	<trans id="anti-aliasing" string="Anti-Alias"/>
+	<trans id="shaders" string="Shader"/>
+	<trans id="gpu-caching" string="Cache GPU"/>
+	<trans id="framerate" string="Framerate"/>
+	<trans id="note-skins" string="Skin Nota"/>
+	<trans id="note-splashes" string="Percikan Nota"/>
+	<trans id="note-splash-opacity" string="Opasitas Percikan Nota"/>
+	<trans id="flashing-lights" string="Cahaya berkedip"/>
+	<trans id="translations" string="Terjemahan"/>
+	<trans id="fps-counter" string="Penghitung FPS"/>
+	<trans id="discord-rich-presence" string="Discord Rich Presence"/>
+	<trans id="downscroll" string="Downscroll"/>
+	<trans id="middlescroll" string="Middlescroll"/>
+	<trans id="ghost-tapping" string="Ghost Tapping"/>
+	<trans id="auto-pause" string="Auto Pause"/>
+	<trans id="disable-reset-button" string="Nonaktifkan Tombol Reset"/>
+	<trans id="hitsound-volume" string="Volume Hitsound"/>
+	<trans id="safe-frames" string="Frame Aman"/>
+
+	<trans id="low-quality-desc" string="Jika tercentang, akan menonaktifkan beberapa detail latar belakang."/>
+	<trans id="anti-aliasing-desc" string="Jika tidak tercentang, akan menonaktifkan anti-alias, meningkatkan performansi dengan mengurangi kualitas visual."/>
+	<trans id="shaders-desc" string="Jika tercentang, akan menonaktifkan shader (efek visual)."/>
+	<trans id="gpu-caching-desc" string="Jika tercentang, akan mengurangi pengunaan RAM kalau anda mempunyai GPU bagus."/>
+	<trans id="framerate-desc" string="Cukup jelas, kan?"/>
+	<trans id="note-skins-desc" string="Pilih Skin Nota yang anda sukai."/>
+	<trans id="note-splashes-desc" string="Pilih variasi Percikan Nota yang anda sukai, atau matikan."/>
+	<trans id="note-splash-opacity-desc" string="Seberapa transparan Percikan Nota itu."/>
+	<trans id="flashing-lights-desc" string="Matikan centangan ini jika kamu sensitif kepada cahaya yang berkedip!"/>
+	<trans id="translations-desc" string="Pilih terjemahan game yang anda sukai."/>
+	<trans id="fps-counter-desc" string="Jika tidak tercentang, akan menyembunyikan penghitung FPS."/>
+	<trans id="discord-rich-presence-desc" string="Matikan centangan ini untuk bersembunyi dari aktivitas Discord (Discord RPC)"/>
+	<trans id="downscroll-desc" string="Jika tercentang, nota akan pergi kebawah daripada ke atas, cukup sederhana."/>
+	<trans id="middlescroll-desc" string="Jika tercentang, notamu akan terpusat."/>
+	<trans id="ghost-tapping-desc" string="Jika tercentang, anda tidak akan meleset dari menekan tombol yang tidak ada di layar."/>
+	<trans id="auto-pause-desc" string="Jika tercentang, game akan otomatis pause jika layar tidak dalam fokus."/>
+	<trans id="disable-reset-button-desc" string="Jika tercentang, menekan tombol Reset tidak akan melakukan apapun."/>
+	<trans id="hitsound-volume-desc" string="Nota lucu melakukan &quot;Tick!&quot; Saat kamu menekannya."/>
+	<trans id="safe-frames-desc" string="Menggantikan berapa frame yang kamu miliki untuk menekan nota lebih awal atau terlambat."/>
+
+	<trans id="start-game" string="Mulai Game"/>
+	<trans id="credits" string="Daftar credits"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="Keluar Game"/>
+
+	<trans id="new-game" string="Game Baru"/>
+	<trans id="clear-save" string="Hapus Simpanan"/>
+	<trans id="freeplay" string="Main bebas"/>
+	<trans id="story" string="Cerita"/>
+
+	<trans id="personal-best" string="Pribadi terbaik"/>
+	<trans id="score" string="Skor"/>
+	<trans id="misses" string="Pelesetan"/>
+	<trans id="rating" string="Nilai"/>
+
+	<trans id="you-have-died" string="Kau telah mati"/>
+	<trans id="times" string="kali."/>
+	<trans id="resume" string="Lanjut"/>
+	<trans id="exit-to-freeplay" string="Keluar ke Freeplay"/>
+	<trans id="exit-to-menu" string="Keluar ke menu"/>
+	<trans id="exit-to-dirtmouth" string="Keluar ke Dirtmouthh"/>
+	<trans id="restart-song" string="Ulangi lagu"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Istirahat"/>
+	<trans id="listen" string="Dengarkan"/>
+	<trans id="enter" string="Masuk"/>
+	<trans id="shop" string="Toko"/>
+
+	<trans id="purchase-this-item" string="Beli?"/>
+	<trans id="yes" string="Iya"/>
+	<trans id="no" string="Tidak"/>
+
+	<trans id="charms" string="Jimat"/>
+	<trans id="equipped" string="Terpakai"/>
+	<trans id="notches" string="Takik"/>
+	<trans id="cost" string="Biaya"/>
+	<trans id="no-cost" string="Tanpa biaya"/>
+	<trans id="overcharmed" string="Overcharmed"/>
+
+	<trans id="life-tutorial-1" string="Makhluk tertinggi, kata-kata ini hanya untuk kau sendiri."/>
+	<trans id="life-tutorial-2" string="Kekuatan besarmu menandaimu sebagai diantara kami.&#xA;Fokuskan jiwa Anda, dan Anda akan mencapaikan prestasi yang hanya bisa diimpikan oleh yang lain."/>
+	<trans id="life-tutorial-3" string="Mengumpulkan JIWA dengan menekan nada yang tepat.&#xA;Setelah JIWA Anda sudah penuh, tekan SPASI saat tidak bernyanyi untuk memfokus JIWA dan menyembuhkan diri."/>
+
+	<trans id="charms-tutorial-1" string="Terkumpul sebuah Jimat"/>
+	<trans id="charms-tutorial-2" string="Gunakan sebuah jimat untuk menggunakan kemampuan kuatnya."/>
+	<trans id="charms-tutorial-3" string="Untuk menggunakan sebuah jimat, buka menu JIMAT saat beristirahat dibangku."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Kau payah!"/>
+	<trans id="shit" string="Taik"/>
+	<trans id="bad" string="Buruk"/>
+	<trans id="bruh" string="Bruh"/>
+	<trans id="meh" string="Lumayan"/>
+	<trans id="nice" string="Baik"/>
+	<trans id="good" string="Bagus"/>
+	<trans id="great" string="Hebat"/>
+	<trans id="sick!" string="Keren!"/>
+	<trans id="perfect!!" string="Sempurna!!"/>
+</translations>

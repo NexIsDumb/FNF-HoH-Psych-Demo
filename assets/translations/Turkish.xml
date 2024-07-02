@@ -1,0 +1,175 @@
+<!DOCTYPE hymns-language-translation>
+
+<translations>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Melodik Kabuk"/>
+	<trans id="lifeblood-seed" string="Hayatözü Tohumu"/>
+	<trans id="critical-focus" string="Tam Odak"/>
+	<trans id="baldur's-blessing" string="Baldur'un Kutsaması"/>
+
+	<trans id="melodic-shell-desc" string="Şarkı söylemek isteyenler için yaratılmış bir melodi tılsımı. Ruhunu ödüllendirmesi karşılığında, kullanan kişiye şarkı söyleme yeteneğini bahşeder."/>
+	<trans id="lifeblood-seed-desc" string="Canlı, içinden kıymetli hayat özü akan bir çekirdek. Dinlenirken, bu tılsımı takan kişiye onu bir miktar hasardan koruyan hayat özü sağlar."/>
+	<trans id="critical-focus-desc" string="Uzun zaman önce unutulmuş bir şaman yadigarı. Zamanla üzerine kristaller çıkmış ve sonuç olarak yetenekleri daha da güçlenmiş. Taşıyıcının canı azami değerin yarısının altında ise, rakiplere vurmak fazladan ruh yaratır."/>
+	<trans id="baldur's-blessing-desc" string="Ölümcül bir durumda tılsımı takan kişiyi sert bir kabuk ile korur. Bu kabuk yok edilemez ve tek kullanımdan sonra kırılır."/>
+
+	<trans id="baldur's-blessing-tip" string="Aşağıda sorun mu buldun? Baldoro'nun kabuklaru çok kalın, ve bunu takan kişiyi her türlü zarardam koruduğu söyleniyor! Yine de yok edilemez gibi görünmüyor, o yüzden yine de dikkat et."/>
+	<trans id="lifeblood-seed-tip" string="Biraz destek mi lazım? o zaman bu tılsım tam senlik! Bazılar hayatözüne tabu diyorlar ama seni kesinlikle daha sağlıklı hissettiricek! Sadece kimseye kimden aldığını söyleme."/>
+	<trans id="critical-focus-tip" string="Tehlikeli durumlarda odaklanmakta zorluk çekiyorsanız, bu tılsım tam sana göre! Duyduğuma göre takan kişiye tehlike altındayken &quot;RUH&quot; toplamasına yardımcı oluyormuş. O nedemekse artık."/>
+
+
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Ah, gezgin! Döndün! Daha bir dakika önce burada olduğuna yemin edebilirim. Görünüşe bakılırsa aşağı giderken bunu düşürmüşsün. İşte, al bunu."/>
+	<trans id="elderbug-dialog-2" string="Al bakalım, neden şimdi denemiyorsun? Birazcık pratik sıkıntı olmaz herhalde. ayrıca, fazladan muhabbete hayır demem."/>
+	<trans id="elderbug-dialog-3" string="Afedersin, Sesim paslanmış olsa gerek. Yine deneyelim gezgin."/>
+	<trans id="elderbug-dialog-4" string="Görünüşe bakılırsa senin o iğnen çok kötü halde. Sana aşağıda hiç faydası olmaz. Belki senin o tılsımın sana yardımcı olabilir."/>
+	<trans id="elderbug-dialog-5" string="Vay be, Bu kadar eğlenmeyeli çok olmuştu!"/>
+	<trans id="elderbug-dialog-6" string="Oh, bak sen, görünüşe bakılırsa bizim dükkan sahibinin dikkatini çekmişiz. Belki ona ziyaret etmeye ne dersin? Bence sana senin yolculuğunda yardımcı olacak birşeyi olabilir."/>
+	<trans id="elderbug-dialog-7" string="Harita dükkanındaki çift... Oh, onlar için sadece en iyisini istiyorum tabiki. Sadece, keşke dükkanlarını daha büyük bir yerde açabilseler... O uzun kadıncağızın sürekli kapıdan geçmek için boynunu eğmesine yazığım geliyor."/>
+	<trans id="elderbug-dialog-8" string="Dükkan sahibi mi? O ufak dükkanında yok yok derim! Eğer ondan birşey almak istiyorsan, ben sen olsam dikkatli olurdum. O böcek ürünleri için bayağı sağlam anlaşmalar alıyor." />
+	<trans id="elderbug-dialog-9" string="Çoğu bulunduğumuz yerin hemen altında olan bir krallık aramaya geldid. Adı Hallownest. Duyduğum kadarı ile var olan en büyük krallık olduğu söyleniyordu. O zamandan beri harabeye dönmüş birde o aşağıdaki berbat birini delirtmeye yeter bile."/>
+	<trans id="elderbug-dialog-10" string="Yorgun gibisin gezgin. Sanıyorum aşağıdaki yeşil mağralara gittin? Oranın manzarası gerçektente güzel."/>
+	<trans id="elderbug-dialog-11" string="Gitmeden oradaki bankta dinlenmeni tavsiye ederim.. Çok rahat olduğunu garanti ederim."/>
+	<trans id="elderbug-dialog-12" string="Oh, onu dükkan sahibinden aldın, değil mi? Şimdiden gitmeye hazırsın bakıyorum. ama dikkatli olmayı unutma orada. Mağralarda karşına ne çıkacağını kim bilir."/>
+	<trans id="elderbug-dialog-13" string="Yorgun gibisin gezgin. Pazarlık yaparken bayağı uğraşmışsın gibi."/>
+
+	<trans id="sly-dialog-1" string="Ah, hey! Yine buluşacağımızı biliyordum. Görünüşe bakılırsa tarzını değiltirmişsın, huh?"/>
+	<trans id="sly-dialog-2" string="OH! Şarkı mı söylemek istiyorsun? Hmm... Birinin bana meydan okuması çok nadir..."/>
+	<trans id="sly-dialog-3" string="Tamam, Kabul ediyorum! Ama söyleyeyim çok iyi şarkıcı değilimdir...ama senin yeteneklerini öğrenmeye meraklıyım."/>
+	<trans id="sly-dialog-4" string="Oh, Bölye oynayalı uzun zaman olmuştu. itiraf edicem bayağı eğlendim! Her ne kadar acılı olsada yine de kaybettim mi kaybettim. İşte, ödülünü al ve beni bana bırak...tabi eğer daha fazla şey satın almak istersen başka..."/>
+	<trans id="sly-dialog-5" string="Maalesef sana verebileceğim birşey kalmadı. Herşeyi aldın benden."/>
+	<trans id="sly-dialog-6" string="Satın alrığın için sağol! Seni temin ederim ki diğer eşyalarımda bir o kadar güzel! Hatta senin hayatta kalma şansını bile arttırabilirler..."/>
+	<trans id="sly-dialog-7" string="Do your pockets look empty? If you're on the hunt for more Geos, the ruins below have a lot to offer!"/>
+
+
+	<!-- Menus -->
+	<trans id="options" string="Ayarlar"/>
+	<trans id="note-colors" string="Ok Renkleri"/>
+	<trans id="controls" string="Kontroller"/>
+	<trans id="graphics" string="Grafikler"/>
+	<trans id="visuals-and-ui" string="Görseller ve KA"/>
+	<trans id="gameplay" string="Oynanış"/>
+	<trans id="back" string="Geri"/>
+
+	<trans id="left" string="Sol"/>
+	<trans id="down" string="Aşağı"/>
+	<trans id="up" string="Yukarı"/>
+	<trans id="Right" string="Sağ"/>
+	<trans id="focus" string="Odaklan"/>
+	<trans id="accept" string="Kabul Et"/>
+	<trans id="pause" string="Durdur"/>
+	<trans id="ui-up" string="KA Yukarı"/>
+	<trans id="ui-left" string="KA Sol"/>
+	<trans id="ui-right" string="KA Sağ"/>
+	<trans id="ui-down" string="KA Aşağı"/>
+	<trans id="ui-back" string="KA Geri"/>
+	<trans id="reset" string="Reset"/>
+	<trans id="mute" string="Sessiz"/>
+	<trans id="volume-up" string="Ses Yükselt"/>
+	<trans id="volume-down" string="Ses Alçalt"/>
+	<trans id="reset-to-default-keys" string="Tuşları resetle"/>
+
+	<trans id="on" string="Açık"/>
+	<trans id="off" string="Kapalı"/>
+	<trans id="none" string="Hiçbir Şey"/>
+
+	<trans id="low-quality" string="Düşük Kalite"/>
+	<trans id="anti-aliasing" string="Kenar-Yumuşatma"/>
+	<trans id="shaders" string="Işıklandırmalar."/>
+	<trans id="gpu-caching" string="GPU Önbellekleme"/>
+	<trans id="framerate" string="Kare Hızı"/>
+	<trans id="note-skins" string="Ok Kostümü"/>
+	<trans id="note-splashes" string="Ok Effektleri"/>
+	<trans id="note-splash-opacity" string="Ok Efekti opaklığı"/>
+	<trans id="flashing-lights" string="Flaş Işıkları"/>
+	<trans id="translations" string="Çevirmeler"/>
+	<trans id="fps-counter" string="FPS sayıcı"/>
+	<trans id="discord-rich-presence" string="Discord Aktiflik Durumu"/>
+	<trans id="downscroll" string="Aşağı-Kaydırma"/>
+	<trans id="middlescroll" string="Okları-Ortalama"/>
+	<trans id="ghost-tapping" string="Tuş Spamlama"/>
+	<trans id="auto-pause" string="Otomatik Durdurma"/>
+	<trans id="disable-reset-button" string="Reset Tuşunu Kapat"/>
+	<trans id="hitsound-volume" string="Vuruş sesi"/>
+	<trans id="safe-frames" string="Güvenli Kareler"/>
+
+	<trans id="low-quality-desc" string="Açıksa, Arka plandaki bazı detayları kapatır"/>
+	<trans id="anti-aliasing-desc" string="Kapalıysa, Kenar Yumuşatmayı kapatır, Performansı arttırır ama kaliteyi düşürür"/>
+	<trans id="shaders-desc" string="Kapalıysa, Işıklandırmaları kapatır (görsel effektler)."/>
+	<trans id="gpu-caching-desc" string="Açıksa, Sağlam GPU varsa RAM kullamını azaltır."/>
+	<trans id="framerate-desc" string="Söylememe gerek yok, değil mi?"/>
+	<trans id="note-skins-desc" string="Favori Ok kostümünü Seç."/>
+	<trans id="note-splashes-desc" string="Tercih ettiğin ok effektini seç veya devre dışı bırak."/>
+	<trans id="note-splash-opacity-desc" string="Ok effekleri ne kadar saydam onu ayarlar"/>
+	<trans id="flashing-lights-desc" string="Flaşlarla aran kötüyse kapalı bırak."/>
+	<trans id="translations-desc" string="Oyun dilini seç."/>
+	<trans id="fps-counter-desc" string="Kapalıysa senin FPS'i göstermez."/>
+	<trans id="discord-rich-presence-desc" string="Discord aktifliğine görünmek istemiyorsan bunu kapalı tut. (Discord RPC)"/>
+	<trans id="downscroll-desc" string="Açıksa, notalar yukarıdan aşağıya gelecek."/>
+	<trans id="middlescroll-desc" string="Açıksa, Notalar tam ortadan gelecek."/>
+	<trans id="ghost-tapping-desc" string="Açıksa, Nota yokken tuşlara basmak canını götürmeyecek."/>
+	<trans id="auto-pause-desc" string="Açıksa, Oyun, sen ana ekranda değilken otomatik olarak durucak."/>
+	<trans id="disable-reset-button-desc" string="Açıksa, reset tuşu birşey yapmaz."/>
+	<trans id="hitsound-volume-desc" string="Bastığında notalar komik bir &quot;Tik!&quot; sesi yapar."/>
+	<trans id="safe-frames-desc" string="Notalara ne kadar önce veya sonra vurduğunu ayarla ."/>
+
+	<trans id="start-game" string="Oyna"/>
+	<trans id="credits" string="Katkıda-Bulunanlar"/>
+	<trans id="discord" string="Discord"/>
+	<trans id="quit-game" string="Oyundan Çık"/>
+
+	<trans id="new-game" string="Yeni Oyun"/>
+	<trans id="clear-save" string="Kaydı sil"/>
+	<trans id="freeplay" string="Serbest Oyun"/>
+	<trans id="story" string="Hikaye"/>
+
+	<trans id="personal-best" string="Kişisel Skor"/>
+	<trans id="score" string="Skor"/>
+	<trans id="misses" string="Iskalar"/>
+	<trans id="rating" string="Skor"/>
+
+	<trans id="you-have-died" string="Öldün"/>
+	<trans id="times" string="Zamanlar."/>
+	<trans id="resume" string="Devam et"/>
+	<trans id="exit-to-freeplay" string="Serbest-moda geri dön"/>
+	<trans id="exit-to-menu" string="Menüye geri dön"/>
+	<trans id="exit-to-dirtmouth" string="Dirtmouth'a geri dön"/>
+	<trans id="restart-song" string="Şarkıyı yeniden başlat."/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Dinlen"/>
+	<trans id="listen" string="Dinle"/>
+	<trans id="enter" string="Gir"/>
+	<trans id="shop" string="Dükkan"/>
+
+	<trans id="purchase-this-item" string="Satın Al?"/>
+	<trans id="yes" string="Evet"/>
+	<trans id="no" string="Hayır"/>
+
+	<trans id="charms" string="Tılsımlar"/>
+	<trans id="equipped" string="Takılı"/>
+	<trans id="notches" string="Yuvalar"/>
+	<trans id="cost" string="Bedel"/>
+	<trans id="no-cost" string="Bedelsiz"/>
+	<trans id="overcharmed" string="Aşırı Dolu"/>
+
+	<trans id="life-tutorial-1" string="Yüce varlıklar, bu sözler sadece size."/>
+	<trans id="life-tutorial-2" string="Senin kuvvetin seni aramızda özel kılıyor.&#xA; Ruhuna odaklanırsan bazıların sadece hayal edebileceği şeylere kavuşacaksın."/>
+	<trans id="life-tutorial-3" string="Notalara basar RUH topla .&#xA; Yeteri kadar RUH toplayınca, Şarkı söylemiyorken BOŞLUĞA basılı tutarak odaklan ve iyleş"/>
+
+	<trans id="charms-tutorial-1" string="Bir TILSIM Buldun!"/>
+	<trans id="charms-tutorial-2" string="Özel güçler elde etmek için Tılsımı kuşan"/>
+	<trans id="charms-tutorial-3" string="Tılsımı takmak için, bir bankta oturuyorken TILSIMLAR menüsünü aç."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Berbatsın!"/>
+	<trans id="shit" string="Rezil"/>
+	<trans id="bad" string="Kötü"/>
+	<trans id="bruh" string="Bruh"/>
+	<trans id="meh" string="Meh"/>
+	<trans id="nice" string="Güzel"/>
+	<trans id="good" string="İyi"/>
+	<trans id="great" string="Harika"/>
+	<trans id="sick!" string="Süper!"/>
+	<trans id="perfect!!" string="Mükemmel!!"/>
+</translations>

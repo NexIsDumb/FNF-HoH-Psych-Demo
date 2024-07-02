@@ -101,7 +101,7 @@
 	<trans id="gpu-caching-desc" string="Если флажок установлен, то при хорошем ГП использование оперативной памяти уменьшается."/>
 	<trans id="framerate-desc" string="Даже Емеле понятно, не так ли?"/>
 	<trans id="note-skins-desc" string="Выберите предпочитаемый вами скин нот."/>
-	<trans id="note-splashes-opacity-desc" string="Выберите предпочитаемый вами вариант сплешей нот или отключите его."/>
+	<trans id="note-splashes-desc" string="Выберите предпочитаемый вами вариант сплешей нот или отключите его."/>
 	<trans id="note-splash-opacity-desc" string="Насколько прозрачными должны быть сплеши нот."/>
 	<trans id="flashing-lights-desc" string="Снимите этот флажок, если вы чувствительны к подобным эффектам!"/>
 	<trans id="translations-desc" string="Выберите предпочитаемый вами перевод игры."/>
