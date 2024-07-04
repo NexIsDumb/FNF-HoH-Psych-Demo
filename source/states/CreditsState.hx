@@ -70,11 +70,18 @@ class CreditsState extends MenuBeatState {
 				'https://twitter.com/howtoavenge101'
 			],
 			[
-				"Favhri",
-				"artist/favhri",
-				"Artist/Translator",
-				"If they talk behind yo back, then fart",
-				"https://x.com/Favhri_idk"
+				"Nex_isDumb",
+				"coder/fushi",
+				"New Coder/Italian Translator",
+				"*sanity has left the gc*",
+				"https://linktr.ee/just_nex"
+			],
+			[
+				"Ne_Eo",
+				"coder/neeo",
+				"New Coder",
+				"*What a crunchy gpu you have :3*",
+				"https://niirou.se/socials/ne_eo"
 			],
 			[
 				"NateTDOM",
@@ -112,13 +119,19 @@ class CreditsState extends MenuBeatState {
 				"https://twitter.com/hollow_ant"
 			],
 			[
-				"Nex_isDumb",
-				"translator/fushi",
-				"New Coder/Translator",
-				"le goofy (I swear I'll optimize everything in codename engine in the full release:pray:)",
-				"https://linktr.ee/just_nex"
+				"Bisha",
+				"artist/abi",
+				"Artist/Animator/Indonesian Translator",
+				"Listen to Luhvee on spotify,,,",
+				"https://x.com/Bishaboosha"
 			],
-			// "Crunchy gpu you have :3",
+			[
+				"Favhri",
+				"artist/favhri",
+				"Artist/Indonesian Translator",
+				"If they talk behind yo back, then fart",
+				"https://x.com/Favhri_idk"
+			],
 			[
 				"R_RedJK7",
 				"artist/red",
@@ -151,8 +164,8 @@ class CreditsState extends MenuBeatState {
 			[
 				"UnderCastle",
 				"charter/undertale",
-				"Charter",
-				"Hey guys I finished charting christmas ballad like not even an hour before it got released, this mod team is always on time!!",
+				"Charter/French Translator",
+				"go play Skullgirls 2nd Encore",
 				"https://twitter.com/Under_castle777"
 			],
 			[
@@ -163,6 +176,13 @@ class CreditsState extends MenuBeatState {
 				"https://twitter.com/DesttBruh"
 			],
 			[
+				"Frostics",
+				"charter/fro",
+				"Charter",
+				"fiminin fickle 5",
+				"https://youtu.be/W70Q1R-inLc"
+			],
+			[
 				"HeroBrenn",
 				"writer/herobrenn",
 				"Concept Artist/Writer",
@@ -170,47 +190,90 @@ class CreditsState extends MenuBeatState {
 				"https://twitter.com/HeroBrenn"
 			],
 			[
-				"Nosk.Xml",
-				"translator/nosk",
-				"Translator",
-				"Somehow I made it here with grammar skills of a insect",
-				"https://x.com/nosk_artist"
-			],
-			[
-				"Chloe",
-				"translator/chloe",
-				"Translator",
-				"God, do you see the radiant light? Do you hear the beautiful chant? Do you feel the tender warmth...? Nothing here - Pitch black - Pure white - All the same",
-				"https://enderpuff.github.io/"
-			],
-			[
-				"中空[chi]",
-				"translator/hollow",
-				"Translator",
-				"Translating was the easy part,\nwaiting was what was hard.",
-				"https://twitter.com/HollowTheProto"
-			],
-			[
 				"Keith",
 				"translator/keith",
-				"Translator",
+				"Italian Translator",
 				"am I silly enough to start eating rocks",
 				"https://x.com/SillyCatKeith?t=H-AAkd4cz80jSK486rwvDA&s=09"
 			],
 			[
+				"Lars",
+				"translator/lars",
+				"Turkish Translator",
+				"I killed a man for milkshake, I'd do it again. =)",
+				"https://www.youtube.com/channel/UChX4tgFrN_sxCbk1PdW-LxQ"
+			],
+			[
 				"FlipDesert",
 				"translator/flipdesert",
-				"Translator",
+				"German Translator",
 				"Blows up mod with mind...",
 				"https://flips-homepage.carrd.co/"
 			],
 			[
+				"Nosk.Xml",
+				"translator/nosk",
+				"German Translator",
+				"Somehow I made it here with grammar skills of a insect",
+				"https://x.com/nosk_artist"
+			],
+			[
+				"Jeom",
+				"translator/jeom",
+				"Finnish Translator",
+				"Sup I'm dumb af",
+				"https://jeom.carrd.co/"
+			],
+			[
+				"Bipty",
+				"translator/bitpy",
+				"Polish Translator",
+				"idfk",
+				"https://0xbitpy.github.io/"
+			],
+			[
+				"Grassyblocky",
+				"translator/are u fucking serious",
+				"Chinese Translator",
+				"Mom I'm on TV but i can't finish my homework",
+				"https://space.bilibili.com/332069165"
+			],
+			[
+				"Buddy_a",
+				"translator/buddy_a",
+				"Ukrainian Translator",
+				"I have no socials so uuuuh play Project: Afternight",
+				null
+			],
+			[
 				"Snakeguy",
 				"translator/snakeguy",
-				"Translator",
+				"Russian Translator",
 				"I just love Hollow Knight",
 				"https://www.youtube.com/channel/UCRxRBVC9ztuAIm2pvFOTWHA"
 			],
+			[
+				"Sakuroll",
+				"translator/saku",
+				"Russian Translator",
+				"sup im a musician but havent composed for this mod and translated it to russian instead",
+				"https://x.com/Sakuroll_"
+			],
+			[
+				"Penkaru",
+				"special thanks/penkaru",
+				"Special Thanks",
+				"hello penkaru.",
+				"https://www.youtube.com/@thedudepenkaru"
+			],
+			[
+				"Simply",
+				"special thanks/simplysaphoore",
+				"Special Thanks",
+				"father of vbf. we love you vbf dad",
+				"https://x.com/SimplySaph00re"
+			],
+			["Dom", "special thanks/dom", "Special Thanks", "dom we miss you", null]
 		];
 
 		for (i in defaultList) {
