@@ -1,7 +1,7 @@
 package states;
 
-#if MODS_ALLOWED
-#end
+import flixel.system.FlxAssets.FlxShader;
+import openfl.filters.ShaderFilter;
 import objects.AttachedSprite;
 import hxcodec.flixel.*;
 
@@ -118,6 +118,7 @@ class CreditsState extends MenuBeatState {
 				"le goofy (I swear I'll optimize everything in codename engine in the full release:pray:)",
 				"https://linktr.ee/just_nex"
 			],
+			// "Crunchy gpu you have :3",
 			[
 				"R_RedJK7",
 				"artist/red",
@@ -328,9 +329,21 @@ class CreditsState extends MenuBeatState {
 	var quitting:Bool = false;
 	var holdTime:Float = 0;
 
+	var gayState:Int = 0;
+	var gayStateTimer:Float = 0;
+
+	var glitch:GlitchShader = {
+		var glitch = new GlitchShader();
+		glitch.amount.value = [0.5];
+		glitch.speed.value = [0.6];
+		glitch;
+	}
+
+	var lastCrunch = "";
+
 	override function update(elapsed:Float) {
 		if (FlxG.sound.music.volume < 0.7) {
-			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+			FlxG.sound.music.volume += 0.5 * elapsed;
 		}
 
 		if (!quitting) {
@@ -362,6 +375,65 @@ class CreditsState extends MenuBeatState {
 				}
 			}
 
+			if (creditsStuff[curSelected][0] == "Ne_Eo") {
+				gayStateTimer += elapsed;
+				if (gayStateTimer > ((gayState > 3) ? 5 : 3)) {
+					gayStateTimer = 0;
+					gayState++;
+					function breakBuild() {
+						FlxG.sound.play(Paths.sound('crunch'), 0.4);
+						new FlxTimer().start(0.1, function(tmr:FlxTimer) {
+							if (creditsStuff[curSelected][0] == "Ne_Eo") { // incase the user changed the selection
+								var crunch = "";
+								if (gayState == 1) {
+									crunch = "*crunch*";
+								} else if (gayState == 2) {
+									crunch = "*crunch crunch*";
+								} else if (gayState == 3) {
+									crunch = "*crunch* yum";
+								} else {
+									var arr = [
+										"*crunch*",
+										"*crunch crunch*",
+										"*crunch* yum",
+										"*crunch crunch crunch*",
+										"*crunch* tasty"
+									];
+									if (arr.contains(lastCrunch)) {
+										arr.remove(lastCrunch);
+									}
+									crunch = FlxG.random.getObject(arr);
+								}
+
+								desc.text = crunch;
+								lastCrunch = crunch;
+
+								FlxG.camera.shake(0.005, 0.1);
+								FlxG.camera.setFilters([new ShaderFilter(glitch)]);
+								new FlxTimer().start(0.2, function(tmr:FlxTimer) {
+									FlxG.camera.setFilters([]);
+								});
+							}
+						});
+					}
+					switch (gayState) {
+						case 1:
+							glitch.uTime.value = [4.1];
+							breakBuild();
+						case 2:
+							glitch.uTime.value = [13.6];
+							breakBuild();
+						case 3:
+							glitch.uTime.value = [69.69];
+							breakBuild();
+						default:
+							glitch.uTime.value = [FlxG.random.float(0, 5000)];
+							breakBuild();
+					}
+					// changeSelection(0, false);
+				}
+			}
+
 			if (controls.ACCEPT && (creditsStuff[curSelected][4] == null || creditsStuff[curSelected][4].length > 4)) {
 				CoolUtil.browserLoad(creditsStuff[curSelected][4]);
 			}
@@ -376,15 +448,16 @@ class CreditsState extends MenuBeatState {
 
 	var moveTween:FlxTween = null;
 
-	function changeSelection(change:Int = 0) {
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+	function changeSelection(change:Int = 0, playSound:Bool = true) {
+		if (playSound) {
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		}
 		do {
-			curSelected += change;
-			if (curSelected < 0)
-				curSelected = creditsStuff.length - 1;
-			if (curSelected >= creditsStuff.length)
-				curSelected = 0;
+			curSelected = CoolUtil.mod(curSelected + change, creditsStuff.length);
 		} while (unselectableCheck(curSelected));
+
+		gayState = 0;
+		gayStateTimer = 0;
 
 		name.text = creditsStuff[curSelected][0];
 		role.text = creditsStuff[curSelected][2];
@@ -470,5 +543,78 @@ class CreditsState extends MenuBeatState {
 
 	private function unselectableCheck(num:Int):Bool {
 		return creditsStuff[num].length <= 1;
+	}
+}
+
+class GlitchShader extends FlxShader {
+	@:glFragmentSource('
+#pragma header
+
+uniform float uTime;
+
+uniform float amount; //0 - 1 glitch amount
+uniform float speed; //0 - 1 speed
+
+//2D (returns 0 - 1)
+float random2d(vec2 n) {
+	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+
+float randomRange (in vec2 seed, in float min, in float max) {
+	return min + random2d(seed) * (max - min);
+}
+
+// return 1 if v inside 1d range
+float insideRange(float v, float bottom, float top) {
+	return step(bottom, v) - step(top, v);
+}
+
+void main()
+{
+	float time = floor(uTime * speed * 60.0);
+	vec2 uv = openfl_TextureCoordv;
+
+	//copy orig
+	vec4 outCol = texture2D(bitmap, uv);
+
+	//randomly offset slices horizontally
+	float maxOffset = amount/2.0;
+	for (float i = 0.0; i < 10.0 * amount; i += 1.0) {
+		float sliceY = random2d(vec2(time, 2345.0 + float(i)));
+		float sliceH = random2d(vec2(time, 9035.0 + float(i))) * 0.25;
+		float hOffset = randomRange(vec2(time, 9625.0 + float(i)), -maxOffset, maxOffset);
+		vec2 uvOff = uv;
+		uvOff.x += hOffset;
+		if (insideRange(uv.y, sliceY, fract(sliceY+sliceH)) == 1.0){
+			outCol = texture2D(bitmap, uvOff);
+		}
+	}
+
+	//do slight offset on one entire channel
+	float maxColOffset = amount/6.0;
+	float rnd = random2d(vec2(time, 9545.0));
+	vec2 colOffset = vec2(randomRange(vec2(time, 9545.0), -maxColOffset, maxColOffset), randomRange(vec2(time, 7205.0), -maxColOffset, maxColOffset));
+	if (rnd < 0.33){
+		outCol.r = texture2D(bitmap, uv + colOffset).r;
+	}else if (rnd < 0.66){
+		outCol.g = texture2D(bitmap, uv + colOffset).g;
+	}else{
+		outCol.b = texture2D(bitmap, uv + colOffset).b;
+	}
+	// outCol.a = texture2D(bitmap, uv + colOffset).a;
+
+	gl_FragColor = outCol;
+}
+')
+	public function new() {
+		super();
+
+		resetParams();
+	}
+
+	public function resetParams() {
+		this.uTime.value = [0.0];
+		this.amount.value = [0.0];
+		this.speed.value = [0.6];
 	}
 }
