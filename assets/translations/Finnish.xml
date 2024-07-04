@@ -53,6 +53,7 @@
 	<!-- Menus -->
 	<trans id="options" string="Asetukset"/>
 	<trans id="note-colors" string="Nuotti värit"/>
+	<trans id="languages" string="Kielet"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="Kontrollit"/>
 	<trans id="graphics" string="Grafiikat"/>
 	<trans id="visuals-and-ui" string="Visuaalit ja UI"/>

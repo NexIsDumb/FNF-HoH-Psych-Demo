@@ -25,6 +25,7 @@ class SaveVariables {
 	public var noteOffset:Int = 0;
 	public var geo:Int = 0;
 	public var language:String = TransManager.DEFAULT_LANGUAGE;
+	public var hasShownLanguageSelection:Bool = false;
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';

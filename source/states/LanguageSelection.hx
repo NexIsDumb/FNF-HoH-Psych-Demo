@@ -1,28 +1,19 @@
-package options;
+package states;
 
-import states.LanguageSelection;
 import states.MainMenuState;
-import backend.StageData;
-import overworld.*;
 
-class OptionsState extends MenuBeatState {
-	var options:Array<String> = [
-		'Languages', /*'Note Colors', */
-		'Controls',
-		'Graphics',
-		'Visuals and UI',
-		'Gameplay',
-		'Back'
-	];
+class LanguageSelection extends MenuBeatState {
 	private var grpOptions:FlxTypedGroup<FlxText>;
 
-	private static var curSelected:Int = 0;
-	public static var menuBG:FlxSprite;
-	public static var onPlayState:Bool = false;
-	public static var fromOverworld:Bool = false;
-	public static var restartVisuals:Null<Int> = null;
+	var languages = TM.getLanguages();
 
-	function openSelectedSubstate(label:String) {
+	private var curSelected:Int = 0;
+
+	var defaultFont = "TrajanPro-Regular.ttf";
+
+	public static var fromSplash:Bool = false;
+
+	function openSelectedSubstate() {
 		for (spr in grpOptions.members) {
 			FlxTween.tween(spr, {alpha: 0}, .25, {ease: FlxEase.circOut});
 		}
@@ -31,41 +22,26 @@ class OptionsState extends MenuBeatState {
 		FlxTween.tween(statetext, {alpha: 0}, .25, {ease: FlxEase.circOut});
 		fleur.animation.play('idle', true, true);
 		new FlxTimer().start(.35, function(tmr:FlxTimer) {
-			if (label != 'Note Colors' && label != 'Back' && label != 'Languages') {
-				statetext.text = label;
-				statetext.screenCenterX();
-				FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
-				fleur.animation.play('idle', true, false);
-			} else {
-				FlxTween.tween(fleur, {alpha: 0}, .25, {ease: FlxEase.circOut});
-			}
+			// if (label != 'Note Colors' && label != 'Back') {
+			//	statetext.text = label;
+			//	statetext.screenCenterX();
+			//	FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
+			//	fleur.animation.play('idle', true, false);
+			// } else {
+			FlxTween.tween(fleur, {alpha: 0}, .25, {ease: FlxEase.circOut});
+			// }
 
-			switch (label) {
-				// case 'Note Colors': openSubState(new options.NotesSubState());
-				case 'Languages':
-					LanguageSelection.fromSplash = false;
-					MusicBeatState.switchState(new LanguageSelection());
-				case 'Controls': openSubState(new options.ControlsSubState());
-				case 'Graphics': openSubState(new options.GraphicsSettingsSubState());
-				case 'Visuals and UI': openSubState(new options.VisualsUISubState());
-				case 'Gameplay': openSubState(new options.GameplaySettingsSubState());
-				case 'Back':
-					openingsub = true;
-					FlxG.sound.play(Paths.sound('cancelMenu'));
+			ClientPrefs.data.language = languages[curSelected];
+			TM.setTransl();
+			ClientPrefs.saveSettings();
 
-					if (onPlayState) {
-						StageData.loadDirectory(PlayState.SONG);
-						LoadingState.loadAndSwitchState(new PlayState());
-						FlxG.sound.music.volume = 0;
-					} else {
-						if (fromOverworld) {
-							LoadingState.loadAndSwitchState(new OverworldManager());
-							FlxG.sound.music.volume = 0;
-						} else {
-							MusicBeatState.switchState(new MainMenuState());
-						}
-					}
-			}
+			new FlxTimer().start(0.35, function(tmr:FlxTimer) {
+				if (fromSplash) {
+					MusicBeatState.switchState(new MainMenuState());
+				} else {
+					MusicBeatState.switchState(new options.OptionsState());
+				}
+			});
 		});
 	}
 
@@ -87,25 +63,41 @@ class OptionsState extends MenuBeatState {
 		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
 
-		for (i in 0...options.length - 1) {
-			var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl(options[i], options[i].toLowerCase().replace(" ", "-")), 12);
-			optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
+		for (i in 0...languages.length - 1) {
+			var lang = languages[i];
+			if (TM.languageNames.exists(lang)) {
+				lang = TM.languageNames[lang];
+			}
+
+			var font = defaultFont;
+			var hasFontSuffix = true;
+			if (lang.endsWith("[jap]")) {
+				font = "asian.otf";
+			} else if (lang.endsWith("[chi]")) {
+				font = "asian.otf";
+			} else if (lang.endsWith("[ukr]")) {
+				font = "krka.ttf";
+			} else if (lang.endsWith("[rus]")) {
+				font = "krka.ttf";
+			} else {
+				hasFontSuffix = false;
+			}
+			if (hasFontSuffix) {
+				lang = lang.substr(0, lang.length - 5);
+			}
+			var optionText:FlxText = new FlxText(0, 0, 0, lang, 12);
+			optionText.setFormat(Paths.font(font), 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenterXY();
 			optionText.y -= FlxG.height / 6;
 			optionText.y += 50 * i;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
 			optionText.ID = i;
 			grpOptions.add(optionText);
-		}
 
-		var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl("Back", "back"), 12);
-		optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
-		optionText.screenCenterXY();
-		optionText.y -= FlxG.height / 6;
-		optionText.y += 50 * 8;
-		optionText.ID = 5;
-		optionText.antialiasing = ClientPrefs.data.antialiasing;
-		grpOptions.add(optionText);
+			if (font == "asian.otf") {
+				optionText.offset.y += 6;
+			}
+		}
 
 		fleur = new FlxSprite(0, 0);
 		fleur.frames = Paths.getSparrowAtlas('Menus/Options/warning-fleur', 'hymns');
@@ -118,8 +110,8 @@ class OptionsState extends MenuBeatState {
 		fleur.screenCenterXY();
 		fleur.y -= 200;
 
-		statetext = new FlxText(0, 0, 0, "Options", 12);
-		statetext.setFormat(Constants.UI_FONT, 34, FlxColor.WHITE, CENTER);
+		statetext = new FlxText(0, 0, 0, "Languages", 12);
+		statetext.setFormat(Paths.font(defaultFont), 34, FlxColor.WHITE, CENTER);
 		statetext.screenCenterXY();
 		statetext.y = fleur.y - 40;
 		statetext.antialiasing = ClientPrefs.data.antialiasing;
@@ -145,21 +137,8 @@ class OptionsState extends MenuBeatState {
 		pointer2.updateHitbox();
 
 		updatePointers(grpOptions.members[0]);
-		ClientPrefs.saveSettings();
 
-		if (restartVisuals != null) {
-			for (spr in grpOptions.members)
-				spr.alpha = 0;
-			pointer1.alpha = pointer2.alpha = statetext.alpha = 0;
-			statetext.text = "Visuals and UI";
-			statetext.screenCenterX();
-			statetext.alpha = 1;
-			fleur.animation.play('idle', true, false);
-			fleur.animation.finish();
-			openingsub = false;
-			openSubState(new options.VisualsUISubState());
-		} else
-			changeSelection(0);
+		FlxG.camera.scroll.y = 40;
 
 		super.create();
 	}
@@ -195,6 +174,9 @@ class OptionsState extends MenuBeatState {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
+		// var wantedY = curSelected * 20;
+		// FlxG.camera.scroll.y = FlxMath.lerp(FlxG.camera.scroll.y, wantedY, FlxMath.bound(elapsed * 10, 0, 1));
+
 		statetext.screenCenterX();
 		for (spr in grpOptions.members) {
 			spr.screenCenterX();
@@ -208,35 +190,11 @@ class OptionsState extends MenuBeatState {
 				changeSelection(1);
 			}
 
-			if (controls.BACK) {
-				for (spr in grpOptions.members) {
-					FlxTween.tween(spr, {alpha: 0}, .25, {ease: FlxEase.circOut});
-				}
-				FlxTween.tween(pointer1, {alpha: 0}, .25, {ease: FlxEase.circOut});
-				FlxTween.tween(pointer2, {alpha: 0}, .25, {ease: FlxEase.circOut});
-				FlxTween.tween(statetext, {alpha: 0}, .25, {ease: FlxEase.circOut});
-				fleur.animation.play('idle', true, true);
+			if (!fromSplash && controls.BACK)
+				MusicBeatState.switchState(new options.OptionsState());
 
-				new FlxTimer().start(.35, function(tmr:FlxTimer) {
-					FlxTween.tween(fleur, {alpha: 0}, .25, {ease: FlxEase.circOut});
-					openingsub = true;
-					FlxG.sound.play(Paths.sound('cancelMenu'));
-
-					if (onPlayState) {
-						StageData.loadDirectory(PlayState.SONG);
-						LoadingState.loadAndSwitchState(new PlayState());
-						FlxG.sound.music.volume = 0;
-					} else {
-						if (fromOverworld) {
-							LoadingState.loadAndSwitchState(new OverworldManager());
-							FlxG.sound.music.volume = 0;
-						} else {
-							MusicBeatState.switchState(new MainMenuState());
-						}
-					}
-				});
-			} else if (controls.ACCEPT)
-				openSelectedSubstate(options[curSelected]);
+			if (controls.ACCEPT)
+				openSelectedSubstate();
 		}
 	}
 
@@ -256,22 +214,13 @@ class OptionsState extends MenuBeatState {
 	}
 
 	function changeSelection(change:Int = 0) {
-		curSelected += change;
-		if (curSelected < 0)
-			curSelected = options.length - 1;
-		if (curSelected >= options.length)
-			curSelected = 0;
+		curSelected = CoolUtil.mod(curSelected + change, grpOptions.length);
 
 		pointer1.alpha = 1;
 		pointer2.alpha = 1;
 
-		var bullShit:Int = 0;
+		updatePointers(grpOptions.members[curSelected]);
 
-		for (spr in grpOptions.members) {
-			if (spr.ID == curSelected) {
-				updatePointers(spr);
-			}
-		}
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 

@@ -47,6 +47,7 @@
 	<!-- Menus -->
 	<trans id="options" string="选项"/>
 	<trans id="note-colors" string="箭头颜色"/>
+	<trans id="languages" string="语言"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="控制"/>
 	<trans id="graphics" string="图像"/>
 	<trans id="visuals-and-ui" string="视觉效果"/>

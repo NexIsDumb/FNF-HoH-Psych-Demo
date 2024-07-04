@@ -54,13 +54,13 @@ class VisualsUISubState extends BaseOptionsMenu {
 			'bool');
 		addOption(option);
 
-		var option:Option = new Option('Translations',
-			"Select your prefered translation of the game.",
-			'language',
-			'string',
-			[TM.DEFAULT_LANGUAGE].concat(TM.translList()));
-		addOption(option);
-		option.onChange = onChangeLanguage;
+		/*var option:Option = new Option('Translations',
+				"Select your prefered translation of the game.",
+				'language',
+				'string',
+				TM.getLanguages());
+			addOption(option);
+			option.onChange = onChangeLanguage; */
 
 		#if !mobile
 		var option:Option = new Option('FPS Counter',

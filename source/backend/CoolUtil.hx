@@ -187,4 +187,21 @@ class CoolUtil {
 		}
 		return text;
 	}
+
+	public static inline function pushOnce<T>(array:Array<T>, element:T) {
+		#if (haxe >= "4.0.0")
+		if (!array.contains(element))
+			array.push(element);
+		#else
+		if (array.indexOf(element) == -1)
+			array.push(element);
+		#end
+	}
+
+	public static inline function concatNoDup<T>(array:Array<T>, array2:Array<T>):Array<T> {
+		for (element in array2) {
+			pushOnce(array, element);
+		}
+		return array;
+	}
 }

@@ -44,6 +44,7 @@
 	<!-- Menus -->
 	<trans id="options" string="Ayarlar"/>
 	<trans id="note-colors" string="Ok Renkleri"/>
+	<trans id="languages" string="Diller"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="Kontroller"/>
 	<trans id="graphics" string="Grafikler"/>
 	<trans id="visuals-and-ui" string="Görseller ve KA"/>
