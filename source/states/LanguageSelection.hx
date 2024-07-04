@@ -93,10 +93,6 @@ class LanguageSelection extends MenuBeatState {
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
 			optionText.ID = i;
 			grpOptions.add(optionText);
-
-			if (font == "asian.otf") {
-				optionText.offset.y += 6;
-			}
 		}
 
 		fleur = new FlxSprite(0, 0);
