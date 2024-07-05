@@ -17,10 +17,10 @@ class OptionsState extends MenuBeatState {
 	private var grpOptions:FlxTypedGroup<FlxText>;
 
 	private static var curSelected:Int = 0;
-	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
 	public static var fromOverworld:Bool = false;
-	public static var restartVisuals:Null<Int> = null;
+
+	// public static var restartVisuals:Null<Int> = null;
 
 	function openSelectedSubstate(label:String) {
 		for (spr in grpOptions.members) {
@@ -32,7 +32,7 @@ class OptionsState extends MenuBeatState {
 		fleur.animation.play('idle', true, true);
 		new FlxTimer().start(.35, function(tmr:FlxTimer) {
 			if (label != 'Note Colors' && label != 'Back' && label != 'Languages') {
-				statetext.text = label;
+				statetext.text = TM.checkTransl(label, Paths.formatPath(label));
 				statetext.screenCenterX();
 				FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
 				fleur.animation.play('idle', true, false);
@@ -57,10 +57,12 @@ class OptionsState extends MenuBeatState {
 						StageData.loadDirectory(PlayState.SONG);
 						LoadingState.loadAndSwitchState(new PlayState());
 						FlxG.sound.music.volume = 0;
+						onPlayState = false;
 					} else {
 						if (fromOverworld) {
 							LoadingState.loadAndSwitchState(new OverworldManager());
 							FlxG.sound.music.volume = 0;
+							fromOverworld = false;
 						} else {
 							MusicBeatState.switchState(new MainMenuState());
 						}
@@ -88,7 +90,7 @@ class OptionsState extends MenuBeatState {
 		add(grpOptions);
 
 		for (i in 0...options.length - 1) {
-			var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl(options[i], options[i].toLowerCase().replace(" ", "-")), 12);
+			var optionText:FlxText = new FlxText(0, 0, 0, TM.checkTransl(options[i], Paths.formatPath(options[i])), 12);
 			optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenterXY();
 			optionText.y -= FlxG.height / 6;
@@ -118,7 +120,7 @@ class OptionsState extends MenuBeatState {
 		fleur.screenCenterXY();
 		fleur.y -= 200;
 
-		statetext = new FlxText(0, 0, 0, "Options", 12);
+		statetext = new FlxText(0, 0, 0, TM.checkTransl("Options", "options"), 12);
 		statetext.setFormat(Constants.UI_FONT, 34, FlxColor.WHITE, CENTER);
 		statetext.screenCenterXY();
 		statetext.y = fleur.y - 40;
@@ -147,7 +149,7 @@ class OptionsState extends MenuBeatState {
 		updatePointers(grpOptions.members[0]);
 		ClientPrefs.saveSettings();
 
-		if (restartVisuals != null) {
+		/*if (restartVisuals != null) {
 			for (spr in grpOptions.members)
 				spr.alpha = 0;
 			pointer1.alpha = pointer2.alpha = statetext.alpha = 0;
@@ -158,8 +160,8 @@ class OptionsState extends MenuBeatState {
 			fleur.animation.finish();
 			openingsub = false;
 			openSubState(new options.VisualsUISubState());
-		} else
-			changeSelection(0);
+		} else*/
+		changeSelection(0);
 
 		super.create();
 	}
@@ -170,7 +172,7 @@ class OptionsState extends MenuBeatState {
 			fleur.animation.play('idle', true, true);
 			FlxTween.tween(statetext, {alpha: 0}, .25, {ease: FlxEase.circOut});
 			new FlxTimer().start(.35, function(tmr:FlxTimer) {
-				statetext.text = "Options";
+				statetext.text = TM.checkTransl("Options", "options");
 				statetext.screenCenterX();
 				FlxTween.tween(statetext, {alpha: 1}, .25, {ease: FlxEase.circOut});
 				fleur.animation.play('idle', true, false);
@@ -226,10 +228,12 @@ class OptionsState extends MenuBeatState {
 						StageData.loadDirectory(PlayState.SONG);
 						LoadingState.loadAndSwitchState(new PlayState());
 						FlxG.sound.music.volume = 0;
+						onPlayState = false;
 					} else {
 						if (fromOverworld) {
 							LoadingState.loadAndSwitchState(new OverworldManager());
 							FlxG.sound.music.volume = 0;
+							fromOverworld = false;
 						} else {
 							MusicBeatState.switchState(new MainMenuState());
 						}

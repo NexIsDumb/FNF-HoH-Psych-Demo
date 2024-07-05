@@ -94,7 +94,7 @@
 	<trans id="safe-frames" string="Frames seguros"/>
 
 	<trans id="low-quality-desc" string="Se desativado, remove alguns detalhes de fundo."/>
-	<trans id="anti-aliasing-desc" string="Se desativado, remove o snti-aliasing, mais performance com o custo de gráficos menos refinados."/>
+	<trans id="anti-aliasing-desc" string="Se desativado, remove o anti-aliasing, mais performance com o custo de gráficos menos refinados."/>
 	<trans id="shaders-desc" string="Se desativado, remove os shaders (efeitos visuais)"/>
 	<trans id="gpu-caching-desc" string="Se ativado, diminui o uso de memória RAM se tiver uma boa GPU."/>
 	<trans id="framerate-desc" string="Acho que nem preciso explicar o que é."/>

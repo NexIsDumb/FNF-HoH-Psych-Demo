@@ -1255,7 +1255,7 @@ class PlayState extends MusicBeatState {
 	}
 
 	public function updateScore(miss:Bool = false) {
-		var str:String = TM.checkTransl(ratingName, ratingName.toLowerCase().replace(" ", "-"));
+		var str:String = TM.checkTransl(ratingName, Paths.formatPath(ratingName));
 		if (totalPlayed != 0) {
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
 			str += ' ($percent%) - $ratingFC';

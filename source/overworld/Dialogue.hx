@@ -83,7 +83,7 @@ class Dialogue extends FlxSpriteGroup {
 			publiccall.push(call);
 
 			curSpeaker = speaker;
-			speaker = TM.checkTransl(speaker, speaker.toLowerCase().replace(" ", "-") + "-name");
+			speaker = TM.checkTransl(speaker, Paths.formatPath(speaker + "-name"));
 			if (speakerText == null) {
 				speakerText = new FlxText(-200, FlxG.height - 120, FlxG.width * 2, speaker, 64);
 				speakerText.setFormat(Constants.UI_FONT, 58, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);

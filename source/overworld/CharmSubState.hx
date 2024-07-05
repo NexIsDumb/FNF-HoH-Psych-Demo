@@ -318,7 +318,7 @@ class CharmSubState extends MusicBeatSubstate {
 				var mainTxt:String = charmText.trim();
 
 				var piss:String = charmData[datar][2];
-				var name = piss.toLowerCase().replace(" ", "-");
+				var name = Paths.formatPath(piss);
 
 				txt2.text = TM.checkTransl(piss, name);
 				txt2.updateHitbox();

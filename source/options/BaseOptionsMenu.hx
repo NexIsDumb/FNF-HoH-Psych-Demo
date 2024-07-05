@@ -151,7 +151,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		if (optionsArray == null || optionsArray.length < 1)
 			optionsArray = [];
 
-		var name = option.name.toLowerCase().replace(" ", "-");
+		var name = Paths.formatPath(option.name);
 		option.description = TM.checkTransl(option.description, name + "-desc");
 		option.name = TM.checkTransl(option.name, name);
 

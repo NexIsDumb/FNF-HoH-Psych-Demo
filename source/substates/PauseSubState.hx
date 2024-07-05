@@ -377,7 +377,7 @@ class PauseSubState extends MusicBeatSubstate {
 			// item.targetY = i;
 			// grpMenuShit.add(item);
 
-			var item = new FlxText(120, 50 * i + 290 * 1.3, TM.checkTransl(menuItems[i], menuItems[i].toLowerCase().replace(" ", "-")), 24);
+			var item = new FlxText(120, 50 * i + 290 * 1.3, TM.checkTransl(menuItems[i], Paths.formatPath(menuItems[i])), 24);
 			item.scrollFactor.set();
 			item.setFormat(Constants.UI_FONT, 26, FlxColor.WHITE, CENTER);
 			item.screenCenterX();

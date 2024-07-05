@@ -81,10 +81,10 @@ class VisualsUISubState extends BaseOptionsMenu {
 
 		super();
 
-		if (OptionsState.restartVisuals != null) {
+		/*if (OptionsState.restartVisuals != null) {
 			changeSelection(OptionsState.restartVisuals);
 			OptionsState.restartVisuals = null;
-		}
+		}*/
 	}
 
 	var changedMusic:Bool = false;
@@ -98,7 +98,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 		changedMusic = true;
 	}
 
-	function onChangeLanguage() {
+	/*function onChangeLanguage() {
 		TM.setTransl();
 		ClientPrefs.saveSettings();
 
@@ -106,8 +106,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 		FlxTransitionableState.skipNextTransOut = true;
 		FlxTransitionableState.skipNextTransIn = true;
 		MusicBeatState.resetState();
-	}
-
+	}*/
 	override function destroy() {
 		if (changedMusic && !OptionsState.onPlayState)
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);

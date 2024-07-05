@@ -224,7 +224,7 @@ class Shop extends FlxSpriteGroup {
 
 		if (charmList.length > 0) {
 			generateNotches(charmList[selected][2]);
-			title.text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
+			title.text = TM.checkTransl(charmList[selected][4][0], Paths.formatPath(cast(charmList[selected][4][0], String)));
 			title.y = 200 - title.height;
 			desc1.text = charmList[selected][4][1];
 		}
@@ -484,7 +484,7 @@ class Shop extends FlxSpriteGroup {
 			selected += amt;
 
 			generateNotches(charmList[selected][2]);
-			titledesc[0].text = TM.checkTransl(charmList[selected][4][0], cast(charmList[selected][4][0], String).toLowerCase().replace(" ", "-"));
+			titledesc[0].text = TM.checkTransl(charmList[selected][4][0], Paths.formatPath(cast(charmList[selected][4][0], String)));
 			title.y = 200 - title.height;
 			titledesc[1].text = charmList[selected][4][1];
 			trace(charmList.length);
@@ -771,6 +771,8 @@ class Shop extends FlxSpriteGroup {
 											FlxTween.tween(charm[1], {alpha: 1}, .6, {ease: FlxEase.quintOut});
 										}
 
+										// im gonna kill myself what the hell is this whole code nld😭  - Nex
+
 										for (notchie in notches) {
 											FlxTween.tween(notchie, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 										}
@@ -894,7 +896,7 @@ class Shop extends FlxSpriteGroup {
 class FlxTween // I cant waste time in rewriting nld's awful code because of the imminent release, so  - Nex
 {
 	public static function tween(Object:Dynamic, Values:Dynamic, Duration:Float = 1, ?Options) {
-		OGTween.cancelTweensOf(Object);
+		OGTween.cancelTweensOf(Object, Values != null ? Reflect.fields(Values) : null);
 		return OGTween.tween(Object, Values, Duration, Options);
 	}
 }

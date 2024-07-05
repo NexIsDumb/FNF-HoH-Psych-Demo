@@ -102,13 +102,13 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		newgame.y += newgame.height / 4;
 		add(newgame);
 
-		yes = new FlxText(x + 340, y + dirtmouth.height / 2.5, 0, TM.checkTransl("Yes", "yes"), 32);
+		yes = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, TM.checkTransl("Yes", "yes"), 32);
 		yes.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		yes.antialiasing = ClientPrefs.data.antialiasing;
 		yes.y += yes.height / 4;
 		add(yes);
 
-		no = new FlxText(x + 540, y + dirtmouth.height / 2.5, 0, TM.checkTransl("No", "no"), 32);
+		no = new FlxText(x + 740, y + dirtmouth.height / 2.5, 0, TM.checkTransl("No", "no"), 32);
 		no.setFormat(Constants.UI_FONT, 22, FlxColor.WHITE, RIGHT);
 		no.antialiasing = ClientPrefs.data.antialiasing;
 		no.y += no.height / 4;

@@ -93,7 +93,7 @@ class FPS extends TextField {
 
 		// if (currentCount != cacheCount /*&& visible*/) {
 		var buf = new backend.FastStringBuf();
-		buf.addStr("hps: ");
+		buf.addStr("hymns per second: ");
 		buf.add(currentFPS);
 		var memoryMegas:Float = 0.0;
 
