@@ -128,6 +128,7 @@
 	<trans id="misses" string="Errou"/>
 	<trans id="rating" string="Classificação"/>
 
+	<trans id="you-have-died-v2" string="Você morreu {0} vezes."/>
 	<trans id="you-have-died" string="Você morreu"/>
 	<trans id="times" string="Tempos"/>
 	<trans id="resume" string="Resumir"/>
