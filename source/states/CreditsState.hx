@@ -256,7 +256,7 @@ class CreditsState extends MenuBeatState {
 				"Sakuroll",
 				"translator/saku",
 				"Russian Translator",
-				"sup im a musician but havent composed for this mod and translated it to russian instead",
+				"Hey, Emelya on the stove here, this mod is 42 out of 42 guys",
 				"https://x.com/Sakuroll_"
 			],
 			[
