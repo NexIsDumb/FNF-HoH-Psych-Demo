@@ -63,7 +63,7 @@ class LanguageSelection extends MenuBeatState {
 		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
 
-		for (i in 0...languages.length - 1) {
+		for (i in 0...languages.length) {
 			var lang = languages[i];
 			if (TM.languageNames.exists(lang)) {
 				lang = TM.languageNames[lang];
@@ -89,7 +89,7 @@ class LanguageSelection extends MenuBeatState {
 			optionText.setFormat(Paths.font(font), 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenterXY();
 			optionText.y -= FlxG.height / 6;
-			optionText.y += 50 * i;
+			optionText.y += 40 * i;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
 			optionText.ID = i;
 			grpOptions.add(optionText);
