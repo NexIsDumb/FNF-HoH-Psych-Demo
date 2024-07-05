@@ -26,23 +26,25 @@ class TransManager {
 	/**
 	 * The default font used.
 	 */
-	public static inline var DEFAULT_FONT:String = 'TrajanPro-Regular.ttf';
+	public static inline var DEFAULT_FONT:String = Constants.UI_FONT_DEFAULT;
 
 	/**
 	 * The default font used for the ui.
 	 */
-	public static inline var DEFAULT_UI_FONT:String = 'perpetua.ttf';
+	public static inline var DEFAULT_UI_FONT:String = Constants.DIALOGUE_FONT_DEFAULT;
 
 	/**
 	 * The font found inside the language's file (CAN BE `null`!!).
 	 */
 	public static var languageFont:String = null;
 
+	public static var languageFontDialogue:String = null;
+
 	/**
 	 * Returns the current font.
 	 */
 	inline public static function get_curFont():String
-		return languageFont == null ? DEFAULT_UI_FONT : languageFont;
+		return languageFontDialogue == null ? languageFont == null ? DEFAULT_UI_FONT : languageFont : languageFontDialogue;
 
 	/**
 	 * Returns the current ui font.
@@ -139,37 +141,7 @@ class TransManager {
 	}
 
 	public static var languageNames:Map<String, String> = [
-		"English" => "English",
-		"Italian" => "Italiano",
-		"French" => "Français",
-		"Spanish" => "Español",
-		"Ukrainian" => "Українська[ukr]",
-		"Japanese" => "日本語[jap]",
-		"Chinese" => "中文[chi]",
-		"German" => "Deutsch",
-		"Polish" => "Polski",
-		"Indonesian" => "Indonesia",
-		"Finnish" => "Finnish",
-		"Russian" => "Русский[rus]",
-		"Turkish" => "Türkçe",
-		"Swedish" => "Svenska",
-		"Norwegian" => "Norsk",
-		"Danish" => "Dansk",
-		"Dutch" => "Nederlands",
-		"Romanian" => "Română",
-		"Portuguese" => "Português",
-		"Welsh" => "Cymraeg",
-		"Hungarian" => "Magyar",
-		"Korean" => "한국어",
-		"Latin" => "Latin",
-		"Greek" => "Ελληνικά",
-		"Vietnamese" => "Tiếng Việt",
-		"Czech" => "Čeština",
-		"Arabic" => "العربية",
-		"Hebrew" => "עברית",
-		"Thai" => "ไทย",
-		"Hindi" => "हिंदी",
-		"Persian" => "فارسی",
+		"English" => "English", "Italian" => "Italiano", "French" => "Français", "Spanish" => "Español", "Ukrainian" => "Українська", "Japanese" => "日本語[jap]", "Chinese" => "中文[chi]", "German" => "Deutsch", "Polish" => "Polski", "Indonesian" => "Indonesia", "Finnish" => "Finnish", "Russian" => "Русский", "Turkish" => "Türkçe", "Swedish" => "Svenska", "Norwegian" => "Norsk", "Danish" => "Dansk", "Dutch" => "Nederlands", "Romanian" => "Română", "Portuguese" => "Português", "Welsh" => "Cymraeg", "Hungarian" => "Magyar", "Korean" => "한국어", "Latin" => "Latin", "Greek" => "Ελληνικά", "Vietnamese" => "Tiếng Việt", "Czech" => "Čeština", "Arabic" => "العربية", "Hebrew" => "עברית", "Thai" => "ไทย", "Hindi" => "हिंदी", "Persian" => "فارسی",
 	];
 
 	/**
@@ -213,6 +185,7 @@ class TransManager {
 		}
 
 		languageFont = transNode.has.font ? transNode.att.resolve("font") : null;
+		languageFontDialogue = transNode.has.resolve("font-dialogue") ? transNode.att.resolve("font-dialogue") : null;
 		return leMap;
 	}
 

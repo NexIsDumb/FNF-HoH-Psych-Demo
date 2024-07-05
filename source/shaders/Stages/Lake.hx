@@ -235,20 +235,15 @@ class BnW extends FlxShader {
 
 uniform float amount;
 
-void main( )
+void main()
 {
 	vec2 pos = openfl_TextureCoordv;
 	vec4 texColor = texture2D(bitmap, pos);
 
 	float avg = (texColor.r + texColor.g + texColor.b) / 3.0;
-	float rd = avg - texColor.r;
-	float gd = avg - texColor.g;
-	float bd = avg - texColor.b;
-	float dt = amount;
+	vec3 d = vec3(avg) - texColor.rgb;
 
-	texColor.r = texColor.r + dt * rd;
-	texColor.g = texColor.g + dt * gd;
-	texColor.b = texColor.b + dt * bd;
+	texColor.rgb += amount * d;
 
 	gl_FragColor = texColor;
 }

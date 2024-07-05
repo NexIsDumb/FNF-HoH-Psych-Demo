@@ -23,6 +23,8 @@ class Constants {
 	}
 
 	public static var UI_FONT(get, null):String = null;
+	public static inline final UI_FONT_DEFAULT:String = "TrajanPro3-Regular.ttf";
+	public static inline final DIALOGUE_FONT_DEFAULT:String = 'perpetua.ttf';
 
 	private inline static function get_UI_FONT():String {
 		var val = Paths.font(TM.get_curUIFont());

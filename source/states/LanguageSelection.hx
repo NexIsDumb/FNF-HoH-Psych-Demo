@@ -9,8 +9,6 @@ class LanguageSelection extends MenuBeatState {
 
 	private var curSelected:Int = 0;
 
-	var defaultFont = "TrajanPro-Regular.ttf";
-
 	public static var fromSplash:Bool = false;
 
 	function openSelectedSubstate() {
@@ -69,17 +67,19 @@ class LanguageSelection extends MenuBeatState {
 				lang = TM.languageNames[lang];
 			}
 
-			var font = defaultFont;
+			var font = Constants.UI_FONT_DEFAULT;
 			var hasFontSuffix = true;
 			if (lang.endsWith("[jap]")) {
 				font = "asian.otf";
 			} else if (lang.endsWith("[chi]")) {
 				font = "asian.otf";
-			} else if (lang.endsWith("[ukr]")) {
-				font = "krka.ttf";
-			} else if (lang.endsWith("[rus]")) {
-				font = "krka.ttf";
-			} else {
+			}
+			/* else if (lang.endsWith("[ukr]")) {
+					font = "krka.ttf";
+				} else if (lang.endsWith("[rus]")) {
+					font = "krka.ttf";
+			}*/
+			else {
 				hasFontSuffix = false;
 			}
 			if (hasFontSuffix) {
@@ -107,7 +107,7 @@ class LanguageSelection extends MenuBeatState {
 		fleur.y -= 200;
 
 		statetext = new FlxText(0, 0, 0, "Languages", 12);
-		statetext.setFormat(Paths.font(defaultFont), 34, FlxColor.WHITE, CENTER);
+		statetext.setFormat(Paths.font(Constants.UI_FONT_DEFAULT), 34, FlxColor.WHITE, CENTER);
 		statetext.screenCenterXY();
 		statetext.y = fleur.y - 40;
 		statetext.antialiasing = ClientPrefs.data.antialiasing;

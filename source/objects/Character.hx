@@ -1,6 +1,6 @@
 package objects;
 
-import animateatlas.AtlasFrameMaker;
+// import animateatlas.AtlasFrameMaker;
 import flixel.util.FlxSort;
 #if MODS_ALLOWED
 #end
@@ -103,21 +103,21 @@ class Character extends FlxSprite {
 				#end
 
 				var json:CharacterFile = cast Json.parse(rawJson);
-				var useAtlas:Bool = false;
+				/*var useAtlas:Bool = false;
 
-				#if MODS_ALLOWED
-				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
-				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
-				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
-				#end
-				useAtlas = true;
+					#if MODS_ALLOWED
+					var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
+					var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
+					if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
+					#else
+					if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
+					#end
+					useAtlas = true; */
 
-				if (!useAtlas)
-					frames = Paths.getAtlas(json.image);
-				else
-					frames = AtlasFrameMaker.construct(json.image);
+				// if (!useAtlas)
+				frames = Paths.getAtlas(json.image);
+				// else
+				//	frames = AtlasFrameMaker.construct(json.image);
 
 				imageFile = json.image;
 				if (json.scale != 1) {

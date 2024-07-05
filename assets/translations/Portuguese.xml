@@ -8,7 +8,7 @@
 	<trans id="baldur's-blessing" string="Benção do Baldur"/>
 
 	<trans id="melodic-shell-desc" string="Amuleto Melódico criado para os que desejam cantar. Garante ao usuário a habilidade de cantar em troca de alma."/>
-	<trans id="lifeblood-seed-desc" string="Contém um núcleo vivo que escorre sangue vital precioso. Enquanto descansa, o usuário recebe uma camada de sangue&#xA;que protege contra uma quantidade razoável de dano."/>
+	<trans id="lifeblood-seed-desc" string="Contém um núcleo vivo que escorre sangue vital precioso. Enquanto descansa, o usuário recebe uma camada de sangue &#xA; que protege contra uma quantidade razoável de dano."/>
 	<trans id="critical-focus-desc" string="Um artefato xamã esquecido, como resultado, cristais se formaram ao seu redor, amplificando suas habilidades. Quando o usuário estiver com menos que a metade de vida, uma alma adicional será recompensada quando atingir inimigos."/>
 	<trans id="baldur's-blessing-desc" string="Protege o usurário com uma carapaça reforcada em caso de morte certa. A carapaça não é indestrutível e quebra depois de um uso."/>
 
@@ -40,6 +40,9 @@
 	<trans id="sly-dialog-6" string="Obrigado pela a compra! Tenho certeza ao falar que os meus outros items também valem a pena dar uma olhada! Eles podem até aumentar a sua chance de sobreviver lá em baixo... "/>
 	<trans id="sly-dialog-7" string="Os seus bolsos estão vazios? Se está á caça de mais Geo, as ruínas á baixo tem muito ao oferecer!"/>
 
+	<trans id="elderbug-name" string="Elderbug"/>
+	<trans id="sly-name" string="Sly"/>
+
 
 	<!-- Menus -->
 	<trans id="options" string="Opções"/>
@@ -47,7 +50,7 @@
 	<trans id="languages" string="Línguas"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="Controles"/>
 	<trans id="graphics" string="Gráficos"/>
-	<trans id="visuals-and-ui" string="Visuais e UI"/>
+	<trans id="visuals-and-ui" string="Gráficos"/>
 	<trans id="gameplay" string="Gameplay"/>
 	<trans id="back" string="Voltar"/>
 
@@ -130,7 +133,7 @@
 
 	<trans id="you-have-died-v2" string="Você morreu {0} vezes."/>
 	<trans id="you-have-died" string="Você morreu"/>
-	<trans id="times" string="Tempos"/>
+	<trans id="times" string="Vezes"/>
 	<trans id="resume" string="Resumir"/>
 	<trans id="exit-to-freeplay" string="Retornar ao Freeplay"/>
 	<trans id="exit-to-menu" string="Retornar ao menu"/>

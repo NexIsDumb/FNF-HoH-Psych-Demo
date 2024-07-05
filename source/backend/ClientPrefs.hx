@@ -74,20 +74,6 @@ class ClientPrefs {
 	public static var data:SaveVariables = null;
 	public static var defaultData:SaveVariables = null;
 
-	public static var translations:Array<Array<String>> = [
-		["English", "eng"], // ["中文[chi]", "chi"],
-		["Italiano", "ital"],
-		["Français", "fr"],
-		["Español", "spa"],
-		["Українська[ukr]", "ukr"],
-		["日本語[jap]", "jap"],
-		["Deutsch", "ger"],
-		["Polski", "pl"],
-		["Indonesia", "ind"],
-		["Finnish", "fin"],
-		["Русский[rus]", "rus"],
-	];
-
 	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		// Key Bind, Name for ControlsSubState
@@ -145,10 +131,14 @@ class ClientPrefs {
 	public static function clearInvalidKeys(key:String) {
 		var keyBind:Array<FlxKey> = keyBinds.get(key);
 		var gamepadBind:Array<FlxGamepadInputID> = gamepadBinds.get(key);
-		while (keyBind != null && keyBind.contains(NONE))
-			keyBind.remove(NONE);
-		while (gamepadBind != null && gamepadBind.contains(NONE))
-			gamepadBind.remove(NONE);
+		if (keyBind != null) {
+			while (keyBind.contains(NONE))
+				keyBind.remove(NONE);
+		}
+		if (gamepadBind != null) {
+			while (gamepadBind.contains(NONE))
+				gamepadBind.remove(NONE);
+		}
 	}
 
 	public static function loadDefaultKeys() {

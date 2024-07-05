@@ -1,166 +1,166 @@
 <!DOCTYPE hymns-language-translation>
 
 <translations>
-    <!-- Charms -->
-    <trans id="melodic-shell" string="Guscio Melodico"/>
-    <trans id="lifeblood-seed" string="Seme di Lifeblood"/>
-    <trans id="critical-focus" string="Concentrazione Rapida"/>
-    <trans id="baldur's-blessing" string="Benedizione di Baldoro"/>
+	<!-- Charms -->
+	<trans id="melodic-shell" string="Guscio Melodico"/>
+	<trans id="lifeblood-seed" string="Seme di Lifeblood"/>
+	<trans id="critical-focus" string="Concentrazione Rapida"/>
+	<trans id="baldur's-blessing" string="Benedizione di Baldoro"/>
 
-    <trans id="melodic-shell-desc" string="Amuleto melodico creato per coloro che desiderano cantare Concede a chi lo porta la capacità di cantare in cambio ricompensandogli l'anima."/>
-    <trans id="lifeblood-seed-desc" string="Contiene un nucleo vivente che gocciola prezioso sangue vitale. Quando riposa, il portatore riceve uno strato di sangue vitale&#xA;che protegge da una modesta quantità di danni."/>
-    <trans id="critical-focus-desc" string="Un manufatto sciamano dimenticato da tempo. Come risultato, su di esso iniziarono a formarsi cristalli, amplificando le sue abilità. Mentre il portatore è al di sotto della metà della sua salute attuale, gli viene concessa un'anima aggiuntiva quando colpisce i nemici."/>
-    <trans id="baldur's-blessing-desc" string="Protegge chi lo indossa con un guscio duro in caso di morte certa. Il guscio non è indistruttibile e si frantuma dopo un solo utilizzo."/>
+	<trans id="melodic-shell-desc" string="Amuleto melodico creato per coloro che desiderano cantare Concede a chi lo porta la capacità di cantare in cambio ricompensandogli l'anima."/>
+	<trans id="lifeblood-seed-desc" string="Contiene un nucleo vivente che gocciola prezioso sangue vitale. Quando riposa, il portatore riceve uno strato di sangue vitale&#xA;che protegge da una modesta quantità di danni."/>
+	<trans id="critical-focus-desc" string="Un manufatto sciamano dimenticato da tempo. Come risultato, su di esso iniziarono a formarsi cristalli, amplificando le sue abilità. Mentre il portatore è al di sotto della metà della sua salute attuale, gli viene concessa un'anima aggiuntiva quando colpisce i nemici."/>
+	<trans id="baldur's-blessing-desc" string="Protegge chi lo indossa con un guscio duro in caso di morte certa. Il guscio non è indistruttibile e si frantuma dopo un solo utilizzo."/>
 
-    <trans id="baldur's-blessing-tip" string="Ti ritrovi nei guai laggiù? I carpaci di Baldoro sono così resistenti che si dice proteggano chi li indossa dai danni! Tuttavia non sembra indistruttibile, quindi fai attenzione."/>
-    <trans id="lifeblood-seed-tip" string="Hai bisogno di un piccolo potenziamento? Allora questo amuleto è quello che fa al caso tuo! Il sangue vitale può essere visto come un tabù, ma sicuramente ti farà sentire più sano! Basta non far sapere a nessuno chi te l'ha venduto."/>
-    <trans id="critical-focus-tip" string="Se hai difficoltà a concentrarti in situazioni pericolose, questo è l'amuleto che fa al caso tuo! Ho sentito che può aiutare chi lo indossa a raccogliere &quot;ANIMA&quot; quando è in pericolo, qualunque cosa significhi."/>
-
-
-    <!-- Dialogues -->
-    <trans id="elderbug-dialog-1" string="Ah, Viaggiatore! Sei tornato! Avrei giurato che mi fossi passato accanto un minuto fa. Sembra che ti sia caduto questo mentre scendevi. Ecco, prendilo."/>
-    <trans id="elderbug-dialog-2" string="Ecco, perché non lo provi subito? Un po' di pratica non dovrebbe far male. Inoltre apprezzo compagnia in più."/>
-    <trans id="elderbug-dialog-3" string="Mi dispiace, la mia voce dev'essersi un po' arrugginita. Proviamo di nuovo, Viaggiatore."/>
-    <trans id="elderbug-dialog-4" string="Viaggiatore, quel tuo aculeo sembra essere in uno stato pietoso. Non ti servirà a niente laggiù. Forse quel tuo amuleto può esserti utile."/>
-    <trans id="elderbug-dialog-5" string="Oh wow, era da molto tempo che non mi divertivo così tanto!"/>
-    <trans id="elderbug-dialog-6" string="Oh, sembra che abbiamo attirato l'attenzione del nostro negoziante! Forse dovresti fargli visita? Credo che potrebbe avere qualcosa che potrebbe aiutarti nei tuoi viaggi."/>
-    <trans id="elderbug-dialog-7" string="La coppia al negozio di mappe.. Oh, non auguro altro che il meglio per quei due. Se solo potessero aprire un negozio in un posto più grande... Non posso sopportare di guardare la moglie così alta, chinarsi per attraversare quella porta."/>
-    <trans id="elderbug-dialog-8" string="Il negoziante? Sembra che abbia tutto in quel suo negozietto! Farei attenzione se intendi acquistare da lui... Quell'insetto fa affari piuttosto duri per la sua merce."/>
-    <trans id="elderbug-dialog-9" string="Molti venivano alla ricerca di un regno proprio sotto il punto in cui ci troviamo. Nidosacro, si chiamava. Mi è stato detto che fosse il regno più grande che sia mai esistito. Da allora è diventata una rovina, l'aria malsana lì sotto è tale da far impazzire!"/>
-    <trans id="elderbug-dialog-10" string="Sembri esausto, Viaggiatore. Immagino che tu ti sia avventurato nelle frondose caverne sottostanti? È davvero uno spettacolo bellissimo."/>
-    <trans id="elderbug-dialog-11" string="Ti consiglio di riposarti su quella panchina prima di uscire di nuovo. Ti assicuro che è abbastanza comoda."/>
-    <trans id="elderbug-dialog-12" string="Oh, vedo che hai comprato da quel negoziante, vero? Sembri abbastanza pronto per la tua prossima impresa. Ma ricordati di stare attento là fuori, chissà cosa potresti incontrare in quelle caverne."/>
-    <trans id="elderbug-dialog-13" string="Sembri esausto, Viaggiatore. Sembra che tu abbia lottato duramente per un affare."/>
-
-    <trans id="sly-dialog-1" string="Ah, ciao! Sapevo che ci saremmo incontrati di nuovo. Sembra che tu ti sia rifatto un po' il look, eh?"/>
-    <trans id="sly-dialog-2" string="OH! Desideri cantare? Hmm... è raro che qualcuno mi sfidi..."/>
-    <trans id="sly-dialog-3" string="Va bene, accetto! Devo dire che anch'io non sono un gran cantante... ma sono curioso di conoscere le tue capacità."/>
-    <trans id="sly-dialog-4" string="Oh, è passato un bel po' di tempo dall'ultima volta che ho giocato così. Devo ammettere che è stato piuttosto divertente! Per quanto mi addolori... una battaglia persa è una battaglia persa. Tieni, prendi la tua ricompensa e lasciami al mio Geo... a meno che tu non abbia intenzione di acquistare altra merce..."/>
-    <trans id="sly-dialog-5" string="Temo di non avere più nulla da offrirti. Mi hai ripulito."/>
-    <trans id="sly-dialog-6" string="Grazie per il tuo gentile acquisto! Te lo assicuro, vale la pena dare un'occhiata anche agli altri miei articoli! Potrebbero persino aumentare le tue possibilità di sopravvivenza laggiù..."/>
-    <trans id="sly-dialog-7" string="Le tasche ti sembrano vuote? Se sei a caccia di altri Geo, le rovine sottostanti hanno molto da offrire!"/>
-
-    <trans id="elderbug-name" string="Gerontias"/>
+	<trans id="baldur's-blessing-tip" string="Ti ritrovi nei guai laggiù? I carpaci di Baldoro sono così resistenti che si dice proteggano chi li indossa dai danni! Tuttavia non sembra indistruttibile, quindi fai attenzione."/>
+	<trans id="lifeblood-seed-tip" string="Hai bisogno di un piccolo potenziamento? Allora questo amuleto è quello che fa al caso tuo! Il sangue vitale può essere visto come un tabù, ma sicuramente ti farà sentire più sano! Basta non far sapere a nessuno chi te l'ha venduto."/>
+	<trans id="critical-focus-tip" string="Se hai difficoltà a concentrarti in situazioni pericolose, questo è l'amuleto che fa al caso tuo! Ho sentito che può aiutare chi lo indossa a raccogliere &quot;ANIMA&quot; quando è in pericolo, qualunque cosa significhi."/>
 
 
-    <!-- Menus -->
-    <trans id="options" string="Opzioni"/>
-    <trans id="note-colors" string="Colori Note"/>
-    <trans id="languages" string="Lingue"/> <!-- I'm not sure if this is the right translation for "Languages" -->
-    <trans id="controls" string="Controlli"/>
-    <trans id="graphics" string="Grafica"/>
-    <trans id="visuals-and-ui" string="Visuali e UI"/>
-    <trans id="gameplay" string="Gameplay"/>
-    <trans id="back" string="Indietro"/>
+	<!-- Dialogues -->
+	<trans id="elderbug-dialog-1" string="Ah, Viaggiatore! Sei tornato! Avrei giurato che mi fossi passato accanto un minuto fa. Sembra che ti sia caduto questo mentre scendevi. Ecco, prendilo."/>
+	<trans id="elderbug-dialog-2" string="Ecco, perché non lo provi subito? Un po' di pratica non dovrebbe far male. Inoltre apprezzo compagnia in più."/>
+	<trans id="elderbug-dialog-3" string="Mi dispiace, la mia voce dev'essersi un po' arrugginita. Proviamo di nuovo, Viaggiatore."/>
+	<trans id="elderbug-dialog-4" string="Viaggiatore, quel tuo aculeo sembra essere in uno stato pietoso. Non ti servirà a niente laggiù. Forse quel tuo amuleto può esserti utile."/>
+	<trans id="elderbug-dialog-5" string="Oh wow, era da molto tempo che non mi divertivo così tanto!"/>
+	<trans id="elderbug-dialog-6" string="Oh, sembra che abbiamo attirato l'attenzione del nostro negoziante! Forse dovresti fargli visita? Credo che potrebbe avere qualcosa che potrebbe aiutarti nei tuoi viaggi."/>
+	<trans id="elderbug-dialog-7" string="La coppia al negozio di mappe.. Oh, non auguro altro che il meglio per quei due. Se solo potessero aprire un negozio in un posto più grande... Non posso sopportare di guardare la moglie così alta, chinarsi per attraversare quella porta."/>
+	<trans id="elderbug-dialog-8" string="Il negoziante? Sembra che abbia tutto in quel suo negozietto! Farei attenzione se intendi acquistare da lui... Quell'insetto fa affari piuttosto duri per la sua merce."/>
+	<trans id="elderbug-dialog-9" string="Molti venivano alla ricerca di un regno proprio sotto il punto in cui ci troviamo. Nidosacro, si chiamava. Mi è stato detto che fosse il regno più grande che sia mai esistito. Da allora è diventata una rovina, l'aria malsana lì sotto è tale da far impazzire!"/>
+	<trans id="elderbug-dialog-10" string="Sembri esausto, Viaggiatore. Immagino che tu ti sia avventurato nelle frondose caverne sottostanti? È davvero uno spettacolo bellissimo."/>
+	<trans id="elderbug-dialog-11" string="Ti consiglio di riposarti su quella panchina prima di uscire di nuovo. Ti assicuro che è abbastanza comoda."/>
+	<trans id="elderbug-dialog-12" string="Oh, vedo che hai comprato da quel negoziante, vero? Sembri abbastanza pronto per la tua prossima impresa. Ma ricordati di stare attento là fuori, chissà cosa potresti incontrare in quelle caverne."/>
+	<trans id="elderbug-dialog-13" string="Sembri esausto, Viaggiatore. Sembra che tu abbia lottato duramente per un affare."/>
 
-    <trans id="left" string="Sinistra"/>
-    <trans id="down" string="Giú"/>
-    <trans id="up" string="Su"/>
-    <trans id="right" string="Destra"/>
-    <trans id="focus" string="Focus"/>
-    <trans id="accept" string="Accetta"/>
-    <trans id="pause" string="Pausa"/>
-    <trans id="ui-up" string="UI Su"/>
-    <trans id="ui-left" string="UI Sinistra"/>
-    <trans id="ui-right" string="UI Destra"/>
-    <trans id="ui-down" string="UI Giú"/>
-    <trans id="ui-back" string="UI Indietro"/>
-    <trans id="reset" string="Ripristina"/>
-    <trans id="mute" string="Muto"/>
-    <trans id="volume-up" string="Volume Su"/>
-    <trans id="volume-down" string="Volume Giú"/>
-    <trans id="reset-to-default-keys" string="Ripristina tasti predefiniti"/>
+	<trans id="sly-dialog-1" string="Ah, ciao! Sapevo che ci saremmo incontrati di nuovo. Sembra che tu ti sia rifatto un po' il look, eh?"/>
+	<trans id="sly-dialog-2" string="OH! Desideri cantare? Hmm... è raro che qualcuno mi sfidi..."/>
+	<trans id="sly-dialog-3" string="Va bene, accetto! Devo dire che anch'io non sono un gran cantante... ma sono curioso di conoscere le tue capacità."/>
+	<trans id="sly-dialog-4" string="Oh, è passato un bel po' di tempo dall'ultima volta che ho giocato così. Devo ammettere che è stato piuttosto divertente! Per quanto mi addolori... una battaglia persa è una battaglia persa. Tieni, prendi la tua ricompensa e lasciami al mio Geo... a meno che tu non abbia intenzione di acquistare altra merce..."/>
+	<trans id="sly-dialog-5" string="Temo di non avere più nulla da offrirti. Mi hai ripulito."/>
+	<trans id="sly-dialog-6" string="Grazie per il tuo gentile acquisto! Te lo assicuro, vale la pena dare un'occhiata anche agli altri miei articoli! Potrebbero persino aumentare le tue possibilità di sopravvivenza laggiù..."/>
+	<trans id="sly-dialog-7" string="Le tasche ti sembrano vuote? Se sei a caccia di altri Geo, le rovine sottostanti hanno molto da offrire!"/>
 
-    <trans id="on" string="Si"/>
-    <trans id="off" string="No"/>
-    <trans id="none" string="Niente"/>
-
-    <trans id="low-quality" string="Qualitá bassa"/>
-    <trans id="note-skins" string="Skin Note"/>
-    <trans id="note-splashes" string="Splash Note"/>
-    <trans id="note-splash-opacity" string="Opacitá Splash Note"/>
-    <trans id="flashing-lights" string="Luci Lampeggianti"/>
-    <trans id="translations" string="Traduzioni"/>
-    <trans id="fps-counter" string="Counter FPS"/>
-    <trans id="auto-pause" string="Pausa Automatica"/>
-    <trans id="disable-reset-button" string="Disabilita Comando Ripristina"/>
-    <trans id="hitsound-volume" string="Volume Hitsound"/>
-    <trans id="safe-frames" string="Frame Sicuri"/>
-
-    <trans id="low-quality-desc" string="Se spuntato, disabilitá qualche dettaglio negli sfondi."/>
-    <trans id="anti-aliasing-desc" string="Se non spuntato, disabilita l’anti-aliasing, incrementando la performance a costo di visuali meno definite."/>
-    <trans id="shaders-desc" string="Se non spuntato, disabilita le shaders (effetti visivi)."/>
-    <trans id="gpu-caching-desc" string="Se spuntato, diminuisce l’utilizzo della RAM se hai una buona GPU."/>
-    <trans id="framerate-desc" string="Abbastanza ovvio, non credi?"/>
-    <trans id="note-skins-desc" string="Seleziona le tue Skin delle Note preferite."/>
-    <trans id="note-splashes-desc" string="Seleziona la tua variante preferita degli Splash Note oppure disabilitale."/>
-    <trans id="note-splash-opacity-desc" string="Quanto trasparenti dovrebbero essere gli Splash Note."/>
-    <trans id="flashing-lights-desc" string="Non spuntare questo se sei sensibile alle luci lampeggianti!"/>
-    <trans id="translations-desc" string="Seleziona la traduzione preferita del gioco."/>
-    <trans id="fps-counter-desc" string="Se non spuntato, nasconde il counter degli FPS."/>
-    <trans id="discord-rich-presence-desc" string="Non spuntare questo per nascondere l’attivitá del gioco dall’attivitá di Discord (Discord RPC)"/>
-    <trans id="downscroll-desc" string="Se spuntato, le note andranno verso il Basso invece che verso l’Alto, abbastanza semplice."/>
-    <trans id="middlescroll-desc" string="Se spuntato, le tue note vengono centrate."/>
-    <trans id="ghost-tapping-desc" string="Se spuntato, non prenderai mancati nel premere comandi di gameplay quando sotto non ci sono note."/>
-    <trans id="auto-pause-desc" string="Se spuntato, il gioco va in pausa automaticamente se la sua finestra non è selezionata."/>
-    <trans id="disable-reset-button-desc" string="Se spuntato, premere Ripristina non fará niente."/>
-    <trans id="hitsound-volume-desc" string="Le note burla fanno &quot;Tick!&quot; quando le colpisci."/>
-    <trans id="safe-frames-desc" string="Cambia quanti frames hai a disposizione per colpire una nota prima o dopo."/>
-
-    <trans id="start-game" string="Gioca"/>
-    <trans id="credits" string="Crediti"/>
-    <trans id="quit-game" string="Esci dal Gioco"/>
-
-    <trans id="new-game" string="Nuovo Gioco"/>
-    <trans id="clear-save" string="Cancella Salvataggio"/>
-    <trans id="story" string="Storia"/>
-
-    <trans id="personal-best" string="Record Personale"/>
-    <trans id="score" string="Punteggio"/>
-    <trans id="misses" string="Mancati"/>
-    <trans id="rating" string="Valutazione"/>
-
-    <trans id="you-have-died" string="Sei morto"/>
-    <trans id="times" string="volte."/>
-    <trans id="resume" string="Riprendi"/>
-    <trans id="exit-to-freeplay" string="Ritorna al Freeplay"/>
-    <trans id="exit-to-menu" string="Ritorna al menu"/>
-    <trans id="exit-to-dirtmouth" string="Ritorna a Dirtmouth"/>
-    <trans id="restart-song" string="Ricomincia Canzone"/>
+	<trans id="elderbug-name" string="Gerontias"/>
 
 
-    <!-- Overworld -->
-    <trans id="rest" string="Riposa"/>
-    <trans id="listen" string="Ascolta"/>
-    <trans id="enter" string="Entra"/>
-    <trans id="shop" string="Negozio"/>
+	<!-- Menus -->
+	<trans id="options" string="Opzioni"/>
+	<trans id="note-colors" string="Colori Note"/>
+	<trans id="languages" string="Lingue"/> <!-- I'm not sure if this is the right translation for "Languages" -->
+	<trans id="controls" string="Controlli"/>
+	<trans id="graphics" string="Grafica"/>
+	<trans id="visuals-and-ui" string="Visuali e UI"/>
+	<trans id="gameplay" string="Gameplay"/>
+	<trans id="back" string="Indietro"/>
 
-    <trans id="purchase-this-item" string="Comprare?"/>
-    <trans id="yes" string="Si"/>
-    <trans id="no" string="No"/>
+	<trans id="left" string="Sinistra"/>
+	<trans id="down" string="Giú"/>
+	<trans id="up" string="Su"/>
+	<trans id="right" string="Destra"/>
+	<trans id="focus" string="Focus"/>
+	<trans id="accept" string="Accetta"/>
+	<trans id="pause" string="Pausa"/>
+	<trans id="ui-up" string="UI Su"/>
+	<trans id="ui-left" string="UI Sinistra"/>
+	<trans id="ui-right" string="UI Destra"/>
+	<trans id="ui-down" string="UI Giú"/>
+	<trans id="ui-back" string="UI Indietro"/>
+	<trans id="reset" string="Ripristina"/>
+	<trans id="mute" string="Muto"/>
+	<trans id="volume-up" string="Volume Su"/>
+	<trans id="volume-down" string="Volume Giú"/>
+	<trans id="reset-to-default-keys" string="Ripristina tasti predefiniti"/>
 
-    <trans id="charms" string="Amuleti"/>
-    <trans id="equipped" string="Equipaggiati"/>
-    <trans id="notches" string="Incavi"/>
-    <trans id="cost" string="Costo"/>
-    <trans id="no-cost" string="Nessun Costo"/>
-    <trans id="overcharmed" string="Sovraccarico"/>
+	<trans id="on" string="Si"/>
+	<trans id="off" string="No"/>
+	<trans id="none" string="Niente"/>
 
-    <trans id="life-tutorial-1" string="Esseri superiori, queste parole sono solo per voi."/>
-    <trans id="life-tutorial-2" string="La tua grande forza ti contraddistingue tra noi.&#xA;Concentra la tua anima e realizzerai imprese che gli altri possono solo sognare."/>
-    <trans id="life-tutorial-3" string="Raccogli ANIMA premendo le note.&#xA;Una volta raccolta abbastanza ANIMA, tieni premuto SPAZIO mentre non canti per concentrare ANIMA e guarire."/>
+	<trans id="low-quality" string="Qualitá bassa"/>
+	<trans id="note-skins" string="Skin Note"/>
+	<trans id="note-splashes" string="Splash Note"/>
+	<trans id="note-splash-opacity" string="Opacitá Splash Note"/>
+	<trans id="flashing-lights" string="Luci Lampeggianti"/>
+	<trans id="translations" string="Traduzioni"/>
+	<trans id="fps-counter" string="Counter FPS"/>
+	<trans id="auto-pause" string="Pausa Automatica"/>
+	<trans id="disable-reset-button" string="Disabilita Comando Ripristina"/>
+	<trans id="hitsound-volume" string="Volume Hitsound"/>
+	<trans id="safe-frames" string="Frame Sicuri"/>
 
-    <trans id="charms-tutorial-1" string="Raccolto un Amuleto"/>
-    <trans id="charms-tutorial-2" string="Equipaggia un amuleto per attivare le sue potenti abilità."/>
-    <trans id="charms-tutorial-3" string="Per equipaggiare un amuleto, apri il menu AMULETI mentre riposi su una panchina."/>
+	<trans id="low-quality-desc" string="Se spuntato, disabilitá qualche dettaglio negli sfondi."/>
+	<trans id="anti-aliasing-desc" string="Se non spuntato, disabilita l’anti-aliasing, incrementando la performance a costo di visuali meno definite."/>
+	<trans id="shaders-desc" string="Se non spuntato, disabilita le shaders (effetti visivi)."/>
+	<trans id="gpu-caching-desc" string="Se spuntato, diminuisce l’utilizzo della RAM se hai una buona GPU."/>
+	<trans id="framerate-desc" string="Abbastanza ovvio, non credi?"/>
+	<trans id="note-skins-desc" string="Seleziona le tue Skin delle Note preferite."/>
+	<trans id="note-splashes-desc" string="Seleziona la tua variante preferita degli Splash Note oppure disabilitale."/>
+	<trans id="note-splash-opacity-desc" string="Quanto trasparenti dovrebbero essere gli Splash Note."/>
+	<trans id="flashing-lights-desc" string="Non spuntare questo se sei sensibile alle luci lampeggianti!"/>
+	<trans id="translations-desc" string="Seleziona la traduzione preferita del gioco."/>
+	<trans id="fps-counter-desc" string="Se non spuntato, nasconde il counter degli FPS."/>
+	<trans id="discord-rich-presence-desc" string="Non spuntare questo per nascondere l’attivitá del gioco dall’attivitá di Discord (Discord RPC)"/>
+	<trans id="downscroll-desc" string="Se spuntato, le note andranno verso il Basso invece che verso l’Alto, abbastanza semplice."/>
+	<trans id="middlescroll-desc" string="Se spuntato, le tue note vengono centrate."/>
+	<trans id="ghost-tapping-desc" string="Se spuntato, non prenderai mancati nel premere comandi di gameplay quando sotto non ci sono note."/>
+	<trans id="auto-pause-desc" string="Se spuntato, il gioco va in pausa automaticamente se la sua finestra non è selezionata."/>
+	<trans id="disable-reset-button-desc" string="Se spuntato, premere Ripristina non fará niente."/>
+	<trans id="hitsound-volume-desc" string="Le note burla fanno &quot;Tick!&quot; quando le colpisci."/>
+	<trans id="safe-frames-desc" string="Cambia quanti frames hai a disposizione per colpire una nota prima o dopo."/>
 
-    <!-- Gameplay -->
-    <trans id="you-suck!" string="Fai Pena!"/>
-    <trans id="shit" string="Merdoso"/>
-    <trans id="bad" string="Male"/>
-    <trans id="nice" string="Buono"/>
-    <trans id="good" string="Bene"/>
-    <trans id="great" string="Grandioso"/>
-    <trans id="sick!" string="Pazzo!"/>
-    <trans id="perfect!!" string="Perfetto!!"/>
+	<trans id="start-game" string="Gioca"/>
+	<trans id="credits" string="Crediti"/>
+	<trans id="quit-game" string="Esci dal Gioco"/>
+
+	<trans id="new-game" string="Nuovo Gioco"/>
+	<trans id="clear-save" string="Cancella Salvataggio"/>
+	<trans id="story" string="Storia"/>
+
+	<trans id="personal-best" string="Record Personale"/>
+	<trans id="score" string="Punteggio"/>
+	<trans id="misses" string="Mancati"/>
+	<trans id="rating" string="Valutazione"/>
+
+	<trans id="you-have-died" string="Sei morto"/>
+	<trans id="times" string="volte."/>
+	<trans id="resume" string="Riprendi"/>
+	<trans id="exit-to-freeplay" string="Ritorna al Freeplay"/>
+	<trans id="exit-to-menu" string="Ritorna al menu"/>
+	<trans id="exit-to-dirtmouth" string="Ritorna a Dirtmouth"/>
+	<trans id="restart-song" string="Ricomincia Canzone"/>
+
+
+	<!-- Overworld -->
+	<trans id="rest" string="Riposa"/>
+	<trans id="listen" string="Ascolta"/>
+	<trans id="enter" string="Entra"/>
+	<trans id="shop" string="Negozio"/>
+
+	<trans id="purchase-this-item" string="Comprare?"/>
+	<trans id="yes" string="Si"/>
+	<trans id="no" string="No"/>
+
+	<trans id="charms" string="Amuleti"/>
+	<trans id="equipped" string="Equipaggiati"/>
+	<trans id="notches" string="Incavi"/>
+	<trans id="cost" string="Costo"/>
+	<trans id="no-cost" string="Nessun Costo"/>
+	<trans id="overcharmed" string="Sovraccarico"/>
+
+	<trans id="life-tutorial-1" string="Esseri superiori, queste parole sono solo per voi."/>
+	<trans id="life-tutorial-2" string="La tua grande forza ti contraddistingue tra noi.&#xA;Concentra la tua anima e realizzerai imprese che gli altri possono solo sognare."/>
+	<trans id="life-tutorial-3" string="Raccogli ANIMA premendo le note.&#xA;Una volta raccolta abbastanza ANIMA, tieni premuto SPAZIO mentre non canti per concentrare ANIMA e guarire."/>
+
+	<trans id="charms-tutorial-1" string="Raccolto un Amuleto"/>
+	<trans id="charms-tutorial-2" string="Equipaggia un amuleto per attivare le sue potenti abilità."/>
+	<trans id="charms-tutorial-3" string="Per equipaggiare un amuleto, apri il menu AMULETI mentre riposi su una panchina."/>
+
+	<!-- Gameplay -->
+	<trans id="you-suck!" string="Fai Pena!"/>
+	<trans id="shit" string="Merdoso"/>
+	<trans id="bad" string="Male"/>
+	<trans id="nice" string="Buono"/>
+	<trans id="good" string="Bene"/>
+	<trans id="great" string="Grandioso"/>
+	<trans id="sick!" string="Pazzo!"/>
+	<trans id="perfect!!" string="Perfetto!!"/>
 </translations>

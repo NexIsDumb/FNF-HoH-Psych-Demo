@@ -129,13 +129,17 @@ class Dialogue extends FlxSpriteGroup {
 
 		trace(theoneliner);
 
-		new FlxTimer().start(0.1, function(tmr:FlxTimer) {
-			var linesplit:Array<String> = theoneliner.split('');
-			var textywesty:String = linesplit[0];
-			new FlxTimer().start(0.025, function(tmr:FlxTimer) {
-				textywesty += linesplit[linesplit.length - tmr.loopsLeft - 1];
+		dialogueTimerStart = new FlxTimer().start(0.1, function(tmr:FlxTimer) {
+			var textywesty:String = theoneliner.charAt(0);
+			var id = 1;
+			dialogueTimer = new FlxTimer().start(0.025, function(tmr:FlxTimer) {
+				textywesty += theoneliner.charAt(id);
 				text.text = textywesty /*+ text.suffixPub("")*/;
-			}, linesplit.length - 1);
+				id++;
+				if (id < theoneliner.length) {
+					tmr.reset(0.025);
+				}
+			});
 		});
 
 		new FlxTimer().start(.35, function(tmr:FlxTimer) {
@@ -165,6 +169,9 @@ class Dialogue extends FlxSpriteGroup {
 		publiccall = [];
 	}
 
+	var dialogueTimerStart:FlxTimer;
+	var dialogueTimer:FlxTimer;
+
 	override public function update(elapsed:Float) {
 		box.update(elapsed);
 		arrow.update(elapsed);
@@ -192,7 +199,17 @@ class Dialogue extends FlxSpriteGroup {
 						closeBox();
 					}
 				} else {
-					FlxTimer.globalManager.completeAll();
+					if (dialogueTimerStart != null) {
+						dialogueTimerStart.active = false;
+						dialogueTimerStart.destroy();
+						dialogueTimerStart = null;
+					}
+					if (dialogueTimer != null) {
+						dialogueTimer.active = false;
+						dialogueTimer.destroy();
+						dialogueTimer = null;
+					}
+					// FlxTimer.globalManager.completeAll();
 					text.text = publine;
 				}
 			}
