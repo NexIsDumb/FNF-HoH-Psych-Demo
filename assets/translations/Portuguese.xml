@@ -8,29 +8,29 @@
 	<trans id="baldur's-blessing" string="Benção do Baldur"/>
 
 	<trans id="melodic-shell-desc" string="Amuleto Melódico criado para os que desejam cantar. Garante ao usuário a habilidade de cantar em troca de alma."/>
-	<trans id="lifeblood-seed-desc" string="Contém um núcleo vivo que escorre sangue vital precioso. Enquanto descansa, o usuário recebe uma camada de sangue &#xA; que protege contra uma quantidade razoável de dano."/>
+	<trans id="lifeblood-seed-desc" string="Contém um núcleo vivo que escorre Sangue Vital precioso. Enquanto descansa, o usuário recebe uma camada de sangue &#xA; que protege contra uma quantidade razoável de dano."/>
 	<trans id="critical-focus-desc" string="Um artefato xamã esquecido, como resultado, cristais se formaram ao seu redor, amplificando suas habilidades. Quando o usuário estiver com menos que a metade de vida, uma alma adicional será recompensada quando atingir inimigos."/>
-	<trans id="baldur's-blessing-desc" string="Protege o usurário com uma carapaça reforcada em caso de morte certa. A carapaça não é indestrutível e quebra depois de um uso."/>
+	<trans id="baldur's-blessing-desc" string="Protege o usuário com uma carapaça reforcada em caso de morte certa. A carapaça não é indestrutível e quebra depois de um uso."/>
 
 	<trans id="baldur's-blessing-tip" string="Se encontrando em problemas lá em baixo? Carapaças de Baldurs são tão duras, que dizem que protege o usuário de danos! Porem, não parece ser indestrutível, então tenha cuidado."/>
-	<trans id="lifeblood-seed-tip" string="Precisa de um empurrãozinho? Então esse amuleto é a solução para você! Sangue vital pode ser visto como uma substância não confiável, mas definitivamente te deixará mais saudável! Só não fala por aí quem que lhe vendeu."/>
+	<trans id="lifeblood-seed-tip" string="Precisa de um empurrãozinho? Então esse amuleto é a solução para você! Sangue Vital pode ser visto como uma substância não confiável, mas definitivamente te deixará mais saudável! Só não fala por aí quem que lhe vendeu."/>
 	<trans id="critical-focus-tip" string="Se você tem dificuldades ao focar em situações perigosas, esse amuleto é para você! Eu ouvi por aí que ele pode ajudar o usuário a coletar mais&quot;ALMA&quot; em perigo, seja lá o que isso significa."/>
 
 
 	<!-- Dialogues -->
-	<trans id="elderbug-dialog-1" string="Ah, Viajante! Você voltou! Eu jurava que você passou do meu lado há um minuto atrás. Parece que você deixou isto cair no caminho. Aqui, tome."/>
+	<trans id="elderbug-dialog-1" string="Ah, viajante! Você voltou! Eu jurava que você passou do meu lado há um minuto atrás. Parece que você deixou isto cair no caminho. Aqui, tome."/>
 	<trans id="elderbug-dialog-2" string="Aqui, por que você não experimenta? Um pouco de prática não machuca. E eu também gosto de companhia."/>
-	<trans id="elderbug-dialog-3" string="Desculpe, a minha voz deve estar um pouco enferrujada. Vamos tentar de novo, Viajante."/>
+	<trans id="elderbug-dialog-3" string="Desculpe, a minha voz deve estar um pouco enferrujada. Vamos tentar de novo, viajante."/>
 	<trans id="elderbug-dialog-4" string="Viajante, este ferrão seu aparenta estar em um estado preocupante. Não terá nenhum uso la em baixo. Talvez este amuleto seu poderá ser mais útil."/>
 	<trans id="elderbug-dialog-5" string="Oh wow, não me diverti assim há muito tempo!"/>
 	<trans id="elderbug-dialog-6" string="Oh, parece que chamamos a atenção do nosso comerciate! Talvez você poderia fazê-lo uma visita? Eu acho que ele pode ter algo que possa ajudá-lo nas suas jornadas."/>
 	<trans id="elderbug-dialog-7" string="O casal da loja de mapas... Oh, eu não desejo mais nada do que felicidade para os dois. Se apenas a loja fosse maior...Eu não aguento olhar para a esposa dele tão alta, se abaixando para passar pela a porta."/>
-	<trans id="elderbug-dialog-8" string="O comerciante? Ele parece ter tudo na lojinha dele! Eu teria cuidado se pretende negociar com ele... Ele costuma cobrar um preço salgado para as suas mercadorias." />
+	<trans id="elderbug-dialog-8" string="O comerciante? Ele parece ter tudo na lojinha dele! Eu teria cuidado se pretendesse negociar com ele... Ele costuma cobrar um preço salgado para as suas mercadorias." />
 	<trans id="elderbug-dialog-9" string="Muitos vieram procurando um reino mais profundo ainda. Chamavam de Hallownest. Me contaram que era o melhor reino que ja existiu. Desde então virou uma ruína, o air poluído lá de baixo já é o suficiente de deixar alguém maluco!"/>
-	<trans id="elderbug-dialog-10" string="Você parece estar exausto, Viajante. Eu suponho que se aventurou nas cavernas folhudas lá de baixo? Realmente é uma vista linda."/>
+	<trans id="elderbug-dialog-10" string="Você parece estar exausto, viajante. Eu suponho que se aventurou nas cavernas folhudas lá de baixo? Realmente é uma vista linda."/>
 	<trans id="elderbug-dialog-11" string="Eu recomendo que você descanse naquele banco antes de ir novamente, tenho certeza que é confortável."/>
 	<trans id="elderbug-dialog-12" string="Oh, eu vejo que comprou daquele comerciante, estou certo? Você parece estar pronto para a sua próxima batalha. Mas lembre-se de ter cuidado, quem sabe o que pode encontrar naqueles cavernas."/>
-	<trans id="elderbug-dialog-13" string="Você parece estar exausto, Viajante. Parece ter lutado muito por uma pechincha."/>
+	<trans id="elderbug-dialog-13" string="Você parece estar exausto, viajante. Parece ter lutado muito por uma pechincha."/>
 
 	<trans id="sly-dialog-1" string="Ah, oi! Tinha certeza que nos encontrariamos de novo. Aparentemente você ficou mais habilidoso, né?"/>
 	<trans id="sly-dialog-2" string="OH! Você quer que eu cante? Hmmm... É raro alguém me desafiar..."/>
@@ -47,10 +47,10 @@
 	<!-- Menus -->
 	<trans id="options" string="Opções"/>
 	<trans id="note-colors" string="Cor das notas"/>
-	<trans id="languages" string="Línguas"/> <!-- I'm not sure if this is the right translation for "Languages" -->
+	<trans id="languages" string="Idioma"/> <!-- I'm not sure if this is the right translation for "Languages" --> <!-- close enough! its idioma! -->
 	<trans id="controls" string="Controles"/>
 	<trans id="graphics" string="Gráficos"/>
-	<trans id="visuals-and-ui" string="Gráficos"/>
+	<trans id="visuals-and-ui" string="Visuais e UI"/>
 	<trans id="gameplay" string="Gameplay"/>
 	<trans id="back" string="Voltar"/>
 
@@ -70,13 +70,13 @@
 	<trans id="mute" string="Mutar"/>
 	<trans id="volume-up" string="Volume +"/>
 	<trans id="volume-down" string="Volume -"/>
-	<trans id="reset-to-default-keys" string="Resetar as configurações padrões"/>
+	<trans id="reset-to-default-keys" string="Resetar para as configurações padrões"/>
 
 	<trans id="on" string="Sim"/>
 	<trans id="off" string="Não"/>
 	<trans id="none" string="Nada"/>
 
-	<trans id="low-quality" string="Qualidade Low"/>
+	<trans id="low-quality" string="Baixa Qualidade"/>
 	<trans id="anti-aliasing" string="Anti-Aliasing"/>
 	<trans id="shaders" string="Shaders"/>
 	<trans id="gpu-caching" string="Cachê da GPU"/>
@@ -126,7 +126,7 @@
 	<trans id="freeplay" string="Freeplay"/>
 	<trans id="story" string="História"/>
 
-	<trans id="personal-best" string="Record pessoal"/>
+	<trans id="personal-best" string="Recorde pessoal"/>
 	<trans id="score" string="Pontuação"/>
 	<trans id="misses" string="Errou"/>
 	<trans id="rating" string="Classificação"/>
@@ -147,7 +147,7 @@
 	<trans id="enter" string="Entrar"/>
 	<trans id="shop" string="Loja"/>
 
-	<trans id="purchase-this-item" string="Comprar?"/>
+	<trans id="purchase-this-item" string="Comprar este item?"/>
 	<trans id="yes" string="Sim"/>
 	<trans id="no" string="Não"/>
 
@@ -159,12 +159,12 @@
 	<trans id="overcharmed" string="Sobrecarregado"/>
 
 	<trans id="life-tutorial-1" string="Seres superiores, estas palavras são apenas para vocês."/>
-	<trans id="life-tutorial-2" string="A sua grandiosa força os diferencia entre nós.&#xA;Foque a sua alma e tu conquistarás feitos a qual vários sonham em ter."/>
-	<trans id="life-tutorial-3" string="Colete ALMA acertando as notas.&#xA;Quando a ALMA suficiente for coletada, pressione ESPAÇO enquanto não estiver cantando para focar a ALMA coletada para reparar a sua carapaça."/>
+	<trans id="life-tutorial-2" string="Sua grande força os marca entre nós. Concentre a sua alma e vocês &#xA;poderão alcançar proezas das quais outros só podem sonhar."/>
+	<trans id="life-tutorial-3" string="Recupere ALMA acertando notas.&#xA;Uma vez que tenha ALMA suficiente, segure ESPAÇO enquanto não estiver cantando &#xA;para concentrar a ALMA e se CURAR."/>
 
-	<trans id="charms-tutorial-1" string="Coletou um amuleto."/>
+	<trans id="charms-tutorial-1" string="Amuleto coletado"/>
 	<trans id="charms-tutorial-2" string="Equipe um amuleto para ativar as suas poderosas habilidades."/>
-	<trans id="charms-tutorial-3" string="Para equipar um amuelto, abra o menu de AMULETOS enquanto descansa em um banco."/>
+	<trans id="charms-tutorial-3" string="Para equipar um amuelto, abra o menu AMULETOS enquanto descansa em um banco."/>
 
 	<!-- Gameplay -->
 	<trans id="you-suck!" string="Você é pessimo!"/>
