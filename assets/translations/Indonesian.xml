@@ -5,14 +5,14 @@
 	<trans id="melodic-shell" string="Melodic Shell"/>
 	<trans id="lifeblood-seed" string="Lifeblood Seed"/>
 	<trans id="critical-focus" string="Rapid Focus"/>
-	<trans id="baldur-blessing" string="Baldur's Blessing"/>
+	<trans id="baldur's-blessing" string="Baldur's Blessing"/>
 
 	<trans id="melodic-shell-desc" string="Jimat merdu yang diciptakan untuk mereka yang ingin bernyanyi. Memberikan pemiliknya kemampuan untuk bernyanyi sebagai imbalannya menghadiahi mereka jiwa."/>
 	<trans id="lifeblood-seed-desc" string="Berisi sari hidup yang meneteskan cairan darah kehidupan yang berharga. Saat beristirahat, pemakainya akan mendapatkan lapisan darah kehidupan&#xA;yang melindungi dari sejumlah kecil kerusakan."/>
 	<trans id="critical-focus-desc" string="Sebuah artefak dukun yang sudah lama terlupakan. Sebagai akibatnya kristal mulai terbentuk diatasnya, memperkuatkan kemampuannya. Ketika pemakainya sedang berada di bawah setengah dari nyawanya, mereka diberikan jiwa tambahan saat menyerang musuh."/>
-	<trans id="baldur-blessing-desc" string="Melindungi pemakainya dengan cangkang yang keras saat bertemu dengan kematian tertentu. Cangkang ini gampang rapuh dan akan pecah setelah sekali digunakan."/>
+	<trans id="baldur's-blessing-desc" string="Melindungi pemakainya dengan cangkang yang keras saat bertemu dengan kematian tertentu. Cangkang ini gampang rapuh dan akan pecah setelah sekali digunakan."/>
 
-	<trans id="baldur-blessing-tip" string="Menemukan diri anda mengalami sebuah masalah dibawah? Cangkung baldur ini sangat tangguh sehingga mereka dikatakan dapat melindungi pemakai dari bahaya! Namun tampaknya cangkang ini gampang rapuh, jadi berhati-hatilah."/>
+	<trans id="baldur's-blessing-tip" string="Menemukan diri anda mengalami sebuah masalah dibawah? Cangkung baldur ini sangat tangguh sehingga mereka dikatakan dapat melindungi pemakai dari bahaya! Namun tampaknya cangkang ini gampang rapuh, jadi berhati-hatilah."/>
 	<trans id="lifeblood-seed-tip" string="Butuh sedikit dorongan? Jimat ini cocok untuk anda! Darah kehidupan mungkin dianggap agak terlarang, tapi itu pasti akan membuat anda merasa lebih sehat! Asal jangan kau beri tahu siapa yang menjualnya kepadamu."/>
 	<trans id="critical-focus-tip" string="Jika kau punya masalah memfokus di situasi yang berbahaya, ini jimat untukmu! Ku dengar ini bisa membantu pemakainya mengumpuli &quot;JIWA&quot; saat dalam bahaya, apapun maksudnya itu."/>
 
