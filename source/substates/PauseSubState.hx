@@ -75,7 +75,11 @@ class PauseSubState extends MusicBeatSubstate {
 
 		var blueballedTxt:FlxText = new FlxText(20 * 1.4, (15 + 70) * 1.6, 0, "", 32);
 		if (!overworld) {
-			blueballedTxt.text = TM.checkTransl("You have died", "you-have-died") + " " + PlayState.deathCounter + " " + TM.checkTransl("times.", "times");
+			if (TM.hasTranslation("you-have-died-v2")) {
+				blueballedTxt.text = TM.checkTransl("You have died {0} times.", "you-have-died-v2", [PlayState.deathCounter]);
+			} else {
+				blueballedTxt.text = TM.checkTransl("You have died", "you-have-died") + " " + PlayState.deathCounter + " " + TM.checkTransl("times.", "times");
+			}
 		} else {
 			blueballedTxt.visible = false;
 		}

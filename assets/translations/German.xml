@@ -130,6 +130,7 @@
 	<trans id="misses" string="Verfehlungen"/>
 	<trans id="rating" string="Bewertung"/>
 
+	<trans id="you-have-died-v2" string="Du bist {0} mal gestorben."/>
 	<trans id="you-have-died" string="Du bist gestorben."/>
 	<trans id="times" string="times."/>
 	<trans id="resume" string="Weiter"/>

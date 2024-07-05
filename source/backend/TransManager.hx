@@ -16,7 +16,7 @@ class TransManager {
 	 *
 	 * Using this class function it'll never be `null`.
 	 */
-	public static var transMap(default, null):Map<String, String> = [];
+	public static var transMap(default, null):Map<String, IFormatInfo> = [];
 
 	/**
 	 * The default language used inside of the source code.
@@ -81,17 +81,33 @@ class TransManager {
 	}
 
 	/**
+	 * Formats a normal string into an ID for translations.
+	 *
+	 * Example: `Resume Song` => `resumeSong`
+	 */
+	public static function raw2Id(str:String):String {
+		var result:String = "";
+		for (i => s in str.split(" "))
+			result += (i == 0 ? s.charAt(0).toLowerCase() : s.charAt(0).toUpperCase()) + s.substr(1);
+		return result.length == 0 ? str : result;
+	}
+
+	/**
 	 * This is for checking a translation, `defString` it's just the string that gets returned just in case it won't find the translation OR the current language selected is ``DEFAULT_LANGUAGE``.
 	 *
 	 * If `id` is `null` then it's gonna search using `defString`.
 	 */
-	public static function checkTransl(defString:String, ?id:String):String {
+	public static function checkTransl(defString:String, ?id:String, ?params:Array<Dynamic>):String {
 		if (id == null)
 			id = defString;
+
 		if (transMap.exists(id))
-			return transMap.get(id);
-		else
-			return defString;
+			return transMap.get(id).format(params);
+		return FormatUtil.get(defString).format(params);
+	}
+
+	public static function hasTranslation(id:String):Bool {
+		return transMap.exists(id);
 	}
 
 	/**
@@ -159,7 +175,7 @@ class TransManager {
 	/**
 	 * Returns a map of translations based on its xml.
 	 */
-	public static function loadLanguage(name:String):Map<String, String> {
+	public static function loadLanguage(name:String):Map<String, IFormatInfo> {
 		if (!Paths.fileExists(name + ".xml", TEXT, false, "translations"))
 			return _returnAndNullFont([]);
 
@@ -178,7 +194,7 @@ class TransManager {
 			return _returnAndNullFont([]);
 		}
 
-		var leMap:Map<String, String> = [];
+		var leMap:Map<String, IFormatInfo> = [];
 		var transNode = xml.node.translations;
 		for (node in transNode.elements) {
 			switch (node.name) {
@@ -192,7 +208,7 @@ class TransManager {
 						continue;
 					}
 
-					leMap.set(node.att.resolve("id"), node.att.resolve("string"));
+					leMap.set(node.att.resolve("id"), FormatUtil.get(node.att.resolve("string")));
 			}
 		}
 
@@ -200,10 +216,108 @@ class TransManager {
 		return leMap;
 	}
 
-	private static inline function _returnAndNullFont(val:Map<String, String>):Map<String, String> {
+	private static inline function _returnAndNullFont<V>(val:Map<String, V>):Map<String, V> {
 		if (val == null || Lambda.count(val) == 0)
 			languageFont = null;
 
 		return val;
 	}
+}
+
+/**
+ * The class used to format strings based on parameters.
+ *
+ * For example if the parameter list is just an `Int` which is `9`, `You have been blue balled {0} times` becomes `You have been blue balled 9 times`.
+ * Code from codename-engine
+ */
+class FormatUtil {
+	private static var cache:Map<String, IFormatInfo> = new Map();
+
+	public static function get(id:String):IFormatInfo {
+		if (cache.exists(id))
+			return cache.get(id);
+
+		var fi:IFormatInfo = ParamFormatInfo.returnOnlyIfValid(id);
+		if (fi == null)
+			fi = new StrFormatInfo(id);
+		cache.set(id, fi);
+		return fi;
+	}
+
+	public inline static function clear() {
+		cache.clear();
+	}
+}
+
+class StrFormatInfo implements IFormatInfo {
+	public var string:String;
+
+	public function new(str:String) {
+		this.string = str;
+	}
+
+	public function format(params:Array<Dynamic>):String {
+		return string;
+	}
+
+	public function toString():String {
+		return "StrFormatInfo(" + string + ")";
+	}
+} // TODO: add support for @:({0}==1?(Hello):(World))
+
+class ParamFormatInfo implements IFormatInfo {
+	public var strings:Array<String> = [];
+	public var indexes:Array<Int> = [];
+
+	public function new(str:String) {
+		var i = 0;
+
+		while (i < str.length) {
+			var fi = str.indexOf("{", i); // search from the start of i
+
+			if (fi == -1) {
+				// if there are no more parameters, just add the rest of the string
+				this.strings.push(str.substring(i));
+				break;
+			}
+
+			var fe = str.indexOf("}", fi);
+
+			this.strings.push(str.substring(i, fi));
+			this.indexes.push(Std.parseInt(str.substring(fi + 1, fe)));
+			i = fe + 1;
+		}
+	}
+
+	public static function isValid(str:String):Bool {
+		var fi = new ParamFormatInfo(str);
+		return fi.indexes.length > 0;
+	}
+
+	public static function returnOnlyIfValid(str:String):IFormatInfo {
+		var fi = new ParamFormatInfo(str);
+		return fi.indexes.length > 0 ? fi : null;
+	}
+
+	public function format(params:Array<Dynamic>):String {
+		if (params == null)
+			params = [];
+
+		var str:String = "";
+		for (i => s in strings) {
+			str += s;
+			if (i < indexes.length)
+				str += params[indexes[i]];
+		}
+
+		return str;
+	}
+
+	public function toString():String {
+		return 'ParamFormatInfo([${strings.join(", ")}] [${indexes.join(", ")}])';
+	}
+}
+
+interface IFormatInfo {
+	public function format(params:Array<Dynamic>):String;
 }
