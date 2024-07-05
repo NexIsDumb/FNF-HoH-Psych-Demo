@@ -9,7 +9,7 @@
 
 	<trans id="melodic-shell-desc" string="Jimat merdu yang diciptakan untuk mereka yang ingin bernyanyi. Memberikan pemiliknya kemampuan untuk bernyanyi sebagai imbalannya menghadiahi mereka jiwa."/>
 	<trans id="lifeblood-seed-desc" string="Berisi sari hidup yang meneteskan cairan darah kehidupan yang berharga. Saat beristirahat, pemakainya akan mendapatkan lapisan darah kehidupan&#xA;yang melindungi dari sejumlah kecil kerusakan."/>
-	<trans id="critical-focus" string="Sebuah artefak dukun yang sudah lama terlupakan. Sebagai akibatnya kristal mulai terbentuk diatasnya, memperkuatkan kemampuannya. Ketika pemakainya sedang berada di bawah setengah dari nyawanya, mereka diberikan jiwa tambahan saat menyerang musuh."/>
+	<trans id="critical-focus-desc" string="Sebuah artefak dukun yang sudah lama terlupakan. Sebagai akibatnya kristal mulai terbentuk diatasnya, memperkuatkan kemampuannya. Ketika pemakainya sedang berada di bawah setengah dari nyawanya, mereka diberikan jiwa tambahan saat menyerang musuh."/>
 	<trans id="baldur-blessing-desc" string="Melindungi pemakainya dengan cangkang yang keras saat bertemu dengan kematian tertentu. Cangkang ini gampang rapuh dan akan pecah setelah sekali digunakan."/>
 
 	<trans id="baldur-blessing-tip" string="Menemukan diri anda mengalami sebuah masalah dibawah? Cangkung baldur ini sangat tangguh sehingga mereka dikatakan dapat melindungi pemakai dari bahaya! Namun tampaknya cangkang ini gampang rapuh, jadi berhati-hatilah."/>
