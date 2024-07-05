@@ -54,7 +54,7 @@
 	<trans id="left" string="Esquerda"/>
 	<trans id="down" string="Baixo"/>
 	<trans id="up" string="Cima"/>
-	<trans id="Right" string="Direita"/>
+	<trans id="right" string="Direita"/>
 	<trans id="focus" string="Focar"/>
 	<trans id="accept" string="Aceitar"/>
 	<trans id="pause" string="Pausar"/>
