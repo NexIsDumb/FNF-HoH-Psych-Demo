@@ -44,6 +44,7 @@
 	<!-- Menus -->
 	<trans id="options" string="Opções"/>
 	<trans id="note-colors" string="Cor das notas"/>
+	<trans id="languages" string="Línguas"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="Controles"/>
 	<trans id="graphics" string="Gráficos"/>
 	<trans id="visuals-and-ui" string="Visuais e UI"/>

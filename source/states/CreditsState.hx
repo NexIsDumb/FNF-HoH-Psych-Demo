@@ -80,7 +80,7 @@ class CreditsState extends MenuBeatState {
 				"Ne_Eo",
 				"coder/neeo",
 				"New Coder",
-				"*What a crunchy gpu you have :3*",
+				"*What a tasty gpu you have :3*",
 				"https://niirou.se/socials/ne_eo"
 			],
 			[
@@ -93,7 +93,7 @@ class CreditsState extends MenuBeatState {
 			[
 				"Matiaz",
 				"artist/matiaz",
-				"Artist/Animator",
+				"Artist/Animator/Portoguese Translator",
 				"i made bf sprites follow me on twitter",
 				"https://twitter.com/MatiazAnimates"
 			],
