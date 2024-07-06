@@ -67,6 +67,8 @@ import psychlua.LuaUtils;
 import tea.SScript;
 #end
 
+import filters.AudioEffects;
+
 class PlayState extends MusicBeatState {
 	public inline static final STRUM_X = 42;
 	public inline static final STRUM_X_MIDDLESCROLL = -278;
@@ -285,7 +287,8 @@ class PlayState extends MusicBeatState {
 	var lowerBar:FlxSprite;
 	var uB:Float = 0;
 	var lB:Float = 0;
-
+	var audioEffectsInst:AudioEffects;
+	var audioEffectsVocals:AudioEffects;
 	var loadedSaveFile:Bool = false;
 
 	var noirFilter:NoirFilter;
@@ -972,6 +975,23 @@ class PlayState extends MusicBeatState {
 		char.x += char.positionArray[0];
 		char.y += char.positionArray[1];
 	}
+	function lowPass(effect:AudioEffects) {
+		if(effect == null) return;
+
+		effect.lowpassGain = 0.5;
+		effect.lowpassGainHF = 0.25;
+		effect.tween(1, 1, Conductor.crochet / 1000 * 2 - 0.15, 0.15);
+		effect.update(0);
+	}
+
+	function lowFilter() {
+		//FlxG.sound.music.volume = 0;
+		//FlxG.sound.music.fadeIn(Conductor.crochet / 1000 * 4, 0, 1);
+		lowPass(audioEffectsInst);
+		lowPass(audioEffectsVocals);
+		//lowPass(audioEffectsVocalsDAD);
+		//FlxG.sound.play(Paths.soundRandom('fail', 1, 3), 1);
+	}
 
 	public function startVideo(name:String) {
 		#if VIDEOS_ALLOWED
@@ -1325,6 +1345,8 @@ class PlayState extends MusicBeatState {
 		FlxG.sound.playMusic(inst._sound, 1, false);
 		FlxG.sound.music.pitch = playbackRate;
 		FlxG.sound.music.onComplete = finishSong.bind();
+		add(audioEffectsInst = new AudioEffects(FlxG.sound.music));
+		add(audioEffectsVocals = new AudioEffects(vocals));
 		vocals.play();
 
 		if (startOnTime > 0)
@@ -3005,6 +3027,7 @@ class PlayState extends MusicBeatState {
 				note.destroy();
 			}
 		});
+		lowFilter();
 
 		noteMissCommon(daNote.noteData, daNote);
 		// var result:Dynamic = callOnLuas('noteMiss', [notes.members.indexOf(daNote), daNote.noteData, daNote.noteType, daNote.isSustainNote]);
@@ -3016,7 +3039,8 @@ class PlayState extends MusicBeatState {
 	{
 		if (ClientPrefs.data.ghostTapping)
 			return; // fuck it
-
+		lowFilter();
+			
 		bfCurAnim = "move";
 		noteMissCommon(direction);
 		FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
