@@ -150,9 +150,9 @@ class Lake extends BaseStage {
 
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr7:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_1', 'hymns'));
-			backgroundSpr7.screenCenterXY();
 			backgroundSpr7.antialiasing = ClientPrefs.data.antialiasing;
-			backgroundSpr7.scale.set(2, 2);
+			backgroundSpr7.scale.set(FlxG.width, 2);
+			backgroundSpr7.screenCenterXY();
 			backgroundSpr7.scrollFactor.set(1, 1);
 			backgroundSpr7.active = false;
 			backgroundSpr7.blend = ADD;
