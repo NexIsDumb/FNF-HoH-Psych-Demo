@@ -30,11 +30,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu {
 			'bool');
 		addOption(option);
 
-		var option:Option = new Option('GPU Caching', // Name
-			"If checked, decreases RAM usage if you have a good GPU.", // Description
-			'cacheOnGPU',
-			'bool');
-		addOption(option);
+		if (FlxG.stage.context3D != null) {
+			var option:Option = new Option('GPU Caching', // Name
+				"If checked, decreases RAM usage if you have a good GPU.", // Description
+				'cacheOnGPU',
+				'bool');
+			addOption(option);
+		}
 
 		super();
 	}

@@ -197,7 +197,7 @@ class Lake extends BaseStage {
 							aluba.animation.play('flap');
 							aluba.ID = 100;
 							turnalubas[i] -= 1;
-							trace(aluba.x);
+							// trace(aluba.x);
 							if (turnalubas[i] == 0 || Math.floor(aluba.x) == Math.floor(-1752.14364491962)) {
 								turnalubas[i] = -10;
 								aluba.animation.play('turn');
