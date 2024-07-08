@@ -66,7 +66,6 @@ import psychlua.LuaUtils;
 #if (SScript >= "3.0.0")
 import tea.SScript;
 #end
-
 import filters.AudioEffects;
 
 class PlayState extends MusicBeatState {
@@ -277,7 +276,7 @@ class PlayState extends MusicBeatState {
 	var timeBarH:Timebar;
 	var movecamtopos:Bool = true;
 	var lastDamageBeat:Int = -1;
-	
+
 	var hitvfx:FlxSprite;
 	var bg2:FlxSprite;
 
@@ -411,15 +410,17 @@ class PlayState extends MusicBeatState {
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
-		var vignette:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('stage/vignette', 'hymns'));
-		vignette.setGraphicSize(1280, 750);
-		vignette.updateHitbox();
-		vignette.screenCenterXY();
-		vignette.antialiasing = ClientPrefs.data.antialiasing;
-		vignette.cameras = [camHUD];
-		vignette.blend = BlendMode.MULTIPLY;
-		vignette.alpha = 0.2;
-		//add(vignette);
+		/*
+			var vignette:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('stage/vignette', 'hymns'));
+			vignette.setGraphicSize(1280, 750);
+			vignette.updateHitbox();
+			vignette.screenCenterXY();
+			vignette.antialiasing = ClientPrefs.data.antialiasing;
+			vignette.cameras = [camHUD];
+			vignette.blend = BlendMode.MULTIPLY;
+			vignette.alpha = 0.2;
+			add(vignette);
+		 */
 
 		soulMeter = new Soulmeter(22, 30, 7, camHUD);
 		add(soulMeter);
@@ -976,8 +977,10 @@ class PlayState extends MusicBeatState {
 		char.x += char.positionArray[0];
 		char.y += char.positionArray[1];
 	}
+
 	function lowPass(effect:AudioEffects) {
-		if(effect == null) return;
+		if (effect == null)
+			return;
 
 		effect.lowpassGain = 0.5;
 		effect.lowpassGainHF = 0.25;
@@ -986,12 +989,12 @@ class PlayState extends MusicBeatState {
 	}
 
 	function lowFilter() {
-		//FlxG.sound.music.volume = 0;
-		//FlxG.sound.music.fadeIn(Conductor.crochet / 1000 * 4, 0, 1);
+		// FlxG.sound.music.volume = 0;
+		// FlxG.sound.music.fadeIn(Conductor.crochet / 1000 * 4, 0, 1);
 		lowPass(audioEffectsInst);
 		lowPass(audioEffectsVocals);
-		//lowPass(audioEffectsVocalsDAD);
-		//FlxG.sound.play(Paths.soundRandom('fail', 1, 3), 1);
+		// lowPass(audioEffectsVocalsDAD);
+		// FlxG.sound.play(Paths.soundRandom('fail', 1, 3), 1);
 	}
 
 	public function startVideo(name:String) {
@@ -3028,7 +3031,7 @@ class PlayState extends MusicBeatState {
 				note.destroy();
 			}
 		});
-		//lowFilter();
+		// lowFilter();
 
 		noteMissCommon(daNote.noteData, daNote);
 		// var result:Dynamic = callOnLuas('noteMiss', [notes.members.indexOf(daNote), daNote.noteData, daNote.noteType, daNote.isSustainNote]);
@@ -3040,8 +3043,8 @@ class PlayState extends MusicBeatState {
 	{
 		if (ClientPrefs.data.ghostTapping)
 			return; // fuck it
-		//lowFilter();
-			
+		// lowFilter();
+
 		bfCurAnim = "move";
 		noteMissCommon(direction);
 		FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
@@ -3058,13 +3061,13 @@ class PlayState extends MusicBeatState {
 		if (note != null)
 			subtract = note.missHealth;
 		health -= subtract * healthLoss;
-		if (soulMeter != null && !note.isSustainNote && curBeat > lastDamageBeat+0 ) { //+1 for two beats
+		if (soulMeter != null && !note.isSustainNote && curBeat > lastDamageBeat + 0) { // +1 for two beats
 			lastDamageBeat = curBeat;
 			soulMeter.changeMasks(-1);
 			hitvfx.visible = true;
 			hitvfx.animation.play('boom', true);
 			lowFilter();
-			
+
 			boyfriend.color = 0xFF000000;
 			FlxTween.color(boyfriend, .35, FlxColor.BLACK, FlxColor.WHITE, {ease: FlxEase.quadInOut});
 
