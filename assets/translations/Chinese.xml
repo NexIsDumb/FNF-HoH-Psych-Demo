@@ -14,12 +14,12 @@
 
 	<trans id="baldur's-blessing-tip" string="自己在下面遇到了小小的麻烦? 巴德尔的壳非常坚韧,据说可以保护佩戴者免受伤害! 对了,它不是无坚不摧的,定要谨慎使用."/>
 	<trans id="lifeblood-seed-tip" string="需要一点小增益?这个护符正好适合你!生命之血或许是一禁忌,但绝对会让你更加健康!只是不要让他人知道谁卖给了你."/>
-	<trans id="critical-focus-tip" string="如果您在的麻烦，这就是最适合您的护符!我听说带着它可以命悬一线时更好的凝聚 &quot;灵魂&quot; 不管那是什么意思."/>
+	<trans id="critical-focus-tip" string="如果您遇到恢复生命值的困扰，这就是最适合您的护符!听说带着它可以在命悬一线时更好的凝聚 &quot;灵魂&quot; ,不管那是什么意思."/>
 
 
 	<!-- Dialogues -->
 	<trans id="elderbug-dialog-1" string="啊!旅行之人!你回来了!我很确定你刚刚与我擦肩而过.你貌似落下了这个.来,收好吧."/>
-	<trans id="elderbug-dialog-2" string="这样,我们为何不现在试试?一次小小的练习不是会伤害到你的.不仅如此,我很喜欢做额外的工作."/>
+	<trans id="elderbug-dialog-2" string="这样,我们为何不现在试试?一次小小的练习不是会伤害到你的.不仅如此,我很喜欢干额外的活儿."/>
 	<trans id="elderbug-dialog-3" string="实在抱歉,我唱歌一定有一点生疏了.我们再试一次,旅行之人."/>
 	<trans id="elderbug-dialog-4" string="旅行之人,你的骨钉状态可不太妙啊.它不会帮助你半点儿的.或许你的符文对你有一些帮助."/>
 	<trans id="elderbug-dialog-5" string="天啊,我从未感到如此愉悦了!"/>
@@ -32,9 +32,9 @@
 	<trans id="elderbug-dialog-12" string="哦,我看见你从商店买的物品了,不是吗?看起来你准备好了下一次冒险了.但记住探索时一定要谨慎，天知道你会在洞穴中遇到什么."/>
 	<trans id="elderbug-dialog-13" string="你看起来很疲倦,旅行之人.你貌似砍了很久的价格吧"/>
 
-	<trans id="sly-dialog-1" string="啊,你好!我就知道我们还会见面.看起来你已经改头换面了呢,嗯?"/>
+	<trans id="sly-dialog-1" string="啊,你好!我就知道我们还会再见面.看起来你已经改头换面了呢,嗯?"/>
 	<trans id="sly-dialog-2" string="哦!你要唱歌?唔...很少有人挑战我..."/>
-	<trans id="sly-dialog-3" string="好吧,我接受挑战!我得承认自己不是唱歌的好手...但我好奇你的能力."/>
+	<trans id="sly-dialog-3" string="好吧,我接受挑战!我得承认自己不是唱歌的好手...但我的确好奇你的能力."/>
 	<trans id="sly-dialog-4" string="哦,很久没有这样尽兴了.我得承认很有趣!尽管这痛了我的心...但输了就是输了.拿好你的奖励,我要和我的吉欧呆在一起..除非你打算购买更多物品..."/>
 	<trans id="sly-dialog-5" string="恐怕我没有可提供的物品了.你扫空了我的商店."/>
 	<trans id="sly-dialog-6" string="谢谢惠顾!我向你保证，其他的物品也值得一看!他们甚至可以提高你在下面生还的可能性. "/>
@@ -45,12 +45,12 @@
 
 
 	<!-- Menus -->
-	<trans id="options" string="选项"/>
+	<trans id="options" string="设置"/>
 	<trans id="note-colors" string="箭头颜色"/>
 	<trans id="languages" string="语言"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="控制"/>
 	<trans id="graphics" string="图像"/>
-	<trans id="visuals-and-ui" string="视觉效果"/>
+	<trans id="visuals-and-ui" string="图像"/>
 	<trans id="gameplay" string="游戏相关设置"/>
 	<trans id="back" string="返回"/>
 
@@ -82,8 +82,8 @@
 	<trans id="gpu-caching" string="GPU缓存"/>
 	<trans id="framerate" string="帧率"/>
 	<trans id="note-skins" string="箭头皮肤"/>
-	<trans id="note-splashes" string="箭头水花迸溅效果"/>
-	<trans id="note-splash-opacity" string="箭头水花迸溅效果不透明度"/>
+	<trans id="note-splashes" string="箭头水花迸溅特效"/>
+	<trans id="note-splash-opacity" string="水花迸溅特效不透明度"/>
 	<trans id="flashing-lights" string="闪光灯"/>
 	<trans id="translations" string="翻译"/>
 	<trans id="fps-counter" string="显示FPS"/>
@@ -97,8 +97,8 @@
 	<trans id="safe-frames" string="判定范围"/>
 
 	<trans id="low-quality-desc" string="开启后将精简一些背景细节."/>
-	<trans id="anti-aliasing-desc" string=" 未选择将关闭抗锯齿功能,以视觉体验为代价提升流畅度"/>
-	<trans id="shaders-desc" string="未选择将暂停渲染(视觉效果)."/>
+	<trans id="anti-aliasing-desc" string="如果未选择,将关闭抗锯齿功能,以视觉体验为代价提升流畅度"/>
+	<trans id="shaders-desc" string="如果未选择,将暂停渲染(视觉效果)."/>
 	<trans id="gpu-caching-desc" string="开启后降低内存使用,前提是你有个好GPU"/>
 	<trans id="framerate-desc" string="很明显了,不是吗?"/>
 	<trans id="note-skins-desc" string="选择自己喜爱的箭头皮肤"/>
@@ -106,23 +106,24 @@
 	<trans id="note-splash-opacity-desc" string="水花迸溅效果的透明度."/>
 	<trans id="flashing-lights-desc" string="如果您对闪光灯敏感,请不要开启该选项"/>
 	<trans id="translations-desc" string="选择您在游戏中需要的语言"/>
-	<trans id="fps-counter-desc" string="未选择将关闭FPS显示"/>
+	<trans id="fps-counter-desc" string="如果未选择,将不再显示FPS"/>
 	<trans id="discord-rich-presence-desc" string="关闭该选项以隐藏Discord中显示您在游玩该游戏"/>
 	<trans id="downscroll-desc" string="开启后箭头向下滚动而不是向上滚动,够简单的."/>
 	<trans id="middlescroll-desc" string="开启后箭头将会集中在中央出现"/>
-	<trans id="ghost-tapping-desc" string="开启后您不会因为按下不在屏幕上的按键而失误."/>
-	<trans id="auto-pause-desc" string="开启后游戏自动暂停运行,如果界面被切换到其他地方"/>
+	<trans id="ghost-tapping-desc" string="您不会因为乱按按键而被判定未击中."/>
+	<trans id="auto-pause-desc" string="如果界面被切换到其他地方,游戏自动暂停运行"/>
 	<trans id="disable-reset-button-desc" string="开启后按重置按钮后不会死亡"/>
-	<trans id="hitsound-volume-desc" string="有趣的箭头们会发出 &quot;叮!&quot; 当你击中他们."/>
+	<trans id="hitsound-volume-desc" string="当你击中有趣的箭头们时他们会发出 &quot;叮!&quot; 的声音"/>
 	<trans id="safe-frames-desc" string="更改击中箭头的判定"/>
 
 	<trans id="start-game" string="开始游戏"/>
-	<trans id="credits" string="参与开发者名单"/>
+	<trans id="credits" string="关于开发者"/>
+	<trans id="discord" string="Discord"/>
 	<trans id="quit-game" string="退出游戏"/>
 
 	<trans id="new-game" string="新建游戏"/>
-	<trans id="clear-save" string="删除存档"/>
-	<trans id="freeplay" string="自由选择曲目"/>
+	<trans id="clear-save" string="是否删除存档"/>
+	<trans id="freeplay" string="自由游玩"/>
 	<trans id="story" string="故事模式"/>
 
 	<trans id="personal-best" string="个人纪录"/>
@@ -133,21 +134,21 @@
 	<trans id="you-have-died" string="你死了"/>
 	<trans id="times" string="次."/>
 	<trans id="resume" string="继续"/>
-	<trans id="exit-to-freeplay" string="返回至选择曲目界面"/>
+	<trans id="exit-to-freeplay" string="返回至自由游玩"/>
 	<trans id="exit-to-menu" string="返回至菜单"/>
 	<trans id="exit-to-dirtmouth" string="返回至德特茅斯"/>
 	<trans id="restart-song" string="重唱该歌曲"/>
 
 
 	<!-- Overworld -->
-	<trans id="rest" string="休息"/>
+	<trans id="rest" string="休憩"/>
 	<trans id="listen" string="倾听"/>
 	<trans id="enter" string="进入"/>
 	<trans id="shop" string="商店"/>
 
 	<trans id="purchase-this-item" string="是否购买?"/>
 	<trans id="yes" string="是"/>
-	<trans id="no" string="不"/>
+	<trans id="no" string="否"/>
 
 	<trans id="charms" string="符文"/>
 	<trans id="equipped" string="已装备"/>
@@ -158,11 +159,11 @@
 
 	<trans id="life-tutorial-1" string="更高级的存在,这些句子为了你而存在"/>
 	<trans id="life-tutorial-2" string="你强大而力量脱颖而出&#xA;凝聚你的灵魂,你将实现别人望而却步的梦想."/>
-	<trans id="life-tutorial-3" string="击中箭头以收集灵魂.&#xA;当你收集一定量的灵魂后, 在没有唱歌时长按空格键以凝聚灵魂并治疗"/>
+	<trans id="life-tutorial-3" string="击中箭头以收集灵魂.&#xA;当你收集一定量的灵魂后, 可以在对方回合或自己没有唱歌时长按空格键以凝聚灵魂并治疗"/>
 
 	<trans id="charms-tutorial-1" string="收集符文"/>
 	<trans id="charms-tutorial-2" string="装备一个符文以激活其强大的能力."/>
-	<trans id="charms-tutorial-3" string="为了激活一个符文,在长凳休息时打开符文菜单"/>
+	<trans id="charms-tutorial-3" string="在长凳休息时打开符文菜单以激活符文."/>
 
 
 	<!-- Gameplay -->
