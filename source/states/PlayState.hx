@@ -276,7 +276,8 @@ class PlayState extends MusicBeatState {
 	var soulMeter:Soulmeter;
 	var timeBarH:Timebar;
 	var movecamtopos:Bool = true;
-
+	var lastDamageBeat:Int = -1;
+	
 	var hitvfx:FlxSprite;
 	var bg2:FlxSprite;
 
@@ -418,7 +419,7 @@ class PlayState extends MusicBeatState {
 		vignette.cameras = [camHUD];
 		vignette.blend = BlendMode.MULTIPLY;
 		vignette.alpha = 0.2;
-		add(vignette);
+		//add(vignette);
 
 		soulMeter = new Soulmeter(22, 30, 7, camHUD);
 		add(soulMeter);
@@ -980,7 +981,7 @@ class PlayState extends MusicBeatState {
 
 		effect.lowpassGain = 0.5;
 		effect.lowpassGainHF = 0.25;
-		effect.tween(1, 1, Conductor.crochet / 1000 * 2 - 0.15, 0.15);
+		effect.tween(1, 1, 0.35, 0.15);
 		effect.update(0);
 	}
 
@@ -3027,7 +3028,7 @@ class PlayState extends MusicBeatState {
 				note.destroy();
 			}
 		});
-		lowFilter();
+		//lowFilter();
 
 		noteMissCommon(daNote.noteData, daNote);
 		// var result:Dynamic = callOnLuas('noteMiss', [notes.members.indexOf(daNote), daNote.noteData, daNote.noteType, daNote.isSustainNote]);
@@ -3039,7 +3040,7 @@ class PlayState extends MusicBeatState {
 	{
 		if (ClientPrefs.data.ghostTapping)
 			return; // fuck it
-		lowFilter();
+		//lowFilter();
 			
 		bfCurAnim = "move";
 		noteMissCommon(direction);
@@ -3057,11 +3058,13 @@ class PlayState extends MusicBeatState {
 		if (note != null)
 			subtract = note.missHealth;
 		health -= subtract * healthLoss;
-		if (soulMeter != null && !note.isSustainNote) {
+		if (soulMeter != null && !note.isSustainNote && curBeat > lastDamageBeat+0 ) { //+1 for two beats
+			lastDamageBeat = curBeat;
 			soulMeter.changeMasks(-1);
 			hitvfx.visible = true;
 			hitvfx.animation.play('boom', true);
-
+			lowFilter();
+			
 			boyfriend.color = 0xFF000000;
 			FlxTween.color(boyfriend, .35, FlxColor.BLACK, FlxColor.WHITE, {ease: FlxEase.quadInOut});
 
