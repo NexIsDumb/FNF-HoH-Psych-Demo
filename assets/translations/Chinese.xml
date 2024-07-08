@@ -14,7 +14,7 @@
 
 	<trans id="baldur's-blessing-tip" string="自己在下面遇到了小小的麻烦? 巴德尔的壳非常坚韧,据说可以保护佩戴者免受伤害! 对了,它不是无坚不摧的,定要谨慎使用."/>
 	<trans id="lifeblood-seed-tip" string="需要一点小增益?这个护符正好适合你!生命之血或许是一禁忌,但绝对会让你更加健康!只是不要让他人知道谁卖给了你."/>
-	<trans id="critical-focus-tip" string="如果您在的麻烦，这就是最适合您的护符!我听说带着它可以命悬一线时更好的凝聚 &quot;灵魂&quot; 不管那是什么意思."/>
+	<trans id="critical-focus-tip" string="如果您遇到恢复生命值的困扰，这就是最适合您的护符!听说带着它可以在命悬一线时更好的凝聚 &quot;灵魂&quot; ,不管那是什么意思."/>
 
 
 	<!-- Dialogues -->
@@ -45,7 +45,7 @@
 
 
 	<!-- Menus -->
-	<trans id="options" string="控制"/>
+	<trans id="options" string="设置"/>
 	<trans id="note-colors" string="箭头颜色"/>
 	<trans id="languages" string="语言"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="控制"/>
@@ -106,14 +106,14 @@
 	<trans id="note-splash-opacity-desc" string="水花迸溅效果的透明度."/>
 	<trans id="flashing-lights-desc" string="如果您对闪光灯敏感,请不要开启该选项"/>
 	<trans id="translations-desc" string="选择您在游戏中需要的语言"/>
-	<trans id="fps-counter-desc" string="未选择将关闭FPS显示"/>
+	<trans id="fps-counter-desc" string="如果未选择,将不再显示FPS"/>
 	<trans id="discord-rich-presence-desc" string="关闭该选项以隐藏Discord中显示您在游玩该游戏"/>
 	<trans id="downscroll-desc" string="开启后箭头向下滚动而不是向上滚动,够简单的."/>
 	<trans id="middlescroll-desc" string="开启后箭头将会集中在中央出现"/>
-	<trans id="ghost-tapping-desc" string="开启后您不会因为按下不在屏幕上的按键而失误."/>
-	<trans id="auto-pause-desc" string="开启后游戏自动暂停运行,如果界面被切换到其他地方"/>
+	<trans id="ghost-tapping-desc" string="您不会因为乱按按键而被判定未击中."/>
+	<trans id="auto-pause-desc" string="如果界面被切换到其他地方,游戏自动暂停运行"/>
 	<trans id="disable-reset-button-desc" string="开启后按重置按钮后不会死亡"/>
-	<trans id="hitsound-volume-desc" string="有趣的箭头们会发出 &quot;叮!&quot; 当你击中他们."/>
+	<trans id="hitsound-volume-desc" string="当你击中有趣的箭头们时他们会发出 &quot;叮!&quot; 的声音"/>
 	<trans id="safe-frames-desc" string="更改击中箭头的判定"/>
 
 	<trans id="start-game" string="开始游戏"/>
@@ -122,7 +122,7 @@
 	<trans id="quit-game" string="退出游戏"/>
 
 	<trans id="new-game" string="新建游戏"/>
-	<trans id="clear-save" string="删除存档"/>
+	<trans id="clear-save" string="是否删除存档"/>
 	<trans id="freeplay" string="自由游玩"/>
 	<trans id="story" string="故事模式"/>
 
@@ -134,7 +134,7 @@
 	<trans id="you-have-died" string="你死了"/>
 	<trans id="times" string="次."/>
 	<trans id="resume" string="继续"/>
-	<trans id="exit-to-freeplay" string="返回至选择曲目界面"/>
+	<trans id="exit-to-freeplay" string="返回至自由游玩"/>
 	<trans id="exit-to-menu" string="返回至菜单"/>
 	<trans id="exit-to-dirtmouth" string="返回至德特茅斯"/>
 	<trans id="restart-song" string="重唱该歌曲"/>
@@ -148,7 +148,7 @@
 
 	<trans id="purchase-this-item" string="是否购买?"/>
 	<trans id="yes" string="是"/>
-	<trans id="no" string="不"/>
+	<trans id="no" string="否"/>
 
 	<trans id="charms" string="符文"/>
 	<trans id="equipped" string="已装备"/>
