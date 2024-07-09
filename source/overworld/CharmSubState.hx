@@ -126,7 +126,7 @@ class CharmSubState extends MusicBeatSubstate {
 		holderCharms.x -= FlxG.width / 2.6;
 		holderCharms.y -= 150;
 		add(holderCharms);
-		sprites.push(selectorGlow);
+		sprites.push(holderCharms);
 
 		createNotches(notchAmount, 5);
 		createCharmRow(9, 2);
@@ -587,9 +587,12 @@ class CharmSubState extends MusicBeatSubstate {
 									var charm = charmInf.sprite;
 									charmsEquipped.push(charm);
 
+									var placeX = holderCharms.x - (charm.width / 2) + (holders[datar].width / 2) + 2;
+									var placeY = holderCharms.y - (charm.height / 2) + (holders[datar].width / 2);
+
 									FlxTween.tween(charm, {
-										x: holderCharms.x - (charm.width / 2) + (holders[datar].width / 2) + 2,
-										y: holderCharms.y - (charm.height / 2) + (holders[datar].width / 2)
+										x: placeX,
+										y: placeY
 									}, 0.3, {ease: FlxEase.cubeIn});
 									canMove = false;
 									// DataSaver.charmOrder.push(datar);
@@ -635,8 +638,11 @@ class CharmSubState extends MusicBeatSubstate {
 										selectedGlow.antialiasing = ClientPrefs.data.antialiasing;
 										add(selectedGlow);
 										sprites.push(selectedGlow);
-										selectedGlow.x = charm.getMidpoint().x - (charm.width / 1.5);
-										selectedGlow.y = charm.getMidpoint().y - (charm.height / 1.5);
+										selectedGlow.x = placeX + (charm.width - selectedGlow.width) / 2;
+										selectedGlow.y = placeY + (charm.height - selectedGlow.height) / 2;
+										// selectedGlow.screenCenterXYToSprite(charm);
+										// selectedGlow.x = charm.getMidpoint().x - (charm.width / 1.5);
+										// selectedGlow.y = charm.getMidpoint().y - (charm.height / 1.5);
 										FlxTween.tween(selectedGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
 										FlxTween.tween(selectedGlow.scale, {x: 0.6, y: 0.6}, 1.05, {ease: FlxEase.cubeOut});
 
@@ -772,8 +778,10 @@ class CharmSubState extends MusicBeatSubstate {
 			current = horiz + (rows[row - 1] * (row - 1));
 		}
 
-		selectorGlow.x = selector.getMidpoint().x - (selectorGlow.width / 1.5);
-		selectorGlow.y = selector.getMidpoint().y - (selectorGlow.height / 1.5);
+		selectorGlow.screenCenterXYToSprite(selector);
+
+		// selectorGlow.//selector.getMidpoint().x - (selectorGlow.width / 1.5);
+		// selectorGlow.//selector.getMidpoint().y - (selectorGlow.height / 1.5);
 
 		super.update(elapsed);
 	}
