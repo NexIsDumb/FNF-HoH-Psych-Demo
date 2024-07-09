@@ -190,8 +190,8 @@ class MainMenuState extends MenuBeatState {
 							case 'Start Game': MusicBeatState.switchState(new SaveState());
 							case 'Credits': MusicBeatState.switchState(new CreditsState());
 							case 'Options':
-								LoadingState.loadAndSwitchState(new OptionsState());
 								OptionsState.onPlayState = false;
+								LoadingState.loadAndSwitchState(new OptionsState());
 								if (PlayState.SONG != null) {
 									PlayState.SONG.arrowSkin = null;
 									PlayState.SONG.splashSkin = null;

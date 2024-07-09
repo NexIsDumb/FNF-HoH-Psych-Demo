@@ -13,13 +13,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Low Quality', // Name
 			'If checked, disables some background details.', // Description
 			'lowQuality', // Save data variable name
-			'bool'); // Variable type
+			BOOL); // Variable type
 		addOption(option);
 
 		var option:Option = new Option('Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increasing performance.',
 			'antialiasing',
-			'bool');
+			BOOL);
 		option.onChange = onChangeAntiAliasing; // Changing onChange is only needed if you want to make a special interaction after it changes the value
 		addOption(option);
 		antialiasingOption = optionsArray.length - 1;
@@ -27,14 +27,14 @@ class GraphicsSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Shaders', // Name
 			"If unchecked, disables shaders.", // Description
 			'shaders',
-			'bool');
+			BOOL);
 		addOption(option);
 
 		if (FlxG.stage.context3D != null) {
 			var option:Option = new Option('GPU Caching', // Name
 				"If checked, decreases RAM usage if you have a good GPU.", // Description
 				'cacheOnGPU',
-				'bool');
+				BOOL);
 			addOption(option);
 		}
 

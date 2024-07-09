@@ -18,7 +18,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 			var option:Option = new Option('Note Skins',
 				"Select your prefered Note skin.",
 				'noteSkin',
-				'string',
+				STRING,
 				noteSkins);
 			addOption(option);
 		}
@@ -32,7 +32,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 			var option:Option = new Option('Note Splashes',
 				"Select your prefered Note Splash variation or turn it off.",
 				'splashSkin',
-				'string',
+				STRING,
 				noteSplashes);
 			addOption(option);
 		}
@@ -40,7 +40,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 		var option:Option = new Option('Note Splash Opacity',
 			'How much transparent should the Note Splashes be.',
 			'splashAlpha',
-			'percent');
+			PERCENT);
 		option.scrollSpeed = 1.6;
 		option.minValue = 0.0;
 		option.maxValue = 1;
@@ -51,13 +51,13 @@ class VisualsUISubState extends BaseOptionsMenu {
 		var option:Option = new Option('Flashing Lights',
 			"Uncheck this if you're sensitive to flashing lights!",
 			'flashing',
-			'bool');
+			BOOL);
 		addOption(option);
 
 		/*var option:Option = new Option('Translations',
 				"Select your prefered translation of the game.",
 				'language',
-				'string',
+				STRING,
 				TM.getLanguages());
 			addOption(option);
 			option.onChange = onChangeLanguage; */
@@ -66,7 +66,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides the FPS Counter.',
 			'showFPS',
-			'bool');
+			BOOL);
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 		#end
@@ -75,7 +75,7 @@ class VisualsUISubState extends BaseOptionsMenu {
 		var option:Option = new Option('Discord Rich Presence',
 			"Uncheck this to hide this game from Discord Now Playing.",
 			'discordRPC',
-			'bool');
+			BOOL);
 		addOption(option);
 		#end
 

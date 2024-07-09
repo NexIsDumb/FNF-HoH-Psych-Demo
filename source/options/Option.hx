@@ -1,11 +1,43 @@
 package options;
 
+enum OptionType {
+	BOOL;
+	INT;
+	FLOAT;
+	PERCENT;
+	STRING;
+}
+
 class Option {
-	public var child:Alphabet;
+	private var child:FlxText;
+	private var checkbox:FlxText;
+	private var staticText:FlxText;
+
 	public var text(get, set):String;
 	public var onChange:Void->Void = null; // Pressed enter (on Bool type options) or pressed/held left/right (on other types)
+	public var onSelect:Void->Void = null; // Pressed enter (on Bool type options) or pressed/held left/right (on other types)
+	public var onUnselect:Void->Void = null; // Pressed enter (on Bool type options) or pressed/held left/right (on other types)
 
-	public var type(get, default):String = 'bool'; // bool, int (or integer), float (or fl), percent, string (or str)
+	public var onSet:(key:String, value:Dynamic) -> Void = null;
+	public var onGet:(key:String) -> Dynamic = null;
+
+	public var checkboxVisible:Bool = true;
+	public var playSound:Bool = true;
+
+	public var disabled(default, set):Bool = false;
+
+	public var alphaMul:Float = 1;
+
+	public function set_disabled(val:Bool):Bool {
+		alphaMul = val ? 0.3 : 1;
+		return disabled = val;
+	}
+
+	public var id:String = "";
+
+	public var fontColor(default, set):FlxColor = 0x000000;
+
+	public var type:OptionType = BOOL; // bool, int (or integer), float (or fl), percent, string (or str)
 
 	// Bool will use checkboxes
 	// Everything else will use a text
@@ -26,7 +58,7 @@ class Option {
 	public var description:String = '';
 	public var name:String = 'Unknown';
 
-	public function new(name:String, description:String = '', variable:String, type:String = 'bool', ?options:Array<String> = null) {
+	public function new(name:String, description:String = '', variable:String, type:OptionType = BOOL, ?options:Array<String> = null) {
 		this.name = name;
 		this.description = description;
 		this.variable = variable;
@@ -36,10 +68,10 @@ class Option {
 
 		if (defaultValue == 'null variable value') {
 			switch (type) {
-				case 'bool': defaultValue = false;
-				case 'int' | 'float': defaultValue = 0;
-				case 'percent': defaultValue = 1;
-				case 'string':
+				case BOOL: defaultValue = false;
+				case INT | FLOAT: defaultValue = 0;
+				case PERCENT: defaultValue = 1;
+				case STRING:
 					defaultValue = '';
 					if (options.length > 0) {
 						defaultValue = options[0];
@@ -52,35 +84,80 @@ class Option {
 		}
 
 		switch (type) {
-			case 'string':
+			case STRING:
 				var num:Int = options.indexOf(getValue());
 				if (num > -1) {
 					curOption = num;
 				}
 
-			case 'percent':
+			case PERCENT:
 				displayFormat = '%v%';
 				changeValue = 0.01;
 				minValue = 0;
 				maxValue = 1;
 				scrollSpeed = 0.5;
 				decimals = 2;
+			default:
 		}
 	}
 
-	public function change() {
+	public function change():Void {
 		// nothing lol
 		if (onChange != null) {
 			onChange();
 		}
 	}
 
-	public function getValue():Dynamic {
-		return Reflect.getProperty(ClientPrefs.data, variable);
+	public function select():Void {
+		// nothing lol
+		if (onSelect != null) {
+			onSelect();
+		}
 	}
 
-	public function setValue(value:Dynamic) {
-		Reflect.setProperty(ClientPrefs.data, variable, value);
+	public function unselect():Void {
+		// nothing lol
+		if (onUnselect != null) {
+			onUnselect();
+		}
+	}
+
+	public dynamic function handleVisual(self:Option, value:Dynamic):Void {}
+
+	public function getValue():Dynamic {
+		var value:Dynamic = null;
+		if (onGet != null) {
+			value = onGet(variable);
+		} else {
+			value = Reflect.getProperty(ClientPrefs, variable);
+		}
+		handleVisual(this, value);
+		return value;
+	}
+
+	public function setValue(value:Dynamic):Void {
+		if (onSet != null) {
+			onSet(variable, value);
+		} else {
+			Reflect.setProperty(ClientPrefs, variable, value);
+		}
+		handleVisual(this, value);
+	}
+
+	public function setChild(child:FlxText):Void {
+		this.child = child;
+	}
+
+	public function setCheckbox(text:FlxText):Void {
+		this.checkbox = text;
+		if (checkbox != null) {
+			checkbox.visible = checkboxVisible;
+			checkbox.color = fontColor;
+		}
+	}
+
+	public function setStatic(staticText:FlxText):Void {
+		this.staticText = staticText;
 	}
 
 	private function get_text() {
@@ -97,15 +174,16 @@ class Option {
 		return null;
 	}
 
-	private function get_type() {
-		var newValue:String = 'bool';
-		switch (type.toLowerCase().trim()) {
-			case 'int' | 'float' | 'percent' | 'string': newValue = type;
-			case 'integer': newValue = 'int';
-			case 'str': newValue = 'string';
-			case 'fl': newValue = 'float';
+	function set_fontColor(newColor:FlxColor):FlxColor {
+		if (staticText != null) {
+			staticText.color = newColor;
 		}
-		type = newValue;
-		return type;
+		if (child != null) {
+			child.color = newColor;
+		}
+		if (checkbox != null) {
+			checkbox.color = newColor;
+		}
+		return fontColor = newColor;
 	}
 }

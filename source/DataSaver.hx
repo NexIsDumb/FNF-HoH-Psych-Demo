@@ -18,7 +18,30 @@ class DataSaver {
 		return Paths.image('charms/$charm/base', 'hymns');
 	}
 
+	public static function getDesc(charm:Charm) {
+		return Paths.getContent('charms/$charm/desc.txt', 'hymns');
+	}
+
+	public static function getCost(charm:Charm) {
+		return switch (charm) {
+			case MelodicShell: 0;
+			case BaldursBlessing: 3;
+			case LifebloodSeed: 2;
+			case CriticalFocus: 2;
+			default: 0;
+		}
+	}
+
+	public static var isOvercharmed(get, never):Bool;
+
+	private static function get_isOvercharmed() {
+		return usedNotches > 5;
+	}
+
 	public static final allCharms:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus];
+	public static final allCharmsInternal:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus, Swindler];
+
+	public static var allowSaving:Bool = true;
 
 	// needs to be saved
 	public static var geo:Int = 0;
@@ -37,14 +60,17 @@ class DataSaver {
 	public static var diedonfirststeps:Bool = false;
 	public static var interacts = [false, false, false];
 
-	public static var charmOrder:Array<Dynamic> = [];
-	public static var sillyOrder:Array<Dynamic> = [];
+	public static var charmOrder:Array<Int> = [];
+	public static var sillyOrder:Array<Charm> = [];
 
 	// vars
 	public static var saveFile:Int = 0;
 	public static var doingsong:String = '';
 
 	public static function saveSettings(saveFileData:Int) {
+		if (!allowSaving)
+			return;
+
 		saveFile = saveFileData;
 
 		var curSave:FlxSave = new FlxSave();
@@ -61,7 +87,7 @@ class DataSaver {
 		curSave.data.elderbugstate = elderbugstate;
 		curSave.data.charmOrder = charmOrder;
 		curSave.data.slytries = slytries;
-		curSave.data.usedNotches = usedNotches;
+		// curSave.data.usedNotches = usedNotches;
 		curSave.data.doingsong = doingsong;
 		curSave.data.lichendone = lichendone;
 		curSave.data.diedonfirststeps = diedonfirststeps;
@@ -73,7 +99,7 @@ class DataSaver {
 		trace("Saved Savefile");
 	}
 
-	static function resetData() {
+	public static function resetData() {
 		geo = 0;
 		charms = [MelodicShell => false,];
 		charmsunlocked = [MelodicShell => false, Swindler => false,];
@@ -94,6 +120,9 @@ class DataSaver {
 	}
 
 	public static function loadData(saveFileData:Int) {
+		if (!allowSaving)
+			return;
+
 		saveFile = saveFileData;
 
 		var curSave:FlxSave = new FlxSave();
@@ -134,9 +163,9 @@ class DataSaver {
 		if (curSave.data.slytries != null) {
 			slytries = curSave.data.slytries;
 		}
-		if (curSave.data.usedNotches != null) {
-			usedNotches = curSave.data.usedNotches;
-		}
+		// if (curSave.data.usedNotches != null) {
+		//	usedNotches = curSave.data.usedNotches;
+		// }
 		if (curSave.data.doingsong != null) {
 			doingsong = curSave.data.doingsong;
 		}
@@ -151,11 +180,49 @@ class DataSaver {
 		}
 		if (curSave.data.sillyOrder != null) {
 			sillyOrder = curSave.data.sillyOrder;
+			fixSillyOrder();
 		}
+
+		// Etrace(sillyOrder);
+
+		// remove unequipped charms from sillyOrder
+
+		usedNotches = calculateNotches();
 
 		curSave.flush();
 		FlxG.log.add("Loaded!");
 		trace("Loaded Savefile");
+	}
+
+	public static function fixSillyOrder() {
+		for (charm => equipped in charms) {
+			if (!equipped) {
+				while (sillyOrder.contains(charm))
+					sillyOrder.remove(charm);
+			}
+		}
+
+		// trace(sillyOrder);
+
+		// remove duplicate charms from sillyOrder
+		var silly = [];
+		for (charm in sillyOrder) {
+			if (!silly.contains(charm))
+				silly.push(charm);
+		}
+
+		// trace(silly);
+		sillyOrder = silly;
+	}
+
+	public static function calculateNotches() {
+		var notches = 0;
+		for (charm => equipped in charms) {
+			if (equipped) {
+				notches += DataSaver.getCost(charm);
+			}
+		}
+		return notches;
 	}
 
 	public static function wipeData(saveFileData:Int) {

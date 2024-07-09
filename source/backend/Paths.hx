@@ -235,6 +235,7 @@ class Paths {
 
 	public static function getContent(key:String, library:String = null, ?ignoreMods:Bool = false):String {
 		var path:String = getPath(key, TEXT, library, ignoreMods);
+		// trace(path);
 		#if sys
 		if (FileSystem.exists(path))
 			return File.getContent(path);

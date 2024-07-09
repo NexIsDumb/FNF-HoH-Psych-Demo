@@ -277,6 +277,7 @@ class SaveState extends MenuBeatState {
 						}
 						savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
 						changeSelection(0);
+						DataSaver.resetData();
 					} else if (!clearingsave) {
 						selected = true;
 

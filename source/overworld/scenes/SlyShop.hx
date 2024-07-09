@@ -167,10 +167,13 @@ class SlyShop extends BaseScene {
 				interactionflair.alpha = 1;
 				interactionflair.x = point[0] - interactionflair.width / 4;
 				interactiontext.alpha = 1;
-				interactiontext.x = interactionflair.getGraphicMidpoint().x - interactiontext.width / 2;
+				var flairPos = interactionflair.getGraphicMidpoint();
+				interactiontext.x = flairPos.x - interactiontext.width / 2;
 
-				interactionBackdrop.y = interactionflair.getGraphicMidpoint().y - interactionflair.height / 2.5;
-				interactionBackdrop.x = interactionflair.getGraphicMidpoint().x - interactionflair.width / 3.25;
+				interactionBackdrop.y = flairPos.y - interactionflair.height / 2.5;
+				interactionBackdrop.x = flairPos.x - interactionflair.width / 3.25;
+
+				flairPos.put();
 
 				interactiontext.text = TM.checkTransl("Shop", "shop");
 
@@ -209,10 +212,6 @@ class SlyShop extends BaseScene {
 				tweentext = FlxTween.tween(interactiontext, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 				tweenbg = FlxTween.tween(interactionBackdrop, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 			}
-		}
-
-		if (FlxG.keys.justPressed.SPACE) {
-			trace(game.player.x);
 		}
 	}
 

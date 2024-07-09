@@ -653,13 +653,17 @@ class Shop extends FlxSpriteGroup {
 					DataSaver.loadData(DataSaver.saveFile);
 
 					if (selected2 == yes) {
-						if (DataSaver.geo >= Std.parseInt(charmList[selected][3])) {
-							DataSaver.charmsunlocked.set(charmList[selected][4][0], true);
-							DataSaver.geo -= Std.parseInt(charmList[selected][3]);
+						var name:Charm = charmList[selected][4][0];
+						var cost = Std.parseInt(charmList[selected][3]);
+
+						if (DataSaver.geo >= cost) {
+							trace("Buying " + name);
+							DataSaver.charmsunlocked.set(name, true);
+							DataSaver.geo -= cost;
 							DataSaver.saveSettings(DataSaver.saveFile);
 							FlxG.sound.play(Paths.sound("geo_deplete_count_down", 'hymns'));
 
-							if (charmList[selected][4][0] == "Swindler") {
+							if (name == "Swindler") {
 								caninteractter = false;
 								for (spr in [purchase, yes, no, title2, charmsy, pointer1, pointer2]) {
 									FlxTween.tween(spr, {alpha: 0}, .6, {ease: FlxEase.quintOut});
@@ -713,10 +717,12 @@ class Shop extends FlxSpriteGroup {
 								caninteractter = false;
 								for (i in 0...charmList.length) {
 									var array = charmList[i];
-									var charmGroup = array[1];
+									var charmGroup:FlxSprite = array[1];
 
 									if (i == selected) {
+										charmGroup.exists = false;
 										charmGroup.destroy();
+										remove(charmGroup, true);
 									} else {
 										// FlxTween.tween(charmGroup, {alpha: 1}, .6, {ease: FlxEase.quintOut});
 									}

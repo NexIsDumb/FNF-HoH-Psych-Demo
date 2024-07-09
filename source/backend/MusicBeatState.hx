@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.FlxSubState;
 import flixel.addons.ui.FlxUIState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.FlxState;
@@ -58,18 +59,7 @@ class MusicBeatState extends FlxUIState {
 			}
 		}
 
-		#if (debug && sys)
-		if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.Z) {
-			FlxTransitionableState.skipNextTransOut = true;
-			FlxTransitionableState.skipNextTransIn = true;
-			MusicBeatState.switchState(new states.debug.DebugSongSelect());
-		}
-		if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.X) {
-			FlxTransitionableState.skipNextTransOut = true;
-			FlxTransitionableState.skipNextTransIn = true;
-			MusicBeatState.switchState(new states.debug.DebugStateSelect());
-		}
-		#end
+		handleDebug();
 
 		if (FlxG.save.data != null)
 			FlxG.save.data.fullscreen = FlxG.fullscreen;
@@ -79,6 +69,32 @@ class MusicBeatState extends FlxUIState {
 		});
 
 		super.update(elapsed);
+	}
+
+	public function handleDebug() {
+		#if (debug && sys)
+		if (!FlxG.keys.pressed.SHIFT)
+			return;
+
+		if (FlxG.keys.justPressed.Z) {
+			FlxTransitionableState.skipNextTransOut = true;
+			FlxTransitionableState.skipNextTransIn = true;
+			MusicBeatState.switchState(new states.debug.DebugSongSelect());
+		}
+		if (FlxG.keys.justPressed.X) {
+			FlxTransitionableState.skipNextTransOut = true;
+			FlxTransitionableState.skipNextTransIn = true;
+			MusicBeatState.switchState(new states.debug.DebugStateSelect());
+		}
+
+		if (FlxG.keys.justPressed.Q) {
+			DataSaver.allowSaving = !DataSaver.allowSaving;
+			showMessage('Allow Saving: ' + DataSaver.allowSaving);
+		}
+		if (FlxG.keys.justPressed.E) {
+			openSubState(new states.debug.DebugSaveEditorSubState());
+		}
+		#end
 	}
 
 	private function updateSection():Void {
@@ -257,5 +273,42 @@ class MusicBeatState extends FlxUIState {
 				remove(message, true);
 			}
 		});
+	}
+
+	#if debug
+	var inSaveEditor:Bool = false;
+	#end
+
+	override function openSubState(SubState:FlxSubState):Void {
+		#if debug
+		if ((SubState is states.debug.DebugSaveEditorSubState)) {
+			inSaveEditor = true;
+		}
+		#end
+		super.openSubState(SubState);
+	}
+
+	override function closeSubState():Void {
+		#if debug
+		if ((subState is states.debug.DebugSaveEditorSubState)) {
+			inSaveEditor = false;
+		}
+		#end
+		super.closeSubState();
+	}
+
+	@:allow(flixel.FlxGame)
+	override function tryUpdate(elapsed:Float):Void {
+		if (#if debug !inSaveEditor && #end (persistentUpdate || subState == null)) {
+			update(elapsed);
+		}
+
+		if (_requestSubStateReset) {
+			_requestSubStateReset = false;
+			resetSubState();
+		}
+		if (subState != null) {
+			subState.tryUpdate(elapsed);
+		}
 	}
 }

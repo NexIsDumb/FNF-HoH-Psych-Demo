@@ -3063,7 +3063,11 @@ class PlayState extends MusicBeatState {
 		health -= subtract * healthLoss;
 		if (soulMeter != null && !note.isSustainNote && curBeat > lastDamageBeat + 0) { // +1 for two beats
 			lastDamageBeat = curBeat;
-			soulMeter.changeMasks(-1);
+			if (DataSaver.isOvercharmed) {
+				soulMeter.changeMasks(-2);
+			} else {
+				soulMeter.changeMasks(-1);
+			}
 			hitvfx.visible = true;
 			hitvfx.animation.play('boom', true);
 			lowFilter();
@@ -3084,9 +3088,6 @@ class PlayState extends MusicBeatState {
 			if (!loadedSaveFile) {
 				DataSaver.loadData(DataSaver.saveFile);
 				loadedSaveFile = true;
-			}
-			if (DataSaver.usedNotches > 5) {
-				soulMeter.changeMasks(-1);
 			}
 		}
 

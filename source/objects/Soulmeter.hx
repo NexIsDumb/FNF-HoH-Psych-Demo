@@ -98,7 +98,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		sillyview2 = FlxTween.tween(silly, {alpha: 0}, 1, {ease: FlxEase.quintInOut, type: FlxTweenType.PINGPONG});
 
 		DataSaver.loadData(DataSaver.saveFile);
-		if (DataSaver.usedNotches <= 5) {
+		if (!DataSaver.isOvercharmed) {
 			silly.alpha = 0;
 		}
 
@@ -252,7 +252,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			sillyview2.cancel();
 		}
 
-		if (DataSaver.usedNotches > 5) {
+		if (DataSaver.isOvercharmed) {
 			silly.alpha = 0.5;
 			sillyview2 = FlxTween.tween(silly, {alpha: 1}, 1, {ease: FlxEase.quintInOut, type: FlxTweenType.PINGPONG});
 		} else {

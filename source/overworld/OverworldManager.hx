@@ -203,6 +203,7 @@ class OverworldManager extends MusicBeatState {
 
 	override function update(elapsed:Float) {
 		// UPDATING SPRITES
+		handleDebug(); // remove when super.update is added
 		scene.update(elapsed);
 		player.update(elapsed);
 		soulMeter.update(elapsed);
@@ -215,9 +216,10 @@ class OverworldManager extends MusicBeatState {
 		// LERPING VALUES
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.2, 0, 1);
 		if (campos[1] == 0.0) {
-			camFollow.x = FlxMath.lerp(camFollow.x, FlxMath.bound(player.getMidpoint()
-				.x, scene.stageproperties.minCam, scene.stageproperties.maxCam), lerpVal);
-			camFollow.y = FlxMath.lerp(camFollow.y, player.getMidpoint().y - 225, lerpVal);
+			var pp = player.getMidpoint();
+			camFollow.x = FlxMath.lerp(camFollow.x, FlxMath.bound(pp.x, scene.stageproperties.minCam, scene.stageproperties.maxCam), lerpVal);
+			camFollow.y = FlxMath.lerp(camFollow.y, pp.y - 225, lerpVal);
+			pp.put();
 		} else {
 			camFollow.x = FlxMath.lerp(camFollow.x, campos[0], lerpVal);
 			camFollow.y = FlxMath.lerp(camFollow.y, campos[1], lerpVal);

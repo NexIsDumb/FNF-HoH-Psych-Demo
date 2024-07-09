@@ -282,6 +282,7 @@ class PauseSubState extends MusicBeatSubstate {
 					PlayState.instance.botplaySine = 0;
 				case "Exit to menu":
 					DataSaver.saveSettings(DataSaver.saveFile);
+					DataSaver.resetData(); // to prevent cross save issues
 
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;

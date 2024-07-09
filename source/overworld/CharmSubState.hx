@@ -1,5 +1,6 @@
 package overworld;
 
+import DataSaver.Charm;
 #if desktop
 import backend.Discord.DiscordClient;
 #end
@@ -27,6 +28,16 @@ import overworld.*;
 
 using StringTools;
 
+@:structInit
+class CharmData {
+	public var sprite:FlxSprite;
+	public var name:Charm;
+	public var desc:String;
+	public var cost:Int;
+
+	public var makeCharm:Bool;
+}
+
 class CharmSubState extends MusicBeatSubstate {
 	public var notchAmount:Int = 5;
 	public var usedNotches:Int = 0;
@@ -52,7 +63,7 @@ class CharmSubState extends MusicBeatSubstate {
 	var sillycam:FlxCamera;
 
 	var rows:Array<Int> = [9, 9,];
-	var charmData:Array<Array<Dynamic>> = [];
+	var charmData:Array<CharmData> = [];
 	var charmOrder:Map<Int, Int> = new Map();
 
 	public function new(x:Float, y:Float, cam:FlxCamera) {
@@ -214,8 +225,8 @@ class CharmSubState extends MusicBeatSubstate {
 	var charmshii:Array<FlxSprite> = [];
 
 	public function makeCharms() {
-		for (charmId in DataSaver.allCharms) {
-			var itee:Int = 0;
+		var itee:Int = 0;
+		for (i => charmId in DataSaver.allCharms) {
 			// for (file in FileSystem.readDirectory(directory)) {
 			var charmName = charmId;
 
@@ -228,10 +239,10 @@ class CharmSubState extends MusicBeatSubstate {
 			charm.ID = -5;
 			sprites.push(charm);
 
-			var rawData:String = Paths.getContent('hymns/charms/' + charmName + '/data.charm', 'hymns');
-			var rawData2:Int = Std.parseInt(Paths.getContent('hymns/charms/' + charmName + '/order.txt', 'hymns').trim());
+			var rawData:String = Paths.getContent('charms/' + charmName + '/data.charm', 'hymns');
+			var rawData2:Int = i; // Std.parseInt(Paths.getContent('charms/' + charmName + '/order.txt', 'hymns').trim());
 			var dataList:Array<Dynamic> = rawData.trim().split('\n');
-			dataList[5] = rawData2 + 1;
+			// dataList[5] = rawData2 + 1;
 
 			charm.x = holders[rawData2].x - (charm.width / 2) + (holders[rawData2].width / 2) + 2;
 			charm.y = holders[rawData2].y - (charm.height / 2) + (holders[rawData2].width / 2);
@@ -256,7 +267,14 @@ class CharmSubState extends MusicBeatSubstate {
 			}
 			if (makeCharm == true) {
 				add(charm);
-				charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
+				// charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
+				charmData.insert(itee, {
+					sprite: charm,
+					name: charmName,
+					desc: DataSaver.getDesc(charmName),
+					cost: DataSaver.getCost(charmName),
+					makeCharm: makeCharm
+				});
 
 				charmOrder.set(rawData2, itee);
 				itee++;
@@ -269,30 +287,31 @@ class CharmSubState extends MusicBeatSubstate {
 
 	public function getCharmLocation() {
 		DataSaver.loadData(DataSaver.saveFile);
-		usedNotches = DataSaver.usedNotches;
+		usedNotches = DataSaver.calculateNotches();
 		for (i in 0...charmData.length) {
 			var charmsdata = charmData[i];
-			var charm:FlxSprite = charmsdata[0];
-			var dataList = charmsdata[1];
+			var charm:FlxSprite = charmsdata.sprite;
+
+			var charmName:Charm = charmsdata.name;
 
 			DataSaver.loadData(DataSaver.saveFile);
-			var dat:Bool = DataSaver.charms.get(charmData[i][2]);
-			var dater:Int = Std.parseInt(Paths.getContent('charms/${charmsdata[2]}/order.txt', 'hymns').trim());
+			var dat:Bool = DataSaver.charms.get(charmName);
+			var dater:Int = DataSaver.allCharms.indexOf(charmName); // Std.parseInt(Paths.getContent('charms/${charmsdata[2]}/order.txt', 'hymns').trim());
 
 			if (dat == true) {
 				trace(DataSaver.sillyOrder);
 				for (uh in 0...DataSaver.sillyOrder.length) {
 					var sillydat = DataSaver.sillyOrder[uh];
-					var gooberdat = DataSaver.charmOrder[uh];
-
-					trace(sillydat, charmsdata[2]);
-					if (sillydat == charmsdata[2]) {
+					var gooberdat = uh; // DataSaver.charmOrder[uh];
+					trace(sillydat, charmName);
+					if (sillydat == charmName) {
 						new FlxTimer().start(0.01 * gooberdat, function(tmr:FlxTimer) {
 							charm.x = holderCharms.x - (charm.width / 2) + (holders[dater].width / 2) + 2;
 							charm.y = holderCharms.y - (charm.height / 2) + (holders[dater].height / 2);
 							holderCharms.x += (35 + (holderCharms.width / 2));
 							if (usedNotches >= notchAmount) {
-								FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeOut});
+								if (holderCharms.scale != null)
+									FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeOut});
 							}
 							charmsEquipped.push(charm);
 						});
@@ -311,13 +330,14 @@ class CharmSubState extends MusicBeatSubstate {
 			}
 		}
 
-		if (charmOrder.get(horiz + (rows[row - 1] * (row - 1))) != null) {
-			var datar = charmOrder.get(horiz + (rows[row - 1] * (row - 1)));
-			if (charmData[datar][3] == true) {
-				var charmText:String = charmData[datar][1][1];
+		var datar = charmOrder.get(horiz + (rows[row - 1] * (row - 1)));
+		if (datar != null) {
+			var charm = charmData[datar];
+			if (charm.makeCharm) {
+				var charmText:String = charm.desc;
 				var mainTxt:String = charmText.trim();
 
-				var piss:String = charmData[datar][2];
+				var piss:String = charm.name;
 				var name = Paths.formatPath(piss);
 
 				txt2.text = TM.checkTransl(piss, name);
@@ -326,7 +346,8 @@ class CharmSubState extends MusicBeatSubstate {
 				txt2.x += 365;
 				txt2.y -= 225;
 
-				txt.text = 'Tuneful charm created for\nthose who wish to chant\n\n\nGrants its bearer the ability to sing\nin return rewarding them soul';
+				// txt.text = 'Tuneful charm created for\nthose who wish to chant\n\n\nGrants its bearer the ability to sing\nin return rewarding them soul';
+				txt.text = TM.checkTransl(mainTxt, name + "-desc");
 
 				txt3.text = TM.checkTransl('Cost', "cost");
 				txt3.screenCenterXY();
@@ -334,14 +355,14 @@ class CharmSubState extends MusicBeatSubstate {
 				txt3.x += 325;
 				txt3.y -= 190;
 
-				createCost(Std.parseInt(charmData[datar][1][6]));
+				createCost(charm.cost);
 
-				if (Std.parseInt(charmData[datar][4]) == 0) {
+				if (charm.cost == 0) {
 					txt3.x += 25;
 					txt3.text = TM.checkTransl('No Cost', "no-cost");
 				}
 
-				charmIcon.loadGraphic(DataSaver.getCharmImage(charmData[datar][2]));
+				charmIcon.loadGraphic(DataSaver.getCharmImage(charm.name));
 				charmIcon.scale.set(0.7, 0.7);
 				charmIcon.updateHitbox();
 				charmIcon.x = txt.x + 50;
@@ -349,8 +370,6 @@ class CharmSubState extends MusicBeatSubstate {
 				charmIcon.alpha = 1;
 				charmIcon.antialiasing = ClientPrefs.data.antialiasing;
 				add(charmIcon);
-
-				txt.text = TM.checkTransl(mainTxt, name + "-desc");
 				// txt.translation(mainTxt);
 
 				// trace(txt.translationPub(mainTxt));
@@ -554,41 +573,48 @@ class CharmSubState extends MusicBeatSubstate {
 					if (firstgoin == true) {
 						firstgoin = false;
 					} else {
-						if (charmData[datar][3] == true) {
+						var charmInf = charmData[datar];
+						if (charmInf.makeCharm) {
 							DataSaver.loadData(DataSaver.saveFile);
-							var rawData:Bool = DataSaver.charms.get(charmData[datar][2]);
+							var rawData:Bool = DataSaver.charms.get(charmInf.name);
 							if (rawData == false) {
 								if (usedNotches < notchAmount) {
 									FlxG.sound.play(Paths.sound('charm_equipping_again_1', 'hymns'));
-									trace(charmData[datar][2]);
-									DataSaver.charms.set(charmData[datar][2], true);
+									trace(charmInf.name);
+									DataSaver.charms.set(charmInf.name, true);
 									DataSaver.saveSettings(DataSaver.saveFile);
 
-									var charm = charmData[datar][0];
+									var charm = charmInf.sprite;
 									charmsEquipped.push(charm);
 
-									FlxTween.tween(charm, {x: holderCharms.x - (charm.width / 2) + (holders[datar].width / 2) + 2, y: holderCharms.y - (charm.height / 2) + (holders[datar].width / 2)}, 0.3, {ease: FlxEase.cubeIn});
+									FlxTween.tween(charm, {
+										x: holderCharms.x - (charm.width / 2) + (holders[datar].width / 2) + 2,
+										y: holderCharms.y - (charm.height / 2) + (holders[datar].width / 2)
+									}, 0.3, {ease: FlxEase.cubeIn});
 									canMove = false;
-									DataSaver.charmOrder.push(datar);
-									DataSaver.sillyOrder.push(charmData[datar][2]);
-									trace(DataSaver.charmOrder);
+									// DataSaver.charmOrder.push(datar);
+									if (!DataSaver.sillyOrder.contains(charmInf.name))
+										DataSaver.sillyOrder.push(charmInf.name);
+									// trace(DataSaver.charmOrder);
 									trace(DataSaver.sillyOrder);
 									DataSaver.saveSettings(DataSaver.saveFile);
 
-									var rowy:String = charmData[datar][1][6];
+									var cost = charmInf.cost;
 
 									charmselect = charm;
 									tempEmit.x = charm.getMidpoint().x;
 									tempEmit.y = charm.getMidpoint().y - charm.height;
 									tempEmit.start(false, 0.01);
 
-									if (charmData[datar][2] == "Baldur's Blessing") {
+									if (charmInf.name == BaldursBlessing) {
 										OverworldManager.instance.soulMeter.changebaldurview();
 									}
 
 									FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});
 									new FlxTimer().start(0.15, function(tmr:FlxTimer) {
-										if (usedNotches + Std.parseInt(rowy) < notchAmount) {
+										if (usedNotches + (cost) < notchAmount) {
+											if (holderCharms.scale == null)
+												return;
 											FlxTween.tween(holderCharms.scale, {x: 0.6, y: 0.6}, 0.15, {ease: FlxEase.cubeOut});
 										}
 										holderCharms.x += (35 + (holderCharms.width / 2));
@@ -598,7 +624,8 @@ class CharmSubState extends MusicBeatSubstate {
 										charmselect = null;
 										tempEmit.start(true, 0);
 
-										usedNotches += Std.parseInt(rowy);
+										// usedNotches += (cost);
+										usedNotches = DataSaver.calculateNotches();
 
 										var selectedGlow:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Menus/Charm/glow', 'hymns'));
 										selectedGlow.scale.set(0.9, 0.9);
@@ -633,8 +660,7 @@ class CharmSubState extends MusicBeatSubstate {
 											}
 
 											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.usedNotches = usedNotches;
-											trace(DataSaver.usedNotches);
+											DataSaver.usedNotches = DataSaver.calculateNotches();
 											DataSaver.saveSettings(DataSaver.saveFile);
 											FlxG.sound.play(Paths.sound('overcharm', 'hymns'));
 
@@ -646,10 +672,8 @@ class CharmSubState extends MusicBeatSubstate {
 											fleurs.screenCenterXY();
 
 											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.usedNotches = usedNotches;
+											DataSaver.usedNotches = DataSaver.calculateNotches();
 											DataSaver.saveSettings(DataSaver.saveFile);
-
-											trace(DataSaver.usedNotches);
 										}
 									});
 
@@ -658,13 +682,13 @@ class CharmSubState extends MusicBeatSubstate {
 									});
 								}
 							} else {
-								if (charmData[datar][2] != "Melodic Shell") {
+								if (charmInf.name != MelodicShell) {
 									FlxG.sound.play(Paths.sound('charm_click_in', 'hymns'));
 
-									DataSaver.charms.set(charmData[datar][2], false);
+									DataSaver.charms.set(charmInf.name, false);
 									DataSaver.saveSettings(DataSaver.saveFile);
 
-									var charm = charmData[datar][0];
+									var charm = charmInf.sprite;
 									var charmIndex = charmsEquipped.indexOf(charm);
 
 									for (i in 0...charmsEquipped.length) {
@@ -678,8 +702,9 @@ class CharmSubState extends MusicBeatSubstate {
 
 									FlxTween.tween(charm, {x: (holders[horiz + (rows[row - 1] * (row - 1))].x - (selector.width / 4.2)) + charm.width / 2.5 - 2, y: (holders[horiz + (rows[row - 1] * (row - 1))].y - (selector.height / 3.8)) + charm.height / 2.5}, 0.3, {ease: FlxEase.cubeOut});
 									canMove = false;
-									DataSaver.charmOrder.remove(datar);
-									DataSaver.sillyOrder.remove(charmData[datar][2]);
+									// DataSaver.charmOrder.remove(datar);
+									while (DataSaver.sillyOrder.contains(charmInf.name))
+										DataSaver.sillyOrder.remove(charmInf.name);
 									DataSaver.saveSettings(DataSaver.saveFile);
 
 									FlxTween.tween(holderCharms.scale, {x: 0, y: 0}, 0.15, {ease: FlxEase.cubeIn});
@@ -689,7 +714,7 @@ class CharmSubState extends MusicBeatSubstate {
 										holderCharms.x -= (35 + (holderCharms.width / 2));
 									});
 
-									var notchies = Std.parseInt(charmData[datar][1][6]);
+									var notchies = charmInf.cost;
 
 									fleurs.loadGraphic(Paths.image('Menus/Charm/charmfleur', 'hymns'));
 									fleurs.setGraphicSize(1280, 720);
@@ -697,8 +722,7 @@ class CharmSubState extends MusicBeatSubstate {
 									fleurs.screenCenterXY();
 
 									new FlxTimer().start(0.2, function(tmr:FlxTimer) {
-										usedNotches -= notchies;
-										DataSaver.usedNotches = usedNotches;
+										DataSaver.usedNotches = usedNotches = DataSaver.calculateNotches();
 										DataSaver.saveSettings(DataSaver.saveFile);
 										OverworldManager.instance.soulMeter.changeovercharmview();
 									});
@@ -707,7 +731,7 @@ class CharmSubState extends MusicBeatSubstate {
 										canMove = true;
 									});
 
-									if (charmData[datar][2] == "Baldur's Blessing") {
+									if (charmInf.name == BaldursBlessing) {
 										OverworldManager.instance.soulMeter.changebaldurview();
 									}
 								}

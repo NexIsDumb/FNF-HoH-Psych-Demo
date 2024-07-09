@@ -9,38 +9,38 @@ class GameplaySettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Downscroll', // Name
 			'If checked, notes go Down instead of Up, simple enough.', // Description
 			'downScroll', // Save data variable name
-			'bool'); // Variable type
+			BOOL); // Variable type
 		addOption(option);
 
 		var option:Option = new Option('Middlescroll',
 			'If checked, your notes get centered.',
 			'middleScroll',
-			'bool');
+			BOOL);
 		addOption(option);
 
 		var option:Option = new Option('Ghost Tapping',
 			"If checked, you won't get misses from pressing keys which are not on screen.",
 			'ghostTapping',
-			'bool');
+			BOOL);
 		addOption(option);
 
 		var option:Option = new Option('Auto Pause',
 			"If checked, the game automatically pauses if the screen isn't on focus.",
 			'autoPause',
-			'bool');
+			BOOL);
 		addOption(option);
 		option.onChange = onChangeAutoPause;
 
 		var option:Option = new Option('Disable Reset Button',
 			"If checked, pressing Reset won't do anything.",
 			'noReset',
-			'bool');
+			BOOL);
 		addOption(option);
 
 		var option:Option = new Option('Hitsound Volume',
 			'Funny notes does "Tick!" when you hit them.',
 			'hitsoundVolume',
-			'percent');
+			PERCENT);
 		addOption(option);
 		option.scrollSpeed = 1.6;
 		option.minValue = 0.0;
@@ -52,7 +52,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Safe Frames',
 			'Changes how many frames you have for hitting a note earlier or late.',
 			'safeFrames',
-			'float');
+			FLOAT);
 		option.scrollSpeed = 5;
 		option.minValue = 2;
 		option.maxValue = 10;

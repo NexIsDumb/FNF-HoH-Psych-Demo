@@ -128,7 +128,14 @@ class DebugBaseSelect extends MusicBeatState {
 		updateSearch();
 	}
 
+	var allowSearch = true;
+
 	function updateSearch() {
+		searchTxt.text = searchText;
+
+		if (!allowSearch)
+			return;
+
 		var aa = [];
 		var allItems = itemsTxt.copy();
 
@@ -159,8 +166,6 @@ class DebugBaseSelect extends MusicBeatState {
 		var force = aa.length == 0;
 		var first = null;
 		var items = aa.concat(allItems);
-
-		searchTxt.text = searchText;
 
 		for (item in items) {
 			var name = item.visualName;

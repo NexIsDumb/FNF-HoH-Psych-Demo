@@ -25,6 +25,19 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 	public var _booltexts:Array<String>;
 
+	public var doRPC:Bool = true;
+
+	public var spacing:Float = 50;
+	public var offset:Float = 0;
+
+	public function getSpacing():Float {
+		return 50;
+	}
+
+	public function getOffset():Float {
+		return 0;
+	}
+
 	public function new() {
 		super();
 
@@ -33,8 +46,12 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		if (rpcTitle == null)
 			rpcTitle = 'Options Menu';
 
+		offset = getOffset();
+		spacing = getSpacing();
+
 		#if desktop
-		DiscordClient.changePresence(rpcTitle, null);
+		if (doRPC)
+			DiscordClient.changePresence(rpcTitle, null);
 		#end
 
 		// avoids lagspikes while scrolling through menus!
@@ -61,39 +78,44 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		_booltexts = [TM.checkTransl("ON", "on"), TM.checkTransl("OFF", "off")];
 
 		for (i in 0...optionsArray.length) {
+			var option = optionsArray[i];
+
 			var optionText:FlxText = new FlxText(0, 0, 0, "", 12);
 			optionText.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, LEFT);
-			optionText.text = optionsArray[i].name + ":";
+			optionText.text = option.name + ":";
 			optionText.screenCenterXY();
 			optionText.x = FlxG.width / 3.25;
 			optionText.y -= FlxG.height / 6;
-			optionText.y += 50 * i;
+			optionText.y += spacing * i + offset;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
 			optionText.ID = i;
+			option.setStatic(optionText);
 			grpTexts.add(optionText);
 
-			if (optionsArray[i].type == 'bool') {
-				var optionText:FlxText = new FlxText(0, 0, 250, _booltexts[optionsArray[i].getValue() ? 0 : 1], 12);
-				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
-				optionText.autoSize = false;
-				optionText.screenCenterXY();
-				optionText.x = FlxG.width - FlxG.width / 1.95;
-				optionText.y -= FlxG.height / 6;
-				optionText.y += 50 * i;
-				optionText.antialiasing = ClientPrefs.data.antialiasing;
-				optionText.ID = i;
-				grpOptions.add(optionText);
+			if (option.type == BOOL) {
+				var ex:FlxText = new FlxText(0, 0, 250, _booltexts[option.getValue() ? 0 : 1], 12);
+				ex.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
+				ex.autoSize = false;
+				ex.screenCenterXY();
+				ex.x = FlxG.width - FlxG.width / 1.95;
+				ex.y -= FlxG.height / 6;
+				ex.y += spacing * i + offset;
+				ex.antialiasing = ClientPrefs.data.antialiasing;
+				ex.ID = i;
+				option.setCheckbox(ex);
+				grpOptions.add(ex);
 			} else {
-				var optionText:FlxText = new FlxText(0, 0, 250, optionsArray[i].getValue(), 12);
-				optionText.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
-				optionText.autoSize = false;
-				optionText.screenCenterXY();
-				optionText.x = FlxG.width - FlxG.width / 1.95;
-				optionText.y -= FlxG.height / 6;
-				optionText.y += 50 * i;
-				optionText.antialiasing = ClientPrefs.data.antialiasing;
-				optionText.ID = i;
-				grpOptions.add(optionText);
+				var ex:FlxText = new FlxText(0, 0, 250, option.getValue(), 12);
+				ex.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
+				ex.autoSize = false;
+				ex.screenCenterXY();
+				ex.x = FlxG.width - FlxG.width / 1.95;
+				ex.y -= FlxG.height / 6;
+				ex.y += spacing * i + offset;
+				ex.antialiasing = ClientPrefs.data.antialiasing;
+				ex.ID = i;
+				option.setChild(ex);
+				grpOptions.add(ex);
 			}
 			// optionText.snapToPosition(); //Don't ignore me when i ask for not making a fucking pull request to uncomment this line ok
 		}
@@ -178,9 +200,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			changeSelection(0);
 		}
 
-		if (nextAccept <= 0 && back.ID != curSelected) {
+		if (nextAccept <= 0 && back.ID != curSelected && !curOption.disabled) {
 			var usesCheckbox = true;
-			if (curOption.type != 'bool') {
+			if (curOption.type != BOOL) {
 				usesCheckbox = false;
 			}
 
@@ -197,12 +219,12 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 					if (holdTime > 0.5 || pressed) {
 						if (pressed) {
 							var add:Dynamic = null;
-							if (curOption.type != 'string') {
+							if (curOption.type != STRING) {
 								add = controls.UI_LEFT ? -curOption.changeValue : curOption.changeValue;
 							}
 
 							switch (curOption.type) {
-								case 'int' | 'float' | 'percent':
+								case INT | FLOAT | PERCENT:
 									holdValue = curOption.getValue() + add;
 									if (holdValue < curOption.minValue)
 										holdValue = curOption.minValue;
@@ -210,16 +232,18 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 										holdValue = curOption.maxValue;
 
 									switch (curOption.type) {
-										case 'int':
+										case INT:
 											holdValue = Math.round(holdValue);
 											curOption.setValue(holdValue);
 
-										case 'float' | 'percent':
+										case FLOAT | PERCENT:
 											holdValue = FlxMath.roundDecimal(holdValue, curOption.decimals);
 											curOption.setValue(holdValue);
+
+										default:
 									}
 
-								case 'string':
+								case STRING:
 									var num:Int = curOption.curOption; // lol
 									if (controls.UI_LEFT_P)
 										--num;
@@ -234,7 +258,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 									curOption.curOption = num;
 									curOption.setValue(curOption.options[num]); // lol
-									// trace(curOption.options[num]);
+								// trace(curOption.options[num]);
+
+								case BOOL:
 							}
 							updateTextFrom(curOption);
 							curOption.change();
@@ -243,9 +269,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 							optiona.screenCenterXY();
 							optiona.x = FlxG.width - FlxG.width / 1.95;
 							optiona.y -= FlxG.height / 6;
-							optiona.y += 50 * curSelected;
+							optiona.y += spacing * optiona.ID + offset;
 							FlxG.sound.play(Paths.sound('scrollMenu'));
-						} else if (curOption.type != 'string') {
+						} else if (curOption.type != STRING) {
 							holdValue += curOption.scrollSpeed * elapsed * (controls.UI_LEFT ? -1 : 1);
 							if (holdValue < curOption.minValue)
 								holdValue = curOption.minValue;
@@ -253,9 +279,11 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 								holdValue = curOption.maxValue;
 
 							switch (curOption.type) {
-								case 'int': curOption.setValue(Math.round(holdValue));
+								case INT: curOption.setValue(Math.round(holdValue));
 
-								case 'float' | 'percent': curOption.setValue(FlxMath.roundDecimal(holdValue, curOption.decimals));
+								case FLOAT | PERCENT: curOption.setValue(FlxMath.roundDecimal(holdValue, curOption.decimals));
+
+								default:
 							}
 							updateTextFrom(curOption);
 							curOption.change();
@@ -264,11 +292,11 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 							optiona.screenCenterXY();
 							optiona.x = FlxG.width - FlxG.width / 1.95;
 							optiona.y -= FlxG.height / 6;
-							optiona.y += 50 * curSelected;
+							optiona.y += spacing * optiona.ID + offset;
 						}
 					}
 
-					if (curOption.type != 'string') {
+					if (curOption.type != STRING) {
 						holdTime += elapsed;
 					}
 				} else if (controls.UI_LEFT_R || controls.UI_RIGHT_R) {
@@ -281,8 +309,8 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			if (controls.RESET) {
 				var leOption:Option = optionsArray[curSelected];
 				leOption.setValue(leOption.defaultValue);
-				if (leOption.type != 'bool') {
-					if (leOption.type == 'string')
+				if (leOption.type != BOOL) {
+					if (leOption.type == STRING)
 						leOption.curOption = leOption.options.indexOf(leOption.getValue());
 					updateTextFrom(leOption);
 				}
@@ -308,7 +336,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				spr.screenCenterXY();
 				spr.x = FlxG.width - FlxG.width / 1.95;
 				spr.y -= FlxG.height / 6;
-				spr.y += 50 * curSelected;
+				spr.y += spacing * spr.ID + offset;
 			}
 		}
 
@@ -318,7 +346,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	function updateTextFrom(option:Option) {
 		var text:String = option.displayFormat;
 		var val:Dynamic = option.getValue();
-		if (option.type == 'percent')
+		if (option.type == PERCENT)
 			val *= 100;
 		var def:Dynamic = option.defaultValue;
 		var silly = text.replace('%v', val).replace('%d', def);
@@ -330,7 +358,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			optiona.screenCenterXY();
 			optiona.x = FlxG.width - FlxG.width / 1.95;
 			optiona.y -= FlxG.height / 6;
-			optiona.y += 50 * curSelected;
+			optiona.y += spacing * optiona.ID + offset;
 		}
 	}
 
@@ -394,7 +422,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 	function reloadCheckboxes() {
 		for (i in 0...optionsArray.length) {
-			if (optionsArray[i].type == 'bool') {
+			if (optionsArray[i].type == BOOL) {
 				var check = _booltexts[optionsArray[i].getValue() ? 0 : 1];
 				if (!(grpOptions.members[i].text == check)) {
 					grpOptions.members[i].text = check;
