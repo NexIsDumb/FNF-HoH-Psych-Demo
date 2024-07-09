@@ -105,185 +105,115 @@ class SaveState extends MenuBeatState {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		if (FlxG.state == this && debounce == true) {
-			if (controls.UI_UP_P && !clearingsave && !choosingstate) {
-				changeSelection(-1);
-			}
-			if (controls.UI_DOWN_P && !clearingsave && !choosingstate) {
-				changeSelection(1);
-			}
+		if (FlxG.state != this)
+			return;
+		if (!debounce)
+			return;
 
-			if (controls.UI_LEFT_P && (savefiles[curSelectedy].clearsave.alpha == 1 || clearingsave || choosingstate)) {
+		if (controls.UI_UP_P && !clearingsave && !choosingstate) {
+			changeSelection(-1);
+		}
+		if (controls.UI_DOWN_P && !clearingsave && !choosingstate) {
+			changeSelection(1);
+		}
+
+		if (savefiles[curSelectedy].clearsave.alpha == 1 || clearingsave || choosingstate) {
+			if (controls.UI_LEFT_P) {
 				changeSelection(-1, true);
 			}
-			if (controls.UI_RIGHT_P && (savefiles[curSelectedy].clearsave.alpha == 1 || clearingsave || choosingstate)) {
+			if (controls.UI_RIGHT_P) {
 				changeSelection(1, true);
 			}
+		}
 
-			if (!selected) {
-				if (controls.ACCEPT) {
-					if (!choosingstate) {
-						if (curSelectedx == 0) {
-							if (!clearingsave) {
-								FlxTween.tween(selector, {alpha: 0}, 1, {ease: FlxEase.quadInOut});
+		if (selected)
+			return;
+		var saveFile = savefiles[curSelectedy];
+		if (controls.ACCEPT) {
+			if (!choosingstate) {
+				if (curSelectedx == 0) {
+					if (!clearingsave) {
+						FlxTween.tween(selector, {alpha: 0}, 1, {ease: FlxEase.quadInOut});
 
-								DataSaver.loadData(curSelectedy + 1);
-								DataSaver.played = true;
-								DataSaver.saveSettings(curSelectedy + 1);
-								choosingstate = true;
-								curSelectedx = 0;
+						DataSaver.loadData(curSelectedy + 1);
+						DataSaver.saveSettings(curSelectedy + 1);
+						choosingstate = true;
+						curSelectedx = 0;
 
-								FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
-								if (!rawData) {
-									savefiles[curSelectedy].no2.color = FlxColor.fromRGB(150, 150, 150);
-								} else {
-									savefiles[curSelectedy].no2.color = FlxColor.fromRGB(255, 255, 255);
-								}
-								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 0}, .15, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								if (savefiles[curSelectedy].dirtmouthtween != null) {
-									savefiles[curSelectedy].dirtmouthtween.cancel();
-								}
-								savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								changeSelection(0);
-							} else {
-								DataSaver.wipeData(curSelectedy + 1);
-								DataSaver.loadData(curSelectedy + 1);
-								DataSaver.saveSettings(curSelectedy + 1);
-
-								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .15, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].yes, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].no, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-
-								new FlxTimer().start(0.15, function(tmr:FlxTimer) {
-									savefiles[curSelectedy].newgame.text = TM.checkTransl("New Game", "new-game");
-									FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								});
-
-								curSelectedx = 0;
-								selector.alpha = 0;
-								clearingsave = false;
-								changeSelection(0);
-							}
-						} else {
-							if (!clearingsave) {
-								clearingsave = true;
-
-								selector.alpha = 0;
-								curSelectedx = 0;
-
-								FlxTween.tween(savefiles[curSelectedy].yes, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].no, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								if (savefiles[curSelectedy].dirtmouthtween != null) {
-									savefiles[curSelectedy].dirtmouthtween.cancel();
-								}
-								savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
-
-								savefiles[curSelectedy].newgame.text = TM.checkTransl("Clear Save", "clear-save") + "?";
-								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .5, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								changeSelection(0);
-							} else {
-								clearingsave = false;
-
-								selector.alpha = 0;
-								curSelectedx = 1;
-
-								FlxTween.tween(savefiles[curSelectedy].yes, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].no, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								if (savefiles[curSelectedy].dirtmouthtween != null) {
-									savefiles[curSelectedy].dirtmouthtween.cancel();
-								}
-								savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
-
-								new FlxTimer().start(0.15, function(tmr:FlxTimer) {
-									savefiles[curSelectedy].newgame.text = TM.checkTransl("New Game", "new-game");
-								});
-								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 0}, .15, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-								changeSelection(0);
-							}
-						}
-					} else {
+						FlxTween.tween(saveFile.yes2, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.no2, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
 						var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
-						if (rawData) {
-							if (curSelectedx == 0) {
-								for (i in 0...savefiles.length) {
-									var savefile = savefiles[i];
-									new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-										savefile.BEGONETHOT();
-									});
-								}
-
-								FlxG.sound.music.fadeOut(1, 0);
-								new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
-									MusicBeatState.switchState(new OverworldManager());
-								});
-							} else {
-								for (i in 0...savefiles.length) {
-									var savefile = savefiles[i];
-									new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-										savefile.BEGONETHOT();
-									});
-								}
-
-								FlxTransitionableState.skipNextTransIn = false;
-								new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
-									MusicBeatState.switchState(new FreeplayState());
-								});
-
-								FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(pointer2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-							}
-							FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-							FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-							FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-							FlxTween.tween(pointer2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-							selected = true;
+						if (!rawData) {
+							saveFile.no2.color = FlxColor.fromRGB(150, 150, 150);
 						} else {
-							if (curSelectedx == 0) {
-								for (i in 0...savefiles.length) {
-									var savefile = savefiles[i];
-									new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-										savefile.BEGONETHOT();
-									});
-								}
-
-								FlxG.sound.music.fadeOut(1, 0);
-								new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
-									MusicBeatState.switchState(new OverworldManager());
-								});
-								FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								FlxTween.tween(pointer2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								selected = true;
-							}
+							saveFile.no2.color = FlxColor.fromRGB(255, 255, 255);
 						}
+						FlxTween.tween(saveFile.newgame, {alpha: 0}, .15, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						if (saveFile.dirtmouthtween != null) {
+							saveFile.dirtmouthtween.cancel();
+						}
+						saveFile.dirtmouthtween = FlxTween.tween(saveFile.dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						changeSelection(0);
+					} else {
+						FlxTween.tween(saveFile.newgame, {alpha: 1}, .15, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.yes, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.no, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+
+						new FlxTimer().start(0.15, function(tmr:FlxTimer) {
+							saveFile.newgame.text = TM.checkTransl("New Game", "new-game");
+							FlxTween.tween(saveFile.newgame, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+						});
+
+						curSelectedx = 0;
+						selector.alpha = 0;
+						clearingsave = false;
+						changeSelection(0);
+					}
+				} else {
+					if (!clearingsave) {
+						clearingsave = true;
+
+						selector.alpha = 0;
+						curSelectedx = 0;
+
+						FlxTween.tween(saveFile.yes, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.no, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+						if (saveFile.dirtmouthtween != null) {
+							saveFile.dirtmouthtween.cancel();
+						}
+						saveFile.dirtmouthtween = FlxTween.tween(saveFile.dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
+
+						saveFile.newgame.text = TM.checkTransl("Clear Save", "clear-save") + "?";
+						FlxTween.tween(saveFile.newgame, {alpha: 1}, .5, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						changeSelection(0);
+					} else {
+						clearingsave = false;
+
+						selector.alpha = 0;
+						curSelectedx = 1;
+
+						FlxTween.tween(saveFile.yes, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.no, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						if (saveFile.dirtmouthtween != null) {
+							saveFile.dirtmouthtween.cancel();
+						}
+						saveFile.dirtmouthtween = FlxTween.tween(saveFile.dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
+
+						new FlxTimer().start(0.15, function(tmr:FlxTimer) {
+							saveFile.newgame.text = TM.checkTransl("New Game", "new-game");
+						});
+						FlxTween.tween(saveFile.newgame, {alpha: 0}, .15, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+						changeSelection(0);
 					}
 				}
-
-				if (controls.BACK) {
-					if (choosingstate) {
-						choosingstate = false;
-						FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-						FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-						FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-						if (savefiles[curSelectedy].dirtmouthtween != null) {
-							savefiles[curSelectedy].dirtmouthtween.cancel();
-						}
-						savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
-						changeSelection(0);
-						DataSaver.resetData();
-					} else if (!clearingsave) {
-						selected = true;
-
-						for (spr in [pointer1, pointer2, selector])
-							FlxTween.tween(spr, {alpha: 0}, .25, {ease: FlxEase.circOut});
-
+			} else {
+				var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
+				if (rawData) {
+					if (curSelectedx == 0) {
 						for (i in 0...savefiles.length) {
 							var savefile = savefiles[i];
 							new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
@@ -291,11 +221,87 @@ class SaveState extends MenuBeatState {
 							});
 						}
 
+						FlxG.sound.music.fadeOut(1, 0);
 						new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
-							MusicBeatState.switchState(new MainMenuState());
+							DataSaver.played = true;
+							MusicBeatState.switchState(new OverworldManager());
 						});
+					} else {
+						for (i in 0...savefiles.length) {
+							var savefile = savefiles[i];
+							new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
+								savefile.BEGONETHOT();
+							});
+						}
+
+						FlxTransitionableState.skipNextTransIn = false;
+						new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
+							MusicBeatState.switchState(new FreeplayState());
+						});
+
+						FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(pointer2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+					}
+					FlxTween.tween(saveFile.yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+					FlxTween.tween(saveFile.no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+					FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+					FlxTween.tween(pointer2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+					selected = true;
+				} else {
+					if (curSelectedx == 0) {
+						for (i in 0...savefiles.length) {
+							var savefile = savefiles[i];
+							new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
+								savefile.BEGONETHOT();
+							});
+						}
+
+						FlxG.sound.music.fadeOut(1, 0);
+						new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
+							MusicBeatState.switchState(new OverworldManager());
+						});
+						FlxTween.tween(saveFile.yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(saveFile.no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(pointer1, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						FlxTween.tween(pointer2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+						selected = true;
 					}
 				}
+			}
+		}
+
+		if (controls.BACK) {
+			if (choosingstate) {
+				choosingstate = false;
+				FlxTween.tween(saveFile.yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+				FlxTween.tween(saveFile.no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+				if (saveFile.dirtmouthtween != null) {
+					saveFile.dirtmouthtween.cancel();
+				}
+				if (saveFile.played) {
+					saveFile.dirtmouthtween = FlxTween.tween(saveFile.dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
+					FlxTween.tween(saveFile.clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+				} else {
+					FlxTween.tween(saveFile.newgame, {alpha: 1}, .5, {ease: FlxEase.quadInOut});
+				}
+				changeSelection(0);
+				DataSaver.resetData();
+			} else if (!clearingsave) {
+				selected = true;
+
+				for (spr in [pointer1, pointer2, selector])
+					FlxTween.tween(spr, {alpha: 0}, .25, {ease: FlxEase.circOut});
+
+				for (i in 0...savefiles.length) {
+					var savefile = savefiles[i];
+					new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
+						savefile.BEGONETHOT();
+					});
+				}
+
+				new FlxTimer().start(0.35 * 3, function(tmr:FlxTimer) {
+					MusicBeatState.switchState(new MainMenuState());
+				});
 			}
 		}
 	}
