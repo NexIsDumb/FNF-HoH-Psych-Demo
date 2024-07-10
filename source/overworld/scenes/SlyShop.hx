@@ -61,6 +61,8 @@ class SlyShop extends BaseScene {
 		slyshop = true;
 	}
 
+	var slyTurning:Bool = false;
+	var slyIdling:Bool = false;
 	override public function createPost() {
 		sly = new FlxSprite(0, 0);
 		sly.frames = Paths.getSparrowAtlas('Overworld/SlyShop', 'hymns');
@@ -69,7 +71,13 @@ class SlyShop extends BaseScene {
 		sly.screenCenterXY();
 		sly.x += 250;
 		sly.y += 225;
-		sly.animation.addByPrefix('idle', 'SlyShopidle', 24, true);
+		sly.animation.addByPrefix('idle', 'SlyShopidle0', 24, true);
+		sly.animation.addByPrefix('turnidle', 'SlyShopIdleTurned0', 24, true);
+		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnL0', 24, false);
+		sly.animation.addByIndices('turnLeftFrame', 'SlyShopTurnL0', [8], "", 24, false);
+		sly.animation.addByPrefix('turnRight', 'SlyShopTurnR0', 24, false);
+		//sly.animation.addByPrefix('talk', 'elderbug talk loop0', 24, true);
+		//sly.animation.addByPrefix('talkL', 'elderbug talk loop left0', 24, true);
 		sly.animation.play('idle', true);
 		sly.flipX = true;
 		sly.centerOrigin();

@@ -1,49 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="SlyShop.png">
-	<!-- Created with Adobe Animate version 23.0.0.407 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="SlyShopIdleTurned0000" x="5" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0001" x="5" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0002" x="5" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0003" x="5" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0004" x="5" y="5" width="1272" height="1335" frameX="0" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0005" x="5" y="5" width="1272" height="1335" frameX="0" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0006" x="5" y="5" width="1272" height="1335" frameX="0" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0007" x="5" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0008" x="5" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0009" x="1277" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0010" x="1277" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0011" x="1277" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0012" x="1277" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopIdleTurned0013" x="1277" y="5" width="1272" height="1335" frameX="-4" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0000" x="2549" y="5" width="1279" height="1335" frameX="-4" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0001" x="2549" y="5" width="1279" height="1335" frameX="-4" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0002" x="3828" y="5" width="1264" height="1274" frameX="0" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0003" x="3828" y="5" width="1264" height="1274" frameX="0" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0004" x="5092" y="5" width="1130" height="1273" frameX="-134" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0005" x="5092" y="5" width="1130" height="1273" frameX="-134" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0006" x="6222" y="5" width="1130" height="1202" frameX="-134" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnL0007" x="6222" y="5" width="1130" height="1202" frameX="-134" frameY="0" frameWidth="1283" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0000" x="5" y="1340" width="1245" height="1215" frameX="-15" frameY="0" frameWidth="1298" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0001" x="5" y="1340" width="1245" height="1215" frameX="-15" frameY="0" frameWidth="1298" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0002" x="1250" y="1340" width="1272" height="1290" frameX="-25" frameY="0" frameWidth="1298" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0003" x="1250" y="1340" width="1272" height="1290" frameX="-25" frameY="0" frameWidth="1298" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0004" x="2522" y="1340" width="1260" height="1254" frameX="0" frameY="0" frameWidth="1298" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0005" x="2522" y="1340" width="1260" height="1254" frameX="0" frameY="0" frameWidth="1298" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0006" x="5" y="5" width="1272" height="1335" frameX="-7" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopTurnR0007" x="5" y="5" width="1272" height="1335" frameX="-7" frameY="0" frameWidth="1276" frameHeight="1335"/>
-	<SubTexture name="SlyShopidle0000" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0001" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0002" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0003" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0004" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0005" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0006" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0007" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0008" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0009" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0010" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0011" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0012" x="3782" y="1340" width="1130" height="1185"/>
-	<SubTexture name="SlyShopidle0013" x="3782" y="1340" width="1130" height="1185"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="SlyShop.png" width="4177" height="2675">
+	<SubTexture name="SlyShopIdleTurned0001" x="1761" y="888" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0002" x="1761" y="888" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0003" x="1151" y="891" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0004" x="1151" y="891" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0005" x="1726" y="1" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0006" x="1726" y="1" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0007" x="1726" y="1" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0008" x="2336" y="1" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0009" x="2336" y="1" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0010" x="1761" y="1774" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0011" x="1761" y="1774" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0012" x="2371" y="887" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0013" x="2371" y="887" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopIdleTurned0014" x="2371" y="887" width="607" height="883" frameX="-372" frameY="-165" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0001" x="2945" y="1773" width="611" height="879" frameX="-380" frameY="-169" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0002" x="2945" y="1773" width="611" height="879" frameX="-380" frameY="-169" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0003" x="3559" y="1763" width="617" height="871" frameX="-374" frameY="-177" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0004" x="3559" y="1763" width="617" height="871" frameX="-374" frameY="-177" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0005" x="2981" y="885" width="587" height="875" frameX="-404" frameY="-173" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0006" x="2981" y="885" width="587" height="875" frameX="-404" frameY="-173" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0007" x="1151" y="1" width="572" height="887" frameX="-419" frameY="-161" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnL0008" x="1151" y="1" width="572" height="887" frameX="-419" frameY="-161" frameWidth="1284" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0001" x="2371" y="1773" width="571" height="880" frameX="-408" frameY="-168" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0002" x="2371" y="1773" width="571" height="880" frameX="-408" frameY="-168" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0003" x="3560" y="1" width="577" height="874" frameX="-402" frameY="-174" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0004" x="3560" y="1" width="577" height="874" frameX="-402" frameY="-174" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0005" x="2946" y="1" width="611" height="881" frameX="-368" frameY="-167" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0006" x="2946" y="1" width="611" height="881" frameX="-368" frameY="-167" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0007" x="1151" y="1778" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopTurnR0008" x="1151" y="1778" width="607" height="884" frameX="-372" frameY="-164" frameWidth="1272" frameHeight="1335"/>
+	<SubTexture name="SlyShopidle0001" x="1" y="1" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0002" x="1" y="1" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0003" x="1" y="893" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0004" x="1" y="893" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0005" x="1" y="1785" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0006" x="1" y="1785" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0007" x="1" y="1785" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0008" x="576" y="1" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0009" x="576" y="1" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0010" x="576" y="893" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0011" x="576" y="893" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0012" x="576" y="1785" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0013" x="576" y="1785" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
+	<SubTexture name="SlyShopidle0014" x="576" y="1785" width="572" height="889" frameX="-284" frameY="-159" frameWidth="1130" frameHeight="1185"/>
 </TextureAtlas>
