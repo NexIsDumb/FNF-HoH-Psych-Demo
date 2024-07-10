@@ -4,6 +4,8 @@ class Constants {
 
 	public static inline final DEFAULT_CHARACTER = 'bf'; // In case a character is missing, it will use BF on its place
 
+	public static inline final GAY = "you";
+
 	public static var GENERIC_FONT(get, null):String = null;
 
 	private inline static function get_GENERIC_FONT():String {
