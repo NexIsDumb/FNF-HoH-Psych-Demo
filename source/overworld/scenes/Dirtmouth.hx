@@ -82,7 +82,7 @@ class Dirtmouth extends BaseScene {
 		add(townmid);
 
 		if (!ClientPrefs.data.lowQuality) {
-			var lights2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth_Hymns_of_the_sorcerers_stone2_20230913200805', 'hymns'));
+			var lights2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights2', 'hymns'));
 			lights2.antialiasing = ClientPrefs.data.antialiasing;
 			lights2.blend = MULTIPLY;
 			lights2.alpha = 0.8;
@@ -99,7 +99,7 @@ class Dirtmouth extends BaseScene {
 		lamp1.screenCenterXY();
 		lamp1.updateHitbox();
 		add(lamp1);
-		lights4 = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171515', 'hymns'));
+		lights4 = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights4', 'hymns'));
 		lights4.antialiasing = ClientPrefs.data.antialiasing;
 		lights4.blend = SCREEN;
 		lights4.screenCenterXY();
@@ -109,7 +109,7 @@ class Dirtmouth extends BaseScene {
 		add(lights4);
 
 		if (!ClientPrefs.data.lowQuality) {
-			var lights3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth_Hymns_of_the_sorcerers_stone2_20230913201027', 'hymns'));
+			var lights3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights3', 'hymns'));
 			lights3.antialiasing = ClientPrefs.data.antialiasing;
 			lights3.blend = ADD;
 			lights3.alpha = 0.2;
@@ -153,7 +153,7 @@ class Dirtmouth extends BaseScene {
 		buildingfront1.updateHitbox();
 		add(buildingfront1);
 		if (!ClientPrefs.data.lowQuality) {
-			var lights5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171511', 'hymns'));
+			var lights5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights5', 'hymns'));
 			lights5.antialiasing = ClientPrefs.data.antialiasing;
 			lights5.blend = SCREEN;
 			lights5.screenCenterXY();
@@ -313,7 +313,7 @@ class Dirtmouth extends BaseScene {
 		add(lamplights);
 
 		if (!ClientPrefs.data.lowQuality) {
-			var lights1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/Dirtmouth Hymns of the sorcerers stone3_20230910171523', 'hymns'));
+			var lights1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights1', 'hymns'));
 			lights1.antialiasing = ClientPrefs.data.antialiasing;
 			lights1.blend = ADD;
 			lights1.screenCenterXY();
