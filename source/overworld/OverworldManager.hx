@@ -186,7 +186,7 @@ class OverworldManager extends MusicBeatState {
 					scene.variableInitialize();
 					scene.createPost();
 					if (slyshopexit) {
-						player.x = -142.093665389527;
+						player.x = -142.09;
 						player.flipX = true;
 					}
 

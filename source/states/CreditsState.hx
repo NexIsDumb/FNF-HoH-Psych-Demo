@@ -754,7 +754,6 @@ void main() {
 	vec4 defaultColor = flixel_texture2D(bitmap, uv);
 
 	gl_FragColor.xyz = defaultColor.xyz + uLightIntensity * lighting * uLightColor;
-	//gl_FragColor.xyz += ambientcolor;
 	gl_FragColor.xyz *= (ao * 0.5 + 0.5);
 
 	// Alpha

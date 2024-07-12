@@ -242,7 +242,7 @@ class Shop extends FlxSpriteGroup {
 		}
 
 		function callbackk() {
-			final playerXTweenFinal = 597.828381914635;
+			final playerXTweenFinal = 597.83;
 			DataSaver.loadData(DataSaver.saveFile);
 			if (purchasedall) {
 				FlxTween.tween(OverworldManager.instance.player, {x: playerXTweenFinal}, .75, {ease: FlxEase.quintOut});

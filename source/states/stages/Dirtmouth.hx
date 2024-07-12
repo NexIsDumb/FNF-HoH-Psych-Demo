@@ -143,7 +143,7 @@ class Dirtmouth extends BaseStage {
 		if (DataSaver.unlocked.exists("slydoor")) {
 			if (DataSaver.unlocked.get("slydoor") != null) {
 				sly.animation.play('open', true);
-				sly.y -= Std.int(125 * 2.41509434);
+				sly.y -= 301;
 			}
 		}
 
@@ -165,7 +165,7 @@ class Dirtmouth extends BaseStage {
 		playerfog = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/glow', 'hymns'));
 		playerfog.antialiasing = ClientPrefs.data.antialiasing;
 		playerfog.blend = ADD;
-		playerfog.scale.set(2.41509434, 2.41509434);
+		playerfog.scale.set(2.415, 2.415);
 		playerfog.updateHitbox();
 		playerfog.alpha = 0.75;
 	}

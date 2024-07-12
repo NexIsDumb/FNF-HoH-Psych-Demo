@@ -214,7 +214,7 @@ class SaveState extends MenuBeatState {
 								for (i in 0...savefiles.length) {
 									var savefile = savefiles[i];
 									new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-										savefile.BEGONETHOT();
+										savefile.hideStuff();
 									});
 								}
 
@@ -226,7 +226,7 @@ class SaveState extends MenuBeatState {
 								for (i in 0...savefiles.length) {
 									var savefile = savefiles[i];
 									new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-										savefile.BEGONETHOT();
+										savefile.hideStuff();
 									});
 								}
 
@@ -248,7 +248,7 @@ class SaveState extends MenuBeatState {
 								for (i in 0...savefiles.length) {
 									var savefile = savefiles[i];
 									new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-										savefile.BEGONETHOT();
+										savefile.hideStuff();
 									});
 								}
 
@@ -286,7 +286,7 @@ class SaveState extends MenuBeatState {
 						for (i in 0...savefiles.length) {
 							var savefile = savefiles[i];
 							new FlxTimer().start(0.125 * i, function(tmr:FlxTimer) {
-								savefile.BEGONETHOT();
+								savefile.hideStuff();
 							});
 						}
 

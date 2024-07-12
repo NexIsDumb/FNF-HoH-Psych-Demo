@@ -21,7 +21,7 @@ import lime.media.openal.ALSource;
 import lime.media.AudioManager;
 import lime.media.OpenALAudioContext;
 #end
-//import lime.utils.Log;
+// import lime.utils.Log;
 import lime.utils.UInt8Array;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -264,13 +264,14 @@ static void media_player_callbacks(const libvlc_event_t *p_event, void *p_data)
 	hx::SetTopOfStack((int *)0, true);
 }')
 @:keep
-class Video extends Bitmap
-{
-	//Supress warnings
-	public var Log_warn(x:Dynamic){
-		//Log.warn(x);
+class Video extends Bitmap {
+	// Supress warnings
+	public var Log_warn(x:Dynamic)
+
+	{
+		// Log.warn(x);
 	}
-	
+
 	/**
 	 * Indicates whether to use GPU texture for rendering.
 	 *
@@ -540,8 +541,7 @@ class Video extends Bitmap
 	 *
 	 * @param smoothing Whether or not the object is smoothed when scaled.
 	 */
-	public function new(smoothing:Bool = true):Void
-	{
+	public function new(smoothing:Bool = true):Void {
 		super(null, AUTO, smoothing);
 
 		while (Handle.loading)
@@ -560,33 +560,24 @@ class Video extends Bitmap
 	 *
 	 * @return `true` if the media loaded successfully or `false` if there's an error.
 	 */
-	public function load(location:Location, ?options:Array<String>):Bool
-	{
+	public function load(location:Location, ?options:Array<String>):Bool {
 		if (Handle.instance == null)
 			return false;
 
-		if (location != null)
-		{
-			if ((location is String))
-			{
+		if (location != null) {
+			if ((location is String)) {
 				final location:String = cast(location, String);
 
 				if (location.contains('://'))
 					mediaItem = LibVLC.media_new_location(Handle.instance, location);
-				else if (location.length > 0)
-				{
+				else if (location.length > 0) {
 					mediaItem = LibVLC.media_new_path(Handle.instance,
 						#if windows Path.normalize(location).split('/').join('\\') #else Path.normalize(location) #end);
-				}
-				else
+				} else
 					return false;
-			}
-			else if ((location is Int))
-			{
+			} else if ((location is Int)) {
 				mediaItem = LibVLC.media_new_fd(Handle.instance, cast(location, Int));
-			}
-			else if ((location is Bytes))
-			{
+			} else if ((location is Bytes)) {
 				final data:BytesData = cast(location, Bytes).getData();
 
 				mediaData = untyped __cpp__('new unsigned char[{0}]', data.length);
@@ -597,22 +588,18 @@ class Video extends Bitmap
 				mediaSize = data.length;
 				mediaItem = LibVLC.media_new_callbacks(Handle.instance, untyped __cpp__('media_open'), untyped __cpp__('media_read'),
 					untyped __cpp__('media_seek'), null, untyped __cpp__('this'));
-			}
-			else
+			} else
 				return false;
-		}
-		else
+		} else
 			return false;
 
-		if (mediaPlayer == null)
-		{
+		if (mediaPlayer == null) {
 			mediaPlayer = LibVLC.media_player_new(Handle.instance);
 
 			if (Application.current != null && !Application.current.onUpdate.has(update))
 				Application.current.onUpdate.add(update);
 
-			if (eventManager == null)
-			{
+			if (eventManager == null) {
 				eventManager = LibVLC.media_player_event_manager(mediaPlayer);
 
 				if (LibVLC.event_attach(eventManager, LibVLC_MediaPlayerOpening, untyped __cpp__('media_player_callbacks'), untyped __cpp__('this')) != 0)
@@ -663,10 +650,8 @@ class Video extends Bitmap
 			LibVLC.video_set_format_callbacks(mediaPlayer, untyped __cpp__('video_format_setup'), null);
 
 			#if (HXVLC_OPENAL && lime_openal)
-			if (AudioManager.context != null)
-			{
-				switch (AudioManager.context.type)
-				{
+			if (AudioManager.context != null) {
+				switch (AudioManager.context.type) {
 					case OPENAL:
 						alAudioContext = AudioManager.context.openal;
 
@@ -683,19 +668,15 @@ class Video extends Bitmap
 
 						LibVLC.audio_set_volume_callback(mediaPlayer, untyped __cpp__('audio_set_volume'));
 						LibVLC.audio_set_format(mediaPlayer, "S16N", 44100, 2);
-					default:
-						Log_warn('Unable to use a sound output.');
+					default: Log_warn('Unable to use a sound output.');
 				}
-			}
-			else
+			} else
 				Log_warn('AudioManager\'s context isn\'t available.');
 			#end
 		}
 
-		if (options != null)
-		{
-			for (option in options)
-			{
+		if (options != null) {
+			for (option in options) {
 				if (option != null && option.length > 0)
 					LibVLC.media_add_option(mediaItem, option);
 			}
@@ -711,16 +692,14 @@ class Video extends Bitmap
 	 *
 	 * @return `true` if the media player started playing or `false` if there's an error.
 	 */
-	public function play():Bool
-	{
+	public function play():Bool {
 		return mediaPlayer != null && LibVLC.media_player_play(mediaPlayer) == 0;
 	}
 
 	/**
 	 * Call this function to stop the media player.
 	 */
-	public function stop():Void
-	{
+	public function stop():Void {
 		if (mediaPlayer != null)
 			LibVLC.media_player_stop(mediaPlayer);
 	}
@@ -728,8 +707,7 @@ class Video extends Bitmap
 	/**
 	 * Call this function to pause the media player.
 	 */
-	public function pause():Void
-	{
+	public function pause():Void {
 		if (mediaPlayer != null)
 			LibVLC.media_player_set_pause(mediaPlayer, 1);
 	}
@@ -737,8 +715,7 @@ class Video extends Bitmap
 	/**
 	 * Call this function to resume the media player.
 	 */
-	public function resume():Void
-	{
+	public function resume():Void {
 		if (mediaPlayer != null)
 			LibVLC.media_player_set_pause(mediaPlayer, 0);
 	}
@@ -746,8 +723,7 @@ class Video extends Bitmap
 	/**
 	 * Call this function to toggle the pause of the media player.
 	 */
-	public function togglePaused():Void
-	{
+	public function togglePaused():Void {
 		if (mediaPlayer != null)
 			LibVLC.media_player_pause(mediaPlayer);
 	}
@@ -755,8 +731,7 @@ class Video extends Bitmap
 	/**
 	 * Call this function to set the previous chapter (if applicable).
 	 */
-	public function previousChapter():Void
-	{
+	public function previousChapter():Void {
 		if (mediaPlayer != null)
 			LibVLC.media_player_previous_chapter(mediaPlayer);
 	}
@@ -764,8 +739,7 @@ class Video extends Bitmap
 	/**
 	 * Call this function to set the next chapter (if applicable).
 	 */
-	public function nextChapter():Void
-	{
+	public function nextChapter():Void {
 		if (mediaPlayer != null)
 			LibVLC.media_player_next_chapter(mediaPlayer);
 	}
@@ -773,10 +747,8 @@ class Video extends Bitmap
 	/**
 	 * Frees the memory that is used to store the Video object.
 	 */
-	public function dispose():Void
-	{
-		if (eventManager != null)
-		{
+	public function dispose():Void {
+		if (eventManager != null) {
 			LibVLC.event_detach(eventManager, LibVLC_MediaPlayerOpening, untyped __cpp__('media_player_callbacks'), untyped __cpp__('this'));
 			LibVLC.event_detach(eventManager, LibVLC_MediaPlayerPlaying, untyped __cpp__('media_player_callbacks'), untyped __cpp__('this'));
 			LibVLC.event_detach(eventManager, LibVLC_MediaPlayerStopped, untyped __cpp__('media_player_callbacks'), untyped __cpp__('this'));
@@ -792,8 +764,7 @@ class Video extends Bitmap
 			LibVLC.event_detach(eventManager, LibVLC_MediaPlayerChapterChanged, untyped __cpp__('media_player_callbacks'), untyped __cpp__('this'));
 		}
 
-		if (mediaPlayer != null)
-		{
+		if (mediaPlayer != null) {
 			LibVLC.media_player_stop(mediaPlayer);
 			LibVLC.media_player_release(mediaPlayer);
 		}
@@ -804,12 +775,10 @@ class Video extends Bitmap
 		if (Application.current != null && Application.current.onUpdate.has(update))
 			Application.current.onUpdate.remove(update);
 
-		if (mediaItem != null)
-		{
+		if (mediaItem != null) {
 			LibVLC.media_release(mediaItem);
 
-			if (mediaData != null)
-			{
+			if (mediaData != null) {
 				untyped __cpp__('delete[] {0}', mediaData);
 				mediaData = null;
 			}
@@ -819,44 +788,37 @@ class Video extends Bitmap
 			mediaItem = null;
 		}
 
-		if (audioOutput != null)
-		{
+		if (audioOutput != null) {
 			LibVLC.audio_output_list_release(audioOutput);
 			audioOutput = null;
 		}
 
-		if (bitmapData != null)
-		{
+		if (bitmapData != null) {
 			bitmapData.dispose();
 			bitmapData = null;
 		}
 
-		if (texture != null)
-		{
+		if (texture != null) {
 			texture.dispose();
 			texture = null;
 		}
 
 		formatWidth = formatHeight = 0;
 
-		if (planes != null)
-		{
+		if (planes != null) {
 			untyped __cpp__('delete[] {0}', planes);
 			planes = null;
 		}
 
 		#if (HXVLC_OPENAL && lime_openal)
-		if (alAudioContext != null)
-		{
-			if (alSource != null)
-			{
+		if (alAudioContext != null) {
+			if (alSource != null) {
 				alAudioContext.sourceStop(alSource);
 				alAudioContext.deleteSource(alSource);
 				alSource = null;
 			}
 
-			if (alBuffers != null)
-			{
+			if (alBuffers != null) {
 				alAudioContext.deleteBuffers(alBuffers);
 				alBuffers = null;
 			}
@@ -870,48 +832,41 @@ class Video extends Bitmap
 	 * These events are not 100% accurate as they are called synchronously and the events from libVLC are called from another thread.
 	 */
 	@:noCompletion
-	private function update(deltaTime:Int):Void
-	{
+	private function update(deltaTime:Int):Void {
 		if (!events.contains(true))
 			return;
 
-		if (events[0])
-		{
+		if (events[0]) {
 			events[0] = false;
 
 			onOpening.dispatch();
 		}
 
-		if (events[1])
-		{
+		if (events[1]) {
 			events[1] = false;
 
 			onPlaying.dispatch();
 		}
 
-		if (events[2])
-		{
+		if (events[2]) {
 			events[2] = false;
 
 			onStopped.dispatch();
 		}
 
-		if (events[3])
-		{
+		if (events[3]) {
 			events[3] = false;
 
 			onPaused.dispatch();
 		}
 
-		if (events[4])
-		{
+		if (events[4]) {
 			events[4] = false;
 
 			onEndReached.dispatch();
 		}
 
-		if (events[5])
-		{
+		if (events[5]) {
 			events[5] = false;
 
 			final errmsg:String = cast(LibVLC.errmsg(), String);
@@ -922,126 +877,101 @@ class Video extends Bitmap
 				onEncounteredError.dispatch('Unknown error');
 		}
 
-		if (events[6])
-		{
+		if (events[6]) {
 			events[6] = false;
 
 			onMediaChanged.dispatch();
 		}
 
-		if (events[7])
-		{
+		if (events[7]) {
 			events[7] = false;
 
 			onCorked.dispatch();
 		}
 
-		if (events[8])
-		{
+		if (events[8]) {
 			events[8] = false;
 
 			onUncorked.dispatch();
 		}
 
-		if (events[9])
-		{
+		if (events[9]) {
 			events[9] = false;
 
 			onTimeChanged.dispatch(time);
 		}
 
-		if (events[10])
-		{
+		if (events[10]) {
 			events[10] = false;
 
 			onPositionChanged.dispatch(position);
 		}
 
-		if (events[11])
-		{
+		if (events[11]) {
 			events[11] = false;
 
 			onLengthChanged.dispatch(length);
 		}
 
-		if (events[12])
-		{
+		if (events[12]) {
 			events[12] = false;
 
 			onChapterChanged.dispatch(chapter);
 		}
 
-		if (events[13])
-		{
+		if (events[13]) {
 			events[13] = false;
 
 			var mustRecreate:Bool = false;
 
-			if (bitmapData != null)
-			{
+			if (bitmapData != null) {
 				@:privateAccess
-				if ((bitmapData.width != formatWidth && bitmapData.height != formatHeight)
-					|| ((!useTexture && bitmapData.__texture != null) || (useTexture && bitmapData.image != null)))
-				{
+				if ((bitmapData.width != formatWidth && bitmapData.height != formatHeight) || ((!useTexture && bitmapData.__texture != null) || (useTexture && bitmapData.image != null))) {
 					bitmapData.dispose();
 
-					if (texture != null)
-					{
+					if (texture != null) {
 						texture.dispose();
 						texture = null;
 					}
 
 					mustRecreate = true;
 				}
-			}
-			else
+			} else
 				mustRecreate = true;
 
-			if (mustRecreate)
-			{
-				try
-				{
-					if (useTexture && Lib.current.stage != null && Lib.current.stage.context3D != null)
-					{
+			if (mustRecreate) {
+				try {
+					if (useTexture && Lib.current.stage != null && Lib.current.stage.context3D != null) {
 						texture = Lib.current.stage.context3D.createRectangleTexture(formatWidth, formatHeight, BGRA, true);
 
 						bitmapData = BitmapData.fromTexture(texture);
-					}
-					else
-					{
+					} else {
 						if (useTexture)
 							Log_warn('Unable to utilize GPU texture, resorting to CPU-based image rendering.');
 
 						bitmapData = new BitmapData(formatWidth, formatHeight, true, 0);
 					}
-				}
-				catch (e:Exception)
+				} catch (e:Exception)
 					Log.error('Failed to create video\'s texture: ${e.message}');
 
 				onFormatSetup.dispatch();
 			}
 		}
 
-		if (events[14])
-		{
+		if (events[14]) {
 			events[14] = false;
 
-			if (__renderable && planes != null)
-			{
-				try
-				{
+			if (__renderable && planes != null) {
+				try {
 					final planesBytes:Bytes = Bytes.ofData(cpp.Pointer.fromRaw(planes).toUnmanagedArray(formatWidth * formatHeight * 4));
 
-					if (texture != null)
-					{
+					if (texture != null) {
 						texture.uploadFromTypedArray(UInt8Array.fromBytes(planesBytes));
 
 						__setRenderDirty();
-					}
-					else if (bitmapData != null && bitmapData.image != null)
+					} else if (bitmapData != null && bitmapData.image != null)
 						bitmapData.setPixels(bitmapData.rect, planesBytes);
-				}
-				catch (e:Exception)
+				} catch (e:Exception)
 					Log.error('An error occurred while attempting to render the video: ${e.message}');
 
 				onDisplay.dispatch();
@@ -1050,23 +980,19 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function audioPlay(samples:cpp.RawPointer<cpp.UInt8>, count:cpp.UInt32):Void
-	{
+	private function audioPlay(samples:cpp.RawPointer<cpp.UInt8>, count:cpp.UInt32):Void {
 		#if (HXVLC_OPENAL && lime_openal)
-		if (alAudioContext != null && alSource != null && alBuffers != null)
-		{
+		if (alAudioContext != null && alSource != null && alBuffers != null) {
 			final processedBuffers:Int = alAudioContext.getSourcei(alSource, alAudioContext.BUFFERS_PROCESSED);
 
-			if (processedBuffers > 0)
-			{
+			if (processedBuffers > 0) {
 				for (alBuffer in alAudioContext.sourceUnqueueBuffers(alSource, processedBuffers))
 					alBuffers.push(alBuffer);
 			}
 
 			final samplesBytes:Bytes = Bytes.ofData(cpp.Pointer.fromRaw(samples).toUnmanagedArray(count));
 
-			if (alBuffers.length > 0)
-			{
+			if (alBuffers.length > 0) {
 				final newBuffer:ALBuffer = alBuffers.pop();
 
 				alAudioContext.bufferData(newBuffer, alAudioContext.FORMAT_STEREO16, UInt8Array.fromBytes(samplesBytes), samplesBytes.length, 44100);
@@ -1080,8 +1006,7 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function audioPause():Void
-	{
+	private function audioPause():Void {
 		#if (HXVLC_OPENAL && lime_openal)
 		if (alAudioContext != null && alSource != null)
 			alAudioContext.sourcePause(alSource);
@@ -1089,8 +1014,7 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function audioResume():Void
-	{
+	private function audioResume():Void {
 		#if (HXVLC_OPENAL && lime_openal)
 		if (alAudioContext != null && alSource != null)
 			alAudioContext.sourcePlay(alSource);
@@ -1098,8 +1022,7 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function audioSetVolume(volume:Single, mute:Bool):Void
-	{
+	private function audioSetVolume(volume:Single, mute:Bool):Void {
 		#if (HXVLC_OPENAL && lime_openal)
 		if (alAudioContext != null && alSource != null)
 			alAudioContext.sourcef(alSource, alAudioContext.GAIN, mute ? 0 : volume);
@@ -1107,10 +1030,8 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_mrl():String
-	{
-		if (mediaPlayer != null)
-		{
+	private function get_mrl():String {
+		if (mediaPlayer != null) {
 			final currentMediaItem:cpp.RawPointer<LibVLC_Media_T> = LibVLC.media_player_get_media(mediaPlayer);
 
 			if (currentMediaItem != null)
@@ -1121,14 +1042,11 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_stats():Null<Stats>
-	{
-		if (mediaPlayer != null)
-		{
+	private function get_stats():Null<Stats> {
+		if (mediaPlayer != null) {
 			final currentMediaItem:cpp.RawPointer<LibVLC_Media_T> = LibVLC.media_player_get_media(mediaPlayer);
 
-			if (currentMediaItem != null)
-			{
+			if (currentMediaItem != null) {
 				var currentMediaStats:LibVLC_Media_Stats_T = LibVLC_Media_Stats_T.alloc();
 
 				if (LibVLC.media_get_stats(currentMediaItem, cpp.RawPointer.addressOf(currentMediaStats)) != 0)
@@ -1140,10 +1058,8 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_duration():Int64
-	{
-		if (mediaPlayer != null)
-		{
+	private function get_duration():Int64 {
+		if (mediaPlayer != null) {
 			final currentMediaItem:cpp.RawPointer<LibVLC_Media_T> = LibVLC.media_player_get_media(mediaPlayer);
 
 			if (currentMediaItem != null)
@@ -1154,26 +1070,22 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_isPlaying():Bool
-	{
+	private function get_isPlaying():Bool {
 		return mediaPlayer != null && LibVLC.media_player_is_playing(mediaPlayer) != 0;
 	}
 
 	@:noCompletion
-	private function get_length():Int64
-	{
+	private function get_length():Int64 {
 		return mediaPlayer != null ? LibVLC.media_player_get_length(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function get_time():Int64
-	{
+	private function get_time():Int64 {
 		return mediaPlayer != null ? LibVLC.media_player_get_time(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function set_time(value:Int64):Int64
-	{
+	private function set_time(value:Int64):Int64 {
 		if (mediaPlayer != null)
 			LibVLC.media_player_set_time(mediaPlayer, value);
 
@@ -1181,14 +1093,12 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_position():Single
-	{
+	private function get_position():Single {
 		return mediaPlayer != null ? LibVLC.media_player_get_position(mediaPlayer) : -1.0;
 	}
 
 	@:noCompletion
-	private function set_position(value:Single):Single
-	{
+	private function set_position(value:Single):Single {
 		if (mediaPlayer != null)
 			LibVLC.media_player_set_position(mediaPlayer, value);
 
@@ -1196,14 +1106,12 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_chapter():Int
-	{
+	private function get_chapter():Int {
 		return mediaPlayer != null ? LibVLC.media_player_get_chapter(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function set_chapter(value:Int):Int
-	{
+	private function set_chapter(value:Int):Int {
 		if (mediaPlayer != null)
 			LibVLC.media_player_set_chapter(mediaPlayer, value);
 
@@ -1211,26 +1119,22 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_chapterCount():Int
-	{
+	private function get_chapterCount():Int {
 		return mediaPlayer != null ? LibVLC.media_player_get_chapter_count(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function get_willPlay():Bool
-	{
+	private function get_willPlay():Bool {
 		return mediaPlayer != null && LibVLC.media_player_will_play(mediaPlayer) != 0;
 	}
 
 	@:noCompletion
-	private function get_rate():Single
-	{
+	private function get_rate():Single {
 		return mediaPlayer != null ? LibVLC.media_player_get_rate(mediaPlayer) : 1;
 	}
 
 	@:noCompletion
-	private function set_rate(value:Single):Single
-	{
+	private function set_rate(value:Single):Single {
 		if (mediaPlayer != null && LibVLC.media_player_set_rate(mediaPlayer, value) == -1)
 			Log_warn('Failed to set play rate');
 
@@ -1238,30 +1142,25 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_isSeekable():Bool
-	{
+	private function get_isSeekable():Bool {
 		return mediaPlayer != null && LibVLC.media_player_is_seekable(mediaPlayer) != 0;
 	}
 
 	@:noCompletion
-	private function get_canPause():Bool
-	{
+	private function get_canPause():Bool {
 		return mediaPlayer != null && LibVLC.media_player_can_pause(mediaPlayer) != 0;
 	}
 
 	@:noCompletion
-	private function get_outputModules():Array<{name:String, description:String}>
-	{
+	private function get_outputModules():Array<{name:String, description:String}> {
 		var modules:Array<{name:String, description:String}> = null;
 
-		if (audioOutput != null)
-		{
+		if (audioOutput != null) {
 			modules = [];
 
 			var temp:cpp.RawPointer<LibVLC_Audio_Output_T> = audioOutput;
 
-			while (temp != null)
-			{
+			while (temp != null) {
 				modules.push({name: temp[0].psz_name, description: temp[0].psz_description});
 
 				temp = temp[0].p_next;
@@ -1272,8 +1171,7 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function set_output(value:String):String
-	{
+	private function set_output(value:String):String {
 		if (mediaPlayer != null && LibVLC.audio_output_set(mediaPlayer, value) != 0)
 			Log_warn('Failed to set audio output module');
 
@@ -1281,14 +1179,12 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_mute():Bool
-	{
+	private function get_mute():Bool {
 		return mediaPlayer != null && LibVLC.audio_get_mute(mediaPlayer) > 0;
 	}
 
 	@:noCompletion
-	private function set_mute(value:Bool):Bool
-	{
+	private function set_mute(value:Bool):Bool {
 		if (mediaPlayer != null)
 			LibVLC.audio_set_mute(mediaPlayer, value ? 1 : 0);
 
@@ -1296,35 +1192,30 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_volume():Int
-	{
+	private function get_volume():Int {
 		return mediaPlayer != null ? LibVLC.audio_get_volume(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function set_volume(value:Int):Int
-	{
-		if (mediaPlayer != null && LibVLC.audio_set_volume(mediaPlayer, value) == -1)
-			Log_warn('The volume is out of range');
+	private function set_volume(value:Int):Int {
+		if (mediaPlayer != null && LibVLC.audio_set_volume(mediaPlayer, value) == -1) {}
+		// Log_warn('The volume is out of range');
 
 		return value;
 	}
 
 	@:noCompletion
-	private function get_trackCount():Int
-	{
+	private function get_trackCount():Int {
 		return mediaItem != null ? LibVLC.audio_get_track_count(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function get_track():Int
-	{
+	private function get_track():Int {
 		return mediaPlayer != null ? LibVLC.audio_get_track(mediaPlayer) : -1;
 	}
 
 	@:noCompletion
-	private function set_track(value:Int):Int
-	{
+	private function set_track(value:Int):Int {
 		if (mediaPlayer != null && LibVLC.audio_set_track(mediaPlayer, value) == -1)
 			Log_warn('Failed to set audio track');
 
@@ -1332,14 +1223,12 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_channel():Int
-	{
+	private function get_channel():Int {
 		return mediaPlayer != null ? LibVLC.audio_get_channel(mediaPlayer) : 0;
 	}
 
 	@:noCompletion
-	private function set_channel(value:Int):Int
-	{
+	private function set_channel(value:Int):Int {
 		if (mediaPlayer != null)
 			LibVLC.audio_set_channel(mediaPlayer, value);
 
@@ -1347,14 +1236,12 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_delay():Int64
-	{
+	private function get_delay():Int64 {
 		return mediaPlayer != null ? LibVLC.audio_get_delay(mediaPlayer) : 0;
 	}
 
 	@:noCompletion
-	private function set_delay(value:Int64):Int64
-	{
+	private function set_delay(value:Int64):Int64 {
 		if (mediaPlayer != null)
 			LibVLC.audio_set_delay(mediaPlayer, value);
 
@@ -1362,14 +1249,12 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private function get_role():UInt
-	{
+	private function get_role():UInt {
 		return mediaPlayer != null ? LibVLC.media_player_get_role(mediaPlayer) : 0;
 	}
 
 	@:noCompletion
-	private function set_role(value:UInt):UInt
-	{
+	private function set_role(value:UInt):UInt {
 		if (mediaPlayer != null && LibVLC.media_player_set_role(mediaPlayer, value) == -1)
 			Log_warn('Failed to media player\'s role');
 
@@ -1377,8 +1262,7 @@ class Video extends Bitmap
 	}
 
 	@:noCompletion
-	private override function set_bitmapData(value:BitmapData):BitmapData
-	{
+	private override function set_bitmapData(value:BitmapData):BitmapData {
 		return __bitmapData = value;
 	}
 }

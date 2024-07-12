@@ -95,7 +95,7 @@ class HealthBar extends FlxSpriteGroup {
 
 		barCenter = leftBar.x + leftSize + barOffset.x;
 
-		// flixel is retarded
+		// flixel is dumb
 		leftBar.clipRect = leftBar.clipRect;
 		rightBar.clipRect = rightBar.clipRect;
 	}

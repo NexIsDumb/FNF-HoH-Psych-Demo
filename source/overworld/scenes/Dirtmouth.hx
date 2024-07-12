@@ -601,12 +601,12 @@ class Dirtmouth extends BaseScene {
 					game.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
 					if (elderbug.animation.curAnim.name == "turnLeft") {
-						FlxTween.tween(game.player, {x: 62.9243881445225}, .75, {ease: FlxEase.quintOut});
+						FlxTween.tween(game.player, {x: 62.92}, .75, {ease: FlxEase.quintOut});
 
 						game.player.flipX = true;
 						elderbug.animation.play('talkL');
 					} else {
-						FlxTween.tween(game.player, {x: 378.033862008456}, .75, {ease: FlxEase.quintOut});
+						FlxTween.tween(game.player, {x: 378.03}, .75, {ease: FlxEase.quintOut});
 
 						game.player.flipX = false;
 						elderbug.animation.play('talk');

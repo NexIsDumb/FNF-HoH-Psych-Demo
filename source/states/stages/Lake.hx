@@ -197,7 +197,7 @@ class Lake extends BaseStage {
 							aluba.ID = 100;
 							turnalubas[i] -= 1;
 							// trace(aluba.x);
-							if (turnalubas[i] == 0 || Math.floor(aluba.x) == Math.floor(-1752.14364491962)) {
+							if (turnalubas[i] == 0 || Math.floor(aluba.x) == Math.floor(-1752)) {
 								turnalubas[i] = -10;
 								aluba.animation.play('turn');
 							} else {
@@ -217,7 +217,8 @@ class Lake extends BaseStage {
 
 						turnalubas[i] = FlxG.random.int(3, 8);
 						FlxTween.num(100, 0, 2.5, {ease: FlxEase.quadOut}, function(num) {
-							aluba.ID = Std.int(num);});
+							aluba.ID = Std.int(num);
+						});
 					}
 				}
 			}

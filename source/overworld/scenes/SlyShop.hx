@@ -25,10 +25,10 @@ class SlyShop extends BaseScene {
 		stageproperties.minCam = 600.5;
 		stageproperties.maxCam = 600.5;
 
-		stageproperties.minX = -295.700198223638;
-		stageproperties.maxX = 965.020300349376;
+		stageproperties.minX = -295.70;
+		stageproperties.maxX = 965.02;
 
-		stageproperties.interactionpoints = [[740.542147539586, "slypoint"]];
+		stageproperties.interactionpoints = [[740.54, "slypoint"]];
 	}
 
 	var sly:FlxSprite;
@@ -77,7 +77,7 @@ class SlyShop extends BaseScene {
 		sly.centerOrigin();
 		sly.antialiasing = ClientPrefs.data.antialiasing;
 		add(sly);
-		
+
 		slyshop = true;
 	}
 
@@ -87,8 +87,6 @@ class SlyShop extends BaseScene {
 	var overlayShader:OverlayFilter;
 
 	override public function createPost() {
-		
-
 		interactionflair = new FlxSprite(0, sly.y - 120);
 		interactionflair.scale.set(0.9, 0.9);
 		interactionflair.updateHitbox();
@@ -151,15 +149,16 @@ class SlyShop extends BaseScene {
 	var interactiontext:FlxText;
 	var scenery:Bool = false;
 
-	function getAnimationName(spr:FlxSprite){
-		if(spr.animation != null && spr.animation.curAnim != null){
+	function getAnimationName(spr:FlxSprite) {
+		if (spr.animation != null && spr.animation.curAnim != null) {
 			return spr.animation.curAnim.name;
 		}
 		return "";
 	}
 
-	var lastAnim="";
-	var lastFinished=false;
+	var lastAnim = "";
+	var lastFinished = false;
+
 	override function update(elapsed:Float) {
 		interactionflair.update(elapsed);
 		sly.update(elapsed);
@@ -180,16 +179,16 @@ class SlyShop extends BaseScene {
 		var finish = sly.animation.curAnim.finished;
 		var animName = getAnimationName(sly);
 		if (game.player.x > sly.x && animName != "turnidle") {
-			if (!inshop && finish && animName == "turnRight"){
-				sly.animation.play('turnidle',true);
-			}else if (!inshop) {
-				sly.animation.play('turnRight',false);
+			if (!inshop && finish && animName == "turnRight") {
+				sly.animation.play('turnidle', true);
+			} else if (!inshop) {
+				sly.animation.play('turnRight', false);
 			}
-		} else if(game.player.x <= sly.x && animName != "idle"){
-			if (!inshop && finish && animName == "turnLeft"){
-				sly.animation.play('idle',true);
-			}else if (!inshop) {
-				sly.animation.play('turnLeft',false);
+		} else if (game.player.x <= sly.x && animName != "idle") {
+			if (!inshop && finish && animName == "turnLeft") {
+				sly.animation.play('idle', true);
+			} else if (!inshop) {
+				sly.animation.play('turnLeft', false);
 			}
 		}
 
@@ -269,9 +268,9 @@ class SlyShop extends BaseScene {
 
 					OverworldManager.instance.scene.inshop = true;
 					game.player.status.cripple = true;
-					sly.animation.play('turnLeft',false);
+					sly.animation.play('turnLeft', false);
 					new FlxTimer().start(0.2, function(tmr:FlxTimer) {
-						sly.animation.play('idle',true);
+						sly.animation.play('idle', true);
 					});
 				}
 		}

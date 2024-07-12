@@ -143,7 +143,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		}
 	}
 
-	public function BEGONETHOT() {
+	public function hideStuff() {
 		if (dirtmouthtween != null) {
 			dirtmouthtween.cancel();
 		}
