@@ -19,8 +19,10 @@ class HallowsEve extends BaseStage {
 		backerground.antialiasing = ClientPrefs.data.antialiasing;
 		backerground.scrollFactor.set(0.8, 0.8);
 		backerground.scale.set(1.3, 1.3);
-		fogshader = new FogEffect();
-		backerground.shader = fogshader.shader;
+		if (ClientPrefs.data.shaders) {
+			fogshader = new FogEffect();
+			backerground.shader = fogshader.shader;
+		}
 		add(backerground); // this one
 		var background:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('stage/background', 'hymns'));
 		background.screenCenterXY();

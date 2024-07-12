@@ -88,6 +88,8 @@ class OverworldManager extends MusicBeatState {
 		persistentUpdate = persistentDraw = true;
 		cameraInit();
 
+		FlxG.camera.setFilters([]);
+
 		if (goober == "Dirtmouth") {
 			scene = new Dirtmouth();
 			scene.create();
@@ -95,8 +97,6 @@ class OverworldManager extends MusicBeatState {
 			scene = new SlyShop();
 			scene.create();
 		}
-
-		FlxG.camera.setFilters([]);
 
 		player = new Player(0, 0);
 		player.screenCenterXY();

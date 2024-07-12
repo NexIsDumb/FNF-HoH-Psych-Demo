@@ -160,12 +160,14 @@ void main()
 
 	vec2 aberrated = vec2(amount * pow(distFromCenter.x, 3.0), amount * pow(distFromCenter.y, 3.0));
 
+	vec4 color = texture2D(bitmap, uv);
+
 	gl_FragColor = vec4
 	(
 		texture2D(bitmap, uv - aberrated).r,
-		texture2D(bitmap, uv).g,
+		color.g,
 		texture2D(bitmap, uv + aberrated).b,
-		texture2D(bitmap, uv).a
+		color.a
 	);
 }
 

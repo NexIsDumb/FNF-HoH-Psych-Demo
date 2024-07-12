@@ -283,9 +283,7 @@ class Dirtmouth extends BaseStage {
 
 		chromaticAbberation = new ChromaticAbberation(0.00001);
 		add(chromaticAbberation);
-		var filter1:ShaderFilter = new ShaderFilter(chromaticAbberation.shader);
-
-		camGame.setFilters([filter1]);
+		camGame.addShader(chromaticAbberation.shader);
 
 		_piss = game.soulMeter != null && isStoryMode && !seenCutscene && songName == "first-steps"; // life tutorial  - Nex
 	}

@@ -41,14 +41,14 @@ class Shop extends BaseStage {
 			add(backgroundSpr3);
 		}
 
-		var OverlayShader = new OverlayFilter();
-		var filter:ShaderFilter = new ShaderFilter(OverlayShader.shader);
+		if (ClientPrefs.data.shaders) {
+			var overlayShader = new OverlayFilter();
+			camGame.addShader(overlayShader.shader);
+		}
 
 		chromaticAbberation = new ChromaticAbberation(0.00001);
 		add(chromaticAbberation);
-		var filter1:ShaderFilter = new ShaderFilter(chromaticAbberation.shader);
-
-		camGame.setFilters([filter, filter1]);
+		camGame.addShader(chromaticAbberation.shader);
 
 		var backgroundSpr5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_3_sly', 'hymns'));
 		backgroundSpr5.scale.set(1.05, 1.05);

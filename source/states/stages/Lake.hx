@@ -18,7 +18,7 @@ class Lake extends BaseStage {
 	public var turnalubas:Array<Int> = [];
 
 	override function create() {
-		if (!ClientPrefs.data.lowQuality) {
+		if (ClientPrefs.data.shaders) {
 			fogshader = new FogEffect();
 			// backerground.shader = fogshader.shader;
 		}
@@ -102,7 +102,7 @@ class Lake extends BaseStage {
 		backgroundSpr4.updateHitbox();
 		backgroundSpr4.x -= 250;
 		// backgroundSpr4.y += 150;
-		if (!ClientPrefs.data.lowQuality) {
+		if (fogshader != null) {
 			backgroundSpr4.shader = fogshader.shader;
 		}
 		add(backgroundSpr4);
@@ -161,21 +161,20 @@ class Lake extends BaseStage {
 
 		chromaticAbberation = new ChromaticAbberation(0.00001);
 		add(chromaticAbberation);
-		var filter1:ShaderFilter = new ShaderFilter(chromaticAbberation.shader);
+		camGame.addShader(chromaticAbberation.shader);
 
-		if (!ClientPrefs.data.shaders) {
+		/*if (ClientPrefs.data.shaders) {
 			var bloom = new BloomEffect();
-			var filter2:ShaderFilter = new ShaderFilter(bloom.shader);
 			camHUD.alpha = 0;
 
-			camGame.setFilters([filter2, filter1]);
-		} else {
-			camGame.setFilters([filter1]);
-		}
+			camGame.addShader(bloom.shader);
+		}*/
 	}
 
 	override function update(elapsed:Float) {
-		chromaticAbberation.update(elapsed);
+		if (chromaticAbberation != null) {
+			chromaticAbberation.update(elapsed);
+		}
 		if (fogshader != null) {
 			fogshader.update(elapsed);
 		}

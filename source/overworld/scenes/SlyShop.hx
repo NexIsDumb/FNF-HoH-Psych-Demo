@@ -63,6 +63,9 @@ class SlyShop extends BaseScene {
 
 	var slyTurning:Bool = false;
 	var slyIdling:Bool = false;
+
+	var overlayShader:OverlayFilter;
+
 	override public function createPost() {
 		sly = new FlxSprite(0, 0);
 		sly.frames = Paths.getSparrowAtlas('Overworld/SlyShop', 'hymns');
@@ -76,8 +79,8 @@ class SlyShop extends BaseScene {
 		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnL0', 24, false);
 		sly.animation.addByIndices('turnLeftFrame', 'SlyShopTurnL0', [8], "", 24, false);
 		sly.animation.addByPrefix('turnRight', 'SlyShopTurnR0', 24, false);
-		//sly.animation.addByPrefix('talk', 'elderbug talk loop0', 24, true);
-		//sly.animation.addByPrefix('talkL', 'elderbug talk loop left0', 24, true);
+		// sly.animation.addByPrefix('talk', 'elderbug talk loop0', 24, true);
+		// sly.animation.addByPrefix('talkL', 'elderbug talk loop left0', 24, true);
 		sly.animation.play('idle', true);
 		sly.flipX = true;
 		sly.centerOrigin();
@@ -117,9 +120,10 @@ class SlyShop extends BaseScene {
 		add(backgroundSpr5);
 
 		// Shader
-		var OverlayShader = new OverlayFilter();
-		var filter:ShaderFilter = new ShaderFilter(OverlayShader.shader);
-		FlxG.camera.setFilters([filter]);
+		if (ClientPrefs.data.shaders) {
+			overlayShader = new OverlayFilter();
+			FlxG.camera.addShader(overlayShader.shader);
+		}
 
 		interactionBackdrop = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/textthing', 'hymns'));
 		interactionBackdrop.antialiasing = ClientPrefs.data.antialiasing;
@@ -233,6 +237,14 @@ class SlyShop extends BaseScene {
 					OverworldManager.instance.scene.inshop = true;
 					game.player.status.cripple = true;
 				}
+		}
+	}
+
+	override public function destroy() {
+		super.destroy();
+		if (overlayShader != null) {
+			FlxG.camera.removeShader(overlayShader.shader);
+			overlayShader = null;
 		}
 	}
 }

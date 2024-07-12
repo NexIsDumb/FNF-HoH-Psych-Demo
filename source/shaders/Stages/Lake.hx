@@ -181,7 +181,7 @@ float luma(vec3 color) {
 void main( )
 {
 	vec2 uv = openfl_TextureCoordv;
-	vec2 scalar = 1.0 / vec2(textureSize(bitmap, 0).xy);
+	vec2 scalar = 1.0 / openfl_TextureSize;
 
 	vec3 col = texture2D(bitmap, uv).rgb;
 

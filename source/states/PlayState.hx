@@ -635,27 +635,12 @@ class PlayState extends MusicBeatState {
 			});
 		}
 
-		noirFilter = new NoirFilter(0.0);
-		add(noirFilter);
-		var filter2:ShaderFilter = new ShaderFilter(noirFilter.shader);
-		var silly:Array<openfl.filters.BitmapFilter> = camGame.filters;
-		trace(silly);
-		if (silly == null || silly.length == 0) {
-			trace("what the sigma?");
-			camGame.setFilters([filter2]);
-		} else {
-			trace("what the sigma2?");
-			silly.push(filter2);
-			trace(silly);
-			camGame.setFilters(silly);
-		}
+		if (ClientPrefs.data.shaders) {
+			noirFilter = new NoirFilter(0.0);
+			add(noirFilter);
 
-		var silly2:Array<openfl.filters.BitmapFilter> = camHUD.filters;
-		if (silly2 == null || silly2.length == 0) {
-			camHUD.setFilters([filter2]);
-		} else {
-			silly2.push(filter2);
-			camHUD.setFilters(silly2);
+			camGame.addShader(noirFilter.shader);
+			camHUD.addShader(noirFilter.shader);
 		}
 
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
@@ -2346,19 +2331,20 @@ class PlayState extends MusicBeatState {
 			case 'HUD Transparency': FlxTween.tween(camHUD, {alpha: Std.parseFloat(value1)}, Std.parseFloat(value2), {ease: FlxEase.quadOut});
 
 			case 'Set Saturation':
-				var amount:Float = Std.parseFloat(value1);
-				var speed:Float = Std.parseFloat(value2);
-				if (Math.isNaN(amount))
-					amount = 0;
+				if (ClientPrefs.data.shaders) {
+					var amount:Float = Std.parseFloat(value1);
+					var speed:Float = Std.parseFloat(value2);
+					if (Math.isNaN(amount))
+						amount = 0;
 
-				if (Math.isNaN(speed))
-					speed = 0;
+					if (Math.isNaN(speed))
+						speed = 0;
 
-				if (BnWtween != null)
-					BnWtween.cancel();
+					if (BnWtween != null)
+						BnWtween.cancel();
 
-				BnWtween = FlxTween.tween(noirFilter, {amt: amount * -1}, speed, {ease: FlxEase.sineOut});
-
+					BnWtween = FlxTween.tween(noirFilter, {amt: amount * -1}, speed, {ease: FlxEase.sineOut});
+				}
 			case 'Set Camera Zoom':
 				var val1:Float = Std.parseFloat(value1);
 				var val2:Float = Std.parseFloat(value2);

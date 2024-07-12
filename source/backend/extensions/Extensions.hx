@@ -1,5 +1,7 @@
 package backend.extensions;
 
+import flixel.system.FlxAssets.FlxShader;
+import openfl.filters.ShaderFilter;
 import flixel.FlxObject;
 import flixel.graphics.FlxGraphic;
 
@@ -107,5 +109,31 @@ class Extensions {
 		spr.y = (FlxG.height - spr.height) / 2;
 
 		return spr;
+	}
+
+	public static function addShader(camera:FlxCamera, shader:FlxShader) {
+		if (shader == null || camera == null)
+			return null;
+
+		var filter:ShaderFilter = null;
+		if (camera.filters == null)
+			camera.filters = [];
+		camera.filters.push(filter = new ShaderFilter(shader));
+		return filter;
+	}
+
+	public static function removeShader(camera:FlxCamera, shader:FlxShader):Bool {
+		if (camera.filters == null)
+			camera.filters = [];
+		for (f in camera.filters) {
+			if (f is ShaderFilter) {
+				var sf = cast(f, ShaderFilter);
+				if (sf.shader == shader) {
+					camera.filters.remove(f);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
