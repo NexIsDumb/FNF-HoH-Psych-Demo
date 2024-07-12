@@ -395,7 +395,7 @@ class PlayState extends MusicBeatState {
 			cameraSpeed = stageData.camera_speed;
 
 		boyfriendCameraOffset = stageData.camera_boyfriend;
-		if (boyfriendCameraOffset == null) // Fucks sake should have done it since the start :rolling_eyes:
+		if (boyfriendCameraOffset == null)
 			boyfriendCameraOffset = [0, 0];
 
 		opponentCameraOffset = stageData.camera_opponent;

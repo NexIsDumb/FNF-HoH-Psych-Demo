@@ -285,13 +285,13 @@ class Dirtmouth extends BaseStage {
 		add(chromaticAbberation);
 		camGame.addShader(chromaticAbberation.shader);
 
-		_piss = game.soulMeter != null && isStoryMode && !seenCutscene && songName == "first-steps"; // life tutorial  - Nex
+		showLifeTut = game.soulMeter != null && isStoryMode && !seenCutscene && songName == "first-steps"; // life tutorial  - Nex
 	}
 
-	private var _piss:Bool;
+	private var showLifeTut:Bool;
 
 	override function countdownTick(count:Countdown, num:Int) {
-		if (_piss) {
+		if (showLifeTut) {
 			game.startedCountdown = false;
 			game.soulMeter.soulCooldown = true;
 

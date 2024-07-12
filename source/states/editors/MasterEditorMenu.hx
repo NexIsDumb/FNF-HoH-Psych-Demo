@@ -97,17 +97,13 @@ class MasterEditorMenu extends MusicBeatState {
 			#end
 		}
 
-		var bullShit:Int = 0;
-		for (item in grpTexts.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
+		for (i => item in grpTexts.members) {
+			item.targetY = i - curSelected;
 
 			if (item.targetY == 0) {
 				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
+			} else {
+				item.alpha = 0.6;
 			}
 		}
 		super.update(elapsed);

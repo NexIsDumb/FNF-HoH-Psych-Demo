@@ -105,7 +105,6 @@ class FunkinLua {
 		set('screenWidth', FlxG.width);
 		set('screenHeight', FlxG.height);
 
-		// PlayState cringe ass nae nae bullcrap
 		set('curSection', 0);
 		set('curBeat', 0);
 		set('curStep', 0);
@@ -488,11 +487,11 @@ class FunkinLua {
 
 		// gay ass tweens
 		Lua_helper.add_callback(lua, "startTween", function(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null) {
-			var penisExam:Dynamic = LuaUtils.tweenPrepare(tag, vars);
-			if (penisExam != null) {
+			var tweenObj:Dynamic = LuaUtils.tweenPrepare(tag, vars);
+			if (tweenObj != null) {
 				if (values != null) {
 					var myOptions:LuaTweenOptions = LuaUtils.getLuaTween(options);
-					game.modchartTweens.set(tag, FlxTween.tween(penisExam, values, duration, {
+					game.modchartTweens.set(tag, FlxTween.tween(tweenObj, values, duration, {
 						type: myOptions.type,
 						ease: myOptions.ease,
 						startDelay: myOptions.startDelay,
@@ -537,11 +536,11 @@ class FunkinLua {
 			oldTweenFunction(tag, vars, {zoom: value}, duration, ease, 'doTweenZoom');
 		});
 		Lua_helper.add_callback(lua, "doTweenColor", function(tag:String, vars:String, targetColor:String, duration:Float, ease:String) {
-			var penisExam:Dynamic = LuaUtils.tweenPrepare(tag, vars);
-			if (penisExam != null) {
-				var curColor:FlxColor = penisExam.color;
-				curColor.alphaFloat = penisExam.alpha;
-				game.modchartTweens.set(tag, FlxTween.color(penisExam, duration, curColor, CoolUtil.colorFromString(targetColor), {
+			var tweenObj:Dynamic = LuaUtils.tweenPrepare(tag, vars);
+			if (tweenObj != null) {
+				var curColor:FlxColor = tweenObj.color;
+				curColor.alphaFloat = tweenObj.alpha;
+				game.modchartTweens.set(tag, FlxTween.color(tweenObj, duration, curColor, CoolUtil.colorFromString(targetColor), {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.modchartTweens.remove(tag);
@@ -558,10 +557,10 @@ class FunkinLua {
 			LuaUtils.cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
+			var strum:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
 
-			if (testicle != null) {
-				game.modchartTweens.set(tag, FlxTween.tween(testicle, {x: value}, duration, {
+			if (strum != null) {
+				game.modchartTweens.set(tag, FlxTween.tween(strum, {x: value}, duration, {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.callOnLuas('onTweenCompleted', [tag]);
@@ -574,10 +573,10 @@ class FunkinLua {
 			LuaUtils.cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
+			var strum:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
 
-			if (testicle != null) {
-				game.modchartTweens.set(tag, FlxTween.tween(testicle, {y: value}, duration, {
+			if (strum != null) {
+				game.modchartTweens.set(tag, FlxTween.tween(strum, {y: value}, duration, {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.callOnLuas('onTweenCompleted', [tag]);
@@ -590,10 +589,10 @@ class FunkinLua {
 			LuaUtils.cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
+			var strum:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
 
-			if (testicle != null) {
-				game.modchartTweens.set(tag, FlxTween.tween(testicle, {angle: value}, duration, {
+			if (strum != null) {
+				game.modchartTweens.set(tag, FlxTween.tween(strum, {angle: value}, duration, {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.callOnLuas('onTweenCompleted', [tag]);
@@ -606,10 +605,10 @@ class FunkinLua {
 			LuaUtils.cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
+			var strum:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
 
-			if (testicle != null) {
-				game.modchartTweens.set(tag, FlxTween.tween(testicle, {direction: value}, duration, {
+			if (strum != null) {
+				game.modchartTweens.set(tag, FlxTween.tween(strum, {direction: value}, duration, {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.callOnLuas('onTweenCompleted', [tag]);
@@ -646,10 +645,10 @@ class FunkinLua {
 			LuaUtils.cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
+			var strum:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
 
-			if (testicle != null) {
-				game.modchartTweens.set(tag, FlxTween.tween(testicle, {angle: value}, duration, {
+			if (strum != null) {
+				game.modchartTweens.set(tag, FlxTween.tween(strum, {angle: value}, duration, {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.callOnLuas('onTweenCompleted', [tag]);
@@ -662,10 +661,10 @@ class FunkinLua {
 			LuaUtils.cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
+			var strum:StrumNote = game.strumLineNotes.members[note % game.strumLineNotes.length];
 
-			if (testicle != null) {
-				game.modchartTweens.set(tag, FlxTween.tween(testicle, {alpha: value}, duration, {
+			if (strum != null) {
+				game.modchartTweens.set(tag, FlxTween.tween(strum, {alpha: value}, duration, {
 					ease: LuaUtils.getTweenEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
 						game.callOnLuas('onTweenCompleted', [tag]);

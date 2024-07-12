@@ -280,10 +280,10 @@ class LuaUtils {
 	public static function tweenPrepare(tag:String, vars:String) {
 		cancelTween(tag);
 		var variables:Array<String> = vars.split('.');
-		var sexyProp:Dynamic = LuaUtils.getObjectDirectly(variables[0]);
+		var obj:Dynamic = LuaUtils.getObjectDirectly(variables[0]);
 		if (variables.length > 1)
-			sexyProp = LuaUtils.getVarInArray(LuaUtils.getPropertyLoop(variables), variables[variables.length - 1]);
-		return sexyProp;
+			obj = LuaUtils.getVarInArray(LuaUtils.getPropertyLoop(variables), variables[variables.length - 1]);
+		return obj;
 	}
 
 	public #if !LUA_ALLOWED inline #end static function cancelTimer(tag:String) {

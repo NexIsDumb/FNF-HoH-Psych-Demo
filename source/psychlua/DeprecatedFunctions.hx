@@ -47,10 +47,10 @@ class DeprecatedFunctions {
 		Lua_helper.add_callback(lua, "luaSpriteAddAnimationByPrefix", function(tag:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true) {
 			FunkinLua.luaTrace("luaSpriteAddAnimationByPrefix is deprecated! Use addAnimationByPrefix instead", false, true);
 			if (PlayState.instance.modchartSprites.exists(tag)) {
-				var cock:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
-				cock.animation.addByPrefix(name, prefix, framerate, loop);
-				if (cock.animation.curAnim == null) {
-					cock.animation.play(name, true);
+				var spr:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
+				spr.animation.addByPrefix(name, prefix, framerate, loop);
+				if (spr.animation.curAnim == null) {
+					spr.animation.play(name, true);
 				}
 			}
 		});
@@ -62,10 +62,10 @@ class DeprecatedFunctions {
 				for (i in 0...strIndices.length) {
 					die.push(Std.parseInt(strIndices[i]));
 				}
-				var pussy:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
-				pussy.animation.addByIndices(name, prefix, die, '', framerate, false);
-				if (pussy.animation.curAnim == null) {
-					pussy.animation.play(name, true);
+				var spr:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
+				spr.animation.addByIndices(name, prefix, die, '', framerate, false);
+				if (spr.animation.curAnim == null) {
+					spr.animation.play(name, true);
 				}
 			}
 		});
@@ -107,11 +107,11 @@ class DeprecatedFunctions {
 			if (PlayState.instance.modchartSprites.exists(tag)) {
 				var killMe:Array<String> = variable.split('.');
 				if (killMe.length > 1) {
-					var coverMeInPiss:Dynamic = Reflect.getProperty(PlayState.instance.modchartSprites.get(tag), killMe[0]);
+					var obj:Dynamic = Reflect.getProperty(PlayState.instance.modchartSprites.get(tag), killMe[0]);
 					for (i in 1...killMe.length - 1) {
-						coverMeInPiss = Reflect.getProperty(coverMeInPiss, killMe[i]);
+						obj = Reflect.getProperty(obj, killMe[i]);
 					}
-					return Reflect.getProperty(coverMeInPiss, killMe[killMe.length - 1]);
+					return Reflect.getProperty(obj, killMe[killMe.length - 1]);
 				}
 				return Reflect.getProperty(PlayState.instance.modchartSprites.get(tag), variable);
 			}
@@ -122,11 +122,11 @@ class DeprecatedFunctions {
 			if (PlayState.instance.modchartSprites.exists(tag)) {
 				var killMe:Array<String> = variable.split('.');
 				if (killMe.length > 1) {
-					var coverMeInPiss:Dynamic = Reflect.getProperty(PlayState.instance.modchartSprites.get(tag), killMe[0]);
+					var obj:Dynamic = Reflect.getProperty(PlayState.instance.modchartSprites.get(tag), killMe[0]);
 					for (i in 1...killMe.length - 1) {
-						coverMeInPiss = Reflect.getProperty(coverMeInPiss, killMe[i]);
+						obj = Reflect.getProperty(obj, killMe[i]);
 					}
-					Reflect.setProperty(coverMeInPiss, killMe[killMe.length - 1], value);
+					Reflect.setProperty(obj, killMe[killMe.length - 1], value);
 					return true;
 				}
 				Reflect.setProperty(PlayState.instance.modchartSprites.get(tag), variable, value);

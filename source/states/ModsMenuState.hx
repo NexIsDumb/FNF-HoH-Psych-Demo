@@ -64,7 +64,7 @@ class ModsMenuState extends MusicBeatState {
 
 		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
 		if (FlxG.random.bool(0.1))
-			noModsTxt.text += '\nBITCH.'; // meanie
+			noModsTxt.text += '\nUwU.'; // cute
 		noModsTxt.setFormat(Constants.GENERIC_FONT, 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
 		noModsTxt.borderSize = 2;

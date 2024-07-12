@@ -337,10 +337,10 @@ class CharmSubState extends MusicBeatSubstate {
 				var charmText:String = charm.desc;
 				var mainTxt:String = charmText.trim();
 
-				var piss:String = charm.name;
-				var name = Paths.formatPath(piss);
+				var charmName:String = charm.name;
+				var name = Paths.formatPath(charmName);
 
-				txt2.text = TM.checkTransl(piss, name);
+				txt2.text = TM.checkTransl(charmName, name);
 				txt2.updateHitbox();
 				txt2.screenCenterXY();
 				txt2.x += 365;

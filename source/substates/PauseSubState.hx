@@ -343,8 +343,6 @@ class PauseSubState extends MusicBeatSubstate {
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
 
-		var bullShit:Int = 0;
-
 		grpMenuShit.forEach(function(spr:FlxText) {
 			spr.updateHitbox();
 

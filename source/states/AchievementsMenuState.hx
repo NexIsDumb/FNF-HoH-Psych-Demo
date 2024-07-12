@@ -86,11 +86,8 @@ class AchievementsMenuState extends MusicBeatState {
 		if (curSelected >= options.length)
 			curSelected = 0;
 
-		var bullShit:Int = 0;
-
-		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+		for (i => item in grpOptions.members) {
+			item.targetY = i - curSelected;
 
 			item.alpha = 0.6;
 			if (item.targetY == 0) {

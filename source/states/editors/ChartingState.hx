@@ -134,7 +134,7 @@ class ChartingState extends MusicBeatState {
 	var strumLineNotes:FlxTypedGroup<StrumNote>;
 	var curSong:String = 'Test';
 	var amountSteps:Int = 0;
-	var bullshitUI:FlxGroup;
+	var uiGroup:FlxGroup;
 
 	var highlight:FlxSprite;
 
@@ -1425,13 +1425,13 @@ class ChartingState extends MusicBeatState {
 	}
 
 	function generateUI():Void {
-		while (bullshitUI.members.length > 0) {
-			bullshitUI.remove(bullshitUI.members[0], true);
+		while (uiGroup.members.length > 0) {
+			uiGroup.remove(uiGroup.members[0], true);
 		}
 
 		// general shit
 		var title:FlxText = new FlxText(UI_box.x + 20, UI_box.y + 20, 0);
-		bullshitUI.add(title);
+		uiGroup.add(title);
 	}
 
 	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
@@ -1849,7 +1849,7 @@ class ChartingState extends MusicBeatState {
 					}
 				}
 
-				var feces:Float;
+				var newTime:Float;
 				if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.DOWN) {
 					FlxG.sound.music.pause();
 
@@ -1863,12 +1863,12 @@ class ChartingState extends MusicBeatState {
 					var increase:Float = 1 / snap;
 					if (FlxG.keys.pressed.UP) {
 						var fuck:Float = CoolUtil.quantize(beat, snap) - increase;
-						feces = Conductor.beatToSeconds(fuck);
+						newTime = Conductor.beatToSeconds(fuck);
 					} else {
 						var fuck:Float = CoolUtil.quantize(beat, snap) + increase; // (Math.floor((beat+snap) / snap) * snap);
-						feces = Conductor.beatToSeconds(fuck);
+						newTime = Conductor.beatToSeconds(fuck);
 					}
-					FlxTween.tween(FlxG.sound.music, {time: feces}, 0.1, {ease: FlxEase.circOut});
+					FlxTween.tween(FlxG.sound.music, {time: newTime}, 0.1, {ease: FlxEase.circOut});
 					if (vocals != null) {
 						vocals.pause();
 						vocals.time = FlxG.sound.music.time;
@@ -1881,7 +1881,7 @@ class ChartingState extends MusicBeatState {
 					}
 
 					var secStart:Float = sectionStartTime();
-					var datime = (feces - secStart) - (dastrum - secStart); // idk math find out why it doesn't work on any other section other than 0
+					var datime = (newTime - secStart) - (dastrum - secStart); // idk math find out why it doesn't work on any other section other than 0
 					if (curSelectedNote != null) {
 						var controlArray:Array<Bool> = [
 							 FlxG.keys.pressed.ONE, FlxG.keys.pressed.TWO, FlxG.keys.pressed.THREE, FlxG.keys.pressed.FOUR,
@@ -2915,17 +2915,8 @@ class ChartingState extends MusicBeatState {
 	var missingTextTimer:FlxTimer;
 
 	function loadJson(song:String):Void {
-		// shitty null fix, i fucking hate it when this happens
-		// make it look sexier if possible
 		try {
-			if (Difficulty.getString() != Difficulty.getDefault()) {
-				if (Difficulty.getString() == null) {
-					PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
-				} else {
-					PlayState.SONG = Song.loadFromJson(song.toLowerCase() + "-" + Difficulty.getString(), song.toLowerCase());
-				}
-			} else
-				PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
+			PlayState.SONG = Song.loadFromJson(song.toLowerCase() + Difficulty.getFilePath(), song.toLowerCase());
 			MusicBeatState.resetState();
 		} catch (e) {
 			trace('ERROR! $e');

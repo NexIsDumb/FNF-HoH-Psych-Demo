@@ -269,8 +269,6 @@ class OptionsState extends MenuBeatState {
 		pointer1.alpha = 1;
 		pointer2.alpha = 1;
 
-		var bullShit:Int = 0;
-
 		for (spr in grpOptions.members) {
 			if (spr.ID == curSelected) {
 				updatePointers(spr);

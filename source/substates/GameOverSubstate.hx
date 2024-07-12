@@ -104,7 +104,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 		#end
 
 		if (controls.ACCEPT) {
-			endBullshit();
+			endStuff();
 		}
 
 		if (controls.BACK) {
@@ -161,7 +161,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 		soundloop.play(true);
 	}
 
-	function endBullshit():Void {
+	function endStuff():Void {
 		if (!isEnding) {
 			isEnding = true;
 			boyfriends.playAnim('deathConfirm', true);
