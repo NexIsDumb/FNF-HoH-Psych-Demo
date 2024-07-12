@@ -21,7 +21,7 @@ import lime.media.openal.ALSource;
 import lime.media.AudioManager;
 import lime.media.OpenALAudioContext;
 #end
-// import lime.utils.Log;
+import lime.utils.Log;
 import lime.utils.UInt8Array;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -265,13 +265,6 @@ static void media_player_callbacks(const libvlc_event_t *p_event, void *p_data)
 }')
 @:keep
 class Video extends Bitmap {
-	// Supress warnings
-	public var Log_warn(x:Dynamic)
-
-	{
-		// Log.warn(x);
-	}
-
 	/**
 	 * Indicates whether to use GPU texture for rendering.
 	 *
@@ -1198,8 +1191,8 @@ class Video extends Bitmap {
 
 	@:noCompletion
 	private function set_volume(value:Int):Int {
-		if (mediaPlayer != null && LibVLC.audio_set_volume(mediaPlayer, value) == -1) {}
-		// Log_warn('The volume is out of range');
+		if (mediaPlayer != null && LibVLC.audio_set_volume(mediaPlayer, value) == -1)
+			Log_warn('The volume is out of range');
 
 		return value;
 	}
@@ -1264,5 +1257,9 @@ class Video extends Bitmap {
 	@:noCompletion
 	private override function set_bitmapData(value:BitmapData):BitmapData {
 		return __bitmapData = value;
+	}
+
+	private inline function Log_warn(x:Dynamic) {
+		// Log.warn(x);
 	}
 }
