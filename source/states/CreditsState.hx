@@ -58,13 +58,6 @@ class CreditsState extends MenuBeatState {
 				'https://twitter.com/cheezsomething'
 			],
 			[
-				'nld',
-				'director/nld',
-				'Old Director/Old Coder',
-				'i schlipped',
-				'https://twitter.com/LocalizedDeku'
-			],
-			[
 				'Avenge',
 				'director/avenge',
 				'Director/Musician/Charter',
@@ -74,21 +67,21 @@ class CreditsState extends MenuBeatState {
 			[
 				"Nex_isDumb",
 				"coder/fushi",
-				"New Coder/Italian Translator",
+				"Coder/Italian Translator",
 				"*sanity has left the gc*",
 				"https://linktr.ee/just_nex"
 			],
 			[
 				"Ne_Eo",
 				"coder/neeo",
-				"New Coder",
+				"Coder",
 				"*What a tasty gpu you have :3*",
 				"https://niirou.se/socials/ne_eo"
 			],
 			[
 				"WinnWhatify",
 				"coder/winnwhatify",
-				"New Coder",
+				"Coder",
 				"L a m p",
 				"https://www.youtube.com/@whatify9636"
 			],
@@ -191,6 +184,14 @@ class CreditsState extends MenuBeatState {
 				"Concept Artist/Writer",
 				"Cheez said he'd kill me if I didn't change my quote to something else",
 				"https://twitter.com/HeroBrenn"
+			],
+			[
+				// removed until further notice
+				'nld',
+				'director/nld',
+				'Old Director/Old Coder',
+				'i schlipped',
+				'https://twitter.com/LocalizedDeku'
 			],
 			[
 				"Keith",

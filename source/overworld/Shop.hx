@@ -407,7 +407,6 @@ class Shop extends FlxSpriteGroup {
 		// changeselection(0);
 
 		updatePointers(selected2);
-		/// cum
 	}
 
 	function addCharm(name:Charm, desc:String, notch:Int, price:Int) {

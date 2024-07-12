@@ -97,7 +97,7 @@ class FunkinLua {
 		set('seenCutscene', PlayState.seenCutscene);
 		set('hasVocals', PlayState.SONG.needsVoices);
 
-		// Camera poo
+		// Camera
 		set('cameraX', 0);
 		set('cameraY', 0);
 
