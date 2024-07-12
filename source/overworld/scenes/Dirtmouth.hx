@@ -45,32 +45,68 @@ class Dirtmouth extends BaseScene {
 	}
 
 	override public function create() {
-		//Add everything that isn't added later in createPost
+		// Add everything that isn't added later in createPost
 		var sprites:Array<Dynamic> = [
-			{name: 'bg',image: 'Overworld/bg',scrollFactor: {x: 0.7, y: 0.7},yOffset: -150},
-			{name: 'townmidbehind',image: 'Overworld/townmidbehind',scrollFactor: {x: 0.68, y: 0.68}},
-			{name: 'townmidsmallhouse',image: 'Overworld/townmidsmallhouse',scrollFactor: {x: 0.7, y: 0.7}},
-			{name: 'townmidbighouse',image: 'Overworld/townmidbighouse',scrollFactor: {x: 0.73, y: 0.73}},
-			{name: 'townmid',image: 'Overworld/townmid',scrollFactor: {x: 0.75, y: 0.75}},
-			{name: 'lights2',image: 'Overworld/lighting/lights2',scrollFactor: {x: 0.75, y: 0.75},blend: MULTIPLY,alpha: 0.8,yOffset: -50},
-			{name: 'lamp1',image: 'Overworld/lamp1',scrollFactor: {x: 1.005, y: 1.005}},
-			{name: 'lights4',image: 'Overworld/lighting/lights4',scrollFactor: {x: 0.87, y: 0.87},blend: SCREEN,yOffset: -50},
-			{name: 'lights3',image: 'Overworld/lighting/lights3',scrollFactor: {x: 0.9, y: 0.9},blend: ADD,alpha: 0.2},
-			{name: 'bench',image: 'Overworld/bench',yOffset: FlxG.height / 3 + 50},
-			{name: 'buildingfront4',image: 'Overworld/buildingfront4',scrollFactor: {x: 0.8, y: 0.8}},
-			{name: 'buildingfront3',image: 'Overworld/buildingfront3',scrollFactor: {x: 0.85, y: 0.85}},
-			{name: 'buildingfront2',image: 'Overworld/buildingfront2',scrollFactor: {x: 0.9, y: 0.9}},
-			{name: 'buildingfront1',image: 'Overworld/buildingfront1',scrollFactor: {x: 0.95, y: 0.95}},
-			{name: 'lights5',image: 'Overworld/lighting/lights5',scrollFactor: {x: 0.9, y: 0.9},blend: SCREEN,alpha: 0.5},
-			{name: 'lamp2',image: 'Overworld/lamp2',scrollFactor: {x: 1.005, y: 1.005}},
-			{name: 'slyShopSprite',frames: 'Overworld/DMShopSly',scrollFactor: {x: 1.06, y: 1.06},yOffset: 15,xOffset: -FlxG.width / 1.35},
-			{name: 'stagstation',image: 'Overworld/stagstation'},
-			{name: 'corniferandbretta',image: 'Overworld/corniferandbretta',scrollFactor: {x: 1.005, y: 1.005}}
+			{
+				name: 'bg',
+				image: 'Overworld/bg',
+				scrollFactor: {x: 0.7, y: 0.7},
+				yOffset: -150
+			},
+			{name: 'townmidbehind', image: 'Overworld/townmidbehind', scrollFactor: {x: 0.68, y: 0.68}},
+			{name: 'townmidsmallhouse', image: 'Overworld/townmidsmallhouse', scrollFactor: {x: 0.7, y: 0.7}},
+			{name: 'townmidbighouse', image: 'Overworld/townmidbighouse', scrollFactor: {x: 0.73, y: 0.73}},
+			{name: 'townmid', image: 'Overworld/townmid', scrollFactor: {x: 0.75, y: 0.75}},
+			{
+				name: 'lights2',
+				image: 'Overworld/lighting/lights2',
+				scrollFactor: {x: 0.75, y: 0.75},
+				blend: MULTIPLY,
+				alpha: 0.8,
+				yOffset: -50
+			},
+			{name: 'lamp1', image: 'Overworld/lamp1', scrollFactor: {x: 1.005, y: 1.005}},
+			{
+				name: 'lights4',
+				image: 'Overworld/lighting/lights4',
+				scrollFactor: {x: 0.87, y: 0.87},
+				blend: SCREEN,
+				yOffset: -50
+			},
+			{
+				name: 'lights3',
+				image: 'Overworld/lighting/lights3',
+				scrollFactor: {x: 0.9, y: 0.9},
+				blend: ADD,
+				alpha: 0.2
+			},
+			{name: 'bench', image: 'Overworld/bench', yOffset: FlxG.height / 3 + 50},
+			{name: 'buildingfront4', image: 'Overworld/buildingfront4', scrollFactor: {x: 0.8, y: 0.8}},
+			{name: 'buildingfront3', image: 'Overworld/buildingfront3', scrollFactor: {x: 0.85, y: 0.85}},
+			{name: 'buildingfront2', image: 'Overworld/buildingfront2', scrollFactor: {x: 0.9, y: 0.9}},
+			{name: 'buildingfront1', image: 'Overworld/buildingfront1', scrollFactor: {x: 0.95, y: 0.95}},
+			{
+				name: 'lights5',
+				image: 'Overworld/lighting/lights5',
+				scrollFactor: {x: 0.9, y: 0.9},
+				blend: SCREEN,
+				alpha: 0.5
+			},
+			{name: 'lamp2', image: 'Overworld/lamp2', scrollFactor: {x: 1.005, y: 1.005}},
+			{
+				name: 'slyShopSprite',
+				frames: 'Overworld/DMShopSly',
+				scrollFactor: {x: 1.06, y: 1.06},
+				yOffset: 15,
+				xOffset: -FlxG.width / 1.35
+			},
+			{name: 'stagstation', image: 'Overworld/stagstation'},
+			{name: 'corniferandbretta', image: 'Overworld/corniferandbretta', scrollFactor: {x: 1.005, y: 1.005}}
 		];
-		for (sprite in sprites) makeSprites(sprite);
-		
+		for (sprite in sprites)
+			makeSprites(sprite);
 
-		//Is shop unlocked
+		// Is shop unlocked
 		DataSaver.loadData(DataSaver.saveFile);
 		if (DataSaver.unlocked.exists("slydoor")) {
 			if (DataSaver.unlocked.get("slydoor") != null) {
@@ -79,7 +115,7 @@ class Dirtmouth extends BaseScene {
 			}
 		}
 
-		//Adding character:
+		// Adding character:
 
 		elderbug = new FlxSprite(0, 0);
 		elderbug.frames = Paths.getSparrowAtlas('Overworld/Elderbug', 'hymns');
@@ -99,7 +135,7 @@ class Dirtmouth extends BaseScene {
 		elderbug.antialiasing = ClientPrefs.data.antialiasing;
 		add(elderbug);
 
-		//Prompt Flair for interaction
+		// Prompt Flair for interaction
 		interactionflair = new FlxSprite(0, elderbug.getGraphicMidpoint().y - elderbug.height * 2.25);
 		interactionflair.scale.set(0.9, 0.9);
 		interactionflair.updateHitbox();
@@ -120,13 +156,12 @@ class Dirtmouth extends BaseScene {
 
 	var fences:FlxSprite;
 
-	function makeSprites(sprite:Dynamic){
+	function makeSprites(sprite:Dynamic) {
 		var addedSprite:FlxSprite;
-		//TODO: replace Reflect.hasField with something faster
-		if (!Reflect.hasField(sprite, 'frames')){
+		// TODO: replace Reflect.hasField with something faster
+		if (!Reflect.hasField(sprite, 'frames')) {
 			addedSprite = new FlxSprite(0, 0).loadGraphic(Paths.image(sprite.image, 'hymns'));
-		}
-		else{
+		} else {
 			addedSprite = new FlxSprite(0, 0);
 			addedSprite.frames = Paths.getSparrowAtlas(sprite.frames, 'hymns');
 		}
@@ -148,18 +183,17 @@ class Dirtmouth extends BaseScene {
 		if (Reflect.hasField(sprite, 'alpha')) {
 			addedSprite.alpha = sprite.alpha;
 		}
-		//trace(sprite.name);
-		switch(sprite.name){
+		// trace(sprite.name);
+		switch (sprite.name) {
 			case "lights4": lights4 = addedSprite;
-			case "slyShopSprite": 
+			case "slyShopSprite":
 				addedSprite.animation.addByPrefix('door', 'ShopDoorIdleClosed', 15, false);
 				addedSprite.animation.addByPrefix('open', 'ShopDoorCloseToOpen', 15, false);
 				addedSprite.animation.play('door', true);
 				slyShopSprite = addedSprite;
-			case "fences":
-				fences = addedSprite;
+			case "fences": fences = addedSprite;
 		}
-		add(addedSprite);	
+		add(addedSprite);
 		return addedSprite;
 	}
 
@@ -172,8 +206,18 @@ class Dirtmouth extends BaseScene {
 		game.player.oldy = game.player.y;
 
 		var sprites:Array<Dynamic> = [
-			{name: "roadmain", image: 'Overworld/roadmain', yOffset:100, scrollFactor: {x: 1, y: 1}},
-			{name: "roadmain2", image: 'Overworld/roadmain', yOffset:0, scrollFactor: {x: 1, y: 1}},
+			{
+				name: "roadmain",
+				image: 'Overworld/roadmain',
+				yOffset: 100,
+				scrollFactor: {x: 1, y: 1}
+			},
+			{
+				name: "roadmain2",
+				image: 'Overworld/roadmain',
+				yOffset: 0,
+				scrollFactor: {x: 1, y: 1}
+			},
 			{name: "road2", image: 'Overworld/road2', scrollFactor: {x: 1.05, y: 1.05}},
 			{name: "road3", image: 'Overworld/road3', scrollFactor: {x: 1.1, y: 1.1}},
 			{name: "road4", image: 'Overworld/road4', scrollFactor: {x: 1.15, y: 1.15}},
@@ -182,12 +226,16 @@ class Dirtmouth extends BaseScene {
 			{name: "fences", image: 'Overworld/fences', scrollFactor: {x: 1.2, y: 1.2}},
 			{name: "lamplights", image: 'Overworld/lamplights', scrollFactor: {x: 1.005, y: 1.005}}
 		];
-		for (sprite in sprites) makeSprites(sprite);
+		for (sprite in sprites)
+			makeSprites(sprite);
 
 		if (!ClientPrefs.data.lowQuality) {
 			makeSprites({
-				name: 'lights1', image: 'Overworld/lighting/lights1',
-				scrollFactor: {x: 1.005, y: 1.005},	blend: ADD, alpha: 0.75
+				name: 'lights1',
+				image: 'Overworld/lighting/lights1',
+				scrollFactor: {x: 1.005, y: 1.005},
+				blend: ADD,
+				alpha: 0.75
 			});
 		}
 
@@ -319,12 +367,13 @@ class Dirtmouth extends BaseScene {
 	var tweentext:FlxTween;
 	var tweenbg:FlxTween;
 
-	function getAnimationName(spr:FlxSprite){
-		if(spr.animation != null && spr.animation.curAnim != null){
+	function getAnimationName(spr:FlxSprite) {
+		if (spr.animation != null && spr.animation.curAnim != null) {
 			return spr.animation.curAnim.name;
 		}
 		return "";
 	}
+
 	function interactionpoint() {
 		var hasfound = false;
 		for (i in 0...stageproperties.interactionpoints.length) {
@@ -416,7 +465,10 @@ class Dirtmouth extends BaseScene {
 	function dooropen() {
 		cutscene = true;
 
-		game.campos = [slyShopSprite.getGraphicMidpoint().x + 300, slyShopSprite.getGraphicMidpoint().y + 125];
+		game.campos = [
+			slyShopSprite.getGraphicMidpoint().x + 300,
+			slyShopSprite.getGraphicMidpoint().y + 125
+		];
 		FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.35}, 2.5, {ease: FlxEase.quintOut});
 		FlxTween.tween(fences, {alpha: 0.45}, 1.5, {ease: FlxEase.quintOut});
 
@@ -440,242 +492,222 @@ class Dirtmouth extends BaseScene {
 		});
 	}
 
-		function elderbugClose(){
-			new FlxTimer().start(.7, function(tmr:FlxTimer) {
-				doingelderbuginteract = false;
-			});
-		}
+	function elderbugClose() {
+		new FlxTimer().start(.7, function(tmr:FlxTimer) {
+			doingelderbuginteract = false;
+		});
+	}
 
-		function closeElderDialogue(){								
-			indialogue = false;
-			FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-			game.player.status.cripple = false;
-			elderbugClose();
-		}
+	function closeElderDialogue() {
+		indialogue = false;
+		FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+		game.player.status.cripple = false;
+		elderbugClose();
+	}
 
-		public var logicLevel = 0;
-		function elderbugLogic(){
-				if (!doingelderbuginteract) {
-					doingelderbuginteract = true;
-					indialogue = true;
-					FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
-					function addMelodicShell() {
-						indialogue = false;
+	public var logicLevel = 0;
+
+	function elderbugLogic() {
+		if (!doingelderbuginteract) {
+			doingelderbuginteract = true;
+			indialogue = true;
+			FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
+			function addMelodicShell() {
+				indialogue = false;
+				new FlxTimer().start(1.25, function(tmr:FlxTimer) {
+					DataSaver.charmsunlocked.set(MelodicShell, true);
+					DataSaver.saveSettings(DataSaver.saveFile);
+					charmsaquire = new CharmAcquireElderbug();
+					charmsaquire.cameras = [game.camDIALOG];
+					charmsaquire.y -= 25;
+					charmsaquire.call = function() {
+						FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+						game.player.status.cripple = false;
 						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
-							DataSaver.charmsunlocked.set(MelodicShell, true);
-							DataSaver.saveSettings(DataSaver.saveFile);
-							charmsaquire = new CharmAcquireElderbug();
-							charmsaquire.cameras = [game.camDIALOG];
-							charmsaquire.y -= 25;
-							charmsaquire.call = function() {
-								FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-								game.player.status.cripple = false;
-								new FlxTimer().start(1.25, function(tmr:FlxTimer) {
-									charmsaquire.destroy();
-									remove(charmsaquire, true);
-									elderbugClose();
-								});
-							}
-							add(charmsaquire);
+							charmsaquire.destroy();
+							remove(charmsaquire, true);
+							elderbugClose();
 						});
 					}
+					add(charmsaquire);
+				});
+			}
 
-					var randomElderlines = [
-						[TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")],
-						[TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")],
-						[TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")]
-					];
-					game.player.animation.play("interacts");
-					game.player.offset.set(99.6 + 5, 145.8 + 2.5);
+			var randomElderlines = [
+				[
+					TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
+				],
+				[
+					TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
+				],
+				[
+					TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
+				]
+			];
+			game.player.animation.play("interacts");
+			game.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
-					if (elderbug.animation.curAnim.name == "turnLeft") {
-						FlxTween.tween(game.player, {x: 62.92}, .75, {ease: FlxEase.quintOut});
+			if (elderbug.animation.curAnim.name == "turnLeft") {
+				FlxTween.tween(game.player, {x: 62.92}, .75, {ease: FlxEase.quintOut});
 
-						game.player.flipX = true;
-						elderbug.animation.play('talkL');
-					} else {
-						FlxTween.tween(game.player, {x: 378.03}, .75, {ease: FlxEase.quintOut});
+				game.player.flipX = true;
+				elderbug.animation.play('talkL');
+			} else {
+				FlxTween.tween(game.player, {x: 378.03}, .75, {ease: FlxEase.quintOut});
 
-						game.player.flipX = false;
-						elderbug.animation.play('talk');
-					}
+				game.player.flipX = false;
+				elderbug.animation.play('talk');
+			}
 
-					game.player.status.cripple = true;
+			game.player.status.cripple = true;
 
-					switch (DataSaver.elderbugstate) {
-						case 0:
+			switch (DataSaver.elderbugstate) {
+				case 0:
+					game.dialogue.openBox("Elderbug",
+						[
+							[
+								TM.checkTransl("Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it.", "elderbug-dialog-1")
+							]
+						],
+						addMelodicShell
+					);
+					DataSaver.elderbugstate++;
+					DataSaver.saveSettings(DataSaver.saveFile);
+
+				case 1:
+					DataSaver.loadData(DataSaver.saveFile);
+					var rawData:Bool = DataSaver.charms.get(MelodicShell);
+
+					if (rawData == true) {
+						DataSaver.loadData(DataSaver.saveFile);
+
+						if (DataSaver.diedonfirststeps == false) {
 							game.dialogue.openBox("Elderbug",
 								[
 									[
-										TM.checkTransl("Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it.", "elderbug-dialog-1")
+										TM.checkTransl("Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company.", "elderbug-dialog-2")
 									]
 								],
-								addMelodicShell
-							);
-							DataSaver.elderbugstate++;
-							DataSaver.saveSettings(DataSaver.saveFile);
+								function() {
+									Difficulty.resetList();
+									PlayState.storyDifficulty = Difficulty.NORMAL;
 
-						case 1:
-							DataSaver.loadData(DataSaver.saveFile);
-							var rawData:Bool = DataSaver.charms.get(MelodicShell);
+									var songLowercase:String = Paths.formatPath("First Steps");
+									var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
+									trace(poop);
 
-							if (rawData == true) {
-								DataSaver.loadData(DataSaver.saveFile);
-
-								if (DataSaver.diedonfirststeps == false) {
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company.", "elderbug-dialog-2")
-											]
-										],
-										function() {
-											Difficulty.resetList();
-											PlayState.storyDifficulty = Difficulty.NORMAL;
-
-											var songLowercase:String = Paths.formatPath("First Steps");
-											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
-											trace(poop);
-
-											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.doingsong = "First Steps";
-											DataSaver.saveSettings(DataSaver.saveFile);
-
-											PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-											PlayState.isStoryMode = true;
-											LoadingState.loadAndSwitchState(new PlayState());
-
-											FlxG.sound.music.volume = 0;
-										}
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								} else {
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("I apologize, my singing must be a little rusty. Lets try that again, Traveler.", "elderbug-dialog-3")
-											]
-										],
-										function() {
-											Difficulty.resetList();
-											PlayState.storyDifficulty = Difficulty.NORMAL;
-
-											var songLowercase:String = Paths.formatPath("First Steps");
-											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
-											trace(poop);
-
-											DataSaver.loadData(DataSaver.saveFile);
-											DataSaver.doingsong = "First Steps";
-											DataSaver.saveSettings(DataSaver.saveFile);
-
-											PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-											PlayState.isStoryMode = true;
-											LoadingState.loadAndSwitchState(new PlayState());
-
-											FlxG.sound.music.volume = 0;
-										}
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								}
-							} else {
-								game.dialogue.openBox("Elderbug",
-									[
-										[
-											TM.checkTransl("Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you.", "elderbug-dialog-4")
-										]
-									],
-									closeElderDialogue
-								);
-								DataSaver.saveSettings(DataSaver.saveFile);
-							}
-						case 6:
-							if (DataSaver.charmsunlocked.get(Swindler) == false) {
-								FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
-								game.dialogue.openBox("Elderbug",
-									[
-										[
-											TM.checkTransl("Oh my, I haven't felt such enjoyment in quite a long time!", "elderbug-dialog-5")
-										],
-									],
-									function() {
-										dooropen();
-
-										new FlxTimer().start(6.75, function(tmr:FlxTimer) {
-											if (elderbug.animation.curAnim.name == "turnLeftFrame") {
-												elderbug.animation.play('talkL');
-											} else {
-												elderbug.animation.play('talk');
-											}
-											game.dialogue.openBox("Elderbug",
-												[
-													[
-														TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
-													]
-												],
-												closeElderDialogue
-											);
-										});
-									}
-								);
-								DataSaver.elderbugstate++;
-								DataSaver.saveSettings(DataSaver.saveFile);
-							} else {
-								if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
 									DataSaver.loadData(DataSaver.saveFile);
-									var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
-									var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
-									var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
-									if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
-										if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
-											if (lightcd == false) {
-												var randomlines = randomElderlines;
+									DataSaver.doingsong = "First Steps";
+									DataSaver.saveSettings(DataSaver.saveFile);
 
-												lightcd = true;
+									PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+									PlayState.isStoryMode = true;
+									LoadingState.loadAndSwitchState(new PlayState());
 
-												game.dialogue.openBox("Elderbug",
-													[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
-													function() {
-														closeElderDialogue();
+									FlxG.sound.music.volume = 0;
+								}
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						} else {
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("I apologize, my singing must be a little rusty. Lets try that again, Traveler.", "elderbug-dialog-3")
+									]
+								],
+								function() {
+									Difficulty.resetList();
+									PlayState.storyDifficulty = Difficulty.NORMAL;
 
-														new FlxTimer().start(.5, function(tmr:FlxTimer) {
-															lightcd = false;
-														});
-													}
-												);
-											}
-										} else {
-											DataSaver.interacts[0] = true;
-											game.dialogue.openBox("Elderbug",
-												[
-													[
-														TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
-													],
-													[
-														TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
-													]
-												],
-												closeElderDialogue
-											);
-											DataSaver.saveSettings(DataSaver.saveFile);
-										}
+									var songLowercase:String = Paths.formatPath("First Steps");
+									var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
+									trace(poop);
+
+									DataSaver.loadData(DataSaver.saveFile);
+									DataSaver.doingsong = "First Steps";
+									DataSaver.saveSettings(DataSaver.saveFile);
+
+									PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+									PlayState.isStoryMode = true;
+									LoadingState.loadAndSwitchState(new PlayState());
+
+									FlxG.sound.music.volume = 0;
+								}
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						}
+					} else {
+						game.dialogue.openBox("Elderbug",
+							[
+								[
+									TM.checkTransl("Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you.", "elderbug-dialog-4")
+								]
+							],
+							closeElderDialogue
+						);
+						DataSaver.saveSettings(DataSaver.saveFile);
+					}
+				case 6:
+					if (DataSaver.charmsunlocked.get(Swindler) == false) {
+						FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
+						game.dialogue.openBox("Elderbug",
+							[
+								[
+									TM.checkTransl("Oh my, I haven't felt such enjoyment in quite a long time!", "elderbug-dialog-5")
+								],
+							],
+							function() {
+								dooropen();
+
+								new FlxTimer().start(6.75, function(tmr:FlxTimer) {
+									if (elderbug.animation.curAnim.name == "turnLeftFrame") {
+										elderbug.animation.play('talkL');
 									} else {
-										DataSaver.interacts[2] = true;
-										game.dialogue.openBox("Elderbug",
-											[
-												[
-													TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
-												]
-											],
-											closeElderDialogue
-										);
-										DataSaver.saveSettings(DataSaver.saveFile);
+										elderbug.animation.play('talk');
 									}
-								} else {
-									DataSaver.interacts[1] = true;
 									game.dialogue.openBox("Elderbug",
 										[
 											[
-												TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
+												TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
+											]
+										],
+										closeElderDialogue
+									);
+								});
+							}
+						);
+						DataSaver.elderbugstate++;
+						DataSaver.saveSettings(DataSaver.saveFile);
+					} else {
+						if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
+							DataSaver.loadData(DataSaver.saveFile);
+							var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+							var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+							var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
+							if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
+								if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
+									if (lightcd == false) {
+										var randomlines = randomElderlines;
+
+										lightcd = true;
+
+										game.dialogue.openBox("Elderbug",
+											[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
+											function() {
+												closeElderDialogue();
+
+												new FlxTimer().start(.5, function(tmr:FlxTimer) {
+													lightcd = false;
+												});
+											}
+										);
+									}
+								} else {
+									DataSaver.interacts[0] = true;
+									game.dialogue.openBox("Elderbug",
+										[
+											[
+												TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
 											],
 											[
 												TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
@@ -685,66 +717,66 @@ class Dirtmouth extends BaseScene {
 									);
 									DataSaver.saveSettings(DataSaver.saveFile);
 								}
-							}
-						case 7:
-							DataSaver.loadData(DataSaver.saveFile);
-
-							if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
-								DataSaver.loadData(DataSaver.saveFile);
-								var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
-								var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
-								var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
-								if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
-									if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
-										if (lightcd == false) {
-											var randomlines = randomElderlines;
-
-											lightcd = true;
-
-											game.dialogue.openBox("Elderbug",
-												[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
-												function() {
-													closeElderDialogue();
-
-													new FlxTimer().start(.5, function(tmr:FlxTimer) {
-														lightcd = false;
-													});
-												}
-											);
-										}
-									} else {
-										DataSaver.interacts[0] = true;
-										game.dialogue.openBox("Elderbug",
-											[
-												[
-													TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
-												],
-												[
-													TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
-												]
-											],
-											closeElderDialogue
-										);
-										DataSaver.saveSettings(DataSaver.saveFile);
-									}
-								} else {
-									DataSaver.interacts[2] = true;
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
-											]
-										],
-										closeElderDialogue
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								}
 							} else {
-								DataSaver.interacts[1] = true;
+								DataSaver.interacts[2] = true;
 								game.dialogue.openBox("Elderbug",
 									[
 										[
-											TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
+											TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
+										]
+									],
+									closeElderDialogue
+								);
+								DataSaver.saveSettings(DataSaver.saveFile);
+							}
+						} else {
+							DataSaver.interacts[1] = true;
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
+									],
+									[
+										TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
+									]
+								],
+								closeElderDialogue
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						}
+					}
+				case 7:
+					DataSaver.loadData(DataSaver.saveFile);
+
+					if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
+						DataSaver.loadData(DataSaver.saveFile);
+						var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+						var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+						var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
+						if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
+							if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
+								if (lightcd == false) {
+									var randomlines = randomElderlines;
+
+									lightcd = true;
+
+									game.dialogue.openBox("Elderbug",
+										[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
+										function() {
+											closeElderDialogue();
+
+											new FlxTimer().start(.5, function(tmr:FlxTimer) {
+												lightcd = false;
+											});
+										}
+									);
+								}
+							} else {
+								DataSaver.interacts[0] = true;
+								game.dialogue.openBox("Elderbug",
+									[
+										[
+											TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
 										],
 										[
 											TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
@@ -754,34 +786,60 @@ class Dirtmouth extends BaseScene {
 								);
 								DataSaver.saveSettings(DataSaver.saveFile);
 							}
+						} else {
+							DataSaver.interacts[2] = true;
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
+									]
+								],
+								closeElderDialogue
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						}
+					} else {
+						DataSaver.interacts[1] = true;
+						game.dialogue.openBox("Elderbug",
+							[
+								[
+									TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
+								],
+								[
+									TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
+								]
+							],
+							closeElderDialogue
+						);
+						DataSaver.saveSettings(DataSaver.saveFile);
 					}
 			}
-
 		}
+	}
 
-		function benchLogic(){
-				if (game.player.status.bench == false) {
-					game.player.status.bench = true;
-					game.player.flipX = false;
-					FlxG.state.persistentUpdate = true;
+	function benchLogic() {
+		if (game.player.status.bench == false) {
+			game.player.status.bench = true;
+			game.player.flipX = false;
+			FlxG.state.persistentUpdate = true;
 
-					var charmsub = new CharmSubState(0, 0, game.camCHARM);
-					charmsub.cameras = [game.camCHARM];
-					game.camCHARM.alpha = 0;
-					game.openSubState(charmsub);
-					FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
-					FlxTween.tween(game.camCHARM, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+			var charmsub = new CharmSubState(0, 0, game.camCHARM);
+			charmsub.cameras = [game.camCHARM];
+			game.camCHARM.alpha = 0;
+			game.openSubState(charmsub);
+			FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
+			FlxTween.tween(game.camCHARM, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+		}
+	}
+
+	function interaction(thing:String) {
+		DataSaver.loadData(DataSaver.saveFile);
+		if (logicLevel == 0) {
+			switch (thing) {
+				case "elderbuginteract": elderbugLogic();
+				case "doorinteract": game.switchScenery(new SlyShop());
+				case "silly": benchLogic();
 			}
 		}
-
-		function interaction(thing:String) {
-			DataSaver.loadData(DataSaver.saveFile);
-			if(logicLevel == 0){
-				switch (thing) {
-					case "elderbuginteract": elderbugLogic();
-					case "doorinteract": game.switchScenery(new SlyShop());
-					case "silly":benchLogic();
-					}
-			}
-		}
+	}
 }
