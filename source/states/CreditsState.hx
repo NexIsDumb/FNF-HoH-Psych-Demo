@@ -152,7 +152,7 @@ class CreditsState extends MenuBeatState {
 				"musician/bluenebula",
 				"Composer",
 				"what the fuck is this bullshit",
-				"https://www.youtube.com/channel/UCL9ridOdtqFNzQ_kPjb_Vog"
+				"https://tbluenebula.carrd.co"
 			],
 			[
 				"Zomboi",
@@ -168,13 +168,7 @@ class CreditsState extends MenuBeatState {
 				"go play Skullgirls 2nd Encore",
 				"https://twitter.com/Under_castle777"
 			],
-			[
-				"Dest",
-				"charter/dest",
-				"Charter",
-				"only in ohio",
-				"https://twitter.com/DesttBruh"
-			],
+			["Dest", "charter/dest", "Charter", "only in ohio", "https://x.com/DoingleDoing"],
 			[
 				"Frostics",
 				"charter/fro",
@@ -243,7 +237,7 @@ class CreditsState extends MenuBeatState {
 				"translator/buddy_a",
 				"Ukrainian Translator",
 				"I have no socials so uuuuh play Project: Afternight",
-				null
+				"https://www.roblox.com/games/13042495892/Project-Afternight"
 			],
 			[
 				"Snakeguy",
