@@ -5,6 +5,12 @@ import openfl.filters.ShaderFilter;
 import objects.AttachedSprite;
 import hxcodec.flixel.*;
 
+//flixelighting classes 
+//import flixelighting.FlxLight;
+//import flixelighting.FlxNormalMap;
+//import flixelighting.FlxLighting;
+
+
 class CreditsState extends MenuBeatState {
 	var curSelected:Int = 0;
 
@@ -82,6 +88,13 @@ class CreditsState extends MenuBeatState {
 				"New Coder",
 				"*What a tasty gpu you have :3*",
 				"https://niirou.se/socials/ne_eo"
+			],
+			[
+				"WinnWhatify",
+				"coder/winnwhatify",
+				"New Coder",
+				"L a m p",
+				"https://www.youtube.com/@whatify9636"
 			],
 			[
 				"NateTDOM",
@@ -396,7 +409,12 @@ class CreditsState extends MenuBeatState {
 		glitch;
 	}
 
+
+	
 	var lastCrunch = "";
+	//var lampActive = false;
+	//var myLighting:FlxLighting;
+	//var lampLight:FlxLight;
 
 	override function update(elapsed:Float) {
 		if (FlxG.sound.music.volume < 0.7) {
@@ -489,7 +507,50 @@ class CreditsState extends MenuBeatState {
 					}
 					// changeSelection(0, false);
 				}
+			} 
+			
+			
+			/*
+			if (creditsStuff[curSelected][0] == "WinnWhatify") {
+				
+				if(!lampActive){
+					
+					lampActive = true;
+					
+					//Setting up the FlxLighting object (this does all of the lighting calculations)
+					myLighting = new FlxLighting();
+					//Setting a custom ambient light color and intensity
+					myLighting.setAmbient(0x181d3a, 1.0);
+
+					//Creating an FlxLight object to illuminate the scene with
+					lampLight = new FlxLight(250, 130, 0.04, 1.0, 0xec9523);
+
+					//Creating a FlxNormalMap that holds a normal map bitmap corresponding to the previously created sprite
+					var myNormalMap:FlxNormalMap = new FlxNormalMap(0, 0, Paths.imageDry("Credits/coder/winnNormalMap", 'hymns'));
+					
+					//Adding the FlxLight object to the FlxLighting object
+					myLighting.addLight(lampLight);
+
+					//Adding the FlxNormalMap object to the FlxLighting object
+					//Note: only one FlxNormalMap can be added. Calling this method again will override the previous FlxNormalMap
+					myLighting.addNormalMap(myNormalMap);
+				}
+				if(lampLight!=null && myLighting!=null && myLighting.getFilter()!=null){
+					//icon.filter = myLighting.getFilter();
+					lampLight.x = FlxG.mouse.x;
+					lampLight.y = FlxG.mouse.y;
+					myLighting.update();
+				}
+				
+				
 			}
+			else if(lampActive){
+				lampActive = false;
+				//icon.filter = null;
+				myLighting = null;
+				lampLight = null;
+			}
+			*/
 
 			if (controls.ACCEPT && (creditsStuff[curSelected][4] == null || creditsStuff[curSelected][4].length > 4)) {
 				CoolUtil.browserLoad(creditsStuff[curSelected][4]);
@@ -542,6 +603,10 @@ class CreditsState extends MenuBeatState {
 				thecur = 0;
 
 			names.text = creditsStuff[thecur][0];
+
+			if(names.text=="WinnWhatify"){
+				names.text ="Winn";
+			}
 			/*
 				if(creditsStuff[thecur][0].endsWith("[chinese]")){
 					names.setFormat(Paths.font("chinese.otf"), 21, FlxColor.WHITE, CENTER);

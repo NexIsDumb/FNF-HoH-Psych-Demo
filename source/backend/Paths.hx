@@ -229,6 +229,12 @@ class Paths {
 		return null;
 	}
 
+	public static function imageDry(key:String, ?library:String = null, ?allowGPU:Bool = true):String {
+		var bitmap:BitmapData = null;
+		var file:String = getPath('images/$key.png', IMAGE, library);
+		return file;
+	}
+
 	public static function getContent(key:String, library:String = null, ?ignoreMods:Bool = false):String {
 		var path:String = getPath(key, TEXT, library, ignoreMods);
 		// trace(path);
