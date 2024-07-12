@@ -140,13 +140,9 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 			dirtmouthtween = FlxTween.tween(dirtmouth, {alpha: .75}, 2, {ease: FlxEase.quadInOut});
 			newgame.alpha = 0;
 			clearsave.alpha = 1;
-
-			played = true;
 		}
 		DataSaver.resetData();
 	}
-
-	public var played:Bool = false;
 
 	public function BEGONETHOT() {
 		if (dirtmouthtween != null) {
