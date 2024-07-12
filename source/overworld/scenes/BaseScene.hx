@@ -48,6 +48,9 @@ class BaseScene extends FlxBasic {
 	function add(object:FlxBasic)
 		game.add(object);
 
+	function insert(index:Int, object:FlxBasic)
+		game.insert(index, object);
+
 	function remove(object:FlxBasic, splice:Bool = false)
 		game.remove(object, splice);
 }
