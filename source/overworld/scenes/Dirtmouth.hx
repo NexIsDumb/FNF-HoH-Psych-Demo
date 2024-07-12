@@ -21,7 +21,7 @@ class Dirtmouth extends BaseScene {
 	var infectionAmbience:FlxTypedEmitter<FlxParticle>;
 	var lights4:FlxSprite;
 	var elderbug:FlxSprite;
-	var sly:FlxSprite;
+	var slyShopSprite:FlxSprite;
 	var playerfog:FlxSprite;
 	var interactionBackdrop:FlxSprite;
 
@@ -38,171 +38,48 @@ class Dirtmouth extends BaseScene {
 
 		stageproperties.interactionpoints = [
 			[elderbug.x, "elderbuginteract"],
-			[sly.x + sly.width / 1.45, "doorinteract"],
+			[slyShopSprite.x + slyShopSprite.width / 1.45, "doorinteract"],
 			[game.player.x + 10, "silly"]
 		];
-		trace(sly.x + sly.width / 1.45);
+		trace(slyShopSprite.x + slyShopSprite.width / 1.45);
 	}
 
 	override public function create() {
-		var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/bg', 'hymns'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scrollFactor.set(0.7, 0.7);
-		bg.screenCenterXY();
-		bg.y -= 150;
-		bg.updateHitbox();
-		add(bg);
+		//Add everything that isn't added later in createPost
+		var sprites:Array<Dynamic> = [
+			{name: 'bg',image: 'Overworld/bg',scrollFactor: {x: 0.7, y: 0.7},yOffset: -150},
+			{name: 'townmidbehind',image: 'Overworld/townmidbehind',scrollFactor: {x: 0.68, y: 0.68}},
+			{name: 'townmidsmallhouse',image: 'Overworld/townmidsmallhouse',scrollFactor: {x: 0.7, y: 0.7}},
+			{name: 'townmidbighouse',image: 'Overworld/townmidbighouse',scrollFactor: {x: 0.73, y: 0.73}},
+			{name: 'townmid',image: 'Overworld/townmid',scrollFactor: {x: 0.75, y: 0.75}},
+			{name: 'lights2',image: 'Overworld/lighting/lights2',scrollFactor: {x: 0.75, y: 0.75},blend: MULTIPLY,alpha: 0.8,yOffset: -50},
+			{name: 'lamp1',image: 'Overworld/lamp1',scrollFactor: {x: 1.005, y: 1.005}},
+			{name: 'lights4',image: 'Overworld/lighting/lights4',scrollFactor: {x: 0.87, y: 0.87},blend: SCREEN,yOffset: -50},
+			{name: 'lights3',image: 'Overworld/lighting/lights3',scrollFactor: {x: 0.9, y: 0.9},blend: ADD,alpha: 0.2},
+			{name: 'bench',image: 'Overworld/bench',yOffset: FlxG.height / 3 + 50},
+			{name: 'buildingfront4',image: 'Overworld/buildingfront4',scrollFactor: {x: 0.8, y: 0.8}},
+			{name: 'buildingfront3',image: 'Overworld/buildingfront3',scrollFactor: {x: 0.85, y: 0.85}},
+			{name: 'buildingfront2',image: 'Overworld/buildingfront2',scrollFactor: {x: 0.9, y: 0.9}},
+			{name: 'buildingfront1',image: 'Overworld/buildingfront1',scrollFactor: {x: 0.95, y: 0.95}},
+			{name: 'lights5',image: 'Overworld/lighting/lights5',scrollFactor: {x: 0.9, y: 0.9},blend: SCREEN,alpha: 0.5},
+			{name: 'lamp2',image: 'Overworld/lamp2',scrollFactor: {x: 1.005, y: 1.005}},
+			{name: 'slyShopSprite',frames: 'Overworld/DMShopSly',scrollFactor: {x: 1.06, y: 1.06},yOffset: 15,xOffset: -FlxG.width / 1.35},
+			{name: 'stagstation',image: 'Overworld/stagstation'},
+			{name: 'corniferandbretta',image: 'Overworld/corniferandbretta',scrollFactor: {x: 1.005, y: 1.005}}
+		];
+		for (sprite in sprites) makeSprites(sprite);
+		
 
-		var townmidbehind:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidbehind', 'hymns'));
-		townmidbehind.antialiasing = ClientPrefs.data.antialiasing;
-		townmidbehind.scrollFactor.set(0.68, 0.68);
-		townmidbehind.screenCenterXY();
-		townmidbehind.updateHitbox();
-		add(townmidbehind);
-
-		var townmidsmallhouse:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidsmallhouse', 'hymns'));
-		townmidsmallhouse.antialiasing = ClientPrefs.data.antialiasing;
-		townmidsmallhouse.scrollFactor.set(0.7, 0.7);
-		townmidsmallhouse.screenCenterXY();
-		townmidsmallhouse.updateHitbox();
-		add(townmidsmallhouse);
-
-		var townmidbighouse:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmidbighouse', 'hymns'));
-		townmidbighouse.antialiasing = ClientPrefs.data.antialiasing;
-		townmidbighouse.scrollFactor.set(0.73, 0.73);
-		townmidbighouse.screenCenterXY();
-		townmidbighouse.updateHitbox();
-		add(townmidbighouse);
-
-		var townmid:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/townmid', 'hymns'));
-		townmid.antialiasing = ClientPrefs.data.antialiasing;
-		townmid.scrollFactor.set(0.75, 0.75);
-		townmid.screenCenterXY();
-		townmid.updateHitbox();
-		add(townmid);
-
-		if (!ClientPrefs.data.lowQuality) {
-			var lights2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights2', 'hymns'));
-			lights2.antialiasing = ClientPrefs.data.antialiasing;
-			lights2.blend = MULTIPLY;
-			lights2.alpha = 0.8;
-			lights2.scrollFactor.set(0.75, 0.75);
-			lights2.screenCenterXY();
-			lights2.y -= 50;
-			lights2.updateHitbox();
-			add(lights2);
-		}
-
-		var lamp1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lamp1', 'hymns'));
-		lamp1.antialiasing = ClientPrefs.data.antialiasing;
-		lamp1.scrollFactor.set(1.005, 1.005);
-		lamp1.screenCenterXY();
-		lamp1.updateHitbox();
-		add(lamp1);
-		lights4 = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights4', 'hymns'));
-		lights4.antialiasing = ClientPrefs.data.antialiasing;
-		lights4.blend = SCREEN;
-		lights4.screenCenterXY();
-		lights4.y -= 50;
-		lights4.scrollFactor.set(0.87, 0.87);
-		lights4.updateHitbox();
-		add(lights4);
-
-		if (!ClientPrefs.data.lowQuality) {
-			var lights3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights3', 'hymns'));
-			lights3.antialiasing = ClientPrefs.data.antialiasing;
-			lights3.blend = ADD;
-			lights3.alpha = 0.2;
-			lights3.screenCenterXY();
-			lights3.updateHitbox();
-			add(lights3);
-		}
-
-		var bench:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/bench', 'hymns'));
-		bench.antialiasing = ClientPrefs.data.antialiasing;
-		bench.screenCenterXY();
-		bench.y += FlxG.height / 3 + 50;
-		bench.updateHitbox();
-		add(bench);
-
-		var buildingfront4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront4', 'hymns'));
-		buildingfront4.antialiasing = ClientPrefs.data.antialiasing;
-		buildingfront4.scrollFactor.set(0.8, 0.8);
-		buildingfront4.screenCenterXY();
-		buildingfront4.updateHitbox();
-		add(buildingfront4);
-
-		var buildingfront3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront3', 'hymns'));
-		buildingfront3.antialiasing = ClientPrefs.data.antialiasing;
-		buildingfront3.scrollFactor.set(0.85, 0.85);
-		buildingfront3.screenCenterXY();
-		buildingfront3.updateHitbox();
-		add(buildingfront3);
-
-		var buildingfront2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront2', 'hymns'));
-		buildingfront2.antialiasing = ClientPrefs.data.antialiasing;
-		buildingfront2.scrollFactor.set(0.9, 0.9);
-		buildingfront2.screenCenterXY();
-		buildingfront2.updateHitbox();
-		add(buildingfront2);
-
-		var buildingfront1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/buildingfront1', 'hymns'));
-		buildingfront1.antialiasing = ClientPrefs.data.antialiasing;
-		buildingfront1.scrollFactor.set(0.95, 0.95);
-		buildingfront1.screenCenterXY();
-		buildingfront1.updateHitbox();
-		add(buildingfront1);
-		if (!ClientPrefs.data.lowQuality) {
-			var lights5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights5', 'hymns'));
-			lights5.antialiasing = ClientPrefs.data.antialiasing;
-			lights5.blend = SCREEN;
-			lights5.screenCenterXY();
-			lights5.updateHitbox();
-			lights5.scrollFactor.set(0.9, 0.9);
-			lights5.alpha = 0.5;
-			add(lights5);
-		}
-
-		var lamp2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lamp2', 'hymns'));
-		lamp2.antialiasing = ClientPrefs.data.antialiasing;
-		lamp2.scrollFactor.set(1.005, 1.005);
-		lamp2.screenCenterXY();
-		lamp2.updateHitbox();
-		add(lamp2);
-
-		sly = new FlxSprite(0, 0);
-		sly.frames = Paths.getSparrowAtlas('Overworld/DMShopSly', 'hymns');
-		sly.scale.set(1.06, 1.06);
-		sly.updateHitbox();
-		sly.screenCenterXY();
-		sly.y += 15;
-		sly.x -= FlxG.width / 1.35;
-		sly.animation.addByPrefix('door', 'ShopDoorIdleClosed', 15, false);
-		sly.animation.addByPrefix('open', 'ShopDoorCloseToOpen', 15, false);
-		sly.animation.play('door', true);
-		sly.antialiasing = ClientPrefs.data.antialiasing;
-		add(sly);
-
+		//Is shop unlocked
 		DataSaver.loadData(DataSaver.saveFile);
 		if (DataSaver.unlocked.exists("slydoor")) {
 			if (DataSaver.unlocked.get("slydoor") != null) {
-				sly.animation.play('open', true);
-				sly.y -= 125;
+				slyShopSprite.animation.play('open', true);
+				slyShopSprite.y -= 125;
 			}
 		}
 
-		var stagstation:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/stagstation', 'hymns'));
-		stagstation.antialiasing = ClientPrefs.data.antialiasing;
-		stagstation.screenCenterXY();
-		stagstation.updateHitbox();
-		add(stagstation);
-
-		var corniferandbretta:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/corniferandbretta', 'hymns'));
-		corniferandbretta.antialiasing = ClientPrefs.data.antialiasing;
-		corniferandbretta.screenCenterXY();
-		corniferandbretta.updateHitbox();
-		corniferandbretta.scrollFactor.set(1.005, 1.005);
-		add(corniferandbretta);
+		//Adding character:
 
 		elderbug = new FlxSprite(0, 0);
 		elderbug.frames = Paths.getSparrowAtlas('Overworld/Elderbug', 'hymns');
@@ -222,6 +99,7 @@ class Dirtmouth extends BaseScene {
 		elderbug.antialiasing = ClientPrefs.data.antialiasing;
 		add(elderbug);
 
+		//Prompt Flair for interaction
 		interactionflair = new FlxSprite(0, elderbug.getGraphicMidpoint().y - elderbug.height * 2.25);
 		interactionflair.scale.set(0.9, 0.9);
 		interactionflair.updateHitbox();
@@ -242,6 +120,49 @@ class Dirtmouth extends BaseScene {
 
 	var fences:FlxSprite;
 
+	function makeSprites(sprite:Dynamic){
+		var addedSprite:FlxSprite;
+		//TODO: replace Reflect.hasField with something faster
+		if (!Reflect.hasField(sprite, 'frames')){
+			addedSprite = new FlxSprite(0, 0).loadGraphic(Paths.image(sprite.image, 'hymns'));
+		}
+		else{
+			addedSprite = new FlxSprite(0, 0);
+			addedSprite.frames = Paths.getSparrowAtlas(sprite.frames, 'hymns');
+		}
+		addedSprite.antialiasing = ClientPrefs.data.antialiasing;
+		if (Reflect.hasField(sprite, 'scrollFactor')) {
+			addedSprite.scrollFactor.set(sprite.scrollFactor.x, sprite.scrollFactor.y);
+		}
+		addedSprite.screenCenterXY();
+		addedSprite.updateHitbox();
+		if (Reflect.hasField(sprite, 'yOffset')) {
+			addedSprite.y += sprite.yOffset;
+		}
+		if (Reflect.hasField(sprite, 'xOffset')) {
+			addedSprite.x += sprite.xOffset;
+		}
+		if (Reflect.hasField(sprite, 'blend')) {
+			addedSprite.blend = sprite.blend;
+		}
+		if (Reflect.hasField(sprite, 'alpha')) {
+			addedSprite.alpha = sprite.alpha;
+		}
+		//trace(sprite.name);
+		switch(sprite.name){
+			case "lights4": lights4 = addedSprite;
+			case "slyShopSprite": 
+				addedSprite.animation.addByPrefix('door', 'ShopDoorIdleClosed', 15, false);
+				addedSprite.animation.addByPrefix('open', 'ShopDoorCloseToOpen', 15, false);
+				addedSprite.animation.play('door', true);
+				slyShopSprite = addedSprite;
+			case "fences":
+				fences = addedSprite;
+		}
+		add(addedSprite);	
+		return addedSprite;
+	}
+
 	override public function createPost() {
 		add(playerfog);
 		game.player.benchpos = [
@@ -250,77 +171,24 @@ class Dirtmouth extends BaseScene {
 		];
 		game.player.oldy = game.player.y;
 
-		var roadmain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/roadmain', 'hymns'));
-		roadmain.antialiasing = ClientPrefs.data.antialiasing;
-		roadmain.screenCenterXY();
-		roadmain.y += 100;
-		roadmain.updateHitbox();
-		add(roadmain);
-
-		var roadmain:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/roadmain', 'hymns'));
-		roadmain.antialiasing = ClientPrefs.data.antialiasing;
-		roadmain.screenCenterXY();
-		roadmain.updateHitbox();
-		add(roadmain);
-
-		var road2:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road2', 'hymns'));
-		road2.antialiasing = ClientPrefs.data.antialiasing;
-		road2.scrollFactor.set(1.05, 1.05);
-		road2.screenCenterXY();
-		road2.updateHitbox();
-		add(road2);
-
-		var road3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road3', 'hymns'));
-		road3.antialiasing = ClientPrefs.data.antialiasing;
-		road3.scrollFactor.set(1.1, 1.1);
-		road3.screenCenterXY();
-		road3.updateHitbox();
-		add(road3);
-
-		var road4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road4', 'hymns'));
-		road4.antialiasing = ClientPrefs.data.antialiasing;
-		road4.scrollFactor.set(1.15, 1.15);
-		road4.screenCenterXY();
-		road4.updateHitbox();
-		add(road4);
-
-		var road5:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/road5', 'hymns'));
-		road5.antialiasing = ClientPrefs.data.antialiasing;
-		road5.scrollFactor.set(1.2, 1.2);
-		road5.screenCenterXY();
-		road5.updateHitbox();
-		add(road5);
-
-		var poles:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/poles', 'hymns'));
-		poles.antialiasing = ClientPrefs.data.antialiasing;
-		poles.screenCenterXY();
-		poles.updateHitbox();
-		poles.scrollFactor.set(1.2, 1.2);
-		add(poles);
-
-		fences = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/fences', 'hymns'));
-		fences.antialiasing = ClientPrefs.data.antialiasing;
-		fences.screenCenterXY();
-		fences.updateHitbox();
-		fences.scrollFactor.set(1.2, 1.2);
-		add(fences);
-
-		var lamplights:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lamplights', 'hymns'));
-		lamplights.antialiasing = ClientPrefs.data.antialiasing;
-		lamplights.screenCenterXY();
-		lamplights.updateHitbox();
-		lamplights.scrollFactor.set(1.005, 1.005);
-		add(lamplights);
+		var sprites:Array<Dynamic> = [
+			{name: "roadmain", image: 'Overworld/roadmain', yOffset:100, scrollFactor: {x: 1, y: 1}},
+			{name: "roadmain2", image: 'Overworld/roadmain', yOffset:0, scrollFactor: {x: 1, y: 1}},
+			{name: "road2", image: 'Overworld/road2', scrollFactor: {x: 1.05, y: 1.05}},
+			{name: "road3", image: 'Overworld/road3', scrollFactor: {x: 1.1, y: 1.1}},
+			{name: "road4", image: 'Overworld/road4', scrollFactor: {x: 1.15, y: 1.15}},
+			{name: "road5", image: 'Overworld/road5', scrollFactor: {x: 1.2, y: 1.2}},
+			{name: "poles", image: 'Overworld/poles', scrollFactor: {x: 1.2, y: 1.2}},
+			{name: "fences", image: 'Overworld/fences', scrollFactor: {x: 1.2, y: 1.2}},
+			{name: "lamplights", image: 'Overworld/lamplights', scrollFactor: {x: 1.005, y: 1.005}}
+		];
+		for (sprite in sprites) makeSprites(sprite);
 
 		if (!ClientPrefs.data.lowQuality) {
-			var lights1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/lighting/lights1', 'hymns'));
-			lights1.antialiasing = ClientPrefs.data.antialiasing;
-			lights1.blend = ADD;
-			lights1.screenCenterXY();
-			lights1.updateHitbox();
-			lights1.alpha = 0.75;
-			lights1.scrollFactor.set(1.005, 1.005);
-			add(lights1);
+			makeSprites({
+				name: 'lights1', image: 'Overworld/lighting/lights1',
+				scrollFactor: {x: 1.005, y: 1.005},	blend: ADD, alpha: 0.75
+			});
 		}
 
 		var fog:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/dmfogtextu1', 'hymns'));
@@ -382,7 +250,7 @@ class Dirtmouth extends BaseScene {
 
 	override function update(elapsed:Float) {
 		elderbug.update(elapsed);
-		sly.update(elapsed);
+		slyShopSprite.update(elapsed);
 		interactionflair.update(elapsed);
 		if (charmsaquire != null) {
 			charmsaquire.update(elapsed);
@@ -451,18 +319,24 @@ class Dirtmouth extends BaseScene {
 	var tweentext:FlxTween;
 	var tweenbg:FlxTween;
 
+	function getAnimationName(spr:FlxSprite){
+		if(spr.animation != null && spr.animation.curAnim != null){
+			return spr.animation.curAnim.name;
+		}
+		return "";
+	}
 	function interactionpoint() {
 		var hasfound = false;
 		for (i in 0...stageproperties.interactionpoints.length) {
 			var point = stageproperties.interactionpoints[i];
 			var extrarange:Float = 150;
 
-			if ((point[1] == "doorinteract" && sly.animation.curAnim.name == "open") || !(point[1] == "doorinteract") && !cutscene) {
+			if ((point[1] == "doorinteract" && getAnimationName(slyShopSprite) == "open") || !(point[1] == "doorinteract") && !cutscene) {
 				if (point[0] - extrarange < game.player.x && point[0] + extrarange > game.player.x) {
 					hasfound = true;
 
 					interactiontext.text = TM.checkTransl("Listen", "listen");
-					if (sly.animation.curAnim.name == "open") {
+					if (getAnimationName(slyShopSprite) == "open") {
 						if (point[1] == "doorinteract") {
 							interactiontext.text = TM.checkTransl("Enter", "enter");
 						}
@@ -472,7 +346,7 @@ class Dirtmouth extends BaseScene {
 						interactiontext.text = TM.checkTransl("Rest", "rest");
 					}
 					if (game.player.status.bench == true) {
-						if (interactionflair.animation.curAnim.name != "disappear") {
+						if (getAnimationName(interactionflair) != "disappear") {
 							interactionflair.animation.play("disappear", true);
 							if (tweenflair != null) {
 								tweenflair.cancel();
@@ -542,7 +416,7 @@ class Dirtmouth extends BaseScene {
 	function dooropen() {
 		cutscene = true;
 
-		game.campos = [sly.getGraphicMidpoint().x + 300, sly.getGraphicMidpoint().y + 125];
+		game.campos = [slyShopSprite.getGraphicMidpoint().x + 300, slyShopSprite.getGraphicMidpoint().y + 125];
 		FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.35}, 2.5, {ease: FlxEase.quintOut});
 		FlxTween.tween(fences, {alpha: 0.45}, 1.5, {ease: FlxEase.quintOut});
 
@@ -552,9 +426,9 @@ class Dirtmouth extends BaseScene {
 			} else {
 				elderbug.animation.play('idle');
 			}
-			sly.animation.play('open', true);
+			slyShopSprite.animation.play('open', true);
 			FlxG.sound.play(Paths.sound('bathhouse_door_open', 'hymns'));
-			sly.y -= 125;
+			slyShopSprite.y -= 125;
 			new FlxTimer().start(2.5, function(tmr:FlxTimer) {
 				game.campos = [0.0, 0.0];
 				FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.35}, 2.5, {ease: FlxEase.quintOut});
@@ -566,15 +440,26 @@ class Dirtmouth extends BaseScene {
 		});
 	}
 
-	function interaction(thing:String) {
-		DataSaver.loadData(DataSaver.saveFile);
-		switch (thing) {
-			case "elderbuginteract":
+		function elderbugClose(){
+			new FlxTimer().start(.7, function(tmr:FlxTimer) {
+				doingelderbuginteract = false;
+			});
+		}
+
+		function closeElderDialogue(){								
+			indialogue = false;
+			FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+			game.player.status.cripple = false;
+			elderbugClose();
+		}
+
+		public var logicLevel = 0;
+		function elderbugLogic(){
 				if (!doingelderbuginteract) {
 					doingelderbuginteract = true;
 					indialogue = true;
 					FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
-					function call() {
+					function addMelodicShell() {
 						indialogue = false;
 						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
 							DataSaver.charmsunlocked.set(MelodicShell, true);
@@ -588,15 +473,18 @@ class Dirtmouth extends BaseScene {
 								new FlxTimer().start(1.25, function(tmr:FlxTimer) {
 									charmsaquire.destroy();
 									remove(charmsaquire, true);
-									new FlxTimer().start(.7, function(tmr:FlxTimer) {
-										doingelderbuginteract = false;
-									});
+									elderbugClose();
 								});
 							}
 							add(charmsaquire);
 						});
 					}
 
+					var randomElderlines = [
+						[TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")],
+						[TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")],
+						[TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")]
+					];
 					game.player.animation.play("interacts");
 					game.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
@@ -622,7 +510,7 @@ class Dirtmouth extends BaseScene {
 										TM.checkTransl("Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it.", "elderbug-dialog-1")
 									]
 								],
-								call
+								addMelodicShell
 							);
 							DataSaver.elderbugstate++;
 							DataSaver.saveSettings(DataSaver.saveFile);
@@ -696,14 +584,7 @@ class Dirtmouth extends BaseScene {
 											TM.checkTransl("Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you.", "elderbug-dialog-4")
 										]
 									],
-									function() {
-										indialogue = false;
-										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-										game.player.status.cripple = false;
-										new FlxTimer().start(.7, function(tmr:FlxTimer) {
-											doingelderbuginteract = false;
-										});
-									}
+									closeElderDialogue
 								);
 								DataSaver.saveSettings(DataSaver.saveFile);
 							}
@@ -731,14 +612,7 @@ class Dirtmouth extends BaseScene {
 														TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
 													]
 												],
-												function() {
-													indialogue = false;
-													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-													game.player.status.cripple = false;
-													new FlxTimer().start(.7, function(tmr:FlxTimer) {
-														doingelderbuginteract = false;
-													});
-												}
+												closeElderDialogue
 											);
 										});
 									}
@@ -754,29 +628,14 @@ class Dirtmouth extends BaseScene {
 									if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
 										if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
 											if (lightcd == false) {
-												var randomlines = [
-													[
-														TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
-													],
-													[
-														TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
-													],
-													[
-														TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
-													]
-												];
+												var randomlines = randomElderlines;
 
 												lightcd = true;
 
 												game.dialogue.openBox("Elderbug",
 													[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
 													function() {
-														indialogue = false;
-														FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-														game.player.status.cripple = false;
-														new FlxTimer().start(.7, function(tmr:FlxTimer) {
-															doingelderbuginteract = false;
-														});
+														closeElderDialogue();
 
 														new FlxTimer().start(.5, function(tmr:FlxTimer) {
 															lightcd = false;
@@ -795,14 +654,7 @@ class Dirtmouth extends BaseScene {
 														TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 													]
 												],
-												function() {
-													indialogue = false;
-													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-													game.player.status.cripple = false;
-													new FlxTimer().start(.7, function(tmr:FlxTimer) {
-														doingelderbuginteract = false;
-													});
-												}
+												closeElderDialogue
 											);
 											DataSaver.saveSettings(DataSaver.saveFile);
 										}
@@ -814,14 +666,7 @@ class Dirtmouth extends BaseScene {
 													TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
 												]
 											],
-											function() {
-												indialogue = false;
-												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-												game.player.status.cripple = false;
-												new FlxTimer().start(.7, function(tmr:FlxTimer) {
-													doingelderbuginteract = false;
-												});
-											}
+											closeElderDialogue
 										);
 										DataSaver.saveSettings(DataSaver.saveFile);
 									}
@@ -836,14 +681,7 @@ class Dirtmouth extends BaseScene {
 												TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 											]
 										],
-										function() {
-											indialogue = false;
-											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-											game.player.status.cripple = false;
-											new FlxTimer().start(.7, function(tmr:FlxTimer) {
-												doingelderbuginteract = false;
-											});
-										}
+										closeElderDialogue
 									);
 									DataSaver.saveSettings(DataSaver.saveFile);
 								}
@@ -859,29 +697,14 @@ class Dirtmouth extends BaseScene {
 								if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
 									if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
 										if (lightcd == false) {
-											var randomlines = [
-												[
-													TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
-												],
-												[
-													TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
-												],
-												[
-													TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
-												]
-											];
+											var randomlines = randomElderlines;
 
 											lightcd = true;
 
 											game.dialogue.openBox("Elderbug",
 												[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
 												function() {
-													indialogue = false;
-													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-													game.player.status.cripple = false;
-													new FlxTimer().start(.7, function(tmr:FlxTimer) {
-														doingelderbuginteract = false;
-													});
+													closeElderDialogue();
 
 													new FlxTimer().start(.5, function(tmr:FlxTimer) {
 														lightcd = false;
@@ -900,14 +723,7 @@ class Dirtmouth extends BaseScene {
 													TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 												]
 											],
-											function() {
-												indialogue = false;
-												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-												game.player.status.cripple = false;
-												new FlxTimer().start(.7, function(tmr:FlxTimer) {
-													doingelderbuginteract = false;
-												});
-											}
+											closeElderDialogue
 										);
 										DataSaver.saveSettings(DataSaver.saveFile);
 									}
@@ -919,14 +735,7 @@ class Dirtmouth extends BaseScene {
 												TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
 											]
 										],
-										function() {
-											indialogue = false;
-											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-											game.player.status.cripple = false;
-											new FlxTimer().start(.7, function(tmr:FlxTimer) {
-												doingelderbuginteract = false;
-											});
-										}
+										closeElderDialogue
 									);
 									DataSaver.saveSettings(DataSaver.saveFile);
 								}
@@ -941,23 +750,16 @@ class Dirtmouth extends BaseScene {
 											TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
 										]
 									],
-									function() {
-										indialogue = false;
-										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-										game.player.status.cripple = false;
-										new FlxTimer().start(.7, function(tmr:FlxTimer) {
-											doingelderbuginteract = false;
-										});
-									}
+									closeElderDialogue
 								);
 								DataSaver.saveSettings(DataSaver.saveFile);
 							}
 					}
-				}
+			}
 
-			case "doorinteract": game.switchScenery(new SlyShop());
+		}
 
-			case "silly":
+		function benchLogic(){
 				if (game.player.status.bench == false) {
 					game.player.status.bench = true;
 					game.player.flipX = false;
@@ -969,7 +771,17 @@ class Dirtmouth extends BaseScene {
 					game.openSubState(charmsub);
 					FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 					FlxTween.tween(game.camCHARM, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-				}
+			}
 		}
-	}
+
+		function interaction(thing:String) {
+			DataSaver.loadData(DataSaver.saveFile);
+			if(logicLevel == 0){
+				switch (thing) {
+					case "elderbuginteract": elderbugLogic();
+					case "doorinteract": game.switchScenery(new SlyShop());
+					case "silly":benchLogic();
+					}
+			}
+		}
 }
