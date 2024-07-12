@@ -3,13 +3,20 @@ package objects;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
 
+class Bounds {
+	public var min:Float = 0;
+	public var max:Float = 1;
+
+	public function new() {}
+}
+
 class HealthBar extends FlxSpriteGroup {
 	public var leftBar:FlxClipSprite;
 	public var rightBar:FlxClipSprite;
 	public var bg:FlxClipSprite;
 	public var valueFunction:Void->Float = function() return 0;
 	public var percent(default, set):Float = 0;
-	public var bounds:Dynamic = {min: 0, max: 1};
+	public var bounds:Bounds = new Bounds();
 	public var leftToRight(default, set):Bool = true;
 	public var barCenter(default, null):Float = 0;
 
