@@ -1,15 +1,11 @@
 package states;
 
+import openfl.utils.Assets;
+import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxShader;
 import openfl.filters.ShaderFilter;
 import objects.AttachedSprite;
 import hxcodec.flixel.*;
-
-//flixelighting classes 
-//import flixelighting.FlxLight;
-//import flixelighting.FlxNormalMap;
-//import flixelighting.FlxLighting;
-
 
 class CreditsState extends MenuBeatState {
 	var curSelected:Int = 0;
@@ -409,12 +405,15 @@ class CreditsState extends MenuBeatState {
 		glitch;
 	}
 
+	var wormalMap = {
+		var wormalMap = new NormalMapShader();
+		wormalMap.lightPos = [0.0, 0.0];
+		wormalMap.lightColor = FlxColor.fromRGBFloat(1.0, 1.0, 1.0);
+		wormalMap.lightIntensity = 1.0;
+		wormalMap;
+	}
 
-	
 	var lastCrunch = "";
-	//var lampActive = false;
-	//var myLighting:FlxLighting;
-	//var lampLight:FlxLight;
 
 	override function update(elapsed:Float) {
 		if (FlxG.sound.music.volume < 0.7) {
@@ -507,50 +506,27 @@ class CreditsState extends MenuBeatState {
 					}
 					// changeSelection(0, false);
 				}
-			} 
-			
-			
-			/*
+			}
+
 			if (creditsStuff[curSelected][0] == "WinnWhatify") {
-				
-				if(!lampActive){
-					
-					lampActive = true;
-					
-					//Setting up the FlxLighting object (this does all of the lighting calculations)
-					myLighting = new FlxLighting();
-					//Setting a custom ambient light color and intensity
-					myLighting.setAmbient(0x181d3a, 1.0);
+				var camera = FlxG.camera;
+				var rayPos = FlxG.mouse.getScreenPosition(camera);
 
-					//Creating an FlxLight object to illuminate the scene with
-					lampLight = new FlxLight(250, 130, 0.04, 1.0, 0xec9523);
+				var iconPos = icon.getScreenPosition(null, camera);
 
-					//Creating a FlxNormalMap that holds a normal map bitmap corresponding to the previously created sprite
-					var myNormalMap:FlxNormalMap = new FlxNormalMap(0, 0, Paths.imageDry("Credits/coder/winnNormalMap", 'hymns'));
-					
-					//Adding the FlxLight object to the FlxLighting object
-					myLighting.addLight(lampLight);
+				rayPos.subtract(camera.width / 2, camera.height / 2);
+				rayPos.scale(camera.zoom);
+				rayPos.add(camera.width / 2, camera.height / 2);
 
-					//Adding the FlxNormalMap object to the FlxLighting object
-					//Note: only one FlxNormalMap can be added. Calling this method again will override the previous FlxNormalMap
-					myLighting.addNormalMap(myNormalMap);
-				}
-				if(lampLight!=null && myLighting!=null && myLighting.getFilter()!=null){
-					//icon.filter = myLighting.getFilter();
-					lampLight.x = FlxG.mouse.x;
-					lampLight.y = FlxG.mouse.y;
-					myLighting.update();
-				}
-				
-				
+				wormalMap.lightPos.x = FlxMath.remapToRange(rayPos.x, iconPos.x, iconPos.x + icon.width, 0, 1);
+				wormalMap.lightPos.y = FlxMath.remapToRange(rayPos.y, iconPos.y, iconPos.y + icon.height, 0, 1);
+
+				rayPos.put();
+				iconPos.put();
+
+				wormalMap.lightColor = FlxColor.fromRGBFloat(1.0, 1.0, 1.0);
+				wormalMap.lightIntensity = 1.0;
 			}
-			else if(lampActive){
-				lampActive = false;
-				//icon.filter = null;
-				myLighting = null;
-				lampLight = null;
-			}
-			*/
 
 			if (controls.ACCEPT && (creditsStuff[curSelected][4] == null || creditsStuff[curSelected][4].length > 4)) {
 				CoolUtil.browserLoad(creditsStuff[curSelected][4]);
@@ -588,6 +564,16 @@ class CreditsState extends MenuBeatState {
 		icon.y -= 150;
 		icon.antialiasing = ClientPrefs.data.antialiasing;
 
+		if (creditsStuff[curSelected][0] == "WinnWhatify") {
+			if (wormalMap.uNormalMap.input == null) {
+				wormalMap.uNormalMap.input = Paths.image("Credits/coder/wormalwappify", 'hymns').bitmap;
+				// Assets.getBitmapData(Paths.imageDry("Credits/coder/wormalwappify", 'hymns'));
+			}
+			icon.shader = wormalMap;
+		} else {
+			icon.shader = null;
+		}
+
 		if (change > 0) {
 			pointer2.animation.play("idle");
 		} else {
@@ -604,8 +590,8 @@ class CreditsState extends MenuBeatState {
 
 			names.text = creditsStuff[thecur][0];
 
-			if(names.text=="WinnWhatify"){
-				names.text ="Winn";
+			if (names.text == "WinnWhatify") {
+				names.text = "Winn";
 			}
 			/*
 				if(creditsStuff[thecur][0].endsWith("[chinese]")){
@@ -738,5 +724,107 @@ void main()
 		this.uTime.value = [0.0];
 		this.amount.value = [0.0];
 		this.speed.value = [0.6];
+	}
+}
+
+// Warning: top and bottom are swapped weirdly
+class NormalMapShader extends FlxShader {
+	@:glFragmentSource('
+#pragma header
+
+uniform sampler2D uNormalMap;
+uniform vec2 uLightPos;
+uniform vec3 uLightColor;
+uniform float uLightIntensity;
+
+void main() {
+	vec2 uv = openfl_TextureCoordv;
+
+	vec3 lightposition = vec3(uLightPos, 0.05);
+	vec3 planeposition = vec3(uv, 0.0);
+
+	vec3 lightdir = normalize(lightposition - planeposition);
+	vec2 dir = lightdir.xy;
+
+	vec3 normal = texture2D(uNormalMap, uv).xyz * 2.0 - 1.0;
+
+	float lighting = clamp(dot(lightdir, normal), 0.0, 1.0);
+	float ao = clamp(normal.z, 0.0, 1.0);
+
+	vec4 defaultColor = flixel_texture2D(bitmap, uv);
+
+	gl_FragColor.xyz = defaultColor.xyz + uLightIntensity * lighting * uLightColor;
+	//gl_FragColor.xyz += ambientcolor;
+	gl_FragColor.xyz *= (ao * 0.5 + 0.5);
+
+	// Alpha
+	gl_FragColor.w = defaultColor.w * openfl_Alphav;
+	gl_FragColor.xyz *= gl_FragColor.w;
+}')
+	public function new() {
+		super();
+
+		this.uLightPos.value = [0.0, 0.0];
+		this.uLightColor.value = [1.0, 1.0, 1.0];
+		this.uLightIntensity.value = [1.0];
+	}
+
+	public var lightPos(get, set):PointAbstract;
+
+	inline function get_lightPos():PointAbstract {
+		return this.uLightPos.value;
+	}
+
+	inline function set_lightPos(value:PointAbstract):PointAbstract {
+		return this.uLightPos.value = value;
+	}
+
+	public var lightColor(get, set):FlxColor;
+
+	inline function set_lightColor(value:FlxColor):FlxColor {
+		this.uLightColor.value = toVec3(value);
+		return value;
+	}
+
+	inline function get_lightColor():FlxColor {
+		var color = this.uLightColor.value;
+		return FlxColor.fromRGBFloat(color[0], color[1], color[2]);
+	}
+
+	static function toVec3(color:FlxColor):Array<Float> {
+		return [color.redFloat, color.greenFloat, color.blueFloat];
+	}
+
+	public var lightIntensity(get, set):Float;
+
+	inline function set_lightIntensity(value:Float):Float {
+		return this.uLightIntensity.value[0] = value;
+	}
+
+	inline function get_lightIntensity():Float {
+		return this.uLightIntensity.value[0];
+	}
+}
+
+abstract PointAbstract(Array<Float>) from Array<Float> to Array<Float> {
+	public var x(get, set):Float;
+	public var y(get, set):Float;
+
+	inline function get_x():Float {
+		return this[0];
+	}
+
+	inline function set_x(value:Float):Float {
+		this[0] = value;
+		return value;
+	}
+
+	inline function get_y():Float {
+		return this[1];
+	}
+
+	inline function set_y(value:Float):Float {
+		this[1] = value;
+		return value;
 	}
 }
