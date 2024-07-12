@@ -141,7 +141,6 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 			newgame.alpha = 0;
 			clearsave.alpha = 1;
 		}
-		DataSaver.resetData();
 	}
 
 	public function BEGONETHOT() {
