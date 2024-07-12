@@ -94,7 +94,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 			if (option.type == BOOL) {
 				var ex:FlxText = new FlxText(0, 0, 250, _booltexts[option.getValue() ? 0 : 1], 12);
-				ex.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
+				ex.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, RIGHT);
 				ex.autoSize = false;
 				ex.screenCenterXY();
 				ex.x = FlxG.width - FlxG.width / 1.95;
@@ -106,7 +106,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				grpOptions.add(ex);
 			} else {
 				var ex:FlxText = new FlxText(0, 0, 250, option.getValue(), 12);
-				ex.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, FlxTextAlign.RIGHT);
+				ex.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, RIGHT);
 				ex.autoSize = false;
 				ex.screenCenterXY();
 				ex.x = FlxG.width - FlxG.width / 1.95;
@@ -200,113 +200,109 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			changeSelection(0);
 		}
 
-		if (nextAccept <= 0 && back.ID != curSelected && !curOption.disabled) {
-			var usesCheckbox = true;
-			if (curOption.type != BOOL) {
-				usesCheckbox = false;
-			}
+		if (nextAccept <= 0 && back.ID != curSelected) {
+			switch (curOption.type) {
+				case BOOL:
+					if (controls.ACCEPT && !curOption.disabled) {
+						FlxG.sound.play(Paths.sound('scrollMenu'));
+						curOption.setValue((curOption.getValue() == true) ? false : true);
+						curOption.change();
+						reloadCheckboxes();
+					}
+				default:
+					if ((controls.UI_LEFT || controls.UI_RIGHT) && !curOption.disabled) {
+						var pressed = (controls.UI_LEFT_P || controls.UI_RIGHT_P);
+						if (holdTime > 0.5 || pressed) {
+							if (pressed) {
+								var add:Dynamic = null;
+								if (curOption.type != STRING) {
+									add = controls.UI_LEFT ? -curOption.changeValue : curOption.changeValue;
+								}
 
-			if (usesCheckbox) {
-				if (controls.ACCEPT) {
-					FlxG.sound.play(Paths.sound('scrollMenu'));
-					curOption.setValue((curOption.getValue() == true) ? false : true);
-					curOption.change();
-					reloadCheckboxes();
-				}
-			} else {
-				if (controls.UI_LEFT || controls.UI_RIGHT) {
-					var pressed = (controls.UI_LEFT_P || controls.UI_RIGHT_P);
-					if (holdTime > 0.5 || pressed) {
-						if (pressed) {
-							var add:Dynamic = null;
-							if (curOption.type != STRING) {
-								add = controls.UI_LEFT ? -curOption.changeValue : curOption.changeValue;
+								switch (curOption.type) {
+									case INT | FLOAT | PERCENT:
+										holdValue = curOption.getValue() + add;
+										if (holdValue < curOption.minValue)
+											holdValue = curOption.minValue;
+										else if (holdValue > curOption.maxValue)
+											holdValue = curOption.maxValue;
+
+										switch (curOption.type) {
+											case INT:
+												holdValue = Math.round(holdValue);
+												curOption.setValue(holdValue);
+
+											case FLOAT | PERCENT:
+												holdValue = FlxMath.roundDecimal(holdValue, curOption.decimals);
+												curOption.setValue(holdValue);
+
+											default:
+										}
+
+									case STRING:
+										var num:Int = curOption.curOption; // lol
+										if (controls.UI_LEFT_P)
+											--num;
+										else
+											num++;
+
+										if (num < 0) {
+											num = curOption.options.length - 1;
+										} else if (num >= curOption.options.length) {
+											num = 0;
+										}
+
+										curOption.curOption = num;
+										curOption.setValue(curOption.options[num]); // lol
+									// trace(curOption.options[num]);
+
+									case BOOL:
+								}
+								updateTextFrom(curOption);
+								curOption.change();
+								var optiona = grpOptions.members[curSelected];
+								optiona.updateHitbox();
+								optiona.screenCenterXY();
+								optiona.x = FlxG.width - FlxG.width / 1.95;
+								optiona.y -= FlxG.height / 6;
+								optiona.y += spacing * optiona.ID + offset;
+								FlxG.sound.play(Paths.sound('scrollMenu'));
+							} else if (curOption.type != STRING) {
+								holdValue += curOption.scrollSpeed * elapsed * (controls.UI_LEFT ? -1 : 1);
+								if (holdValue < curOption.minValue)
+									holdValue = curOption.minValue;
+								else if (holdValue > curOption.maxValue)
+									holdValue = curOption.maxValue;
+
+								switch (curOption.type) {
+									case INT: curOption.setValue(Math.round(holdValue));
+
+									case FLOAT | PERCENT: curOption.setValue(FlxMath.roundDecimal(holdValue, curOption.decimals));
+
+									default:
+								}
+								updateTextFrom(curOption);
+								curOption.change();
+								var optiona = grpOptions.members[curSelected];
+								optiona.updateHitbox();
+								optiona.screenCenterXY();
+								optiona.x = FlxG.width - FlxG.width / 1.95;
+								optiona.y -= FlxG.height / 6;
+								optiona.y += spacing * optiona.ID + offset;
 							}
-
-							switch (curOption.type) {
-								case INT | FLOAT | PERCENT:
-									holdValue = curOption.getValue() + add;
-									if (holdValue < curOption.minValue)
-										holdValue = curOption.minValue;
-									else if (holdValue > curOption.maxValue)
-										holdValue = curOption.maxValue;
-
-									switch (curOption.type) {
-										case INT:
-											holdValue = Math.round(holdValue);
-											curOption.setValue(holdValue);
-
-										case FLOAT | PERCENT:
-											holdValue = FlxMath.roundDecimal(holdValue, curOption.decimals);
-											curOption.setValue(holdValue);
-
-										default:
-									}
-
-								case STRING:
-									var num:Int = curOption.curOption; // lol
-									if (controls.UI_LEFT_P)
-										--num;
-									else
-										num++;
-
-									if (num < 0) {
-										num = curOption.options.length - 1;
-									} else if (num >= curOption.options.length) {
-										num = 0;
-									}
-
-									curOption.curOption = num;
-									curOption.setValue(curOption.options[num]); // lol
-								// trace(curOption.options[num]);
-
-								case BOOL:
-							}
-							updateTextFrom(curOption);
-							curOption.change();
-							var optiona = grpOptions.members[curSelected];
-							optiona.updateHitbox();
-							optiona.screenCenterXY();
-							optiona.x = FlxG.width - FlxG.width / 1.95;
-							optiona.y -= FlxG.height / 6;
-							optiona.y += spacing * optiona.ID + offset;
-							FlxG.sound.play(Paths.sound('scrollMenu'));
-						} else if (curOption.type != STRING) {
-							holdValue += curOption.scrollSpeed * elapsed * (controls.UI_LEFT ? -1 : 1);
-							if (holdValue < curOption.minValue)
-								holdValue = curOption.minValue;
-							else if (holdValue > curOption.maxValue)
-								holdValue = curOption.maxValue;
-
-							switch (curOption.type) {
-								case INT: curOption.setValue(Math.round(holdValue));
-
-								case FLOAT | PERCENT: curOption.setValue(FlxMath.roundDecimal(holdValue, curOption.decimals));
-
-								default:
-							}
-							updateTextFrom(curOption);
-							curOption.change();
-							var optiona = grpOptions.members[curSelected];
-							optiona.updateHitbox();
-							optiona.screenCenterXY();
-							optiona.x = FlxG.width - FlxG.width / 1.95;
-							optiona.y -= FlxG.height / 6;
-							optiona.y += spacing * optiona.ID + offset;
 						}
+
+						if (curOption.type != STRING) {
+							holdTime += elapsed;
+						}
+					} else if ((controls.UI_LEFT_R || controls.UI_RIGHT_R) && !curOption.disabled) {
+						clearHold();
 					}
 
-					if (curOption.type != STRING) {
-						holdTime += elapsed;
-					}
-				} else if (controls.UI_LEFT_R || controls.UI_RIGHT_R) {
-					clearHold();
-				}
-
-				reloadCheckboxes();
+					reloadCheckboxes();
 			}
 
-			if (controls.RESET) {
+			if (controls.RESET && !curOption.disabled) {
 				var leOption:Option = optionsArray[curSelected];
 				leOption.setValue(leOption.defaultValue);
 				if (leOption.type != BOOL) {
@@ -370,11 +366,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	}
 
 	function changeSelection(change:Int = 0) {
-		curSelected += change;
-		if (curSelected < 0)
-			curSelected = optionsArray.length;
-		if (curSelected >= optionsArray.length + 1)
-			curSelected = 0;
+		var oldItem = optionsArray[curSelected];
+
+		curSelected = CoolUtil.mod(curSelected + change, optionsArray.length + 1);
 
 		for (spr in grpOptions.members) {
 			if (spr.ID == curSelected) {
@@ -417,6 +411,14 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		}
 
 		curOption = optionsArray[curSelected]; // shorter lol
+
+		if (oldItem != curOption) {
+			if (oldItem != null)
+				oldItem.unselect();
+			if (curOption != null)
+				curOption.select();
+		}
+
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 

@@ -35,7 +35,7 @@ class Option {
 
 	public var id:String = "";
 
-	public var fontColor(default, set):FlxColor = 0x000000;
+	public var fontColor(default, set):FlxColor = 0xFFFFFF;
 
 	public var type:OptionType = BOOL; // bool, int (or integer), float (or fl), percent, string (or str)
 
@@ -129,7 +129,7 @@ class Option {
 		if (onGet != null) {
 			value = onGet(variable);
 		} else {
-			value = Reflect.getProperty(ClientPrefs, variable);
+			value = Reflect.getProperty(ClientPrefs.data, variable);
 		}
 		handleVisual(this, value);
 		return value;
@@ -139,7 +139,7 @@ class Option {
 		if (onSet != null) {
 			onSet(variable, value);
 		} else {
-			Reflect.setProperty(ClientPrefs, variable, value);
+			Reflect.setProperty(ClientPrefs.data, variable, value);
 		}
 		handleVisual(this, value);
 	}
