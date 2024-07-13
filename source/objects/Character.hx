@@ -14,6 +14,7 @@ typedef CharacterFile = {
 	var image:String;
 	var scale:Float;
 	var sing_duration:Float;
+	var ?sing_duration_seconds:Float;
 	var healthicon:String;
 
 	var position:Array<Float>;
@@ -51,6 +52,8 @@ class Character extends FlxSprite {
 	public var idleSuffix:String = '';
 	public var danceIdle:Bool = false; // Character use "danceLeft" and "danceRight" instead of "idle"
 	public var skipDance:Bool = false;
+
+	public var singDurationSec:Null<Float> = null;
 
 	public var healthIcon:String = 'face';
 	public var animationsArray:Array<AnimArray> = [];
@@ -139,6 +142,10 @@ class Character extends FlxSprite {
 					idleReturn = false;
 				}
 
+				if(json.sing_duration_seconds != null) {
+					singDurationSec = json.sing_duration_seconds;
+				}
+
 				if (json.healthbar_colors != null && json.healthbar_colors.length > 2)
 					healthColorArray = json.healthbar_colors;
 
@@ -223,6 +230,8 @@ class Character extends FlxSprite {
 			var idleReturnTime = Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1));
 			if (!idleReturn)
 				idleReturnTime *= singDuration;
+			if (singDurationSec != null)
+				idleReturnTime = singDurationSec;
 
 			if (!isPlayer && holdTimer >= idleReturnTime) {
 				dance();
