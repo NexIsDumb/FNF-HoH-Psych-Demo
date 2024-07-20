@@ -9,7 +9,7 @@
 
 	<trans id="melodic-shell-desc" string="Melodischer Talisman, geschaffen für die, die wünschen zu singen. Erlaubt den Träger die Fähigkeit zu singen, was ihm im Gegenzug Seele liefert."/>
 	<trans id="lifeblood-seed-desc" string="Enthält einen lebenden Kern von dem wunderschönes Lebensblut tropft. Wenn der Träger sich ausruht, dann erhält er eine Beschichtung aus Lebensblut, die ihn vor einer bescheidenen Anzahl an Schaden schützt"/>
-	<trans id="critical-focus" string="Ein schamanisches Artefakt, was längst vergessen wurde. Infolgedessen haben sich Kristalle darauf gebildet, was ihre Fähigkeiten verstärkt. Während der Träger unter der Hälfte seiner Gesundheit ist, wird ihm zusätzliche Seele gegeben, wenn er Gegner trifft."/>
+	<trans id="critical-focus-desc" string="Ein schamanisches Artefakt, was längst vergessen wurde. Infolgedessen haben sich Kristalle darauf gebildet, was ihre Fähigkeiten verstärkt. Während der Träger unter der Hälfte seiner Gesundheit ist, wird ihm zusätzliche Seele gegeben, wenn er Gegner trifft."/>
 	<trans id="baldur's-blessing-desc" string="Schützt den Träger mit einem harten Panzer, wenn er dem sicheren Tod gegenüber steht. Der Panzer ist jedoch nicht unzerstörbar und wird nach einem Verbrauch zerbrechen."/>
 
 	<trans id="baldur's-blessing-tip" string="Haben sie Probleme sich unten zurecht zu finden? Baldur Panzer sind so stark, dass man sagt, dass sie den Träger von jeglichen Schaden schützt! Dennoch scheinen sie nicht unzerstörbar zu sein, also pass auf!"/>
@@ -34,19 +34,20 @@
 
 	<trans id="sly-dialog-1" string="Ah, Hallo! I wusste, dass wir uns wiedersehen würden. Sieht aus, als hätten Sie sich ein bisschen umgestaltet, hm?"/>
 	<trans id="sly-dialog-2" string="OH! Do you want to sing? Hmm... it's rare for anyone to challenge me..."/>
-	<trans id="sly-dialog-3" string="Alles klar, ich aktzeptiere! Ich muss gestehen, dass ich auch nicht gerade der beste Sänger bin,...aber ich bin deiner Fähigkeiten neugierig..."/>
+	<trans id="sly-dialog-3" string="Alles klar, ich akzeptiere! Ich muss gestehen, dass ich auch nicht gerade der beste Sänger bin,...aber ich bin deiner Fähigkeiten neugierig..."/>
 	<trans id="sly-dialog-4" string="Oh, es ist schon eine ganze Weile her, dass ich so gespielt habe. Ich muss zugeben, dass es recht unterhaltsam war! So sehr es mich auch schmerzt...eine verlorene Schlacht ist eine verlorene Schlacht. Hier, nehmt eure Belohnung und überlasst mich meinem Geo...es sei denn, sie wollen noch mehr von meinen Waren kaufen..."/>
 	<trans id="sly-dialog-5" string="Ich fürchte, ich kann euch nichts mehr anbieten. Ihr habt mich völlig ausgeplündert."/>
 	<trans id="sly-dialog-6" string="Vielen Dank für Ihr freundliches Entgegenkommen! Ich versichere Euch, auch meine anderen Waren sind einen Blick wert! Sie könnten sogar Eure Überlebenschancen da unten erhöhen..."/>
 	<trans id="sly-dialog-7" string="Fühlen sich die Taschen leer an? Wenn sie auf der Suche nach mehr Geo sind, haben die Ruinen dort unten viel zu bieten!"/>
 
 	<trans id="elderbug-name" string="Käferältester"/>
+	<trans id="sly-name" string="Sly"/>
 
 
 	<!-- Menus -->
 	<trans id="options" string="Einstellung"/>
 	<trans id="note-colors" string="Noten Farben"/>
-	<trans id="languages" string="Sprachen"/> <!-- I'm not sure if this is the right translation for "Languages" -->
+	<trans id="languages" string="Sprachen"/>
 	<trans id="controls" string="Steuerung"/>
 	<trans id="graphics" string="Grafik"/>
 	<trans id="visuals-and-ui" string="Erscheinungsbild und UI"/>
@@ -56,7 +57,7 @@
 	<trans id="left" string="Links"/>
 	<trans id="down" string="Unten"/>
 	<trans id="up" string="Oben"/>
-	<trans id="Right" string="Rechts"/>
+	<trans id="right" string="Rechts"/>
 	<trans id="focus" string="Fokus"/>
 	<trans id="accept" string="Akzeptieren"/>
 	<trans id="pause" string="Pause"/>
@@ -96,11 +97,11 @@
 	<trans id="safe-frames" string="Sichere Frames"/>
 
 	<trans id="low-quality-desc" string="Wenn angekreuzt, deaktiviert ein paar Hintergrund Details."/>
-	<trans id="anti-aliasing-desc" string="Wenn unangekreuzt, deaktiviert Anti-Aliasing, erhöht die Leistung auf Kosten weniger definierten Bild."/>
+	<trans id="anti-aliasing-desc" string="Wenn unangekreuzt, deaktiviert Anti-Aliasing und erhöht die Leistung auf Kosten weniger definiertem Bild."/>
 	<trans id="shaders-desc" string="Wenn unangekreuzt, deaktiviert Shaders."/>
-	<trans id="gpu-caching-desc" string="Wenn angekreuzt, senkt RAM-nutzung wenn du einen guten GPU hast."/>
+	<trans id="gpu-caching-desc" string="Wenn angekreuzt, senkt RAM-Nutzung, wenn du einen guten GPU hast."/>
 	<trans id="framerate-desc" string="Ziemlich selbsterklärend, oder nicht?"/>
-	<trans id="note-skins-desc" string="Such dir deinen Noten skin deiner Wahl aus."/>
+	<trans id="note-skins-desc" string="Such dir deinen Notenskin deiner Wahl aus."/>
 	<trans id="note-splashes-desc" string="Such dir ein Noteneffektvariante deiner Wahl aus oder schalte es aus."/>
 	<trans id="note-splash-opacity-desc" string="Wie transparent der Noteneffekt sein soll."/>
 	<trans id="flashing-lights-desc" string="Nicht ankreuzen, wenn du sensibel gegen blinkende Lichter bist!"/>
@@ -110,7 +111,7 @@
 	<trans id="downscroll-desc" string="Wenn angekreuzt, dann gehen die Noten nach unten anstatt nach oben, ganz einfach."/>
 	<trans id="middlescroll-desc" string="Wenn angekreuzt, dann sind deine Noten zentriert."/>
 	<trans id="ghost-tapping-desc" string="Wenn angekreuzt, dann wirst du nicht fürs drücken leerer Notenfelder bestraft."/>
-	<trans id="auto-pause-desc" string="Wenn angekreuzt, wird das Spiel automatisch angehalten wenn der Bildschirm nicht im Fokus ist."/>
+	<trans id="auto-pause-desc" string="Wenn angekreuzt, wird das Spiel automatisch angehalten, wenn der Bildschirm nicht im Fokus ist."/>
 	<trans id="disable-reset-button-desc" string="Wenn angekreuzt, wird beim drücken von der Zurücksetzungstaste nichts passieren."/>
 	<trans id="hitsound-volume-desc" string="Lustige Noten machen ein &quot;Tick!&quot; Wenn du sie triffst."/>
 	<trans id="safe-frames-desc" string="Ändert sich basierend auf wie viele Frames du hast, wenn du eine Note zu früh oder zu spät drückst."/>
@@ -159,7 +160,7 @@
 
 	<trans id="life-tutorial-1" string="Höhere Wesen, diese Worte sind euch allein bestimmt"/>
 	<trans id="life-tutorial-2" string="Eure große Stärke zeichnet euch als uns zugehörig aus.&#xA;Fokussiert eure Seele und vollbringt taten, wovon andere nur träumen können."/>
-	<trans id="life-tutorial-3" string="Sammle SEELE, indem du Noten triffst.&#xA;Sobald sie genug SEELE gesammelt haben, halten sie LEERTASTE gedrückt während sie nicht singen, um zu heilen."/>
+	<trans id="life-tutorial-3" string="Sammle SEELE, indem sie Noten treffen.&#xA;Sobald sie genug SEELE gesammelt haben, halten sie LEERTASTE gedrückt während sie nicht singen, um zu heilen."/>
 
 	<trans id="charms-tutorial-1" string="Talisman erhalten"/>
 	<trans id="charms-tutorial-2" string="Rüste einen Talisman aus, um seine mächtigen Fähigkeiten zu aktivieren."/>
