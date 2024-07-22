@@ -64,7 +64,7 @@ class SlyShop extends BaseScene {
 		sly.updateHitbox();
 		sly.screenCenterXY();
 		sly.x += 250*(0.25/0.36);
-		sly.y += 225;//*(0.25/0.36);
+		sly.y += 225*(0.25/0.36);
 		sly.animation.addByPrefix('idle', 'SlyShopidle0', 24, true);
 		sly.animation.addByPrefix('turnidle', 'SlyShopIdleTurned0', 24, true);
 		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnL0', 24, false);
