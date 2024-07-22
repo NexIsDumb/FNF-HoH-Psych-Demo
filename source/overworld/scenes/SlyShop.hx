@@ -60,11 +60,11 @@ class SlyShop extends BaseScene {
 
 		sly = new FlxSprite(0, 0);
 		sly.frames = Paths.getSparrowAtlas('Overworld/SlyShop', 'hymns');
-		sly.scale.set(0.24, 0.24);
+		sly.scale.set(0.36, 0.36);
 		sly.updateHitbox();
 		sly.screenCenterXY();
-		sly.x += 250;
-		sly.y += 225;
+		sly.x += 250*(0.25/0.36);
+		sly.y += 225;//*(0.25/0.36);
 		sly.animation.addByPrefix('idle', 'SlyShopidle0', 24, true);
 		sly.animation.addByPrefix('turnidle', 'SlyShopIdleTurned0', 24, true);
 		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnL0', 24, false);
