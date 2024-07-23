@@ -61,13 +61,13 @@ class Player extends FlxSprite {
 				if (mounted == false) {
 					var walkDirection:Int = 0;
 					var offsetd = 31;
-					if (FlxG.keys.pressed.A) {
+					if (OverworldManager.instance.controls.UI_LEFT) {
 						walkDirection--;
 						if (animation.curAnim.name != "walkturn") {
 							flipX = false;
 						}
 					}
-					if (FlxG.keys.pressed.D) {
+					if (OverworldManager.instance.controls.UI_RIGHT) {
 						walkDirection++;
 						if (animation.curAnim.name != "walkturn") {
 							flipX = true;
