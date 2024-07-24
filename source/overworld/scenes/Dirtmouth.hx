@@ -183,7 +183,7 @@ class Dirtmouth extends BaseScene {
 		sly.antialiasing = ClientPrefs.data.antialiasing;
 		add(sly);
 
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("sly door check");
 		if (DataSaver.unlocked.exists("slydoor")) {
 			if (DataSaver.unlocked.get("slydoor") != null) {
 				sly.animation.play('open', true);
@@ -560,14 +560,14 @@ class Dirtmouth extends BaseScene {
 				FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.35}, 2.5, {ease: FlxEase.quintOut});
 				FlxTween.tween(fences, {alpha: 1}, 1.5, {ease: FlxEase.quintOut});
 
-				DataSaver.loadData(DataSaver.saveFile);
+				DataSaver.loadData("sly door opening");
 				DataSaver.unlocked.set("slydoor", "open");
 			});
 		});
 	}
 
 	function interaction(thing:String) {
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("interacting in dirthmouth");
 		switch (thing) {
 			case "elderbuginteract":
 				if (!doingelderbuginteract) {
@@ -628,11 +628,11 @@ class Dirtmouth extends BaseScene {
 							DataSaver.saveSettings(DataSaver.saveFile);
 
 						case 1:
-							DataSaver.loadData(DataSaver.saveFile);
+							DataSaver.loadData("MelodicShell Check");
 							var rawData:Bool = DataSaver.charms.get(MelodicShell);
 
 							if (rawData == true) {
-								DataSaver.loadData(DataSaver.saveFile);
+								DataSaver.loadData("Elderbug First Steps song");
 
 								if (DataSaver.diedonfirststeps == false) {
 									game.dialogue.openBox("Elderbug",
@@ -649,7 +649,7 @@ class Dirtmouth extends BaseScene {
 											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
 											trace(poop);
 
-											DataSaver.loadData(DataSaver.saveFile);
+											DataSaver.loadData("First Steps no deaths");
 											DataSaver.doingsong = "First Steps";
 											DataSaver.saveSettings(DataSaver.saveFile);
 
@@ -676,7 +676,7 @@ class Dirtmouth extends BaseScene {
 											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
 											trace(poop);
 
-											DataSaver.loadData(DataSaver.saveFile);
+											DataSaver.loadData('First Steps but ${PlayState.deathCounter} deaths');
 											DataSaver.doingsong = "First Steps";
 											DataSaver.saveSettings(DataSaver.saveFile);
 
@@ -747,7 +747,7 @@ class Dirtmouth extends BaseScene {
 								DataSaver.saveSettings(DataSaver.saveFile);
 							} else {
 								if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
-									DataSaver.loadData(DataSaver.saveFile);
+									DataSaver.loadData("Elderbug charm chatting before Swindler");
 									var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
 									var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
 									var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
@@ -849,10 +849,10 @@ class Dirtmouth extends BaseScene {
 								}
 							}
 						case 7:
-							DataSaver.loadData(DataSaver.saveFile);
+							DataSaver.loadData("charm check elderbug swindler");
 
 							if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
-								DataSaver.loadData(DataSaver.saveFile);
+								DataSaver.loadData("Elderbug charm chatting after Swindler");
 								var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
 								var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
 								var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);

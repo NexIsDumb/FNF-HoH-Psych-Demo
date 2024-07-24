@@ -132,7 +132,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		no2.alpha = 0;
 		yes2.alpha = 0;
 
-		DataSaver.loadData(data);
+		DataSaver.loadData("DataSaver.played for save file");
 		if (DataSaver.played == true) {
 			if (dirtmouthtween != null) {
 				dirtmouthtween.cancel();

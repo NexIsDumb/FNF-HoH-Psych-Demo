@@ -97,7 +97,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 		sillyview2 = FlxTween.tween(silly, {alpha: 0}, 1, {ease: FlxEase.quintInOut, type: FlxTweenType.PINGPONG});
 
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("overcharmed check");
 		if (!DataSaver.isOvercharmed) {
 			silly.alpha = 0;
 		}
@@ -196,7 +196,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		baldur.antialiasing = ClientPrefs.data.antialiasing;
 		baldur.centerOffsets();
 		baldur.centerOrigin();
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("init geo");
 		var rawData:Bool = DataSaver.charms.get(BaldursBlessing);
 		if (rawData == false) {
 			baldur.alpha = 0;
@@ -285,7 +285,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			mask.alpha = 0;
 		}
 
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("lifeblood check");
 		var rawData:Bool = DataSaver.charms.get(LifebloodSeed);
 		if (rawData == true) {
 			for (i in 0...2) {
@@ -525,7 +525,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		if (healing == true && FlxG.keys.pressed.SPACE && singVar && soulCooldown == false) {
 			trace(soul, healingSoul);
 			if (soul >= (healingSoul - 33) && singVar) {
-				DataSaver.loadData(DataSaver.saveFile);
+				DataSaver.loadData("healing on space");
 				var rawData:Bool = DataSaver.charms.get(CriticalFocus);
 
 				if (rawData) {

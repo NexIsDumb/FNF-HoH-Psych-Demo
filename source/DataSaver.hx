@@ -63,43 +63,78 @@ class DataSaver {
 	public static var charmOrder:Array<Int> = [];
 	public static var sillyOrder:Array<Charm> = [];
 
+	public static var curSave:FlxSave = null;
+	
 	// vars
-	public static var saveFile:Int = 0;
+	public static var saveFile:Int = 1;
 	public static var doingsong:String = '';
 
-	public static function saveSettings(saveFileData:Int) {
+	public static function setIfNotNull(obj:Dynamic, fieldName:String, value:Dynamic) {
+		if (obj != null && value != null) {
+			Reflect.setField(obj, fieldName, value);
+		}
+	}
+
+	public static function retrieveSaveValue(saveKey:String, variable:Dynamic):Dynamic {
+		if(curSave == null) {
+			checkSave(DataSaver.saveFile);
+			return null;
+		}
+
+		var value:Dynamic = Reflect.hasField(curSave.data, saveKey);
+		if (value) {
+			Reflect.setField(DataSaver, variable, value);
+			return value;
+		}
+		
+		trace('Error: value ${saveKey} is null');
+		return null;
+	}
+
+	public static function checkSave(saveFileData:Int){
+		if(DataSaver.curSave == null || DataSaver.saveFile != saveFileData){
+			//DataSaver.curSave = new FlxSave();
+			//DataSaver.curSave.bind('saveData' + DataSaver.saveFile, 'hymns');	
+			DataSaver.saveFile = saveFileData;
+		}
+	}
+
+	public static function saveSettings(?saveFileData:Int) {
 		if (!allowSaving)
 			return;
 
-		saveFile = saveFileData;
-
-		var curSave:FlxSave = new FlxSave();
-		curSave.bind('saveData' + saveFile, 'nld');
-
-		curSave.data.geo = geo;
-		curSave.data.charms = charms;
-		curSave.data.charmsunlocked = charmsunlocked;
-		curSave.data.songScores = songScores;
-		curSave.data.weekScores = weekScores;
-		curSave.data.songRating = songRating;
-		curSave.data.unlocked = unlocked;
-		curSave.data.played = played;
-		curSave.data.elderbugstate = elderbugstate;
-		curSave.data.charmOrder = charmOrder;
-		curSave.data.slytries = slytries;
-		// curSave.data.usedNotches = usedNotches;
-		curSave.data.doingsong = doingsong;
-		curSave.data.lichendone = lichendone;
-		curSave.data.diedonfirststeps = diedonfirststeps;
-		curSave.data.interacts = interacts;
-		curSave.data.sillyOrder = sillyOrder;
+		//saveFile = saveFileData;
+		checkSave(saveFileData);
+		
+		if(curSave == null) {
+			trace("save file not created");
+			return;
+		}
+		setIfNotNull(curSave.data, 'geo', geo);
+		setIfNotNull(curSave.data, 'charms', charms);
+		setIfNotNull(curSave.data, 'charmsunlocked', charmsunlocked);
+		setIfNotNull(curSave.data, 'songScores', songScores);
+		setIfNotNull(curSave.data, 'weekScores', weekScores);
+		setIfNotNull(curSave.data, 'songRating', songRating);
+		setIfNotNull(curSave.data, 'unlocked', unlocked);
+		setIfNotNull(curSave.data, 'played', played);
+		setIfNotNull(curSave.data, 'elderbugstate', elderbugstate);
+		setIfNotNull(curSave.data, 'charmOrder', charmOrder);
+		setIfNotNull(curSave.data, 'slytries', slytries);
+		// setIfNotNull(curSave.data, 'usedNotches', usedNotches);
+		setIfNotNull(curSave.data, 'doingsong', doingsong);
+		setIfNotNull(curSave.data, 'lichendone', lichendone);
+		setIfNotNull(curSave.data, 'diedonfirststeps', diedonfirststeps);
+		setIfNotNull(curSave.data, 'interacts', interacts);
+		setIfNotNull(curSave.data, 'sillyOrder', sillyOrder);
 
 		curSave.flush();
 		FlxG.log.add("Settings saved!");
 		trace("Saved Savefile");
 	}
 
-	public static function resetData() {
+
+	public static function setDefaultValues() {
 		geo = 0;
 		charms = [MelodicShell => false,];
 		charmsunlocked = [MelodicShell => false, Swindler => false,];
@@ -118,68 +153,33 @@ class DataSaver {
 		interacts = [false, false, false];
 		sillyOrder = [];
 	}
+	
 
-	public static function loadData(saveFileData:Int) {
+	
+	public static function loadData(note:String) {
 		if (!allowSaving)
 			return;
 
-		saveFile = saveFileData;
-
-		var curSave:FlxSave = new FlxSave();
-		curSave.bind('saveData' + saveFile, 'nld');
-
-		resetData();
-
-		if (curSave.data.geo != null) {
-			geo = curSave.data.geo;
-		}
-		if (curSave.data.charms != null) {
-			charms = curSave.data.charms;
-		}
-		if (curSave.data.charmsunlocked != null) {
-			charmsunlocked = curSave.data.charmsunlocked;
-		}
-		if (curSave.data.songScores != null) {
-			songScores = curSave.data.songScores;
-		}
-		if (curSave.data.weekScores != null) {
-			weekScores = curSave.data.weekScores;
-		}
-		if (curSave.data.songRating != null) {
-			songRating = curSave.data.songRating;
-		}
-		if (curSave.data.unlocked != null) {
-			unlocked = curSave.data.unlocked;
-		}
-		if (curSave.data.played != null) {
-			played = curSave.data.played;
-		}
-		if (curSave.data.elderbugstate != null) {
-			elderbugstate = curSave.data.elderbugstate;
-		}
-		if (curSave.data.charmOrder != null) {
-			charmOrder = curSave.data.charmOrder;
-		}
-		if (curSave.data.slytries != null) {
-			slytries = curSave.data.slytries;
-		}
-		// if (curSave.data.usedNotches != null) {
-		//	usedNotches = curSave.data.usedNotches;
-		// }
-		if (curSave.data.doingsong != null) {
-			doingsong = curSave.data.doingsong;
-		}
-		if (curSave.data.lichendone != null) {
-			lichendone = curSave.data.lichendone;
-		}
-		if (curSave.data.diedonfirststeps != null) {
-			diedonfirststeps = curSave.data.diedonfirststeps;
-		}
-		if (curSave.data.interacts != null) {
-			interacts = curSave.data.interacts;
-		}
-		if (curSave.data.sillyOrder != null) {
-			sillyOrder = curSave.data.sillyOrder;
+		trace(note);
+		checkSave(DataSaver.saveFile);
+	
+		//resetData();
+		retrieveSaveValue("geo", "geo");
+		retrieveSaveValue("charms", "charms");
+		retrieveSaveValue("charmsunlocked", "charmsunlocked");
+		retrieveSaveValue("songScores", "songScores");
+		retrieveSaveValue("weekScores", "weekScores");
+		retrieveSaveValue("songRating", "songRating");
+		retrieveSaveValue("unlocked", "unlocked");
+		retrieveSaveValue("played", "played");
+		retrieveSaveValue("elderbugstate", "elderbugstate");
+		retrieveSaveValue("charmOrder", "charmOrder");
+		retrieveSaveValue("slytries", "slytries");
+		retrieveSaveValue("doingsong", "doingsong");
+		retrieveSaveValue("lichendone", "lichendone");
+		retrieveSaveValue("diedonfirststeps", "diedonfirststeps");
+		retrieveSaveValue("interacts", "interacts");
+		if (retrieveSaveValue("sillyOrder", "sillyOrder")!= null ) {
 			fixSillyOrder();
 		}
 
@@ -189,7 +189,9 @@ class DataSaver {
 
 		usedNotches = calculateNotches();
 
-		curSave.flush();
+		if(curSave!=null){
+			curSave.flush();
+		}
 		FlxG.log.add("Loaded!");
 		trace("Loaded Savefile");
 	}
@@ -229,8 +231,10 @@ class DataSaver {
 		saveFile = saveFileData;
 
 		var curSave:FlxSave = new FlxSave();
-		curSave.bind('saveData' + saveFile, 'nld');
+		curSave.bind('saveData' + saveFile, 'hymns');
 		curSave.erase();
+
+		setDefaultValues();
 		FlxG.log.add("Wiped data from SaveFile : " + saveFile);
 	}
 }

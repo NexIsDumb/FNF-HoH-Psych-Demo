@@ -139,7 +139,7 @@ class Dirtmouth extends BaseStage {
 		sly.antialiasing = ClientPrefs.data.antialiasing;
 		add(sly);
 
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("check if sly's door already open on save");
 		if (DataSaver.unlocked.exists("slydoor")) {
 			if (DataSaver.unlocked.get("slydoor") != null) {
 				sly.animation.play('open', true);

@@ -2043,7 +2043,7 @@ class PlayState extends MusicBeatState {
 				}
 
 				if (formattedSong == "first-steps") {
-					DataSaver.loadData(DataSaver.saveFile);
+					DataSaver.loadData("first steps activate death flag");
 					DataSaver.diedonfirststeps = true;
 					DataSaver.saveSettings(DataSaver.saveFile);
 				}
@@ -2624,8 +2624,9 @@ class PlayState extends MusicBeatState {
 			openChartEditor();
 			return false;
 		}
-		DataSaver.loadData(DataSaver.saveFile);
-		DataSaver.geo += Std.int(songLength / 1000 * 1.6);
+		var geoToAdd = Std.int(songLength / 1000 * 1.6);
+		DataSaver.loadData('Add ${geoToAdd} geo on win');
+		DataSaver.geo += geoToAdd;
 		if (Paths.formatPath(DataSaver.doingsong) == "first-steps") {
 			DataSaver.elderbugstate = 6;
 		}
@@ -3073,7 +3074,7 @@ class PlayState extends MusicBeatState {
 			}
 
 			if (!loadedSaveFile) {
-				DataSaver.loadData(DataSaver.saveFile);
+				DataSaver.loadData("loaded save file on miss");
 				loadedSaveFile = true;
 			}
 		}
@@ -3215,7 +3216,7 @@ class PlayState extends MusicBeatState {
 			bfCurAnim = "move";
 			if (soulMeter != null) {
 				if (!loadedSaveFile) {
-					DataSaver.loadData(DataSaver.saveFile);
+					DataSaver.loadData("soul meter health gain mask stuff");
 					loadedSaveFile = true;
 				}
 				var rawData:Bool = DataSaver.charms.get(CriticalFocus);
