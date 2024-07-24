@@ -133,13 +133,17 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		yes2.alpha = 0;
 
 		DataSaver.loadData("DataSaver.played for save file");
-		if (DataSaver.played == true) {
+		if (DataSaver.played) {
 			if (dirtmouthtween != null) {
 				dirtmouthtween.cancel();
 			}
 			dirtmouthtween = FlxTween.tween(dirtmouth, {alpha: .75}, 2, {ease: FlxEase.quadInOut});
 			newgame.alpha = 0;
 			clearsave.alpha = 1;
+		}
+		else{
+			newgame.alpha = 1;
+			clearsave.alpha = 0;
 		}
 	}
 

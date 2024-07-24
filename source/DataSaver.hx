@@ -81,10 +81,14 @@ class DataSaver {
 			return null;
 		}
 
-		var value:Dynamic = Reflect.hasField(curSave.data, saveKey);
-		if (value) {
+		var value:Dynamic = Reflect.hasField(DataSaver.curSave.data, saveKey);
+		if (!value) {
 			Reflect.setField(DataSaver, variable, value);
 			return value;
+		}
+		else{
+			Reflect.setField(DataSaver.curSave.data, variable, getDefaultValue(variable));
+			DataSaver.curSave.flush();
 		}
 		
 		trace('Error: value ${saveKey} is null');
@@ -93,8 +97,9 @@ class DataSaver {
 
 	public static function checkSave(saveFileData:Int){
 		if(DataSaver.curSave == null || DataSaver.saveFile != saveFileData){
-			//DataSaver.curSave = new FlxSave();
-			//DataSaver.curSave.bind('saveData' + DataSaver.saveFile, 'hymns');	
+			DataSaver.curSave = new FlxSave();
+			DataSaver.curSave.bind('saveData' + DataSaver.saveFile, 'hymns');	
+			//DataSaver.curSave.data = {};
 			DataSaver.saveFile = saveFileData;
 		}
 	}
@@ -134,6 +139,47 @@ class DataSaver {
 	}
 
 
+	public static function getDefaultValue(?key:Null<String>):Dynamic {
+		if(key==null) return null;
+		var value:Dynamic = null;
+		switch (key) {
+			case 'geo':
+				value = 0;
+			case 'charms':
+				value = [MelodicShell => false,];
+			case 'charmsunlocked':
+				value = [MelodicShell => false, Swindler => false,];
+			case 'songScores':
+				value = new Map<Charm, Bool>();
+			case 'weekScores':
+				value = new Map<String, Int>();
+			case 'songRating':
+				value = new Map<String, Float>();
+			case 'unlocked':
+				value = new Map<String, String>();
+			case 'played':
+				value = false;
+			case 'elderbugstate':
+				value = 0;
+			case 'charmOrder':
+				value = [];
+			case 'slytries':
+				value = 0;
+			case 'usedNotches':
+				value = 0;
+			case 'doingsong':
+				value = '';
+			case 'lichendone':
+				value = false;
+			case 'diedonfirststeps':
+				value = false;
+			case 'interacts':
+				value = [false, false, false];
+			case 'sillyOrder':
+				value = [];
+		}
+		return value;
+	}
 	public static function setDefaultValues() {
 		geo = 0;
 		charms = [MelodicShell => false,];
