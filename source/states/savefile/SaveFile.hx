@@ -134,7 +134,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 
 		DataSaver.loadSaves();
 		var dataFile = DataSaver.getSave(data);
-		trace(dataFile.data.played + ' for file ${data}');
+		trace(dataFile.data.played?"Saved game: ":"New Save:" + ' file slot ${data}');
 		if (dataFile.data.played) {
 			if (dirtmouthtween != null) {
 				dirtmouthtween.cancel();

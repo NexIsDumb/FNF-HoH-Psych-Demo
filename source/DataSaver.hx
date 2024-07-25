@@ -63,7 +63,7 @@ class DataSaver {
 	public static var charmOrder:Array<Int> = [];
 	public static var sillyOrder:Array<Charm> = [];
 
-	public static var curSave:FlxSave = null;
+	//public static var curSave:FlxSave = null;
 
 	public static var curSave1:FlxSave = null;
 	public static var curSave2:FlxSave = null;
@@ -111,12 +111,12 @@ class DataSaver {
 		DataSaver.curSave4.bind('saveData4', 'hymns');	
 		makeSave(DataSaver.curSave4);
 
-		switch(DataSaver.saveFile){
+		/*switch(DataSaver.saveFile){
 			case 1: DataSaver.curSave = curSave1;
 			case 2: DataSaver.curSave = curSave2;
 			case 3: DataSaver.curSave = curSave3;
 			case 4: DataSaver.curSave = curSave4;
-		}
+		}*/
 
 	}
 
@@ -167,29 +167,29 @@ class DataSaver {
 			case 1: return curSave1;
 			case 2: return curSave2;
 			case 3: return curSave3;
-			case 4: return curSave4;
-			default: return curSave;
+			default: return curSave4;
 		}
 	}
 
-	public static function doFlush() {
-		if (DataSaver.curSave != null && flushReady) {
+	public static function doFlush(force:Bool) {
+		if ( force || flushReady) {
 			trace("here we go");
-			DataSaver.curSave.flush();
+			getSave(DataSaver.saveFile).flush();
 			flushReady=false;
 		}
 	}
 
 	
 	public static function retrieveSaveValue(saveKey:String, variable:Dynamic):Dynamic {
+		var curSave = getSave(DataSaver.saveFile);
 		if(curSave == null || curSave.data == null) {
 			checkSave(DataSaver.saveFile);
 			return null;
 		}
 
-		var value:Dynamic = Reflect.hasField(DataSaver.curSave.data, saveKey);
+		var value:Dynamic = Reflect.hasField(curSave.data, saveKey);
 		if (!value) {
-			return Reflect.field(DataSaver.curSave.data, saveKey);
+			return Reflect.field(curSave.data, saveKey);
 		}
 		else{
 			//Reflect.setField(DataSaver.curSave.data, variable, getDefaultValue(variable));
@@ -203,10 +203,11 @@ class DataSaver {
 	}
 
 	public static function checkSave(saveFileData:Int){
-		if(DataSaver.curSave == null || DataSaver.saveFile != saveFileData){
+		DataSaver.saveFile = saveFileData;
+		var save = getSave(DataSaver.saveFile);
+		if(save == null){
 			loadSaves();
-			DataSaver.saveFile = saveFileData;
-		}
+		}		
 	}
 
 	public static function saveSettings(?saveFileData:Null<Int>) {
@@ -217,19 +218,20 @@ class DataSaver {
 			DataSaver.saveFile = saveFileData;
 		}
 		//saveFile = saveFileData;
+		var save = getSave(DataSaver.saveFile);
 		checkSave(DataSaver.saveFile);
 		
-		if(curSave == null) {
+		if(save == null) {
 			trace("save file not created");
 			return;
 		}
 		
-		fixSave(getSave(DataSaver.saveFile));
+		fixSave(save);
 
 		flushReady = true;
-		//curSave.flush();
+		save.flush();
 		FlxG.log.add("Settings saved!");
-		trace("Saved Savefile");
+		trace('Saved Savefile in slot ${DataSaver.saveFile}');
 	}
 
 
@@ -329,9 +331,11 @@ class DataSaver {
 
 		usedNotches = calculateNotches();
 
+		var curSave = getSave(DataSaver.saveFile);
 		if(curSave!=null){
 			flushReady = true;
-			//curSave.flush();
+			curSave.data.played = true;
+			curSave.flush();
 		}
 		FlxG.log.add("Loaded!");
 		trace("Loaded Savefile");
@@ -369,13 +373,13 @@ class DataSaver {
 	}
 
 	public static function wipeData(saveFileData:Int) {
-		saveFile = saveFileData;
+		//saveFile = saveFileData;
 
 		var curSave:FlxSave = new FlxSave();
-		curSave.bind('saveData' + saveFile, 'hymns');
+		curSave.bind('saveData' + saveFileData, 'hymns');
 		curSave.erase();
-
-		setDefaultValues();
+		fixSave(curSave);
+		//setDefaultValues();
 		FlxG.log.add("Wiped data from SaveFile : " + saveFile);
 	}
 }

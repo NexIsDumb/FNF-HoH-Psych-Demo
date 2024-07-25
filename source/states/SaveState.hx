@@ -110,7 +110,7 @@ class SaveState extends MenuBeatState {
 		if(DataSaver.flushReady){
 			frame++;
 			if( frame > 0 ){
-				DataSaver.doFlush();
+				DataSaver.doFlush(true);
 				frame = 0;
 			}
 		}
