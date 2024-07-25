@@ -44,20 +44,20 @@ class DataSaver {
 	public static var allowSaving:Bool = true;
 
 	// needs to be saved
-	public static var geo:Int = 0;
+	public static var geo:Null<Int> = 0;
 	public static var charms:Map<Charm, Bool> = new Map();
 	public static var charmsunlocked:Map<Charm, Bool> = new Map();
 	public static var songScores:Map<String, Int> = new Map();
 	public static var weekScores:Map<String, Int> = new Map();
 	public static var songRating:Map<String, Float> = new Map();
 	public static var unlocked:Map<String, String> = new Map();
-	public static var played:Bool = false;
-	public static var elderbugstate:Int = 0;
-	public static var slytries:Int = 0;
-	public static var usedNotches:Int = 0;
+	public static var played:Null<Bool> = false;
+	public static var elderbugstate:Null<Int> = 0;
+	public static var slytries:Null<Int> = 0;
+	public static var usedNotches:Null<Int> = 0;
 
-	public static var lichendone:Bool = false;
-	public static var diedonfirststeps:Bool = false;
+	public static var lichendone:Null<Bool> = false;
+	public static var diedonfirststeps:Null<Bool> = false;
 	public static var interacts = [false, false, false];
 
 	public static var charmOrder:Array<Int> = [];
@@ -81,6 +81,9 @@ class DataSaver {
 		}
 		else if (obj != null){
 			Reflect.setField(obj, fieldName, getDefaultValue(fieldName));
+		}
+		else{
+			trace("object is null");
 		}
 	}
 
@@ -120,46 +123,49 @@ class DataSaver {
 
 	}
 
-	public static function makeSave(saveFile:FlxSave):FlxSave{
-		setIfNotFilled(saveFile.data, 'geo');
-		setIfNotFilled(saveFile.data, 'charms');
-		setIfNotFilled(saveFile.data, 'charmsunlocked');
-		setIfNotFilled(saveFile.data, 'songScores');
-		setIfNotFilled(saveFile.data, 'weekScores');
-		setIfNotFilled(saveFile.data, 'songRating');
-		setIfNotFilled(saveFile.data, 'unlocked');
-		setIfNotFilled(saveFile.data, 'played');
-		setIfNotFilled(saveFile.data, 'elderbugstate');
-		setIfNotFilled(saveFile.data, 'charmOrder');
-		setIfNotFilled(saveFile.data, 'slytries');
-		// setIfNotNull(saveFile.data, 'usedNotches', usedNotches);
-		setIfNotFilled(saveFile.data, 'doingsong');
-		setIfNotFilled(saveFile.data, 'lichendone');
-		setIfNotFilled(saveFile.data, 'diedonfirststeps');
-		setIfNotFilled(saveFile.data, 'interacts');
-		setIfNotFilled(saveFile.data, 'sillyOrder');
-		return saveFile;
+	public static function makeSave(curSaveFile:FlxSave):FlxSave{
+		setIfNotFilled(curSaveFile.data, 'geo');
+		setIfNotFilled(curSaveFile.data, 'charms');
+		setIfNotFilled(curSaveFile.data, 'charmsunlocked');
+		setIfNotFilled(curSaveFile.data, 'songScores');
+		setIfNotFilled(curSaveFile.data, 'weekScores');
+		setIfNotFilled(curSaveFile.data, 'songRating');
+		setIfNotFilled(curSaveFile.data, 'unlocked');
+		setIfNotFilled(curSaveFile.data, 'played');
+		setIfNotFilled(curSaveFile.data, 'elderbugstate');
+		setIfNotFilled(curSaveFile.data, 'charmOrder');
+		setIfNotFilled(curSaveFile.data, 'slytries');
+		// setIfNotNull(curSaveFile.data, 'usedNotches', usedNotches);
+		setIfNotFilled(curSaveFile.data, 'doingsong');
+		setIfNotFilled(curSaveFile.data, 'lichendone');
+		setIfNotFilled(curSaveFile.data, 'diedonfirststeps');
+		setIfNotFilled(curSaveFile.data, 'interacts');
+		setIfNotFilled(curSaveFile.data, 'sillyOrder');
+		return curSaveFile;
 	}
 
-	public static function fixSave(saveFile:FlxSave):FlxSave{
-		setIfNotNull(saveFile.data, 'geo', geo);
-		setIfNotNull(saveFile.data, 'charms', charms);
-		setIfNotNull(saveFile.data, 'charmsunlocked', charmsunlocked);
-		setIfNotNull(saveFile.data, 'songScores', songScores);
-		setIfNotNull(saveFile.data, 'weekScores', weekScores);
-		setIfNotNull(saveFile.data, 'songRating', songRating);
-		setIfNotNull(saveFile.data, 'unlocked', unlocked);
-		//setIfNotNull(saveFile.data, 'played', played);
-		setIfNotNull(saveFile.data, 'elderbugstate', elderbugstate);
-		setIfNotNull(saveFile.data, 'charmOrder', charmOrder);
-		setIfNotNull(saveFile.data, 'slytries', slytries);
-		// setIfNotNull(saveFile.data, 'usedNotches', usedNotches);
-		setIfNotNull(saveFile.data, 'doingsong', doingsong);
-		setIfNotNull(saveFile.data, 'lichendone', lichendone);
-		setIfNotNull(saveFile.data, 'diedonfirststeps', diedonfirststeps);
-		setIfNotNull(saveFile.data, 'interacts', interacts);
-		setIfNotNull(saveFile.data, 'sillyOrder', sillyOrder);
-		return saveFile;
+	public static function fixSave(saveNo:Int):FlxSave{
+		var curSaveFile = getSave(saveNo);
+		trace("Charms:"+charms);
+		curSaveFile.data.geo = geo!=null ? geo : getDefaultValue('geo');
+		curSaveFile.data.charms = charms!=null ? charms : getDefaultValue('charms');
+		curSaveFile.data.charmsunlocked = charmsunlocked!=null ? charmsunlocked : getDefaultValue('charmsunlocked');
+		curSaveFile.data.songScores = songScores!=null ? songScores : getDefaultValue('songScores');
+		curSaveFile.data.weekScores = weekScores!=null ? weekScores : getDefaultValue('weekScores');
+		curSaveFile.data.songRating = songRating!=null ? songRating : getDefaultValue('songRating');
+		curSaveFile.data.unlocked = unlocked!=null ? unlocked : getDefaultValue('unlocked');
+		curSaveFile.data.elderbugstate = elderbugstate!=null ? elderbugstate : getDefaultValue('elderbugstate');
+		curSaveFile.data.charmOrder = charmOrder!=null ? charmOrder : getDefaultValue('charmOrder');
+		curSaveFile.data.slytries = slytries!=null ? slytries : getDefaultValue('slytries');
+		curSaveFile.data.doingsong = doingsong!=null ? doingsong : getDefaultValue('doingsong');
+		curSaveFile.data.lichendone = lichendone!=null ? lichendone : getDefaultValue('lichendone');
+		curSaveFile.data.diedonfirststeps = diedonfirststeps!=null ? diedonfirststeps : getDefaultValue('diedonfirststeps');
+		curSaveFile.data.interacts = interacts!=null ? interacts : getDefaultValue('interacts');
+		curSaveFile.data.sillyOrder = sillyOrder!=null ? sillyOrder : getDefaultValue('sillyOrder');
+		//setIfNotNull(curSaveFile.data, 'played', played);//
+		//setIfNotNull(curSaveFile.data, 'usedNotches', usedNotches);//
+
+		return curSaveFile;
 	}
 
 	public static function getSave(saveNo:Int):FlxSave{
@@ -226,7 +232,7 @@ class DataSaver {
 			return;
 		}
 		
-		fixSave(save);
+		fixSave(DataSaver.saveFile);
 
 		flushReady = true;
 		save.flush();
@@ -305,7 +311,25 @@ class DataSaver {
 		trace(note);
 		checkSave(DataSaver.saveFile);
 	
-		//resetData();
+		var curSaveFile = getSave(DataSaver.saveFile);
+		//setDefaultValues();
+
+		geo = curSaveFile.data.geo!=null ? curSaveFile.data.geo : getDefaultValue('geo');
+		charms = curSaveFile.data.charms!=null ? curSaveFile.data.charms : getDefaultValue('charms');
+		charmsunlocked = curSaveFile.data.charmsunlocked!=null ? curSaveFile.data.charmsunlocked : getDefaultValue('charmsunlocked');
+		songScores = curSaveFile.data.songScores!=null ? curSaveFile.data.songScores : getDefaultValue('songScores');
+		weekScores = curSaveFile.data.weekScores!=null ? curSaveFile.data.weekScores : getDefaultValue('weekScores');
+		songRating = curSaveFile.data.songRating!=null ? curSaveFile.data.songRating : getDefaultValue('songRating');
+		unlocked = curSaveFile.data.unlocked!=null ? curSaveFile.data.unlocked : getDefaultValue('unlocked');
+		elderbugstate = curSaveFile.data.elderbugstate!=null ? curSaveFile.data.elderbugstate : getDefaultValue('elderbugstate');
+		charmOrder = curSaveFile.data.charmOrder!=null ? curSaveFile.data.charmOrder : getDefaultValue('charmOrder');
+		slytries = curSaveFile.data.slytries!=null ? curSaveFile.data.slytries : getDefaultValue('slytries');
+		doingsong = curSaveFile.data.doingsong!=null ? curSaveFile.data.doingsong : getDefaultValue('doingsong');
+		lichendone = curSaveFile.data.lichendone!=null ? curSaveFile.data.lichendone : getDefaultValue('lichendone');
+		diedonfirststeps = curSaveFile.data.diedonfirststeps!=null ? curSaveFile.data.diedonfirststeps : getDefaultValue('diedonfirststeps');
+		interacts = curSaveFile.data.interacts!=null ? curSaveFile.data.interacts : getDefaultValue('interacts');
+		sillyOrder = curSaveFile.data.sillyOrder!=null ? curSaveFile.data.sillyOrder : getDefaultValue('sillyOrder');
+
 		retrieveSaveValue("geo", "geo");
 		retrieveSaveValue("charms", "charms");
 		retrieveSaveValue("charmsunlocked", "charmsunlocked");
@@ -331,11 +355,11 @@ class DataSaver {
 
 		usedNotches = calculateNotches();
 
-		var curSave = getSave(DataSaver.saveFile);
-		if(curSave!=null){
+		if(curSaveFile!=null){
 			flushReady = true;
-			curSave.data.played = true;
-			curSave.flush();
+			fixSave(DataSaver.saveFile);
+			curSaveFile.data.played = true;
+			curSaveFile.flush();
 		}
 		FlxG.log.add("Loaded!");
 		trace("Loaded Savefile");
@@ -378,8 +402,8 @@ class DataSaver {
 		var curSave:FlxSave = new FlxSave();
 		curSave.bind('saveData' + saveFileData, 'hymns');
 		curSave.erase();
-		fixSave(curSave);
-		//setDefaultValues();
+		fixSave(saveFileData);
+		setDefaultValues();
 		FlxG.log.add("Wiped data from SaveFile : " + saveFile);
 	}
 }

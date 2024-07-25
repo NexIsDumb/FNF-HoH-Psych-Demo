@@ -161,6 +161,7 @@ class SaveState extends MenuBeatState {
 								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 								changeSelection(0);
 							} else {
+								DataSaver.setDefaultValues();
 								DataSaver.checkSave(curSelectedy + 1);
 								DataSaver.wipeData(curSelectedy + 1);
 								DataSaver.loadData('clearing save file in slot ${curSelectedy + 1}');
