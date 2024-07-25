@@ -168,6 +168,9 @@ class Player extends FlxSprite {
 				speed = 0;
 			}
 		} else {
+			if(DataSaver.played == false){
+				DataSaver.played = true;
+			}
 			if (animation.curAnim.name != "benchmount") {
 				mounted = true;
 				animation.play("benchmount");

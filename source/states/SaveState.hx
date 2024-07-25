@@ -96,15 +96,24 @@ class SaveState extends MenuBeatState {
 		});
 
 		super.create();
+		DataSaver.loadSaves();
 	}
 
 	var selected:Bool = false;
 	var clearingsave:Bool = false;
 	var choosingstate:Bool = false;
 
+	var frame = 0;
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
+		if(DataSaver.flushReady){
+			frame++;
+			if( frame > 0 ){
+				DataSaver.doFlush();
+				frame = 0;
+			}
+		}
 		if (FlxG.state == this && debounce == true) {
 			if (controls.UI_UP_P && !clearingsave && !choosingstate) {
 				changeSelection(-1);
@@ -130,7 +139,7 @@ class SaveState extends MenuBeatState {
 								DataSaver.setDefaultValues();
 								DataSaver.checkSave(curSelectedy + 1);
 								DataSaver.loadData('pressed accept on save file slot ${curSelectedy + 1}');
-								DataSaver.played = true;
+								//DataSaver.played = true;
 								DataSaver.saveSettings(curSelectedy + 1);
 								choosingstate = true;
 								curSelectedx = 0;

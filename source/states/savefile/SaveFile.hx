@@ -132,8 +132,10 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		no2.alpha = 0;
 		yes2.alpha = 0;
 
-		DataSaver.loadData("DataSaver.played for save file");
-		if (DataSaver.played) {
+		DataSaver.loadSaves();
+		var dataFile = DataSaver.getSave(data);
+		trace(dataFile.data.played + ' for file ${data}');
+		if (dataFile.data.played) {
 			if (dirtmouthtween != null) {
 				dirtmouthtween.cancel();
 			}
