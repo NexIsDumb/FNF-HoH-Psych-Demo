@@ -160,6 +160,7 @@ class Main extends Sprite {
 
 		setExitHandler(function() {
 			DataSaver.saveSettings(DataSaver.saveFile);
+			DataSaver.doFlush(true);
 			trace("YAY!!");
 		});
 	}

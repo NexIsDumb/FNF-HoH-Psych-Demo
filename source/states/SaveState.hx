@@ -96,15 +96,29 @@ class SaveState extends MenuBeatState {
 		});
 
 		super.create();
+		DataSaver.loadSaves();
 	}
 
 	var selected:Bool = false;
 	var clearingsave:Bool = false;
 	var choosingstate:Bool = false;
 
+	var frame = 0;
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
+		if(DataSaver.flushReady){
+			// Wait until the second frame after pressing enter to flush
+			frame++; 
+			if( frame > 0 ){
+				// Added just to make it more visually clear, doFlush() will already make flushReady false
+				DataSaver.flushReady = false;
+				// Flush data from selected save
+				DataSaver.doFlush(true);
+				// Reset counter
+				frame = 0; 
+			}
+		}
 		if (FlxG.state == this && debounce == true) {
 			if (controls.UI_UP_P && !clearingsave && !choosingstate) {
 				changeSelection(-1);
@@ -127,8 +141,10 @@ class SaveState extends MenuBeatState {
 							if (!clearingsave) {
 								FlxTween.tween(selector, {alpha: 0}, 1, {ease: FlxEase.quadInOut});
 
-								DataSaver.loadData(curSelectedy + 1);
-								DataSaver.played = true;
+								DataSaver.setDefaultValues();
+								DataSaver.checkSave(curSelectedy + 1);
+								DataSaver.loadData('pressed accept on save file slot ${curSelectedy + 1}');
+								//DataSaver.played = true;
 								DataSaver.saveSettings(curSelectedy + 1);
 								choosingstate = true;
 								curSelectedx = 0;
@@ -141,17 +157,22 @@ class SaveState extends MenuBeatState {
 								} else {
 									savefiles[curSelectedy].no2.color = FlxColor.fromRGB(255, 255, 255);
 								}
+								FlxTween.cancelTweensOf(savefiles[curSelectedy].newgame);
 								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 0}, .15, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-								if (savefiles[curSelectedy].dirtmouthtween != null) {
-									savefiles[curSelectedy].dirtmouthtween.cancel();
+								if(savefiles[curSelectedy].played){
+									FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+									if (savefiles[curSelectedy].dirtmouthtween != null) {
+										savefiles[curSelectedy].dirtmouthtween.cancel();
+									}
+									savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
+									FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 								}
-								savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: 0}, .5, {ease: FlxEase.quadInOut});
-								FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 								changeSelection(0);
 							} else {
+								DataSaver.setDefaultValues();
+								DataSaver.checkSave(curSelectedy + 1);
 								DataSaver.wipeData(curSelectedy + 1);
-								DataSaver.loadData(curSelectedy + 1);
+								DataSaver.loadData('clearing save file in slot ${curSelectedy + 1}');
 								DataSaver.saveSettings(curSelectedy + 1);
 
 								FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .15, {ease: FlxEase.quadInOut});
@@ -271,11 +292,17 @@ class SaveState extends MenuBeatState {
 						choosingstate = false;
 						FlxTween.tween(savefiles[curSelectedy].yes2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
 						FlxTween.tween(savefiles[curSelectedy].no2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
-						FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
-						if (savefiles[curSelectedy].dirtmouthtween != null) {
-							savefiles[curSelectedy].dirtmouthtween.cancel();
+						if(savefiles[curSelectedy].played){
+							FlxTween.tween(savefiles[curSelectedy].clearsave, {alpha: 1}, .35, {ease: FlxEase.quadInOut});
+							if (savefiles[curSelectedy].dirtmouthtween != null) {
+								savefiles[curSelectedy].dirtmouthtween.cancel();
+							}
+							savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
 						}
-						savefiles[curSelectedy].dirtmouthtween = FlxTween.tween(savefiles[curSelectedy].dirtmouth, {alpha: .5}, .5, {ease: FlxEase.quadInOut});
+						else{
+							FlxTween.cancelTweensOf(savefiles[curSelectedy].newgame);
+							FlxTween.tween(savefiles[curSelectedy].newgame, {alpha: 1}, .15, {ease: FlxEase.quadInOut});
+						}
 						changeSelection(0);
 					} else if (!clearingsave) {
 						selected = true;

@@ -171,7 +171,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 			FlxTween.tween(PlayState.instance.playerfog, {alpha: 0}, 1, {ease: FlxEase.circOut});
 			new FlxTimer().start(0.7, function(tmr:FlxTimer) {
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function() {
-					DataSaver.loadData(DataSaver.saveFile);
+					DataSaver.loadData("reset song after camera fade");
 					if (Paths.formatPath(DataSaver.doingsong) == "first-steps") {
 						MusicBeatState.resetState();
 					} else {

@@ -286,7 +286,7 @@ class CharmSubState extends MusicBeatSubstate {
 	}
 
 	public function getCharmLocation() {
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("getting charm locations");
 		usedNotches = DataSaver.calculateNotches();
 		for (i in 0...charmData.length) {
 			var charmsdata = charmData[i];
@@ -294,7 +294,7 @@ class CharmSubState extends MusicBeatSubstate {
 
 			var charmName:Charm = charmsdata.name;
 
-			DataSaver.loadData(DataSaver.saveFile);
+			DataSaver.loadData('looping, checking ${charmName}');
 			var dat:Bool = DataSaver.charms.get(charmName);
 			var dater:Int = DataSaver.allCharms.indexOf(charmName); // Std.parseInt(Paths.getContent('charms/${charmsdata[2]}/order.txt', 'hymns').trim());
 
@@ -575,7 +575,7 @@ class CharmSubState extends MusicBeatSubstate {
 					} else {
 						var charmInf = charmData[datar];
 						if (charmInf.makeCharm) {
-							DataSaver.loadData(DataSaver.saveFile);
+							DataSaver.loadData("Pressing accept on charm");
 							var rawData:Bool = DataSaver.charms.get(charmInf.name);
 							if (rawData == false) {
 								if (usedNotches < notchAmount) {
@@ -665,7 +665,7 @@ class CharmSubState extends MusicBeatSubstate {
 												}
 											}
 
-											DataSaver.loadData(DataSaver.saveFile);
+											DataSaver.loadData("begin overcharming");
 											DataSaver.usedNotches = DataSaver.calculateNotches();
 											DataSaver.saveSettings(DataSaver.saveFile);
 											FlxG.sound.play(Paths.sound('overcharm', 'hymns'));
@@ -677,7 +677,7 @@ class CharmSubState extends MusicBeatSubstate {
 											fleurs.updateHitbox();
 											fleurs.screenCenterXY();
 
-											DataSaver.loadData(DataSaver.saveFile);
+											DataSaver.loadData("nah - no overcharmin, we good here");
 											DataSaver.usedNotches = DataSaver.calculateNotches();
 											DataSaver.saveSettings(DataSaver.saveFile);
 										}

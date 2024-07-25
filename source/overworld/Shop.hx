@@ -182,7 +182,7 @@ class Shop extends FlxSpriteGroup {
 		titledesc.push(title);
 		titledesc.push(desc1);
 
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("Swinder 'charm'");
 		var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 
 		if (rawData == false) {
@@ -190,7 +190,7 @@ class Shop extends FlxSpriteGroup {
 				"",
 				0, 50);
 		} else {
-			DataSaver.loadData(DataSaver.saveFile);
+			DataSaver.loadData("if swindler unlocked");
 			var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
 			var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
 			var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
@@ -243,7 +243,7 @@ class Shop extends FlxSpriteGroup {
 
 		function callbackk() {
 			final playerXTweenFinal = 597.83;
-			DataSaver.loadData(DataSaver.saveFile);
+			DataSaver.loadData("checking sly shop purchases");
 			if (purchasedall) {
 				FlxTween.tween(OverworldManager.instance.player, {x: playerXTweenFinal}, .75, {ease: FlxEase.quintOut});
 				OverworldManager.instance.player.flipX = true;
@@ -365,7 +365,7 @@ class Shop extends FlxSpriteGroup {
 					OverworldManager.instance.player.animation.play("interacts");
 					OverworldManager.instance.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
-					DataSaver.loadData(DataSaver.saveFile);
+					DataSaver.loadData("shopping first time");
 					var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 
 					if (rawData == false) {
@@ -410,7 +410,7 @@ class Shop extends FlxSpriteGroup {
 	}
 
 	function addCharm(name:Charm, desc:String, notch:Int, price:Int) {
-		DataSaver.loadData(DataSaver.saveFile);
+		DataSaver.loadData("Adding a charm");
 		if (DataSaver.charmsunlocked.get(name) == null || DataSaver.charmsunlocked.get(name) == false) {
 			var charmGroup:FlxSpriteGroup = new FlxSpriteGroup(0, 0);
 			add(charmGroup);
@@ -537,7 +537,7 @@ class Shop extends FlxSpriteGroup {
 
 		#if debug
 		if (FlxG.keys.justPressed.J) {
-			DataSaver.loadData(DataSaver.saveFile);
+			DataSaver.loadData("adding 1000 geo");
 			DataSaver.geo += 1000;
 			DataSaver.saveSettings(DataSaver.saveFile);
 		}
@@ -649,7 +649,7 @@ class Shop extends FlxSpriteGroup {
 				}
 			} else {
 				if (controls.ACCEPT && isbuying == true) {
-					DataSaver.loadData(DataSaver.saveFile);
+					DataSaver.loadData("you're buying something");
 
 					if (selected2 == yes) {
 						var name:Charm = charmList[selected][4][0];
@@ -748,7 +748,7 @@ class Shop extends FlxSpriteGroup {
 								});
 
 								function filly() {
-									DataSaver.loadData(DataSaver.saveFile);
+									DataSaver.loadData("thanks for your patronage");
 									var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
 									var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
 									var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);

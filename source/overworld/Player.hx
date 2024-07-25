@@ -45,6 +45,11 @@ class Player extends FlxSprite {
 		// playing anim
 		animation.play('idle', true);
 		offset.set(99.6, 145.8);
+
+		if(DataSaver.played == false){
+			DataSaver.played = true; //The moment a player spawns in game, the game save should be marked as "played"
+			DataSaver.getSave(DataSaver.saveFile).data.played = true;
+		}
 	}
 
 	var mounted:Bool = false;
@@ -168,6 +173,7 @@ class Player extends FlxSprite {
 				speed = 0;
 			}
 		} else {
+			
 			if (animation.curAnim.name != "benchmount") {
 				mounted = true;
 				animation.play("benchmount");

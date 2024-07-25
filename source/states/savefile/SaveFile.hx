@@ -51,6 +51,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 	public var dirtmouth:FlxSprite;
 	public var clearsave:FlxText;
 	public var newgame:FlxText;
+	public var played:Bool = false;
 
 	public var yes:FlxText;
 	public var no:FlxText;
@@ -132,14 +133,22 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		no2.alpha = 0;
 		yes2.alpha = 0;
 
-		DataSaver.loadData(data);
-		if (DataSaver.played == true) {
+		DataSaver.loadSaves();
+		var dataFile = DataSaver.getSave(data);
+		trace((dataFile.data.played?"Saved game: ":"New Save:" )+ ' file slot ${data}');
+		if (dataFile.data.played) {
+			played = true;
 			if (dirtmouthtween != null) {
 				dirtmouthtween.cancel();
 			}
 			dirtmouthtween = FlxTween.tween(dirtmouth, {alpha: .75}, 2, {ease: FlxEase.quadInOut});
 			newgame.alpha = 0;
 			clearsave.alpha = 1;
+		}
+		else{
+			played = false;
+			newgame.alpha = 1;
+			clearsave.alpha = 0;
 		}
 	}
 
