@@ -63,8 +63,8 @@ class SlyShop extends BaseScene {
 		sly.scale.set(0.36, 0.36);
 		sly.updateHitbox();
 		sly.screenCenterXY();
-		sly.x += 250*(0.25/0.36);
-		sly.y += 225*(0.25/0.36);
+		sly.x += 250 * (0.25 / 0.36);
+		sly.y += 225 * (0.25 / 0.36);
 		sly.animation.addByPrefix('idle', 'SlyShopidle0', 24, true);
 		sly.animation.addByPrefix('turnidle', 'SlyShopIdleTurned0', 24, true);
 		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnL0', 24, false);
@@ -81,7 +81,7 @@ class SlyShop extends BaseScene {
 		slyshop = true;
 	}
 
-	var slyTurning:Bool = false;
+	var slyTurned:Bool = false;
 	var slyIdling:Bool = false;
 
 	var overlayShader:OverlayFilter;
@@ -183,12 +183,14 @@ class SlyShop extends BaseScene {
 				sly.animation.play('turnidle', true);
 			} else if (!inshop) {
 				sly.animation.play('turnRight', false);
+				slyTurned = true;
 			}
 		} else if (game.player.x <= sly.x && animName != "idle") {
 			if (!inshop && finish && animName == "turnLeft") {
 				sly.animation.play('idle', true);
 			} else if (!inshop) {
 				sly.animation.play('turnLeft', false);
+				slyTurned = false;
 			}
 		}
 
@@ -268,9 +270,13 @@ class SlyShop extends BaseScene {
 
 					OverworldManager.instance.scene.inshop = true;
 					game.player.status.cripple = true;
-					sly.animation.play('turnLeft', false);
+					if (slyTurned) {
+						sly.animation.play('turnLeft', false);
+						slyTurned = false;
+					}
 					new FlxTimer().start(0.2, function(tmr:FlxTimer) {
 						sly.animation.play('idle', true);
+						slyTurned = false;
 					});
 				}
 		}
