@@ -186,7 +186,7 @@ class DataSaver {
 	}
 
 	
-	public static function retrieveSaveValue(saveKey:String, variable:Dynamic):Dynamic {
+	public static function retrieveSaveValue(saveKey:String):Dynamic {
 		var curSave = getSave(DataSaver.saveFile);
 		if(curSave == null || curSave.data == null) {
 			checkSave(DataSaver.saveFile);
@@ -199,9 +199,9 @@ class DataSaver {
 		}
 		else{
 			//Reflect.setField(DataSaver.curSave.data, variable, getDefaultValue(variable));
-			flushReady = true;
+			flushReady = true; 
 			//Reflect.setField(DataSaver, variable, value);
-			return getDefaultValue(variable);
+			return getDefaultValue(saveKey);
 		}
 		
 		trace('Error: value ${saveKey} is null');
@@ -330,22 +330,22 @@ class DataSaver {
 		interacts = curSaveFile.data.interacts!=null ? curSaveFile.data.interacts : getDefaultValue('interacts');
 		sillyOrder = curSaveFile.data.sillyOrder!=null ? curSaveFile.data.sillyOrder : getDefaultValue('sillyOrder');
 
-		retrieveSaveValue("geo", "geo");
-		retrieveSaveValue("charms", "charms");
-		retrieveSaveValue("charmsunlocked", "charmsunlocked");
-		retrieveSaveValue("songScores", "songScores");
-		retrieveSaveValue("weekScores", "weekScores");
-		retrieveSaveValue("songRating", "songRating");
-		retrieveSaveValue("unlocked", "unlocked");
-		retrieveSaveValue("played", "played");
-		retrieveSaveValue("elderbugstate", "elderbugstate");
-		retrieveSaveValue("charmOrder", "charmOrder");
-		retrieveSaveValue("slytries", "slytries");
-		retrieveSaveValue("doingsong", "doingsong");
-		retrieveSaveValue("lichendone", "lichendone");
-		retrieveSaveValue("diedonfirststeps", "diedonfirststeps");
-		retrieveSaveValue("interacts", "interacts");
-		if (retrieveSaveValue("sillyOrder", "sillyOrder")!= null ) {
+		retrieveSaveValue("geo");
+		retrieveSaveValue("charms");
+		retrieveSaveValue("charmsunlocked");
+		retrieveSaveValue("songScores");
+		retrieveSaveValue("weekScores");
+		retrieveSaveValue("songRating");
+		retrieveSaveValue("unlocked");
+		retrieveSaveValue("played");
+		retrieveSaveValue("elderbugstate");
+		retrieveSaveValue("charmOrder");
+		retrieveSaveValue("slytries");
+		retrieveSaveValue("doingsong");
+		retrieveSaveValue("lichendone");
+		retrieveSaveValue("diedonfirststeps");
+		retrieveSaveValue("interacts");
+		if (retrieveSaveValue("sillyOrder")!= null ) {
 			fixSillyOrder();
 		}
 
