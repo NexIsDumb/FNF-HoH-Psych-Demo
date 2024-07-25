@@ -358,7 +358,7 @@ class DataSaver {
 		if(curSaveFile!=null){
 			flushReady = true;
 			fixSave(DataSaver.saveFile);
-			curSaveFile.data.played = true;
+			//curSaveFile.data.played = true;
 			curSaveFile.flush();
 		}
 		FlxG.log.add("Loaded!");
