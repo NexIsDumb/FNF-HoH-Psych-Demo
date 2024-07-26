@@ -121,10 +121,12 @@ class SaveState extends MenuBeatState {
 		}
 		if (FlxG.state == this && debounce == true) {
 			if (controls.UI_UP_P && !clearingsave && !choosingstate) {
-				changeSelection(-1);
+				curSelectedx = 0;
+				changeSelection(-1); 
 			}
 			if (controls.UI_DOWN_P && !clearingsave && !choosingstate) {
-				changeSelection(1);
+				curSelectedx = 0;
+				changeSelection(1); 
 			}
 
 			if (controls.UI_LEFT_P && (savefiles[curSelectedy].clearsave.alpha == 1 || clearingsave || choosingstate)) {
