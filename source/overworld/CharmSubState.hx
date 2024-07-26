@@ -274,6 +274,7 @@ class CharmSubState extends MusicBeatSubstate {
 				// charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
 				charmData.insert(itee, {
 					sprite: charm,
+					
 					name: charmName,
 					desc: DataSaver.getDesc(charmName),
 					cost: DataSaver.getCost(charmName),
@@ -662,13 +663,14 @@ class CharmSubState extends MusicBeatSubstate {
 											overcharmGlow.alpha = 0.5;
 											FlxTween.tween(overcharmGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
 
+											/*
 											for (i in 0...shakers.length) {
 												var spriter = shakers[i];
 												if (spriter != null) {
 													spriter.shakeDistance=3;
 												}
 											}
-
+											*/
 											DataSaver.loadData("begin overcharming");
 											DataSaver.usedNotches = DataSaver.calculateNotches();
 											DataSaver.saveSettings(DataSaver.saveFile);
@@ -680,13 +682,6 @@ class CharmSubState extends MusicBeatSubstate {
 											fleurs.setGraphicSize(1280, 720);
 											fleurs.updateHitbox();
 											fleurs.screenCenterXY();
-
-											for (i in 0...shakers.length) {
-												var spriter = shakers[i];
-												if (spriter != null) {
-													spriter.shakeDistance=0;
-												}
-											}
 
 											DataSaver.loadData("nah - no overcharmin, we good here");
 											DataSaver.usedNotches = DataSaver.calculateNotches();
@@ -759,6 +754,7 @@ class CharmSubState extends MusicBeatSubstate {
 			}
 		}
 
+		var overCharmStatus = false;
 		for (i in 0...notches.length) {
 			var notch = notches[i];
 			if (notch != null) {
@@ -767,6 +763,7 @@ class CharmSubState extends MusicBeatSubstate {
 					if (usedNotches > notchAmount) {
 						notch.loadGraphic(Paths.image('Menus/Charm/purplenotch', 'hymns'));
 						notch.alpha = 1;
+						overCharmStatus =true;
 					}
 				} else {
 					if (notch.ID < notchAmount) {
@@ -775,6 +772,15 @@ class CharmSubState extends MusicBeatSubstate {
 						notch.alpha = 0;
 					}
 				}
+			}
+		}
+
+		for (i in 0...shakers.length) {
+			var spriter = shakers[i];
+			var checkDist = spriter.shakeDistance;
+			var setDist = overCharmStatus?3:0;
+			if (spriter != null && (checkDist != setDist) ) {
+				spriter.shakeDistance=setDist;
 			}
 		}
 
