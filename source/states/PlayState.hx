@@ -1829,7 +1829,7 @@ class PlayState extends MusicBeatState {
 			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, lerpVal);
 		}
 
-		#if debug
+		#if RELEASE_DEBUG
 		FlxG.watch.addQuick("secShit", curSection);
 		FlxG.watch.addQuick("beatShit", curBeat);
 		FlxG.watch.addQuick("stepShit", curStep);
@@ -1922,7 +1922,7 @@ class PlayState extends MusicBeatState {
 			checkEventNote();
 		}
 
-		#if debug
+		#if RELEASE_DEBUG
 		if (!endingSong && !startingSong) {
 			if (FlxG.keys.justPressed.ONE) {
 				KillNotes();
@@ -2650,8 +2650,10 @@ class PlayState extends MusicBeatState {
 			}
 			if (formattedSong == "swindler") {
 				OverworldManager.goober = "Sly";
+				//OverworldManager.postDialogue = "swindler";
 			} else {
 				OverworldManager.goober = "Dirtmouth";
+				//OverworldManager.postDialogue = "first-steps";
 			}
 			MusicBeatState.switchState(new OverworldManager());
 			changedDifficulty = false;

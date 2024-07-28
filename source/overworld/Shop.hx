@@ -535,14 +535,14 @@ class Shop extends FlxSpriteGroup {
 		pointer1.update(elapsed);
 		pointer2.update(elapsed);
 
-		#if debug
+		#if RELEASE_DEBUG
 		if (FlxG.keys.justPressed.J) {
 			DataSaver.loadData("adding 1000 geo");
 			DataSaver.geo += 1000;
 			DataSaver.saveSettings(DataSaver.saveFile);
 		}
 		#end
-
+		var accepted = controls.ACCEPT;
 		if (caninteractter && OverworldManager.instance.scene.inshop) {
 			if (!isbuying) {
 				if (controls.UI_DOWN_P) {
@@ -605,7 +605,7 @@ class Shop extends FlxSpriteGroup {
 			}
 
 			if (isbuying == false && notch.alpha != 0) {
-				if (controls.ACCEPT) {
+				if (accepted) {
 					caninteractter = false;
 					isbuying = true;
 					for (spr in [notch, desc1, title, selector, arrowtop, arrowbot]) {
@@ -648,7 +648,7 @@ class Shop extends FlxSpriteGroup {
 					});
 				}
 			} else {
-				if (controls.ACCEPT && isbuying == true) {
+				if (accepted && isbuying == true) {
 					DataSaver.loadData("you're buying something");
 
 					if (selected2 == yes) {

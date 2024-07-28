@@ -72,7 +72,7 @@ class MusicBeatState extends FlxUIState {
 	}
 
 	public function handleDebug() {
-		#if (debug && sys)
+		#if (RELEASE_DEBUG && sys)
 		if (!FlxG.keys.pressed.SHIFT)
 			return;
 
@@ -275,12 +275,12 @@ class MusicBeatState extends FlxUIState {
 		});
 	}
 
-	#if debug
+	#if RELEASE_DEBUG
 	var inSaveEditor:Bool = false;
 	#end
 
 	override function openSubState(SubState:FlxSubState):Void {
-		#if debug
+		#if RELEASE_DEBUG
 		if ((SubState is states.debug.DebugSaveEditorSubState)) {
 			inSaveEditor = true;
 		}
@@ -289,7 +289,7 @@ class MusicBeatState extends FlxUIState {
 	}
 
 	override function closeSubState():Void {
-		#if debug
+		#if RELEASE_DEBUG
 		if ((subState is states.debug.DebugSaveEditorSubState)) {
 			inSaveEditor = false;
 		}
@@ -299,7 +299,7 @@ class MusicBeatState extends FlxUIState {
 
 	@:allow(flixel.FlxGame)
 	override function tryUpdate(elapsed:Float):Void {
-		if (#if debug !inSaveEditor && #end (persistentUpdate || subState == null)) {
+		if (#if RELEASE_DEBUG !inSaveEditor && #end (persistentUpdate || subState == null)) {
 			update(elapsed);
 		}
 

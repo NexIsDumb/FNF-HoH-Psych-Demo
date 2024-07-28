@@ -19,7 +19,7 @@ import cpp.vm.Gc;
 #end
 
 interface IDebugInfo {
-	#if debug
+	#if RELEASE_DEBUG
 	public function getDebugInfo():String;
 	#end
 }
@@ -97,7 +97,7 @@ class FPS extends TextField {
 		buf.add(currentFPS);
 		var memoryMegas:Float = 0.0;
 
-		#if debug
+		#if RELEASE_DEBUG
 		memoryMegas = currentMemUsage();
 		buf.addStr(" | mem: " + CoolUtil.getSizeString(memoryMegas));
 		#end
@@ -116,7 +116,7 @@ class FPS extends TextField {
 		buf.add(Context3DStats.contextDrawCalls(DrawCallContext.STAGE3D));
 		#end
 
-		#if debug
+		#if RELEASE_DEBUG
 		var debugState:IDebugInfo = null;
 		var state = FlxG.state;
 		if (state is IDebugInfo) {

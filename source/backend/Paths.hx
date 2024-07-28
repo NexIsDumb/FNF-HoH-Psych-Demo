@@ -194,7 +194,7 @@ class Paths {
 			return currentTrackedAssets.get(file);
 		}
 
-		#if debug
+		#if RELEASE_DEBUG
 		trace(file);
 		#end
 		#if sys
