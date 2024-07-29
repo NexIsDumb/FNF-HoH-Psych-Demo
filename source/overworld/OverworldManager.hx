@@ -13,7 +13,7 @@ class OverworldManager extends MusicBeatState {
 	public static var instance:OverworldManager;
 	public static var switching:Bool = false;
 
-	// public static var postDialogue:String = '';
+	public static var postSongDialogue:String = '';
 	public var player:Player;
 	public var scene:BaseScene;
 
@@ -94,13 +94,13 @@ class OverworldManager extends MusicBeatState {
 
 		if (goober == "Dirtmouth") {
 			scene = new Dirtmouth();
-			scene.create(); // scene.create(OverworldManager.postDialogue);
+			scene.create(OverworldManager.postSongDialogue);
 		} else {
 			scene = new SlyShop();
-			scene.create(); // scene.create(OverworldManager.postDialogue);
+			scene.create(OverworldManager.postSongDialogue);
 		}
 
-		// OverworldManager.postDialogue = "";
+		OverworldManager.postSongDialogue = "";
 
 		player = new Player(0, 0);
 		player.screenCenterXY();

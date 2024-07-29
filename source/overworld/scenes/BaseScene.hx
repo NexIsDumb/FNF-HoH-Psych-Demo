@@ -39,7 +39,7 @@ class BaseScene extends FlxBasic {
 		super();
 	}
 
-	public function create() {}
+	public function create(?input:String) {}
 
 	public function createPost() {}
 

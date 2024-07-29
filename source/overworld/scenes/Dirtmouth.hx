@@ -44,7 +44,7 @@ class Dirtmouth extends BaseScene {
 		trace(sly.x + sly.width / 1.45);
 	}
 
-	override public function create() {
+	override public function create(?input:String) {
 		var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Overworld/bg', 'hymns'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0.7, 0.7);
@@ -452,6 +452,7 @@ class Dirtmouth extends BaseScene {
 	var tweenbg:FlxTween;
 
 	function interactionpoint() {
+		var accepted = controls.ACCEPT;
 		var hasfound = false;
 		for (i in 0...stageproperties.interactionpoints.length) {
 			var point = stageproperties.interactionpoints[i];
@@ -511,7 +512,7 @@ class Dirtmouth extends BaseScene {
 					}
 
 					if (!nothingyoudopls) {
-						if (controls.ACCEPT) {
+						if (accepted) {
 							inInteraction = true;
 							interaction(point[1]);
 						}
@@ -567,393 +568,9 @@ class Dirtmouth extends BaseScene {
 	}
 
 	function interaction(thing:String) {
-		DataSaver.loadData("interacting in dirthmouth");
+		DataSaver.loadData("interacting in dirtmouth");
 		switch (thing) {
-			case "elderbuginteract":
-				if (!doingelderbuginteract) {
-					doingelderbuginteract = true;
-					indialogue = true;
-					FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
-					function call() {
-						indialogue = false;
-						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
-							DataSaver.charmsunlocked.set(MelodicShell, true);
-							DataSaver.saveSettings(DataSaver.saveFile);
-							charmsaquire = new CharmAcquireElderbug();
-							charmsaquire.cameras = [game.camDIALOG];
-							charmsaquire.y -= 25;
-							charmsaquire.call = function() {
-								FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-								game.player.status.cripple = false;
-								new FlxTimer().start(1.25, function(tmr:FlxTimer) {
-									charmsaquire.destroy();
-									remove(charmsaquire, true);
-									new FlxTimer().start(.7, function(tmr:FlxTimer) {
-										doingelderbuginteract = false;
-									});
-								});
-							}
-							add(charmsaquire);
-						});
-					}
-
-					game.player.animation.play("interacts");
-					game.player.offset.set(99.6 + 5, 145.8 + 2.5);
-
-					if (elderbug.animation.curAnim.name == "turnLeft") {
-						FlxTween.tween(game.player, {x: 62.92}, .75, {ease: FlxEase.quintOut});
-
-						game.player.flipX = true;
-						elderbug.animation.play('talkL');
-					} else {
-						FlxTween.tween(game.player, {x: 378.03}, .75, {ease: FlxEase.quintOut});
-
-						game.player.flipX = false;
-						elderbug.animation.play('talk');
-					}
-
-					game.player.status.cripple = true;
-
-					switch (DataSaver.elderbugstate) {
-						case 0:
-							game.dialogue.openBox("Elderbug",
-								[
-									[
-										TM.checkTransl("Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it.", "elderbug-dialog-1")
-									]
-								],
-								call
-							);
-							DataSaver.elderbugstate++;
-							DataSaver.saveSettings(DataSaver.saveFile);
-
-						case 1:
-							DataSaver.loadData("MelodicShell Check");
-							var rawData:Bool = DataSaver.charms.get(MelodicShell);
-
-							if (rawData == true) {
-								DataSaver.loadData("Elderbug First Steps song");
-
-								if (DataSaver.diedonfirststeps == false) {
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company.", "elderbug-dialog-2")
-											]
-										],
-										function() {
-											Difficulty.resetList();
-											PlayState.storyDifficulty = Difficulty.NORMAL;
-
-											var songLowercase:String = Paths.formatPath("First Steps");
-											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
-											trace(poop);
-
-											DataSaver.loadData("First Steps no deaths");
-											DataSaver.doingsong = "First Steps";
-											DataSaver.saveSettings(DataSaver.saveFile);
-
-											PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-											PlayState.isStoryMode = true;
-											LoadingState.loadAndSwitchState(new PlayState());
-
-											FlxG.sound.music.volume = 0;
-										}
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								} else {
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("I apologize, my singing must be a little rusty. Lets try that again, Traveler.", "elderbug-dialog-3")
-											]
-										],
-										function() {
-											Difficulty.resetList();
-											PlayState.storyDifficulty = Difficulty.NORMAL;
-
-											var songLowercase:String = Paths.formatPath("First Steps");
-											var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
-											trace(poop);
-
-											DataSaver.loadData('First Steps but ${PlayState.deathCounter} deaths');
-											DataSaver.doingsong = "First Steps";
-											DataSaver.saveSettings(DataSaver.saveFile);
-
-											PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-											PlayState.isStoryMode = true;
-											LoadingState.loadAndSwitchState(new PlayState());
-
-											FlxG.sound.music.volume = 0;
-										}
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								}
-							} else {
-								game.dialogue.openBox("Elderbug",
-									[
-										[
-											TM.checkTransl("Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you.", "elderbug-dialog-4")
-										]
-									],
-									function() {
-										indialogue = false;
-										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-										game.player.status.cripple = false;
-										new FlxTimer().start(.7, function(tmr:FlxTimer) {
-											doingelderbuginteract = false;
-										});
-									}
-								);
-								DataSaver.saveSettings(DataSaver.saveFile);
-							}
-						case 6:
-							if (DataSaver.charmsunlocked.get(Swindler) == false) {
-								FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
-								game.dialogue.openBox("Elderbug",
-									[
-										[
-											TM.checkTransl("Oh my, I haven't felt such enjoyment in quite a long time!", "elderbug-dialog-5")
-										],
-									],
-									function() {
-										dooropen();
-
-										new FlxTimer().start(6.75, function(tmr:FlxTimer) {
-											if (elderbug.animation.curAnim.name == "turnLeftFrame") {
-												elderbug.animation.play('talkL');
-											} else {
-												elderbug.animation.play('talk');
-											}
-											game.dialogue.openBox("Elderbug",
-												[
-													[
-														TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
-													]
-												],
-												function() {
-													indialogue = false;
-													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-													game.player.status.cripple = false;
-													new FlxTimer().start(.7, function(tmr:FlxTimer) {
-														doingelderbuginteract = false;
-													});
-												}
-											);
-										});
-									}
-								);
-								DataSaver.elderbugstate++;
-								DataSaver.saveSettings(DataSaver.saveFile);
-							} else {
-								if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
-									DataSaver.loadData("Elderbug charm chatting before Swindler");
-									var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
-									var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
-									var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
-									if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
-										if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
-											if (lightcd == false) {
-												var randomlines = [
-													[
-														TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
-													],
-													[
-														TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
-													],
-													[
-														TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
-													]
-												];
-
-												lightcd = true;
-
-												game.dialogue.openBox("Elderbug",
-													[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
-													function() {
-														indialogue = false;
-														FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-														game.player.status.cripple = false;
-														new FlxTimer().start(.7, function(tmr:FlxTimer) {
-															doingelderbuginteract = false;
-														});
-
-														new FlxTimer().start(.5, function(tmr:FlxTimer) {
-															lightcd = false;
-														});
-													}
-												);
-											}
-										} else {
-											DataSaver.interacts[0] = true;
-											game.dialogue.openBox("Elderbug",
-												[
-													[
-														TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
-													],
-													[
-														TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
-													]
-												],
-												function() {
-													indialogue = false;
-													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-													game.player.status.cripple = false;
-													new FlxTimer().start(.7, function(tmr:FlxTimer) {
-														doingelderbuginteract = false;
-													});
-												}
-											);
-											DataSaver.saveSettings(DataSaver.saveFile);
-										}
-									} else {
-										DataSaver.interacts[2] = true;
-										game.dialogue.openBox("Elderbug",
-											[
-												[
-													TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
-												]
-											],
-											function() {
-												indialogue = false;
-												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-												game.player.status.cripple = false;
-												new FlxTimer().start(.7, function(tmr:FlxTimer) {
-													doingelderbuginteract = false;
-												});
-											}
-										);
-										DataSaver.saveSettings(DataSaver.saveFile);
-									}
-								} else {
-									DataSaver.interacts[1] = true;
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
-											],
-											[
-												TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
-											]
-										],
-										function() {
-											indialogue = false;
-											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-											game.player.status.cripple = false;
-											new FlxTimer().start(.7, function(tmr:FlxTimer) {
-												doingelderbuginteract = false;
-											});
-										}
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								}
-							}
-						case 7:
-							DataSaver.loadData("charm check elderbug swindler");
-
-							if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
-								DataSaver.loadData("Elderbug charm chatting after Swindler");
-								var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
-								var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
-								var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
-								if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
-									if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
-										if (lightcd == false) {
-											var randomlines = [
-												[
-													TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
-												],
-												[
-													TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
-												],
-												[
-													TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
-												]
-											];
-
-											lightcd = true;
-
-											game.dialogue.openBox("Elderbug",
-												[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
-												function() {
-													indialogue = false;
-													FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-													game.player.status.cripple = false;
-													new FlxTimer().start(.7, function(tmr:FlxTimer) {
-														doingelderbuginteract = false;
-													});
-
-													new FlxTimer().start(.5, function(tmr:FlxTimer) {
-														lightcd = false;
-													});
-												}
-											);
-										}
-									} else {
-										DataSaver.interacts[0] = true;
-										game.dialogue.openBox("Elderbug",
-											[
-												[
-													TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
-												],
-												[
-													TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
-												]
-											],
-											function() {
-												indialogue = false;
-												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-												game.player.status.cripple = false;
-												new FlxTimer().start(.7, function(tmr:FlxTimer) {
-													doingelderbuginteract = false;
-												});
-											}
-										);
-										DataSaver.saveSettings(DataSaver.saveFile);
-									}
-								} else {
-									DataSaver.interacts[2] = true;
-									game.dialogue.openBox("Elderbug",
-										[
-											[
-												TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
-											]
-										],
-										function() {
-											indialogue = false;
-											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-											game.player.status.cripple = false;
-											new FlxTimer().start(.7, function(tmr:FlxTimer) {
-												doingelderbuginteract = false;
-											});
-										}
-									);
-									DataSaver.saveSettings(DataSaver.saveFile);
-								}
-							} else {
-								DataSaver.interacts[1] = true;
-								game.dialogue.openBox("Elderbug",
-									[
-										[
-											TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
-										],
-										[
-											TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
-										]
-									],
-									function() {
-										indialogue = false;
-										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-										game.player.status.cripple = false;
-										new FlxTimer().start(.7, function(tmr:FlxTimer) {
-											doingelderbuginteract = false;
-										});
-									}
-								);
-								DataSaver.saveSettings(DataSaver.saveFile);
-							}
-					}
-				}
+			case "elderbuginteract": doElderTalking();
 
 			case "doorinteract": game.switchScenery(new SlyShop());
 
@@ -970,6 +587,393 @@ class Dirtmouth extends BaseScene {
 					FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 					FlxTween.tween(game.camCHARM, {alpha: 1}, .5, {ease: FlxEase.quintOut});
 				}
+		}
+	}
+
+	function doElderTalking() {
+		if (!doingelderbuginteract) {
+			doingelderbuginteract = true;
+			indialogue = true;
+			FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
+			function call() {
+				indialogue = false;
+				new FlxTimer().start(1.25, function(tmr:FlxTimer) {
+					DataSaver.charmsunlocked.set(MelodicShell, true);
+					DataSaver.saveSettings(DataSaver.saveFile);
+					charmsaquire = new CharmAcquireElderbug();
+					charmsaquire.cameras = [game.camDIALOG];
+					charmsaquire.y -= 25;
+					charmsaquire.call = function() {
+						FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+						game.player.status.cripple = false;
+						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
+							charmsaquire.destroy();
+							remove(charmsaquire, true);
+							new FlxTimer().start(.7, function(tmr:FlxTimer) {
+								doingelderbuginteract = false;
+							});
+						});
+					}
+					add(charmsaquire);
+				});
+			}
+
+			game.player.animation.play("interacts");
+			game.player.offset.set(99.6 + 5, 145.8 + 2.5);
+
+			if (elderbug.animation.curAnim.name == "turnLeft") {
+				FlxTween.tween(game.player, {x: 62.92}, .75, {ease: FlxEase.quintOut});
+
+				game.player.flipX = true;
+				elderbug.animation.play('talkL');
+			} else {
+				FlxTween.tween(game.player, {x: 378.03}, .75, {ease: FlxEase.quintOut});
+
+				game.player.flipX = false;
+				elderbug.animation.play('talk');
+			}
+
+			game.player.status.cripple = true;
+
+			switch (DataSaver.elderbugstate) {
+				case 0:
+					game.dialogue.openBox("Elderbug",
+						[
+							[
+								TM.checkTransl("Ah, Traveler! You've returned! I could have sworn you had just passed by me a minute ago. You seemed to have dropped this on your way down. Here, take it.", "elderbug-dialog-1")
+							]
+						],
+						call
+					);
+					DataSaver.elderbugstate++;
+					DataSaver.saveSettings(DataSaver.saveFile);
+
+				case 1:
+					DataSaver.loadData("MelodicShell Check");
+					var rawData:Bool = DataSaver.charms.get(MelodicShell);
+
+					if (rawData == true) {
+						DataSaver.loadData("Elderbug First Steps song");
+
+						if (DataSaver.diedonfirststeps == false) {
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("Here, why don't try it out right now? A bit of practice shouldn't do any harm. Besides, I do appreciate the extra company.", "elderbug-dialog-2")
+									]
+								],
+								function() {
+									Difficulty.resetList();
+									PlayState.storyDifficulty = Difficulty.NORMAL;
+
+									var songLowercase:String = Paths.formatPath("First Steps");
+									var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
+									trace(poop);
+
+									DataSaver.loadData("First Steps no deaths");
+									DataSaver.doingsong = "First Steps";
+									DataSaver.saveSettings(DataSaver.saveFile);
+
+									PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+									PlayState.isStoryMode = true;
+									LoadingState.loadAndSwitchState(new PlayState());
+
+									FlxG.sound.music.volume = 0;
+								}
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						} else {
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("I apologize, my singing must be a little rusty. Lets try that again, Traveler.", "elderbug-dialog-3")
+									]
+								],
+								function() {
+									Difficulty.resetList();
+									PlayState.storyDifficulty = Difficulty.NORMAL;
+
+									var songLowercase:String = Paths.formatPath("First Steps");
+									var poop:String = Highscore.formatSong(songLowercase, Difficulty.NORMAL);
+									trace(poop);
+
+									DataSaver.loadData('First Steps but ${PlayState.deathCounter} deaths');
+									DataSaver.doingsong = "First Steps";
+									DataSaver.saveSettings(DataSaver.saveFile);
+
+									PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+									PlayState.isStoryMode = true;
+									LoadingState.loadAndSwitchState(new PlayState());
+
+									FlxG.sound.music.volume = 0;
+								}
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						}
+					} else {
+						game.dialogue.openBox("Elderbug",
+							[
+								[
+									TM.checkTransl("Traveler, that nail of yours appears to be in quite the sorry state. It won't do you any good down there. Perhaps that charm of yours can be of use to you.", "elderbug-dialog-4")
+								]
+							],
+							function() {
+								indialogue = false;
+								FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+								game.player.status.cripple = false;
+								new FlxTimer().start(.7, function(tmr:FlxTimer) {
+									doingelderbuginteract = false;
+								});
+							}
+						);
+						DataSaver.saveSettings(DataSaver.saveFile);
+					}
+				case 6:
+					if (DataSaver.charmsunlocked.get(Swindler) == false) {
+						FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
+						game.dialogue.openBox("Elderbug",
+							[
+								[
+									TM.checkTransl("Oh my, I haven't felt such enjoyment in quite a long time!", "elderbug-dialog-5")
+								],
+							],
+							function() {
+								dooropen();
+
+								new FlxTimer().start(6.75, function(tmr:FlxTimer) {
+									if (elderbug.animation.curAnim.name == "turnLeftFrame") {
+										elderbug.animation.play('talkL');
+									} else {
+										elderbug.animation.play('talk');
+									}
+									game.dialogue.openBox("Elderbug",
+										[
+											[
+												TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
+											]
+										],
+										function() {
+											indialogue = false;
+											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+											game.player.status.cripple = false;
+											new FlxTimer().start(.7, function(tmr:FlxTimer) {
+												doingelderbuginteract = false;
+											});
+										}
+									);
+								});
+							}
+						);
+						DataSaver.elderbugstate++;
+						DataSaver.saveSettings(DataSaver.saveFile);
+					} else {
+						if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
+							DataSaver.loadData("Elderbug charm chatting before Swindler");
+							var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+							var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+							var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
+							if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
+								if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
+									if (lightcd == false) {
+										var randomlines = [
+											[
+												TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
+											],
+											[
+												TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
+											],
+											[
+												TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
+											]
+										];
+
+										lightcd = true;
+
+										game.dialogue.openBox("Elderbug",
+											[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
+											function() {
+												indialogue = false;
+												FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+												game.player.status.cripple = false;
+												new FlxTimer().start(.7, function(tmr:FlxTimer) {
+													doingelderbuginteract = false;
+												});
+
+												new FlxTimer().start(.5, function(tmr:FlxTimer) {
+													lightcd = false;
+												});
+											}
+										);
+									}
+								} else {
+									DataSaver.interacts[0] = true;
+									game.dialogue.openBox("Elderbug",
+										[
+											[
+												TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
+											],
+											[
+												TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
+											]
+										],
+										function() {
+											indialogue = false;
+											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+											game.player.status.cripple = false;
+											new FlxTimer().start(.7, function(tmr:FlxTimer) {
+												doingelderbuginteract = false;
+											});
+										}
+									);
+									DataSaver.saveSettings(DataSaver.saveFile);
+								}
+							} else {
+								DataSaver.interacts[2] = true;
+								game.dialogue.openBox("Elderbug",
+									[
+										[
+											TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
+										]
+									],
+									function() {
+										indialogue = false;
+										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+										game.player.status.cripple = false;
+										new FlxTimer().start(.7, function(tmr:FlxTimer) {
+											doingelderbuginteract = false;
+										});
+									}
+								);
+								DataSaver.saveSettings(DataSaver.saveFile);
+							}
+						} else {
+							DataSaver.interacts[1] = true;
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
+									],
+									[
+										TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
+									]
+								],
+								function() {
+									indialogue = false;
+									FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+									game.player.status.cripple = false;
+									new FlxTimer().start(.7, function(tmr:FlxTimer) {
+										doingelderbuginteract = false;
+									});
+								}
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						}
+					}
+				case 7:
+					DataSaver.loadData("charm check elderbug swindler");
+
+					if (DataSaver.charmsunlocked.get(Swindler) == false || DataSaver.interacts[1] == true) {
+						DataSaver.loadData("Elderbug charm chatting after Swindler");
+						var rawData1:Bool = DataSaver.charmsunlocked.get(BaldursBlessing);
+						var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
+						var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
+						if (!(rawData1 || rawData2 || rawData3) || DataSaver.interacts[2] == true) {
+							if (DataSaver.lichendone == false || DataSaver.interacts[0] == true) {
+								if (lightcd == false) {
+									var randomlines = [
+										[
+											TM.checkTransl("The couple at the map shop.. Oh, I wish nothing but the best for those two. If only they could have setup shop some place larger.. I can't stand watching the wife bend down to walk through that door, Such a tall bug she is.", "elderbug-dialog-7")
+										],
+										[
+											TM.checkTransl("The shopkeep? He seems to have everything in that little store of his! I'd be careful if you're looking to purchase from him.. He drives quite a hard bargain for his wares, that bug.", "elderbug-dialog-8")
+										],
+										[
+											TM.checkTransl("Many used to come in search of a kingdom just below where we stand. Hallownest, it was called. The greatest kingdom there ever was I've been told. It's since become ruin, the sickly air below enough to drive one mad!", "elderbug-dialog-9")
+										]
+									];
+
+									lightcd = true;
+
+									game.dialogue.openBox("Elderbug",
+										[randomlines[FlxG.random.int(0, randomlines.length - 1)]],
+										function() {
+											indialogue = false;
+											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+											game.player.status.cripple = false;
+											new FlxTimer().start(.7, function(tmr:FlxTimer) {
+												doingelderbuginteract = false;
+											});
+
+											new FlxTimer().start(.5, function(tmr:FlxTimer) {
+												lightcd = false;
+											});
+										}
+									);
+								}
+							} else {
+								DataSaver.interacts[0] = true;
+								game.dialogue.openBox("Elderbug",
+									[
+										[
+											TM.checkTransl("You seem exhausted, Traveler. I take it you've ventured down to the leafy caverns below? It's quite a beautiful sight, really.", "elderbug-dialog-10")
+										],
+										[
+											TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
+										]
+									],
+									function() {
+										indialogue = false;
+										FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+										game.player.status.cripple = false;
+										new FlxTimer().start(.7, function(tmr:FlxTimer) {
+											doingelderbuginteract = false;
+										});
+									}
+								);
+								DataSaver.saveSettings(DataSaver.saveFile);
+							}
+						} else {
+							DataSaver.interacts[2] = true;
+							game.dialogue.openBox("Elderbug",
+								[
+									[
+										TM.checkTransl("Oh, I see you've bought from that shopkeep have you? You look quite ready for your next venture. but remember to be careful out there, who knows what you may run into in those caverns.", "elderbug-dialog-12")
+									]
+								],
+								function() {
+									indialogue = false;
+									FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+									game.player.status.cripple = false;
+									new FlxTimer().start(.7, function(tmr:FlxTimer) {
+										doingelderbuginteract = false;
+									});
+								}
+							);
+							DataSaver.saveSettings(DataSaver.saveFile);
+						}
+					} else {
+						DataSaver.interacts[1] = true;
+						game.dialogue.openBox("Elderbug",
+							[
+								[
+									TM.checkTransl("You seem exhausted, Traveler. Looks like you had put up a hard fight for a bargain.", "elderbug-dialog-13")
+								],
+								[
+									TM.checkTransl("I suggest you take a rest on that bench before heading out again. I assure you it's quite comfortable.", "elderbug-dialog-11")
+								]
+							],
+							function() {
+								indialogue = false;
+								FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
+								game.player.status.cripple = false;
+								new FlxTimer().start(.7, function(tmr:FlxTimer) {
+									doingelderbuginteract = false;
+								});
+							}
+						);
+						DataSaver.saveSettings(DataSaver.saveFile);
+					}
+			}
 		}
 	}
 }

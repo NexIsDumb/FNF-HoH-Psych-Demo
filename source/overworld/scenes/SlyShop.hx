@@ -35,7 +35,7 @@ class SlyShop extends BaseScene {
 	var shop:Shop;
 	var interactionBackdrop:FlxSprite;
 
-	override public function create() {
+	override public function create(?input:String) {
 		var backgroundSpr1:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Shop/bg_1_sly', 'hymns'));
 		backgroundSpr1.scale.set(0.4, 0.4);
 		backgroundSpr1.screenCenterXY();
@@ -79,8 +79,13 @@ class SlyShop extends BaseScene {
 		add(sly);
 
 		slyshop = true;
+
+		if (input == "swindler") {
+			startPlayerNearSly = true;
+		}
 	}
 
+	var startPlayerNearSly = true;
 	var slyTurned:Bool = false;
 	var slyIdling:Bool = false;
 
@@ -168,6 +173,7 @@ class SlyShop extends BaseScene {
 			scenery = true;
 			game.player.status.cripple = true;
 			game.switchScenery(new Dirtmouth());
+			Controls.acceptTimer = true;
 		}
 
 		/*if(lastAnim != animName || lastFinished !=finish){
@@ -202,7 +208,7 @@ class SlyShop extends BaseScene {
 	var tweentext:FlxTween;
 	var tweenbg:FlxTween;
 
-	function interactionpoint() {
+	function interactionpoint(?interactInput:String) {
 		var hasfound = false;
 		for (i in 0...stageproperties.interactionpoints.length) {
 			var point = stageproperties.interactionpoints[i];
