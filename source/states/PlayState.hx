@@ -279,6 +279,7 @@ class PlayState extends MusicBeatState {
 
 	var hitvfx:FlxSprite;
 	var bg2:FlxSprite;
+	var bg3:FlxSprite;
 
 	public var blackahhh:FlxSprite;
 	public var playerfog:FlxSprite;
@@ -422,11 +423,6 @@ class PlayState extends MusicBeatState {
 			add(vignette);
 		 */
 
-		soulMeter = new Soulmeter(22, 30, 7, camHUD);
-		add(soulMeter);
-		timeBarH = new Timebar(12, FlxG.height - 160, camHUD);
-		add(timeBarH);
-
 		bg2 = new FlxSprite(0, 0).loadGraphic(Paths.image("SoulMeter/huh", 'hymns'));
 		bg2.antialiasing = ClientPrefs.data.antialiasing;
 		bg2.setGraphicSize(1280, 720);
@@ -435,6 +431,21 @@ class PlayState extends MusicBeatState {
 		bg2.alpha = 0;
 		bg2.cameras = [camHUD];
 		add(bg2);
+
+		bg3 = new FlxSprite(0, 0).loadGraphic(Paths.image("SoulMeter/what", 'hymns'));
+		bg3.antialiasing = ClientPrefs.data.antialiasing;
+		bg3.setGraphicSize(1280, 720);
+		bg3.updateHitbox();
+		bg3.screenCenterXY();
+		bg3.alpha = 0;
+		bg3.cameras = [camHUD];
+		add(bg3);
+
+		soulMeter = new Soulmeter(22, 30, 7, camHUD);
+		add(soulMeter);
+		timeBarH = new Timebar(12, FlxG.height - 160, camHUD);
+		add(timeBarH);
+
 		FlxTween.tween(bg2.scale, {x: bg2.scale.x + 0.05, y: bg2.scale.y + 0.05}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
 
 		switch (curStage) {
@@ -1775,6 +1786,9 @@ class PlayState extends MusicBeatState {
 		if (bg2 != null) {
 			bg2.screenCenterXY();
 		}
+		if (bg3 != null) {
+			bg3.screenCenterXY();
+		}
 
 		if (controls.PAUSE && startedCountdown && canPause) {
 			#if (LUA_ALLOWED || HSCRIPT_ALLOWED) var ret:Dynamic = callOnScripts('onPause', null, true);
@@ -2004,6 +2018,9 @@ class PlayState extends MusicBeatState {
 				camOtheristic.visible = true;
 				bg2.alpha = 0;
 				bg2.visible = false;
+
+				bg3.alpha = 0;
+				bg3.visible = false;
 
 				persistentUpdate = false;
 				persistentDraw = true;
@@ -2650,10 +2667,10 @@ class PlayState extends MusicBeatState {
 			}
 			if (formattedSong == "swindler") {
 				OverworldManager.goober = "Sly";
-				//OverworldManager.postDialogue = "swindler";
+				OverworldManager.postSongDialogue = "swindler";
 			} else {
 				OverworldManager.goober = "Dirtmouth";
-				//OverworldManager.postDialogue = "first-steps";
+				OverworldManager.postSongDialogue = "first-steps";
 			}
 			MusicBeatState.switchState(new OverworldManager());
 			changedDifficulty = false;
@@ -3044,6 +3061,7 @@ class PlayState extends MusicBeatState {
 	}
 
 	var bg2tween:FlxTween;
+	var bg3tween:FlxTween;
 
 	function noteMissCommon(direction:Int, note:Note = null) {
 		// score and data
@@ -3068,17 +3086,21 @@ class PlayState extends MusicBeatState {
 			if (bg2tween != null) {
 				bg2tween.cancel();
 			}
-			function tweenOut(flxT:FlxTween){
-				if (soulMeter.masks < 1) {
-					trace("tween2");
-					//FlxTween.color(bg2, .35, FlxColor.RED, FlxColor.WHITE, {ease: FlxEase.quadInOut});
-					bg2tween = FlxTween.tween(bg2, {alpha: 0}, 4, {ease: FlxEase.quintOut, startDelay: 4});
-				} else {
-					bg2tween = FlxTween.tween(bg2, {alpha: 0}, .35, {ease: FlxEase.quintOut});
-				}
+			if (bg3tween != null) {
+				bg3tween.cancel();
 			}
-			
-			bg2tween = FlxTween.tween(bg2, {alpha: 0.4}, 0.35, {ease: FlxEase.quintOut, onComplete: tweenOut});
+			function tweenOut2(flxT:FlxTween) {
+				bg2tween = FlxTween.tween(bg2, {alpha: 0}, 4, {ease: FlxEase.quintOut, startDelay: 4});
+			}
+			function tweenOut3(flxT:FlxTween) {
+				bg3tween = FlxTween.tween(bg3, {alpha: 0}, .35, {ease: FlxEase.quintOut});
+			}
+
+			if (soulMeter.masks < 1) {
+				bg2tween = FlxTween.tween(bg2, {alpha: 0.4}, 0.35, {ease: FlxEase.quintOut, onComplete: tweenOut2});
+			} else {
+				bg3tween = FlxTween.tween(bg3, {alpha: 0.6}, 0.35, {ease: FlxEase.quintOut, onComplete: tweenOut3});
+			}
 
 			if (!loadedSaveFile) {
 				DataSaver.loadData("loaded save file on miss");
