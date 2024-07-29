@@ -139,9 +139,7 @@ class Option {
 		if (onSet != null) {
 			onSet(variable, value);
 		} else {
-			if(Reflect.hasField(ClientPrefs.data, variable)){
-				Reflect.setProperty(ClientPrefs.data, variable, value);
-			}
+			Reflect.setProperty(ClientPrefs.data, variable, value);
 		}
 		handleVisual(this, value);
 	}
