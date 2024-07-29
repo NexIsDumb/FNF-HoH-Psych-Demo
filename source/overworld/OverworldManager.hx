@@ -11,7 +11,9 @@ import substates.*;
 
 class OverworldManager extends MusicBeatState {
 	public static var instance:OverworldManager;
+	public static var switching:Bool = false;
 
+	// public static var postDialogue:String = '';
 	public var player:Player;
 	public var scene:BaseScene;
 
@@ -92,11 +94,13 @@ class OverworldManager extends MusicBeatState {
 
 		if (goober == "Dirtmouth") {
 			scene = new Dirtmouth();
-			scene.create();
+			scene.create(); // scene.create(OverworldManager.postDialogue);
 		} else {
 			scene = new SlyShop();
-			scene.create();
+			scene.create(); // scene.create(OverworldManager.postDialogue);
 		}
+
+		// OverworldManager.postDialogue = "";
 
 		player = new Player(0, 0);
 		player.screenCenterXY();
@@ -145,6 +149,13 @@ class OverworldManager extends MusicBeatState {
 	}
 
 	public function switchScenery(scene2:BaseScene) {
+		if (switching)
+			return;
+
+		switching = true;
+		// Controls.acceptElapsed = 0.016 * 20; // approx. twenty frames of disabled enter key
+		// Controls.acceptTimer = true;
+
 		if (scene.slyshop) {
 			player.status.cripple = true;
 			FlxTween.tween(player, {x: player.x - 5 * 35}, .66, {ease: FlxEase.quadOut});
@@ -194,6 +205,7 @@ class OverworldManager extends MusicBeatState {
 						FlxTween.tween(black, {alpha: 0}, 1.5, {ease: FlxEase.quadOut});
 						new FlxTimer().start(1.4, function(tmr:FlxTimer) {
 							player.status.cripple = false;
+							switching = false;
 						});
 					});
 				});

@@ -139,7 +139,7 @@ class SlyShop extends BaseScene {
 		interactiontext.alpha = 0;
 		add(interactiontext);
 
-		game.player.y -= 100;
+		game.player.y -= 80;
 		game.player.oldy = game.player.y;
 		game.player.x -= 310;
 		game.player.flipX = true;
