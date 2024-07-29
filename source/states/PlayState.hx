@@ -433,7 +433,7 @@ class PlayState extends MusicBeatState {
 		bg2.updateHitbox();
 		bg2.screenCenterXY();
 		bg2.alpha = 0;
-		bg2.cameras = [camOtheristic];
+		bg2.cameras = [camHUD];
 		add(bg2);
 		FlxTween.tween(bg2.scale, {x: bg2.scale.x + 0.05, y: bg2.scale.y + 0.05}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
 
@@ -3065,15 +3065,20 @@ class PlayState extends MusicBeatState {
 			boyfriend.color = 0xFF000000;
 			FlxTween.color(boyfriend, .35, FlxColor.BLACK, FlxColor.WHITE, {ease: FlxEase.quadInOut});
 
-			bg2.alpha = 0.7;
 			if (bg2tween != null) {
 				bg2tween.cancel();
 			}
-			if (soulMeter.masks <= 1) {
-				bg2tween = FlxTween.tween(bg2, {alpha: 0}, 4, {ease: FlxEase.quadInOut, startDelay: 8});
-			} else {
-				bg2tween = FlxTween.tween(bg2, {alpha: 0}, .35, {ease: FlxEase.quadInOut});
+			function tweenOut(flxT:FlxTween){
+				if (soulMeter.masks < 1) {
+					trace("tween2");
+					//FlxTween.color(bg2, .35, FlxColor.RED, FlxColor.WHITE, {ease: FlxEase.quadInOut});
+					bg2tween = FlxTween.tween(bg2, {alpha: 0}, 4, {ease: FlxEase.quintOut, startDelay: 4});
+				} else {
+					bg2tween = FlxTween.tween(bg2, {alpha: 0}, .35, {ease: FlxEase.quintOut});
+				}
 			}
+			
+			bg2tween = FlxTween.tween(bg2, {alpha: 0.4}, 0.35, {ease: FlxEase.quintOut, onComplete: tweenOut});
 
 			if (!loadedSaveFile) {
 				DataSaver.loadData("loaded save file on miss");
