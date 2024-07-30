@@ -398,8 +398,8 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			var loopsies = tmr.loopsLeft;
 
 			mask.animation.onFinish.add(function(name) {
-				if (name == "empty") {
-					mask.animation.play("full", false);
+				if (name == "appear") {
+					mask.animation.play("full", true);
 					mask.x += .5;
 					mask.y += .5;
 					mask.centerOrigin();
