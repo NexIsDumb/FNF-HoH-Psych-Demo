@@ -139,7 +139,16 @@ class Option {
 		if (onSet != null) {
 			onSet(variable, value);
 		} else {
-			Reflect.setProperty(ClientPrefs.data, variable, value);
+			#if RELEASE_DEBUG
+			try {
+			#end
+				Reflect.setProperty(ClientPrefs.data, variable, value);
+			#if RELEASE_DEBUG
+			} catch (err) {
+				trace('ClientPrefs.data has no field ${variable}, cannot assign ${value}');
+				trace(err);
+			}
+			#end
 		}
 		handleVisual(this, value);
 	}
