@@ -46,8 +46,8 @@ class Player extends FlxSprite {
 		animation.play('idle', true);
 		offset.set(99.6, 145.8);
 
-		if(DataSaver.played == false){
-			DataSaver.played = true; //The moment a player spawns in game, the game save should be marked as "played"
+		if (DataSaver.played == false) {
+			DataSaver.played = true; // The moment a player spawns in game, the game save should be marked as "played"
 			DataSaver.getSave(DataSaver.saveFile).data.played = true;
 		}
 	}
@@ -157,10 +157,13 @@ class Player extends FlxSprite {
 				} else {
 					if (animation.curAnim.name != "benchdismount") {
 						animation.play("benchdismount");
-					}
-
-					if (animation.curAnim.name == "benchdismount" && animation.curAnim.finished) {
-						mounted = false;
+						animation.onFinish.add(function(name) {
+							switch (name) {
+								case "benchdismount":
+									mounted = false;
+									OverworldManager.instance.regenSoulMeter();
+							}
+						});
 					}
 				}
 			} else {
@@ -173,7 +176,6 @@ class Player extends FlxSprite {
 				speed = 0;
 			}
 		} else {
-			
 			if (animation.curAnim.name != "benchmount") {
 				mounted = true;
 				animation.play("benchmount");

@@ -57,7 +57,7 @@ class CharmSubState extends MusicBeatSubstate {
 	var tempEmit:FlxEmitter;
 	var sprites:Array<Dynamic> = [];
 	var shakers:Array<FlxShakableSprite> = [];
-	
+
 	var row:Int = 1;
 	var horiz:Int = 0;
 
@@ -69,6 +69,13 @@ class CharmSubState extends MusicBeatSubstate {
 
 	public function new(x:Float, y:Float, cam:FlxCamera) {
 		super();
+
+		try {
+			OverworldManager.instance.soulMeter.kill();
+		} catch (err) {
+			trace(err);
+		}
+
 		sillycam = cam;
 
 		var black:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
@@ -445,9 +452,9 @@ class CharmSubState extends MusicBeatSubstate {
 		add(temp.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
 		temp.antialiasing = ClientPrefs.data.antialiasing;
 
-		//sprites.push(temp = new FlxText(130, 140, 0, TM.checkTransl("Equipped", "equipped")));
-		//add(temp.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
-		//temp.antialiasing = ClientPrefs.data.antialiasing;
+		// sprites.push(temp = new FlxText(130, 140, 0, TM.checkTransl("Equipped", "equipped")));
+		// add(temp.setFormat(Constants.UI_FONT, 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
+		// temp.antialiasing = ClientPrefs.data.antialiasing;
 
 		sprites.push(temp = new FlxText(130, 270, 0, TM.checkTransl("Notches", "notches")));
 		add(temp.setFormat(Constants.UI_FONT, 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK));
@@ -664,13 +671,13 @@ class CharmSubState extends MusicBeatSubstate {
 											FlxTween.tween(overcharmGlow, {alpha: 0}, 1.25, {ease: FlxEase.cubeOut});
 
 											/*
-											for (i in 0...shakers.length) {
-												var spriter = shakers[i];
-												if (spriter != null) {
-													spriter.shakeDistance=3;
+												for (i in 0...shakers.length) {
+													var spriter = shakers[i];
+													if (spriter != null) {
+														spriter.shakeDistance=3;
+													}
 												}
-											}
-											*/
+											 */
 											DataSaver.loadData("begin overcharming");
 											DataSaver.usedNotches = DataSaver.calculateNotches();
 											DataSaver.saveSettings(DataSaver.saveFile);
@@ -763,7 +770,7 @@ class CharmSubState extends MusicBeatSubstate {
 					if (usedNotches > notchAmount) {
 						notch.loadGraphic(Paths.image('Menus/Charm/purplenotch', 'hymns'));
 						notch.alpha = 1;
-						overCharmStatus =true;
+						overCharmStatus = true;
 					}
 				} else {
 					if (notch.ID < notchAmount) {
@@ -778,9 +785,9 @@ class CharmSubState extends MusicBeatSubstate {
 		for (i in 0...shakers.length) {
 			var spriter = shakers[i];
 			var checkDist = spriter.shakeDistance;
-			var setDist = overCharmStatus?3:0;
-			if (spriter != null && (checkDist != setDist) ) {
-				spriter.shakeDistance=setDist;
+			var setDist = overCharmStatus ? 3 : 0;
+			if (spriter != null && (checkDist != setDist)) {
+				spriter.shakeDistance = setDist;
 			}
 		}
 

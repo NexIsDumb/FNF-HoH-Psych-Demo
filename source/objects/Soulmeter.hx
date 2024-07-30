@@ -215,19 +215,24 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		geo.antialiasing = ClientPrefs.data.antialiasing;
 		add(geo);
 
+		geotxt = new FlxText(FlxG.width * 0.7, 7, 0, "", 32);
+		geotxt.setFormat(Constants.UI_FONT, 28, FlxColor.WHITE, RIGHT);
+		var pos = geo.getGraphicMidpoint();
+		geotxt.x = pos.x + (geo.width / 2);
+		geotxt.y = pos.y - (geo.height / 2);
+		geotxt.text = Std.string(DataSaver.geo);
+		geotxt.cameras = [camera];
+		geotxt.antialiasing = ClientPrefs.data.antialiasing;
 		new FlxTimer().start(11 * (1 / 15), function(tmr:FlxTimer) {
-			geotxt = new FlxText(FlxG.width * 0.7, 7, 0, "", 32);
-			geotxt.setFormat(Constants.UI_FONT, 28, FlxColor.WHITE, RIGHT);
-			var pos = geo.getGraphicMidpoint();
-			geotxt.x = pos.x + (geo.width / 2);
-			geotxt.y = pos.y - (geo.height / 2);
-			geotxt.text = Std.string(DataSaver.geo);
-			geotxt.cameras = [camera];
-			geotxt.antialiasing = ClientPrefs.data.antialiasing;
-			add(geotxt);
-
-			geotxt.alpha = 0;
-			FlxTween.tween(geotxt, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+			if (geotxt != null && geotxt.exists) {
+				try {
+					add(geotxt);
+				} catch (err) {
+					trace(geotxt + ": " + err);
+				}
+				geotxt.alpha = 0;
+				FlxTween.tween(geotxt, {alpha: 1}, 1, {ease: FlxEase.quintOut});
+			}
 		});
 	}
 
@@ -262,18 +267,33 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 	function initMasks(backboard:FlxSprite, camera:FlxCamera) {
 		maskList = [];
-		for (i in 0...maxMasks) {
+
+		DataSaver.loadData("lifeblood check");
+		var rawData:Bool = DataSaver.charms.get(LifebloodSeed);
+		var loopMasks = maxMasks;
+		if (rawData == true) {
+			loopMasks += 2;
+		}
+		for (i in 0...loopMasks) {
 			var spacing:Int = -1;
 
 			var mask:FlxSprite = new FlxSprite(backboard.x + 140, backboard.y + 35);
 			mask.cameras = [camera];
 			mask.frames = Paths.getSparrowAtlas('SoulMeter/Mask', 'hymns');
+			for (frame in Paths.getSparrowAtlas('SoulMeter/LifeMask', 'hymns').frames) {
+				mask.frames.pushFrame(frame);
+				mask.frames = mask.frames;
+			}
+
 			mask.setGraphicSize(Std.int(mask.width * 0.66));
 			mask.updateHitbox();
 			mask.animation.addByPrefix('regen', 'maskrefill', 15, false);
-			mask.animation.addByPrefix('full', 'maskidle', 15, true);
+			mask.animation.addByPrefix('full', 'maskidle', 15, false);
 			mask.animation.addByPrefix('appear', 'maskappear', 15, false);
 			mask.animation.addByPrefix('empty', 'maskshatter', 15, false);
+			mask.animation.onFinish.add(function(name) {
+				// trace('Mask ${i}:' + name);
+			});
 
 			mask.x += (spacing + (mask.width / 2)) * i;
 
@@ -281,40 +301,48 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			add(mask);
 
 			mask.animation.play('empty', true);
-			maskList.push(mask);
-			mask.alpha = 0;
-		}
-
-		DataSaver.loadData("lifeblood check");
-		var rawData:Bool = DataSaver.charms.get(LifebloodSeed);
-		if (rawData == true) {
-			for (i in 0...2) {
-				var spacing:Int = -1;
-
-				var mask:FlxSprite = new FlxSprite(backboard.x + 215, backboard.y + 5);
-				mask.cameras = [camera];
-				mask.frames = Paths.getSparrowAtlas('SoulMeter/LifeMask', 'hymns');
-				mask.setGraphicSize(Std.int(mask.width * 0.66));
-				mask.updateHitbox();
+			if (rawData == true && i >= maxMasks) {
 				mask.animation.addByPrefix('regen', 'lifemaskrefill', 15, false);
-				mask.animation.addByPrefix('full', 'lifemaskidle', 15, true);
+				mask.animation.addByPrefix('full', 'lifemaskidle', 15, false);
 				mask.animation.addByPrefix('appear', 'lifemaskrefill', 15, false);
 				mask.animation.addByPrefix('empty', 'lifebloodburst', 15, false);
 				mask.animation.addByPrefix('waaa', 'lifemaskshatter', 15, false);
-
-				mask.x += (spacing + (91 / 2)) * (i);
-
-				mask.antialiasing = ClientPrefs.data.antialiasing;
-				add(mask);
-
-				mask.animation.play('empty', true);
-				maskList.push(mask);
 				mask.centerOrigin();
 				mask.centerOffsets();
-				mask.alpha = 0;
+				mask.y += 33;
 			}
-			masks += 2;
+			maskList.push(mask);
+			mask.alpha = 0;
 		}
+		/*
+				for (i in 0...2) {
+					var spacing:Int = -1;
+
+					var mask:FlxSprite = new FlxSprite(backboard.x + 215, backboard.y + 5);
+					mask.cameras = [camera];
+					mask.frames = Paths.getSparrowAtlas('SoulMeter/LifeMask', 'hymns');
+					mask.setGraphicSize(Std.int(mask.width * 0.66));
+					mask.updateHitbox();
+					mask.animation.addByPrefix('regen', 'lifemaskrefill', 15, false);
+					mask.animation.addByPrefix('full', 'lifemaskidle', 15, false);
+					mask.animation.addByPrefix('appear', 'lifemaskrefill', 15, false);
+					mask.animation.addByPrefix('empty', 'lifebloodburst', 15, false);
+					mask.animation.addByPrefix('waaa', 'lifemaskshatter', 15, false);
+
+					mask.x += (spacing + (91 / 2)) * (i);
+
+					mask.antialiasing = ClientPrefs.data.antialiasing;
+					add(mask);
+
+					mask.animation.play('empty', true);
+					maskList.push(mask);
+					mask.centerOrigin();
+					mask.centerOffsets();
+					mask.alpha = 0;
+				}
+				masks += 2;
+			}
+		 */
 
 		maxMasks -= 1;
 		masks -= 1;
@@ -348,13 +376,18 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		initGeo(backBoard, camera2, '2078');
 
 		new FlxTimer().start(4 * (1 / 24), function(tmr:FlxTimer) {
+			if (maskList == null || maskList.length <= tmr.loopsLeft)
+				return;
 			var mask = maskList[maskList.length - tmr.loopsLeft - 1];
+			if (mask == null || mask.animation == null)
+				return;
 			mask.animation.play("appear", true);
 			mask.centerOrigin();
 			mask.centerOffsets();
 
 			new FlxTimer().start(1 * (1 / 15), function(tmr:FlxTimer) {
-				mask.alpha = 1;
+				if (mask != null)
+					mask.alpha = 1;
 			});
 
 			if (maskList.length - tmr.loopsLeft >= maxMasks + 2) {
@@ -364,16 +397,18 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 			var loopsies = tmr.loopsLeft;
 
-			new FlxTimer().start(63 * (1 / 15), function(tmr:FlxTimer) {
-				mask.animation.play("full", false);
-				mask.x += .5;
-				mask.y += .5;
-				mask.centerOrigin();
-				mask.centerOffsets();
+			mask.animation.onFinish.add(function(name) {
+				if (name == "empty") {
+					mask.animation.play("full", false);
+					mask.x += .5;
+					mask.y += .5;
+					mask.centerOrigin();
+					mask.centerOffsets();
 
-				if (maskList.length - loopsies >= maxMasks + 2) {
-					mask.y += 30;
-					mask.x -= 4;
+					if (maskList.length - loopsies >= maxMasks + 2) {
+						mask.y += 30;
+						mask.x -= 4;
+					}
 				}
 			});
 		}, maskList.length);
@@ -410,7 +445,9 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 	var pingpongtween:FlxTween;
 
 	override public function update(elapsed:Float) {
-		soulMeter.update(elapsed);
+		if (soulMeter.exists) {
+			soulMeter.update(elapsed);
+		}
 		soulPulse.update(elapsed);
 		backBoard.update(elapsed);
 		soulBurst.update(elapsed);

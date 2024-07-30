@@ -14,6 +14,7 @@ class OverworldManager extends MusicBeatState {
 	public static var switching:Bool = false;
 
 	public static var postSongDialogue:String = '';
+
 	public var player:Player;
 	public var scene:BaseScene;
 
@@ -33,6 +34,16 @@ class OverworldManager extends MusicBeatState {
 	var thebop:FlxSound;
 	var shouldplay:Bool = false;
 
+	public function regenSoulMeter() {
+		if (soulMeter != null)
+			soulMeter.destroy();
+		soulMeter = new Soulmeter(22, 30, 7, camHUD);
+		insert(0, soulMeter);
+		// trace("soulmeterPosition " + FlxG.state.members.indexOf(soulMeter));
+		soulMeter.backBoard.animation.play("appear");
+		soulMeter.showMasks();
+	}
+
 	function cameraInit() {
 		FlxG.camera.zoom = 0.61;
 		// HUD
@@ -42,6 +53,7 @@ class OverworldManager extends MusicBeatState {
 
 		soulMeter = new Soulmeter(22, 30, 7, camHUD);
 		add(soulMeter);
+		// trace("soulmeterPosition " + FlxG.state.members.indexOf(soulMeter));
 		soulMeter.backBoard.animation.play("appear");
 		soulMeter.showMasks();
 
