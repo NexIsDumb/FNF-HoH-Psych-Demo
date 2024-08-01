@@ -112,8 +112,6 @@ class OverworldManager extends MusicBeatState {
 			scene.create(OverworldManager.postSongDialogue);
 		}
 
-		OverworldManager.postSongDialogue = "";
-
 		player = new Player(0, 0);
 		player.screenCenterXY();
 		player.y += FlxG.height / 3 - 1;
@@ -168,7 +166,7 @@ class OverworldManager extends MusicBeatState {
 		// Controls.acceptElapsed = 0.016 * 20; // approx. twenty frames of disabled enter key
 		// Controls.acceptTimer = true;
 
-		if (scene.slyshop) {
+		if (scene.slyshop && scene.exitWalking) {
 			OverworldManager.instance.player.crippleStatus(true, "weird tween when leaving");
 			FlxTween.tween(player, {x: player.x - 5 * 35}, .66, {ease: FlxEase.quadOut});
 		}
@@ -216,7 +214,8 @@ class OverworldManager extends MusicBeatState {
 					new FlxTimer().start(1, function(tmr:FlxTimer) {
 						FlxTween.tween(black, {alpha: 0}, 1.5, {ease: FlxEase.quadOut});
 						new FlxTimer().start(1.4, function(tmr:FlxTimer) {
-							player.status.cripple = false;
+							player.crippleStatus(postSongDialogue != '', "cripple on scene change?");
+							OverworldManager.postSongDialogue = "";
 							switching = false;
 						});
 					});

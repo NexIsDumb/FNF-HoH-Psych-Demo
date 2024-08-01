@@ -3,6 +3,7 @@ package overworld;
 @:structInit
 class PlayerStatus {
 	public var cripple:Bool;
+	public var lock:Bool;
 	public var bench:Bool;
 }
 
@@ -22,6 +23,18 @@ class Player extends FlxSprite {
 		#end
 	}
 
+	override public function set_x(xInput:Float){
+		if(this.status!=null && this.status.lock) return x;
+		x = xInput;
+		return x;
+	}
+
+	override public function set_y(yInput:Float){
+		if(this.status!=null && this.status.lock) return y;
+		y = yInput;
+		return y;
+	}
+
 	public function new(x:Float, y:Float) {
 		super(x, y);
 		oldy = y;
@@ -29,6 +42,7 @@ class Player extends FlxSprite {
 		status = {
 			cripple: false,
 			bench: false,
+			lock: false
 		};
 
 		frames = Paths.getSparrowAtlas('Overworld/VBF_OVERWORLD', 'hymns');
@@ -118,7 +132,6 @@ class Player extends FlxSprite {
 			}
 		}
 	}
-
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
@@ -127,6 +140,7 @@ class Player extends FlxSprite {
 
 		if (status.bench == false) {
 			if (status.cripple == false) {
+				OverworldManager.instance.player.status.lock = false;
 				y = FlxMath.lerp(y, oldy, lerpVal);
 				if (mounted == false) {
 					var walkDirection:Int = 0;

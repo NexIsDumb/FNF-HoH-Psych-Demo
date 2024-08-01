@@ -27,6 +27,7 @@ class BaseScene extends FlxBasic {
 	};
 	public var inshop = false;
 	public var slyshop:Bool = false;
+	public var exitWalking:Bool = false;
 
 	var game = OverworldManager.instance;
 	var controls(get, never):Controls;

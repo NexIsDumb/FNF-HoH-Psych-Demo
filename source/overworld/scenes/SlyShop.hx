@@ -85,9 +85,9 @@ class SlyShop extends BaseScene {
 		}
 	}
 
-	var startPlayerNearSly = true;
+	var created = false;
+	var startPlayerNearSly = false;
 	var slyTurned:Bool = false;
-	var slyIdling:Bool = false;
 
 	var overlayShader:OverlayFilter;
 
@@ -146,7 +146,14 @@ class SlyShop extends BaseScene {
 
 		game.player.y -= 80;
 		game.player.oldy = game.player.y;
-		game.player.x -= 310;
+		// game.player.x -= 310;
+		game.player.x = 261.8;
+
+		if (startPlayerNearSly) {
+			var point = stageproperties.interactionpoints[0];
+			var extrarange:Float = 150;
+			game.player.x = point[0];
+		}
 		game.player.flipX = true;
 	}
 
@@ -172,6 +179,7 @@ class SlyShop extends BaseScene {
 		if ((game.player.x <= stageproperties.minX + 480) && scenery == false) {
 			scenery = true;
 			game.player.crippleStatus(true, "leaving shop");
+			exitWalking = true;
 			game.switchScenery(new Dirtmouth());
 			//Controls.acceptTimer = true;
 		}
@@ -182,6 +190,7 @@ class SlyShop extends BaseScene {
 			trace(animName, finish);
 		}*/
 
+		// This could have been done better if I added onFinished earlier... lol oh well
 		var finish = sly.animation.curAnim.finished;
 		var animName = getAnimationName(sly);
 		if (game.player.x > sly.x && animName != "turnidle") {
@@ -246,8 +255,10 @@ class SlyShop extends BaseScene {
 					}
 				}
 
-				if (controls.ACCEPT) {
+				if (controls.ACCEPT || startPlayerNearSly) {
 					inInteraction = true;
+					startPlayerNearSly = false;
+
 					interaction(point[1]);
 				}
 			}
