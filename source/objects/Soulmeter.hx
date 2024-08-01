@@ -51,6 +51,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 	var soulPulse:FlxSprite;
 	var soulEyes:FlxSprite;
 	var soulBurst:FlxSprite;
+	var lifeBlood:Int = 0;
 
 	public var backBoard:FlxSprite;
 
@@ -273,6 +274,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		var loopMasks = maxMasks;
 		if (rawData == true) {
 			loopMasks += 2;
+			lifeBlood = 2;
 		}
 		for (i in 0...loopMasks) {
 			var spacing:Int = -1;
@@ -468,7 +470,8 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 			mask.update(elapsed);
 
 			if (mask.animation.curAnim.name != 'appear') {
-				if (i > masks) {
+				if (i > masks + lifeBlood) {
+					// trace(mask.animation.curAnim);
 					if (mask.animation.curAnim.name != 'empty') {
 						mask.animation.play('empty', true);
 						mask.centerOrigin();
@@ -476,6 +479,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 						if (i > maxMasks) {
 							mask.y -= 30;
+							lifeBlood--;
 						}
 					}
 				} else {
