@@ -197,7 +197,7 @@ class Player extends FlxSprite {
 		}
 
 		if (animation.curAnim.name == "benchmount" || animation.curAnim.name == "benchdismount") {
-			x = FlxMath.lerp(x, benchpos[0], lerpVal);
+			x = FlxMath.lerp(x, benchpos[0] - (99.6-offset.x), lerpVal);
 			if (animation.curAnim.name == "benchmount") {
 				y = FlxMath.lerp(y, benchpos[1], lerpVal);
 			}
