@@ -173,7 +173,7 @@ class SlyShop extends BaseScene {
 			scenery = true;
 			game.player.crippleStatus(true, "leaving shop");
 			game.switchScenery(new Dirtmouth());
-			Controls.acceptTimer = true;
+			//Controls.acceptTimer = true;
 		}
 
 		/*if(lastAnim != animName || lastFinished !=finish){

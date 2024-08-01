@@ -123,7 +123,6 @@ class Controls {
 
 	private function get_ACCEPT()
 		return justPressed('accept');
-		var pressed = justPressed('accept') && Controls.acceptElapsed < 0;
 
 	private function get_BACK()
 		return justPressed('back');
