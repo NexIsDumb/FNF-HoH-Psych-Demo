@@ -13,6 +13,15 @@ class Player extends FlxSprite {
 	public var oldy = 0.0;
 	public var benchpos = [0.0, 0.0];
 
+	public function crippleStatus(input:Bool, ?note:Null<String>) {
+		this.status.cripple = input;
+		#if RELEASE_DEBUG
+		if (note != null) {
+			trace(note);
+		}
+		#end
+	}
+
 	public function new(x:Float, y:Float) {
 		super(x, y);
 		oldy = y;

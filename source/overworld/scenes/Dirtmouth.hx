@@ -605,7 +605,7 @@ class Dirtmouth extends BaseScene {
 					charmsaquire.y -= 25;
 					charmsaquire.call = function() {
 						FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-						game.player.status.cripple = false;
+						OverworldManager.instance.player.crippleStatus(false, "elderTimer1");
 						new FlxTimer().start(1.25, function(tmr:FlxTimer) {
 							charmsaquire.destroy();
 							remove(charmsaquire, true);
@@ -633,7 +633,7 @@ class Dirtmouth extends BaseScene {
 				elderbug.animation.play('talk');
 			}
 
-			game.player.status.cripple = true;
+			game.player.crippleStatus(true, "doingelderbuginteract");
 
 			switch (DataSaver.elderbugstate) {
 				case 0:

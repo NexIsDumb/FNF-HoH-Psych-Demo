@@ -171,7 +171,7 @@ class SlyShop extends BaseScene {
 			shop.update(elapsed);
 		if ((game.player.x <= stageproperties.minX + 480) && scenery == false) {
 			scenery = true;
-			game.player.status.cripple = true;
+			game.player.crippleStatus(true, "leaving shop");
 			game.switchScenery(new Dirtmouth());
 			Controls.acceptTimer = true;
 		}
@@ -275,7 +275,7 @@ class SlyShop extends BaseScene {
 					FlxG.state.closeSubState();
 
 					OverworldManager.instance.scene.inshop = true;
-					game.player.status.cripple = true;
+					game.player.crippleStatus(true, "in shop, slypoint");
 					if (slyTurned) {
 						sly.animation.play('turnLeft', false);
 						slyTurned = false;

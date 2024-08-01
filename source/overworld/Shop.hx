@@ -255,7 +255,7 @@ class Shop extends FlxSpriteGroup {
 						OverworldManager.instance.scene.inshop = false;
 					});
 					FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
-					OverworldManager.instance.player.status.cripple = false;
+					OverworldManager.instance.player.crippleStatus(false, "purchasedAll - filly");
 					OverworldManager.instance.player.animation.play("interacte");
 				}
 
@@ -325,7 +325,7 @@ class Shop extends FlxSpriteGroup {
 							FlxTween.tween(main, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 						});
 
-						OverworldManager.instance.player.status.cripple = false;
+						OverworldManager.instance.player.crippleStatus(false, "notch cost text visible");
 					}
 				} else {
 					function filly() {
@@ -807,7 +807,7 @@ class Shop extends FlxSpriteGroup {
 												new FlxTimer().start(.75, function(tmr:FlxTimer) {
 													OverworldManager.instance.scene.inshop = false;
 												});
-												OverworldManager.instance.player.status.cripple = false;
+												OverworldManager.instance.player.crippleStatus(false, "dialogue end - all charms unlocked");
 												OverworldManager.instance.player.animation.play("interacte");
 												FlxTween.tween(OverworldManager.instance.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
 											});

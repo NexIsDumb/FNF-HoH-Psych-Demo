@@ -169,7 +169,7 @@ class OverworldManager extends MusicBeatState {
 		// Controls.acceptTimer = true;
 
 		if (scene.slyshop) {
-			player.status.cripple = true;
+			OverworldManager.instance.player.crippleStatus(true, "weird tween when leaving");
 			FlxTween.tween(player, {x: player.x - 5 * 35}, .66, {ease: FlxEase.quadOut});
 		}
 		FlxTween.tween(black, {alpha: 1}, .5, {
@@ -203,7 +203,7 @@ class OverworldManager extends MusicBeatState {
 					player = new Player(0, 0);
 					player.screenCenterXY();
 					player.y += FlxG.height / 3 - 1;
-					player.status.cripple = true;
+					OverworldManager.instance.player.crippleStatus(true, "fade black tween");
 					add(player);
 
 					scene.variableInitialize();
