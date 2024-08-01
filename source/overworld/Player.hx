@@ -62,6 +62,62 @@ class Player extends FlxSprite {
 	}
 
 	var mounted:Bool = false;
+	
+	function handleWalkStart(offsetd:Float) {
+		animation.play("walkstart");
+		var tempoffset = (offsetd * 1.25);
+		if (flipX == true) {
+			tempoffset = offsetd / 0.75;
+		}
+		offset.set(99.6 + tempoffset, 145.8 - 13);
+	}
+
+	
+	function handleWalk(offsetd:Float) {
+		offset.set(99.6 + offsetd, 145.8 - 12);
+		if (flipX == true && animation.curAnim.name != "walk2") {
+			var oldFrame = animation.curAnim.curFrame;
+			animation.play("walk2");
+			animation.curAnim.curFrame = oldFrame;
+		} else {
+			if (flipX == false && animation.curAnim.name != "walk") {
+				var oldFrame = animation.curAnim.curFrame;
+				animation.play("walk");
+				animation.curAnim.curFrame = oldFrame;
+			}
+		}
+	}
+
+	function handleWalkEnd(offsetd:Float) {
+		var tempoffset = 0;
+		if (flipX == false) {
+			tempoffset = 36;
+		}
+		offset.set(99.6 + tempoffset, 145.8 - 4);
+		animation.play("walkend");
+	}
+
+	function handleIdle(offsetd:Float) {
+		if (animation.curAnim.name == "interactl") {
+			animation.play("interacte");
+			offset.set(99.6 + 7, 145.8);
+		}
+		if ((animation.curAnim.name == "interacte" && animation.curAnim.finished) || animation.curAnim.name != "interacte") {
+			if (animation.curAnim.name.startsWith("walk")) {
+				if (animation.curAnim.name != "walkend") {
+					handleWalkEnd(offsetd);
+				} else {
+					if (animation.curAnim.name == "walkend" && animation.curAnim.finished) {
+						animation.play("idle", true);
+						offset.set(99.6, 145.8);
+					}
+				}
+			} else {
+				animation.play("idle", true);
+				offset.set(99.6, 145.8);
+			}
+		}
+	}
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
@@ -95,72 +151,20 @@ class Player extends FlxSprite {
 					if (walkDirection != 0) {
 						if (animation.curAnim.name.startsWith("walk")) {
 							if (prevflip != flipX) {
-								if (animation.curAnim.name != "walkstart") {
-									animation.play("walkstart");
-									var tempoffset = (offsetd * 1.25);
-									if (flipX == true) {
-										tempoffset = offsetd / 0.75;
-									}
-									offset.set(99.6 + tempoffset, 145.8 - 13);
-								}
+								handleWalkStart(offsetd);
 							}
-
 							if (animation.curAnim.name == "walkend") {
-								animation.play("walkstart");
-								var tempoffset = (offsetd * 1.25);
-								if (flipX == true) {
-									tempoffset = offsetd / 0.75;
-								}
-								offset.set(99.6 + tempoffset, 145.8 - 13);
+								handleWalkStart(offsetd);
 							}
 							if ((animation.curAnim.name != "walkstart" || (animation.curAnim.name == "walkstart" && animation.curAnim.finished)) && (animation.curAnim.name != "walkturn" || (animation.curAnim.name == "walkturn" && animation.curAnim.finished))) {
-								offset.set(99.6 + offsetd, 145.8 - 12);
-								if (flipX == true && animation.curAnim.name != "walk2") {
-									var oldFrame = animation.curAnim.curFrame;
-									animation.play("walk2");
-									animation.curAnim.curFrame = oldFrame;
-								} else {
-									if (flipX == false && animation.curAnim.name != "walk") {
-										var oldFrame = animation.curAnim.curFrame;
-										animation.play("walk");
-										animation.curAnim.curFrame = oldFrame;
-									}
-								}
+								handleWalk(offsetd);
 							}
 						} else {
-							animation.play("walkstart");
-							var tempoffset = (offsetd * 1.25);
-							if (flipX == true) {
-								tempoffset = offsetd / 0.75;
-							}
-							offset.set(99.6 + tempoffset, 145.8 - 13);
+							handleWalkStart(offsetd);
 						}
 					} else {
 						if (animation.curAnim.name != "idle") {
-							if (animation.curAnim.name == "interactl") {
-								animation.play("interacte");
-								offset.set(99.6 + 7, 145.8);
-							}
-							if ((animation.curAnim.name == "interacte" && animation.curAnim.finished) || animation.curAnim.name != "interacte") {
-								if (animation.curAnim.name.startsWith("walk")) {
-									if (animation.curAnim.name != "walkend") {
-										var tempoffset = 0;
-										if (flipX == false) {
-											tempoffset = 36;
-										}
-										offset.set(99.6 + tempoffset, 145.8 - 4);
-										animation.play("walkend");
-									} else {
-										if (animation.curAnim.name == "walkend" && animation.curAnim.finished) {
-											animation.play("idle", true);
-											offset.set(99.6, 145.8);
-										}
-									}
-								} else {
-									animation.play("idle", true);
-									offset.set(99.6, 145.8);
-								}
-							}
+							handleIdle(offsetd);
 						}
 					}
 				} else {
