@@ -145,8 +145,9 @@ class Player extends FlxSprite {
 						offsetd = 10;
 					}
 
-					speed = FlxMath.lerp(speed, walkDirection * 7, lerpVal);
-					x += speed * fpsscale;
+					//speed = FlxMath.lerp(speed, walkDirection * 7, lerpVal);
+					var speed = walkDirection * 500 * elapsed/1.1;
+					x += speed;
 
 					if (walkDirection != 0) {
 						if (animation.curAnim.name.startsWith("walk")) {
