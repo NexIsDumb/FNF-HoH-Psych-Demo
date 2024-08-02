@@ -90,7 +90,31 @@ class OverworldManager extends MusicBeatState {
 		FlxG.camera.follow(camFollow, LOCKON);
 	}
 
-	public static var goober:String = "Dirtmouth";
+	public static var playerLocation1:String = "Dirtmouth";
+	public static var playerLocation2:String = "Dirtmouth";
+	public static var playerLocation3:String = "Dirtmouth";
+	public static var playerLocation4:String = "Dirtmouth";
+
+	public static function getplayerLocation(){
+		var goob = "Dirtmouth";
+		switch(DataSaver.saveFile){
+			case 1: goob = playerLocation1;
+			case 2: goob = playerLocation2;
+			case 3: goob = playerLocation3;
+			case 4: goob = playerLocation4;
+		}
+		return goob;
+	}
+
+
+	public static function setplayerLocation(goob:String){
+		switch(DataSaver.saveFile){
+			case 1: playerLocation1 = goob;
+			case 2: playerLocation2 = goob;
+			case 3: playerLocation3 = goob;
+			case 4: playerLocation4 = goob;
+		}
+	}
 
 	override function create() {
 		#if desktop
@@ -104,7 +128,7 @@ class OverworldManager extends MusicBeatState {
 
 		FlxG.camera.setFilters([]);
 
-		if (goober == "Dirtmouth") {
+		if (getplayerLocation() == "Dirtmouth") {
 			scene = new Dirtmouth();
 			scene.create(OverworldManager.postSongDialogue);
 		} else {
@@ -126,7 +150,7 @@ class OverworldManager extends MusicBeatState {
 		FlxG.sound.playMusic(Paths.sound('dirtmouthLoop', "hymns"));
 		thebop.play(true);
 
-		if (goober == "Dirtmouth") {
+		if (getplayerLocation() == "Dirtmouth") {
 			FlxG.sound.music.volume = 0;
 			FlxG.sound.music.fadeIn(4, 0, .8);
 			thebop.volume = 0;
@@ -142,7 +166,7 @@ class OverworldManager extends MusicBeatState {
 			player.flipX = true;
 
 			shouldplay = true;
-			goober == "Dirtmouth";
+			setplayerLocation("Dirtmouth");
 		}
 
 		scene.variableInitialize();
