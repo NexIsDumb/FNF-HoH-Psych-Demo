@@ -245,6 +245,7 @@ class Shop extends FlxSpriteGroup {
 			final playerXTweenFinal = 597.83;
 			DataSaver.loadData("checking sly shop purchases");
 			if (purchasedall) {
+				OverworldManager.instance.player.crippleStatus(true, "purchasedAll");
 				FlxTween.tween(OverworldManager.instance.player, {x: playerXTweenFinal}, .75, {ease: FlxEase.quintOut});
 				OverworldManager.instance.player.flipX = true;
 				OverworldManager.instance.player.animation.play("interacts");
@@ -794,6 +795,7 @@ class Shop extends FlxSpriteGroup {
 								var rawData2:Bool = DataSaver.charmsunlocked.get(LifebloodSeed);
 								var rawData3:Bool = DataSaver.charmsunlocked.get(CriticalFocus);
 								if (rawData1 && rawData2 && rawData3) {
+									OverworldManager.instance.player.crippleStatus(true, "all charms unlocked");
 									new FlxTimer().start(.6, function(tmr:FlxTimer) {
 										OverworldManager.instance.dialogue.openBox("Sly",
 											[
@@ -813,6 +815,7 @@ class Shop extends FlxSpriteGroup {
 											});
 									});
 								} else {
+									OverworldManager.instance.player.crippleStatus(true, "all charms unlocked");
 									new FlxTimer().start(.6, function(tmr:FlxTimer) {
 										OverworldManager.instance.dialogue.openBox("Sly",
 											[
