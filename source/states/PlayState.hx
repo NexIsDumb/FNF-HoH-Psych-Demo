@@ -2666,10 +2666,10 @@ class PlayState extends MusicBeatState {
 				CustomFadeTransition.nextCamera = null;
 			}
 			if (formattedSong == "swindler") {
-				OverworldManager.goober = "Sly";
+				OverworldManager.setplayerLocation("Sly");
 				OverworldManager.postSongDialogue = "swindler";
 			} else {
-				OverworldManager.goober = "Dirtmouth";
+				OverworldManager.setplayerLocation("Dirtmouth");
 				OverworldManager.postSongDialogue = "first-steps";
 			}
 			MusicBeatState.switchState(new OverworldManager());

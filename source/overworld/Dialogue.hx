@@ -75,6 +75,7 @@ class Dialogue extends FlxSpriteGroup {
 
 	public function openBox(speaker:String, script, call) {
 		if (debounce == false) {
+			OverworldManager.instance.player.crippleStatus(true, "dialogue start");
 			debounce = true;
 			scriptpub = script;
 			box.animation.play("appear");
@@ -169,7 +170,8 @@ class Dialogue extends FlxSpriteGroup {
 
 		OverworldManager.postSongDialogue = "";
 		OverworldManager.instance.player.status.lock = false;
-		OverworldManager.instance.player.status.cripple = false;
+		OverworldManager.instance.player.crippleStatus(false, "dialogue end");
+			
 		lineindex = 0;
 		publiccall = [];
 	}

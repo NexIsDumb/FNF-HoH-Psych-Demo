@@ -13,8 +13,10 @@ class Player extends FlxSprite {
 	public var speed = 0.0;
 	public var oldy = 0.0;
 	public var benchpos = [0.0, 0.0];
+	public var doubleLock =false; //For chaining cutscene events that are NOT dialogue
 
 	public function crippleStatus(input:Bool, ?note:Null<String>) {
+		if(doubleLock) return;
 		this.status.cripple = input;
 		#if RELEASE_DEBUG
 		if (note != null) {
