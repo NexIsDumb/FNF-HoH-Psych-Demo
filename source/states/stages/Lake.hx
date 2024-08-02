@@ -80,17 +80,18 @@ class Lake extends BaseStage {
 		turnalubas.push(FlxG.random.int(2, 8));
 
 		var backgroundSpr3:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/godray_lichen', 'hymns'));
+		backgroundSpr3.scale.set(1.8, 1.8);
+		backgroundSpr3.updateHitbox();
 		backgroundSpr3.screenCenterXY();
 		backgroundSpr3.antialiasing = ClientPrefs.data.antialiasing;
-		backgroundSpr3.scale.set(1.8, 1.8);
 		backgroundSpr3.scrollFactor.set(1, 1);
 		backgroundSpr3.active = false;
 		add(backgroundSpr3);
 
 		var backgroundSpr4:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/lake_lichen', 'hymns'));
+		backgroundSpr4.scale.set(2, 2);
 		backgroundSpr4.screenCenterXY();
 		backgroundSpr4.antialiasing = ClientPrefs.data.antialiasing;
-		backgroundSpr4.scale.set(2, 2);
 		backgroundSpr4.scrollFactor.set(0.95, 0.95);
 		add(backgroundSpr4);
 
@@ -131,13 +132,15 @@ class Lake extends BaseStage {
 	override function createPost() {
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr8:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_2', 'hymns'));
+			backgroundSpr8.setGraphicSize(FlxG.width*1.2,-1);
+			backgroundSpr8.updateHitbox();
 			backgroundSpr8.screenCenterXY();
 			backgroundSpr8.antialiasing = ClientPrefs.data.antialiasing;
-			backgroundSpr8.scale.set(2, 2);
 			backgroundSpr8.scrollFactor.set(1, 1);
 			backgroundSpr8.active = false;
 			backgroundSpr8.blend = ADD;
-			add(backgroundSpr8);
+			backgroundSpr8.cameras = [camHUD];
+			insert(0,backgroundSpr8);
 		}
 
 		var backgroundSpr6:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/front_lichen', 'hymns'));
@@ -151,12 +154,14 @@ class Lake extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr7:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_1', 'hymns'));
 			backgroundSpr7.antialiasing = ClientPrefs.data.antialiasing;
-			backgroundSpr7.scale.set(FlxG.width, 2);
+			backgroundSpr7.scale.set(FlxG.width*1.2, 2);
+			backgroundSpr7.cameras = [camHUD];
+			backgroundSpr7.updateHitbox();
 			backgroundSpr7.screenCenterXY();
 			backgroundSpr7.scrollFactor.set(1, 1);
 			backgroundSpr7.active = false;
 			backgroundSpr7.blend = ADD;
-			add(backgroundSpr7);
+			insert(1,backgroundSpr7);
 		}
 
 		chromaticAbberation = new ChromaticAbberation(0.00001);
