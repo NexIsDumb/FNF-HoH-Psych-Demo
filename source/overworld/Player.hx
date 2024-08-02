@@ -25,8 +25,17 @@ class Player extends FlxSprite {
 		#end
 	}
 
+	//public var xNote:String = "";
+	/*	if(xNote!="") {
+			trace("changing x: "+xNote);
+			xNote = "";
+		}
+	*/
 	override public function set_x(xInput:Float){
-		if(this.status!=null && this.status.lock) return x;
+		if(this.status!=null && this.status.lock) {
+			FlxTween.cancelTweensOf(this);
+			return x;
+		}
 		x = xInput;
 		return x;
 	}
@@ -213,12 +222,15 @@ class Player extends FlxSprite {
 			}
 		}
 
+		prevflip = flipX;
+
+		if(doubleLock) return;
 		if (animation.curAnim.name == "benchmount" || animation.curAnim.name == "benchdismount") {
 			x = FlxMath.lerp(x, benchpos[0] - (99.6-offset.x), lerpVal);
 			if (animation.curAnim.name == "benchmount") {
 				y = FlxMath.lerp(y, benchpos[1], lerpVal);
 			}
 		}
-		prevflip = flipX;
+		
 	}
 }

@@ -192,6 +192,7 @@ class OverworldManager extends MusicBeatState {
 
 		if (scene.slyshop && scene.exitWalking) {
 			OverworldManager.instance.player.crippleStatus(true, "weird tween when leaving");
+			//OverworldManager.instance.player.xNote = "tweenLeave";
 			FlxTween.tween(player, {x: player.x - 5 * 35}, .66, {ease: FlxEase.quadOut});
 		}
 		FlxTween.tween(black, {alpha: 1}, .5, {
