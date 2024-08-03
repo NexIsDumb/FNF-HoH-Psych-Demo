@@ -2636,9 +2636,14 @@ class PlayState extends MusicBeatState {
 
 		
 		Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
-
-		DataSaver.songScores.set(SONG.song, songScore);
-		DataSaver.songRating.set(SONG.song, percent);
+        
+        var oldScore:Null<Int> = DataSaver.songScores.get(SONG.song);
+        var oldRating:Null<Float> = DataSaver.songRating.get(SONG.song);
+        if(oldScore==null || oldRating==null || oldScore < songScore)
+		{
+            DataSaver.songRating.set(SONG.song, percent);
+		    DataSaver.songScores.set(SONG.song, songScore);
+        }
 		#end
 		playbackRate = 1;
 
