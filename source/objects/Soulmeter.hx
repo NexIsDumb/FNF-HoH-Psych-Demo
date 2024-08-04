@@ -273,9 +273,11 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		var rawData:Bool = DataSaver.charms.get(LifebloodSeed);
 		var loopMasks = maxMasks;
 		if (rawData == true) {
-			loopMasks += 2;
 			lifeBlood = 2;
+			loopMasks += lifeBlood;
 		}
+
+		masks += lifeBlood;
 		for (i in 0...loopMasks) {
 			var spacing:Int = -1;
 
@@ -353,7 +355,13 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 	var baldurd = false;
 
 	public function changeMasks(amt:Int) {
-		masks += amt;
+		masks += amt ;
+		if(lifeBlood>0){
+			lifeBlood = maxMasks - masks;
+		}
+		if(lifeBlood<0){
+			lifeBlood = 0;
+		}
 
 		if (amt < 0) {
 			FlxG.sound.play(Paths.soundRandom('Damage', 1, 4, 'hymns'));
@@ -468,9 +476,8 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		for (i in 0...maskList.length) {
 			var mask = maskList[i];
 			mask.update(elapsed);
-
 			if (mask.animation.curAnim.name != 'appear') {
-				if (i > masks + lifeBlood) {
+				if (i > masks) {
 					// trace(mask.animation.curAnim);
 					if (mask.animation.curAnim.name != 'empty') {
 						mask.animation.play('empty', true);
@@ -479,7 +486,6 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 
 						if (i > maxMasks) {
 							mask.y -= 30;
-							lifeBlood--;
 						}
 					}
 				} else {
@@ -616,7 +622,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		}
 
 		if (FlxG.keys.justReleased.SPACE) {
-			trace("stopped");
+			//trace("stopped");
 			if (healing == true && soulCooldown == false) {
 				healing = false;
 				soulCooldown = true;
