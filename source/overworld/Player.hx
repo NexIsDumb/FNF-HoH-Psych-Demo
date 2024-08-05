@@ -13,10 +13,11 @@ class Player extends FlxSprite {
 	public var speed = 0.0;
 	public var oldy = 0.0;
 	public var benchpos = [0.0, 0.0];
-	public var doubleLock =false; //For chaining cutscene events that are NOT dialogue
+	public var doubleLock = false; // For chaining cutscene events that are NOT dialogue
 
 	public function crippleStatus(input:Bool, ?note:Null<String>) {
-		if(doubleLock) return;
+		if (doubleLock)
+			return;
 		this.status.cripple = input;
 		#if RELEASE_DEBUG
 		if (note != null) {
@@ -25,14 +26,15 @@ class Player extends FlxSprite {
 		#end
 	}
 
-	//public var xNote:String = "";
+	// public var xNote:String = "";
+
 	/*	if(xNote!="") {
 			trace("changing x: "+xNote);
 			xNote = "";
 		}
-	*/
-	override public function set_x(xInput:Float){
-		if(this.status!=null && this.status.lock) {
+	 */
+	override public function set_x(xInput:Float) {
+		if (this.status != null && this.status.lock) {
 			FlxTween.cancelTweensOf(this);
 			return x;
 		}
@@ -40,8 +42,9 @@ class Player extends FlxSprite {
 		return x;
 	}
 
-	override public function set_y(yInput:Float){
-		if(this.status!=null && this.status.lock) return y;
+	override public function set_y(yInput:Float) {
+		if (this.status != null && this.status.lock)
+			return y;
 		y = yInput;
 		return y;
 	}
@@ -87,7 +90,7 @@ class Player extends FlxSprite {
 	}
 
 	var mounted:Bool = false;
-	
+
 	function handleWalkStart(offsetd:Float) {
 		animation.play("walkstart");
 		var tempoffset = (offsetd * 1.25);
@@ -97,7 +100,6 @@ class Player extends FlxSprite {
 		offset.set(99.6 + tempoffset, 145.8 - 13);
 	}
 
-	
 	function handleWalk(offsetd:Float) {
 		offset.set(99.6 + offsetd, 145.8 - 12);
 		if (flipX == true && animation.curAnim.name != "walk2") {
@@ -143,6 +145,9 @@ class Player extends FlxSprite {
 			}
 		}
 	}
+
+	var addedBenchDismountFinish = false;
+
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
@@ -170,8 +175,8 @@ class Player extends FlxSprite {
 						offsetd = 10;
 					}
 
-					//speed = FlxMath.lerp(speed, walkDirection * 7, lerpVal);
-					var speed = walkDirection * 500 * elapsed/1.1;
+					// speed = FlxMath.lerp(speed, walkDirection * 7, lerpVal);
+					var speed = walkDirection * 500 * elapsed / 1.1;
 					x += speed;
 
 					if (walkDirection != 0) {
@@ -196,13 +201,16 @@ class Player extends FlxSprite {
 				} else {
 					if (animation.curAnim.name != "benchdismount") {
 						animation.play("benchdismount");
-						animation.onFinish.add(function(name) {
-							switch (name) {
-								case "benchdismount":
-									mounted = false;
-									OverworldManager.instance.regenSoulMeter();
-							}
-						});
+						if (!addedBenchDismountFinish) {
+							addedBenchDismountFinish = true;
+							animation.onFinish.add(function(name) {
+								switch (name) {
+									case "benchdismount":
+										mounted = false;
+										OverworldManager.instance.regenSoulMeter();
+								}
+							});
+						}
 					}
 				}
 			} else {
@@ -224,13 +232,13 @@ class Player extends FlxSprite {
 
 		prevflip = flipX;
 
-		if(doubleLock) return;
+		if (doubleLock)
+			return;
 		if (animation.curAnim.name == "benchmount" || animation.curAnim.name == "benchdismount") {
-			x = FlxMath.lerp(x, benchpos[0] - (99.6-offset.x), lerpVal);
+			x = FlxMath.lerp(x, benchpos[0] - (99.6 - offset.x), lerpVal);
 			if (animation.curAnim.name == "benchmount") {
 				y = FlxMath.lerp(y, benchpos[1], lerpVal);
 			}
 		}
-		
 	}
 }
