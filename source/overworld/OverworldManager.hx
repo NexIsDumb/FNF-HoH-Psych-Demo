@@ -173,9 +173,11 @@ class OverworldManager extends MusicBeatState {
 		scene.createPost();
 
 		FlxTween.tween(black, {alpha: 0}, 1.5, {ease: FlxEase.quadOut});
-		new FlxTimer().start(2, function(tmr:FlxTimer) {
-			player.animation.play("benchdismount", true);
-		});
+		/*
+			new FlxTimer().start(2, function(tmr:FlxTimer) {
+				player.animation.play("benchdismount", true);
+			});
+		 */
 
 		// dirtmouthSlyLoop
 
