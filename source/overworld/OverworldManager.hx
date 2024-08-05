@@ -35,13 +35,18 @@ class OverworldManager extends MusicBeatState {
 	var shouldplay:Bool = false;
 
 	public function regenSoulMeter() {
-		if (soulMeter != null)
-			soulMeter.destroy();
+		var oldSoulMeter = soulMeter;
 		soulMeter = new Soulmeter(22, 30, 7, camHUD);
 		insert(0, soulMeter);
 		// trace("soulmeterPosition " + FlxG.state.members.indexOf(soulMeter));
 		soulMeter.backBoard.animation.play("appear");
 		soulMeter.showMasks();
+
+		// to keep it cached
+		if (oldSoulMeter != null) {
+			oldSoulMeter.destroy();
+			remove(oldSoulMeter, true);
+		}
 	}
 
 	function cameraInit() {
@@ -95,9 +100,9 @@ class OverworldManager extends MusicBeatState {
 	public static var playerLocation3:String = "Dirtmouth";
 	public static var playerLocation4:String = "Dirtmouth";
 
-	public static function getplayerLocation(){
+	public static function getplayerLocation() {
 		var goob = "Dirtmouth";
-		switch(DataSaver.saveFile){
+		switch (DataSaver.saveFile) {
 			case 1: goob = playerLocation1;
 			case 2: goob = playerLocation2;
 			case 3: goob = playerLocation3;
@@ -106,9 +111,8 @@ class OverworldManager extends MusicBeatState {
 		return goob;
 	}
 
-
-	public static function setplayerLocation(goob:String){
-		switch(DataSaver.saveFile){
+	public static function setplayerLocation(goob:String) {
+		switch (DataSaver.saveFile) {
 			case 1: playerLocation1 = goob;
 			case 2: playerLocation2 = goob;
 			case 3: playerLocation3 = goob;
@@ -194,7 +198,7 @@ class OverworldManager extends MusicBeatState {
 
 		if (scene.slyshop && scene.exitWalking) {
 			OverworldManager.instance.player.crippleStatus(true, "weird tween when leaving");
-			//OverworldManager.instance.player.xNote = "tweenLeave";
+			// OverworldManager.instance.player.xNote = "tweenLeave";
 			FlxTween.tween(player, {x: player.x - 5 * 35}, .66, {ease: FlxEase.quadOut});
 		}
 		FlxTween.tween(black, {alpha: 1}, .5, {

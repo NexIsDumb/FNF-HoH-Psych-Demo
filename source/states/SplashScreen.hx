@@ -34,15 +34,13 @@ class SplashScreen extends flixel.FlxState {
 		}
 
 		if ((intro = new FlxVideoSprite()).load(Paths.video("splash"))) {
-			intro.bitmap.onFormatSetup.add(function():Void
-        {
-            if (intro.bitmap != null && intro.bitmap.bitmapData != null)
-            {
-                intro.setGraphicSize(FlxG.width);
-                intro.updateHitbox();
-                intro.screenCenter();
-            }
-        });
+			intro.bitmap.onFormatSetup.add(function():Void {
+				if (intro.bitmap != null && intro.bitmap.bitmapData != null) {
+					intro.setGraphicSize(FlxG.width);
+					intro.updateHitbox();
+					intro.screenCenter();
+				}
+			});
 			intro.bitmap.onEndReached.add(onComplete);
 			intro.antialiasing = ClientPrefs.data.antialiasing;
 			intro.play();
