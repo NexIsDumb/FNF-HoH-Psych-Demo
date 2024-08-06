@@ -296,7 +296,7 @@ class Dirtmouth extends BaseStage {
 			game.soulMeter.soulCooldown = true;
 
 			new FlxTimer().start(2, function(_) {
-				new FlxTimer().start(2, function(_) game.soulMeter.changeMasks(-(3))); //game.soulMeter.masks / 2
+				new FlxTimer().start(2, function(_) game.soulMeter.changeMasks(-(3))); // game.soulMeter.masks / 2
 				FlxTween.tween(game.soulMeter, {soul: 99}, 3, {ease: FlxEase.quintOut});
 
 				new FlxTimer().start(3, function(_) {

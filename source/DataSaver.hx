@@ -15,7 +15,7 @@ enum abstract Charm(String) to String {
 
 class DataSaver {
 	public static function getCharmImage(charm:Charm) {
-		if ('$charm' == BaldursBlessing) {
+		if (charm == BaldursBlessing) {
 			var img = Paths.image('charms/Baldurs Blessing/base', 'hymns');
 			if (img != null)
 				return img;
@@ -24,7 +24,7 @@ class DataSaver {
 	}
 
 	public static function getDesc(charm:Charm) {
-		if ('$charm' == BaldursBlessing) {
+		if (charm == BaldursBlessing) {
 			var txt = Paths.getContent('charms/Baldurs Blessing/desc.txt', 'hymns');
 			if (txt != null)
 				return txt;

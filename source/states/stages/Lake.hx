@@ -132,7 +132,7 @@ class Lake extends BaseStage {
 	override function createPost() {
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr8:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_2', 'hymns'));
-			backgroundSpr8.setGraphicSize(FlxG.width*1.2,-1);
+			backgroundSpr8.setGraphicSize(FlxG.width * 1.2, -1);
 			backgroundSpr8.updateHitbox();
 			backgroundSpr8.screenCenterXY();
 			backgroundSpr8.antialiasing = ClientPrefs.data.antialiasing;
@@ -140,7 +140,7 @@ class Lake extends BaseStage {
 			backgroundSpr8.active = false;
 			backgroundSpr8.blend = ADD;
 			backgroundSpr8.cameras = [camHUD];
-			insert(0,backgroundSpr8);
+			insert(0, backgroundSpr8);
 		}
 
 		var backgroundSpr6:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/front_lichen', 'hymns'));
@@ -154,14 +154,14 @@ class Lake extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			var backgroundSpr7:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Stages/Lake/overlay_1', 'hymns'));
 			backgroundSpr7.antialiasing = ClientPrefs.data.antialiasing;
-			backgroundSpr7.scale.set(FlxG.width*1.2, 2);
+			backgroundSpr7.scale.set(FlxG.width * 1.2, 2);
 			backgroundSpr7.cameras = [camHUD];
 			backgroundSpr7.updateHitbox();
 			backgroundSpr7.screenCenterXY();
 			backgroundSpr7.scrollFactor.set(1, 1);
 			backgroundSpr7.active = false;
 			backgroundSpr7.blend = ADD;
-			insert(1,backgroundSpr7);
+			insert(1, backgroundSpr7);
 		}
 
 		chromaticAbberation = new ChromaticAbberation(0.00001);

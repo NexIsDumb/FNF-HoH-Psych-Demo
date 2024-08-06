@@ -355,11 +355,11 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 	var baldurd = false;
 
 	public function changeMasks(amt:Int) {
-		masks += amt ;
-		if(lifeBlood>0){
+		masks += amt;
+		if (lifeBlood > 0) {
 			lifeBlood = maxMasks - masks;
 		}
-		if(lifeBlood<0){
+		if (lifeBlood < 0) {
 			lifeBlood = 0;
 		}
 
@@ -622,7 +622,7 @@ class Soulmeter extends FlxTypedGroup<FlxBasic> {
 		}
 
 		if (FlxG.keys.justReleased.SPACE) {
-			//trace("stopped");
+			// trace("stopped");
 			if (healing == true && soulCooldown == false) {
 				healing = false;
 				soulCooldown = true;

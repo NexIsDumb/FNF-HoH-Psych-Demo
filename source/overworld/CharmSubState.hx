@@ -248,7 +248,6 @@ class CharmSubState extends MusicBeatSubstate {
 			charm.ID = -5;
 			shakers.push(charm);
 			sprites.push(charm);
-			
 
 			var rawData:String = Paths.getContent('charms/' + charmName + '/data.charm', 'hymns');
 			var rawData2:Int = i; // Std.parseInt(Paths.getContent('charms/' + charmName + '/order.txt', 'hymns').trim());
@@ -281,7 +280,7 @@ class CharmSubState extends MusicBeatSubstate {
 				// charmData.insert(itee, [charm, dataList, charmName, makeCharm, rawData2, rawData2, dataList[6]]);
 				charmData.insert(itee, {
 					sprite: charm,
-					
+
 					name: charmName,
 					desc: DataSaver.getDesc(charmName),
 					cost: DataSaver.getCost(charmName),

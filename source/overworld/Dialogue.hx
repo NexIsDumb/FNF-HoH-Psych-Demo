@@ -96,9 +96,11 @@ class Dialogue extends FlxSpriteGroup {
 			}
 
 			speakerText.alpha = 0;
-			FlxTween.tween(speakerText, {alpha: 1}, .5, {ease: FlxEase.quintOut, onComplete:function(flxT:FlxTween){
-				OverworldManager.instance.player.status.lock = true;
-			}});
+			FlxTween.tween(speakerText, {alpha: 1}, .5, {
+				ease: FlxEase.quintOut,
+				onComplete: function(flxT:FlxTween) {
+					OverworldManager.instance.player.status.lock = true;
+				}});
 
 			/*for (i in 0...script.length - 1) {
 				script[i][0] = text.dialog(script[i][0]);
@@ -130,7 +132,7 @@ class Dialogue extends FlxSpriteGroup {
 		text.text = "";
 		text.alpha = 1;
 
-		//trace(theoneliner);
+		// trace(theoneliner);
 
 		dialogueTimerStart = new FlxTimer().start(0.1, function(tmr:FlxTimer) {
 			var textywesty:String = theoneliner.charAt(0);
@@ -171,7 +173,7 @@ class Dialogue extends FlxSpriteGroup {
 		OverworldManager.postSongDialogue = "";
 		OverworldManager.instance.player.status.lock = false;
 		OverworldManager.instance.player.crippleStatus(false, "dialogue end");
-			
+
 		lineindex = 0;
 		publiccall = [];
 	}

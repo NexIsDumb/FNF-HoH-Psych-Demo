@@ -142,7 +142,7 @@ class Character extends FlxSprite {
 					idleReturn = false;
 				}
 
-				if(json.sing_duration_seconds != null) {
+				if (json.sing_duration_seconds != null) {
 					singDurationSec = json.sing_duration_seconds;
 				}
 

@@ -45,6 +45,7 @@ class Dirtmouth extends BaseScene {
 	}
 
 	var elderBugTalk = false;
+
 	override public function create(?input:String) {
 		elderBugTalk = (input == "first-steps");
 
@@ -515,12 +516,11 @@ class Dirtmouth extends BaseScene {
 					}
 
 					if (!nothingyoudopls) {
-						if(elderBugTalk){
+						if (elderBugTalk) {
 							inInteraction = true;
 							interaction("elderbuginteract");
 							elderBugTalk = false;
-						}
-						else if (accepted) {
+						} else if (accepted) {
 							inInteraction = true;
 							interaction(point[1]);
 						}
@@ -580,7 +580,8 @@ class Dirtmouth extends BaseScene {
 	}
 
 	function interaction(thing:String) {
-		if(doingelderbuginteract) return;
+		if (doingelderbuginteract)
+			return;
 		DataSaver.loadData('interacting with ${thing} in dirtmouth');
 		switch (thing) {
 			case "elderbuginteract": doElderTalking();
@@ -610,11 +611,11 @@ class Dirtmouth extends BaseScene {
 			FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 			function call() {
 				OverworldManager.instance.player.doubleLock = true;
-				OverworldManager.instance.player.status.lock = true;	
+				OverworldManager.instance.player.status.lock = true;
 				FlxTween.cancelTweensOf(OverworldManager.instance.player);
 				indialogue = false;
 				new FlxTimer().start(1.25, function(tmr:FlxTimer) {
-					OverworldManager.instance.player.status.lock = true;	
+					OverworldManager.instance.player.status.lock = true;
 					OverworldManager.instance.player.crippleStatus(true, "elderTimer1");
 					DataSaver.charmsunlocked.set(MelodicShell, true);
 					DataSaver.saveSettings(DataSaver.saveFile);
@@ -641,19 +642,23 @@ class Dirtmouth extends BaseScene {
 			game.player.offset.set(99.6 + 5, 145.8 + 2.5);
 
 			if (elderbug.animation.curAnim.name == "turnLeft") {
-				//game.player.xNote = "tweenLeft";
-				FlxTween.tween(game.player, {x: 62.92}, .45, {ease: FlxEase.quintOut, onComplete:function(t:FlxTween){
-					OverworldManager.instance.player.status.lock = true;
-					//game.player.xNote = "tweenLeftEnd";
-				}});
+				// game.player.xNote = "tweenLeft";
+				FlxTween.tween(game.player, {x: 62.92}, .45, {
+					ease: FlxEase.quintOut,
+					onComplete: function(t:FlxTween) {
+						OverworldManager.instance.player.status.lock = true;
+						// game.player.xNote = "tweenLeftEnd";
+					}});
 				game.player.flipX = true;
 				elderbug.animation.play('talkL');
 			} else {
-				//game.player.xNote = "tweenRight";
-				FlxTween.tween(game.player, {x: 378.03}, .45, {ease: FlxEase.quintOut, onComplete:function(t:FlxTween){
-					OverworldManager.instance.player.status.lock = true;	
-					//game.player.xNote = "tweenRightEnd";
-				}});
+				// game.player.xNote = "tweenRight";
+				FlxTween.tween(game.player, {x: 378.03}, .45, {
+					ease: FlxEase.quintOut,
+					onComplete: function(t:FlxTween) {
+						OverworldManager.instance.player.status.lock = true;
+						// game.player.xNote = "tweenRightEnd";
+					}});
 
 				game.player.flipX = false;
 				elderbug.animation.play('talk');
@@ -756,7 +761,7 @@ class Dirtmouth extends BaseScene {
 					}
 				case 6:
 					if (DataSaver.charmsunlocked.get(Swindler) == false) {
-						//OverworldManager.instance.player.status.lock = true;
+						// OverworldManager.instance.player.status.lock = true;
 						FlxTween.tween(game.camHUD, {alpha: 0}, .5, {ease: FlxEase.quintOut});
 						game.dialogue.openBox("Elderbug",
 							[
@@ -765,7 +770,7 @@ class Dirtmouth extends BaseScene {
 								],
 							],
 							function() {
-								game.player.status.cripple = true;//This wasn't enough
+								game.player.status.cripple = true; // This wasn't enough
 								game.player.status.lock = true;
 								game.player.doubleLock = true;
 								dooropen();

@@ -135,7 +135,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 
 		DataSaver.loadSaves();
 		var dataFile = DataSaver.getSave(data);
-		trace((dataFile.data.played?"Saved game: ":"New Save:" )+ ' file slot ${data}');
+		trace((dataFile.data.played ? "Saved game: " : "New Save:") + ' file slot ${data}');
 		if (dataFile.data.played) {
 			played = true;
 			if (dirtmouthtween != null) {
@@ -144,8 +144,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 			dirtmouthtween = FlxTween.tween(dirtmouth, {alpha: .75}, 2, {ease: FlxEase.quadInOut});
 			newgame.alpha = 0;
 			clearsave.alpha = 1;
-		}
-		else{
+		} else {
 			played = false;
 			newgame.alpha = 1;
 			clearsave.alpha = 0;
