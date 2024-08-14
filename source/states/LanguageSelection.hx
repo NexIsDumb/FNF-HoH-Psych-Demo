@@ -69,9 +69,7 @@ class LanguageSelection extends MenuBeatState {
 
 			var font = Constants.UI_FONT_DEFAULT;
 			var hasFontSuffix = true;
-			if (lang.endsWith("[jap]")) {
-				font = "asian.otf";
-			} else if (lang.endsWith("[chi]")) {
+			if (lang.endsWith("[japan]") || lang.endsWith("[chi]")) {
 				font = "asian.otf";
 			}
 			/* else if (lang.endsWith("[ukr]")) {

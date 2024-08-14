@@ -141,7 +141,7 @@ class TransManager {
 	}
 
 	public static var languageNames:Map<String, String> = [
-		"English" => "English", "Italian" => "Italiano", "French" => "Français", "Spanish" => "Español", "Ukrainian" => "Українська", "Japanese" => "日本語[jap]", "Chinese" => "中文[chi]", "German" => "Deutsch", "Polish" => "Polski", "Indonesian" => "Indonesia", "Finnish" => "Finnish", "Russian" => "Русский", "Turkish" => "Türkçe", "Swedish" => "Svenska", "Norwegian" => "Norsk", "Danish" => "Dansk", "Dutch" => "Nederlands", "Romanian" => "Română", "Portuguese" => "Português", "Welsh" => "Cymraeg", "Hungarian" => "Magyar", "Korean" => "한국어", "Latin" => "Latin", "Greek" => "Ελληνικά", "Vietnamese" => "Tiếng Việt", "Czech" => "Čeština", "Arabic" => "العربية", "Hebrew" => "עברית", "Thai" => "ไทย", "Hindi" => "हिंदी", "Persian" => "فارسی",
+		"English" => "English", "Italian" => "Italiano", "French" => "Français", "Spanish" => "Español", "Ukrainian" => "Українська", "Japanese" => "日本語[japan]", "Chinese" => "中文[chi]", "German" => "Deutsch", "Polish" => "Polski", "Indonesian" => "Indonesia", "Finnish" => "Finnish", "Russian" => "Русский", "Turkish" => "Türkçe", "Swedish" => "Svenska", "Norwegian" => "Norsk", "Danish" => "Dansk", "Dutch" => "Nederlands", "Romanian" => "Română", "Portuguese" => "Português", "Welsh" => "Cymraeg", "Hungarian" => "Magyar", "Korean" => "한국어", "Latin" => "Latin", "Greek" => "Ελληνικά", "Vietnamese" => "Tiếng Việt", "Czech" => "Čeština", "Arabic" => "العربية", "Hebrew" => "עברית", "Thai" => "ไทย", "Hindi" => "हिंदी", "Persian" => "فارسی",
 	];
 
 	/**
@@ -155,7 +155,7 @@ class TransManager {
 		try {
 			xml = new Access(Xml.parse(Paths.getTextFromFile(name + ".xml", false, "translations")));
 		} catch (e) {
-			var err = 'Error while parsing the language\'s xml: ${Std.string(e)}';
+			var err = 'Error while parsing (${name}) the language\'s xml: ${Std.string(e)}';
 			FlxG.log.error(err);
 			throw new Exception(err);
 		}

@@ -1,0 +1,167 @@
+<!DOCTYPE hymns-language-translation>
+<translations font="asian.otf">
+<!-- Charms -->
+ <trans id="melodic-shell" string="Melodic Shell"/>
+ <trans id="lifeblood-seed" string="Lifeblood Seed"/>
+ <trans id="critical-focus" string="Rapid Focus"/>
+ <trans id="baldur-blessing" string="Baldur's Blessing"/>
+
+ <trans id="melodic-shell-desc" string="Melodic amulet created for those who wish to sing. Grants its wearer the ability to sing in exchange for rewarding them 'SOUL'."/>
+ <trans id="lifeblood-seed-desc" string="その中には貴重な「LIFEBLOOD」が滴る生きた核が入っている。
+休息しているとき、持ち主は中程度のダメージから身を守る「LIFEBLOOD」コーティングを獲得します。"/>
+ <trans id="critical-focus" string="長い間忘れられていたシャーマンのアーティファクト。その結果、結晶が形成され始め、その能力が増幅されました。
+所持者の現在の体力が半分以下のときに敵を攻撃すると、追加のソウルが与えられます。"/>
+ <trans id="baldur-blessing-desc" string="死ぬと、硬い甲羅で持ち主を守る。
+シェルは破壊不可能ではなく、一度使用すると粉々になります。"/>
+
+ <trans id="baldur-blessing-tip" string="以下でお困りではありませんか？バルドールの甲羅は非常に強力であるため、身に着けている人を危害から守ると言われています。ただし、壊れそうなので注意してください。"/>
+ <trans id="lifeblood-seed-tip" string="少しブーストが必要ですか?それならこのお守りはあなたのためのものです！生きた血というのはちょっとタブーな気がしますが、確かに健康な気分にさせてくれます。誰に売ったのかを誰にも知らせないでください。"/>
+ <trans id="critical-focus-tip" string="危険な状況に陥って集中できない場合は、これがあなたの魔法です。身に着けている人が危険にさらされたときに「SOUL」を集める効果があると聞きました。 "/>
+<!-- Dialogues -->
+ <trans id="elderbug-dialog-1" string="ああ、旅人よ！帰ってきたね！あなたはちょうど私の前を通り過ぎたようです。どうやら下に降りる際に落としてしまったようです。さあ、受け取ってください"/>
+ <trans id="elderbug-dialog-1-alt-passing" string="待って！行く前に！あなたは私のそばを走ったときにこれを落としました。ご了承ください。"/>
+ <trans id="elderbug-dialog-2" string="今すぐ試してみませんか?少し練習すれば問題ありません。さらに、追加の会社にも感謝しています。"/>
+ <trans id="elderbug-dialog-3" string="申し訳ありませんが、私の歌は少し錆びているかもしれません。もう一度やってみましょう、旅行者。"/>
+  <trans id="elderbug-dialog-4" string="旅人さん、武器の調子がかなり悪いようです。そこでは役に立ちません。あなたの魅力が役に立つかもしれません。"/>
+ <trans id="elderbug-dialog-5" string="ああ、こんなに楽しいと感じたのは久しぶりだ！"/>
+ <trans id="elderbug-dialog-6" string="おお、どうやら店主の目に留まったようです！
+おそらくあなたはそれらを訪問したほうがよいでしょうか？旅行に役立つものもあるかと思います。"/>
+ <trans id="elderbug-dialog-7" string="地図製作者の夫婦...ああ、私は彼らの幸運を祈ることしかできません。店をもっと広くしてくれれば…彼の妻がしゃがんでそのドアを通り抜けるのを見るのは耐えられません。
+彼女はとても背の高い昆虫です。"/>
+ <trans id="elderbug-dialog-8" string="店主？彼の小さな店には何でもあるようです。彼からの購入を検討している場合は注意してください...彼は自分の商品に関してかなり厳しい取引をしているんだ、あのバグは。" />
+ <trans id="elderbug-dialog-9" string="かつて、私たちが立っている場所のすぐ下にある王国を求めて多くの人がやって来ました。ハロネスト、と呼ばれていました。私の聞いたところによると、そこには史上最大の王国が存在していたそうです。それ以来、それは廃墟と化し、地下の病的な空気はあなたを狂わせるのに十分です。"/>
+ <trans id="elderbug-dialog-10" string="疲れているようですね、旅人さん。下の緑豊かな洞窟まで足を運んだと思いますか?本当に美しい光景ですね。
+本当に美しい光景ですね。"/>
+ <trans id="elderbug-dialog-11" string="もう一度出かける前に、そのベンチで休憩することをお勧めします。かなり快適だと言えます。"/>
+ <trans id="elderbug-dialog-12" string="ああ、あの店主から買ったんですね？あなたは次の冒険に向けてかなり準備ができているようです。
+ただし、洞窟内で何が起こっているかは誰も知りませんので、外では注意してください。"/>
+ <trans id="elderbug-dialog-13" string="疲れているようですね、旅人さん。契約をめぐっては苦戦したようだ。"/>
+
+ <trans id="sly-dialog-1" string="あ、こんにちは！また会えると分かっていました。ちょっとイメチェンしたみたい？"/>
+ <trans id="sly-dialog-2" string="おお！歌いたいですか？うーん、挑戦してくれる人は珍しいですね…。"/>
+ <trans id="sly-dialog-3" string="わかりました、受け付けます！私自身はあまり歌手ではないと言わざるを得ませんが、あなたのスキルには興味があります。"/>
+ <trans id="sly-dialog-4" string="ああ、こうやって遊んだのは久しぶりだ。とても楽しかったと認めざるを得ません！私にとってはとても辛いことですが...負けた戦いは負けた戦いです。さあ、報酬を受け取り、私のジオに任せてください。私のアイテムをさらに購入する予定がない限り..."/>
+ <trans id="sly-dialog-5" string="I'm afraid I have nothing left to offer you. You've bought all my items"/>
+ <trans id="sly-dialog-6" string="
+平素は格別のご愛顧を賜り、誠にありがとうございます。私の他の製品もチェックする価値があることを保証します。地下で生き残る可能性も高まるかもしれません..."/>
+ <trans id="sly-dialog-7" string="
+ポケットは空ですか？さらに詳しい地理情報をお探しの場合は、次の遺跡にたくさんの情報があります。"/>
+
+ <trans id="elderbug-name" string="Elderbug"/>
+ <trans id="sly-name" string="Sly"/>
+<!-- Menus -->
+ <trans id="options" string="設定"/>
+ <trans id="note-colors" string="ノートの色"/>
+ <trans id="controls" string="コントロール"/>
+ <trans id="graphics" string="画像設定"/>
+ <trans id="visuals-and-ui" string="ビジュアルと「UI」"/>
+ <trans id="gameplay" string="ゲームプレイ"/>
+ <trans id="back" string="戻る"/>
+
+ <trans id="left" string="左"/>
+ <trans id="down" string="下"/>
+ <trans id="up" string="上"/>
+ <trans id="right" string="右"/>
+ <trans id="focus" string="集中"/>
+ <trans id="accept" string="受け入れる"/>
+ <trans id="pause" string="一時停止"/>
+ <trans id="ui-up" string="「UI」上ノートの色"/>
+ <trans id="ui-left" string="「UI」左ノートの色"/>
+ <trans id="ui-right" string="「UI」下ノートの色"/>
+ <trans id="ui-down" string="「UI」右ノートの色"/>
+ <trans id="ui-back" string="戻る"/>
+ <trans id="reset" string="リセット"/>
+ <trans id="mute" string="沈黙"/>
+ <trans id="volume-up" string="音量↑"/>
+ <trans id="volume-down" string="音量↓"/>
+ <trans id="reset-to-default-keys" string="デフォルトのキーにリセット"/>
+
+ <trans id="on" string="す。"/>
+ <trans id="off" string="フレームレート"/>
+ <trans id="none" string="なし"/>
+
+ <trans id="low-quality" string="低品質"/>
+ <trans id="note-skins" string="ノートスキン"/>
+ <trans id="note-splashes" string="ノートの飛沫"/>
+ <trans id="note-splash-opacity" string="スプラッシュの不透明度に注意してください"/>
+ <trans id="flashing-lights" string="点滅する光"/>
+ <trans id="translations" string="翻訳"/>
+ <trans id="fps-counter" string="「FPS」カウンター"/>
+ <trans id="auto-pause" string="自動一時停止"/>
+ <trans id="disable-reset-button" string="リセットボタンを無効にする"/>
+ <trans id="hitsound-volume" string="ヒットサウンドの音量"/>
+ <trans id="safe-frames" string="安全なフレーム"/>
+<trans id="low-quality-desc" string="チェックすると、一部の背景の詳細​​が無効になります。"/>
+ <trans id="anti-aliasing-desc" string="チェックを外した場合、アンチエイリアスが無効になり、パフォーマンスが向上します。"/>
+ <trans id="shaders-desc" string="チェックを外すと、シェーダが無効になります。"/>
+ <trans id="gpu-caching-desc" string="チェックすると、良好な「GPU」を搭載している場合は「RAM」の使用量が減少します。"/>
+ <trans id="framerate-desc" string="Pretty obvious, don't you think?"/>
+ <trans id="note-skins-desc" string="好みのノートスキンを選択してください。"/>
+ <trans id="note-splashes-desc" string="好みのノート スプラッシュのバリエーションを選択するか、オフにします。"/>
+ <trans id="note-splash-desc" string="メモのスプラッシュはどの程度透明にすべきでしょうか?"/>
+ <trans id="flashing-lights-desc" string="ライトの点滅に敏感な場合は、チェックを外してください。"/>
+ <trans id="translations-desc" string="ゲームの好みの翻訳を選択してください。"/>
+ <trans id="fps-counter-desc" string="チェックを外すと、「FPS」カウンターが非表示になります。"/>
+ <trans id="discord-rich-presence-desc" string="Discord「RPC」から非表示にするには、これをオフにします。"/>
+ <trans id="downscroll-desc" string="チェックすると、ノートが上ではなく下に移動します。これは非常に簡単です。"/>
+ <trans id="middlescroll-desc" string="チェックすると、ノートが中央に配置されます。"/>
+ <trans id="ghost-tapping-desc" string="チェックすると、画面上にないキーを押しても失敗しなくなります。"/>
+ <trans id="auto-pause-desc" string="チェックすると、画面にフォーカスが合っていない場合、ゲームは自動的に一時停止します。"/>
+ <trans id="disable-reset-button-desc" string="チェックされている場合、[リセット]を押し​​ても何も起こりません。"/>
+ <trans id="hitsound-volume-desc" string="面白い音符は「トック！」をします。あなたがそれらを打ったとき。"/>
+ <trans id="safe-frames-desc" string="ノートを早くまたは遅く打つために保持できるフレーム数を変更します。"/>
+
+ <trans id="start-game" string="ゲームをスタート"/>
+ <trans id="credits" string="クレジット"/>
+ <trans id="quit-game" string="ゲームをやめる"/>
+
+ <trans id="new-game" string="新しいゲーム"/>
+ <trans id="clear-save" string="Clear Save"/>
+ <trans id="story" string="Story"/>
+
+ <trans id="personal-best" string="自己最高記録"/>
+ <trans id="score" string="スコア"/>
+ <trans id="misses" string="ミス"/>
+ <trans id="rating" string="評価"/>
+
+ <trans id="you-have-died-v2" string="You have died {0} times."/>
+ <trans id="times" string="times."/>
+ <trans id="freeplay-unlock" string="New song was unlocked in freeplay menu"/>
+ <trans id="resume" string="Resume Game"/>
+ <trans id="exit-to-freeplay" string="フリープレイに戻る"/>
+ <trans id="exit-to-menu" string="終了してメニューに戻る"/>
+ <trans id="exit-to-dirtmouth" string="ダートマスへ出る"/>
+ <trans id="restart-song" string="Restart Song"/>
+<!-- Overworld -->
+ <trans id="rest" string="休み"/>
+ <trans id="listen" string="聞く"/>
+ <trans id="enter" string="入力"/>
+ <trans id="shop" string="店"/>
+
+ <trans id="purchase-this-item?" string="買う"/>
+
+ <trans id="charms" string="Amulets"/>
+ <trans id="equipped" string="Equipped"/>
+ <trans id="notches" string="Notches"/>
+ <trans id="cost" string="Cost"/>
+ <trans id="no-cost" string="No Cost"/>
+ <trans id="overcharmed" string="魅了されすぎ"/>
+
+ <trans id="life-tutorial-1" string="Higher beings, these words are just for you."/>
+ <trans id="life-tutorial-2" string="Your great strength distinguishes you among us.&#xA;Focus your SOUL and you will achieve feats that others can only dream of."/>
+ <trans id="life-tutorial-3" string="Collect SOUL by pressing notes.&#xA;Once you have collected enough SOUL, hold SPACE while not singing to focus SOUL and heal."/>
+
+ <trans id="charms-tutorial-1" string="チャームを集めた"/>
+ <trans id="charms-tutorial-2" string="チャームを装備すると強力な能力が発動します。"/>
+ <trans id="charms-tutorial-3" string="チャームを装備するには、ベンチで休憩中にCHARMSメニューを開きます。"/>
+
+ <!-- Gameplay -->
+ <trans id="you-suck!" string="最悪だな！"/>
+ <trans id="shit" string="たわごと"/>
+ <trans id="bad" string="悪い"/>
+ <trans id="nice" string="ニース"/>
+ <trans id="good" string="良い"/>
+ <trans id="great" string="素晴らしい"/>
+ <trans id="sick!" string="病気！"/>
+ <trans id="perfect!!" string="完璧！！"/>
+</translations>
