@@ -96,6 +96,7 @@ class LanguageSelection extends MenuBeatState {
 			optionText.ID = i;
 			grpOptions.add(optionText);
 		}
+		curSelected = languages.indexOf(ClientPrefs.data.language);
 
 		fleur = new FlxSprite(0, 0);
 		fleur.frames = Paths.getSparrowAtlas('Menus/Options/warning-fleur', 'hymns');
@@ -138,6 +139,7 @@ class LanguageSelection extends MenuBeatState {
 
 		FlxG.camera.scroll.y = 40;
 
+		changeSelection(0);
 		super.create();
 	}
 
