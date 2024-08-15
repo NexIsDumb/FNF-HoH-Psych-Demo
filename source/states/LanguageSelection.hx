@@ -108,8 +108,8 @@ class LanguageSelection extends MenuBeatState {
 		fleur.updateHitbox();
 		fleur.screenCenterXY();
 		fleur.y -= 200;
-
-		statetext = new FlxText(0, 0, 0, "Languages", 12);
+		
+		statetext = new FlxText(0, 0, 0, TM.checkTransl("Languages", Paths.formatPath("Languages")), 12);
 		statetext.setFormat(Paths.font(Constants.UI_FONT_DEFAULT), 34, FlxColor.WHITE, CENTER);
 		statetext.screenCenterXY();
 		statetext.y = fleur.y - 40;
@@ -214,8 +214,27 @@ class LanguageSelection extends MenuBeatState {
 	}
 
 	function changeSelection(change:Int = 0) {
+		
 		curSelected = CoolUtil.mod(curSelected + change, grpOptions.length);
-
+		
+		var initialLang = ClientPrefs.data.language;
+		var font = Paths.font(Constants.UI_FONT_DEFAULT);
+		var lang = languages[curSelected];
+		
+		TM.setTransl(lang);
+		statetext.text = TM.checkTransl("Languages", Paths.formatPath("Languages"));
+		trace(lang);
+		if (lang == "Japanese" || lang == "Chinese") {
+			font = Paths.font("asian.otf");
+		}
+		TM.setTransl(initialLang);
+		ClientPrefs.data.language = initialLang;
+		
+		
+		statetext.setFormat(font, 34, FlxColor.WHITE, CENTER);
+		statetext.screenCenterXY();
+		statetext.y = fleur.y - 40;
+		
 		pointer1.alpha = 1;
 		pointer2.alpha = 1;
 
