@@ -69,25 +69,29 @@ class LanguageSelection extends MenuBeatState {
 
 			var font = Constants.UI_FONT_DEFAULT;
 			var hasFontSuffix = true;
-			if (lang.endsWith("[japan]") || lang.endsWith("[chi]")) {
+			if (lang.endsWith("[japan]")) {
 				font = "asian.otf";
+				lang = lang.substr(0, lang.length - 7);
+			}
+			else if (lang.endsWith("[chi]")) {
+				font = "asian.otf";
+				lang = lang.substr(0, lang.length - 5);
+			}
+			else {
+				hasFontSuffix = false;
 			}
 			/* else if (lang.endsWith("[ukr]")) {
 					font = "krka.ttf";
 				} else if (lang.endsWith("[rus]")) {
 					font = "krka.ttf";
 			}*/
-			else {
-				hasFontSuffix = false;
-			}
-			if (hasFontSuffix) {
-				lang = lang.substr(0, lang.length - 5);
-			}
+			
+			
 			var optionText:FlxText = new FlxText(0, 0, 0, lang, 12);
 			optionText.setFormat(Paths.font(font), 18, FlxColor.WHITE, CENTER);
 			optionText.screenCenterXY();
-			optionText.y -= FlxG.height / 6;
-			optionText.y += 40 * i;
+			optionText.y -= FlxG.height / 6 + 20;
+			optionText.y += 35 * i;
 			optionText.antialiasing = ClientPrefs.data.antialiasing;
 			optionText.ID = i;
 			grpOptions.add(optionText);

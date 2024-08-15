@@ -133,6 +133,13 @@ class TransManager {
 				translations.push(path.file);
 		}
 		#end
+		//var names:Array<String> = ["English","Arabic","Chinese","Czech","Danish","Dutch","Finnish","French","German","Greek","Hebrew","Hindi","Hungarian","Indonesian","Italian","Japanese","Korean","Latin","Norwegian","Persian","Polish","Portuguese","Romanian","Russian","Spanish","Swedish","Thai","Turkish","Ukrainian","Vietnamese","Welsh"];
+		/*for (i in languageNames.keys())
+			names.push(i);*/
+		//trace(names);
+		//translations.sort((a, b) -> names.indexOf(a) - names.indexOf(b));
+		
+		translations.sort((a, b) -> (languageNames.get(a).toUpperCase() < languageNames.get(b).toUpperCase()?-1:1) );
 		return translations;
 	}
 
