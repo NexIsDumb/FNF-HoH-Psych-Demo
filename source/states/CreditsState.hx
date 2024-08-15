@@ -525,8 +525,8 @@ class CreditsState extends MenuBeatState {
 				rayPos.put();
 				iconPos.put();
 
-				wormalMap.lightColor = FlxColor.fromRGBFloat(1.0, 1.0, 1.0);
-				wormalMap.lightIntensity = 1.0;
+				wormalMap.lightColor = FlxColor.fromRGBFloat(0.71, 0.28, 0.93);
+				wormalMap.lightIntensity = 0.4;
 			}
 
 			if (controls.ACCEPT && (creditsStuff[curSelected][4] == null || creditsStuff[curSelected][4].length > 4)) {
