@@ -76,12 +76,20 @@
 	<trans id="none" string="Niente"/>
 
 	<trans id="low-quality" string="Qualitá bassa"/>
+	<trans id="anti-aliasing" string="Anti-Aliasing"/>
+	<trans id="shaders" string="Shaders"/>
+	<trans id="gpu-caching" string="GPU Caching"/>
+	<trans id="framerate" string="FPS"/>
 	<trans id="note-skins" string="Skin Note"/>
 	<trans id="note-splashes" string="Splash Note"/>
 	<trans id="note-splash-opacity" string="Opacitá Splash Note"/>
 	<trans id="flashing-lights" string="Luci Lampeggianti"/>
 	<trans id="translations" string="Traduzioni"/>
 	<trans id="fps-counter" string="Counter FPS"/>
+	<trans id="discord-rich-presence" string="Discord Rich Presence"/>
+	<trans id="downscroll" string="Downscroll"/>
+	<trans id="middlescroll" string="Middlescroll"/>
+	<trans id="ghost-tapping" string="Ghost Tapping"/>
 	<trans id="auto-pause" string="Pausa Automatica"/>
 	<trans id="disable-reset-button" string="Disabilita Comando Ripristina"/>
 	<trans id="hitsound-volume" string="Volume Hitsound"/>
@@ -113,6 +121,7 @@
 
 	<trans id="new-game" string="Nuovo Gioco"/>
 	<trans id="clear-save" string="Cancella Salvataggio"/>
+	<trans id="freeplay" string="Freeplay"/>
 	<trans id="story" string="Storia"/>
 
 	<trans id="personal-best" string="Record Personale"/>
@@ -122,6 +131,7 @@
 
 	<trans id="you-have-died" string="Sei morto"/>
 	<trans id="times" string="volte."/>
+	<!-- freeplay-unlock -->
 	<trans id="resume" string="Riprendi"/>
 	<trans id="exit-to-freeplay" string="Ritorna al Freeplay"/>
 	<trans id="exit-to-menu" string="Ritorna al menu"/>
