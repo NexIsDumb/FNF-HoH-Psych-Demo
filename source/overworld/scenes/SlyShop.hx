@@ -73,6 +73,13 @@ class SlyShop extends BaseScene {
 		// sly.animation.addByPrefix('talk', 'elderbug talk loop0', 24, true);
 		// sly.animation.addByPrefix('talkL', 'elderbug talk loop left0', 24, true);
 		sly.animation.play('idle', true);
+		sly.animation.onFinish.add((anim) -> {
+			if (anim == 'turnRight')
+				sly.animation.play('turnidle', true);
+			if (anim == 'turnLeft')
+				sly.animation.play('idle', true);
+		});
+
 		sly.flipX = true;
 		sly.centerOrigin();
 		sly.antialiasing = ClientPrefs.data.antialiasing;
@@ -198,17 +205,9 @@ class SlyShop extends BaseScene {
 
 		if (game.player.x > sly.x && animName != "turnidle" && !inshop) {
 			sly.animation.play('turnRight', false);
-			sly.animation.onFinish.add((anim) -> {
-				if (anim == 'turnRight')
-					sly.animation.play('turnidle', true);
-			});
 			slyTurned = true;
 		} else if (game.player.x <= sly.x && animName != "idle" && !inshop) {
 			sly.animation.play('turnLeft', false);
-			sly.animation.onFinish.add((anim) -> {
-				if (anim == 'turnLeft')
-					sly.animation.play('idle', true);
-			});
 			slyTurned = false;
 		}
 
