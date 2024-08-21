@@ -65,11 +65,11 @@ class SlyShop extends BaseScene {
 		sly.screenCenterXY();
 		sly.x += 250 * (0.25 / 0.36);
 		sly.y += 225 * (0.25 / 0.36);
-		sly.animation.addByPrefix('idle', 'SlyShopidle0', 24, true);
+		sly.animation.addByPrefix('idle', 'SlyShopIdle0', 24, true);
 		sly.animation.addByPrefix('turnidle', 'SlyShopIdleTurned0', 24, true);
-		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnL0', 24, false);
-		sly.animation.addByIndices('turnLeftFrame', 'SlyShopTurnL0', [8], "", 24, false);
-		sly.animation.addByPrefix('turnRight', 'SlyShopTurnR0', 24, false);
+		sly.animation.addByPrefix('turnLeft', 'SlyShopTurnR0', 24, false);
+		sly.animation.addByIndices('turnLeftFrame', 'SlyShopTurnR0', [8], "", 24, false);
+		sly.animation.addByPrefix('turnRight', 'SlyShopTurnL0', 24, false);
 		// sly.animation.addByPrefix('talk', 'elderbug talk loop0', 24, true);
 		// sly.animation.addByPrefix('talkL', 'elderbug talk loop left0', 24, true);
 		sly.animation.play('idle', true);
@@ -191,22 +191,25 @@ class SlyShop extends BaseScene {
 		}*/
 
 		// This could have been done better if I added onFinished earlier... lol oh well
+		if (sly == null || sly.animation == null || sly.animation.curAnim == null)
+			return;
 		var finish = sly.animation.curAnim.finished;
 		var animName = getAnimationName(sly);
-		if (game.player.x > sly.x && animName != "turnidle") {
-			if (!inshop && finish && animName == "turnRight") {
-				sly.animation.play('turnidle', true);
-			} else if (!inshop) {
-				sly.animation.play('turnRight', false);
-				slyTurned = true;
-			}
-		} else if (game.player.x <= sly.x && animName != "idle") {
-			if (!inshop && finish && animName == "turnLeft") {
-				sly.animation.play('idle', true);
-			} else if (!inshop) {
-				sly.animation.play('turnLeft', false);
-				slyTurned = false;
-			}
+
+		if (game.player.x > sly.x && animName != "turnidle" && !inshop) {
+			sly.animation.play('turnRight', false);
+			sly.animation.onFinish.add((anim) -> {
+				if (anim == 'turnRight')
+					sly.animation.play('turnidle', true);
+			});
+			slyTurned = true;
+		} else if (game.player.x <= sly.x && animName != "idle" && !inshop) {
+			sly.animation.play('turnLeft', false);
+			sly.animation.onFinish.add((anim) -> {
+				if (anim == 'turnLeft')
+					sly.animation.play('idle', true);
+			});
+			slyTurned = false;
 		}
 
 		interactionpoint();
