@@ -789,6 +789,7 @@ class Dirtmouth extends BaseScene {
 										],
 										function() {
 											game.player.status.lock = false;
+											game.player.doubleLock = false;
 											indialogue = false;
 											FlxTween.tween(game.camHUD, {alpha: 1}, .5, {ease: FlxEase.quintOut});
 											game.player.status.cripple = false;
