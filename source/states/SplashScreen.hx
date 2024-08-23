@@ -23,6 +23,7 @@ class SplashScreen extends flixel.FlxState {
 
 		FlxG.save.bind('hymns', CoolUtil.getSavePath());
 		ClientPrefs.loadPrefs();
+		DataSaver.fontScale = 1;
 		TM.setTransl();
 
 		@:privateAccess FlxG.keys._nativeCorrection.set("0_43", FlxKey.PLUS);

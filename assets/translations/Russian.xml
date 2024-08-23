@@ -1,6 +1,6 @@
 <!DOCTYPE hymns-language-translation>
 
-<translations font-dialogue="TrajanPro3-Regular.ttf">
+<translations font-dialogue="krka.ttf" font-percent="80">
 	<!-- Charms -->
 	<trans id="melodic-shell" string="Раковина Благозвучия"/>
 	<trans id="lifeblood-seed" string="Семя Живокрови"/>
@@ -159,7 +159,7 @@
 
 	<trans id="life-tutorial-1" string="Высшие существа, эти наставления только для вас."/>
 	<trans id="life-tutorial-2" string="Ваша огромная сила выделяет вас среди нас.&#xA;Сфокусируйте свою душу, и вы достигнете подвигов, о которых другие могут только мечтать."/>
-	<trans id="life-tutorial-3" string="Собирайте ДУШИ при нажатии нот.&#xA;Как только вы собрали достаточно ДУШ, удерживайте ПРОБЕЛ, пока не поёте, чтобы сосредоточить ДУШУ и исцелиться."/>
+	<trans id="life-tutorial-3" string="Собирайте ДУШИ при нажатии нот.&#xA;Как только вы собрали достаточно ДУШ, удерживайте ПРОБЕЛ,&#xA;пока не поёте, чтобы сосредоточить ДУШУ и исцелиться."/>
 
 	<trans id="charms-tutorial-1" string="Взят Амулет"/>
 	<trans id="charms-tutorial-2" string="Наденьте амулет, чтобы активировать его мощные способности."/>

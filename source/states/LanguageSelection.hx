@@ -30,6 +30,7 @@ class LanguageSelection extends MenuBeatState {
 			// }
 
 			ClientPrefs.data.language = languages[curSelected];
+			DataSaver.fontScale = 1;
 			TM.setTransl();
 			ClientPrefs.saveSettings();
 
@@ -227,6 +228,7 @@ class LanguageSelection extends MenuBeatState {
 		if (lang == "Japanese" || lang == "Chinese") {
 			font = Paths.font("asian.otf");
 		}
+		DataSaver.fontScale = 1;
 		TM.setTransl(initialLang);
 		ClientPrefs.data.language = initialLang;
 		

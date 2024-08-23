@@ -194,6 +194,14 @@ class TransManager {
 
 		languageFont = transNode.has.font ? transNode.att.resolve("font") : null;
 		languageFontDialogue = transNode.has.resolve("font-dialogue") ? transNode.att.resolve("font-dialogue") : null;
+
+		//Might change this to per-language later
+		if ( transNode.has.resolve("font-percent") ){
+			DataSaver.fontScale = Std.parseFloat(transNode.att.resolve("font-percent"))/100.0;
+		}
+		else{
+			DataSaver.fontScale = 1;
+		}
 		return leMap;
 	}
 

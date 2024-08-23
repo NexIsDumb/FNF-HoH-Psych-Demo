@@ -175,6 +175,7 @@ class FlxText extends FlxSprite {
 	var _hasBorderAlpha = false;
 
 	var offsetY:Float = 0;
+	var sizeScale:Float = 1;
 
 	#if flash
 	/**
@@ -576,9 +577,10 @@ class FlxText extends FlxSprite {
 	}
 
 	function set_size(Size:Int):Int {
-		_defaultFormat.size = Size;
+		var scl = Std.int(DataSaver.fontScale * Size);
+		_defaultFormat.size = scl;
 		updateDefaultFormat();
-		return Size;
+		return scl;
 	}
 
 	override function set_color(Color:FlxColor):Int {
@@ -611,6 +613,7 @@ class FlxText extends FlxSprite {
 
 		switch (_defaultFormat.font) {
 			case "Source Han Serif": offsetY = -9;
+			case "krka": offsetY = 5;
 			default: offsetY = 0;
 		}
 

@@ -72,6 +72,7 @@ class DataSaver {
 	public static final allCharms:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus];
 	public static final allCharmsInternal:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus, Swindler];
 	public static var allowSaving:Bool = true;
+	public static var fontScale:Float = 1.0;
 
 	// needs to be saved
 	private static var _DATA:DataSave = {
