@@ -574,6 +574,8 @@ class Dirtmouth extends BaseScene {
 
 				DataSaver.loadData("sly door opening");
 				DataSaver.unlocked.set("slydoor", "open");
+				DataSaver.saveSettings(DataSaver.saveFile);
+				DataSaver.doFlush(true);
 				cutscene = false;
 			});
 		});
