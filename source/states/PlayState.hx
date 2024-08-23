@@ -2651,10 +2651,11 @@ class PlayState extends MusicBeatState {
 		}
 		var geoToAdd = Std.int(songLength / 1000 * 1.6);
 		DataSaver.loadData('Add ${geoToAdd} geo on win');
-		DataSaver.geo += geoToAdd;
 		if (Paths.formatPath(DataSaver.doingsong) == "first-steps") {
+			geoToAdd = Std.int(Math.max(geoToAdd, 50));
 			DataSaver.elderbugstate = 6;
 		}
+		DataSaver.geo += geoToAdd;
 		trace(SONG.song);
 		if (formattedSong == "lichen") {
 			DataSaver.lichendone = true;
