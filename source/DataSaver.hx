@@ -13,6 +13,26 @@ enum abstract Charm(String) to String {
 	var Swindler = "Swindler"; // Shop item, just nld using it, not a real charm
 }
 
+typedef DataSave = {
+	geo:Int,
+	charms:Map<Charm, Bool>,
+	charmsunlocked:Map<Charm, Bool>,
+	songScores:Map<String, Int>,
+	weekScores:Map<String, Int>,
+	songRating:Map<String, Float>,
+	unlocked:Map<String, String>,
+	played:Bool,
+	elderbugstate:Int,
+	slytries:Int,
+	usedNotches:Int,
+	lichendone:Bool,
+	diedonfirststeps:Bool,
+	interacts:Array<Bool>,
+	charmOrder:Array<Int>,
+	sillyOrder:Array<Charm>
+};
+
+
 class DataSaver {
 	public static function getCharmImage(charm:Charm) {
 		if (charm == BaldursBlessing) {
@@ -50,28 +70,129 @@ class DataSaver {
 
 	public static final allCharms:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus];
 	public static final allCharmsInternal:Array<Charm> = [MelodicShell, BaldursBlessing, LifebloodSeed, CriticalFocus, Swindler];
-
 	public static var allowSaving:Bool = true;
 
 	// needs to be saved
-	public static var geo:Null<Int> = 0;
-	public static var charms:Map<Charm, Bool> = new Map();
-	public static var charmsunlocked:Map<Charm, Bool> = new Map();
-	public static var songScores:Map<String, Int> = new Map();
-	public static var weekScores:Map<String, Int> = new Map();
-	public static var songRating:Map<String, Float> = new Map();
-	public static var unlocked:Map<String, String> = new Map();
-	public static var played:Null<Bool> = false;
-	public static var elderbugstate:Null<Int> = 0;
-	public static var slytries:Null<Int> = 0;
-	public static var usedNotches:Null<Int> = 0;
+	private static var _DATA:DataSave = {
+		geo: 0,
+		charms: [MelodicShell => false,],
+		charmsunlocked: [MelodicShell => false, Swindler => false,],
+		songScores: new Map<String, Int>(),
+		weekScores: new Map<String, Int>(),
+		songRating: new Map<String, Float>(),
+		unlocked: new Map<String, String>(),
+		played: false,
+		elderbugstate: 0,
+		slytries: 0,
+		usedNotches: 0,
+		lichendone: false,
+		diedonfirststeps: false,
+		interacts: [false, false, false],
+		charmOrder: [],
+		sillyOrder: []
+	};
 
-	public static var lichendone:Null<Bool> = false;
-	public static var diedonfirststeps:Null<Bool> = false;
-	public static var interacts = [false, false, false];
+	public static final defaultData:DataSave = {
+		geo: 0,
+		charms: [MelodicShell => false,],
+		charmsunlocked: [MelodicShell => false, Swindler => false,],
+		songScores: new Map<String, Int>(),
+		weekScores: new Map<String, Int>(),
+		songRating: new Map<String, Float>(),
+		unlocked: new Map<String, String>(),
+		played: false,
+		elderbugstate: 0,
+		slytries: 0,
+		usedNotches: 0,
+		lichendone: false,
+		diedonfirststeps: false,
+		interacts: [false, false, false],
+		charmOrder: [],
+		sillyOrder: []
+	};
 
-	public static var charmOrder:Array<Int> = [];
-	public static var sillyOrder:Array<Charm> = [];
+	inline static function dataValidator(defaultData:DataSave):DataSave{
+		return defaultData; // This function will be used later if more error states or softlocks occur but is unnecessary now
+	}
+
+	// Somehow this fixes the issue of saves disappearing ... how???
+	public static var DATA(get, set):DataSave;
+	public static function get_DATA():DataSave { return _DATA; }
+	public static function set_DATA(value:DataSave):DataSave { var valid = dataValidator(value); _DATA = valid; return valid; }
+
+	// These functions are here for compatiblity reasons but will hopefully be removed later when new format is fully working
+	public static var geo(get, set):Null<Int>;
+	private static function get_geo():Null<Int> { return DATA.geo; }
+	private static function set_geo(value:Null<Int>):Null<Int> { 
+		//if(DATA.geo!=value){ trace('${DATA.geo} -> ${value}'); lastGeo = value;} 
+		DATA.geo = value; return value; 
+	}
+
+	public static var charms(get, set):Map<Charm, Bool>;
+	private static function get_charms():Map<Charm, Bool> { return DATA.charms; }
+	private static function set_charms(value:Map<Charm, Bool>):Map<Charm, Bool> { DATA.charms = value; return value; }
+
+	public static var charmsunlocked(get, set):Map<Charm, Bool>;
+	private static function get_charmsunlocked():Map<Charm, Bool> { return DATA.charmsunlocked; }
+	private static function set_charmsunlocked(value:Map<Charm, Bool>):Map<Charm, Bool> { DATA.charmsunlocked = value; return value; }
+
+	public static var songScores(get, set):Map<String, Int>;
+	private static function get_songScores():Map<String, Int> { return DATA.songScores; }
+	private static function set_songScores(value:Map<String, Int>):Map<String, Int> { DATA.songScores = value; return value; }
+
+	public static var weekScores(get, set):Map<String, Int>;
+	private static function get_weekScores():Map<String, Int> { return DATA.weekScores; }
+	private static function set_weekScores(value:Map<String, Int>):Map<String, Int> { DATA.weekScores = value; return value; }
+
+	public static var songRating(get, set):Map<String, Float>;
+	private static function get_songRating():Map<String, Float> { return DATA.songRating; }
+	private static function set_songRating(value:Map<String, Float>):Map<String, Float> { DATA.songRating = value; return value; }
+
+	public static var unlocked(get, set):Map<String, String>;
+	private static function get_unlocked():Map<String, String> { return DATA.unlocked; }
+	private static function set_unlocked(value:Map<String, String>):Map<String, String> { DATA.unlocked = value; return value; }
+
+	public static var played(get, set):Null<Bool>;
+	private static function get_played():Null<Bool> { return DATA.played || DATA.geo > 0 || DATA.elderbugstate > 0; }
+	private static function set_played(value:Null<Bool>):Null<Bool> { 
+		//if(DATA.played!=value){ trace('${DATA.played} -> ${value}');}
+		DATA.played = value; return value; 
+	}
+
+	public static var elderbugstate(get, set):Null<Int>;
+	private static function get_elderbugstate():Null<Int> { return DATA.elderbugstate; }
+	private static function set_elderbugstate(value:Null<Int>):Null<Int> { 
+		//if(DATA.elderbugstate!=value){ trace('${DATA.elderbugstate} -> ${value}');} 
+		DATA.elderbugstate = value; return value; 
+	}
+
+	public static var slytries(get, set):Null<Int>;
+	private static function get_slytries():Null<Int> { return DATA.slytries; }
+	private static function set_slytries(value:Null<Int>):Null<Int> { DATA.slytries = value; return value; }
+
+	public static var usedNotches(get, set):Null<Int>;
+	private static function get_usedNotches():Null<Int> { return DATA.usedNotches; }
+	private static function set_usedNotches(value:Null<Int>):Null<Int> { DATA.usedNotches = value; return value; }
+
+	public static var lichendone(get, set):Null<Bool>;
+	private static function get_lichendone():Null<Bool> { return DATA.lichendone; }
+	private static function set_lichendone(value:Null<Bool>):Null<Bool> { DATA.lichendone = value; return value; }
+
+	public static var diedonfirststeps(get, set):Null<Bool>;
+	private static function get_diedonfirststeps():Null<Bool> { return DATA.diedonfirststeps; }
+	private static function set_diedonfirststeps(value:Null<Bool>):Null<Bool> { DATA.diedonfirststeps = value; return value; }
+
+	public static var interacts(get, set):Array<Bool>;
+	private static function get_interacts():Array<Bool> { return DATA.interacts; }
+	private static function set_interacts(value:Array<Bool>):Array<Bool> { DATA.interacts = value; return value; }
+
+	public static var charmOrder(get, set):Array<Int>;
+	private static function get_charmOrder():Array<Int> { return DATA.charmOrder; }
+	private static function set_charmOrder(value:Array<Int>):Array<Int> { DATA.charmOrder = value; return value; }
+
+	public static var sillyOrder(get, set):Array<Charm>;
+	private static function get_sillyOrder():Array<Charm> { return DATA.sillyOrder; }
+	private static function set_sillyOrder(value:Array<Charm>):Array<Charm> { DATA.sillyOrder = value; return value; }
 
 	// public static var curSave:FlxSave = null;
 	public static var curSave1:FlxSave = null;
@@ -151,7 +272,6 @@ class DataSaver {
 
 	public static function fixSave(saveNo:Int):FlxSave {
 		var curSaveFile = getSave(saveNo);
-		trace("Charms:" + charms);
 		curSaveFile.data.geo = geo != null ? geo : getDefaultValue('geo');
 		curSaveFile.data.charms = charms != null ? charms : getDefaultValue('charms');
 		curSaveFile.data.charmsunlocked = charmsunlocked != null ? charmsunlocked : getDefaultValue('charmsunlocked');
@@ -270,23 +390,7 @@ class DataSaver {
 	}
 
 	public static function setDefaultValues() {
-		geo = 0;
-		charms = [MelodicShell => false,];
-		charmsunlocked = [MelodicShell => false, Swindler => false,];
-		songScores = new Map();
-		weekScores = new Map();
-		songRating = new Map();
-		unlocked = new Map();
-		played = false;
-		elderbugstate = 0;
-		charmOrder = [];
-		slytries = 0;
-		usedNotches = 0;
-		doingsong = '';
-		lichendone = false;
-		diedonfirststeps = false;
-		interacts = [false, false, false];
-		sillyOrder = [];
+		DATA = defaultData;
 	}
 
 	public static function loadData(note:String) {
@@ -297,7 +401,7 @@ class DataSaver {
 		checkSave(DataSaver.saveFile);
 
 		var curSaveFile = getSave(DataSaver.saveFile);
-		// setDefaultValues();
+		setDefaultValues();
 
 		geo = curSaveFile.data.geo != null ? curSaveFile.data.geo : getDefaultValue('geo');
 		charms = curSaveFile.data.charms != null ? curSaveFile.data.charms : getDefaultValue('charms');
@@ -387,8 +491,8 @@ class DataSaver {
 		var curSave:FlxSave = new FlxSave();
 		curSave.bind('saveData' + saveFileData, 'hymns');
 		curSave.erase();
-		fixSave(saveFileData);
 		setDefaultValues();
+		fixSave(saveFileData);
 		FlxG.log.add("Wiped data from SaveFile : " + saveFile);
 	}
 }
