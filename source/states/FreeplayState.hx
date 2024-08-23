@@ -194,8 +194,6 @@ class FreeplayState extends MusicBeatState {
 
 		changeSelection(0);
 
-		trace(DataSaver.songScores);
-		trace(DataSaver.songRating);
 	}
 
 	override function closeSubState() {

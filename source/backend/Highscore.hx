@@ -72,7 +72,7 @@ class Highscore {
 
 	public static function getRating(song:String, diff:Int):Float {
 		var daSong:String = formatSong(song, diff);
-		trace("Getting rating for " + daSong + " with " + DataSaver.songRating.get(daSong));
+		// trace("Getting rating for " + daSong + " with " + DataSaver.songRating.get(daSong));
 		if (!DataSaver.songRating.exists(daSong))
 			return 0;
 
