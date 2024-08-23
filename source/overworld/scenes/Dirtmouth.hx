@@ -784,7 +784,7 @@ class Dirtmouth extends BaseScene {
 									game.dialogue.openBox("Elderbug",
 										[
 											[
-												TM.checkTransl("Oh, It seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
+												TM.checkTransl("Oh, it seems we caught the attention of our shopkeep! Perhaps you should pay them a visit? I believe they have might have something that may aid you in your travels.", "elderbug-dialog-6")
 											]
 										],
 										function() {
