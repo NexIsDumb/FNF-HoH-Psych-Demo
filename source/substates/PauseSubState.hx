@@ -282,6 +282,7 @@ class PauseSubState extends MusicBeatSubstate {
 					PlayState.instance.botplaySine = 0;
 				case "Exit to menu":
 					DataSaver.saveSettings(DataSaver.saveFile);
+					DataSaver.doFlush(true);
 					// DataSaver.resetData(); // to prevent cross save issues //No.
 
 					PlayState.deathCounter = 0;
@@ -293,6 +294,7 @@ class PauseSubState extends MusicBeatSubstate {
 
 				case "Exit to Dirtmouth":
 					DataSaver.saveSettings(DataSaver.saveFile);
+					DataSaver.doFlush(true);
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 					MusicBeatState.switchState(new OverworldManager());
@@ -302,6 +304,7 @@ class PauseSubState extends MusicBeatSubstate {
 
 				case "Exit to Freeplay":
 					DataSaver.saveSettings(DataSaver.saveFile);
+					DataSaver.doFlush(true);
 					DataSaver.loadData("To Freeplay");
 					var rawData:Bool = DataSaver.charmsunlocked.get(Swindler);
 					if (rawData) {
