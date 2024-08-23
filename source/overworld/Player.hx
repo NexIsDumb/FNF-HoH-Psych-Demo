@@ -85,7 +85,10 @@ class Player extends FlxSprite {
 
 		if (DataSaver.played == false) {
 			DataSaver.played = true; // The moment a player spawns in game, the game save should be marked as "played"
-			DataSaver.getSave(DataSaver.saveFile).data.played = true;
+			var file = DataSaver.getSave(DataSaver.saveFile);
+			if (file.get("data") != null) {
+				file.get("data").played = true;
+			}
 		}
 	}
 

@@ -3,6 +3,8 @@ package;
 import flixel.FlxG;
 import flixel.util.FlxSave;
 import flixel.graphics.FlxGraphic;
+import haxe.Serializer;
+import haxe.Unserializer;
 
 enum abstract Charm(String) to String {
 	var MelodicShell = "Melodic Shell";
@@ -73,11 +75,33 @@ class DataSaver {
 	public static var charmOrder:Array<Int> = [];
 	public static var sillyOrder:Array<Charm> = [];
 
+	public static final defaultSave:Dynamic = {
+		data: {
+			"geo": 0,
+			"charms": [MelodicShell => false],
+			"charmsunlocked": [MelodicShell => false, Swindler => false,],
+			"songScores": new Map<String, Int>(),
+			"weekScores": weekScores,
+			"songRating": songRating,
+			"unlocked": unlocked,
+			"played": false,
+			"elderbugstate": 0,
+			"charmOrder": charmOrder,
+			"slytries": 0,
+			"usedNotches": 0,
+			"doingsong": "",
+			"lichendone": false,
+			"diedonfirststeps": false,
+			"interacts": [false, false, false],
+			"sillyOrder": sillyOrder
+		}
+	};
+
 	// public static var curSave:FlxSave = null;
-	public static var curSave1:FlxSave = null;
-	public static var curSave2:FlxSave = null;
-	public static var curSave3:FlxSave = null;
-	public static var curSave4:FlxSave = null;
+	public static var jsonSave1:Dynamic = null;
+	public static var jsonSave2:Dynamic = null;
+	public static var jsonSave3:Dynamic = null;
+	public static var jsonSave4:Dynamic = null;
 
 	public static var flushReady = false;
 	// vars
@@ -106,29 +130,44 @@ class DataSaver {
 		}
 	}
 
-	public static function loadSaves() {
-		DataSaver.curSave1 = new FlxSave();
-		DataSaver.curSave1.bind('saveData1', 'hymns');
-		makeSave(DataSaver.curSave1);
-		DataSaver.curSave2 = new FlxSave();
-		DataSaver.curSave2.bind('saveData2', 'hymns');
-		makeSave(DataSaver.curSave2);
-		DataSaver.curSave3 = new FlxSave();
-		DataSaver.curSave3.bind('saveData3', 'hymns');
-		makeSave(DataSaver.curSave3);
-		DataSaver.curSave4 = new FlxSave();
-		DataSaver.curSave4.bind('saveData4', 'hymns');
-		makeSave(DataSaver.curSave4);
-
-		/*switch(DataSaver.saveFile){
-			case 1: DataSaver.curSave = curSave1;
-			case 2: DataSaver.curSave = curSave2;
-			case 3: DataSaver.curSave = curSave3;
-			case 4: DataSaver.curSave = curSave4;
-		}*/
+	public static function getJson(saveFileNo:Int):Dynamic {
+		var encodedData = getSave(saveFileNo);
+		try {
+			var unserializer = new Unserializer(File.getContent('assets/data/save${saveFileNo}.json'));
+			unserializer.setResolver(cast {resolveEnum: Type.resolveEnum, resolveClass: Type.resolveClass});
+			encodedData = unserializer.unserialize();
+		} catch (err) {
+			encodedData = defaultSave;
+			trace(err);
+		}
+		return encodedData;
 	}
 
-	public static function makeSave(curSaveFile:FlxSave):FlxSave {
+	public static function loadSaves() {
+		jsonSave1 = getJson(1);
+		jsonSave2 = getJson(2);
+		jsonSave3 = getJson(3);
+		jsonSave4 = getJson(4);
+
+		makeSave(jsonSave1);
+	
+		/*
+			DataSaver.curSave1 = new FlxSave();
+			DataSaver.curSave1.bind('saveData1', 'hymns');
+			makeSave(DataSaver.curSave1);
+			DataSaver.curSave2 = new FlxSave();
+			DataSaver.curSave2.bind('saveData2', 'hymns');
+			makeSave(DataSaver.curSave2);
+			DataSaver.curSave3 = new FlxSave();
+			DataSaver.curSave3.bind('saveData3', 'hymns');
+			makeSave(DataSaver.curSave3);
+			DataSaver.curSave4 = new FlxSave();
+			DataSaver.curSave4.bind('saveData4', 'hymns');
+			makeSave(DataSaver.curSave4);
+		 */
+	}
+
+	public static function makeSave(curSaveFile:Dynamic):Dynamic {
 		setIfNotFilled(curSaveFile.data, 'geo');
 		setIfNotFilled(curSaveFile.data, 'charms');
 		setIfNotFilled(curSaveFile.data, 'charmsunlocked');
@@ -149,9 +188,15 @@ class DataSaver {
 		return curSaveFile;
 	}
 
-	public static function fixSave(saveNo:Int):FlxSave {
+	public static function fixSave(saveNo:Int):Dynamic {
 		var curSaveFile = getSave(saveNo);
-		trace("Charms:" + charms);
+
+		var attempt:haxe.DynamicAccess<Dynamic> = curSaveFile.get("data");
+		if(attempt == null) {
+			attempt = defaultSave.data;
+		}
+		curSaveFile.set("data",attempt);
+		/*
 		curSaveFile.data.geo = geo != null ? geo : getDefaultValue('geo');
 		curSaveFile.data.charms = charms != null ? charms : getDefaultValue('charms');
 		curSaveFile.data.charmsunlocked = charmsunlocked != null ? charmsunlocked : getDefaultValue('charmsunlocked');
@@ -167,39 +212,47 @@ class DataSaver {
 		curSaveFile.data.diedonfirststeps = diedonfirststeps != null ? diedonfirststeps : getDefaultValue('diedonfirststeps');
 		curSaveFile.data.interacts = interacts != null ? interacts : getDefaultValue('interacts');
 		curSaveFile.data.sillyOrder = sillyOrder != null ? sillyOrder : getDefaultValue('sillyOrder');
+		*/
 		// setIfNotNull(curSaveFile.data, 'played', played);//
 		// setIfNotNull(curSaveFile.data, 'usedNotches', usedNotches);//
 
 		return curSaveFile;
 	}
 
-	public static function getSave(saveNo:Int):FlxSave {
+	public static function getSave(saveNo:Int):haxe.DynamicAccess<Dynamic>  {
 		switch (saveNo) {
-			case 1: return curSave1;
-			case 2: return curSave2;
-			case 3: return curSave3;
-			default: return curSave4;
+			case 1: return jsonSave1;
+			case 2: return jsonSave2;
+			case 3: return jsonSave3;
+			default: return jsonSave4;
 		}
 	}
 
 	public static function doFlush(force:Bool) {
 		if (force || flushReady) {
 			trace("here we go");
-			getSave(DataSaver.saveFile).flush();
+			// getSave(DataSaver.saveFile).flush();
+			var output = File.write('assets/data/save${DataSaver.saveFile}.json', false);
+			output.writeString(
+				haxe.Json.stringify(Serializer.run(getSave(DataSaver.saveFile)))
+			);
+			output.close();
 			flushReady = false;
 		}
 	}
 
 	public static function retrieveSaveValue(saveKey:String):Dynamic {
 		var curSave = getSave(DataSaver.saveFile);
-		if (curSave == null || curSave.data == null) {
+		if (curSave == null || curSave.get("data") == null) {
 			checkSave(DataSaver.saveFile);
 			return null;
 		}
 
-		var value:Dynamic = Reflect.hasField(curSave.data, saveKey);
+		var data = curSave.get("data");
+
+		var value:Dynamic = Reflect.hasField(data, saveKey);
 		if (!value) {
-			return Reflect.field(curSave.data, saveKey);
+			return Reflect.field(data, saveKey);
 		} else {
 			// Reflect.setField(DataSaver.curSave.data, variable, getDefaultValue(variable));
 			flushReady = true;
@@ -227,8 +280,8 @@ class DataSaver {
 			DataSaver.saveFile = saveFileData;
 		}
 		// saveFile = saveFileData;
-		var save = getSave(DataSaver.saveFile);
 		checkSave(DataSaver.saveFile);
+		var save = getJson(DataSaver.saveFile);
 
 		if (save == null) {
 			trace("save file not created");
@@ -238,7 +291,8 @@ class DataSaver {
 		fixSave(DataSaver.saveFile);
 
 		flushReady = true;
-		save.flush();
+		// save.flush();
+		doFlush(true);
 		FlxG.log.add("Settings saved!");
 		trace('Saved Savefile in slot ${DataSaver.saveFile}');
 	}
@@ -297,54 +351,47 @@ class DataSaver {
 		checkSave(DataSaver.saveFile);
 
 		var curSaveFile = getSave(DataSaver.saveFile);
-		// setDefaultValues();
+		setDefaultValues();
 
-		geo = curSaveFile.data.geo != null ? curSaveFile.data.geo : getDefaultValue('geo');
-		charms = curSaveFile.data.charms != null ? curSaveFile.data.charms : getDefaultValue('charms');
-		charmsunlocked = curSaveFile.data.charmsunlocked != null ? curSaveFile.data.charmsunlocked : getDefaultValue('charmsunlocked');
-		songScores = curSaveFile.data.songScores != null ? curSaveFile.data.songScores : getDefaultValue('songScores');
-		weekScores = curSaveFile.data.weekScores != null ? curSaveFile.data.weekScores : getDefaultValue('weekScores');
-		songRating = curSaveFile.data.songRating != null ? curSaveFile.data.songRating : getDefaultValue('songRating');
-		unlocked = curSaveFile.data.unlocked != null ? curSaveFile.data.unlocked : getDefaultValue('unlocked');
-		elderbugstate = curSaveFile.data.elderbugstate != null ? curSaveFile.data.elderbugstate : getDefaultValue('elderbugstate');
-		charmOrder = curSaveFile.data.charmOrder != null ? curSaveFile.data.charmOrder : getDefaultValue('charmOrder');
-		slytries = curSaveFile.data.slytries != null ? curSaveFile.data.slytries : getDefaultValue('slytries');
-		doingsong = curSaveFile.data.doingsong != null ? curSaveFile.data.doingsong : getDefaultValue('doingsong');
-		lichendone = curSaveFile.data.lichendone != null ? curSaveFile.data.lichendone : getDefaultValue('lichendone');
-		diedonfirststeps = curSaveFile.data.diedonfirststeps != null ? curSaveFile.data.diedonfirststeps : getDefaultValue('diedonfirststeps');
-		interacts = curSaveFile.data.interacts != null ? curSaveFile.data.interacts : getDefaultValue('interacts');
-		sillyOrder = curSaveFile.data.sillyOrder != null ? curSaveFile.data.sillyOrder : getDefaultValue('sillyOrder');
-
-		retrieveSaveValue("geo");
-		retrieveSaveValue("charms");
-		retrieveSaveValue("charmsunlocked");
-		retrieveSaveValue("songScores");
-		retrieveSaveValue("weekScores");
-		retrieveSaveValue("songRating");
-		retrieveSaveValue("unlocked");
-		retrieveSaveValue("played");
-		retrieveSaveValue("elderbugstate");
-		retrieveSaveValue("charmOrder");
-		retrieveSaveValue("slytries");
-		retrieveSaveValue("doingsong");
-		retrieveSaveValue("lichendone");
-		retrieveSaveValue("diedonfirststeps");
-		retrieveSaveValue("interacts");
-		if (retrieveSaveValue("sillyOrder") != null) {
-			fixSillyOrder();
+		var attempt:haxe.DynamicAccess<Dynamic> = curSaveFile.get("data");
+		if(attempt!=null){
+			for (key in attempt.keys()){
+				var value:Dynamic = attempt.get(key);
+				//trace(key, value);
+				Reflect.setProperty(DataSaver, key, value);
+			}
 		}
 
+		/*
+		var data = curSaveFile.data != null ? curSaveFile.data : defaultSave.data;
+
+		geo = data.geo != null ? data.geo : getDefaultValue('geo');
+		charms = data.charms != null ? data.charms : getDefaultValue('charms');
+		charmsunlocked = data.charmsunlocked != null ? data.charmsunlocked : getDefaultValue('charmsunlocked');
+		songScores = data.songScores != null ? data.songScores : getDefaultValue('songScores');
+		weekScores = data.weekScores != null ? data.weekScores : getDefaultValue('weekScores');
+		songRating = data.songRating != null ? data.songRating : getDefaultValue('songRating');
+		unlocked = data.unlocked != null ? data.unlocked : getDefaultValue('unlocked');
+		elderbugstate = data.elderbugstate != null ? data.elderbugstate : getDefaultValue('elderbugstate');
+		charmOrder = data.charmOrder != null ? data.charmOrder : getDefaultValue('charmOrder');
+		slytries = data.slytries != null ? data.slytries : getDefaultValue('slytries');
+		doingsong = data.doingsong != null ? data.doingsong : getDefaultValue('doingsong');
+		lichendone = data.lichendone != null ? data.lichendone : getDefaultValue('lichendone');
+		diedonfirststeps = data.diedonfirststeps != null ? data.diedonfirststeps : getDefaultValue('diedonfirststeps');
+		interacts = data.interacts != null ? data.interacts : getDefaultValue('interacts');
+		sillyOrder = data.sillyOrder != null ? data.sillyOrder : getDefaultValue('sillyOrder');
+		*/
 		// Etrace(sillyOrder);
 
 		// remove unequipped charms from sillyOrder
 
-		usedNotches = calculateNotches();
+		// usedNotches = calculateNotches();
 
 		if (curSaveFile != null) {
 			flushReady = true;
-			fixSave(DataSaver.saveFile);
+			// fixSave(DataSaver.saveFile);
 			// curSaveFile.data.played = true;
-			curSaveFile.flush();
+			// curSaveFile.flush();
 		}
 		FlxG.log.add("Loaded! " + note);
 		trace("Loaded Savefile");
