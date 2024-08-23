@@ -137,7 +137,7 @@ class SaveFile extends FlxTypedGroup<FlxBasic> {
 		var dataFile = DataSaver.getSave(data);
 		DataSaver.checkSave(data);
 		// trace((dataFile.data.played ? "Saved game: " : "New Save:") + ' file slot ${data}');
-		var playedSave = dataFile.get("data") != null ? dataFile.get("data").played : true;
+		var playedSave = dataFile.data != null ? dataFile.data.played : true;
 
 		trace((playedSave ? "Saved game: " : "New Save:") + ' file slot ${data}');
 		if (playedSave) {

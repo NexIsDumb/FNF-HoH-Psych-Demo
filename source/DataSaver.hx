@@ -15,6 +15,31 @@ enum abstract Charm(String) to String {
 	var Swindler = "Swindler"; // Shop item, just nld using it, not a real charm
 }
 
+typedef SaveFileData = {
+	var geo:Int;
+	var charms:Map<Charm, Bool>;
+	var charmsunlocked:Map<Charm, Bool>;
+	var songScores:Map<String, Int>;
+	var weekScores:Map<String, Int>;
+	var songRating:Map<String, Float>;
+	var unlocked:Map<String, String>;
+	var played:Bool;
+	var elderbugstate:Int;
+	var charmOrder:Array<Int>;
+	var slytries:Int;
+	var doingsong:String;
+	var lichendone:Bool;
+	var diedonfirststeps:Bool;
+	var interacts:Array<Bool>;
+	var sillyOrder:Array<Charm>;
+	var usedNotches:Int;
+	var version:String;
+}
+
+typedef SaveFile = {
+	var data:SaveFileData;
+}
+
 class DataSaver {
 	public static function getCharmImage(charm:Charm) {
 		if (charm == BaldursBlessing) {
@@ -75,7 +100,7 @@ class DataSaver {
 	public static var charmOrder:Array<Int> = [];
 	public static var sillyOrder:Array<Charm> = [];
 
-	public static final defaultSave:Dynamic = {
+	public static final defaultSave:SaveFile = {
 		data: {
 			"geo": 0,
 			"charms": [MelodicShell => false],
@@ -93,15 +118,16 @@ class DataSaver {
 			"lichendone": false,
 			"diedonfirststeps": false,
 			"interacts": [false, false, false],
-			"sillyOrder": sillyOrder
+			"sillyOrder": sillyOrder,
+			"version": "DEMO"
 		}
 	};
 
 	// public static var curSave:FlxSave = null;
-	public static var jsonSave1:Dynamic = null;
-	public static var jsonSave2:Dynamic = null;
-	public static var jsonSave3:Dynamic = null;
-	public static var jsonSave4:Dynamic = null;
+	public static var jsonSave1:SaveFile = null;
+	public static var jsonSave2:SaveFile = null;
+	public static var jsonSave3:SaveFile = null;
+	public static var jsonSave4:SaveFile = null;
 
 	public static var flushReady = false;
 	// vars
@@ -150,7 +176,7 @@ class DataSaver {
 		jsonSave4 = getJson(4);
 
 		makeSave(jsonSave1);
-	
+
 		/*
 			DataSaver.curSave1 = new FlxSave();
 			DataSaver.curSave1.bind('saveData1', 'hymns');
@@ -185,46 +211,47 @@ class DataSaver {
 		setIfNotFilled(curSaveFile.data, 'diedonfirststeps');
 		setIfNotFilled(curSaveFile.data, 'interacts');
 		setIfNotFilled(curSaveFile.data, 'sillyOrder');
+		curSaveFile.data.version = "DEMO";
 		return curSaveFile;
 	}
 
 	public static function fixSave(saveNo:Int):Dynamic {
 		var curSaveFile = getSave(saveNo);
 
-		var attempt:haxe.DynamicAccess<Dynamic> = curSaveFile.get("data");
-		if(attempt == null) {
+		var attempt:SaveFileData = curSaveFile.data;
+		if (attempt == null) {
 			attempt = defaultSave.data;
 		}
-		curSaveFile.set("data",attempt);
+		curSaveFile.data = attempt;
 		/*
-		curSaveFile.data.geo = geo != null ? geo : getDefaultValue('geo');
-		curSaveFile.data.charms = charms != null ? charms : getDefaultValue('charms');
-		curSaveFile.data.charmsunlocked = charmsunlocked != null ? charmsunlocked : getDefaultValue('charmsunlocked');
-		curSaveFile.data.songScores = songScores != null ? songScores : getDefaultValue('songScores');
-		curSaveFile.data.weekScores = weekScores != null ? weekScores : getDefaultValue('weekScores');
-		curSaveFile.data.songRating = songRating != null ? songRating : getDefaultValue('songRating');
-		curSaveFile.data.unlocked = unlocked != null ? unlocked : getDefaultValue('unlocked');
-		curSaveFile.data.elderbugstate = elderbugstate != null ? elderbugstate : getDefaultValue('elderbugstate');
-		curSaveFile.data.charmOrder = charmOrder != null ? charmOrder : getDefaultValue('charmOrder');
-		curSaveFile.data.slytries = slytries != null ? slytries : getDefaultValue('slytries');
-		curSaveFile.data.doingsong = doingsong != null ? doingsong : getDefaultValue('doingsong');
-		curSaveFile.data.lichendone = lichendone != null ? lichendone : getDefaultValue('lichendone');
-		curSaveFile.data.diedonfirststeps = diedonfirststeps != null ? diedonfirststeps : getDefaultValue('diedonfirststeps');
-		curSaveFile.data.interacts = interacts != null ? interacts : getDefaultValue('interacts');
-		curSaveFile.data.sillyOrder = sillyOrder != null ? sillyOrder : getDefaultValue('sillyOrder');
-		*/
+			curSaveFile.data.geo = geo != null ? geo : getDefaultValue('geo');
+			curSaveFile.data.charms = charms != null ? charms : getDefaultValue('charms');
+			curSaveFile.data.charmsunlocked = charmsunlocked != null ? charmsunlocked : getDefaultValue('charmsunlocked');
+			curSaveFile.data.songScores = songScores != null ? songScores : getDefaultValue('songScores');
+			curSaveFile.data.weekScores = weekScores != null ? weekScores : getDefaultValue('weekScores');
+			curSaveFile.data.songRating = songRating != null ? songRating : getDefaultValue('songRating');
+			curSaveFile.data.unlocked = unlocked != null ? unlocked : getDefaultValue('unlocked');
+			curSaveFile.data.elderbugstate = elderbugstate != null ? elderbugstate : getDefaultValue('elderbugstate');
+			curSaveFile.data.charmOrder = charmOrder != null ? charmOrder : getDefaultValue('charmOrder');
+			curSaveFile.data.slytries = slytries != null ? slytries : getDefaultValue('slytries');
+			curSaveFile.data.doingsong = doingsong != null ? doingsong : getDefaultValue('doingsong');
+			curSaveFile.data.lichendone = lichendone != null ? lichendone : getDefaultValue('lichendone');
+			curSaveFile.data.diedonfirststeps = diedonfirststeps != null ? diedonfirststeps : getDefaultValue('diedonfirststeps');
+			curSaveFile.data.interacts = interacts != null ? interacts : getDefaultValue('interacts');
+			curSaveFile.data.sillyOrder = sillyOrder != null ? sillyOrder : getDefaultValue('sillyOrder');
+		 */
 		// setIfNotNull(curSaveFile.data, 'played', played);//
 		// setIfNotNull(curSaveFile.data, 'usedNotches', usedNotches);//
 
 		return curSaveFile;
 	}
 
-	public static function getSave(saveNo:Int):haxe.DynamicAccess<Dynamic>  {
-		switch (saveNo) {
-			case 1: return jsonSave1;
-			case 2: return jsonSave2;
-			case 3: return jsonSave3;
-			default: return jsonSave4;
+	public static function getSave(saveNo:Int):SaveFile {
+		return switch (saveNo) {
+			case 1: jsonSave1;
+			case 2: jsonSave2;
+			case 3: jsonSave3;
+			default: jsonSave4;
 		}
 	}
 
@@ -243,12 +270,12 @@ class DataSaver {
 
 	public static function retrieveSaveValue(saveKey:String):Dynamic {
 		var curSave = getSave(DataSaver.saveFile);
-		if (curSave == null || curSave.get("data") == null) {
+		if (curSave == null || curSave.data == null) {
 			checkSave(DataSaver.saveFile);
 			return null;
 		}
 
-		var data = curSave.get("data");
+		var data = curSave.data;
 
 		var value:Dynamic = Reflect.hasField(data, saveKey);
 		if (!value) {
@@ -353,34 +380,34 @@ class DataSaver {
 		var curSaveFile = getSave(DataSaver.saveFile);
 		setDefaultValues();
 
-		var attempt:haxe.DynamicAccess<Dynamic> = curSaveFile.get("data");
-		if(attempt!=null){
-			for (key in attempt.keys()){
-				var value:Dynamic = attempt.get(key);
-				//trace(key, value);
+		var attempt:SaveFileData = curSaveFile.data;
+		if (attempt != null) {
+			for (key in Reflect.fields(attempt)) {
+				var value:Dynamic = Reflect.field(attempt, key);
+				// trace(key, value);
 				Reflect.setProperty(DataSaver, key, value);
 			}
 		}
 
 		/*
-		var data = curSaveFile.data != null ? curSaveFile.data : defaultSave.data;
+			var data = curSaveFile.data != null ? curSaveFile.data : defaultSave.data;
 
-		geo = data.geo != null ? data.geo : getDefaultValue('geo');
-		charms = data.charms != null ? data.charms : getDefaultValue('charms');
-		charmsunlocked = data.charmsunlocked != null ? data.charmsunlocked : getDefaultValue('charmsunlocked');
-		songScores = data.songScores != null ? data.songScores : getDefaultValue('songScores');
-		weekScores = data.weekScores != null ? data.weekScores : getDefaultValue('weekScores');
-		songRating = data.songRating != null ? data.songRating : getDefaultValue('songRating');
-		unlocked = data.unlocked != null ? data.unlocked : getDefaultValue('unlocked');
-		elderbugstate = data.elderbugstate != null ? data.elderbugstate : getDefaultValue('elderbugstate');
-		charmOrder = data.charmOrder != null ? data.charmOrder : getDefaultValue('charmOrder');
-		slytries = data.slytries != null ? data.slytries : getDefaultValue('slytries');
-		doingsong = data.doingsong != null ? data.doingsong : getDefaultValue('doingsong');
-		lichendone = data.lichendone != null ? data.lichendone : getDefaultValue('lichendone');
-		diedonfirststeps = data.diedonfirststeps != null ? data.diedonfirststeps : getDefaultValue('diedonfirststeps');
-		interacts = data.interacts != null ? data.interacts : getDefaultValue('interacts');
-		sillyOrder = data.sillyOrder != null ? data.sillyOrder : getDefaultValue('sillyOrder');
-		*/
+			geo = data.geo != null ? data.geo : getDefaultValue('geo');
+			charms = data.charms != null ? data.charms : getDefaultValue('charms');
+			charmsunlocked = data.charmsunlocked != null ? data.charmsunlocked : getDefaultValue('charmsunlocked');
+			songScores = data.songScores != null ? data.songScores : getDefaultValue('songScores');
+			weekScores = data.weekScores != null ? data.weekScores : getDefaultValue('weekScores');
+			songRating = data.songRating != null ? data.songRating : getDefaultValue('songRating');
+			unlocked = data.unlocked != null ? data.unlocked : getDefaultValue('unlocked');
+			elderbugstate = data.elderbugstate != null ? data.elderbugstate : getDefaultValue('elderbugstate');
+			charmOrder = data.charmOrder != null ? data.charmOrder : getDefaultValue('charmOrder');
+			slytries = data.slytries != null ? data.slytries : getDefaultValue('slytries');
+			doingsong = data.doingsong != null ? data.doingsong : getDefaultValue('doingsong');
+			lichendone = data.lichendone != null ? data.lichendone : getDefaultValue('lichendone');
+			diedonfirststeps = data.diedonfirststeps != null ? data.diedonfirststeps : getDefaultValue('diedonfirststeps');
+			interacts = data.interacts != null ? data.interacts : getDefaultValue('interacts');
+			sillyOrder = data.sillyOrder != null ? data.sillyOrder : getDefaultValue('sillyOrder');
+		 */
 		// Etrace(sillyOrder);
 
 		// remove unequipped charms from sillyOrder
