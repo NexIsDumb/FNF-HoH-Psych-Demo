@@ -29,7 +29,8 @@ typedef DataSave = {
 	diedonfirststeps:Bool,
 	interacts:Array<Bool>,
 	charmOrder:Array<Int>,
-	sillyOrder:Array<Charm>
+	sillyOrder:Array<Charm>,
+	version:String
 };
 
 
@@ -89,7 +90,8 @@ class DataSaver {
 		diedonfirststeps: false,
 		interacts: [false, false, false],
 		charmOrder: [],
-		sillyOrder: []
+		sillyOrder: [],
+		version: "DEMO"
 	};
 
 	public static final defaultData:DataSave = {
@@ -108,7 +110,8 @@ class DataSaver {
 		diedonfirststeps: false,
 		interacts: [false, false, false],
 		charmOrder: [],
-		sillyOrder: []
+		sillyOrder: [],
+		version: "DEMO"
 	};
 
 	inline static function dataValidator(defaultData:DataSave):DataSave{
@@ -194,6 +197,10 @@ class DataSaver {
 	private static function get_sillyOrder():Array<Charm> { return DATA.sillyOrder; }
 	private static function set_sillyOrder(value:Array<Charm>):Array<Charm> { DATA.sillyOrder = value; return value; }
 
+	public static var version(get, set):String;
+	private static function get_version():String { return DATA.version; }
+	private static function set_version(value:String):String { DATA.version = value; return value; }
+
 	// public static var curSave:FlxSave = null;
 	public static var curSave1:FlxSave = null;
 	public static var curSave2:FlxSave = null;
@@ -273,11 +280,11 @@ class DataSaver {
 	public static function fixSave(saveNo:Int):FlxSave {
 		var curSaveFile = getSave(saveNo);
 		curSaveFile.data.geo = geo != null ? geo : getDefaultValue('geo');
-		curSaveFile.data.charms = charms != null ? charms : getDefaultValue('charms');
-		curSaveFile.data.charmsunlocked = charmsunlocked != null ? charmsunlocked : getDefaultValue('charmsunlocked');
 		curSaveFile.data.songScores = songScores != null ? songScores : getDefaultValue('songScores');
 		curSaveFile.data.weekScores = weekScores != null ? weekScores : getDefaultValue('weekScores');
 		curSaveFile.data.songRating = songRating != null ? songRating : getDefaultValue('songRating');
+		curSaveFile.data.charms = charms != null ? charms : getDefaultValue('charms');
+		curSaveFile.data.charmsunlocked = charmsunlocked != null ? charmsunlocked : getDefaultValue('charmsunlocked');
 		curSaveFile.data.unlocked = unlocked != null ? unlocked : getDefaultValue('unlocked');
 		curSaveFile.data.elderbugstate = elderbugstate != null ? elderbugstate : getDefaultValue('elderbugstate');
 		curSaveFile.data.charmOrder = charmOrder != null ? charmOrder : getDefaultValue('charmOrder');
@@ -287,6 +294,8 @@ class DataSaver {
 		curSaveFile.data.diedonfirststeps = diedonfirststeps != null ? diedonfirststeps : getDefaultValue('diedonfirststeps');
 		curSaveFile.data.interacts = interacts != null ? interacts : getDefaultValue('interacts');
 		curSaveFile.data.sillyOrder = sillyOrder != null ? sillyOrder : getDefaultValue('sillyOrder');
+
+		curSaveFile.data.version = FlxG.stage.application.meta.get('version');
 		// setIfNotNull(curSaveFile.data, 'played', played);//
 		// setIfNotNull(curSaveFile.data, 'usedNotches', usedNotches);//
 
@@ -419,6 +428,8 @@ class DataSaver {
 		interacts = curSaveFile.data.interacts != null ? curSaveFile.data.interacts : getDefaultValue('interacts');
 		sillyOrder = curSaveFile.data.sillyOrder != null ? curSaveFile.data.sillyOrder : getDefaultValue('sillyOrder');
 
+		version = FlxG.stage.application.meta.get('version');
+		
 		retrieveSaveValue("geo");
 		retrieveSaveValue("charms");
 		retrieveSaveValue("charmsunlocked");
@@ -434,6 +445,7 @@ class DataSaver {
 		retrieveSaveValue("lichendone");
 		retrieveSaveValue("diedonfirststeps");
 		retrieveSaveValue("interacts");
+		retrieveSaveValue("version");
 		if (retrieveSaveValue("sillyOrder") != null) {
 			fixSillyOrder();
 		}
