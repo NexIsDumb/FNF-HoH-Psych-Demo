@@ -31,6 +31,8 @@ class LanguageSelection extends MenuBeatState {
 
 			ClientPrefs.data.language = languages[curSelected];
 			DataSaver.fontScale = 1;
+			backend.TransManager.languageFont = null;
+			backend.TransManager.languageFontDialogue = null;
 			TM.setTransl();
 			ClientPrefs.saveSettings();
 
@@ -229,6 +231,8 @@ class LanguageSelection extends MenuBeatState {
 			font = Paths.font("asian.otf");
 		}
 		DataSaver.fontScale = 1;
+		backend.TransManager.languageFont = null;
+		backend.TransManager.languageFontDialogue = null;
 		TM.setTransl(initialLang);
 		ClientPrefs.data.language = initialLang;
 		
