@@ -368,6 +368,7 @@ class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired scr
 		add(blackShit);
 
 		var collected = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("Higher beings, these words are for you alone.", "life-tutorial-1"));
+		collected.fieldWidth = FlxG.width*0.9;
 		collected.setFormat(Constants.HK_FONT, 48, FlxColor.WHITE, CENTER);
 		collected.antialiasing = ClientPrefs.data.antialiasing;
 		collected.screenCenterXY();
@@ -385,6 +386,7 @@ class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired scr
 		add(flair);
 
 		var desc1 = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("Your great strength marks you amongst us.\nFocus your soul and you shall achieve feats of which others can only dream.", "life-tutorial-2"));
+		desc1.fieldWidth = FlxG.width*0.9;
 		desc1.setFormat(Constants.HK_FONT, 30, FlxColor.WHITE, CENTER);
 		desc1.antialiasing = ClientPrefs.data.antialiasing;
 		desc1.screenCenterXY();
@@ -402,6 +404,7 @@ class LifeTutorial extends FlxSpriteGroup { // copied from the charmacquired scr
 		add(bench);
 
 		var desc2 = new FlxText(0, 0, FlxG.width * 2, TM.checkTransl("Collect SOUL by hitting notes.\nOnce enough SOUL is collected, hold SPACE while not singing to focus SOUL and heal.", "life-tutorial-3"));
+		desc2.fieldWidth = FlxG.width*0.9;
 		desc2.setFormat(Constants.HK_FONT, 27, FlxColor.WHITE, CENTER);
 		desc2.antialiasing = ClientPrefs.data.antialiasing;
 		desc2.screenCenterXY();
