@@ -34,7 +34,11 @@ class Dialogue extends FlxSpriteGroup {
 	private function get_controls() {
 		return Controls.instance;
 	}
-
+	public function getPlayer(){
+		if(OverworldManager.instance!=null && OverworldManager.instance.player!=null)
+			return OverworldManager.instance.player;
+		return null;
+	}
 	public function new() {
 		super();
 
@@ -75,7 +79,9 @@ class Dialogue extends FlxSpriteGroup {
 
 	public function openBox(speaker:String, script, call) {
 		if (debounce == false) {
-			OverworldManager.instance.player.crippleStatus(true, "dialogue start");
+			var player = getPlayer();
+			if(player!=null)
+				player.crippleStatus(true, "dialogue start");
 			debounce = true;
 			scriptpub = script;
 			box.animation.play("appear");
@@ -99,7 +105,9 @@ class Dialogue extends FlxSpriteGroup {
 			FlxTween.tween(speakerText, {alpha: 1}, .5, {
 				ease: FlxEase.quintOut,
 				onComplete: function(flxT:FlxTween) {
-					OverworldManager.instance.player.status.lock = true;
+					var player = getPlayer();
+					if(player!=null)
+						player.status.lock = true;
 				}});
 
 			/*for (i in 0...script.length - 1) {
@@ -171,9 +179,11 @@ class Dialogue extends FlxSpriteGroup {
 		});
 
 		OverworldManager.postSongDialogue = "";
-		OverworldManager.instance.player.status.lock = false;
-		OverworldManager.instance.player.crippleStatus(false, "dialogue end");
-
+		var player = getPlayer();
+		if(player!=null){
+			player.status.lock = false;
+			player.crippleStatus(false, "dialogue end");
+		}
 		lineindex = 0;
 		publiccall = [];
 	}
