@@ -31,7 +31,7 @@ class CreditsState extends MenuBeatState {
 	var desc:FlxText;
 
 	var namerow:Array<FlxText> = [];
-
+	var namePositionY:Float = 0;
 	override function create() {
 		#if desktop
 		// Updating Discord Rich Presence
@@ -164,6 +164,13 @@ class CreditsState extends MenuBeatState {
 				"https://twitter.com/_Zombeats"
 			],
 			[
+				"Sta",
+				"musician/sta",
+				"HymnsFixel Intro Jingle",
+				"beep boop",
+				"https://youtube.com/@antonykassis"
+			],
+			[
 				"UnderCastle",
 				"charter/undertale",
 				"Charter/French Translator",
@@ -186,6 +193,13 @@ class CreditsState extends MenuBeatState {
 				"https://twitter.com/HeroBrenn"
 			],
 			[
+				"CopyQat",
+				"writer/copyqat",
+				"Dialogue Assistance",
+				"All I did was fix HeroBrenn’s grammar and all I got was this stupid shirt.",
+				""
+			],
+			[
 				// removed until further notice
 				'nld',
 				'director/nld',
@@ -206,6 +220,21 @@ class CreditsState extends MenuBeatState {
 				"Turkish Translator",
 				"I killed a man for milkshake, I'd do it again. =)",
 				"https://www.youtube.com/channel/UChX4tgFrN_sxCbk1PdW-LxQ"
+			],
+			[
+				"Meatytoast",
+				"translator/meatytoast",
+				"Spanish Translator",
+				"",
+				"https://x.com/mexicansans"
+			],
+			[
+				"Chūkū (中空)",
+				"translator/chuku",
+				"Japanese Translator",
+				"",
+				"https://www.youtube.com/channel/UCJ2UdxZTryOAv8I8rny5KPg",
+				"asiaFont"
 			],
 			[
 				"FlipDesert",
@@ -279,7 +308,7 @@ class CreditsState extends MenuBeatState {
 			],
 			["Dom", "special thanks/dom", "Special Thanks", "dom we miss you", null]
 		];
-
+		FlxG.camera.bgColor = 0xFF10234a;
 		for (i in defaultList) {
 			creditsStuff.push(i);
 		}
@@ -289,6 +318,7 @@ class CreditsState extends MenuBeatState {
 		name.scrollFactor.set();
 		name.screenCenterXY();
 		name.y += 130;
+		namePositionY = name.y;
 		name.antialiasing = ClientPrefs.data.antialiasing;
 		add(name);
 
@@ -529,7 +559,7 @@ class CreditsState extends MenuBeatState {
 				wormalMap.lightIntensity = 0.4;
 			}
 
-			if (controls.ACCEPT && (creditsStuff[curSelected][4] == null || creditsStuff[curSelected][4].length > 4)) {
+			if (controls.ACCEPT && creditsStuff[curSelected][4] != null && creditsStuff[curSelected][4].length > 4) {
 				CoolUtil.browserLoad(creditsStuff[curSelected][4]);
 			}
 			if (controls.BACK) {
@@ -555,9 +585,18 @@ class CreditsState extends MenuBeatState {
 		gayStateTimer = 0;
 
 		name.text = creditsStuff[curSelected][0];
+		if (name.text == "Chūkū (中空)"){
+			name.setFormat(Paths.font("asian.otf"), 48, FlxColor.WHITE, CENTER);
+			name.y = namePositionY+20;
+		}
+		else {
+			name.setFormat(Constants.HK_FONT, 64, FlxColor.WHITE, CENTER);
+			name.y = namePositionY;
+		}
 		role.text = creditsStuff[curSelected][2];
 		desc.text = '"' + creditsStuff[curSelected][3] + '"';
-
+		if(desc.text.length<=2)
+			desc.text ="";
 		icon.loadGraphic(Paths.image('Credits/' + creditsStuff[curSelected][1], 'hymns'));
 		icon.scale.set(0.2, 0.2);
 		icon.updateHitbox();
@@ -594,6 +633,10 @@ class CreditsState extends MenuBeatState {
 			if (names.text == "WinnWhatify") {
 				names.text = "Winn";
 			}
+			if (names.text == "Chūkū (中空)")
+				names.setFormat(Paths.font("asian.otf"), 28, FlxColor.WHITE, CENTER);
+			else 
+				names.setFormat(Constants.HK_FONT, 28, FlxColor.WHITE, CENTER);
 			/*
 				if(creditsStuff[thecur][0].endsWith("[chinese]")){
 					names.setFormat(Paths.font("chinese.otf"), 21, FlxColor.WHITE, CENTER);
