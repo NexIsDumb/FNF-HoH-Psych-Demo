@@ -10,6 +10,7 @@
 	<trans id="melodic-shell-desc" string="Şarkı söylemek isteyenler için yaratılmış bir melodi tılsımı. Ruhunu ödüllendirmesi karşılığında, kullanan kişiye şarkı söyleme yeteneğini bahşeder."/>
 	<trans id="lifeblood-seed-desc" string="Canlı, içinden kıymetli hayat özü akan bir çekirdek. Dinlenirken, bu tılsımı takan kişiye onu bir miktar hasardan koruyan hayat özü sağlar."/>
 	<trans id="critical-focus-desc" string="Uzun zaman önce unutulmuş bir şaman yadigarı. Zamanla üzerine kristaller oluşmuş ve sonuç olarak yetenekleri daha da güçlenmiş. Taşıyıcının canı azami değerin yarısının altında ise, rakiplere vurmak fazladan ruh yaratır."/>
+	<trans id="baldur's-blessing-desc" string="Ölümcül bir durumda tılsımı takan kişiyi sert bir kabuk ile korur. Bu kabuk yok edilemez ve tek kullanımdan sonra kırılır."/>
 	<trans id="baldur's-blessing-tip" string="Aşağıda sorun mu buldun? Baldoro'nun kabukları çok kalın, ve bunu takan kişiyi her türlü zarardam koruyor derler! Yine de yok edilemez gibi görünmüyor, o yüzden yine de dikkat et."/>
 	<trans id="lifeblood-seed-tip" string="Biraz destek mi lazım? o zaman bu tılsım tam senlik! Bazılar hayatözüne tabu der ama seni kesin daha sağlam yapar! Sadece kimseye kimden aldığını söyleme."/>
 	<trans id="critical-focus-tip" string="Tehlikeli durumlarda odaklanmakta zorlanıyorsan, bu tılsım tam sana göre! Duyduğuma göre takan kişiye tehlike altındayken &quot;RUH&quot; toplamasına yardımcı oluyormuş. O neyse artık."/>
@@ -23,7 +24,7 @@
 	<trans id="elderbug-dialog-5" string="Vay be, Bu kadar eğlenmeyeli çok olmuştu!"/>
 	<trans id="elderbug-dialog-6" string="Oh, bak sen, görünüşe bakılırsa bizim dükkan sahibinin dikkatini çekmişiz. Ona bir ziyaret etmeye ne dersin? Bence senin yolculuğunda yardımcı olacak birşeyleri olabilir."/>
 	<trans id="elderbug-dialog-7" string="Harita dükkanındaki şu çift... Oh, onlar için sadece en iyisini istiyorum tabiki. Sadece, keşke daha büyük bir dükkan açabilseler... O uzun kadıncağızın sürekli kapıdan geçmek için boynunu eğmesine yazığım geliyor."/>
-<trans id="elderbug-dialog-8" string="Dükkan sahibi mi? O ufak dükkanında yok yok derim! Eğer ondan birşey almak istiyorsan, ben sen olsam dikkatli olurdum. O böcek ürünleri için bayağı sağlam anlaşmalar alıyor." />
+	<trans id="elderbug-dialog-8" string="Dükkan sahibi mi? O ufak dükkanında yok yok derim! Eğer ondan birşey almak istiyorsan, ben sen olsam dikkatli olurdum. O böcek ürünleri için bayağı sağlam anlaşmalar alıyor." />
 	<trans id="elderbug-dialog-9" string="Çoğu yerin hemen altında olan krallığı bulmaya geldi. Adına Hallownest diyorlardı. Duyduğum kadarı ile var olan en büyük krallık olduğu söyleniyordu. Zamanla harebeye döndü, oradaki sağlıksız havada birini çıldırtmaya yetiyorda!"/>
 	<trans id="elderbug-dialog-10" string="Yorgun gibisin gezgin. Sanıyorum aşağıdaki yeşil mağralara gittin? Oranın manzarası gerçektente güzel."/>
 	<trans id="elderbug-dialog-11" string="Gitmeden oradaki bankta dinlen derim. Çok rahat olduğunu garanti ederim."/>
@@ -39,12 +40,13 @@
 	<trans id="sly-dialog-7" string="Ceplerin mi boş? Eğer daha fazla Geo lazımsa, Aşağıdaki harabelerde çok var"/>
 
 	<trans id="elderbug-name" string="Elderbug"/>
-	<trans  id="sly-name" string="Sly"/>
+	<trans id="sly-name" string="Sly"/>
 
 
 	<!-- Menus -->
 	<trans id="options" string="Ayarlar"/>
 	<trans id="note-colors" string="Nota Renkleri"/>
+	<trans id="languages" string="Diller"/> <!-- I'm not sure if this is the right translation for "Languages" -->
 	<trans id="controls" string="Kontroller"/>
 	<trans id="graphics" string="Grafikler"/>
 	<trans id="visuals-and-ui" string="Görseller ve UI"/>
@@ -99,8 +101,8 @@
 	<trans id="gpu-caching-desc" string="Açıksa, Sağlam GPU varsa RAM kullamını azaltır."/>
 	<trans id="framerate-desc" string="Söylememe gerek yok, değil mi?"/>
 	<trans id="note-skins-desc" string="Favori Ok kostümünü Seç."/>
-	<trans id="note-splashes-opacity-desc" string="Tercih ettiğin ok effektini seç veya devre dışı bırak."/>
-	<trans id="note-splash-desc" string="Ok effekleri ne kadar saydam onu ayarlar"/>
+	<trans id="note-splashes-desc" string="Tercih ettiğin ok effektini seç veya devre dışı bırak."/>
+	<trans id="note-splash-opacity-desc" string="Ok effekleri ne kadar saydam onu ayarlar"/>
 	<trans id="flashing-lights-desc" string="Flaşlarla aran kötüyse kapalı bırak."/>
 	<trans id="translations-desc" string="Oyun dilini seç."/>
 	<trans id="fps-counter-desc" string="Kapalıysa senin FPS'i göstermez."/>
@@ -143,7 +145,7 @@
 	<trans id="enter" string="Gir"/>
 	<trans id="shop" string="Dükkan"/>
 
-	<trans id="purchase-this-item?" string="Satın Al?"/>
+	<trans id="purchase-this-item" string="Satın Al?"/>
 	<trans id="yes" string="Evet"/>
 	<trans id="no" string="Hayır"/>
 
