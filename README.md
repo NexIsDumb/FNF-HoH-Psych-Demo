@@ -2,7 +2,7 @@
 ## BEFORE WE PROCEED
 **THIS IS JUST A CRAPPY BAD DONE DEMO, WE ALL HATE THE CODE BUT THATS ALL WE COULD DO TRYING TO FIX NLD'S CODE IN FEW WEEKS WHILE SOME OF US WERE ALREADY IN VACATION; READ DOWN FOR MORE INFOS!!**
 
-## THIS IS A FRIDAY NIGHT FUNKIN' MOD!!!
+# THIS IS A FRIDAY NIGHT FUNKIN' MOD!!!
 This project's coding part was originally under the hands of [Nld](https://www.github.com/NLD-Dev) without using any kind of repository or GitHub.
 
 # Installation and Compiling
