@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Hymns of Hallownest DEMO" file="HoH" packageName="com.hallownest.hymns" package="com.hallownest.hymns" main="Main" version="v0.1.1.DEMO" company="TeamCheese" />
+	<app title="Hymns of Hallownest DEMO" file="HoH" packageName="com.hallownest.hymns" package="com.hallownest.hymns" main="Main" version="v0.1.2.DEMO" company="TeamCheese" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
